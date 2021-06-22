@@ -3,12 +3,12 @@ package com.win.opensdk;
 public class A0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40459a;
+    public String f40562a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f40460b;
+    public long f40563b;
 
     public String toString() {
-        return this.f40459a + ":" + this.f40460b;
+        return this.f40562a + ":" + this.f40563b;
     }
 }

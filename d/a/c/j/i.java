@@ -22,27 +22,27 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42870a = d.a.c.j.a.f42853a;
+    public static final boolean f42973a = d.a.c.j.a.f42956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f42871b = false;
+    public static volatile boolean f42974b = false;
 
     /* loaded from: classes.dex */
     public static class a extends d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f42872a;
+        public final /* synthetic */ f f42975a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f42873b;
+        public final /* synthetic */ String f42976b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f42874c;
+        public final /* synthetic */ Context f42977c;
 
         public a(f fVar, String str, Context context) {
-            this.f42872a = fVar;
-            this.f42873b = str;
-            this.f42874c = context;
+            this.f42975a = fVar;
+            this.f42976b = str;
+            this.f42977c = context;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -50,49 +50,49 @@ public class i {
         @Override // d.a.c.j.d.b
         /* renamed from: d */
         public void b(int i2, String str, JSONObject jSONObject) {
-            this.f42872a.a(this.f42873b, -1, null);
+            this.f42975a.a(this.f42976b, -1, null);
             try {
                 try {
                     if (jSONObject != null) {
-                        if (i.f42870a) {
+                        if (i.f42973a) {
                             Log.d(TitanDownloadService.TAG, "onResponse " + jSONObject);
                         }
-                        PackageInfo k = i.k(this.f42874c, jSONObject);
+                        PackageInfo k = i.k(this.f42977c, jSONObject);
                         if (k.errNo != 0) {
-                            if (i.f42870a) {
+                            if (i.f42973a) {
                                 Log.d(TitanDownloadService.TAG, "return fail result");
                             }
                             if (k.errNo != -2) {
                                 Log.d(TitanDownloadService.TAG, "patch data errno = " + k.errNo);
                             }
-                            this.f42872a.a(this.f42873b, -1, null);
+                            this.f42975a.a(this.f42976b, -1, null);
                             synchronized (i.class) {
-                                boolean unused = i.f42871b = false;
+                                boolean unused = i.f42974b = false;
                             }
                             return;
                         }
                         Log.d(TitanDownloadService.TAG, "start install patch");
-                        j.b(this.f42874c, this.f42872a, k, true);
+                        j.b(this.f42977c, this.f42975a, k, true);
                         synchronized (i.class) {
-                            boolean unused2 = i.f42871b = false;
+                            boolean unused2 = i.f42974b = false;
                         }
                         return;
                     }
                     Log.d(TitanDownloadService.TAG, "response parse fail");
-                    this.f42872a.a(this.f42873b, -1, null);
+                    this.f42975a.a(this.f42976b, -1, null);
                     synchronized (i.class) {
-                        boolean unused3 = i.f42871b = false;
+                        boolean unused3 = i.f42974b = false;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f42872a.a(this.f42873b, -1, null);
+                    this.f42975a.a(this.f42976b, -1, null);
                     synchronized (i.class) {
-                        boolean unused4 = i.f42871b = false;
+                        boolean unused4 = i.f42974b = false;
                     }
                 }
             } catch (Throwable th) {
                 synchronized (i.class) {
-                    boolean unused5 = i.f42871b = false;
+                    boolean unused5 = i.f42974b = false;
                     throw th;
                 }
             }
@@ -103,14 +103,14 @@ public class i {
     public static class b implements d.b<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f42875a;
+        public final /* synthetic */ File f42978a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f42876b;
+        public final /* synthetic */ String f42979b;
 
         public b(File file, String str) {
-            this.f42875a = file;
-            this.f42876b = str;
+            this.f42978a = file;
+            this.f42979b = str;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -127,7 +127,7 @@ public class i {
             MessageDigest messageDigest;
             FileOutputStream fileOutputStream;
             if (inputStream == null) {
-                if (i.f42870a) {
+                if (i.f42973a) {
                     Log.d(TitanDownloadService.TAG, "download patch inputstream is null");
                     return;
                 }
@@ -137,7 +137,7 @@ public class i {
             try {
                 try {
                     messageDigest = MessageDigest.getInstance("MD5");
-                    fileOutputStream = new FileOutputStream(this.f42875a);
+                    fileOutputStream = new FileOutputStream(this.f42978a);
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -155,20 +155,20 @@ public class i {
                     messageDigest.update(bArr, 0, read);
                 }
                 String e3 = i.e(messageDigest.digest());
-                if (i.f42870a) {
+                if (i.f42973a) {
                     Log.d(TitanDownloadService.TAG, "download file md5 = " + e3);
                 }
-                if (!TextUtils.equals(this.f42876b, e3)) {
+                if (!TextUtils.equals(this.f42979b, e3)) {
                     Log.d(TitanDownloadService.TAG, "patch md5 not match");
                     fileOutputStream.close();
-                    this.f42875a.delete();
+                    this.f42978a.delete();
                 }
                 Closeables.closeSafely(inputStream);
                 Closeables.closeSafely(fileOutputStream);
             } catch (Exception e4) {
                 e = e4;
                 fileOutputStream2 = fileOutputStream;
-                this.f42875a.delete();
+                this.f42978a.delete();
                 e.printStackTrace();
                 Closeables.closeSafely(inputStream);
                 Closeables.closeSafely(fileOutputStream2);
@@ -203,15 +203,15 @@ public class i {
 
     public static void f(Context context, String str, f fVar) {
         synchronized (i.class) {
-            if (f42871b) {
-                if (f42870a) {
+            if (f42974b) {
+                if (f42973a) {
                     Log.d(TitanDownloadService.TAG, "doInstall is installing");
                 }
                 return;
             }
-            f42871b = true;
+            f42974b = true;
             String z = e.p().z(i());
-            if (f42870a) {
+            if (f42973a) {
                 Log.d(TitanDownloadService.TAG, "url = " + z);
             }
             Log.d(TitanDownloadService.TAG, "start require patch data");
@@ -259,7 +259,7 @@ public class i {
         }
         try {
             String jSONObject6 = jSONObject.toString();
-            if (d.a.c.j.a.f42853a) {
+            if (d.a.c.j.a.f42956a) {
                 Log.d(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
             }
             return jSONObject6.getBytes("UTF-8");
@@ -284,7 +284,7 @@ public class i {
         int optInt = jSONObject.optInt("errno", -1);
         packageInfo.errNo = optInt;
         if (optInt != 0) {
-            if (f42870a) {
+            if (f42973a) {
                 Log.d(TitanDownloadService.TAG, "response errno = " + optInt);
             }
             return packageInfo;

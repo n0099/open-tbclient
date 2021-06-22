@@ -2,6 +2,7 @@ package com.baidu.down.utils;
 
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.UnsupportedEncodingException;
@@ -490,7 +491,7 @@ public final class HttpUrlHelper {
             InetAddress decodeIpv6;
             String percentDecode = HttpUrlHelper.percentDecode(str, i2, i3, false);
             if (percentDecode.contains(":")) {
-                if (percentDecode.startsWith("[") && percentDecode.endsWith("]")) {
+                if (percentDecode.startsWith(PreferencesUtil.LEFT_MOUNT) && percentDecode.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     decodeIpv6 = decodeIpv6(percentDecode, 1, percentDecode.length() - 1);
                 } else {
                     decodeIpv6 = decodeIpv6(percentDecode, 0, percentDecode.length());

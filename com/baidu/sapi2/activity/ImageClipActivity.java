@@ -51,41 +51,41 @@ public class ImageClipActivity extends Activity {
     public static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9685a = 0;
+    public int f9705a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9686b = 0;
+    public int f9706b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9687c = 0;
+    public int f9707c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9688d = 0;
+    public int f9708d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9689e;
+    public int f9709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9690f;
+    public int f9710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9691g;
+    public String f9711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClipBoxView f9692h;
+    public ClipBoxView f9712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ZoomImageView f9693i;
+    public ZoomImageView f9713i;
     public static final String j = ImageClipActivity.class.getSimpleName();
     public static String EXTRA_IMAGE = "extra_image";
 
     private void d() {
-        if (this.f9687c == 0 && this.f9688d == 0) {
+        if (this.f9707c == 0 && this.f9708d == 0) {
             return;
         }
-        overridePendingTransition(this.f9687c, this.f9688d);
-        this.f9687c = 0;
-        this.f9688d = 0;
+        overridePendingTransition(this.f9707c, this.f9708d);
+        this.f9707c = 0;
+        this.f9708d = 0;
     }
 
     @Override // android.app.Activity
@@ -143,10 +143,10 @@ public class ImageClipActivity extends Activity {
     }
 
     public void setPendingTransition(int i2, int i3, int i4, int i5) {
-        this.f9685a = i2;
-        this.f9686b = i3;
-        this.f9687c = i4;
-        this.f9688d = i5;
+        this.f9705a = i2;
+        this.f9706b = i3;
+        this.f9707c = i4;
+        this.f9708d = i5;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -165,7 +165,7 @@ public class ImageClipActivity extends Activity {
                     return null;
                 }
                 int i3 = 160;
-                if (ImageClipActivity.this.f9689e != 0) {
+                if (ImageClipActivity.this.f9709e != 0) {
                     i3 = bitmapArr[0].getWidth();
                     i2 = bitmapArr[0].getHeight();
                 } else {
@@ -175,7 +175,7 @@ public class ImageClipActivity extends Activity {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 int i4 = 100;
                 createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f9690f && i4 > 0 && i4 - 5 > 0) {
+                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f9710f && i4 > 0 && i4 - 5 > 0) {
                     byteArrayOutputStream.reset();
                     createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i4, byteArrayOutputStream);
                 }
@@ -201,22 +201,22 @@ public class ImageClipActivity extends Activity {
 
     private void b() {
         setContentView(f.layout_sapi_sdk_image_clip);
-        this.f9689e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
+        this.f9709e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
         int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
-        this.f9690f = intExtra;
+        this.f9710f = intExtra;
         if (intExtra <= 0) {
-            this.f9690f = 512;
+            this.f9710f = 512;
         }
-        this.f9690f *= 1024;
-        this.f9692h = (ClipBoxView) findViewById(e.sapi_clip_box);
-        this.f9693i = (ZoomImageView) findViewById(e.sapi_background_picture);
-        if (this.f9689e == 1) {
-            ClipBoxView clipBoxView = this.f9692h;
+        this.f9710f *= 1024;
+        this.f9712h = (ClipBoxView) findViewById(e.sapi_clip_box);
+        this.f9713i = (ZoomImageView) findViewById(e.sapi_background_picture);
+        if (this.f9709e == 1) {
+            ClipBoxView clipBoxView = this.f9712h;
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        if (this.f9689e == 2) {
-            ClipBoxView clipBoxView2 = this.f9692h;
+        if (this.f9709e == 2) {
+            ClipBoxView clipBoxView2 = this.f9712h;
             clipBoxView2.E = ClipBoxView.G;
             clipBoxView2.F = false;
         }
@@ -244,12 +244,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f9685a == 0 && this.f9686b == 0) {
+        if (this.f9705a == 0 && this.f9706b == 0) {
             return;
         }
-        overridePendingTransition(this.f9685a, this.f9686b);
-        this.f9685a = 0;
-        this.f9686b = 0;
+        overridePendingTransition(this.f9705a, this.f9706b);
+        this.f9705a = 0;
+        this.f9706b = 0;
     }
 
     private void a(Intent intent) {
@@ -266,7 +266,7 @@ public class ImageClipActivity extends Activity {
                     a2 = query.getString(query.getColumnIndex("_data"));
                 } else {
                     a2 = a(getBaseContext(), uri);
-                    this.f9691g = a2;
+                    this.f9711g = a2;
                 }
                 str2 = a2;
             }
@@ -361,11 +361,11 @@ public class ImageClipActivity extends Activity {
     private void b(String str) {
         Bitmap operateBitmap = operateBitmap(str);
         if (operateBitmap != null) {
-            this.f9693i.setImageBitmap(operateBitmap);
-            if (TextUtils.isEmpty(this.f9691g)) {
+            this.f9713i.setImageBitmap(operateBitmap);
+            if (TextUtils.isEmpty(this.f9711g)) {
                 return;
             }
-            FileUtil.deleteFile(new File(this.f9691g));
+            FileUtil.deleteFile(new File(this.f9711g));
             return;
         }
         Toast.makeText(this, "加载图片失败", 0).show();

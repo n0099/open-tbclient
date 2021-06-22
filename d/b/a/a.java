@@ -11,45 +11,45 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68688b;
+    public String f68792b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f68687a = new AtomicBoolean();
+    public final AtomicBoolean f68791a = new AtomicBoolean();
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f68689c = false;
+    public volatile boolean f68793c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f68690d = new Object();
+    public final Object f68794d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public IIdentifierListener f68691e = new C1882a(this);
+    public IIdentifierListener f68795e = new C1885a(this);
 
     /* renamed from: d.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1882a implements IIdentifierListener {
-        public C1882a(a aVar) {
+    public class C1885a implements IIdentifierListener {
+        public C1885a(a aVar) {
         }
     }
 
     public final int a(Context context) {
-        return MdidSdkHelper.InitSdk(context, true, this.f68691e);
+        return MdidSdkHelper.InitSdk(context, true, this.f68795e);
     }
 
     public g1.a b(Context context) {
-        synchronized (this.f68690d) {
-            if (this.f68689c) {
-                this.f68690d.wait(10000L);
+        synchronized (this.f68794d) {
+            if (this.f68793c) {
+                this.f68794d.wait(10000L);
             }
         }
         g1.a aVar = new g1.a();
-        aVar.f68754a = this.f68688b;
+        aVar.f68858a = this.f68792b;
         return aVar;
     }
 
     public void c(Context context) {
-        synchronized (this.f68690d) {
-            this.f68689c = true;
+        synchronized (this.f68794d) {
+            this.f68793c = true;
             int a2 = a(context);
             if (a2 == 1008612) {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 不支持的设备");
@@ -59,7 +59,7 @@ public final class a {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 不支持的设备厂商");
             } else if (a2 == 1008614) {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
-                if (this.f68687a.compareAndSet(false, true)) {
+                if (this.f68791a.compareAndSet(false, true)) {
                     c(context);
                 }
             } else if (a2 == 1008615) {

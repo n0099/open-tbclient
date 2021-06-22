@@ -5,32 +5,32 @@ import com.baidu.mapapi.search.core.SearchResult;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f9304a;
+    public final /* synthetic */ d f9312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f9305b;
+    public final /* synthetic */ SearchResult f9313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f9306c;
+    public final /* synthetic */ Object f9314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f9307d;
+    public final /* synthetic */ a f9315d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
-        this.f9307d = aVar;
-        this.f9304a = dVar;
-        this.f9305b = searchResult;
-        this.f9306c = obj;
+        this.f9315d = aVar;
+        this.f9312a = dVar;
+        this.f9313b = searchResult;
+        this.f9314c = obj;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f9304a != null) {
-            this.f9307d.f9295a.lock();
+        if (this.f9312a != null) {
+            this.f9315d.f9303a.lock();
             try {
-                this.f9304a.a(this.f9305b, this.f9306c);
+                this.f9312a.a(this.f9313b, this.f9314c);
             } finally {
-                this.f9307d.f9295a.unlock();
+                this.f9315d.f9303a.unlock();
             }
         }
     }

@@ -5,19 +5,19 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.api.KsAdSDK;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f34496a;
+    public static volatile e f34594a;
 
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f34496a == null) {
-                f34496a = new e();
+            if (f34594a == null) {
+                f34594a = new e();
             }
-            eVar = f34496a;
+            eVar = f34594a;
         }
         return eVar;
     }

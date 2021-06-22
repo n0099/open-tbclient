@@ -8,26 +8,26 @@ import java.util.List;
 public class d implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f71256a;
+    public final Object f71360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<com.ss.android.socialbase.downloader.model.c> f71257b;
+    public final List<com.ss.android.socialbase.downloader.model.c> f71361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f71258c;
+    public k f71362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f71259d;
+    public boolean f71363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f71260e;
+    public long f71364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f71261f;
+    public InputStream f71365f;
 
     @Override // d.o.a.e.b.o.k
     public InputStream a() throws IOException {
-        InputStream inputStream = this.f71261f;
+        InputStream inputStream = this.f71365f;
         if (inputStream != null) {
             return inputStream;
         }
@@ -36,7 +36,7 @@ public class d implements k {
 
     @Override // d.o.a.e.b.o.i
     public int b() throws IOException {
-        k kVar = this.f71258c;
+        k kVar = this.f71362c;
         if (kVar != null) {
             return kVar.b();
         }
@@ -49,7 +49,7 @@ public class d implements k {
 
     @Override // d.o.a.e.b.o.i
     public void c() {
-        k kVar = this.f71258c;
+        k kVar = this.f71362c;
         if (kVar != null) {
             kVar.c();
         }
@@ -57,28 +57,28 @@ public class d implements k {
 
     @Override // d.o.a.e.b.o.k
     public void d() {
-        k kVar = this.f71258c;
+        k kVar = this.f71362c;
         if (kVar != null) {
             kVar.d();
         }
     }
 
     public void e() throws InterruptedException {
-        synchronized (this.f71256a) {
-            if (this.f71259d && this.f71258c == null) {
-                this.f71256a.wait();
+        synchronized (this.f71360a) {
+            if (this.f71363d && this.f71362c == null) {
+                this.f71360a.wait();
             }
         }
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> f() {
-        return this.f71257b;
+        return this.f71361b;
     }
 
     public boolean g() {
         try {
-            if (this.f71258c != null) {
-                return b(this.f71258c.b());
+            if (this.f71362c != null) {
+                return b(this.f71362c.b());
             }
             return false;
         } catch (IOException e2) {
@@ -88,12 +88,12 @@ public class d implements k {
     }
 
     public boolean h() {
-        return System.currentTimeMillis() - this.f71260e < b.f71243c;
+        return System.currentTimeMillis() - this.f71364e < b.f71347c;
     }
 
     @Override // d.o.a.e.b.o.i
     public String a(String str) {
-        k kVar = this.f71258c;
+        k kVar = this.f71362c;
         if (kVar != null) {
             return kVar.a(str);
         }

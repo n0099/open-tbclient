@@ -8,57 +8,57 @@ import android.widget.ImageView;
 public class AlaPlayAnimationView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f21629e;
+    public ObjectAnimator f21711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21630f;
+    public boolean f21712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21631g;
+    public boolean f21713g;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.f21630f = false;
-        this.f21631g = false;
+        this.f21712f = false;
+        this.f21713g = false;
         a();
     }
 
     public final void a() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.f21629e = ofFloat;
+        this.f21711e = ofFloat;
         ofFloat.setRepeatMode(1);
-        this.f21629e.setRepeatCount(-1);
-        this.f21629e.setDuration(700L);
+        this.f21711e.setRepeatCount(-1);
+        this.f21711e.setDuration(700L);
         setVisibility(8);
-        this.f21630f = false;
+        this.f21712f = false;
     }
 
     public void b() {
-        if (this.f21630f) {
+        if (this.f21712f) {
             return;
         }
-        this.f21630f = true;
-        if (this.f21629e != null) {
+        this.f21712f = true;
+        if (this.f21711e != null) {
             setVisibility(0);
-            this.f21629e.start();
+            this.f21711e.start();
         }
     }
 
     public void c() {
-        ObjectAnimator objectAnimator = this.f21629e;
+        ObjectAnimator objectAnimator = this.f21711e;
         if (objectAnimator != null) {
             objectAnimator.setRepeatCount(-1);
-            this.f21629e.cancel();
+            this.f21711e.cancel();
             clearAnimation();
         }
-        this.f21630f = false;
+        this.f21712f = false;
         setVisibility(8);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.f21631g) {
+        if (this.f21713g) {
             b();
         }
     }
@@ -70,13 +70,13 @@ public class AlaPlayAnimationView extends ImageView {
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.f21631g = z;
+        this.f21713g = z;
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21630f = false;
-        this.f21631g = false;
+        this.f21712f = false;
+        this.f21713g = false;
         a();
     }
 }

@@ -5,7 +5,7 @@ import com.xiaomi.push.service.XMPushService;
 public class ft extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f41290a;
+    public final /* synthetic */ long f41393a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ fs f410a;
@@ -14,20 +14,20 @@ public class ft extends XMPushService.i {
     public ft(fs fsVar, int i2, long j) {
         super(i2);
         this.f410a = fsVar;
-        this.f41290a = j;
+        this.f41393a = j;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "check the ping-pong." + this.f41290a;
+        return "check the ping-pong." + this.f41393a;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         Thread.yield();
-        if (!this.f410a.m313c() || this.f410a.a(this.f41290a)) {
+        if (!this.f410a.m313c() || this.f410a.a(this.f41393a)) {
             return;
         }
-        this.f410a.f41284b.a(22, (Exception) null);
+        this.f410a.f41387b.a(22, (Exception) null);
     }
 }

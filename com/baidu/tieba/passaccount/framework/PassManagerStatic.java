@@ -60,58 +60,58 @@ import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
-import d.a.m0.r.q.r0;
+import d.a.n0.r.q.r0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PassManagerStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f18834a = false;
+    public static boolean f18916a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SapiConfiguration f18835b;
+    public static SapiConfiguration f18917b;
 
     /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<r0> {
 
         /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0199a extends OneKeyLoginCallback {
+        public class C0202a extends OneKeyLoginCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f18836a;
+            public final /* synthetic */ Context f18918a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ r0 f18837b;
+            public final /* synthetic */ r0 f18919b;
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0200a implements Runnable {
+            public class RunnableC0203a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ OneKeyLoginResult f18838e;
+                public final /* synthetic */ OneKeyLoginResult f18920e;
 
-                public RunnableC0200a(OneKeyLoginResult oneKeyLoginResult) {
-                    this.f18838e = oneKeyLoginResult;
+                public RunnableC0203a(OneKeyLoginResult oneKeyLoginResult) {
+                    this.f18920e = oneKeyLoginResult;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    OneKeyLoginResult oneKeyLoginResult = this.f18838e;
-                    if (oneKeyLoginResult.enable && !TextUtils.isEmpty(oneKeyLoginResult.sign) && !TextUtils.isEmpty(this.f18838e.encryptPhoneNum) && !TextUtils.isEmpty(this.f18838e.operator)) {
-                        if (PassManagerStatic.h(C0199a.this.f18836a)) {
-                            DialogLoginHelper.addLoginDialogInvokeLog(C0199a.this.f18837b.b(), DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
-                            r0 r0Var = C0199a.this.f18837b;
-                            OneKeyLoginResult oneKeyLoginResult2 = this.f18838e;
+                    OneKeyLoginResult oneKeyLoginResult = this.f18920e;
+                    if (oneKeyLoginResult.enable && !TextUtils.isEmpty(oneKeyLoginResult.sign) && !TextUtils.isEmpty(this.f18920e.encryptPhoneNum) && !TextUtils.isEmpty(this.f18920e.operator)) {
+                        if (PassManagerStatic.h(C0202a.this.f18918a)) {
+                            DialogLoginHelper.addLoginDialogInvokeLog(C0202a.this.f18919b.b(), DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+                            r0 r0Var = C0202a.this.f18919b;
+                            OneKeyLoginResult oneKeyLoginResult2 = this.f18920e;
                             new LoginDialogActivityConfig(r0Var, oneKeyLoginResult2.encryptPhoneNum, oneKeyLoginResult2.operator, oneKeyLoginResult2.sign).start();
                         }
-                    } else if ("first_login_abtest".equals(C0199a.this.f18837b.b())) {
+                    } else if ("first_login_abtest".equals(C0202a.this.f18919b.b())) {
                     } else {
-                        C0199a c0199a = C0199a.this;
-                        if (!PassManagerStatic.i(c0199a.f18836a, c0199a.f18837b) && PassManagerStatic.h(C0199a.this.f18836a)) {
-                            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(C0199a.this.f18836a, true);
-                            loginActivityConfig.setLoginListener(C0199a.this.f18837b.c());
+                        C0202a c0202a = C0202a.this;
+                        if (!PassManagerStatic.i(c0202a.f18918a, c0202a.f18919b) && PassManagerStatic.h(C0202a.this.f18918a)) {
+                            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(C0202a.this.f18918a, true);
+                            loginActivityConfig.setLoginListener(C0202a.this.f18919b.c());
                             loginActivityConfig.start();
                         }
                     }
@@ -126,26 +126,26 @@ public class PassManagerStatic {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if ("first_login_abtest".equals(C0199a.this.f18837b.b())) {
+                    if ("first_login_abtest".equals(C0202a.this.f18919b.b())) {
                         return;
                     }
-                    C0199a c0199a = C0199a.this;
-                    if (!PassManagerStatic.i(c0199a.f18836a, c0199a.f18837b) && PassManagerStatic.h(C0199a.this.f18836a)) {
-                        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(C0199a.this.f18836a, true);
-                        loginActivityConfig.setLoginListener(C0199a.this.f18837b.c());
+                    C0202a c0202a = C0202a.this;
+                    if (!PassManagerStatic.i(c0202a.f18918a, c0202a.f18919b) && PassManagerStatic.h(C0202a.this.f18918a)) {
+                        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(C0202a.this.f18918a, true);
+                        loginActivityConfig.setLoginListener(C0202a.this.f18919b.c());
                         loginActivityConfig.start();
                     }
                 }
             }
 
-            public C0199a(a aVar, Context context, r0 r0Var) {
-                this.f18836a = context;
-                this.f18837b = r0Var;
+            public C0202a(a aVar, Context context, r0 r0Var) {
+                this.f18918a = context;
+                this.f18919b = r0Var;
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void available(OneKeyLoginResult oneKeyLoginResult) {
-                d.a.c.e.m.e.a().post(new RunnableC0200a(oneKeyLoginResult));
+                d.a.c.e.m.e.a().post(new RunnableC0203a(oneKeyLoginResult));
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -175,7 +175,7 @@ public class PassManagerStatic {
                 }
                 return null;
             }
-            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0199a(this, a2, data));
+            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0202a(this, a2, data));
             return null;
         }
     }
@@ -189,9 +189,9 @@ public class PassManagerStatic {
 
         @Override // com.baidu.sapi2.callback.GlobalCallback
         public void onNeedInitPassSdk() {
-            if (PassManagerStatic.f18835b != null) {
+            if (PassManagerStatic.f18917b != null) {
                 try {
-                    SapiAccountManager.getInstance().init(PassManagerStatic.f18835b);
+                    SapiAccountManager.getInstance().init(PassManagerStatic.f18917b);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
@@ -204,16 +204,16 @@ public class PassManagerStatic {
     public static class c extends AccountCenterCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f18841a;
+        public final /* synthetic */ Context f18923a;
 
         public c(Context context) {
-            this.f18841a = context;
+            this.f18923a = context;
         }
 
         @Override // com.baidu.sapi2.callback.AccountCenterCallback
         public void onBdussChange() {
             super.onBdussChange();
-            MessageManager.getInstance().runTask(2921330, null, this.f18841a);
+            MessageManager.getInstance().runTask(2921330, null, this.f18923a);
         }
 
         @Override // com.baidu.sapi2.callback.AccountCenterCallback
@@ -221,24 +221,24 @@ public class PassManagerStatic {
             if (accountCenterResult == null || !accountCenterResult.isAccountDestory) {
                 return;
             }
-            MessageManager.getInstance().runTask(2921330, null, this.f18841a);
+            MessageManager.getInstance().runTask(2921330, null, this.f18923a);
         }
 
         @Override // com.baidu.sapi2.callback.AccountCenterCallback
         public void onSocialBind(String str) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WXEntryActivityConfig(this.f18841a, 230016)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WXEntryActivityConfig(this.f18923a, 230016)));
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<d.a.n0.c2.a> {
+    public static class d implements CustomMessageTask.CustomRunnable<d.a.o0.c2.a> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.a.n0.c2.a> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<d.a.o0.c2.a> customMessage) {
             BaseResp baseResp;
-            if (customMessage != null && (customMessage.getData() instanceof d.a.n0.c2.a)) {
-                d.a.n0.c2.a data = customMessage.getData();
-                if (data.f56035a != null && (baseResp = data.f56036b) != null && (baseResp instanceof SendAuth.Resp)) {
-                    PassportSDK.getInstance().handleWXLoginResp(data.f56035a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.f56036b.errCode);
+            if (customMessage != null && (customMessage.getData() instanceof d.a.o0.c2.a)) {
+                d.a.o0.c2.a data = customMessage.getData();
+                if (data.f56160a != null && (baseResp = data.f56161b) != null && (baseResp instanceof SendAuth.Resp)) {
+                    PassportSDK.getInstance().handleWXLoginResp(data.f56160a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.f56161b.errCode);
                 }
             }
             return null;
@@ -267,8 +267,8 @@ public class PassManagerStatic {
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0201a implements Runnable {
-                public RunnableC0201a(a aVar) {
+            public class RunnableC0204a implements Runnable {
+                public RunnableC0204a(a aVar) {
                 }
 
                 @Override // java.lang.Runnable
@@ -286,7 +286,7 @@ public class PassManagerStatic {
                 if (qrLoginResult == null || qrLoginResult.getResultCode() != 0) {
                     return;
                 }
-                d.a.c.e.m.e.a().postDelayed(new RunnableC0201a(this), 200L);
+                d.a.c.e.m.e.a().postDelayed(new RunnableC0204a(this), 200L);
             }
 
             @Override // com.baidu.sapi2.callback.QrLoginCallback
@@ -345,44 +345,44 @@ public class PassManagerStatic {
         public class a extends OneKeyLoginCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f18842a;
+            public final /* synthetic */ Context f18924a;
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0202a implements Runnable {
+            public class RunnableC0205a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ OneKeyLoginResult f18843e;
+                public final /* synthetic */ OneKeyLoginResult f18925e;
 
-                public RunnableC0202a(OneKeyLoginResult oneKeyLoginResult) {
-                    this.f18843e = oneKeyLoginResult;
+                public RunnableC0205a(OneKeyLoginResult oneKeyLoginResult) {
+                    this.f18925e = oneKeyLoginResult;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    OneKeyLoginResult oneKeyLoginResult = this.f18843e;
-                    if (!oneKeyLoginResult.enable || TextUtils.isEmpty(oneKeyLoginResult.sign) || TextUtils.isEmpty(this.f18843e.encryptPhoneNum) || TextUtils.isEmpty(this.f18843e.operator) || !PassManagerStatic.h(a.this.f18842a)) {
+                    OneKeyLoginResult oneKeyLoginResult = this.f18925e;
+                    if (!oneKeyLoginResult.enable || TextUtils.isEmpty(oneKeyLoginResult.sign) || TextUtils.isEmpty(this.f18925e.encryptPhoneNum) || TextUtils.isEmpty(this.f18925e.operator) || !PassManagerStatic.h(a.this.f18924a)) {
                         return;
                     }
                     DialogLoginHelper.addLoginDialogInvokeLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                    Context context = a.this.f18842a;
-                    OneKeyLoginResult oneKeyLoginResult2 = this.f18843e;
+                    Context context = a.this.f18924a;
+                    OneKeyLoginResult oneKeyLoginResult2 = this.f18925e;
                     new OneKeyLoginActivityConfig(context, oneKeyLoginResult2.encryptPhoneNum, oneKeyLoginResult2.operator, oneKeyLoginResult2.sign).start();
                 }
             }
 
             public a(h hVar, Context context) {
-                this.f18842a = context;
+                this.f18924a = context;
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void available(OneKeyLoginResult oneKeyLoginResult) {
-                d.a.c.e.m.e.a().post(new RunnableC0202a(oneKeyLoginResult));
+                d.a.c.e.m.e.a().post(new RunnableC0205a(oneKeyLoginResult));
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-                d.a.n0.n.e();
+                d.a.o0.n.e();
             }
         }
 
@@ -414,16 +414,16 @@ public class PassManagerStatic {
     /* loaded from: classes5.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.m0.s.a.b> run(CustomMessage<Activity> customMessage) {
-            return new CustomResponsedMessage<>(2001268, d.a.n0.c2.d.d.d());
+        public CustomResponsedMessage<d.a.n0.s.a.b> run(CustomMessage<Activity> customMessage) {
+            return new CustomResponsedMessage<>(2001268, d.a.o0.c2.d.d.d());
         }
     }
 
     /* loaded from: classes5.dex */
     public static class j implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.m0.r.l.a> run(CustomMessage<Activity> customMessage) {
-            return new CustomResponsedMessage<>(2001293, d.a.n0.c2.d.a.f());
+        public CustomResponsedMessage<d.a.n0.r.l.a> run(CustomMessage<Activity> customMessage) {
+            return new CustomResponsedMessage<>(2001293, d.a.o0.c2.d.a.f());
         }
     }
 
@@ -464,10 +464,10 @@ public class PassManagerStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
             if (customMessage != null && PermissionUtil.isAgreePrivacyPolicy()) {
                 Application data = customMessage.getData();
-                if (!PassManagerStatic.f18834a) {
+                if (!PassManagerStatic.f18916a) {
                     try {
                         WbSdk.install(data, new AuthInfo(data, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
-                        boolean unused = PassManagerStatic.f18834a = true;
+                        boolean unused = PassManagerStatic.f18916a = true;
                     } catch (Exception unused2) {
                     }
                 }
@@ -511,7 +511,7 @@ public class PassManagerStatic {
         x();
         u();
         n();
-        d.a.n0.c2.d.b.o();
+        d.a.o0.c2.d.b.o();
         s();
         t();
     }
@@ -565,27 +565,27 @@ public class PassManagerStatic {
         long currentTimeMillis = System.currentTimeMillis();
         SapiAccountManager.setGlobalCallback(new b());
         SapiConfiguration.Builder builder = new SapiConfiguration.Builder(context);
-        if (d.a.m0.r.d0.b.j().g("is_domain_qa", false)) {
-            d.a.m0.s.a.a.f54077a = Domain.DOMAIN_QA;
+        if (d.a.n0.r.d0.b.j().g("is_domain_qa", false)) {
+            d.a.n0.s.a.a.f54184a = Domain.DOMAIN_QA;
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA);
         } else {
-            builder.setRuntimeEnvironment(d.a.m0.s.a.a.f54077a);
+            builder.setRuntimeEnvironment(d.a.n0.s.a.a.f54184a);
         }
         builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).customActionBar(true).skin("file:///android_asset/sapi_theme/style.css").fastLoginSupport(k()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).qqAppID("101462192").sinaAppID("1511099634", PassBioEnv.PASSPORT_DOMAIN).yyOauthConfig("openyy183").setSupportFaceLogin(true).setSupportTouchLogin(false).forbidPresetPhoneNumber(true);
         builder.setAgreeDangerousProtocol(PermissionUtil.isAgreePrivacyPolicy());
-        Domain domain = d.a.m0.s.a.a.f54077a;
+        Domain domain = d.a.n0.s.a.a.f54184a;
         Domain domain2 = Domain.DOMAIN_QA;
         if (domain == domain2) {
             builder.setRuntimeEnvironment(domain2.forceHttps(true));
             builder.debug(true);
         }
-        f18835b = builder.build();
+        f18917b = builder.build();
         try {
-            SapiAccountManager.getInstance().init(f18835b);
+            SapiAccountManager.getInstance().init(f18917b);
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        d.a.m0.m0.l.b().E(System.currentTimeMillis() - currentTimeMillis);
+        d.a.n0.m0.l.b().E(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public static void n() {
@@ -607,7 +607,7 @@ public class PassManagerStatic {
     }
 
     public static void q() {
-        d.a.m0.s.a.a.a();
+        d.a.n0.s.a.a.a();
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginDialogActivityConfig.class, LoginDialogActivity.class);
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(OneKeyLoginActivityConfig.class, OneKeyLoginActivity.class);
@@ -674,13 +674,13 @@ public class PassManagerStatic {
     }
 
     public static void z() {
-        if (f18835b == null) {
+        if (f18917b == null) {
             return;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            f18835b.isNightMode = true;
+            f18917b.isNightMode = true;
         } else {
-            f18835b.isNightMode = false;
+            f18917b.isNightMode = false;
         }
     }
 }

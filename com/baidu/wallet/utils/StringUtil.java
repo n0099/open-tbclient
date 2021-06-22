@@ -12,14 +12,14 @@ import java.util.regex.Pattern;
 public class StringUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f26633a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f26715a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static final Pattern AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f26634b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+    public static Pattern f26716b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f26635c = new WeakReference<>(null);
+    public static WeakReference<Paint> f26717c = new WeakReference<>(null);
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x000b: AGET  (r1v2 char A[IMMUTABLE_TYPE, REMOVE]) = 
       (wrap: char[] : 0x0009: SGET  (r2v0 char[] A[IMMUTABLE_TYPE, REMOVE]) =  com.baidu.wallet.utils.StringUtil.a char[])
@@ -30,8 +30,8 @@ public class StringUtil {
     )] */
     public static String a(byte b2) {
         StringBuilder sb = new StringBuilder();
-        sb.append(f26633a[(b2 >> 4) & 15]);
-        sb.append(f26633a[b2 & 15]);
+        sb.append(f26715a[(b2 >> 4) & 15]);
+        sb.append(f26715a[b2 & 15]);
         return sb.toString();
     }
 
@@ -56,10 +56,10 @@ public class StringUtil {
         if (TextUtils.isEmpty(str)) {
             return 0.0f;
         }
-        Paint paint = f26635c.get();
+        Paint paint = f26717c.get();
         if (paint == null) {
             paint = new Paint();
-            f26635c = new WeakReference<>(paint);
+            f26717c = new WeakReference<>(paint);
         }
         paint.setTextSize(f2);
         return paint.measureText(str);
@@ -69,7 +69,7 @@ public class StringUtil {
         if (charSequence == null) {
             return null;
         }
-        Matcher matcher = f26634b.matcher(charSequence);
+        Matcher matcher = f26716b.matcher(charSequence);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (matcher.matches()) {
             spannableStringBuilder.append((CharSequence) matcher.group(1));

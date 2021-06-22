@@ -13,7 +13,7 @@ import java.io.InputStream;
 public class u<Data> implements n<String, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final n<Uri, Data> f36049a;
+    public final n<Uri, Data> f36147a;
 
     /* loaded from: classes7.dex */
     public static final class a implements o<String, AssetFileDescriptor> {
@@ -42,7 +42,7 @@ public class u<Data> implements n<String, Data> {
     }
 
     public u(n<Uri, Data> nVar) {
-        this.f36049a = nVar;
+        this.f36147a = nVar;
     }
 
     @Nullable
@@ -67,10 +67,10 @@ public class u<Data> implements n<String, Data> {
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull String str, int i2, int i3, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Uri b2 = b(str);
-        if (b2 == null || !this.f36049a.a(b2)) {
+        if (b2 == null || !this.f36147a.a(b2)) {
             return null;
         }
-        return this.f36049a.a(b2, i2, i3, eVar);
+        return this.f36147a.a(b2, i2, i3, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

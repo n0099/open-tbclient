@@ -8,24 +8,24 @@ import java.util.zip.Inflater;
 public final class j implements q {
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f68903e;
+    public final e f69007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Inflater f68904f;
+    public final Inflater f69008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68905g;
+    public int f69009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68906h;
+    public boolean f69010h;
 
     public j(e eVar, Inflater inflater) {
         if (eVar == null) {
             throw new IllegalArgumentException("source == null");
         }
         if (inflater != null) {
-            this.f68903e = eVar;
-            this.f68904f = inflater;
+            this.f69007e = eVar;
+            this.f69008f = inflater;
             return;
         }
         throw new IllegalArgumentException("inflater == null");
@@ -36,7 +36,7 @@ public final class j implements q {
         n D;
         int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i2 >= 0) {
-            if (this.f68906h) {
+            if (this.f69010h) {
                 throw new IllegalStateException("closed");
             }
             if (i2 == 0) {
@@ -46,13 +46,13 @@ public final class j implements q {
                 boolean n = n();
                 try {
                     D = cVar.D(1);
-                    int inflate = this.f68904f.inflate(D.f68919a, D.f68921c, (int) Math.min(j, 8192 - D.f68921c));
+                    int inflate = this.f69008f.inflate(D.f69023a, D.f69025c, (int) Math.min(j, 8192 - D.f69025c));
                     if (inflate > 0) {
-                        D.f68921c += inflate;
+                        D.f69025c += inflate;
                         long j2 = inflate;
-                        cVar.f68893f += j2;
+                        cVar.f68997f += j2;
                         return j2;
-                    } else if (this.f68904f.finished() || this.f68904f.needsDictionary()) {
+                    } else if (this.f69008f.finished() || this.f69008f.needsDictionary()) {
                         break;
                     } else if (n) {
                         throw new EOFException("source exhausted prematurely");
@@ -62,8 +62,8 @@ public final class j implements q {
                 }
             }
             o();
-            if (D.f68920b == D.f68921c) {
-                cVar.f68892e = D.e();
+            if (D.f69024b == D.f69025c) {
+                cVar.f68996e = D.e();
                 o.b(D);
                 return -1L;
             }
@@ -74,27 +74,27 @@ public final class j implements q {
 
     @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f68906h) {
+        if (this.f69010h) {
             return;
         }
-        this.f68904f.end();
-        this.f68906h = true;
-        this.f68903e.close();
+        this.f69008f.end();
+        this.f69010h = true;
+        this.f69007e.close();
     }
 
     public final boolean n() throws IOException {
-        if (this.f68904f.needsInput()) {
+        if (this.f69008f.needsInput()) {
             o();
-            if (this.f68904f.getRemaining() == 0) {
-                if (this.f68903e.e()) {
+            if (this.f69008f.getRemaining() == 0) {
+                if (this.f69007e.e()) {
                     return true;
                 }
-                n nVar = this.f68903e.c().f68892e;
-                int i2 = nVar.f68921c;
-                int i3 = nVar.f68920b;
+                n nVar = this.f69007e.c().f68996e;
+                int i2 = nVar.f69025c;
+                int i3 = nVar.f69024b;
                 int i4 = i2 - i3;
-                this.f68905g = i4;
-                this.f68904f.setInput(nVar.f68919a, i3, i4);
+                this.f69009g = i4;
+                this.f69008f.setInput(nVar.f69023a, i3, i4);
                 return false;
             }
             throw new IllegalStateException("?");
@@ -103,17 +103,17 @@ public final class j implements q {
     }
 
     public final void o() throws IOException {
-        int i2 = this.f68905g;
+        int i2 = this.f69009g;
         if (i2 == 0) {
             return;
         }
-        int remaining = i2 - this.f68904f.getRemaining();
-        this.f68905g -= remaining;
-        this.f68903e.g(remaining);
+        int remaining = i2 - this.f69008f.getRemaining();
+        this.f69009g -= remaining;
+        this.f69007e.g(remaining);
     }
 
     @Override // d.b.c.a.a.q
     public r a() {
-        return this.f68903e.a();
+        return this.f69007e.a();
     }
 }

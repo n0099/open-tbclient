@@ -7,28 +7,28 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import d.a.l0.a.i1.d.d.c;
-import d.a.l0.a.p.d.h0;
-import d.a.l0.a.w1.j.g;
+import d.a.m0.a.i1.d.d.c;
+import d.a.m0.a.p.d.h0;
+import d.a.m0.a.w1.j.g;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PhotoChooseView extends GridView implements AdapterView.OnItemClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11093e;
+    public int f11175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11094f;
+    public int f11176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11095g;
+    public int f11177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11096h;
+    public int f11178h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f11097i;
-    public d.a.l0.a.w1.h.f.a j;
+    public c f11179i;
+    public d.a.m0.a.w1.h.f.a j;
     public Activity k;
 
     /* loaded from: classes3.dex */
@@ -50,17 +50,17 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public PhotoChooseView(Context context) {
         super(context);
-        this.f11093e = 9;
+        this.f11175e = 9;
     }
 
     public final void b() {
         if (getLeftCount() > 0) {
-            g.i(getLeftCount(), this.f11097i);
+            g.i(getLeftCount(), this.f11179i);
         }
     }
 
     public final void c(int i2) {
-        h0 y = d.a.l0.a.c1.a.y();
+        h0 y = d.a.m0.a.c1.a.y();
         if (y != null) {
             y.d(getContext(), (String[]) this.j.c().toArray(new String[0]), i2);
         }
@@ -68,7 +68,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public void d(Activity activity) {
         this.k = activity;
-        this.j = new d.a.l0.a.w1.h.f.a(activity.getApplicationContext(), this.f11094f, this.f11096h);
+        this.j = new d.a.m0.a.w1.h.f.a(activity.getApplicationContext(), this.f11176f, this.f11178h);
         setOnItemClickListener(this);
         postDelayed(new a(), 10L);
     }
@@ -88,7 +88,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public int getLeftCount() {
         int size = this.j.c().size();
-        int i2 = this.f11093e;
+        int i2 = this.f11175e;
         if (size >= i2) {
             return 0;
         }
@@ -99,7 +99,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         if (this.j.e(i2)) {
             if (i2 == this.j.getCount() - 1) {
-                d.a.l0.a.w1.j.c.onEvent("pic_clk_content");
+                d.a.m0.a.w1.j.c.onEvent("pic_clk_content");
                 b();
                 return;
             }
@@ -116,11 +116,11 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (getCount() <= 0 || getChildAt(0) == null || (measuredHeight = getChildAt(0).getMeasuredHeight()) == -1) {
             return;
         }
-        setMeasuredDimension(i2, (measuredHeight * (((getCount() - 1) / this.f11096h) + 1)) + (this.f11095g * ((getCount() - 1) / this.f11096h)));
+        setMeasuredDimension(i2, (measuredHeight * (((getCount() - 1) / this.f11178h) + 1)) + (this.f11177g * ((getCount() - 1) / this.f11178h)));
     }
 
     public void setCallback(c cVar) {
-        this.f11097i = cVar;
+        this.f11179i = cVar;
     }
 
     public void setDeleteListener(b bVar) {
@@ -130,33 +130,33 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     @Override // android.widget.GridView
     public void setHorizontalSpacing(int i2) {
         super.setHorizontalSpacing(i2);
-        this.f11094f = i2;
+        this.f11176f = i2;
     }
 
     public void setMaxCount(int i2) {
-        this.f11093e = i2;
+        this.f11175e = i2;
         this.j.h(i2);
     }
 
     @Override // android.widget.GridView
     public void setNumColumns(int i2) {
         super.setNumColumns(i2);
-        this.f11096h = i2;
+        this.f11178h = i2;
     }
 
     @Override // android.widget.GridView
     public void setVerticalSpacing(int i2) {
         super.setVerticalSpacing(i2);
-        this.f11095g = i2;
+        this.f11177g = i2;
     }
 
     public PhotoChooseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11093e = 9;
+        this.f11175e = 9;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'd.a.l0.a.w1.h.f.a' to match base method */
+    /* JADX DEBUG: Return type fixed from 'd.a.m0.a.w1.h.f.a' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
@@ -165,6 +165,6 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public PhotoChooseView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11093e = 9;
+        this.f11175e = 9;
     }
 }

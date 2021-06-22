@@ -8,27 +8,27 @@ import com.baidu.prologue.service.network.Als;
 import d.a.d0.b.g.h;
 import d.a.d0.b.g.j;
 /* loaded from: classes2.dex */
-public class e implements d.a.f0.a.g.a, d.a.f0.a.g.c {
+public class e implements d.a.g0.a.g.a, d.a.g0.a.g.c {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.f0.a.g.b f43308e;
+    public final d.a.g0.a.g.b f43411e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f43309f;
+    public ViewGroup f43412f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public final h f43310g;
+    public final h f43413g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.d0.b.g.b f43311h;
+    public final d.a.d0.b.g.b f43414h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public d f43312i;
+    public d f43415i;
     public long j;
     public long k;
     public boolean l = true;
@@ -41,49 +41,49 @@ public class e implements d.a.f0.a.g.a, d.a.f0.a.g.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f43312i.b();
+            e.this.f43415i.b();
         }
     }
 
-    public e(@NonNull d.a.f0.a.g.b bVar, @NonNull ViewGroup viewGroup, @NonNull h hVar) {
-        this.f43308e = bVar;
-        this.f43309f = viewGroup;
-        this.f43310g = hVar;
-        this.f43311h = new d.a.d0.b.g.b(hVar);
+    public e(@NonNull d.a.g0.a.g.b bVar, @NonNull ViewGroup viewGroup, @NonNull h hVar) {
+        this.f43411e = bVar;
+        this.f43412f = viewGroup;
+        this.f43413g = hVar;
+        this.f43414h = new d.a.d0.b.g.b(hVar);
         d.a.d0.b.g.c.a(hVar);
     }
 
     public final void b(String str) {
         if (this.l) {
             this.l = false;
-            this.f43311h.d(str, this.k);
+            this.f43414h.d(str, this.k);
         }
     }
 
     public void c(d.a.d0.b.g.d dVar) {
         this.m = dVar;
-        d.a.f0.a.g.b bVar = this.f43308e;
+        d.a.g0.a.g.b bVar = this.f43411e;
         if (bVar != null) {
             dVar.i(bVar);
         }
     }
 
     public void d(@NonNull d dVar) {
-        this.f43312i = dVar;
+        this.f43415i = dVar;
     }
 
-    @Override // d.a.f0.a.g.a
+    @Override // d.a.g0.a.g.a
     public void onAdClick() {
         Als.Area area;
-        if (d.a.d0.a.b.a.f43271a.get() != null) {
-            d.a.d0.c.d.a(d.a.d0.a.b.a.f43271a.get().o(), this.f43310g.o);
+        if (d.a.d0.a.b.a.f43374a.get() != null) {
+            d.a.d0.c.d.a(d.a.d0.a.b.a.f43374a.get().o(), this.f43413g.o);
         }
         b(Als.CloseType.CLICK_AD_AREA.value);
-        if (TextUtils.isEmpty(this.f43310g.e())) {
-            this.f43311h.a(Als.Area.UNKNOW, "");
+        if (TextUtils.isEmpty(this.f43413g.e())) {
+            this.f43414h.a(Als.Area.UNKNOW, "");
             return;
         }
-        String e2 = this.f43310g.e();
+        String e2 = this.f43413g.e();
         char c2 = 65535;
         int hashCode = e2.hashCode();
         if (hashCode != 102340) {
@@ -106,50 +106,50 @@ public class e implements d.a.f0.a.g.a, d.a.f0.a.g.c {
         } else {
             area = Als.Area.GIF;
         }
-        this.f43311h.a(area, "");
-        d dVar = this.f43312i;
+        this.f43414h.a(area, "");
+        d dVar = this.f43415i;
         if (dVar != null) {
             dVar.onAdClick();
         }
     }
 
-    @Override // d.a.f0.a.g.c
+    @Override // d.a.g0.a.g.c
     public void onAdError(String str) {
         this.k = System.currentTimeMillis() - this.j;
-        d dVar = this.f43312i;
+        d dVar = this.f43415i;
         if (dVar != null) {
             dVar.a(str);
         }
     }
 
-    @Override // d.a.f0.a.g.c
+    @Override // d.a.g0.a.g.c
     public void onAdLoad() {
         d.a.d0.b.g.d dVar;
-        if (this.f43312i == null || (dVar = this.m) == null) {
+        if (this.f43415i == null || (dVar = this.m) == null) {
             return;
         }
-        dVar.h(!this.f43310g.g());
-        this.m.j(!this.f43310g.f());
-        this.f43312i.c(this.m);
+        dVar.h(!this.f43413g.g());
+        this.m.j(!this.f43413g.f());
+        this.f43415i.c(this.m);
     }
 
-    @Override // d.a.f0.a.g.a
+    @Override // d.a.g0.a.g.a
     public void onAdLogoClick() {
     }
 
-    @Override // d.a.f0.a.g.c
+    @Override // d.a.g0.a.g.c
     public void onAdStart() {
         this.j = System.currentTimeMillis();
-        this.f43311h.b();
-        d.a.d0.b.g.f.y(this.f43310g);
-        j.c(this.f43310g);
-        d dVar = this.f43312i;
+        this.f43414h.b();
+        d.a.d0.b.g.f.y(this.f43413g);
+        j.c(this.f43413g);
+        d dVar = this.f43415i;
         if (dVar != null) {
             dVar.onAdShow();
         }
     }
 
-    @Override // d.a.f0.a.g.c
+    @Override // d.a.g0.a.g.c
     public void onAdStop(String str) {
         this.k = System.currentTimeMillis() - this.j;
         if ("time_end".equals(str)) {
@@ -161,22 +161,22 @@ public class e implements d.a.f0.a.g.a, d.a.f0.a.g.c {
         } else {
             b(Als.CloseType.OTHER.value);
         }
-        if (this.f43312i != null) {
-            d.a.f0.a.k.a.a(new a());
+        if (this.f43415i != null) {
+            d.a.g0.a.k.a.a(new a());
         }
     }
 
-    @Override // d.a.f0.a.g.a
+    @Override // d.a.g0.a.g.a
     public void onPermissionClick() {
     }
 
-    @Override // d.a.f0.a.g.a
+    @Override // d.a.g0.a.g.a
     public void onPrivacyClick() {
     }
 
-    @Override // d.a.f0.a.g.a
+    @Override // d.a.g0.a.g.a
     public void onSkipClick() {
-        d dVar = this.f43312i;
+        d dVar = this.f43415i;
         if (dVar != null) {
             dVar.onSkip();
         }

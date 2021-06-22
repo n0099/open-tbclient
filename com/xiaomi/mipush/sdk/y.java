@@ -5,14 +5,14 @@ import android.content.Context;
 public final class y implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40964a;
+    public final /* synthetic */ Context f41067a;
 
     public y(Context context) {
-        this.f40964a = context;
+        this.f41067a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageHandleService.c(this.f40964a);
+        MessageHandleService.c(this.f41067a);
     }
 }

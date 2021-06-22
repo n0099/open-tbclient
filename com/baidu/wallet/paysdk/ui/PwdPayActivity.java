@@ -54,28 +54,28 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public static final String TAG = "PwdPayActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f25934a;
+    public RelativeLayout f26016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25935b;
+    public View f26017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f25936c;
+    public TextView f26018c;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f25937e;
+    public View f26019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f25938f;
+    public SafeScrollView f26020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SafeKeyBoardEditText f25939g;
+    public SafeKeyBoardEditText f26021g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25940h;
+    public TextView f26022h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f25941i;
+    public TextView f26023i;
     public TextView j;
     public SixNumberPwdView k;
     public PayLoadingImageViewNew l;
@@ -103,8 +103,8 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void dismissLoading(int i2) {
         this.mActionBar.setVisibility(0);
         this.p = false;
-        this.f25938f.setVisibility(0);
-        this.f25938f.dismissKeyBoard(this.f25939g);
+        this.f26020f.setVisibility(0);
+        this.f26020f.dismissKeyBoard(this.f26021g);
         this.l.stopAnimation();
         this.l.setVisibility(8);
     }
@@ -218,7 +218,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f25937e) {
+        if (view == this.f26019e) {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_FORGET_PWD_IN_CASHDESK);
             forgetPassword();
         } else if (view == this.mLeftImg) {
@@ -286,8 +286,8 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                         if (this.o != null) {
                             PayRequestCache.getInstance().addBeanRequestToCache(this.o.getRequestId(), this.o);
                         }
-                        if (this.f25936c != null) {
-                            this.f25936c.setVisibility(8);
+                        if (this.f26018c != null) {
+                            this.f26018c.setVisibility(8);
                         }
                         int i2 = 0;
                         try {
@@ -295,8 +295,8 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        if (1 == i2 && PayRequestCache.getInstance().isPaying() && this.f25936c != null) {
-                            this.f25936c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.6
+                        if (1 == i2 && PayRequestCache.getInstance().isPaying() && this.f26018c != null) {
+                            this.f26018c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.6
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     BaseActivity.clearTasksTopOf(PwdPayActivity.this);
@@ -422,7 +422,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
             this.mPresenter.onPwdChanged(this.k.getPwd());
             return;
         }
-        this.f25936c.setVisibility(8);
+        this.f26018c.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -441,7 +441,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         PayRequest payRequest;
         SafeKeyBoardEditText safeKeyBoardEditText;
         super.onWindowFocusChanged(z);
-        if (!z || (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)) == null || payRequest.getPayWay() != 3 || (safeKeyBoardEditText = this.f25939g) == null) {
+        if (!z || (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)) == null || payRequest.getPayWay() != 3 || (safeKeyBoardEditText = this.f26021g) == null) {
             return;
         }
         safeKeyBoardEditText.requestFocus();
@@ -464,13 +464,13 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     }
 
     public void setErrorArea(boolean z) {
-        this.f25935b.setVisibility(z ? 0 : 8);
+        this.f26017b.setVisibility(z ? 0 : 8);
     }
 
     public void setErrorTips(boolean z, String str) {
-        this.f25936c.setVisibility(z ? 0 : 8);
+        this.f26018c.setVisibility(z ? 0 : 8);
         if (str != null) {
-            this.f25936c.setText(str);
+            this.f26018c.setText(str);
         }
     }
 
@@ -482,40 +482,40 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25940h.setText(str);
+        this.f26022h.setText(str);
     }
 
     public void showLoading(int i2) {
         this.mActionBar.setVisibility(4);
         this.p = true;
-        this.f25938f.setVisibility(8);
-        this.f25938f.dismissKeyBoard(this.f25939g);
+        this.f26020f.setVisibility(8);
+        this.f26020f.dismissKeyBoard(this.f26021g);
         this.l.setVisibility(0);
         this.l.startAnimation();
     }
 
     public void showPWdInputView(boolean z) {
         if (z) {
-            this.f25938f.setVisibility(0);
+            this.f26020f.setVisibility(0);
             this.k.resetPwd();
             return;
         }
-        this.f25938f.setVisibility(8);
-        this.f25938f.dismissKeyBoard(this.f25939g);
+        this.f26020f.setVisibility(8);
+        this.f26020f.dismissKeyBoard(this.f26021g);
     }
 
     public void showPassError(String str) {
-        this.f25935b.setVisibility(0);
+        this.f26017b.setVisibility(0);
         if (!TextUtils.isEmpty(str)) {
-            this.f25936c.setText(str);
+            this.f26018c.setText(str);
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f25936c.setVisibility(0);
+            this.f26018c.setVisibility(0);
         } else {
-            this.f25936c.setVisibility(8);
+            this.f26018c.setVisibility(8);
         }
-        this.f25937e.setVisibility(0);
-        this.f25939g.initSafeKeyBoardParams(this.f25934a, this.f25938f, this.k, true);
+        this.f26019e.setVisibility(0);
+        this.f26021g.initSafeKeyBoardParams(this.f26016a, this.f26020f, this.k, true);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
@@ -533,7 +533,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         dismissLoading(-1);
         this.p = true;
         this.mActionBar.setVisibility(4);
-        this.f25938f.setVisibility(8);
+        this.f26020f.setVisibility(8);
         this.m.setVisibility(0);
         this.n.startAnimation(new SuccessImageViewNew.a() { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.5
             @Override // com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.a
@@ -551,8 +551,8 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25941i.setText(str);
-        this.f25941i.setVisibility(0);
+        this.f26023i.setText(str);
+        this.f26023i.setVisibility(0);
     }
 
     public void turntoPwdPay(boolean z, String str) {
@@ -564,34 +564,34 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
 
     private void b() {
         this.mActionBar.setVisibility(0);
-        this.f25934a = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "ebpay_pwdpay_layout"));
+        this.f26016a = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "ebpay_pwdpay_layout"));
         SafeScrollView safeScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-        this.f25938f = safeScrollView;
+        this.f26020f = safeScrollView;
         safeScrollView.setVisibility(0);
-        setSafeScrollView(this.f25938f);
-        this.f25940h = (TextView) findViewById(ResUtils.id(this, "ebpay_pwd_title"));
+        setSafeScrollView(this.f26020f);
+        this.f26022h = (TextView) findViewById(ResUtils.id(this, "ebpay_pwd_title"));
         TextView textView = (TextView) findViewById(ResUtils.id(this, "warning_tips"));
-        this.f25941i = textView;
+        this.f26023i = textView;
         textView.setVisibility(4);
         SixNumberPwdView sixNumberPwdView = (SixNumberPwdView) findViewById(ResUtils.id(this, "pwd_input_box"));
         this.k = sixNumberPwdView;
         sixNumberPwdView.setShowInputMethod(true);
         this.k.addSixNumberPwdChangedListenter(this);
         SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.k.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-        this.f25939g = safeKeyBoardEditText;
-        safeKeyBoardEditText.initSafeKeyBoardParams(this.f25934a, this.f25938f, this.k, false);
-        this.f25939g.setDisablePast(true);
-        this.f25939g.setGap(20);
+        this.f26021g = safeKeyBoardEditText;
+        safeKeyBoardEditText.initSafeKeyBoardParams(this.f26016a, this.f26020f, this.k, false);
+        this.f26021g.setDisablePast(true);
+        this.f26021g.setGap(20);
         View findViewById = findViewById(ResUtils.id(this, "bd_wallet_pwd_error_layout"));
-        this.f25935b = findViewById;
+        this.f26017b = findViewById;
         findViewById.setVisibility(0);
         TextView textView2 = (TextView) findViewById(ResUtils.id(this, "error_tip"));
-        this.f25936c = textView2;
+        this.f26018c = textView2;
         textView2.setVisibility(8);
         View findViewById2 = findViewById(ResUtils.id(this, "forget_pwd"));
-        this.f25937e = findViewById2;
+        this.f26019e = findViewById2;
         findViewById2.setVisibility(0);
-        this.f25937e.setOnClickListener(this);
+        this.f26019e.setOnClickListener(this);
         PayLoadingImageViewNew payLoadingImageViewNew = (PayLoadingImageViewNew) findViewById(ResUtils.id(this, "bd_wallet_cashier_loading_view"));
         this.l = payLoadingImageViewNew;
         payLoadingImageViewNew.setVisibility(8);
@@ -624,10 +624,10 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                 }
             });
             this.v.setChecked(needshowProtocolContainer.checked);
-            this.f25936c.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.8
+            this.f26018c.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.8
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (PwdPayActivity.this.f25936c.getVisibility() == 0) {
+                    if (PwdPayActivity.this.f26018c.getVisibility() == 0) {
                         PwdPayActivity.this.u.setVisibility(8);
                     } else {
                         PwdPayActivity.this.u.setVisibility(0);
@@ -642,9 +642,9 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        this.f25935b.setVisibility(0);
-        this.f25936c.setVisibility(8);
-        this.f25937e.setVisibility(0);
+        this.f26017b.setVisibility(0);
+        this.f26018c.setVisibility(8);
+        this.f26019e.setVisibility(0);
     }
 
     private void a() {

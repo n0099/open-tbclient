@@ -7,15 +7,15 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.a.l0.a.g2.b;
-import d.a.l0.a.k;
-import d.a.l0.a.s1.g;
-import d.a.l0.a.v1.c.a;
-import d.a.l0.a.v1.c.c;
-import d.a.l0.a.v2.q0;
+import d.a.m0.a.g2.b;
+import d.a.m0.a.k;
+import d.a.m0.a.s1.g;
+import d.a.m0.a.v1.c.a;
+import d.a.m0.a.v1.c.c;
+import d.a.m0.a.v2.q0;
 /* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f46875a;
+    public static final boolean DEBUG = k.f46983a;
     public static final String TAG = "SwanAppBaseActivity";
     public g mPermissionHandler;
     public b mSkinDecorator = null;
@@ -24,7 +24,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         return this.mSkinDecorator;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.l0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.m0.o.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         int Z = q0.Z(this);
         super.onCreate(bundle);
@@ -60,12 +60,12 @@ public class SwanAppBaseActivity extends FragmentActivity {
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean a2 = d.a.l0.a.c1.a.H().a();
-        d.a.l0.a.f1.c.a.e(Boolean.valueOf(a2));
+        boolean a2 = d.a.m0.a.c1.a.H().a();
+        d.a.m0.a.f1.c.a.e(Boolean.valueOf(a2));
         onNightModeCoverChanged(a2, false);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.a.l0.o.a.a.a.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.a.m0.o.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         g gVar = this.mPermissionHandler;
         if (gVar != null) {

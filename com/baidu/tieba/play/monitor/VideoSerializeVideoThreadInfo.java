@@ -13,7 +13,7 @@ import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import d.a.c.e.m.b;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 import java.io.Serializable;
 import java.util.Map;
 import tbclient.Agree;
@@ -322,8 +322,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f12100f;
-            this.title = originalThreadInfo.f12096b;
+            this.threadId = originalThreadInfo.f12182f;
+            this.title = originalThreadInfo.f12178b;
             this.postNum = originalThreadInfo.x.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.w) != null) {

@@ -10,13 +10,13 @@ public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
 
     /* renamed from: a  reason: collision with root package name */
-    public static PassPermissions f9257a;
+    public static PassPermissions f9265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PermissionsDTO f9258b;
+    public PermissionsDTO f9266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsCallback f9259c;
+    public PermissionsCallback f9267c;
 
     public static boolean checkRequestPermission(String str, Context context) {
         if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
@@ -32,27 +32,27 @@ public class PassPermissions implements com.baidu.pass.a {
     public static synchronized PassPermissions getInstance() {
         PassPermissions passPermissions;
         synchronized (PassPermissions.class) {
-            if (f9257a == null) {
-                f9257a = new PassPermissions();
+            if (f9265a == null) {
+                f9265a = new PassPermissions();
             }
-            passPermissions = f9257a;
+            passPermissions = f9265a;
         }
         return passPermissions;
     }
 
     public PermissionsCallback getPermissionsCallback() {
-        return this.f9259c;
+        return this.f9267c;
     }
 
     public PermissionsDTO getPermissionsDTO() {
-        return this.f9258b;
+        return this.f9266b;
     }
 
     public void requestPermissions(PermissionsDTO permissionsDTO, final PermissionsCallback permissionsCallback) {
         String[] strArr;
         if (permissionsDTO != null && permissionsDTO.context != null && (strArr = permissionsDTO.permissions) != null && strArr.length != 0 && permissionsCallback != null) {
-            this.f9258b = permissionsDTO;
-            this.f9259c = new PermissionsCallback() { // from class: com.baidu.pass.permissions.PassPermissions.1
+            this.f9266b = permissionsDTO;
+            this.f9267c = new PermissionsCallback() { // from class: com.baidu.pass.permissions.PassPermissions.1
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i2) {
                     PassPermissions.this.a();
@@ -66,10 +66,10 @@ public class PassPermissions implements com.baidu.pass.a {
                 }
             };
             if (a(permissionsDTO.permissions)) {
-                this.f9259c.onSuccess();
+                this.f9267c.onSuccess();
                 return;
             } else if (Build.VERSION.SDK_INT < 23) {
-                this.f9259c.onFailure(-1);
+                this.f9267c.onFailure(-1);
                 return;
             } else {
                 Intent intent = new Intent(permissionsDTO.context, PermissionsHelperActivity.class);
@@ -88,7 +88,7 @@ public class PassPermissions implements com.baidu.pass.a {
 
     public boolean a(String... strArr) {
         for (String str : strArr) {
-            if (!checkRequestPermission(str, this.f9258b.context)) {
+            if (!checkRequestPermission(str, this.f9266b.context)) {
                 return false;
             }
         }
@@ -97,8 +97,8 @@ public class PassPermissions implements com.baidu.pass.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f9258b = null;
-        this.f9259c = null;
-        f9257a = null;
+        this.f9266b = null;
+        this.f9267c = null;
+        f9265a = null;
     }
 }

@@ -44,20 +44,20 @@ import tv.athena.revenue.api.pay.params.RefreshAppExpandInfo;
 public final class a implements IMiddlePayService {
 
     /* renamed from: a  reason: collision with root package name */
-    public final MiddleRevenueConfig f72043a;
+    public final MiddleRevenueConfig f72147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IAppPayService f72044b;
+    public final IAppPayService f72148b;
 
     /* renamed from: i.a.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C1992a implements IPayCallback<String> {
+    public static final class C1995a implements IPayCallback<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f72045a;
+        public final /* synthetic */ IPayCallback f72149a;
 
-        public C1992a(IPayCallback iPayCallback) {
-            this.f72045a = iPayCallback;
+        public C1995a(IPayCallback iPayCallback) {
+            this.f72149a = iPayCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public final class a implements IMiddlePayService {
         /* renamed from: a */
         public void onSuccess(String str, PayCallBackBean payCallBackBean) {
             RLog.debug("MiddlePayService", "doPayProduct onSuccess");
-            IPayCallback iPayCallback = this.f72045a;
+            IPayCallback iPayCallback = this.f72149a;
             if (iPayCallback != null) {
                 iPayCallback.onSuccess(str, payCallBackBean);
             }
@@ -74,7 +74,7 @@ public final class a implements IMiddlePayService {
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             RLog.debug("MiddlePayService", "doPayProduct onFail [code = " + i2 + ", failReason=" + str + ']');
-            IPayCallback iPayCallback = this.f72045a;
+            IPayCallback iPayCallback = this.f72149a;
             if (iPayCallback != null) {
                 iPayCallback.onFail(i2, str, payCallBackBean);
             }
@@ -83,7 +83,7 @@ public final class a implements IMiddlePayService {
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStart() {
             RLog.debug("MiddlePayService", "doPayProduct onPayStart");
-            IPayCallback iPayCallback = this.f72045a;
+            IPayCallback iPayCallback = this.f72149a;
             if (iPayCallback != null) {
                 iPayCallback.onPayStart();
             }
@@ -91,7 +91,7 @@ public final class a implements IMiddlePayService {
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback = this.f72045a;
+            IPayCallback iPayCallback = this.f72149a;
             if (iPayCallback != null) {
                 iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
             }
@@ -99,8 +99,8 @@ public final class a implements IMiddlePayService {
     }
 
     public a(MiddleRevenueConfig middleRevenueConfig, IAppPayService iAppPayService) {
-        this.f72043a = middleRevenueConfig;
-        this.f72044b = iAppPayService;
+        this.f72147a = middleRevenueConfig;
+        this.f72148b = iAppPayService;
     }
 
     @Override // tv.athena.revenue.api.pay.IMiddlePayService
@@ -110,22 +110,22 @@ public final class a implements IMiddlePayService {
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy) {
-        this.f72044b.addAlipaySdkProxy(iAlipaySdkServiceProxy);
+        this.f72148b.addAlipaySdkProxy(iAlipaySdkServiceProxy);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void addDxmPaySdkProxy(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
-        this.f72044b.addDxmPaySdkProxy(iDxmSdkServiceProxy);
+        this.f72148b.addDxmPaySdkProxy(iDxmSdkServiceProxy);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
-        this.f72044b.addPayListener(iAppPayServiceListener);
+        this.f72148b.addPayListener(iAppPayServiceListener);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void addWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
-        this.f72044b.addWechatSdkProxy(iWechatSdkServiceProxy);
+        this.f72148b.addWechatSdkProxy(iWechatSdkServiceProxy);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0046  */
@@ -146,12 +146,12 @@ public final class a implements IMiddlePayService {
                     map2 = map;
                     map3 = appServerExpand;
                     aVar = this;
-                    payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1992a(iPayCallback));
+                    payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1995a(iPayCallback));
                 }
             }
             aVar = this;
             map2 = map;
-            payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1992a(iPayCallback));
+            payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1995a(iPayCallback));
         }
     }
 
@@ -159,11 +159,11 @@ public final class a implements IMiddlePayService {
         ChargeCurrencyReqParams chargeCurrencyReqParams = new ChargeCurrencyReqParams();
         chargeCurrencyReqParams.setUid(j);
         chargeCurrencyReqParams.setToken(str);
-        chargeCurrencyReqParams.setAppId(this.f72043a.getAppId());
+        chargeCurrencyReqParams.setAppId(this.f72147a.getAppId());
         chargeCurrencyReqParams.setSid(0);
         chargeCurrencyReqParams.setUsedChannel(i2);
         chargeCurrencyReqParams.setCurrencyType(i3);
-        chargeCurrencyReqParams.setClientVersion(this.f72043a.getVersion());
+        chargeCurrencyReqParams.setClientVersion(this.f72147a.getVersion());
         chargeCurrencyReqParams.setSubscriptionType(i4);
         chargeCurrencyReqParams.setExpand(str3);
         chargeCurrencyReqParams.setReturnUrl(str2);
@@ -231,9 +231,9 @@ public final class a implements IMiddlePayService {
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void exchangeCurrency(ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult) {
-        exchangeCurrencyReqParams.setAppId(this.f72043a.getAppId());
-        exchangeCurrencyReqParams.setClientVersion(this.f72043a.getVersion());
-        this.f72044b.exchangeCurrency(exchangeCurrencyReqParams, iResult);
+        exchangeCurrencyReqParams.setAppId(this.f72147a.getAppId());
+        exchangeCurrencyReqParams.setClientVersion(this.f72147a.getVersion());
+        this.f72148b.exchangeCurrency(exchangeCurrencyReqParams, iResult);
     }
 
     public final void f(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i2, int i3, IMiddlePayService.SubscriptType subscriptType, IMiddlePayService.ChargeSource chargeSource, String str2, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str3) {
@@ -246,85 +246,85 @@ public final class a implements IMiddlePayService {
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public boolean isPayingStatus(PayType payType) {
-        return this.f72044b.isPayingStatus(payType);
+        return this.f72148b.isPayingStatus(payType);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public boolean isSupported(Activity activity, PayType payType) {
-        return this.f72044b.isSupported(activity, payType);
+        return this.f72148b.isSupported(activity, payType);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void onWxPayResult(int i2, String str) {
-        this.f72044b.onWxPayResult(i2, str);
+        this.f72148b.onWxPayResult(i2, str);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, IPayCallback<String> iPayCallback) {
-        this.f72044b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback);
+        this.f72148b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
-        this.f72044b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
+        this.f72148b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
-        getChargeOrderStatusReqParams.setAppId(this.f72043a.getAppId());
-        this.f72044b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
+        getChargeOrderStatusReqParams.setAppId(this.f72147a.getAppId());
+        this.f72148b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
-        this.f72044b.queryMyBalance(queryCurrencyReqParams, iResult);
+        this.f72148b.queryMyBalance(queryCurrencyReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
-        queryCurrencyReqParams.setAppId(this.f72043a.getAppId());
-        this.f72044b.queryProductList(queryCurrencyReqParams, iResult);
+        queryCurrencyReqParams.setAppId(this.f72147a.getAppId());
+        this.f72148b.queryProductList(queryCurrencyReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryProductListChannels(QueryCurrencyChannelsReqParams queryCurrencyChannelsReqParams, IResult<ProductListResult> iResult) {
-        queryCurrencyChannelsReqParams.setAppId(this.f72043a.getAppId());
-        this.f72044b.queryProductListChannels(queryCurrencyChannelsReqParams, iResult);
+        queryCurrencyChannelsReqParams.setAppId(this.f72147a.getAppId());
+        this.f72148b.queryProductListChannels(queryCurrencyChannelsReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryRechargeHistory(QueryRechargeHistoryReqParams queryRechargeHistoryReqParams, IResult<RechargeHistoryResult> iResult) {
-        this.f72044b.queryRechargeHistory(queryRechargeHistoryReqParams, iResult);
+        this.f72148b.queryRechargeHistory(queryRechargeHistoryReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryUserYbDetailsRequest(GetUserYbDetailsReqParams getUserYbDetailsReqParams, IResult<GetUserYbDetailsResult> iResult) {
-        getUserYbDetailsReqParams.setAppId(this.f72043a.getAppId());
-        this.f72044b.queryUserYbDetailsRequest(getUserYbDetailsReqParams, iResult);
+        getUserYbDetailsReqParams.setAppId(this.f72147a.getAppId());
+        this.f72148b.queryUserYbDetailsRequest(getUserYbDetailsReqParams, iResult);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void registerPayReporter(IPayReporter iPayReporter) {
-        this.f72044b.registerPayReporter(iPayReporter);
+        this.f72148b.registerPayReporter(iPayReporter);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
-        this.f72044b.removePayListener(iAppPayServiceListener);
+        this.f72148b.removePayListener(iAppPayServiceListener);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void reportPayEntrancePage(int i2) {
-        this.f72044b.reportPayEntrancePage(i2);
+        this.f72148b.reportPayEntrancePage(i2);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void requestPay(Activity activity, PayType payType, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
-        this.f72044b.requestPay(activity, payType, str, str2, z, iPayCallback);
+        this.f72148b.requestPay(activity, payType, str, str2, z, iPayCallback);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i2, int i3, int i4, IPayCallback<String> iPayCallback) {
-        this.f72044b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i2, i3, i4, iPayCallback);
+        this.f72148b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i2, i3, i4, iPayCallback);
     }
 }

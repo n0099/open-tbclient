@@ -31,8 +31,8 @@ import com.baidu.tieba.R;
 import d.a.c.a.f;
 import d.a.c.a.j;
 import d.a.c.c.f.b;
-import d.a.m0.l.a;
-import d.a.m0.r.u.c;
+import d.a.n0.l.a;
+import d.a.n0.r.u.c;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
@@ -142,7 +142,7 @@ public class FullBrowseHelper {
         }
         textView2.setMovementMethod(LinkMovementMethod.getInstance());
         textView2.setText(spannableString);
-        final d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(fVar.getPageActivity());
+        final d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(fVar.getPageActivity());
         aVar.setContentView(inflate);
         aVar.setContentViewSize(8);
         aVar.setCanceledOnTouchOutside(false);
@@ -173,7 +173,7 @@ public class FullBrowseHelper {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1));
-                d.a.m0.r.s.a.this.dismiss();
+                d.a.n0.r.s.a.this.dismiss();
             }
         });
         aVar.create(fVar);

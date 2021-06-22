@@ -24,31 +24,31 @@ public class j {
     public long j;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkInfo f42520a = null;
+    public NetworkInfo f42623a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42521b = true;
+    public boolean f42624b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42522c = false;
+    public boolean f42625c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42523d = true;
+    public boolean f42626d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42524e = 0;
+    public int f42627e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42525f = 0;
+    public int f42628f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42526g = -1;
+    public int f42629g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42527h = null;
+    public String f42630h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42528i = -1;
+    public int f42631i = -1;
     public boolean k = true;
     public Runnable l = new a(this);
 
@@ -297,10 +297,10 @@ public class j {
     }
 
     public boolean G() {
-        if (this.f42520a == null) {
+        if (this.f42623a == null) {
             j();
         }
-        return this.f42521b;
+        return this.f42624b;
     }
 
     public final void N(long j) {
@@ -325,82 +325,82 @@ public class j {
     }
 
     public int i() {
-        if (this.f42520a == null) {
+        if (this.f42623a == null) {
             j();
         }
-        return this.f42525f;
+        return this.f42628f;
     }
 
     public final void j() {
         NetworkInfo h2 = h();
-        this.f42520a = h2;
+        this.f42623a = h2;
         if (h2 != null) {
             if (h2.getType() == 1) {
-                this.f42521b = true;
-                this.f42522c = false;
+                this.f42624b = true;
+                this.f42625c = false;
             } else if (h2.getType() == 0) {
-                this.f42521b = false;
-                this.f42522c = true;
+                this.f42624b = false;
+                this.f42625c = true;
             } else {
-                this.f42521b = false;
-                this.f42522c = false;
+                this.f42624b = false;
+                this.f42625c = false;
             }
-            this.f42523d = true;
+            this.f42626d = true;
             int subtype = h2.getSubtype();
-            this.f42524e = subtype;
-            if (this.f42522c) {
-                this.f42525f = n(subtype);
+            this.f42627e = subtype;
+            if (this.f42625c) {
+                this.f42628f = n(subtype);
             } else {
-                this.f42525f = 0;
+                this.f42628f = 0;
             }
         } else {
-            this.f42521b = false;
-            this.f42522c = false;
-            this.f42523d = false;
-            this.f42524e = 0;
-            this.f42524e = 0;
+            this.f42624b = false;
+            this.f42625c = false;
+            this.f42626d = false;
+            this.f42627e = 0;
+            this.f42627e = 0;
         }
-        this.f42526g = L();
-        this.f42527h = Proxy.getDefaultHost();
-        this.f42528i = Proxy.getDefaultPort();
+        this.f42629g = L();
+        this.f42630h = Proxy.getDefaultHost();
+        this.f42631i = Proxy.getDefaultPort();
     }
 
     public int o() {
-        if (this.f42526g == -1) {
+        if (this.f42629g == -1) {
             try {
-                this.f42526g = L();
+                this.f42629g = L();
             } catch (Exception unused) {
-                this.f42526g = 0;
+                this.f42629g = 0;
             }
         }
-        return this.f42526g;
+        return this.f42629g;
     }
 
     public String p() {
-        if (this.f42527h == null) {
-            this.f42527h = Proxy.getDefaultHost();
+        if (this.f42630h == null) {
+            this.f42630h = Proxy.getDefaultHost();
         }
-        return this.f42527h;
+        return this.f42630h;
     }
 
     public int q() {
-        if (-1 == this.f42528i) {
-            this.f42528i = Proxy.getDefaultPort();
+        if (-1 == this.f42631i) {
+            this.f42631i = Proxy.getDefaultPort();
         }
-        return this.f42528i;
+        return this.f42631i;
     }
 
     public boolean w() {
-        if (this.f42520a == null) {
+        if (this.f42623a == null) {
             j();
         }
-        return this.f42522c;
+        return this.f42625c;
     }
 
     public boolean y() {
-        if (this.f42520a == null) {
+        if (this.f42623a == null) {
             j();
         }
-        return this.f42523d;
+        return this.f42626d;
     }
 }

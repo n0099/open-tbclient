@@ -7,45 +7,45 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f69941a = false;
+    public boolean f70045a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f69942b;
+    public final /* synthetic */ InstallActivity f70046b;
 
     public m(InstallActivity installActivity) {
-        this.f69942b = installActivity;
+        this.f70046b = installActivity;
     }
 
     public void a(com.google.ar.core.p pVar) {
-        synchronized (this.f69942b) {
-            if (this.f69941a) {
+        synchronized (this.f70046b) {
+            if (this.f70045a) {
                 return;
             }
-            InstallActivity.access$402(this.f69942b, pVar);
+            InstallActivity.access$402(this.f70046b, pVar);
             int ordinal = pVar.ordinal();
             if (ordinal != 0) {
                 if (ordinal == 1) {
-                    InstallActivity.access$000(this.f69942b, new UnavailableUserDeclinedInstallationException());
+                    InstallActivity.access$000(this.f70046b, new UnavailableUserDeclinedInstallationException());
                 } else if (ordinal == 2) {
-                    if (!InstallActivity.access$500(this.f69942b)) {
-                        InstallActivity.access$600(this.f69942b);
+                    if (!InstallActivity.access$500(this.f70046b)) {
+                        InstallActivity.access$600(this.f70046b);
                     }
-                    InstallActivity.access$000(this.f69942b, null);
+                    InstallActivity.access$000(this.f70046b, null);
                 }
-                this.f69941a = true;
+                this.f70045a = true;
             }
         }
     }
 
     public void b(Exception exc) {
-        synchronized (this.f69942b) {
-            if (this.f69941a) {
+        synchronized (this.f70046b) {
+            if (this.f70045a) {
                 return;
             }
-            this.f69941a = true;
-            InstallActivity.access$402(this.f69942b, com.google.ar.core.p.CANCELLED);
+            this.f70045a = true;
+            InstallActivity.access$402(this.f70046b, com.google.ar.core.p.CANCELLED);
             boolean z = exc instanceof UnavailableException;
-            InstallActivity.access$000(this.f69942b, exc);
+            InstallActivity.access$000(this.f70046b, exc);
         }
     }
 }

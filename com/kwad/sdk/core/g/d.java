@@ -5,39 +5,39 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34303a = false;
+    public static boolean f34401a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f34304b = false;
+    public static volatile boolean f34402b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f34305c;
+    public static Context f34403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f34306d;
+    public static a f34404d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
         void a(@NonNull SdkConfigData sdkConfigData);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            com.kwad.sdk.core.config.c.a(d.f34305c);
-            if (d.f34306d != null) {
-                d.f34306d.a();
+            com.kwad.sdk.core.config.c.a(d.f34403c);
+            if (d.f34404d != null) {
+                d.f34404d.a();
             }
-            if (!d.f34303a) {
-                com.kwad.sdk.core.report.e.a(d.f34305c);
-                boolean unused = d.f34303a = true;
+            if (!d.f34401a) {
+                com.kwad.sdk.core.report.e.a(d.f34403c);
+                boolean unused = d.f34401a = true;
             }
             d.a();
         }
@@ -91,10 +91,10 @@ public class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull c cVar, @NonNull SdkConfigData sdkConfigData) {
-                com.kwad.sdk.core.config.b.a(d.f34305c);
-                com.kwad.sdk.core.config.c.a(d.f34305c, sdkConfigData);
-                if (d.f34306d != null) {
-                    d.f34306d.a(sdkConfigData);
+                com.kwad.sdk.core.config.b.a(d.f34403c);
+                com.kwad.sdk.core.config.c.a(d.f34403c, sdkConfigData);
+                if (d.f34404d != null) {
+                    d.f34404d.a(sdkConfigData);
                 }
             }
         });
@@ -102,11 +102,11 @@ public class d {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (d.class) {
-            if (!f34304b) {
-                f34305c = context;
-                f34304b = true;
+            if (!f34402b) {
+                f34403c = context;
+                f34402b = true;
             }
-            f34306d = aVar;
+            f34404d = aVar;
             com.kwad.sdk.utils.f.a(new b());
         }
     }

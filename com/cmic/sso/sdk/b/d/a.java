@@ -3,22 +3,22 @@ package com.cmic.sso.sdk.b.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30640a;
+    public int f30722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30641b;
+    public String f30723b;
 
     public a(int i2, String str) {
-        this.f30640a = i2;
-        this.f30641b = str;
+        this.f30722a = i2;
+        this.f30723b = str;
     }
 
     public int a() {
-        return this.f30640a;
+        return this.f30722a;
     }
 
     public String b() {
-        return this.f30641b;
+        return this.f30723b;
     }
 
     public static a a(int i2) {

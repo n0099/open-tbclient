@@ -4,14 +4,14 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import d.a.m0.k0.d;
-/* loaded from: classes3.dex */
+import d.a.n0.k0.d;
+/* loaded from: classes4.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
     public MemberCenterFragment mFragment;
     public FragmentManager mFragmentManager;
     public FragmentTransaction mFragmentTransaction;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "b016";
     }
@@ -20,7 +20,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53110a = true;
+            pageStayDurationItem.f53217a = true;
         }
         return pageStayDurationItem;
     }

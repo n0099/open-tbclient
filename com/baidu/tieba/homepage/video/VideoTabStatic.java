@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.video.message.VideoTabHttpResMessage;
 import com.baidu.tieba.homepage.video.message.VideoTabSocketResMessage;
-import d.a.m0.v0.b;
-import d.a.n0.e3.d0.a;
+import d.a.n0.v0.b;
+import d.a.o0.e3.d0.a;
 /* loaded from: classes4.dex */
 public class VideoTabStatic {
     static {

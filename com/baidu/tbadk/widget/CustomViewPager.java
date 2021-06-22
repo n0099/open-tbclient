@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 public class CustomViewPager extends TbViewPager {
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13019i;
+    public boolean f13101i;
     public int j;
     public boolean k;
     public int l;
@@ -60,7 +60,7 @@ public class CustomViewPager extends TbViewPager {
 
     public CustomViewPager(Context context) {
         super(context);
-        this.f13019i = true;
+        this.f13101i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;
@@ -85,7 +85,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.f13019i) {
+        if (!this.f13101i) {
             GestureDetector gestureDetector = this.n;
             if (gestureDetector != null) {
                 return gestureDetector.onTouchEvent(motionEvent);
@@ -104,7 +104,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f13019i) {
+        if (this.f13101i) {
             return super.onTouchEvent(motionEvent);
         }
         return false;
@@ -116,17 +116,17 @@ public class CustomViewPager extends TbViewPager {
     }
 
     public void setScrollable(boolean z) {
-        this.f13019i = z;
+        this.f13101i = z;
     }
 
     public void setScrollable(boolean z, GestureDetector gestureDetector) {
-        this.f13019i = z;
+        this.f13101i = z;
         this.n = gestureDetector;
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13019i = true;
+        this.f13101i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;

@@ -200,7 +200,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            c.f68355a = z;
+            c.f68437a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
@@ -416,8 +416,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.a.s.a.f68181e = a.d(applicationContext);
-        if (d.a.s.a.f68181e) {
+        d.a.s.a.f68195e = a.d(applicationContext);
+        if (d.a.s.a.f68195e) {
             try {
                 initLCP();
                 c.c(applicationContext, i2 != 0);
@@ -442,7 +442,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.a.s.a.f68179c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.a.s.a.f68193c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -701,7 +701,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.a.s.a.f68179c.postDelayed(checkIMLoginState, 30000L);
+            d.a.s.a.f68193c.postDelayed(checkIMLoginState, 30000L);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -853,7 +853,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (d.a.s.a.f68181e) {
+        if (d.a.s.a.f68195e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

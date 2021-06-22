@@ -7,19 +7,19 @@ import java.util.List;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public b f35746d;
+    public b f35844d;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35748f;
+    public int f35846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35749g;
+    public int f35847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35750h;
+    public boolean f35848h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35751i;
+    public int f35849i;
     public int j;
     public int k;
     @ColorInt
@@ -27,31 +27,31 @@ public class c {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f35743a = null;
+    public int[] f35841a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35744b = 0;
+    public int f35842b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35745c = 0;
+    public int f35843c = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<b> f35747e = new ArrayList();
+    public final List<b> f35845e = new ArrayList();
     public int m = -1;
 
     public int a() {
-        return this.f35749g;
+        return this.f35847g;
     }
 
     public int b() {
-        return this.f35748f;
+        return this.f35846f;
     }
 
     public int c() {
-        return this.f35745c;
+        return this.f35843c;
     }
 
     public int d() {
-        return this.f35744b;
+        return this.f35842b;
     }
 }

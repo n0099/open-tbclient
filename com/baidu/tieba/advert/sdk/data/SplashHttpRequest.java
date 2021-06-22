@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.n0.t.a.f.d;
-import d.a.n0.t.a.i.c;
+import d.a.o0.t.a.f.d;
+import d.a.o0.t.a.i.c;
 /* loaded from: classes4.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static final TbHttpMessageTask mTask;

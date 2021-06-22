@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.a.n0.r0.m1.a;
+import d.a.o0.r0.m1.a;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
             Integer num = error.errorno;
             if (num != null) {
                 setError(num.intValue());
-                this.responseData.f62588h = a2.error.errorno.intValue();
+                this.responseData.f62713h = a2.error.errorno.intValue();
             }
             setErrorString(a2.error.usermsg);
         }

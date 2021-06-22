@@ -19,7 +19,7 @@ public class QuantumChannel extends d.a.q.e.a {
     public static final int k = d.a.q.e.c.a.a(8);
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1846a f6225f;
+    public a.C1848a f6225f;
 
     /* renamed from: g  reason: collision with root package name */
     public d f6226g;
@@ -196,7 +196,7 @@ public class QuantumChannel extends d.a.q.e.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1840a f6239a;
+        public a.C1842a f6239a;
 
         /* renamed from: b  reason: collision with root package name */
         public byte[] f6240b;
@@ -456,11 +456,11 @@ public class QuantumChannel extends d.a.q.e.a {
     public a.h b(String str, a.g gVar) {
         h hVar;
         try {
-            Object b2 = this.f6227h.b(this.f67809a.f67813a);
+            Object b2 = this.f6227h.b(this.f67765a.f67769a);
             if (b2 == null) {
                 return a.h.b(-101, null);
             }
-            if (gVar.f67819a) {
+            if (gVar.f67775a) {
                 hVar = new h(this, str);
                 hVar.d();
                 if (str.equals(hVar.f())) {
@@ -486,45 +486,45 @@ public class QuantumChannel extends d.a.q.e.a {
                 try {
                     if (!p(b2, str)) {
                         a.h b3 = a.h.b(-2, null);
-                        if (gVar.f67819a && hVar != null) {
+                        if (gVar.f67775a && hVar != null) {
                             hVar.b();
                         }
                         return b3;
                     }
                     String i2 = d.a.q.h.c.a.i(o(b2, str));
                     int i3 = i(b2, str);
-                    if (gVar.f67819a && hVar != null) {
+                    if (gVar.f67775a && hVar != null) {
                         hVar.k(i2);
                         hVar.i(str);
                         hVar.h(System.currentTimeMillis());
                         hVar.g(i3);
                     }
                     a.h e3 = a.h.e(i2);
-                    if (gVar.f67819a && hVar != null) {
+                    if (gVar.f67775a && hVar != null) {
                         hVar.b();
                     }
                     return e3;
                 } catch (Throwable th) {
-                    if (gVar.f67819a && hVar != null) {
+                    if (gVar.f67775a && hVar != null) {
                         hVar.b();
                     }
                     throw th;
                 }
             } catch (b e4) {
                 a.h c2 = a.h.c(e4);
-                if (gVar.f67819a && hVar != null) {
+                if (gVar.f67775a && hVar != null) {
                     hVar.b();
                 }
                 return c2;
             } catch (g unused3) {
                 a.h a2 = a.h.a(-102);
-                if (gVar.f67819a && hVar != null) {
+                if (gVar.f67775a && hVar != null) {
                     hVar.b();
                 }
                 return a2;
             } catch (d.a unused4) {
                 a.h b4 = a.h.b(-2, null);
-                if (gVar.f67819a && hVar != null) {
+                if (gVar.f67775a && hVar != null) {
                     hVar.b();
                 }
                 return b4;
@@ -536,8 +536,8 @@ public class QuantumChannel extends d.a.q.e.a {
 
     @Override // d.a.q.e.a
     public void e(a.d dVar) {
-        this.f6225f = this.f67810b.f("csc");
-        this.f6227h = new f(this.f67809a.f67813a);
+        this.f6225f = this.f67766b.f("csc");
+        this.f6227h = new f(this.f67765a.f67769a);
         this.f6228i = new c();
     }
 
@@ -579,7 +579,7 @@ public class QuantumChannel extends d.a.q.e.a {
         long j2;
         int i2;
         String i3;
-        Context context = this.f67809a.f67813a;
+        Context context = this.f67765a.f67769a;
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
         try {
@@ -589,7 +589,7 @@ public class QuantumChannel extends d.a.q.e.a {
             if (!z && this.f6226g.f(6L) == 4) {
                 return a.f.b(-101);
             }
-            d.a.q.h.a a2 = this.f67809a.f67815c.a("aid");
+            d.a.q.h.a a2 = this.f67765a.f67771c.a("aid");
             try {
                 Object b2 = this.f6227h.b(context);
                 if (b2 == null) {

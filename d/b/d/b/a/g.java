@@ -25,35 +25,35 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f69591a = false;
+    public static boolean f69695a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69592b = true;
+    public static boolean f69696b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f69593c;
+    public static int f69697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<d> f69594d;
+    public static List<d> f69698d;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f69597g;
+    public static long f69701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HandlerThread f69598h;
+    public static HandlerThread f69702h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f69599i;
+    public static long f69703i;
     public static long j;
     public static Handler k;
     public static int l;
     public static boolean m;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile AtomicLong f69595e = new AtomicLong(-1);
+    public static volatile AtomicLong f69699e = new AtomicLong(-1);
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f69596f = 100;
+    public static long f69700f = 100;
     public static volatile String n = null;
     public static volatile boolean o = false;
     public static int p = -1;
@@ -69,14 +69,14 @@ public class g {
         @Override // android.util.Printer
         public void println(String str) {
             int i2;
-            if (g.f69592b) {
+            if (g.f69696b) {
                 String unused = g.n = str;
                 if (!g.m) {
                     boolean unused2 = g.m = true;
                     int unused3 = g.p = Process.myTid();
                     g.I();
                 }
-                g.q = g.f69595e.get();
+                g.q = g.f69699e.get();
                 if (g.r == -1) {
                     return;
                 }
@@ -96,9 +96,9 @@ public class g {
                     long J = g.J();
                     long uptimeMillis = SystemClock.uptimeMillis();
                     if (!g.o) {
-                        g.o(g.H(), J - g.f69599i, uptimeMillis - g.j, j, i2, g.l, null);
+                        g.o(g.H(), J - g.f69703i, uptimeMillis - g.j, j, i2, g.l, null);
                     }
-                    long unused4 = g.f69599i = J;
+                    long unused4 = g.f69703i = J;
                     long unused5 = g.j = uptimeMillis;
                     int unused6 = g.l = 1;
                     return;
@@ -113,7 +113,7 @@ public class g {
         @Override // android.util.Printer
         public void println(String str) {
             int i2;
-            g.r = g.f69595e.get();
+            g.r = g.f69699e.get();
             if (g.q <= 0) {
                 return;
             }
@@ -134,9 +134,9 @@ public class g {
                 i2 = 4;
             }
             if (!g.o) {
-                g.o(g.H(), J - g.f69599i, uptimeMillis - g.j, j, i2, g.l, str);
+                g.o(g.H(), J - g.f69703i, uptimeMillis - g.j, j, i2, g.l, str);
             }
-            long unused = g.f69599i = J;
+            long unused = g.f69703i = J;
             long unused2 = g.j = uptimeMillis;
             int unused3 = g.l = 0;
             g.q = -1L;
@@ -148,13 +148,13 @@ public class g {
         @Override // java.lang.Runnable
         public void run() {
             long j;
-            g.f69595e.set((SystemClock.uptimeMillis() - g.f69597g) / g.f69596f);
-            long uptimeMillis = (SystemClock.uptimeMillis() - g.f69597g) % g.f69596f;
+            g.f69699e.set((SystemClock.uptimeMillis() - g.f69701g) / g.f69700f);
+            long uptimeMillis = (SystemClock.uptimeMillis() - g.f69701g) % g.f69700f;
             if (uptimeMillis >= 95) {
-                g.f69595e.incrementAndGet();
-                j = g.f69596f << 1;
+                g.f69699e.incrementAndGet();
+                j = g.f69700f << 1;
             } else {
-                j = g.f69596f;
+                j = g.f69700f;
             }
             g.k.postDelayed(this, j - uptimeMillis);
         }
@@ -164,74 +164,74 @@ public class g {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f69600a;
+        public int f69704a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f69601b;
+        public int f69705b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f69602c;
+        public long f69706c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f69603d;
+        public long f69707d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f69604e;
+        public long f69708e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f69605f;
+        public boolean f69709f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f69606g;
+        public String f69710g;
 
         public String toString() {
-            int i2 = this.f69601b;
+            int i2 = this.f69705b;
             if (i2 == 0) {
-                return "[[[ IDLE  ]]] cost " + this.f69602c + " tick , mDuration：" + this.f69603d + ",cpuTime:" + this.f69604e;
+                return "[[[ IDLE  ]]] cost " + this.f69706c + " tick , mDuration：" + this.f69707d + ",cpuTime:" + this.f69708e;
             } else if (i2 == 1) {
-                return "[[[ Long IDLE  ]]] cost " + this.f69602c + " tick , mDuration：" + this.f69603d + ",cpuTime:" + this.f69604e;
+                return "[[[ Long IDLE  ]]] cost " + this.f69706c + " tick , mDuration：" + this.f69707d + ",cpuTime:" + this.f69708e;
             } else if (i2 == 2) {
-                return "[[[  1 msg  ]]] cost " + this.f69602c + " tick , mDuration：" + this.f69603d + ",cpuTime:" + this.f69604e + ", msg:" + this.f69606g;
+                return "[[[  1 msg  ]]] cost " + this.f69706c + " tick , mDuration：" + this.f69707d + ",cpuTime:" + this.f69708e + ", msg:" + this.f69710g;
             } else if (i2 == 3) {
-                return "[[[ 1 msg + IDLE  ]]] cost " + this.f69602c + " tick , mDuration：" + this.f69603d + ",cpuTime:" + this.f69604e;
+                return "[[[ 1 msg + IDLE  ]]] cost " + this.f69706c + " tick , mDuration：" + this.f69707d + ",cpuTime:" + this.f69708e;
             } else if (i2 == 4) {
-                return "[[[ " + (this.f69600a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.f69602c - 1) + "tick ,, mDuration：" + this.f69603d + "cpuTime:" + this.f69604e + " msg:" + this.f69606g;
+                return "[[[ " + (this.f69704a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.f69706c - 1) + "tick ,, mDuration：" + this.f69707d + "cpuTime:" + this.f69708e + " msg:" + this.f69710g;
             } else if (i2 == 5) {
-                return "[[[ " + this.f69600a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.f69602c - 1) + " ticks, , mDuration：" + this.f69603d + "cpuTime:" + this.f69604e;
+                return "[[[ " + this.f69704a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.f69706c - 1) + " ticks, , mDuration：" + this.f69707d + "cpuTime:" + this.f69708e;
             } else if (i2 == 6) {
-                return "[[[  1 msg  ]]] cost less than 1 tick , but [[[  IDLE ]]] cost more than" + (this.f69602c - 1) + ", , mDuration：" + this.f69603d + "cpuTime:" + this.f69604e;
+                return "[[[  1 msg  ]]] cost less than 1 tick , but [[[  IDLE ]]] cost more than" + (this.f69706c - 1) + ", , mDuration：" + this.f69707d + "cpuTime:" + this.f69708e;
             } else if (i2 == 7) {
-                return "[[[ " + this.f69600a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.f69603d + " cost cpuTime:" + this.f69604e;
+                return "[[[ " + this.f69704a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.f69707d + " cost cpuTime:" + this.f69708e;
             } else if (i2 == 8) {
-                return "[[[ 1 msgs ]]] cost " + this.f69602c + " ticks , mDuration：" + this.f69603d + " cost cpuTime:" + this.f69604e + " msg:" + this.f69606g;
+                return "[[[ 1 msgs ]]] cost " + this.f69706c + " ticks , mDuration：" + this.f69707d + " cost cpuTime:" + this.f69708e + " msg:" + this.f69710g;
             } else if (i2 == 9) {
-                return "[[[ " + this.f69600a + " msgs ]]] cost 1 tick , mDuration：" + this.f69603d + " cost cpuTime:" + this.f69604e;
+                return "[[[ " + this.f69704a + " msgs ]]] cost 1 tick , mDuration：" + this.f69707d + " cost cpuTime:" + this.f69708e;
             } else {
-                return "=========   UNKNOW =========  Type:" + this.f69601b + " cost ticks " + this.f69602c + " msgs:" + this.f69600a;
+                return "=========   UNKNOW =========  Type:" + this.f69705b + " cost ticks " + this.f69706c + " msgs:" + this.f69704a;
             }
         }
     }
 
     public static d H() {
-        int size = f69594d.size();
-        int i2 = f69593c;
+        int size = f69698d.size();
+        int i2 = f69697c;
         if (size == i2) {
             int i3 = (s + 1) % i2;
             s = i3;
-            return f69594d.get(i3);
+            return f69698d.get(i3);
         }
         d dVar = new d();
-        f69594d.add(dVar);
+        f69698d.add(dVar);
         s++;
         return dVar;
     }
 
     public static void I() {
-        f69598h = i.a();
-        f69597g = SystemClock.uptimeMillis();
-        k = new Handler(f69598h.getLooper());
+        f69702h = i.a();
+        f69701g = SystemClock.uptimeMillis();
+        k = new Handler(f69702h.getLooper());
         h.a(8L);
-        k.postDelayed(new c(), f69596f);
+        k.postDelayed(new c(), f69700f);
     }
 
     public static long J() {
@@ -246,7 +246,7 @@ public class g {
                 v = declaredField;
                 declaredField.setAccessible(true);
                 Message message2 = (Message) v.get(message);
-                if (f69591a) {
+                if (f69695a) {
                     Log.i("LooperMonitor", "[getNextMessage] success get next msg :" + message2);
                 }
                 return message2;
@@ -313,8 +313,8 @@ public class g {
         try {
             jSONObject.put("message", n);
             jSONObject.put("currentMessageCost", s());
-            jSONObject.put("currentMessageCpu", J() - f69599i);
-            jSONObject.put("currentTick", f69595e.get());
+            jSONObject.put("currentMessageCpu", J() - f69703i);
+            jSONObject.put("currentTick", f69699e.get());
         } catch (Throwable th) {
             l.k.b(th);
         }
@@ -353,19 +353,19 @@ public class g {
         d.b.d.b.h.g.a().h();
         d.b.d.b.h.g.a().i(new a());
         d.b.d.b.h.g.a().d(new b());
-        f69599i = J();
+        f69703i = J();
         j = SystemClock.uptimeMillis();
     }
 
     public static void i(int i2, int i3) {
-        if (f69592b) {
+        if (f69696b) {
             if (i2 > 10) {
-                f69593c = i2;
+                f69697c = i2;
             }
             if (i3 > 10) {
-                f69596f = i3;
+                f69700f = i3;
             }
-            f69594d = new ArrayList();
+            f69698d = new ArrayList();
             h();
             c(r());
         }
@@ -383,12 +383,12 @@ public class g {
                 i2++;
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("msg", dVar.f69606g);
-                    jSONObject.put("cpuDuration", dVar.f69604e);
-                    jSONObject.put("duration", dVar.f69603d);
-                    jSONObject.put("tick", dVar.f69602c);
-                    jSONObject.put("type", dVar.f69601b);
-                    jSONObject.put("count", dVar.f69600a);
+                    jSONObject.put("msg", dVar.f69710g);
+                    jSONObject.put("cpuDuration", dVar.f69708e);
+                    jSONObject.put("duration", dVar.f69707d);
+                    jSONObject.put("tick", dVar.f69706c);
+                    jSONObject.put("type", dVar.f69705b);
+                    jSONObject.put("count", dVar.f69704a);
                     jSONObject.put("id", i2);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -400,32 +400,32 @@ public class g {
     }
 
     public static void o(d dVar, long j2, long j3, long j4, int i2, int i3, String str) {
-        dVar.f69604e = j2;
-        dVar.f69602c = j4;
-        dVar.f69603d = j3;
-        dVar.f69605f = false;
-        dVar.f69600a = i3;
+        dVar.f69708e = j2;
+        dVar.f69706c = j4;
+        dVar.f69707d = j3;
+        dVar.f69709f = false;
+        dVar.f69704a = i3;
         if (str != null) {
-            dVar.f69606g = str;
+            dVar.f69710g = str;
         }
-        dVar.f69601b = i2;
+        dVar.f69705b = i2;
     }
 
     public static List<d> q() {
-        if (f69594d == null) {
+        if (f69698d == null) {
             return null;
         }
         o = true;
         ArrayList arrayList = new ArrayList();
-        if (f69594d.size() == f69593c) {
-            for (int i2 = s; i2 < f69594d.size(); i2++) {
-                arrayList.add(f69594d.get(i2));
+        if (f69698d.size() == f69697c) {
+            for (int i2 = s; i2 < f69698d.size(); i2++) {
+                arrayList.add(f69698d.get(i2));
             }
             for (int i3 = 0; i3 < s; i3++) {
-                arrayList.add(f69594d.get(i3));
+                arrayList.add(f69698d.get(i3));
             }
         } else {
-            arrayList.addAll(f69594d);
+            arrayList.addAll(f69698d);
         }
         o = false;
         return arrayList;
@@ -456,13 +456,13 @@ public class g {
         long j2;
         long j3;
         if (q < 0) {
-            uptimeMillis = SystemClock.uptimeMillis() - f69597g;
+            uptimeMillis = SystemClock.uptimeMillis() - f69701g;
             j2 = r;
-            j3 = f69596f;
+            j3 = f69700f;
         } else {
-            uptimeMillis = SystemClock.uptimeMillis() - f69597g;
+            uptimeMillis = SystemClock.uptimeMillis() - f69701g;
             j2 = q;
-            j3 = f69596f;
+            j3 = f69700f;
         }
         return uptimeMillis - (j2 * j3);
     }

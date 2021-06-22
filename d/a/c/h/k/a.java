@@ -20,11 +20,11 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f42831a = new Object();
+    public static Object f42934a = new Object();
 
     /* renamed from: d.a.c.h.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0551a implements Comparator<Object> {
+    public static class C0554a implements Comparator<Object> {
         @Override // java.util.Comparator
         public int compare(Object obj, Object obj2) {
             if ((obj instanceof String) && (obj2 instanceof String)) {
@@ -51,10 +51,10 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42832a;
+        public boolean f42935a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42833b;
+        public String f42936b;
     }
 
     public static Object b(Object obj, Object obj2) {
@@ -151,7 +151,7 @@ public class a {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
-        synchronized (f42831a) {
+        synchronized (f42934a) {
             boolean z2 = true;
             try {
                 Class.forName("dalvik.system.BaseDexClassLoader");
@@ -336,7 +336,7 @@ public class a {
                     for (String str2 : (String[]) g(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                         arrayList.add(str2);
                     }
-                    Collections.sort(arrayList, new C0551a());
+                    Collections.sort(arrayList, new C0554a());
                 } catch (Exception unused) {
                     p(pathClassLoader, PathClassLoader.class, "mLibPaths", d(g(pathClassLoader, PathClassLoader.class, "mLibPaths"), g(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                 }
@@ -360,8 +360,8 @@ public class a {
 
     public static c o(boolean z, Throwable th) {
         c cVar = new c();
-        cVar.f42832a = z;
-        cVar.f42833b = th != null ? th.getLocalizedMessage() : null;
+        cVar.f42935a = z;
+        cVar.f42936b = th != null ? th.getLocalizedMessage() : null;
         return cVar;
     }
 

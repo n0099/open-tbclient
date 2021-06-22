@@ -1,95 +1,125 @@
 package d.a.n0.z;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes4.dex */
-public abstract class b<T extends BaseCardInfo> implements View.OnClickListener {
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
+import d.a.c.e.m.h;
+import d.a.c.e.p.l;
+import d.a.n0.r.l.c;
+/* loaded from: classes3.dex */
+public class b {
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f67158e;
+    /* renamed from: b  reason: collision with root package name */
+    public static b f54757b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f67159f;
+    /* renamed from: a  reason: collision with root package name */
+    public UserData f54758a;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Context f67160g;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
 
-    /* renamed from: h  reason: collision with root package name */
-    public View f67161h;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AccountData f54759e;
 
-    /* renamed from: i  reason: collision with root package name */
-    public b0<T> f67162i;
-    public BdUniqueId j;
-    public String k;
-    public int l;
+        public a(b bVar, AccountData accountData) {
+            this.f54759e = accountData;
+        }
 
-    public b(TbPageContext<?> tbPageContext) {
-        this.f67158e = 3;
-        this.j = null;
-        this.f67159f = tbPageContext;
-        this.f67160g = tbPageContext.getPageActivity();
-        this.f67161h = LayoutInflater.from(b()).inflate(h(), (ViewGroup) null, false);
-    }
-
-    public Context b() {
-        return this.f67160g;
-    }
-
-    public String f() {
-        return this.k;
-    }
-
-    public abstract int h();
-
-    public b0<T> i() {
-        return this.f67162i;
-    }
-
-    public BdUniqueId j() {
-        return this.j;
-    }
-
-    public TbPageContext<?> k() {
-        return this.f67159f;
-    }
-
-    public View m() {
-        return this.f67161h;
-    }
-
-    public abstract void n(T t);
-
-    public abstract void o(TbPageContext<?> tbPageContext, int i2);
-
-    public void p(b0<T> b0Var) {
-        this.f67162i = b0Var;
-    }
-
-    public void q(BdUniqueId bdUniqueId) {
-        this.j = bdUniqueId;
-    }
-
-    public void s(int i2) {
-        View view = this.f67161h;
-        if (view != null) {
-            view.setVisibility(i2);
+        @Override // java.lang.Runnable
+        public void run() {
+            c.g(this.f54759e);
         }
     }
 
-    public void setFrom(String str) {
-        this.k = str;
+    public static b a() {
+        if (f54757b == null) {
+            synchronized (b.class) {
+                if (f54757b == null) {
+                    f54757b = new b();
+                }
+            }
+        }
+        return f54757b;
     }
 
-    public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        this.f67158e = 3;
-        this.j = null;
-        this.f67159f = tbPageContext;
-        this.f67160g = tbPageContext.getPageActivity();
-        this.f67161h = LayoutInflater.from(b()).inflate(h(), viewGroup, false);
+    public UserData b() {
+        return this.f54758a;
+    }
+
+    public void c() {
+        d.a.o0.e3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void d() {
+        GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            getUserInfoRequstData.setUid(d.a.c.e.m.b.f(currentAccountObj.getID(), 0L));
+        }
+        getUserInfoRequstData.setScreenWidth(l.k(TbadkCoreApplication.getInst().getApp()));
+        MessageManager.getInstance().sendMessage(getUserInfoRequstData);
+    }
+
+    public void e(UserData userData) {
+        this.f54758a = userData;
+        if (userData == null) {
+            return;
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj == null) {
+            currentAccountObj = new AccountData();
+        }
+        if (!StringUtils.isNull(userData.getUserName())) {
+            currentAccountObj.setAccount(userData.getUserName());
+        }
+        if (!StringUtils.isNull(userData.getPortrait())) {
+            currentAccountObj.setPortrait(userData.getPortrait());
+        }
+        if (userData.getBaijiahaoInfo() != null && !StringUtils.isNull(userData.getBaijiahaoInfo().avatar)) {
+            currentAccountObj.setBjhAvatar(userData.getBaijiahaoInfo().avatar);
+        }
+        currentAccountObj.setSex(userData.getSex());
+        currentAccountObj.setMemberType(userData.getIsMem());
+        currentAccountObj.setVipInfo(userData.getUserVipInfo());
+        currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
+        if (userData.getGodUserData() != null) {
+            currentAccountObj.setGodType(userData.getGodUserData().getType());
+        }
+        if (userData.getNewGodData() != null) {
+            currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
+        }
+        if (!TextUtils.isEmpty(userData.getUk())) {
+            currentAccountObj.setUk(userData.getUk());
+        }
+        currentAccountObj.setIsBigV(userData.isBigV());
+        currentAccountObj.setNameShow(userData.getName_show());
+        TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+        PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
+        if (currentAccountObj.getVipInfo() != null) {
+            currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
+        } else {
+            currentAccountObj.setMemberIconUrl(null);
+        }
+        CloseAdData closeAdData = userData.getCloseAdData();
+        if (closeAdData != null) {
+            currentAccountObj.setMemberCloseAdIsOpen(closeAdData.w());
+            currentAccountObj.setMemberCloseAdVipClose(closeAdData.x());
+        }
+        currentAccountObj.setUserIcons(userData.getIconInfo());
+        currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
+        h.a().c(new a(this, currentAccountObj));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
     }
 }

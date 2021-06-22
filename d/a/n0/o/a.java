@@ -1,52 +1,86 @@
 package d.a.n0.o;
 
-import d.a.c.e.p.k;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import d.a.n0.r.d0.b;
+import java.io.File;
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f61437a = new HashMap<>();
+    public static long f53374a = 604800000;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f61438b;
+    /* renamed from: d.a.n0.o.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static class C1188a extends CustomMessageListener {
 
-    /* renamed from: c  reason: collision with root package name */
-    public c f61439c;
+        /* renamed from: d.a.n0.o.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C1189a extends Thread {
+            public C1189a(C1188a c1188a) {
+            }
 
-    public a(c cVar, ArrayList<Integer> arrayList) {
-        this.f61438b = arrayList;
-        this.f61439c = cVar;
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                super.run();
+                try {
+                    ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                    a.c(TbadkCoreApplication.getInst().getCacheDir());
+                } catch (Exception unused) {
+                }
+            }
+        }
+
+        public C1188a(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            long l = b.j().l("key_clear_resource", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (l == 0) {
+                b.j().w("key_clear_resource", currentTimeMillis);
+                l = currentTimeMillis;
+            }
+            if (currentTimeMillis - l > a.f53374a) {
+                new C1189a(this).start();
+                b.j().w("key_clear_resource", currentTimeMillis);
+            }
+        }
     }
 
-    public int a(String str, int i2) {
-        ArrayList<Integer> arrayList;
-        if (this.f61437a == null || k.isEmpty(str) || (arrayList = this.f61438b) == null || !arrayList.contains(Integer.valueOf(i2))) {
-            return 0;
+    public static void c(File file) {
+        if (file == null) {
+            return;
         }
-        if (!this.f61437a.containsKey(str)) {
-            b(str);
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i2 = 0; i2 < listFiles.length; i2++) {
+                        if (listFiles[i2].isDirectory()) {
+                            c(listFiles[i2]);
+                        } else {
+                            listFiles[i2].delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            file.delete();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
-        b bVar = this.f61437a.get(str);
-        if (bVar == null) {
-            return 0;
-        }
-        return bVar.a(i2);
     }
 
-    public void b(String str) {
-        if (this.f61437a == null || k.isEmpty(str) || this.f61439c == null) {
-            return;
-        }
-        if (this.f61437a.containsKey(str)) {
-            b bVar = this.f61437a.get(str);
-            this.f61439c.b(this.f61438b, bVar);
-            this.f61437a.put(str, bVar);
-            return;
-        }
-        b bVar2 = new b();
-        this.f61439c.b(this.f61438b, bVar2);
-        this.f61437a.put(str, bVar2);
+    public static void d() {
+        MessageManager.getInstance().registerListener(new C1188a(2005016));
     }
 }

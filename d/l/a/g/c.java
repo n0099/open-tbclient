@@ -8,5 +8,5 @@ import kotlin.collections.SetsKt__SetsKt;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f70236a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", IAdRequestParam.COST_NAME, r.f7715a, "a", "z"});
+    public static final Set<String> f70340a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", IAdRequestParam.COST_NAME, r.f7715a, "a", "z"});
 }

@@ -13,10 +13,10 @@ import java.util.List;
 public final class ec implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22887a;
+    public final /* synthetic */ FeedbackReportActivity f22969a;
 
     public ec(FeedbackReportActivity feedbackReportActivity) {
-        this.f22887a = feedbackReportActivity;
+        this.f22969a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.d
@@ -39,64 +39,64 @@ public final class ec implements d {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         TextView textView3;
-        this.f22887a.p = i2;
-        i3 = this.f22887a.p;
+        this.f22969a.p = i2;
+        i3 = this.f22969a.p;
         if (i3 == 1) {
-            this.f22887a.q = true;
-            linearLayout4 = this.f22887a.o;
+            this.f22969a.q = true;
+            linearLayout4 = this.f22969a.o;
             linearLayout4.setVisibility(0);
             SpannableString spannableString = new SpannableString("上传截图*(请上传该视频在其他平台带发布时间的截图)");
             spannableString.setSpan(new ForegroundColorSpan(com.baidu.ufosdk.b.K), 4, 5, 34);
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 5, 26, 34);
             spannableString.setSpan(new AbsoluteSizeSpan(12, true), 5, 26, 34);
-            textView3 = this.f22887a.r;
+            textView3 = this.f22969a.r;
             textView3.setText(spannableString);
         }
-        i4 = this.f22887a.p;
+        i4 = this.f22969a.p;
         if (i4 == 2) {
-            linearLayout3 = this.f22887a.O;
+            linearLayout3 = this.f22969a.O;
             linearLayout3.setVisibility(0);
         }
-        i5 = this.f22887a.p;
+        i5 = this.f22969a.p;
         if (i5 == 3) {
-            this.f22887a.q = false;
-            linearLayout2 = this.f22887a.o;
+            this.f22969a.q = false;
+            linearLayout2 = this.f22969a.o;
             linearLayout2.setVisibility(8);
             SpannableString spannableString2 = new SpannableString("问题截图（系统自动截取）");
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 4, spannableString2.length(), 34);
             spannableString2.setSpan(new AbsoluteSizeSpan(12, true), 4, spannableString2.length(), 34);
-            bArr = this.f22887a.j;
+            bArr = this.f22969a.j;
             if (bArr != null) {
-                list = this.f22887a.x;
-                bArr2 = this.f22887a.j;
+                list = this.f22969a.x;
+                bArr2 = this.f22969a.j;
                 if (list.contains(bArr2)) {
-                    textView2 = this.f22887a.r;
+                    textView2 = this.f22969a.r;
                     textView2.setText(spannableString2);
                 }
             }
-            textView = this.f22887a.r;
+            textView = this.f22969a.r;
             textView.setText("上传截图");
         }
-        i6 = this.f22887a.p;
+        i6 = this.f22969a.p;
         if (i6 == 4) {
-            linearLayout = this.f22887a.O;
+            linearLayout = this.f22969a.O;
             linearLayout.setVisibility(8);
         }
         com.baidu.ufosdk.f.c.a("CheckGroup回调函数：selectedData.size() = " + arrayList.size());
         if (arrayList.size() > 0) {
-            button3 = this.f22887a.m;
+            button3 = this.f22969a.m;
             int i7 = com.baidu.ufosdk.b.v;
             int i8 = com.baidu.ufosdk.b.y;
             int i9 = com.baidu.ufosdk.b.v;
             button3.setTextColor(com.baidu.ufosdk.f.i.a(i7, i8, i9, i9));
         } else {
-            button = this.f22887a.m;
+            button = this.f22969a.m;
             button.setTextColor(com.baidu.ufosdk.b.y);
         }
         if (arrayList.contains("播放问题")) {
-            str = this.f22887a.F;
+            str = this.f22969a.F;
             if (str.length() <= 0) {
-                button2 = this.f22887a.m;
+                button2 = this.f22969a.m;
                 button2.setTextColor(com.baidu.ufosdk.b.y);
             }
         }

@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.a.c.e.p.l;
-import d.a.m0.g0.b.g;
-import d.a.m0.z0.w;
+import d.a.n0.g0.b.g;
+import d.a.n0.z0.w;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
@@ -22,7 +22,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
     public int isGeneralTab = 0;
     public int sortType = 0;
 
-    @Override // d.a.m0.g0.b.i
+    @Override // d.a.n0.g0.b.i
     public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
@@ -48,12 +48,12 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return builder2.build(false);
     }
 
-    @Override // d.a.m0.g0.b.f
+    @Override // d.a.n0.g0.b.f
     public HashMap<String, Object> s() {
         return null;
     }
 
-    @Override // d.a.m0.g0.b.f
+    @Override // d.a.n0.g0.b.f
     public HashMap<String, String> u() {
         return null;
     }

@@ -14,31 +14,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class e implements l.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f70570c = "e";
+    public static String f70674c = "e";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f70571d;
+    public static volatile e f70675d;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.o.a.d.n.l f70572a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
+    public d.o.a.d.n.l f70676a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f70573b;
+    public ConcurrentHashMap<Long, Runnable> f70677b;
 
     public e() {
-        this.f70573b = null;
-        this.f70573b = new ConcurrentHashMap<>();
+        this.f70677b = null;
+        this.f70677b = new ConcurrentHashMap<>();
     }
 
     public static e a() {
-        if (f70571d == null) {
+        if (f70675d == null) {
             synchronized (e.class) {
-                if (f70571d == null) {
-                    f70571d = new e();
+                if (f70675d == null) {
+                    f70675d = new e();
                 }
             }
         }
-        return f70571d;
+        return f70675d;
     }
 
     public static boolean c(d dVar) {
@@ -50,15 +50,15 @@ public class e implements l.a {
     }
 
     public void b(int i2, d dVar, d.o.a.a.a.c.c cVar) {
-        String str = f70570c;
+        String str = f70674c;
         d.o.a.d.n.j.a(str, "sendQuickAppMsg msgWhat:" + i2, null);
-        if (this.f70572a == null) {
+        if (this.f70676a == null) {
             return;
         }
         Message obtain = Message.obtain();
         obtain.what = i2;
         obtain.obj = Long.valueOf(dVar.d());
-        this.f70572a.sendMessageDelayed(obtain, e());
+        this.f70676a.sendMessageDelayed(obtain, e());
     }
 
     public long e() {
@@ -88,15 +88,15 @@ public class e implements l.a {
             }
         } else if (i2 != 7) {
         } else {
-            Runnable runnable = this.f70573b.get(Long.valueOf(longValue));
-            this.f70573b.remove(Long.valueOf(longValue));
+            Runnable runnable = this.f70677b.get(Long.valueOf(longValue));
+            this.f70677b.remove(Long.valueOf(longValue));
             if (a2) {
                 j.c.a().c(longValue, 1);
                 j.c.a().g(longValue, true, 1);
                 return;
             }
             if (runnable != null) {
-                this.f70572a.post(runnable);
+                this.f70676a.post(runnable);
             }
             j.c.a().g(longValue, false, 1);
         }

@@ -21,16 +21,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
+public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0355a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.f f32107b;
+    public final com.ksad.lottie.f f32205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Layer f32108c;
+    public final Layer f32206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final o f32109d;
+    public final o f32207d;
     public final String p;
     @Nullable
     public com.ksad.lottie.a.b.g q;
@@ -41,19 +41,19 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     public List<a> t;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Path f32110e = new Path();
+    public final Path f32208e = new Path();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f32111f = new Matrix();
+    public final Matrix f32209f = new Matrix();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f32112g = new Paint(1);
+    public final Paint f32210g = new Paint(1);
 
     /* renamed from: h  reason: collision with root package name */
-    public final Paint f32113h = new Paint(1);
+    public final Paint f32211h = new Paint(1);
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f32114i = new Paint(1);
+    public final Paint f32212i = new Paint(1);
     public final Paint j = new Paint(1);
     public final Paint k = new Paint();
     public final RectF l = new RectF();
@@ -62,7 +62,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     public final RectF o = new RectF();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Matrix f32106a = new Matrix();
+    public final Matrix f32204a = new Matrix();
     public final List<com.ksad.lottie.a.b.a<?, ?>> u = new ArrayList();
     public boolean v = true;
 
@@ -71,54 +71,54 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32117a;
+        public static final /* synthetic */ int[] f32215a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32118b;
+        public static final /* synthetic */ int[] f32216b;
 
         static {
             int[] iArr = new int[Mask.MaskMode.values().length];
-            f32118b = iArr;
+            f32216b = iArr;
             try {
                 iArr[Mask.MaskMode.MaskModeSubtract.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32118b[Mask.MaskMode.MaskModeIntersect.ordinal()] = 2;
+                f32216b[Mask.MaskMode.MaskModeIntersect.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f32118b[Mask.MaskMode.MaskModeAdd.ordinal()] = 3;
+                f32216b[Mask.MaskMode.MaskModeAdd.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[Layer.LayerType.values().length];
-            f32117a = iArr2;
+            f32215a = iArr2;
             try {
                 iArr2[Layer.LayerType.Shape.ordinal()] = 1;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f32117a[Layer.LayerType.PreComp.ordinal()] = 2;
+                f32215a[Layer.LayerType.PreComp.ordinal()] = 2;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f32117a[Layer.LayerType.Solid.ordinal()] = 3;
+                f32215a[Layer.LayerType.Solid.ordinal()] = 3;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f32117a[Layer.LayerType.Image.ordinal()] = 4;
+                f32215a[Layer.LayerType.Image.ordinal()] = 4;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f32117a[Layer.LayerType.Null.ordinal()] = 5;
+                f32215a[Layer.LayerType.Null.ordinal()] = 5;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f32117a[Layer.LayerType.Text.ordinal()] = 6;
+                f32215a[Layer.LayerType.Text.ordinal()] = 6;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f32117a[Layer.LayerType.Unknown.ordinal()] = 7;
+                f32215a[Layer.LayerType.Unknown.ordinal()] = 7;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -127,12 +127,12 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     public a(com.ksad.lottie.f fVar, Layer layer) {
         Paint paint;
         PorterDuffXfermode porterDuffXfermode;
-        this.f32107b = fVar;
-        this.f32108c = layer;
+        this.f32205b = fVar;
+        this.f32206c = layer;
         this.p = layer.f() + "#draw";
         this.k.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.f32113h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.f32114i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f32211h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f32212i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         if (layer.l() == Layer.MatteType.Invert) {
             paint = this.j;
             porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
@@ -142,8 +142,8 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
         }
         paint.setXfermode(porterDuffXfermode);
         o h2 = layer.o().h();
-        this.f32109d = h2;
-        h2.a((a.InterfaceC0352a) this);
+        this.f32207d = h2;
+        h2.a((a.InterfaceC0355a) this);
         if (layer.j() != null && !layer.j().isEmpty()) {
             com.ksad.lottie.a.b.g gVar = new com.ksad.lottie.a.b.g(layer.j());
             this.q = gVar;
@@ -160,7 +160,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
 
     @Nullable
     public static a a(Layer layer, com.ksad.lottie.f fVar, com.ksad.lottie.d dVar) {
-        switch (AnonymousClass2.f32117a[layer.k().ordinal()]) {
+        switch (AnonymousClass2.f32215a[layer.k().ordinal()]) {
             case 1:
                 return new e(fVar, layer);
             case 2:
@@ -194,7 +194,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
 
     private void a(Canvas canvas, Matrix matrix, Mask.MaskMode maskMode) {
         boolean z = true;
-        Paint paint = AnonymousClass2.f32118b[maskMode.ordinal()] != 1 ? this.f32113h : this.f32114i;
+        Paint paint = AnonymousClass2.f32216b[maskMode.ordinal()] != 1 ? this.f32211h : this.f32212i;
         int size = this.q.a().size();
         int i2 = 0;
         while (true) {
@@ -215,12 +215,12 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
             a(canvas);
             for (int i3 = 0; i3 < size; i3++) {
                 if (this.q.a().get(i3).a() == maskMode) {
-                    this.f32110e.set(this.q.b().get(i3).e());
-                    this.f32110e.transform(matrix);
-                    int alpha = this.f32112g.getAlpha();
-                    this.f32112g.setAlpha((int) (this.q.c().get(i3).e().intValue() * 2.55f));
-                    canvas.drawPath(this.f32110e, this.f32112g);
-                    this.f32112g.setAlpha(alpha);
+                    this.f32208e.set(this.q.b().get(i3).e());
+                    this.f32208e.transform(matrix);
+                    int alpha = this.f32210g.getAlpha();
+                    this.f32210g.setAlpha((int) (this.q.c().get(i3).e().intValue() * 2.55f));
+                    canvas.drawPath(this.f32208e, this.f32210g);
+                    this.f32210g.setAlpha(alpha);
                 }
             }
             com.ksad.lottie.c.c("Layer#restoreLayer");
@@ -248,7 +248,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     }
 
     private void b(float f2) {
-        this.f32107b.r().a().a(this.f32108c.f(), f2);
+        this.f32205b.r().a().a(this.f32206c.f(), f2);
     }
 
     private void b(RectF rectF, Matrix matrix) {
@@ -256,13 +256,13 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
         if (d()) {
             int size = this.q.a().size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f32110e.set(this.q.b().get(i2).e());
-                this.f32110e.transform(matrix);
-                int i3 = AnonymousClass2.f32118b[this.q.a().get(i2).a().ordinal()];
+                this.f32208e.set(this.q.b().get(i2).e());
+                this.f32208e.transform(matrix);
+                int i3 = AnonymousClass2.f32216b[this.q.a().get(i2).a().ordinal()];
                 if (i3 == 1 || i3 == 2) {
                     return;
                 }
-                this.f32110e.computeBounds(this.o, false);
+                this.f32208e.computeBounds(this.o, false);
                 RectF rectF2 = this.m;
                 if (i2 == 0) {
                     rectF2.set(this.o);
@@ -275,21 +275,21 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     }
 
     private void c(RectF rectF, Matrix matrix) {
-        if (c() && this.f32108c.l() != Layer.MatteType.Invert) {
+        if (c() && this.f32206c.l() != Layer.MatteType.Invert) {
             this.r.a(this.n, matrix);
             rectF.set(Math.max(rectF.left, this.n.left), Math.max(rectF.top, this.n.top), Math.min(rectF.right, this.n.right), Math.min(rectF.bottom, this.n.bottom));
         }
     }
 
     private void e() {
-        if (this.f32108c.d().isEmpty()) {
+        if (this.f32206c.d().isEmpty()) {
             a(true);
             return;
         }
-        final com.ksad.lottie.a.b.c cVar = new com.ksad.lottie.a.b.c(this.f32108c.d());
+        final com.ksad.lottie.a.b.c cVar = new com.ksad.lottie.a.b.c(this.f32206c.d());
         cVar.a();
-        cVar.a(new a.InterfaceC0352a() { // from class: com.ksad.lottie.model.layer.a.1
-            @Override // com.ksad.lottie.a.b.a.InterfaceC0352a
+        cVar.a(new a.InterfaceC0355a() { // from class: com.ksad.lottie.model.layer.a.1
+            @Override // com.ksad.lottie.a.b.a.InterfaceC0355a
             public void a() {
                 a.this.a(cVar.e().floatValue() == 1.0f);
             }
@@ -299,7 +299,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     }
 
     private void f() {
-        this.f32107b.invalidateSelf();
+        this.f32205b.invalidateSelf();
     }
 
     private void g() {
@@ -316,24 +316,24 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC0352a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0355a
     public void a() {
         f();
     }
 
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.f32109d.a(f2);
+        this.f32207d.a(f2);
         if (this.q != null) {
             for (int i2 = 0; i2 < this.q.b().size(); i2++) {
                 this.q.b().get(i2).a(f2);
             }
         }
-        if (this.f32108c.b() != 0.0f) {
-            f2 /= this.f32108c.b();
+        if (this.f32206c.b() != 0.0f) {
+            f2 /= this.f32206c.b();
         }
         a aVar = this.r;
         if (aVar != null) {
-            this.r.a(aVar.f32108c.b() * f2);
+            this.r.a(aVar.f32206c.b() * f2);
         }
         for (int i3 = 0; i3 < this.u.size(); i3++) {
             this.u.get(i3).a(f2);
@@ -349,38 +349,38 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
         }
         g();
         com.ksad.lottie.c.c("Layer#parentMatrix");
-        this.f32111f.reset();
-        this.f32111f.set(matrix);
+        this.f32209f.reset();
+        this.f32209f.set(matrix);
         for (int size = this.t.size() - 1; size >= 0; size--) {
-            this.f32111f.preConcat(this.t.get(size).f32109d.d());
+            this.f32209f.preConcat(this.t.get(size).f32207d.d());
         }
         com.ksad.lottie.c.d("Layer#parentMatrix");
-        int intValue = (int) ((((i2 / 255.0f) * this.f32109d.a().e().intValue()) / 100.0f) * 255.0f);
+        int intValue = (int) ((((i2 / 255.0f) * this.f32207d.a().e().intValue()) / 100.0f) * 255.0f);
         if (!c() && !d()) {
-            this.f32111f.preConcat(this.f32109d.d());
+            this.f32209f.preConcat(this.f32207d.d());
             com.ksad.lottie.c.c("Layer#drawLayer");
-            b(canvas, this.f32111f, intValue);
+            b(canvas, this.f32209f, intValue);
             com.ksad.lottie.c.d("Layer#drawLayer");
             b(com.ksad.lottie.c.d(this.p));
             return;
         }
         com.ksad.lottie.c.c("Layer#computeBounds");
         this.l.set(0.0f, 0.0f, 0.0f, 0.0f);
-        a(this.l, this.f32111f);
-        c(this.l, this.f32111f);
-        this.f32111f.preConcat(this.f32109d.d());
-        b(this.l, this.f32111f);
+        a(this.l, this.f32209f);
+        c(this.l, this.f32209f);
+        this.f32209f.preConcat(this.f32207d.d());
+        b(this.l, this.f32209f);
         this.l.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         com.ksad.lottie.c.d("Layer#computeBounds");
         com.ksad.lottie.c.c("Layer#saveLayer");
-        a(canvas, this.l, this.f32112g, true);
+        a(canvas, this.l, this.f32210g, true);
         com.ksad.lottie.c.d("Layer#saveLayer");
         a(canvas);
         com.ksad.lottie.c.c("Layer#drawLayer");
-        b(canvas, this.f32111f, intValue);
+        b(canvas, this.f32209f, intValue);
         com.ksad.lottie.c.d("Layer#drawLayer");
         if (d()) {
-            a(canvas, this.f32111f);
+            a(canvas, this.f32209f);
         }
         if (c()) {
             com.ksad.lottie.c.c("Layer#drawMatte");
@@ -403,8 +403,8 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     @Override // com.ksad.lottie.a.a.d
     @CallSuper
     public void a(RectF rectF, Matrix matrix) {
-        this.f32106a.set(matrix);
-        this.f32106a.preConcat(this.f32109d.d());
+        this.f32204a.set(matrix);
+        this.f32204a.preConcat(this.f32207d.d());
     }
 
     public void a(com.ksad.lottie.a.b.a<?, ?> aVar) {
@@ -420,7 +420,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC0352a {
     }
 
     public Layer b() {
-        return this.f32108c;
+        return this.f32206c;
     }
 
     public abstract void b(Canvas canvas, Matrix matrix, int i2);

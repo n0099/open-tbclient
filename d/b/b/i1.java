@@ -13,34 +13,34 @@ import org.json.JSONObject;
 public final class i1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f68771a;
+    public final String f68875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f68772b;
+    public final String f68876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f68773c;
+    public final Boolean f68877c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Long f68774d;
+    public final Long f68878d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f68775e;
+    public final Long f68879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Integer f68776f;
+    public final Integer f68880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Long f68777g;
+    public final Long f68881g;
 
     public i1(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
-        this.f68771a = str;
-        this.f68772b = str2;
-        this.f68773c = bool;
-        this.f68774d = l;
-        this.f68775e = l2;
-        this.f68776f = num;
-        this.f68777g = l3;
+        this.f68875a = str;
+        this.f68876b = str2;
+        this.f68877c = bool;
+        this.f68878d = l;
+        this.f68879e = l2;
+        this.f68880f = num;
+        this.f68881g = l3;
     }
 
     @Nullable
@@ -61,26 +61,26 @@ public final class i1 {
     @NonNull
     public Map<String, String> b() {
         HashMap hashMap = new HashMap();
-        f1.h(hashMap, "id", this.f68771a);
-        f1.h(hashMap, IAdRequestParam.REQ_ID, this.f68772b);
-        f1.h(hashMap, "is_track_limited", String.valueOf(this.f68773c));
-        f1.h(hashMap, "take_ms", String.valueOf(this.f68774d));
-        f1.h(hashMap, "time", String.valueOf(this.f68775e));
-        f1.h(hashMap, "query_times", String.valueOf(this.f68776f));
-        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f68777g));
+        f1.h(hashMap, "id", this.f68875a);
+        f1.h(hashMap, IAdRequestParam.REQ_ID, this.f68876b);
+        f1.h(hashMap, "is_track_limited", String.valueOf(this.f68877c));
+        f1.h(hashMap, "take_ms", String.valueOf(this.f68878d));
+        f1.h(hashMap, "time", String.valueOf(this.f68879e));
+        f1.h(hashMap, "query_times", String.valueOf(this.f68880f));
+        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f68881g));
         return hashMap;
     }
 
     @NonNull
     public JSONObject c() {
         JSONObject jSONObject = new JSONObject();
-        f1.i(jSONObject, "id", this.f68771a);
-        f1.i(jSONObject, IAdRequestParam.REQ_ID, this.f68772b);
-        f1.i(jSONObject, "is_track_limited", this.f68773c);
-        f1.i(jSONObject, "take_ms", this.f68774d);
-        f1.i(jSONObject, "time", this.f68775e);
-        f1.i(jSONObject, "query_times", this.f68776f);
-        f1.i(jSONObject, "hw_id_version_code", this.f68777g);
+        f1.i(jSONObject, "id", this.f68875a);
+        f1.i(jSONObject, IAdRequestParam.REQ_ID, this.f68876b);
+        f1.i(jSONObject, "is_track_limited", this.f68877c);
+        f1.i(jSONObject, "take_ms", this.f68878d);
+        f1.i(jSONObject, "time", this.f68879e);
+        f1.i(jSONObject, "query_times", this.f68880f);
+        f1.i(jSONObject, "hw_id_version_code", this.f68881g);
         return jSONObject;
     }
 

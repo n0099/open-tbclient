@@ -20,17 +20,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71404a;
+    public String f71508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71405b;
+    public String f71509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f71406c;
+    public ReentrantLock f71510c;
 
     public a() {
-        this.f71405b = "";
-        this.f71406c = new ReentrantLock();
+        this.f71509b = "";
+        this.f71510c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -38,7 +38,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f71407a;
+        return b.f71511a;
     }
 
     public static String b(Context context) {
@@ -162,18 +162,18 @@ public class a {
     public final String c(Context context, boolean z, boolean z2) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f71406c.lock();
+            this.f71510c.lock();
         } finally {
             try {
-                this.f71406c.unlock();
-                if (TextUtils.isEmpty(this.f71405b)) {
+                this.f71510c.unlock();
+                if (TextUtils.isEmpty(this.f71509b)) {
                 }
                 d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-                return this.f71405b;
+                return this.f71509b;
             } finally {
             }
         }
-        if (TextUtils.isEmpty(this.f71405b)) {
+        if (TextUtils.isEmpty(this.f71509b)) {
             JSONObject jSONObject = new JSONObject();
             String str = Build.MODEL;
             jSONObject.put("k27", d.q.a.a.c.b.e.f(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
@@ -192,7 +192,7 @@ public class a {
             if (z2) {
                 d.q.a.a.a.a.b.c().i();
             }
-            String str2 = d.q.a.a.b.f71397h;
+            String str2 = d.q.a.a.b.f71501h;
             if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                 str2 = new e(context).e();
             }
@@ -212,24 +212,24 @@ public class a {
             StringBuilder sb = new StringBuilder("get mini lenth ");
             sb.append(d2.length);
             d.q.a.a.c.b.b.b(sb.toString());
-            this.f71405b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
-            this.f71406c.unlock();
-            if (TextUtils.isEmpty(this.f71405b)) {
-                this.f71405b = "KWE_N";
+            this.f71509b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
+            this.f71510c.unlock();
+            if (TextUtils.isEmpty(this.f71509b)) {
+                this.f71509b = "KWE_N";
             }
             d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-            return this.f71405b;
+            return this.f71509b;
         }
-        return this.f71405b;
+        return this.f71509b;
     }
 
     public final void d(String str) {
-        this.f71404a = str;
+        this.f71508a = str;
     }
 
     public final String e() {
         try {
-            return !TextUtils.isEmpty(this.f71404a) ? this.f71404a : "KWE_N";
+            return !TextUtils.isEmpty(this.f71508a) ? this.f71508a : "KWE_N";
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
             return "KWE_N";

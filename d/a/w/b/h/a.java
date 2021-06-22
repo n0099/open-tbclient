@@ -9,12 +9,12 @@ import java.nio.FloatBuffer;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68489a = "a";
+    public static final String f68593a = "a";
 
     public static void a(String str) {
         int glGetError = GLES20.glGetError();
         if (glGetError != 0) {
-            Log.e(f68489a, str + ": glError 0x" + Integer.toHexString(glGetError));
+            Log.e(f68593a, str + ": glError 0x" + Integer.toHexString(glGetError));
         }
     }
 
@@ -36,7 +36,7 @@ public class a {
         int glCreateProgram = GLES20.glCreateProgram();
         a("glCreateProgram");
         if (glCreateProgram == 0) {
-            Log.e(f68489a, "Could not create program");
+            Log.e(f68593a, "Could not create program");
         }
         GLES20.glAttachShader(glCreateProgram, d3);
         a("glAttachShader");
@@ -46,8 +46,8 @@ public class a {
         int[] iArr = new int[1];
         GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
         if (iArr[0] != 1) {
-            Log.e(f68489a, "Could not link program: ");
-            Log.e(f68489a, GLES20.glGetProgramInfoLog(glCreateProgram));
+            Log.e(f68593a, "Could not link program: ");
+            Log.e(f68593a, GLES20.glGetProgramInfoLog(glCreateProgram));
             GLES20.glDeleteProgram(glCreateProgram);
             return -1;
         }
@@ -62,9 +62,9 @@ public class a {
         int[] iArr = new int[1];
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
-            String str2 = f68489a;
+            String str2 = f68593a;
             Log.e(str2, "Could not compile shader " + i2 + ":");
-            String str3 = f68489a;
+            String str3 = f68593a;
             Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;

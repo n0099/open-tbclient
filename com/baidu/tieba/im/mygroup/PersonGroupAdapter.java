@@ -9,53 +9,53 @@ import java.util.Iterator;
 public class PersonGroupAdapter extends FragmentPagerAdapter {
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f17391c = 1;
+    public static int f17473c = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f17392a;
+    public int[] f17474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<PersonalGroupFragment> f17393b;
+    public ArrayList<PersonalGroupFragment> f17475b;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.f17393b = new ArrayList<>();
+        this.f17475b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.f17393b.add(personalGroupFragment);
+        this.f17475b.add(personalGroupFragment);
         if (z) {
-            this.f17392a = new int[]{0};
+            this.f17474a = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.f17393b.add(personalGroupFragment2);
-            this.f17392a = new int[]{0, 1};
+            this.f17475b.add(personalGroupFragment2);
+            this.f17474a = new int[]{0, 1};
         }
-        f17391c = this.f17392a.length;
-        Iterator<PersonalGroupFragment> it = this.f17393b.iterator();
+        f17473c = this.f17474a.length;
+        Iterator<PersonalGroupFragment> it = this.f17475b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.f17393b.size());
+            it.next().getArguments().putInt("page_size", this.f17475b.size());
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return f17391c;
+        return f17473c;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i2) {
-        if (i2 >= f17391c || i2 < 0) {
+        if (i2 >= f17473c || i2 < 0) {
             return null;
         }
-        return this.f17393b.get(i2);
+        return this.f17475b.get(i2);
     }
 
     public int i(int i2) {
-        return this.f17392a[i2];
+        return this.f17474a[i2];
     }
 }

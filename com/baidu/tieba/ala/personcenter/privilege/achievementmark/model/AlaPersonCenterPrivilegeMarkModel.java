@@ -16,10 +16,10 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAch
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14081e;
+    public b f14163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f14082f = new a(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+    public HttpMessageListener f14164f = new a(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -33,7 +33,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) || httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() != AlaPersonCenterPrivilegeMarkModel.this.unique_id) {
                 return;
             }
-            AlaPersonCenterPrivilegeMarkModel.this.f14081e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            AlaPersonCenterPrivilegeMarkModel.this.f14163e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
         }
     }
 
@@ -44,9 +44,9 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     public AlaPersonCenterPrivilegeMarkModel(BdUniqueId bdUniqueId, b bVar) {
         this.unique_id = bdUniqueId;
-        this.f14081e = bVar;
+        this.f14163e = bVar;
         registerTask();
-        registerListener(this.f14082f);
+        registerListener(this.f14164f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -3,21 +3,21 @@ package d.a.c.k.c;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42887a;
+    public int f42990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42888b;
+    public int f42991b;
 
     public c(int i2, int i3) {
-        this.f42887a = i2;
-        this.f42888b = i3;
+        this.f42990a = i2;
+        this.f42991b = i3;
     }
 
     public int a() {
-        return this.f42888b;
+        return this.f42991b;
     }
 
     public int b() {
-        return this.f42887a;
+        return this.f42990a;
     }
 }

@@ -109,7 +109,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
     public class d extends ScaleGestureDetector.SimpleOnScaleGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f11536e = false;
+        public boolean f11618e = false;
 
         public d() {
         }
@@ -120,13 +120,13 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             float scale = BdImageViewTouch.this.getScale() * scaleGestureDetector.getScaleFactor();
             BdImageViewTouch bdImageViewTouch = BdImageViewTouch.this;
             if (bdImageViewTouch.J) {
-                if (this.f11536e && currentSpan != 0.0f) {
+                if (this.f11618e && currentSpan != 0.0f) {
                     bdImageViewTouch.k = true;
                     BdImageViewTouch.this.B(Math.min(bdImageViewTouch.getMaxScale(), Math.max(scale, BdImageViewTouch.this.getMinScale() - 0.0f)), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
                     BdImageViewTouch.this.invalidate();
                     return true;
-                } else if (!this.f11536e) {
-                    this.f11536e = true;
+                } else if (!this.f11618e) {
+                    this.f11618e = true;
                 }
             }
             return true;

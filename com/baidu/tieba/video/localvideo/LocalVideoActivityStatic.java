@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.video.cloudmusic.CloudMusicActivity;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import d.a.n0.d0.b;
+import d.a.o0.d0.b;
 /* loaded from: classes5.dex */
 public class LocalVideoActivityStatic {
 
@@ -19,10 +19,10 @@ public class LocalVideoActivityStatic {
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<b> run(CustomMessage<Object> customMessage) {
-            if (customMessage == null || !(customMessage.getData() instanceof d.a.n0.r3.b)) {
+            if (customMessage == null || !(customMessage.getData() instanceof d.a.o0.r3.b)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921466, new d.a.n0.r3.i.h.b((d.a.n0.r3.b) customMessage.getData()));
+            return new CustomResponsedMessage<>(2921466, new d.a.o0.r3.i.h.b((d.a.o0.r3.b) customMessage.getData()));
         }
     }
 

@@ -3,8 +3,8 @@ package com.baidu.searchbox.perfframe.impl;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
-import d.a.e0.a.b.b;
-import d.a.e0.a.b.d;
+import d.a.f0.a.b.b;
+import d.a.f0.a.b.d;
 /* loaded from: classes2.dex */
 public class PerfFrameRuntime {
     public static PerfFrameRuntime sInstance;

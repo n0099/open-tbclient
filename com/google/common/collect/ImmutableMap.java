@@ -73,46 +73,46 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         public class a extends c1<Map.Entry<K, ImmutableSet<V>>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Iterator f31111e;
+            public final /* synthetic */ Iterator f31209e;
 
             /* renamed from: com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0338a extends d.g.c.c.b<K, ImmutableSet<V>> {
+            public class C0341a extends d.g.c.c.b<K, ImmutableSet<V>> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f31112e;
+                public final /* synthetic */ Map.Entry f31210e;
 
-                public C0338a(a aVar, Map.Entry entry) {
-                    this.f31112e = entry;
+                public C0341a(a aVar, Map.Entry entry) {
+                    this.f31210e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // d.g.c.c.b, java.util.Map.Entry
                 /* renamed from: a */
                 public ImmutableSet<V> getValue() {
-                    return ImmutableSet.of(this.f31112e.getValue());
+                    return ImmutableSet.of(this.f31210e.getValue());
                 }
 
                 @Override // d.g.c.c.b, java.util.Map.Entry
                 public K getKey() {
-                    return (K) this.f31112e.getKey();
+                    return (K) this.f31210e.getKey();
                 }
             }
 
             public a(MapViewOfValuesAsSingletonSets mapViewOfValuesAsSingletonSets, Iterator it) {
-                this.f31111e = it;
+                this.f31209e = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Iterator
             /* renamed from: a */
             public Map.Entry<K, ImmutableSet<V>> next() {
-                return new C0338a(this, (Map.Entry) this.f31111e.next());
+                return new C0341a(this, (Map.Entry) this.f31209e.next());
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f31111e.hasNext();
+                return this.f31209e.hasNext();
             }
         }
 
@@ -210,20 +210,20 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public class a extends c1<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c1 f31113e;
+        public final /* synthetic */ c1 f31211e;
 
         public a(ImmutableMap immutableMap, c1 c1Var) {
-            this.f31113e = c1Var;
+            this.f31211e = c1Var;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31113e.hasNext();
+            return this.f31211e.hasNext();
         }
 
         @Override // java.util.Iterator
         public K next() {
-            return (K) ((Map.Entry) this.f31113e.next()).getKey();
+            return (K) ((Map.Entry) this.f31211e.next()).getKey();
         }
     }
 
@@ -231,16 +231,16 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public static class b<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Comparator<? super V> f31114a;
+        public Comparator<? super V> f31212a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object[] f31115b;
+        public Object[] f31213b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31116c;
+        public int f31214c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f31117d;
+        public boolean f31215d;
 
         public b() {
             this(4);
@@ -248,27 +248,27 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
         public ImmutableMap<K, V> a() {
             g();
-            this.f31117d = true;
-            return RegularImmutableMap.create(this.f31116c, this.f31115b);
+            this.f31215d = true;
+            return RegularImmutableMap.create(this.f31214c, this.f31213b);
         }
 
         public final void b(int i2) {
             int i3 = i2 * 2;
-            Object[] objArr = this.f31115b;
+            Object[] objArr = this.f31213b;
             if (i3 > objArr.length) {
-                this.f31115b = Arrays.copyOf(objArr, ImmutableCollection.b.e(objArr.length, i3));
-                this.f31117d = false;
+                this.f31213b = Arrays.copyOf(objArr, ImmutableCollection.b.e(objArr.length, i3));
+                this.f31215d = false;
             }
         }
 
         public b<K, V> c(K k, V v) {
-            b(this.f31116c + 1);
+            b(this.f31214c + 1);
             m.a(k, v);
-            Object[] objArr = this.f31115b;
-            int i2 = this.f31116c;
+            Object[] objArr = this.f31213b;
+            int i2 = this.f31214c;
             objArr[i2 * 2] = k;
             objArr[(i2 * 2) + 1] = v;
-            this.f31116c = i2 + 1;
+            this.f31214c = i2 + 1;
             return this;
         }
 
@@ -278,7 +278,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
         public b<K, V> e(Iterable<? extends Map.Entry<? extends K, ? extends V>> iterable) {
             if (iterable instanceof Collection) {
-                b(this.f31116c + ((Collection) iterable).size());
+                b(this.f31214c + ((Collection) iterable).size());
             }
             for (Map.Entry<? extends K, ? extends V> entry : iterable) {
                 d(entry);
@@ -292,35 +292,35 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
         public void g() {
             int i2;
-            if (this.f31114a != null) {
-                if (this.f31117d) {
-                    this.f31115b = Arrays.copyOf(this.f31115b, this.f31116c * 2);
+            if (this.f31212a != null) {
+                if (this.f31215d) {
+                    this.f31213b = Arrays.copyOf(this.f31213b, this.f31214c * 2);
                 }
-                Map.Entry[] entryArr = new Map.Entry[this.f31116c];
+                Map.Entry[] entryArr = new Map.Entry[this.f31214c];
                 int i3 = 0;
                 while (true) {
-                    i2 = this.f31116c;
+                    i2 = this.f31214c;
                     if (i3 >= i2) {
                         break;
                     }
-                    Object[] objArr = this.f31115b;
+                    Object[] objArr = this.f31213b;
                     int i4 = i3 * 2;
                     entryArr[i3] = new AbstractMap.SimpleImmutableEntry(objArr[i4], objArr[i4 + 1]);
                     i3++;
                 }
-                Arrays.sort(entryArr, 0, i2, Ordering.from(this.f31114a).onResultOf(Maps.K()));
-                for (int i5 = 0; i5 < this.f31116c; i5++) {
+                Arrays.sort(entryArr, 0, i2, Ordering.from(this.f31212a).onResultOf(Maps.K()));
+                for (int i5 = 0; i5 < this.f31214c; i5++) {
                     int i6 = i5 * 2;
-                    this.f31115b[i6] = entryArr[i5].getKey();
-                    this.f31115b[i6 + 1] = entryArr[i5].getValue();
+                    this.f31213b[i6] = entryArr[i5].getKey();
+                    this.f31213b[i6 + 1] = entryArr[i5].getValue();
                 }
             }
         }
 
         public b(int i2) {
-            this.f31115b = new Object[i2 * 2];
-            this.f31116c = 0;
-            this.f31117d = false;
+            this.f31213b = new Object[i2 * 2];
+            this.f31214c = 0;
+            this.f31215d = false;
         }
     }
 

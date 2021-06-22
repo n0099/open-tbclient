@@ -6,10 +6,10 @@ import com.xiaomi.push.gc;
 public class bu implements fy {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41798a;
+    public final /* synthetic */ XMPushService f41901a;
 
     public bu(XMPushService xMPushService) {
-        this.f41798a = xMPushService;
+        this.f41901a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fy

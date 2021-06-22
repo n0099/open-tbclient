@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
@@ -119,14 +120,14 @@ public class BasicContainer implements Container, Iterator<Box> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         for (int i2 = 0; i2 < this.boxes.size(); i2++) {
             if (i2 > 0) {
                 sb.append(";");
             }
             sb.append(this.boxes.get(i2).toString());
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

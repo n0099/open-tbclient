@@ -27,29 +27,29 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f69579f = true;
+    public static volatile boolean f69683f = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f69580a;
+    public a f69684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f69581b;
+    public final Context f69685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f69582c;
+    public volatile long f69686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f69583d = false;
+    public volatile boolean f69687d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SharedPreferences f69584e;
+    public final SharedPreferences f69688e;
 
     public c(Context context) {
         if (context != null && (context instanceof Application)) {
-            this.f69581b = context;
+            this.f69685b = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("anr_monitor_table", 0);
-            this.f69584e = sharedPreferences;
-            this.f69582c = sharedPreferences.getLong("trace_anr_happen_time", 0L);
+            this.f69688e = sharedPreferences;
+            this.f69686c = sharedPreferences.getLong("trace_anr_happen_time", 0L);
             g.i(100, 100);
             return;
         }
@@ -113,13 +113,13 @@ public class c {
                     }
                     String str3 = f3[1].toString().split("\\s")[2];
                     if (parseLong == i2 && str3.equalsIgnoreCase(str2)) {
-                        if (this.f69582c != 0 && Math.abs(this.f69582c - time) < 20000) {
+                        if (this.f69686c != 0 && Math.abs(this.f69686c - time) < 20000) {
                             l.g.a(bufferedReader);
                             return null;
                         }
-                        this.f69582c = time;
-                        if (this.f69584e != null) {
-                            this.f69584e.edit().putLong("trace_anr_happen_time", this.f69582c).apply();
+                        this.f69686c = time;
+                        if (this.f69688e != null) {
+                            this.f69688e.edit().putLong("trace_anr_happen_time", this.f69686c).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);
@@ -177,17 +177,17 @@ public class c {
     }
 
     public void c() {
-        if (this.f69583d) {
+        if (this.f69687d) {
             return;
         }
         if (Build.VERSION.SDK_INT < 21) {
             a aVar = new a(this, "/data/anr/", 8);
-            this.f69580a = aVar;
+            this.f69684a = aVar;
             aVar.startWatching();
         } else {
             new d(this);
         }
-        this.f69583d = true;
+        this.f69687d = true;
     }
 
     public boolean e(int i2, String str, int i3) {
@@ -198,22 +198,22 @@ public class c {
         JSONObject f2 = g.f(uptimeMillis);
         JSONArray e2 = g.e(100, uptimeMillis);
         try {
-            jSONObject = e.b(f69579f);
+            jSONObject = e.b(f69683f);
         } catch (JSONException e3) {
             e3.printStackTrace();
             jSONObject = null;
         }
-        String a2 = e.a(this.f69581b, i3);
+        String a2 = e.a(this.f69685b, i3);
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        if (i2 == 200 && (b2 = b(str, Process.myPid(), this.f69581b.getPackageName())) != null && b2.length() > 0) {
+        if (i2 == 200 && (b2 = b(str, Process.myPid(), this.f69685b.getPackageName())) != null && b2.length() > 0) {
             jSONObject = b2;
         }
         if (jSONObject != null && jSONObject.length() > 0) {
             try {
                 jSONObject.put("pid", Process.myPid());
-                jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f69581b.getPackageName());
+                jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f69685b.getPackageName());
                 jSONObject.put("is_remote_process", 0);
                 d.b.d.b.e.a aVar = new d.b.d.b.e.a(new JSONObject());
                 aVar.k("data", jSONObject.toString());
@@ -228,7 +228,7 @@ public class c {
                 aVar.k("anr_info", a2);
                 aVar.k("all_thread_stacks", l.n.d(null));
                 d.b.d.b.e.a a3 = d.b.d.b.h.a.e.c().a(com.bytedance.tea.crash.c.ANR, aVar);
-                l.e.d(this.f69581b, com.bytedance.tea.crash.c.ANR.a(), null);
+                l.e.d(this.f69685b, com.bytedance.tea.crash.c.ANR.a(), null);
                 d.b.d.b.n.a.a().c(a3.j());
                 d(a2);
             } catch (Throwable th) {

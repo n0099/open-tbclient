@@ -8,17 +8,17 @@ import com.kwad.sdk.utils.ag;
 public class d extends com.kwad.sdk.contentalliance.detail.photo.related.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33067b;
+    public TextView f33165b;
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f33067b.setText(ag.a(com.kwad.sdk.core.response.b.c.s((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a).f36712i)));
+        this.f33165b.setText(ag.a(com.kwad.sdk.core.response.b.c.s((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a).f36810i)));
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33067b = (TextView) b(R.id.ksad_related_like_count);
+        this.f33165b = (TextView) b(R.id.ksad_related_like_count);
     }
 }

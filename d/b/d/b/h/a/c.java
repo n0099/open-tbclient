@@ -14,25 +14,25 @@ import org.json.JSONObject;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.tea.crash.c f69642a;
+    public com.bytedance.tea.crash.c f69746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f69643b;
+    public Context f69747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.d.b.g f69644c = m.a().d();
+    public d.b.d.b.g f69748c = m.a().d();
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69645d;
+    public b f69749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f69646e;
+    public d f69750e;
 
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
-        this.f69642a = cVar;
-        this.f69643b = context;
-        this.f69645d = bVar;
-        this.f69646e = dVar;
+        this.f69746a = cVar;
+        this.f69747b = context;
+        this.f69749d = bVar;
+        this.f69750e = dVar;
     }
 
     public d.b.d.b.e.a a(d.b.d.b.e.a aVar) {
@@ -50,22 +50,22 @@ public abstract class c {
 
     public void c(d.b.d.b.e.a aVar) {
         b bVar;
-        if (d() && (bVar = this.f69645d) != null) {
+        if (d() && (bVar = this.f69749d) != null) {
             aVar.e(bVar);
         }
         aVar.b(m.g());
-        aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f69643b)));
+        aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f69747b)));
         aVar.k("pid", Integer.valueOf(Process.myPid()));
-        aVar.k("battery", Integer.valueOf(this.f69646e.a()));
-        aVar.h(this.f69644c.e());
+        aVar.k("battery", Integer.valueOf(this.f69750e.a()));
+        aVar.h(this.f69748c.e());
         aVar.m(m.j());
         aVar.a(m.k(), m.l());
-        aVar.g(this.f69644c.f());
-        aVar.i(l.o.b(this.f69643b));
+        aVar.g(this.f69748c.f());
+        aVar.i(l.o.b(this.f69747b));
         if (b()) {
             f(aVar);
         }
-        aVar.f(this.f69644c.d());
+        aVar.f(this.f69748c.d());
         String h2 = m.h();
         if (h2 != null) {
             aVar.k(Constant.KEY_BUSINESS, h2);
@@ -113,11 +113,11 @@ public abstract class c {
     }
 
     public final void g(d.b.d.b.e.a aVar) {
-        List<d.b.d.b.b> a2 = m.c().a(this.f69642a);
+        List<d.b.d.b.b> a2 = m.c().a(this.f69746a);
         if (a2 != null) {
             JSONObject jSONObject = new JSONObject();
             for (d.b.d.b.b bVar : a2) {
-                Map<? extends String, ? extends String> a3 = bVar.a(this.f69642a);
+                Map<? extends String, ? extends String> a3 = bVar.a(this.f69746a);
                 if (a3 != null) {
                     try {
                         for (String str : a3.keySet()) {

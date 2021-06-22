@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.AddTaskScores.AddTaskScoresResIdl;
 import tbclient.AddTaskScores.DataRes;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetTaskScoresSocketResponseMessage extends SocketResponsedMessage {
     public int isFinished;
     public int scores;

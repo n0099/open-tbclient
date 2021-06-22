@@ -7,13 +7,13 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import d.a.n0.c2.b.a;
-import d.a.n0.c2.b.b;
-import d.a.n0.c2.b.c;
-import d.a.n0.c2.b.d;
-import d.a.n0.c2.b.e;
-import d.a.n0.c2.b.f;
-import d.a.n0.c2.b.g;
+import d.a.o0.c2.b.a;
+import d.a.o0.c2.b.b;
+import d.a.o0.c2.b.c;
+import d.a.o0.c2.b.d;
+import d.a.o0.c2.b.e;
+import d.a.o0.c2.b.f;
+import d.a.o0.c2.b.g;
 /* loaded from: classes5.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public a controller;
@@ -25,10 +25,10 @@ public class OneKeyLoginActivity extends BaseActivity {
         this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
         c cVar = new c();
         this.oneKeyLoginData = cVar;
-        cVar.f56059a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-        this.oneKeyLoginData.f56060b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-        this.oneKeyLoginData.f56061c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-        this.oneKeyLoginData.f56062d = this.shareModelJSONStr;
+        cVar.f56184a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+        this.oneKeyLoginData.f56185b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+        this.oneKeyLoginData.f56186c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+        this.oneKeyLoginData.f56187d = this.shareModelJSONStr;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -61,6 +61,6 @@ public class OneKeyLoginActivity extends BaseActivity {
         this.view.c(this.oneKeyLoginData);
         this.controller.j(this.oneKeyLoginData);
         this.controller.i(false);
-        this.controller.k(d.a.m0.b.d.l());
+        this.controller.k(d.a.n0.b.d.l());
     }
 }

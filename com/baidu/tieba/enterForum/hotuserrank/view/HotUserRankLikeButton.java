@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import d.a.c.e.p.l;
-import d.a.m0.r.f0.m.b;
+import d.a.n0.r.f0.m.b;
 /* loaded from: classes4.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public HotUserRankLikeButton(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.m0.r.f0.q.b
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.n0.r.f0.q.b
     public void e(boolean z, int i2) {
         if (z) {
             b bVar = new b();

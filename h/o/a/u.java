@@ -7,16 +7,16 @@ import java.util.concurrent.TimeoutException;
 public class u<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f71802e;
+    public final a<T> f71906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b<T> f71803f;
+    public final b<T> f71907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.d<? extends T> f71804g;
+    public final h.d<? extends T> f71908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f71805h;
+    public final h.g f71909h;
 
     /* loaded from: classes8.dex */
     public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
@@ -30,19 +30,19 @@ public class u<T> implements d.b<T, T> {
     public static final class c<T> extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.d f71806e;
+        public final h.u.d f71910e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.q.e<T> f71807f;
+        public final h.q.e<T> f71911f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b<T> f71808g;
+        public final b<T> f71912g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.d<? extends T> f71809h;
+        public final h.d<? extends T> f71913h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final g.a f71810i;
+        public final g.a f71914i;
         public final h.o.b.a j = new h.o.b.a();
         public boolean k;
         public long l;
@@ -54,17 +54,17 @@ public class u<T> implements d.b<T, T> {
 
             @Override // h.e
             public void onCompleted() {
-                c.this.f71807f.onCompleted();
+                c.this.f71911f.onCompleted();
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                c.this.f71807f.onError(th);
+                c.this.f71911f.onError(th);
             }
 
             @Override // h.e
             public void onNext(T t) {
-                c.this.f71807f.onNext(t);
+                c.this.f71911f.onNext(t);
             }
 
             @Override // h.j
@@ -74,11 +74,11 @@ public class u<T> implements d.b<T, T> {
         }
 
         public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
-            this.f71807f = eVar;
-            this.f71808g = bVar;
-            this.f71806e = dVar;
-            this.f71809h = dVar2;
-            this.f71810i = aVar;
+            this.f71911f = eVar;
+            this.f71912g = bVar;
+            this.f71910e = dVar;
+            this.f71913h = dVar2;
+            this.f71914i = aVar;
         }
 
         public void b(long j) {
@@ -92,13 +92,13 @@ public class u<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                if (this.f71809h == null) {
-                    this.f71807f.onError(new TimeoutException());
+                if (this.f71913h == null) {
+                    this.f71911f.onError(new TimeoutException());
                     return;
                 }
                 a aVar = new a();
-                this.f71809h.I(aVar);
-                this.f71806e.a(aVar);
+                this.f71913h.I(aVar);
+                this.f71910e.a(aVar);
             }
         }
 
@@ -114,8 +114,8 @@ public class u<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                this.f71806e.unsubscribe();
-                this.f71807f.onCompleted();
+                this.f71910e.unsubscribe();
+                this.f71911f.onCompleted();
             }
         }
 
@@ -131,8 +131,8 @@ public class u<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                this.f71806e.unsubscribe();
-                this.f71807f.onError(th);
+                this.f71910e.unsubscribe();
+                this.f71911f.onError(th);
             }
         }
 
@@ -151,8 +151,8 @@ public class u<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                this.f71807f.onNext(t);
-                this.f71806e.a(this.f71808g.a(this, Long.valueOf(j), t, this.f71810i));
+                this.f71911f.onNext(t);
+                this.f71910e.a(this.f71912g.a(this, Long.valueOf(j), t, this.f71914i));
             }
         }
 
@@ -163,25 +163,25 @@ public class u<T> implements d.b<T, T> {
     }
 
     public u(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
-        this.f71802e = aVar;
-        this.f71803f = bVar;
-        this.f71804g = dVar;
-        this.f71805h = gVar;
+        this.f71906e = aVar;
+        this.f71907f = bVar;
+        this.f71908g = dVar;
+        this.f71909h = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        g.a createWorker = this.f71805h.createWorker();
+        g.a createWorker = this.f71909h.createWorker();
         jVar.add(createWorker);
         h.q.e eVar = new h.q.e(jVar);
         h.u.d dVar = new h.u.d();
         eVar.add(dVar);
-        c cVar = new c(eVar, this.f71803f, dVar, this.f71804g, createWorker);
+        c cVar = new c(eVar, this.f71907f, dVar, this.f71908g, createWorker);
         eVar.add(cVar);
         eVar.setProducer(cVar.j);
-        dVar.a(this.f71802e.a(cVar, 0L, createWorker));
+        dVar.a(this.f71906e.a(cVar, 0L, createWorker));
         return cVar;
     }
 }

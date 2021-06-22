@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import d.a.l0.a.k;
+import d.a.m0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearLogo;
     public String bearName;
     public String bearVipType;
-    public static final boolean DEBUG = k.f46875a;
+    public static final boolean DEBUG = k.f46983a;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new a();
 
     /* loaded from: classes3.dex */

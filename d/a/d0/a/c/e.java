@@ -15,14 +15,14 @@ public final class e {
     public static class a implements d.a.d0.d.a.k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f43283a;
+        public final /* synthetic */ File f43386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f43284b;
+        public final /* synthetic */ b f43387b;
 
         public a(File file, b bVar) {
-            this.f43283a = file;
-            this.f43284b = bVar;
+            this.f43386a = file;
+            this.f43387b = bVar;
         }
 
         @Override // d.a.d0.d.a.k
@@ -32,9 +32,9 @@ public final class e {
         @Override // d.a.d0.d.a.k
         public void b(long j, InputStream inputStream) {
             try {
-                e.c(inputStream, this.f43283a);
-                if (this.f43284b != null) {
-                    this.f43284b.a();
+                e.c(inputStream, this.f43386a);
+                if (this.f43387b != null) {
+                    this.f43387b.a();
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -73,7 +73,7 @@ public final class e {
                 i2 = i3;
             }
             if (!file.delete()) {
-                g gVar = g.f43285a;
+                g gVar = g.f43388a;
                 gVar.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }

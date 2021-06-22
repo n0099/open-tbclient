@@ -2,7 +2,7 @@ package com.baidubce.services.sts.model;
 
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetSessionTokenRequest extends AbstractBceRequest {
     public String acl;
     public Integer durationSeconds = 43200;

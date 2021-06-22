@@ -19,16 +19,16 @@ import java.util.List;
 public class FloatingAnimationView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameAnimationView f21687e;
+    public FrameAnimationView f21769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f21688f;
+    public TbImageView f21770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21689g;
+    public ImageView f21771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f21690h;
+    public d f21772h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -37,8 +37,8 @@ public class FloatingAnimationView extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FloatingAnimationView.this.f21690h != null) {
-                FloatingAnimationView.this.f21690h.b();
+            if (FloatingAnimationView.this.f21772h != null) {
+                FloatingAnimationView.this.f21772h.b();
             }
         }
     }
@@ -54,10 +54,10 @@ public class FloatingAnimationView extends FrameLayout {
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void b(TbImageView tbImageView, Canvas canvas) {
-            if (FloatingAnimationView.this.f21687e.getBdImage() != null || k.isEmpty(FloatingAnimationView.this.f21687e.getUrl())) {
+            if (FloatingAnimationView.this.f21769e.getBdImage() != null || k.isEmpty(FloatingAnimationView.this.f21769e.getUrl())) {
                 return;
             }
-            FloatingAnimationView.this.f21687e.U(FloatingAnimationView.this.f21687e.getUrl(), 10, false);
+            FloatingAnimationView.this.f21769e.U(FloatingAnimationView.this.f21769e.getUrl(), 10, false);
         }
     }
 
@@ -68,8 +68,8 @@ public class FloatingAnimationView extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FloatingAnimationView.this.f21690h != null) {
-                FloatingAnimationView.this.f21690h.a();
+            if (FloatingAnimationView.this.f21772h != null) {
+                FloatingAnimationView.this.f21772h.a();
             }
         }
     }
@@ -88,48 +88,48 @@ public class FloatingAnimationView extends FrameLayout {
     public final void c() {
         Context context = getContext();
         FrameAnimationView frameAnimationView = new FrameAnimationView(context);
-        this.f21687e = frameAnimationView;
+        this.f21769e = frameAnimationView;
         frameAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds200), l.g(context, R.dimen.tbds200));
         layoutParams.gravity = 17;
-        addView(this.f21687e, layoutParams);
+        addView(this.f21769e, layoutParams);
         TbImageView tbImageView = new TbImageView(context);
-        this.f21688f = tbImageView;
+        this.f21770f = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds62), l.g(context, R.dimen.tbds62));
         layoutParams2.gravity = 53;
-        this.f21688f.setAutoChangeStyle(false);
-        addView(this.f21688f, layoutParams2);
+        this.f21770f.setAutoChangeStyle(false);
+        addView(this.f21770f, layoutParams2);
         ImageView imageView = new ImageView(context);
-        this.f21689g = imageView;
+        this.f21771g = imageView;
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.g(context, R.dimen.tbds14);
-        addView(this.f21689g, layoutParams3);
-        this.f21687e.setOnClickListener(new a());
-        this.f21687e.setOnDrawListener(new b());
-        this.f21688f.setOnClickListener(new c());
+        addView(this.f21771g, layoutParams3);
+        this.f21769e.setOnClickListener(new a());
+        this.f21769e.setOnDrawListener(new b());
+        this.f21770f.setOnClickListener(new c());
         d();
     }
 
     public void d() {
-        SkinManager.setImageResource(this.f21688f, R.drawable.icon_live_close_n);
+        SkinManager.setImageResource(this.f21770f, R.drawable.icon_live_close_n);
     }
 
     public void setCallback(d dVar) {
-        this.f21690h = dVar;
+        this.f21772h = dVar;
     }
 
     public void setData(String str) {
         if (k.isEmpty(str)) {
             return;
         }
-        this.f21687e.setData(str);
+        this.f21769e.setData(str);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        FrameAnimationView frameAnimationView = this.f21687e;
+        FrameAnimationView frameAnimationView = this.f21769e;
         if (frameAnimationView != null) {
             frameAnimationView.setPageId(bdUniqueId);
         }
@@ -141,7 +141,7 @@ public class FloatingAnimationView extends FrameLayout {
     }
 
     public void setData(List<String> list, int i2) {
-        FrameAnimationView frameAnimationView = this.f21687e;
+        FrameAnimationView frameAnimationView = this.f21769e;
         if (frameAnimationView != null) {
             frameAnimationView.setData(list, i2);
         }

@@ -2,6 +2,7 @@ package com.kwad.sdk.glide.webp.decoder;
 
 import android.util.Log;
 import com.baidu.down.utils.Utils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +12,7 @@ public class h {
         int min = Math.min(i3 / i5, i2 / i4);
         int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
         if (Log.isLoggable(Utils.TAG, 2) && max > 1) {
-            Log.v(Utils.TAG, "Downsampling WEBP, sampleSize: " + max + ", target dimens: [" + i4 + "x" + i5 + "], actual dimens: [" + i2 + "x" + i3 + "]");
+            Log.v(Utils.TAG, "Downsampling WEBP, sampleSize: " + max + ", target dimens: [" + i4 + "x" + i5 + "], actual dimens: [" + i2 + "x" + i3 + PreferencesUtil.RIGHT_MOUNT);
         }
         return max;
     }

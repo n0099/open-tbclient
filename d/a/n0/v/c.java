@@ -1,7 +1,15 @@
 package d.a.n0.v;
 
-import d.a.m0.r.q.a2;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.download.DownloadData;
+/* loaded from: classes3.dex */
 public interface c {
-    void a(a2 a2Var);
+    void onFileDownloadFailed(DownloadData downloadData, int i2, String str);
+
+    void onFileDownloadSucceed(DownloadData downloadData);
+
+    boolean onFileDownloaded(DownloadData downloadData);
+
+    void onFileUpdateProgress(DownloadData downloadData);
+
+    boolean onPreDownload(DownloadData downloadData);
 }

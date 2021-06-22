@@ -34,6 +34,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobstat.au;
 import com.baidu.mobstat.bt;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -492,7 +493,7 @@ public class bj {
                 JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String b2 = b(jSONObject.getString("p"));
                 String string = jSONObject.getString("i");
-                sb.append("/" + b2 + "[" + string + "]");
+                sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                 String optString = jSONObject.optString("d");
                 if (!TextUtils.isEmpty(optString)) {
                     sb.append("#" + optString);
@@ -581,7 +582,7 @@ public class bj {
                 JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String string = jSONObject.getString("p");
                 String string2 = jSONObject.getString("i");
-                sb.append("/" + string + "[" + string2 + "]");
+                sb.append("/" + string + PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
                 String optString = jSONObject.optString("d");
                 if (!TextUtils.isEmpty(optString)) {
                     sb.append("#" + optString);
@@ -716,7 +717,7 @@ public class bj {
                 JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String b2 = b(jSONObject.getString("p"));
                 String string = jSONObject.getString("i");
-                sb.append("/" + b2 + "[" + string + "]");
+                sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
             } catch (Exception unused) {
                 return "";
             }
@@ -940,7 +941,7 @@ public class bj {
                 JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String string = jSONObject.getString("p");
                 String string2 = jSONObject.getString("i");
-                sb.append("/" + string + "[" + string2 + "]");
+                sb.append("/" + string + PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
             } catch (Exception unused) {
                 return "";
             }

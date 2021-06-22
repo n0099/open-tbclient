@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42700a = "11446";
+    public static String f42803a = "11446";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42701b = "type";
+    public static String f42804b = "type";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42702c = "value";
+    public static String f42805c = "value";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42703d = "ext";
+    public static String f42806d = "ext";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42704e = "suc";
+    public static String f42807e = "suc";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f42705f = "fail";
+    public static String f42808f = "fail";
 
     public static String a(String str) {
         return TextUtils.isEmpty(str) ? "-" : str;
@@ -35,8 +35,8 @@ public class d {
     public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f42701b, f42705f);
-            jSONObject.put(f42702c, str);
+            jSONObject.put(f42804b, f42808f);
+            jSONObject.put(f42805c, str);
             JSONObject jSONObject2 = new JSONObject();
             if (list != null && !list.isEmpty()) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -46,8 +46,8 @@ public class d {
                     }
                 }
             }
-            jSONObject.put(f42703d, jSONObject2);
-            d(f42700a, jSONObject);
+            jSONObject.put(f42806d, jSONObject2);
+            d(f42803a, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -56,8 +56,8 @@ public class d {
     public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f42701b, f42704e);
-            jSONObject.put(f42702c, str);
+            jSONObject.put(f42804b, f42807e);
+            jSONObject.put(f42805c, str);
             JSONObject jSONObject2 = new JSONObject();
             if (list != null && !list.isEmpty()) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -67,8 +67,8 @@ public class d {
                     }
                 }
             }
-            jSONObject.put(f42703d, jSONObject2);
-            d(f42700a, jSONObject);
+            jSONObject.put(f42806d, jSONObject2);
+            d(f42803a, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

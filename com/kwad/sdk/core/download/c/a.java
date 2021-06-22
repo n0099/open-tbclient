@@ -28,22 +28,22 @@ import com.kwad.sdk.core.download.DownloadStatusManager;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ab;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f34210a = new HandlerC0380a();
+    public static final Handler f34308a = new HandlerC0383a();
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class HandlerC0380a extends Handler {
+    /* loaded from: classes7.dex */
+    public static class HandlerC0383a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<Long> f34211a;
+        public final SparseArray<Long> f34309a;
 
-        public HandlerC0380a() {
+        public HandlerC0383a() {
             super(Looper.getMainLooper());
-            this.f34211a = new SparseArray<>();
+            this.f34309a = new SparseArray<>();
         }
 
         @Override // android.os.Handler
@@ -51,7 +51,7 @@ public class a implements f {
             boolean z = message.arg1 == 1;
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
-            Long l = this.f34211a.get(message.what);
+            Long l = this.f34309a.get(message.what);
             NotificationManager notificationManager = (NotificationManager) b.a().getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (notificationManager == null) {
                 return;
@@ -66,7 +66,7 @@ public class a implements f {
                     notificationManager.cancel(message.what);
                 }
                 a.b(message.what, (Notification) message.obj);
-                this.f34211a.put(message.what, Long.valueOf(System.currentTimeMillis()));
+                this.f34309a.put(message.what, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }
@@ -193,8 +193,8 @@ public class a implements f {
         createProgressView.setProgress(100, smallFileSoFarBytes, false);
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(true).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f34210a.removeMessages(downloadTask.getId());
-        f34210a.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+        f34308a.removeMessages(downloadTask.getId());
+        f34308a.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -228,8 +228,8 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(file, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f34210a.removeMessages(a3.mTaskId);
-        f34210a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f34308a.removeMessages(a3.mTaskId);
+        f34308a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -259,8 +259,8 @@ public class a implements f {
         createCompletedView.setInstallText("立刻打开");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(true).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(a3.mPkgname, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f34210a.removeMessages(a3.mTaskId);
-        f34210a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f34308a.removeMessages(a3.mTaskId);
+        f34308a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -296,7 +296,7 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(downloadTask)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f34210a.removeMessages(downloadTask.getId());
-        f34210a.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
+        f34308a.removeMessages(downloadTask.getId());
+        f34308a.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
     }
 }

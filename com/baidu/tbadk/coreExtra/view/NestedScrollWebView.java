@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.hybrid.ScrollBridgeWebview;
 public class NestedScrollWebView extends ScrollBridgeWebview implements NestedScrollingChild2 {
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f12728g;
+    public final int[] f12810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f12729h;
+    public final int[] f12811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12730i;
+    public int f12812i;
     public VelocityTracker j;
     public int k;
     public int l;
@@ -32,8 +32,8 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     @RequiresApi(api = 9)
     public NestedScrollWebView(Context context) {
         super(context);
-        this.f12728g = new int[2];
-        this.f12729h = new int[2];
+        this.f12810g = new int[2];
+        this.f12811h = new int[2];
         init();
     }
 
@@ -153,11 +153,11 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
             if (action != 1) {
                 if (action == 2) {
                     int rawY = (int) motionEvent.getRawY();
-                    int i3 = this.f12730i - rawY;
-                    if (dispatchNestedPreScroll(0, i3, this.f12728g, this.f12729h)) {
-                        obtain.offsetLocation(0.0f, this.f12728g[1]);
+                    int i3 = this.f12812i - rawY;
+                    if (dispatchNestedPreScroll(0, i3, this.f12810g, this.f12811h)) {
+                        obtain.offsetLocation(0.0f, this.f12810g[1]);
                     }
-                    this.f12730i = rawY;
+                    this.f12812i = rawY;
                     int scrollY = getScrollY();
                     if (scrollY == 0) {
                         i2 = i3;
@@ -172,7 +172,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                     }
                     this.j.addMovement(obtain);
                     boolean onTouchEvent = super.onTouchEvent(obtain);
-                    dispatchNestedScroll(0, i3 - i2, 0, i2, this.f12729h);
+                    dispatchNestedScroll(0, i3 - i2, 0, i2, this.f12811h);
                     return onTouchEvent;
                 }
             }
@@ -185,7 +185,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
             stopNestedScroll();
             c();
         } else {
-            this.f12730i = (int) motionEvent.getRawY();
+            this.f12812i = (int) motionEvent.getRawY();
             startNestedScroll(2);
             this.j.addMovement(obtain);
             this.m.computeScrollOffset();
@@ -239,8 +239,8 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     @RequiresApi(api = 9)
     public NestedScrollWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12728g = new int[2];
-        this.f12729h = new int[2];
+        this.f12810g = new int[2];
+        this.f12811h = new int[2];
         init();
     }
 }

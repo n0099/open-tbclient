@@ -15,57 +15,57 @@ import com.kwad.sdk.reward.widget.tailframe.TailFramePortraitVertical;
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public TailFramePortraitVertical f37133b;
+    public TailFramePortraitVertical f37231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TailFramePortraitHorizontal f37134c;
+    public TailFramePortraitHorizontal f37232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TailFrameLandscapeVertical f37135d;
+    public TailFrameLandscapeVertical f37233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TailFrameLandscapeHorizontal f37136e;
+    public TailFrameLandscapeHorizontal f37234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f37137f;
+    public AdTemplate f37235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f37138g;
+    public AdInfo f37236g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public c f37139h;
+    public c f37237h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37140i;
+    public boolean f37238i;
     public e j = new e() { // from class: com.kwad.sdk.reward.b.c.a.a.1
         @Override // com.kwad.sdk.reward.a.e
         public void a() {
-            if (a.this.f37139h != null && a.this.f37139h.d()) {
-                a.this.f37140i = false;
+            if (a.this.f37237h != null && a.this.f37237h.d()) {
+                a.this.f37238i = false;
                 return;
             }
-            a.this.f37140i = true;
+            a.this.f37238i = true;
             a.this.f();
         }
     };
 
     private void e() {
-        if (this.f37140i) {
-            this.f37133b.b();
-            this.f37133b.setVisibility(8);
-            this.f37134c.b();
-            this.f37134c.setVisibility(8);
-            this.f37135d.b();
-            this.f37135d.setVisibility(8);
-            this.f37136e.b();
-            this.f37136e.setVisibility(8);
+        if (this.f37238i) {
+            this.f37231b.b();
+            this.f37231b.setVisibility(8);
+            this.f37232c.b();
+            this.f37232c.setVisibility(8);
+            this.f37233d.b();
+            this.f37233d.setVisibility(8);
+            this.f37234e.b();
+            this.f37234e.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (((d) this).f37201a.f36954e == 0) {
+        if (((d) this).f37299a.f37052e == 0) {
             if (g()) {
                 h();
             } else {
@@ -79,64 +79,64 @@ public class a extends d {
     }
 
     private boolean g() {
-        AdInfo.AdMaterialInfo.MaterialFeature E = com.kwad.sdk.core.response.b.a.E(this.f37138g);
+        AdInfo.AdMaterialInfo.MaterialFeature E = com.kwad.sdk.core.response.b.a.E(this.f37236g);
         return E.height > E.width;
     }
 
     private void h() {
-        this.f37133b.a(this.f37137f, ((d) this).f37201a.f36953d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.2
+        this.f37231b.a(this.f37235f, ((d) this).f37299a.f37051d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.2
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
             }
         });
-        this.f37133b.setVisibility(0);
+        this.f37231b.setVisibility(0);
     }
 
     private void p() {
-        this.f37134c.a(this.f37137f, ((d) this).f37201a.f36953d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.3
+        this.f37232c.a(this.f37235f, ((d) this).f37299a.f37051d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.3
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
             }
         });
-        this.f37134c.setVisibility(0);
+        this.f37232c.setVisibility(0);
     }
 
     private void q() {
-        this.f37135d.a(this.f37137f, ((d) this).f37201a.f36953d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.4
+        this.f37233d.a(this.f37235f, ((d) this).f37299a.f37051d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.4
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
             }
         });
-        this.f37135d.setVisibility(0);
+        this.f37233d.setVisibility(0);
     }
 
     private void r() {
-        this.f37136e.a(this.f37137f, ((d) this).f37201a.f36953d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.5
+        this.f37234e.a(this.f37235f, ((d) this).f37299a.f37051d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.5
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
             }
         });
-        this.f37136e.setVisibility(0);
+        this.f37234e.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        com.kwad.sdk.core.report.b.a(this.f37137f, 2, ((d) this).f37201a.f36957h.getTouchCoords(), ((d) this).f37201a.f36953d);
-        ((d) this).f37201a.f36951b.a();
+        com.kwad.sdk.core.report.b.a(this.f37235f, 2, ((d) this).f37299a.f37055h.getTouchCoords(), ((d) this).f37299a.f37051d);
+        ((d) this).f37299a.f37049b.a();
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((d) this).f37201a.f36955f;
-        this.f37137f = adTemplate;
-        this.f37138g = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        com.kwad.sdk.reward.a aVar = ((d) this).f37201a;
-        this.f37139h = aVar.l;
+        AdTemplate adTemplate = ((d) this).f37299a.f37053f;
+        this.f37235f = adTemplate;
+        this.f37236g = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        com.kwad.sdk.reward.a aVar = ((d) this).f37299a;
+        this.f37237h = aVar.l;
         aVar.n.add(this.j);
     }
 
@@ -144,15 +144,15 @@ public class a extends d {
     public void b_() {
         super.b_();
         e();
-        ((d) this).f37201a.n.remove(this.j);
+        ((d) this).f37299a.n.remove(this.j);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f37133b = (TailFramePortraitVertical) b(R.id.ksad_video_portrait_vertical);
-        this.f37134c = (TailFramePortraitHorizontal) b(R.id.ksad_video_portrait_horizontal);
-        this.f37135d = (TailFrameLandscapeVertical) b(R.id.ksad_video_landscape_vertical);
-        this.f37136e = (TailFrameLandscapeHorizontal) b(R.id.ksad_video_landscape_horizontal);
+        this.f37231b = (TailFramePortraitVertical) b(R.id.ksad_video_portrait_vertical);
+        this.f37232c = (TailFramePortraitHorizontal) b(R.id.ksad_video_portrait_horizontal);
+        this.f37233d = (TailFrameLandscapeVertical) b(R.id.ksad_video_landscape_vertical);
+        this.f37234e = (TailFrameLandscapeHorizontal) b(R.id.ksad_video_landscape_horizontal);
     }
 }

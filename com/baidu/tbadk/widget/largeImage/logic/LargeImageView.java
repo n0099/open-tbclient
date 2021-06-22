@@ -6,50 +6,50 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
-import d.a.m0.b1.i.b.b;
+import d.a.n0.b1.i.b.b;
 /* loaded from: classes3.dex */
 public class LargeImageView extends DragImageView {
-    public b s0;
+    public b x0;
 
     public LargeImageView(Context context) {
         super(context);
-        this.s0 = new b(this);
+        this.x0 = new b(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public void T() {
-        this.s0.Q(getImageBitmap(), getImageData());
+        this.x0.Q(getImageBitmap(), getImageData());
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public float U(Bitmap bitmap) {
-        return this.s0.y();
+        return this.x0.y();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void computeScroll() {
-        this.s0.t();
+        this.x0.t();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public float getMinScaleValue() {
-        return this.s0.z();
+        return this.x0.z();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public float j0(Bitmap bitmap) {
-        return this.s0.N();
+        return this.x0.N();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        this.s0.O();
+        this.x0.O();
         super.onDetachedFromWindow();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.s0.J(canvas)) {
+        if (this.x0.J(canvas)) {
             return;
         }
         super.onDraw(canvas);
@@ -57,7 +57,7 @@ public class LargeImageView extends DragImageView {
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.s0.M(motionEvent)) {
+        if (this.x0.M(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -65,11 +65,11 @@ public class LargeImageView extends DragImageView {
 
     public LargeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.s0 = new b(this);
+        this.x0 = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.s0 = new b(this);
+        this.x0 = new b(this);
     }
 }

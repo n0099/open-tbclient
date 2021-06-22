@@ -19,6 +19,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.R;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import io.flutter.view.AccessibilityBridge;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -1367,7 +1368,7 @@ public class AccessibilityNodeInfoCompat {
                 }
             }
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

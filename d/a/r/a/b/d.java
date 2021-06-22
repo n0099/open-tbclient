@@ -14,16 +14,16 @@ import java.util.Map;
 public final class d implements b, c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f68073a;
+    public final Context f68177a;
 
     public d(Context context) {
-        this.f68073a = context;
+        this.f68177a = context;
     }
 
     @Override // d.a.r.a.b.b
     public final String a() {
         Integer num;
-        String str = d.a.r.a.a.d().c() != d.a.r.a.e.a.f68083a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
+        String str = d.a.r.a.a.d().c() != d.a.r.a.e.a.f68187a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
         StringBuilder sb = new StringBuilder();
         sb.append(str);
         sb.append("?");
@@ -33,7 +33,7 @@ public final class d implements b, c {
         sb2.append("&uid=");
         sb2.append(d.a.r.a.a.d().a());
         sb2.append("&ua=");
-        Context context = this.f68073a;
+        Context context = this.f68177a;
         DisplayMetrics a2 = f.a(context);
         int i2 = a2 != null ? a2.widthPixels : 0;
         DisplayMetrics a3 = f.a(context);
@@ -50,19 +50,19 @@ public final class d implements b, c {
         String str4 = Build.MANUFACTURER;
         sb2.append(replace + "_" + replace2 + "_" + i5 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
         sb2.append("&network=");
-        d.a.r.a.e.d dVar = new d.a.r.a.e.d(this.f68073a);
-        boolean isEmpty = TextUtils.isEmpty(dVar.f68087a);
+        d.a.r.a.e.d dVar = new d.a.r.a.e.d(this.f68177a);
+        boolean isEmpty = TextUtils.isEmpty(dVar.f68191a);
         String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-        if (!isEmpty && (num = d.a.r.a.e.d.f68086c.get(dVar.f68087a)) != null) {
-            str5 = num + "_" + dVar.f68088b;
+        if (!isEmpty && (num = d.a.r.a.e.d.f68190c.get(dVar.f68191a)) != null) {
+            str5 = num + "_" + dVar.f68192b;
         }
         if (str5 == null) {
             str5 = "unknown";
         }
         sb2.append(str5);
         sb2.append("&appversion=");
-        sb2.append(f.b(this.f68073a));
-        if (d.a.r.a.a.d().c() != d.a.r.a.e.a.f68083a) {
+        sb2.append(f.b(this.f68177a));
+        if (d.a.r.a.a.d().c() != d.a.r.a.e.a.f68187a) {
             sb2.append("&debug=1");
         }
         sb.append(sb2.toString());

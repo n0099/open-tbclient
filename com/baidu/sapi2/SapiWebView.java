@@ -1442,7 +1442,7 @@ public class SapiWebView extends WebView {
     public String getUaInfo() {
         String str = !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
         String str2 = TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE;
-        String encode = URLEncoder.encode("Sapi_9.3.2.5_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
+        String encode = URLEncoder.encode("Sapi_9.3.6_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
         if (!isValidPackage() || TextUtils.isEmpty(this.configuration.userAgent)) {
             return encode;
         }
@@ -1550,6 +1550,10 @@ public class SapiWebView extends WebView {
 
     public void loadAddressManage(List<PassNameValuePair> list) {
         loadUrl(addExtras(getAddressManageUrl(), list));
+    }
+
+    public void loadAuthWidget(List<PassNameValuePair> list, boolean z) {
+        loadUrl(addExtras(SapiAccountManager.getInstance().getAccountService().getAuthWidgetUrl(z), list));
     }
 
     public void loadBindWidget(BindWidgetAction bindWidgetAction, String str, String str2, boolean z, List<PassNameValuePair> list) {
@@ -2125,6 +2129,10 @@ public class SapiWebView extends WebView {
 
     public void setJoinLoingParams(SapiJsCallBacks.JoinLoginParams joinLoginParams) {
         this.jsCallBacks.joinLoginParams = joinLoginParams;
+    }
+
+    public void setJumpToUriCallBack(SapiJsCallBacks.JumpToUriCallBack jumpToUriCallBack) {
+        this.jsCallBacks.jumpToUriCallBack = jumpToUriCallBack;
     }
 
     public void setLeftBtnVisibleCallback(LeftBtnVisibleCallback leftBtnVisibleCallback) {

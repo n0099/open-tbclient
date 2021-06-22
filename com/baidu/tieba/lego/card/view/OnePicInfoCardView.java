@@ -17,9 +17,9 @@ import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import d.a.n0.e3.n0.d;
-import d.a.n0.k1.i;
-import d.a.n0.k1.o.f;
+import d.a.o0.e3.n0.d;
+import d.a.o0.k1.i;
+import d.a.o0.k1.o.f;
 /* loaded from: classes4.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public TbImageView A;
@@ -40,10 +40,10 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public class a implements LineCountNotifyTextView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18004a;
+        public final /* synthetic */ OnePicInfoCard f18086a;
 
         public a(OnePicInfoCard onePicInfoCard) {
-            this.f18004a = onePicInfoCard;
+            this.f18086a = onePicInfoCard;
         }
 
         @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
@@ -57,7 +57,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 }
             }
             OnePicInfoCardView.this.D = lineCount;
-            OnePicInfoCardView.this.u.setText(this.f18004a.getDesc());
+            OnePicInfoCardView.this.u.setText(this.f18086a.getDesc());
         }
     }
 
@@ -65,15 +65,15 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18006e;
+        public final /* synthetic */ OnePicInfoCard f18088e;
 
         public b(OnePicInfoCard onePicInfoCard) {
-            this.f18006e = onePicInfoCard;
+            this.f18088e = onePicInfoCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            OnePicInfoCardView.this.p(this.f18006e);
+            OnePicInfoCardView.this.p(this.f18088e);
         }
     }
 
@@ -87,27 +87,27 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (this.v == null) {
             return;
         }
-        if (onePicInfoCard != null && !d.a.n0.k1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.a.n0.k1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !d.a.o0.k1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.a.o0.k1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
             this.v.setBackgroundColor(u() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
         } else {
             SkinManager.setBackgroundResource(this.v, R.drawable.label_bg_tie_n);
         }
     }
 
-    public final void M(TextView textView, TbImageView tbImageView, d.a.n0.k1.o.j.b bVar) {
-        String str = u() ? bVar.f60349b : bVar.f60348a;
+    public final void M(TextView textView, TbImageView tbImageView, d.a.o0.k1.o.j.b bVar) {
+        String str = u() ? bVar.f60474b : bVar.f60473a;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);
             tbImageView.U(str, 10, false);
         } else {
             tbImageView.setVisibility(8);
-            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f60350c)), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f60475c)), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         try {
-            textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f60351d)));
+            textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f60476d)));
         } catch (NumberFormatException unused) {
-            textView.setText(bVar.f60351d);
+            textView.setText(bVar.f60476d);
         }
     }
 
@@ -116,7 +116,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     /* renamed from: N */
     public void w(OnePicInfoCard onePicInfoCard, int i2) {
         LineCountNotifyTextView lineCountNotifyTextView;
-        d.a.m0.s0.a.a(this.m, getRootView());
+        d.a.n0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
         setTagBg(onePicInfoCard);
         SkinManager.setViewTextColor(this.v, R.color.CAM_X0111);

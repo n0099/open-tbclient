@@ -17,19 +17,19 @@ import java.util.List;
 public class ForumEmotionVoteEntryView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14978e;
+    public int f15060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14979f;
+    public int f15061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f14980g;
+    public LinearLayout f15062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14981h;
+    public TextView f15063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f14982i;
+    public View f15064i;
 
     public ForumEmotionVoteEntryView(Context context) {
         super(context);
@@ -38,22 +38,22 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-        this.f14980g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-        this.f14978e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.f14979f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.f14981h = (TextView) findViewById(R.id.forum_emotion_vote_title);
-        this.f14982i = findViewById(R.id.forum_vote_bottom_line);
+        this.f15062g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
+        this.f15060e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.f15061f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f15063h = (TextView) findViewById(R.id.forum_emotion_vote_title);
+        this.f15064i = findViewById(R.id.forum_vote_bottom_line);
     }
 
     public void b(int i2) {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f14980g, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f14981h, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.f14982i, R.color.common_color_10312);
+        SkinManager.setBackgroundColor(this.f15062g, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f15063h, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f15064i, R.color.common_color_10312);
     }
 
     public void setAvatarList(List<String> list) {
-        this.f14980g.removeAllViews();
+        this.f15062g.removeAllViews();
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -63,12 +63,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                 tbImageView.setDrawerType(1);
                 tbImageView.setIsRound(true);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                int i2 = this.f14978e;
+                int i2 = this.f15060e;
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-                layoutParams.leftMargin = this.f14979f;
+                layoutParams.leftMargin = this.f15061f;
                 layoutParams.gravity = 17;
                 tbImageView.U(str, 10, false);
-                this.f14980g.addView(tbImageView, layoutParams);
+                this.f15062g.addView(tbImageView, layoutParams);
             }
         }
     }

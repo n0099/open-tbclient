@@ -20,9 +20,9 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import d.a.m0.t.n;
-import d.a.n0.k3.d.c;
-import d.a.n0.k3.h.e;
+import d.a.n0.t.n;
+import d.a.o0.k3.d.c;
+import d.a.o0.k3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvatarPendantModel.b, View.OnClickListener {
@@ -40,7 +40,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i2, String str, e eVar, List<d.a.n0.k3.d.a> list) {
+        public void a(int i2, String str, e eVar, List<d.a.o0.k3.d.a> list) {
             AvatarPendantActivity avatarPendantActivity = AvatarPendantActivity.this;
             avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
             if (i2 == 0) {
@@ -78,7 +78,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (dressItemData == null) {
             return "";
         }
-        List<d.a.n0.k3.d.a> B = this.mModel.B();
+        List<d.a.o0.k3.d.a> B = this.mModel.B();
         if (B != null && B.size() > 0) {
             int size = B.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -157,7 +157,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         this.mModel.C();
     }
 
-    @Override // d.a.n0.k3.d.c.a
+    @Override // d.a.o0.k3.d.c.a
     public void onItemClick(DressItemData dressItemData) {
         if (checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
             this.mCurrentCategory = getCurrentCategory(dressItemData);
@@ -182,7 +182,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             showErrorDialog(i3, str, i2);
             return;
         }
-        List<d.a.n0.k3.d.a> B = this.mModel.B();
+        List<d.a.o0.k3.d.a> B = this.mModel.B();
         if (B == null || B.size() <= 0) {
             return;
         }
@@ -219,10 +219,10 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == d.a.n0.k3.c.f60646a) {
-            d.a.n0.k3.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-        } else if (i2 == d.a.n0.k3.c.f60647b) {
-            d.a.n0.k3.b.c(getPageContext(), 7, str, i4);
+        if (i2 == d.a.o0.k3.c.f60771a) {
+            d.a.o0.k3.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+        } else if (i2 == d.a.o0.k3.c.f60772b) {
+            d.a.o0.k3.b.c(getPageContext(), 7, str, i4);
         }
     }
 }

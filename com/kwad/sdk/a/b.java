@@ -22,35 +22,35 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.core.view.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f32213a;
+    public KsNativeAd.AdInteractionListener f32311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f32214b;
+    public KsNativeAd.VideoPlayListener f32312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f32215c;
+    public AdBaseFrameLayout f32313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DetailVideoView f32216d;
+    public DetailVideoView f32314d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.a.a.b f32217e;
+    public com.kwad.sdk.a.a.b f32315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Presenter f32218f;
+    public Presenter f32316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f32219g;
+    public AdTemplate f32317g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdInfo f32220h;
+    public AdInfo f32318h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32221i;
+    public com.kwad.sdk.core.download.b.b f32319i;
     public com.kwad.sdk.a.c.a j;
     public g k;
     public KsAdVideoPlayConfig l;
@@ -63,20 +63,20 @@ public class b extends com.kwad.sdk.core.view.b {
     private void c() {
         FrameLayout.inflate(getContext(), R.layout.ksad_native_video_layout, this);
         AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-        this.f32215c = adBaseFrameLayout;
+        this.f32313c = adBaseFrameLayout;
         DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.ksad_video_player);
-        this.f32216d = detailVideoView;
+        this.f32314d = detailVideoView;
         detailVideoView.setAd(true);
     }
 
     private com.kwad.sdk.a.a.b d() {
         com.kwad.sdk.a.a.b bVar = new com.kwad.sdk.a.a.b();
-        bVar.f32209c = this.f32215c;
-        bVar.f32210d = this.f32219g;
-        bVar.f32207a = this.f32213a;
-        bVar.f32208b = this.f32214b;
-        bVar.f32211e = (this.f32221i == null && com.kwad.sdk.core.response.b.a.y(this.f32220h)) ? new com.kwad.sdk.core.download.b.b(this.f32219g) : this.f32221i;
-        bVar.f32212f = this.j;
+        bVar.f32307c = this.f32313c;
+        bVar.f32308d = this.f32317g;
+        bVar.f32305a = this.f32311a;
+        bVar.f32306b = this.f32312b;
+        bVar.f32309e = (this.f32319i == null && com.kwad.sdk.core.response.b.a.y(this.f32318h)) ? new com.kwad.sdk.core.download.b.b(this.f32317g) : this.f32319i;
+        bVar.f32310f = this.j;
         return bVar;
     }
 
@@ -94,29 +94,29 @@ public class b extends com.kwad.sdk.core.view.b {
             presenter.a((Presenter) new com.kwad.sdk.a.b.a());
         }
         presenter.a((Presenter) new com.kwad.sdk.a.b.g());
-        presenter.a(com.kwad.sdk.core.response.b.a.y(this.f32220h) ? new f() : new h());
+        presenter.a(com.kwad.sdk.core.response.b.a.y(this.f32318h) ? new f() : new h());
         return presenter;
     }
 
     @Override // com.kwad.sdk.core.view.b
     public void a() {
-        this.f32217e = d();
+        this.f32315e = d();
         Presenter e2 = e();
-        this.f32218f = e2;
-        e2.a((View) this.f32215c);
-        this.f32218f.a(this.f32217e);
+        this.f32316f = e2;
+        e2.a((View) this.f32313c);
+        this.f32316f.a(this.f32315e);
         this.k.a();
         this.j.a();
     }
 
     public void a(@NonNull AdTemplate adTemplate, @Nullable com.kwad.sdk.core.download.b.b bVar, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
-        this.f32219g = adTemplate;
-        this.f32220h = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        this.f32221i = bVar;
+        this.f32317g = adTemplate;
+        this.f32318h = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f32319i = bVar;
         this.l = ksAdVideoPlayConfig;
         g gVar = new g(getParent() == null ? this : (View) getParent(), 30);
         this.k = gVar;
-        this.j = new com.kwad.sdk.a.c.a(this.f32219g, gVar, this.f32216d, ksAdVideoPlayConfig);
+        this.j = new com.kwad.sdk.a.c.a(this.f32317g, gVar, this.f32314d, ksAdVideoPlayConfig);
     }
 
     @Override // com.kwad.sdk.core.view.b
@@ -129,21 +129,21 @@ public class b extends com.kwad.sdk.core.view.b {
         if (aVar != null) {
             aVar.b();
         }
-        com.kwad.sdk.a.a.b bVar = this.f32217e;
+        com.kwad.sdk.a.a.b bVar = this.f32315e;
         if (bVar != null) {
             bVar.a();
         }
-        Presenter presenter = this.f32218f;
+        Presenter presenter = this.f32316f;
         if (presenter != null) {
             presenter.j();
         }
     }
 
     public void setAdInteractionListener(KsNativeAd.AdInteractionListener adInteractionListener) {
-        this.f32213a = adInteractionListener;
+        this.f32311a = adInteractionListener;
     }
 
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
-        this.f32214b = videoPlayListener;
+        this.f32312b = videoPlayListener;
     }
 }

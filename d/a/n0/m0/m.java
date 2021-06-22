@@ -1,536 +1,139 @@
 package d.a.n0.m0;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.faceshop.FaceBuyData;
-import com.baidu.tieba.faceshop.FaceBuyModel;
-import com.baidu.tieba.faceshop.FacePackageData;
-import com.baidu.tieba.faceshop.FacePackageDownloadData;
-import com.baidu.tieba.faceshop.FacePackageDownloadModel;
-import com.baidu.tieba.faceshop.FaceShopActivity;
-import com.baidu.tieba.faceshop.FaceShopData;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class m extends BaseAdapter {
-    public static int o;
-
-    /* renamed from: e  reason: collision with root package name */
-    public FaceShopData f60972e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final FaceShopActivity f60973f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final int f60974g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final int f60975h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final int f60976i;
-    public final int j;
-    public FacePackageDownloadModel l;
-    public FaceBuyModel m;
-    public int k = -1;
-    public View.OnClickListener n = new a();
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public a() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            try {
-                e eVar = (e) view.getTag();
-                if (eVar == null) {
-                    return;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobstat.Config;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class m extends j {
+    public void b(h hVar) {
+        int i2;
+        if (k.d().g()) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("action", "time");
+            a2.b("ishttp", hVar.s ? "1" : "0");
+            a2.b("issuccess", hVar.f53321b ? "1" : "0");
+            a2.b("nettype", k.d().f());
+            a2.b("wt", String.valueOf(hVar.p));
+            a2.b("qt", String.valueOf(hVar.f53325f));
+            a2.b("connt", String.valueOf(hVar.f53326g));
+            a2.b("rwt", String.valueOf(hVar.f53327h));
+            a2.b("fbt", String.valueOf(hVar.f53328i));
+            a2.b("abt", String.valueOf(hVar.j));
+            a2.b("dect", String.valueOf(hVar.k));
+            a2.b("parset", String.valueOf(hVar.l));
+            a2.b("tqt", String.valueOf(hVar.n));
+            a2.b("rendert", String.valueOf(hVar.o));
+            a2.b("ss", String.valueOf(hVar.q));
+            a2.b("hs", String.valueOf(hVar.r));
+            if (hVar.s && (i2 = hVar.t) != 0) {
+                a2.b("salno", String.valueOf(i2));
+                long j = hVar.u;
+                if (j != 0) {
+                    a2.b("scosttime", String.valueOf(j));
                 }
-                int i2 = eVar.f60992a;
-                if (!TbadkCoreApplication.isLogin()) {
-                    m.this.k = eVar.f60992a;
-                    TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(m.this.f60973f.getPageContext().getPageActivity(), true, 11003)));
-                    return;
+            }
+            if (hVar.s) {
+                a2.b("hrtn", String.valueOf(hVar.w));
+                a2.b("hrtt", String.valueOf(hVar.x));
+            }
+            int i3 = hVar.v;
+            if (i3 != 0) {
+                a2.c("errcode", Integer.valueOf(i3));
+            }
+            if (hVar.y) {
+                a2.b(Config.PLATFORM_TYPE, "1");
+            } else {
+                a2.b("sysct", String.valueOf(hVar.f53322c));
+                a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f53324e));
+                a2.b("lt", String.valueOf(hVar.f53323d));
+                a2.b("df", String.valueOf(hVar.m));
+            }
+            if (hVar.s) {
+                a2.b("c_logid", String.valueOf(hVar.A));
+                long j2 = hVar.z;
+                if (j2 != 0) {
+                    a2.b("seq_id", String.valueOf(j2 & 4294967295L));
                 }
-                int i3 = eVar.f60993b;
-                if (i3 == 2) {
-                    m.this.i(i2);
-                } else if (i3 == 3) {
-                    m.this.j(i2);
-                } else if (i3 != 4) {
-                } else {
-                    m.this.g(i2);
+            } else {
+                a2.b("seq_id", String.valueOf(hVar.z & 4294967295L));
+            }
+            HashMap<String, String> hashMap = hVar.E;
+            if (hashMap != null && !hashMap.isEmpty()) {
+                for (Map.Entry<String, String> entry : hVar.E.entrySet()) {
+                    a2.b(entry.getKey(), entry.getValue());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            BdStatisticsManager.getInstance().performance(this.f53341a, a2);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends d.a.c.a.e {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacePackageData f60978a;
-
-        public b(FacePackageData facePackageData) {
-            this.f60978a = facePackageData;
-        }
-
-        @Override // d.a.c.a.e
-        public void c(Object obj) {
-            if (obj == null || !(obj instanceof FacePackageDownloadData)) {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), R.string.neterror);
+    public void c(h hVar, int i2) {
+        if (k.d().g() && hVar.D > 0) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("action", "time");
+            a2.b("pct", String.valueOf(hVar.D));
+            if (i2 == 0) {
+                a2.b("pct_type", String.valueOf(100));
+            } else if (i2 != 40) {
                 return;
-            }
-            FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
-            if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
-                this.f60978a.pack_url = facePackageDownloadData.pack_url;
-                f f2 = f.f();
-                String valueOf = String.valueOf(this.f60978a.pid);
-                FacePackageData facePackageData = this.f60978a;
-                f2.j(valueOf, facePackageData.pname, facePackageData.pack_url);
-            } else if (facePackageDownloadData.usermsg != null) {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), facePackageDownloadData.usermsg);
             } else {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), R.string.neterror);
+                a2.b("pct_type", String.valueOf(101));
             }
+            BdStatisticsManager.getInstance().performance(this.f53341a, a2);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends d.a.c.a.e {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacePackageData f60980a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f60981b;
-
-        public c(FacePackageData facePackageData, int i2) {
-            this.f60980a = facePackageData;
-            this.f60981b = i2;
-        }
-
-        @Override // d.a.c.a.e
-        public void c(Object obj) {
-            m.this.f60973f.hideProgressBar();
-            if (obj == null || !(obj instanceof FaceBuyData)) {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), R.string.neterror);
-                return;
-            }
-            FaceBuyData faceBuyData = (FaceBuyData) obj;
-            if (faceBuyData.errno == 0 && faceBuyData.usermsg != null) {
-                FaceBuyData.BuyInfo buyInfo = faceBuyData.buy_info;
-                String str = buyInfo.buy_url;
-                String str2 = buyInfo.return_url;
-                if (buyInfo.buy_status == 2) {
-                    UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), R.string.has_buy_book);
-                    FacePackageData facePackageData = this.f60980a;
-                    facePackageData.buy_status = 1;
-                    facePackageData.can_download = 1;
-                    m.this.notifyDataSetChanged();
-                    return;
+    public void d(h hVar, boolean z) {
+        int i2;
+        if (k.d().g()) {
+            if (!z || hVar.B > 0) {
+                if (z || hVar.C > 0) {
+                    d.a.c.e.n.a a2 = j.a();
+                    a2.b("action", "time");
+                    if (z) {
+                        a2.b("put", String.valueOf(hVar.B));
+                    } else {
+                        a2.b("pdt", String.valueOf(hVar.C));
+                    }
+                    a2.b("ishttp", hVar.s ? "1" : "0");
+                    a2.b("issuccess", hVar.f53321b ? "1" : "0");
+                    a2.b("nettype", k.d().f());
+                    a2.b("qt", String.valueOf(hVar.f53325f));
+                    a2.b("connt", String.valueOf(hVar.f53326g));
+                    a2.b("rwt", String.valueOf(hVar.f53327h));
+                    a2.b("dect", String.valueOf(hVar.k));
+                    a2.b("parset", String.valueOf(hVar.l));
+                    a2.b("rendert", String.valueOf(hVar.o));
+                    a2.b("ss", String.valueOf(hVar.q));
+                    a2.b("hs", String.valueOf(hVar.r));
+                    if (hVar.s && (i2 = hVar.t) != 0) {
+                        a2.b("salno", String.valueOf(i2));
+                        long j = hVar.u;
+                        if (j != 0) {
+                            a2.b("scosttime", String.valueOf(j));
+                        }
+                    }
+                    int i3 = hVar.v;
+                    if (i3 != 0) {
+                        a2.c("errcode", Integer.valueOf(i3));
+                    }
+                    BdStatisticsManager.getInstance().performance(this.f53341a, a2);
                 }
-                this.f60980a.orderId = buyInfo.order_id;
-                IntentConfig intentConfig = new IntentConfig(m.this.f60973f);
-                intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
-                intentConfig.getIntent().putExtra("tag_hook_url", str2);
-                intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, m.this.f60973f.getString(R.string.buy_book));
-                intentConfig.getIntent().putExtra("tag_position", this.f60981b);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2902013, intentConfig));
-            } else if (faceBuyData.usermsg != null) {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), faceBuyData.usermsg);
-            } else {
-                UtilHelper.showToast(m.this.f60973f.getPageContext().getContext(), R.string.neterror);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d {
-
-        /* renamed from: a  reason: collision with root package name */
-        public TbImageView f60983a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f60984b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public FrameLayout f60985c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f60986d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f60987e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public ImageView f60988f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public FrameLayout f60989g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public TextView f60990h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public TbImageView f60991i;
-        public TbImageView j;
-        public String k;
-        public int l;
-        public int m;
-
-        public d(m mVar) {
-        }
-
-        public /* synthetic */ d(m mVar, a aVar) {
-            this(mVar);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e {
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f60992a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f60993b;
-
-        public e(m mVar) {
-        }
-
-        public /* synthetic */ e(m mVar, a aVar) {
-            this(mVar);
-        }
-    }
-
-    public m(FaceShopActivity faceShopActivity) {
-        this.f60973f = faceShopActivity;
-        int k = d.a.c.e.p.l.k(faceShopActivity.getPageContext().getPageActivity());
-        o = k;
-        int dimensionPixelSize = k - (faceShopActivity.getResources().getDimensionPixelSize(R.dimen.ds22) * 2);
-        this.f60974g = dimensionPixelSize;
-        this.f60975h = (int) (dimensionPixelSize * 0.38495576f);
-        Bitmap resBitmap = BitmapHelper.getResBitmap(this.f60973f.getPageContext().getContext(), R.drawable.bg_content_download_down);
-        if (resBitmap != null) {
-            this.f60976i = resBitmap.getWidth();
-        } else {
-            this.f60976i = 0;
-        }
-        Bitmap resBitmap2 = BitmapHelper.getResBitmap(this.f60973f.getPageContext().getContext(), R.drawable.bg_content_download_up);
-        if (resBitmap2 != null) {
-            this.j = resBitmap2.getWidth();
-        } else {
-            this.j = 0;
-        }
-        this.l = null;
-        this.m = null;
-    }
-
-    public View c(int i2, ViewGroup viewGroup) {
-        if (i2 == 1) {
-            d dVar = new d(this, null);
-            View inflate = LayoutInflater.from(this.f60973f.getPageContext().getPageActivity()).inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
-            dVar.f60984b = (TextView) inflate.findViewById(R.id.title);
-            dVar.f60983a = (TbImageView) inflate.findViewById(R.id.image);
-            dVar.f60985c = (FrameLayout) inflate.findViewById(R.id.btn);
-            dVar.f60986d = (TextView) inflate.findViewById(R.id.btn_text);
-            dVar.f60987e = (TextView) inflate.findViewById(R.id.downloaded);
-            dVar.f60989g = (FrameLayout) inflate.findViewById(R.id.downloading);
-            dVar.f60988f = (ImageView) inflate.findViewById(R.id.downloading_up);
-            dVar.f60990h = (TextView) inflate.findViewById(R.id.intro);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.icon);
-            dVar.f60991i = tbImageView;
-            tbImageView.setDefaultResource(0);
-            dVar.f60991i.setDefaultBgResource(0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.f60974g, this.f60975h);
-            layoutParams.setMargins(0, 0, 0, this.f60973f.getResources().getDimensionPixelSize(R.dimen.ds8));
-            dVar.f60983a.setLayoutParams(layoutParams);
-            dVar.f60986d.setClickable(false);
-            dVar.f60985c.setClickable(true);
-            dVar.f60985c.setOnClickListener(this.n);
-            dVar.j = (TbImageView) inflate.findViewById(R.id.title_tag);
-            inflate.setTag(dVar);
-            return inflate;
-        }
-        return null;
-    }
-
-    public final void d(int i2, d dVar) {
-        if (this.f60972e == null || dVar == null) {
-            return;
-        }
-        try {
-            FacePackageData facePackageData = (FacePackageData) getItem(i2);
-            if (facePackageData == null) {
-                return;
-            }
-            dVar.m = i2;
-            dVar.f60984b.setText(facePackageData.pname);
-            dVar.f60990h.setText(facePackageData.pdesc);
-            dVar.f60983a.setTag(facePackageData.banner_url);
-            dVar.f60983a.R(facePackageData.banner_url, 10, this.f60974g, this.f60975h, false);
-            if (facePackageData.new_icon != null && facePackageData.new_icon.length() > 0) {
-                dVar.f60991i.setTag(facePackageData.new_icon);
-                dVar.f60991i.U(facePackageData.new_icon, 21, false);
-                dVar.f60991i.setVisibility(0);
-            } else {
-                dVar.f60991i.setVisibility(8);
-            }
-            dVar.k = facePackageData.price;
-            r(facePackageData, dVar);
-            e eVar = new e(this, null);
-            eVar.f60993b = dVar.l;
-            eVar.f60992a = i2;
-            dVar.f60985c.setTag(eVar);
-            if (!TextUtils.isEmpty(facePackageData.tag_url)) {
-                dVar.j.setVisibility(0);
-                dVar.j.setTag(facePackageData.tag_url);
-                dVar.j.U(facePackageData.tag_url, 21, false);
-                return;
-            }
-            dVar.j.setVisibility(8);
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
-        }
-    }
-
-    public int e() {
-        return this.k;
-    }
-
-    public final void f(d dVar) {
-        if (dVar == null) {
-            return;
-        }
-        dVar.f60986d.setVisibility(8);
-        dVar.f60985c.setVisibility(8);
-        dVar.f60987e.setVisibility(8);
-        dVar.f60989g.setVisibility(8);
-    }
-
-    public void g(int i2) {
-        TiebaStatic.log("emotion_package_list_buy");
-        FacePackageData facePackageData = (FacePackageData) getItem(i2);
-        if (this.f60972e == null) {
-            return;
-        }
-        this.f60973f.showProgressBar();
-        String valueOf = String.valueOf(facePackageData.pid);
-        FaceBuyModel faceBuyModel = new FaceBuyModel(this.f60973f.getPageContext().getContext());
-        this.m = faceBuyModel;
-        faceBuyModel.setLoadDataCallBack(new c(facePackageData, i2));
-        this.m.D(valueOf);
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        ArrayList<FacePackageData> arrayList;
-        FaceShopData faceShopData = this.f60972e;
-        if (faceShopData == null || (arrayList = faceShopData.pack_list) == null) {
-            return 0;
-        }
-        return arrayList.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        ArrayList<FacePackageData> arrayList;
-        FaceShopData faceShopData = this.f60972e;
-        if (faceShopData == null || (arrayList = faceShopData.pack_list) == null || i2 < 0 || i2 >= arrayList.size()) {
-            return null;
-        }
-        return arrayList.get(i2);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        return 0L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        ArrayList<FacePackageData> arrayList;
-        FaceShopData faceShopData = this.f60972e;
-        return (faceShopData == null || (arrayList = faceShopData.pack_list) == null || arrayList.get(i2) == null) ? 2 : 1;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i2);
-        int skinType = TbadkApplication.getInst().getSkinType();
-        if (view == null) {
-            view = c(itemViewType, viewGroup);
-        }
-        d dVar = (d) view.getTag();
-        d.a.m0.r.c layoutMode = this.f60973f.getLayoutMode();
-        layoutMode.k(skinType == 1);
-        layoutMode.j(view);
-        d(i2, dVar);
-        k(dVar);
-        l(dVar, skinType);
-        return view;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 3;
-    }
-
-    public void h() {
-        FaceBuyModel faceBuyModel = this.m;
-        if (faceBuyModel != null) {
-            faceBuyModel.cancelLoadData();
-        }
-        FacePackageDownloadModel facePackageDownloadModel = this.l;
-        if (facePackageDownloadModel != null) {
-            facePackageDownloadModel.cancelLoadData();
-        }
-    }
-
-    public void i(int i2) {
-        FacePackageData facePackageData = (FacePackageData) getItem(i2);
-        if (facePackageData != null) {
-            facePackageData.downloading = 1;
-            notifyDataSetChanged();
-            FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(this.f60973f.getPageContext().getContext());
-            this.l = facePackageDownloadModel;
-            facePackageDownloadModel.D(String.valueOf(facePackageData.pid));
-            this.l.setLoadDataCallBack(new b(facePackageData));
-        }
-    }
-
-    public void j(int i2) {
-        TiebaStatic.log("emotion_package_list_free");
-        FacePackageData facePackageData = (FacePackageData) getItem(i2);
-        if (facePackageData == null) {
-            return;
-        }
-        facePackageData.buy_status = 1;
-        notifyDataSetChanged();
-    }
-
-    public final void k(d dVar) {
-        if (dVar == null) {
-            return;
-        }
-        f(dVar);
-        int i2 = dVar.l;
-        if (i2 == 1) {
-            dVar.f60987e.setVisibility(0);
-        } else if (i2 == 2 || i2 == 3 || i2 == 4) {
-            dVar.f60985c.setVisibility(0);
-            dVar.f60986d.setVisibility(0);
-        } else if (i2 != 5) {
-        } else {
-            dVar.f60989g.setVisibility(0);
-        }
-    }
-
-    public final void l(d dVar, int i2) {
-        if (dVar == null) {
-            return;
-        }
-        int i3 = dVar.l;
-        if (i3 == 5) {
-            p(dVar, i2);
-        } else if (i3 == 2) {
-            o(dVar, i2);
-        } else if (i3 == 3) {
-            q(dVar, i2);
-        } else if (i3 != 4) {
-        } else {
-            m(dVar, i2);
-        }
-    }
-
-    public final void m(d dVar, int i2) {
-        dVar.f60986d.setText(dVar.k);
-        dVar.f60986d.setBackgroundResource(0);
-        SkinManager.setBackgroundResource(dVar.f60985c, R.drawable.faceshop_list_btn_selector);
-    }
-
-    public void n(FaceShopData faceShopData) {
-        this.f60972e = faceShopData;
-        notifyDataSetChanged();
-    }
-
-    public final void o(d dVar, int i2) {
-        dVar.f60986d.setText((CharSequence) null);
-        SkinManager.setBackgroundResource(dVar.f60985c, R.drawable.btn_all_blue);
-        SkinManager.setBackgroundResource(dVar.f60986d, R.drawable.icon_content_download);
-    }
-
-    public final void p(d dVar, int i2) {
-        f(dVar);
-        dVar.f60989g.setVisibility(0);
-        FacePackageData facePackageData = (FacePackageData) getItem(dVar.m);
-        if (facePackageData == null) {
-            return;
-        }
-        int i3 = (int) (this.f60976i * (((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)));
-        int i4 = this.j;
-        if (i3 < i4) {
-            i3 = i4;
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) dVar.f60988f.getLayoutParams();
-        layoutParams.width = i3;
-        dVar.f60988f.setLayoutParams(layoutParams);
-    }
-
-    public final void q(d dVar, int i2) {
-        dVar.f60986d.setText(dVar.k);
-        dVar.f60986d.setBackgroundResource(0);
-        SkinManager.setBackgroundResource(dVar.f60985c, R.drawable.btn_all_white);
-    }
-
-    public final void r(FacePackageData facePackageData, d dVar) {
-        if (facePackageData == null || dVar == null) {
-            return;
-        }
-        int i2 = facePackageData.buy_status;
-        int i3 = facePackageData.can_download;
-        int i4 = facePackageData.downloaded;
-        if (facePackageData.downloading == 1) {
-            dVar.l = 5;
-        } else if (i4 == 1) {
-            dVar.l = 1;
-        } else if (i2 == 2) {
-            dVar.l = 6;
-        } else if (i2 == 1) {
-            if (i3 == 1) {
-                dVar.l = 2;
-            }
-        } else if (i2 == 0) {
-            if (i3 == 1) {
-                dVar.l = 3;
-            } else {
-                dVar.l = 4;
-            }
+    public void e(b bVar) {
+        if (bVar != null && k.d().g()) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("action", "fluency");
+            a2.b("fps", String.valueOf(bVar.b()));
+            BdStatisticsManager.getInstance().performance(this.f53341a, a2);
+            d.a.c.e.n.a a3 = j.a();
+            a3.b("action", "mem");
+            a3.b("memp", String.valueOf(k.d().c()));
+            BdStatisticsManager.getInstance().performance(this.f53341a, a3);
         }
     }
 }

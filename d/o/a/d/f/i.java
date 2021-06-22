@@ -32,16 +32,16 @@ public class i implements j, l.a {
     public static final String t = "i";
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<Context> f70630d;
+    public WeakReference<Context> f70734d;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.a.a.d.e f70632f;
+    public d.o.a.a.a.d.e f70736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DownloadInfo f70633g;
+    public DownloadInfo f70737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f70634h;
+    public h f70738h;
     public boolean j;
     public long k;
     public SoftReference<s> p;
@@ -49,23 +49,23 @@ public class i implements j, l.a {
     public SoftReference<d.o.a.a.a.a.n> s;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.o.a.d.n.l f70627a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
+    public final d.o.a.d.n.l f70731a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<Integer, Object> f70631e = new ConcurrentHashMap();
+    public final Map<Integer, Object> f70735e = new ConcurrentHashMap();
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.o.a.e.b.f.b f70635i = new k.d(this.f70627a);
+    public final d.o.a.e.b.f.b f70739i = new k.d(this.f70731a);
     public long l = -1;
     public d.o.a.a.a.c.d m = null;
     public d.o.a.a.a.c.c n = null;
     public d.o.a.a.a.c.b o = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public k f70628b = new k();
+    public k f70732b = new k();
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.d.f.h f70629c = new d.o.a.d.f.h(this.f70627a);
+    public d.o.a.d.f.h f70733c = new d.o.a.d.f.h(this.f70731a);
     public final boolean r = d.o.a.e.b.j.a.r().l("ttdownloader_callback_twice");
 
     /* loaded from: classes7.dex */
@@ -75,7 +75,7 @@ public class i implements j, l.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            for (d.o.a.a.a.c.e eVar : k.d(i.this.f70631e)) {
+            for (d.o.a.a.a.c.e eVar : k.d(i.this.f70735e)) {
                 eVar.b(i.this.R());
             }
         }
@@ -85,47 +85,47 @@ public class i implements j, l.a {
     public class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f70637a;
+        public final /* synthetic */ int f70741a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f70638b;
+        public final /* synthetic */ int f70742b;
 
         public b(int i2, int i3) {
-            this.f70637a = i2;
-            this.f70638b = i3;
+            this.f70741a = i2;
+            this.f70742b = i3;
         }
 
         @Override // d.o.a.d.f.i.f
         public void a() {
-            if (i.this.f70629c.n()) {
+            if (i.this.f70733c.n()) {
                 return;
             }
-            d.o.a.e.a.e.F().j(n.a(), this.f70637a, this.f70638b);
+            d.o.a.e.a.e.F().j(n.a(), this.f70741a, this.f70742b);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements g.InterfaceC1930g {
+    public class c implements g.InterfaceC1933g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f70640a;
+        public final /* synthetic */ boolean f70744a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f70641b;
+        public final /* synthetic */ int f70745b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f70642c;
+        public final /* synthetic */ int f70746c;
 
         public c(boolean z, int i2, int i3) {
-            this.f70640a = z;
-            this.f70641b = i2;
-            this.f70642c = i3;
+            this.f70744a = z;
+            this.f70745b = i2;
+            this.f70746c = i3;
         }
 
-        @Override // d.o.a.d.f.g.InterfaceC1930g
+        @Override // d.o.a.d.f.g.InterfaceC1933g
         public void a(d.o.a.b.a.c.b bVar) {
-            i.this.f70628b.k(i.this.f70633g, this.f70640a);
-            d.o.a.e.a.e.F().j(n.a(), this.f70641b, this.f70642c);
+            i.this.f70732b.k(i.this.f70737g, this.f70744a);
+            d.o.a.e.a.e.F().j(n.a(), this.f70745b, this.f70746c);
         }
     }
 
@@ -136,7 +136,7 @@ public class i implements j, l.a {
 
         @Override // d.o.a.d.f.i.f
         public void a() {
-            if (i.this.f70629c.n()) {
+            if (i.this.f70733c.n()) {
                 return;
             }
             i.this.P();
@@ -190,42 +190,42 @@ public class i implements j, l.a {
                 boolean b2 = j.b();
                 if (downloadInfo != null && downloadInfo.c0() != 0 && (b2 || !d.o.a.e.b.g.a.l(n.a()).t(downloadInfo))) {
                     d.o.a.e.b.g.a.l(n.a()).y(downloadInfo.c0());
-                    if (i.this.f70633g == null || i.this.f70633g.H0() != -4) {
-                        i.this.f70633g = downloadInfo;
+                    if (i.this.f70737g == null || i.this.f70737g.H0() != -4) {
+                        i.this.f70737g = downloadInfo;
                         if (i.this.r) {
-                            d.o.a.e.b.g.a.l(n.a()).F(i.this.f70633g.c0(), i.this.f70635i, false);
+                            d.o.a.e.b.g.a.l(n.a()).F(i.this.f70737g.c0(), i.this.f70739i, false);
                         } else {
-                            d.o.a.e.b.g.a.l(n.a()).E(i.this.f70633g.c0(), i.this.f70635i);
+                            d.o.a.e.b.g.a.l(n.a()).E(i.this.f70737g.c0(), i.this.f70739i);
                         }
                     } else {
-                        i.this.f70633g = null;
+                        i.this.f70737g = null;
                     }
-                    i.this.f70628b.j(i.this.f70633g, i.this.R(), k.d(i.this.f70631e));
+                    i.this.f70732b.j(i.this.f70737g, i.this.R(), k.d(i.this.f70735e));
                 } else {
                     if (downloadInfo != null && d.o.a.e.b.g.a.l(n.a()).t(downloadInfo)) {
                         d.o.a.e.b.p.b.a().m(downloadInfo.c0());
-                        i.this.f70633g = null;
+                        i.this.f70737g = null;
                     }
-                    if (i.this.f70633g != null) {
-                        d.o.a.e.b.g.a.l(n.a()).y(i.this.f70633g.c0());
+                    if (i.this.f70737g != null) {
+                        d.o.a.e.b.g.a.l(n.a()).y(i.this.f70737g.c0());
                         if (i.this.r) {
-                            d.o.a.e.b.g.a.l(i.this.J()).F(i.this.f70633g.c0(), i.this.f70635i, false);
+                            d.o.a.e.b.g.a.l(i.this.J()).F(i.this.f70737g.c0(), i.this.f70739i, false);
                         } else {
-                            d.o.a.e.b.g.a.l(i.this.J()).E(i.this.f70633g.c0(), i.this.f70635i);
+                            d.o.a.e.b.g.a.l(i.this.J()).E(i.this.f70737g.c0(), i.this.f70739i);
                         }
                     }
                     if (!b2) {
-                        for (d.o.a.a.a.c.e eVar : k.d(i.this.f70631e)) {
+                        for (d.o.a.a.a.c.e eVar : k.d(i.this.f70735e)) {
                             eVar.a();
                         }
-                        i.this.f70633g = null;
+                        i.this.f70737g = null;
                     } else {
-                        i.this.f70633g = new DownloadInfo.b(i.this.m.a()).C();
-                        i.this.f70633g.a3(-3);
-                        i.this.f70628b.j(i.this.f70633g, i.this.R(), k.d(i.this.f70631e));
+                        i.this.f70737g = new DownloadInfo.b(i.this.m.a()).C();
+                        i.this.f70737g.a3(-3);
+                        i.this.f70732b.j(i.this.f70737g, i.this.R(), k.d(i.this.f70735e));
                     }
                 }
-                i.this.f70628b.s(i.this.f70633g);
+                i.this.f70732b.s(i.this.f70737g);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -241,62 +241,62 @@ public class i implements j, l.a {
         d.o.a.a.a.c.b bVar2;
         d.o.a.a.a.c.d dVar;
         d.o.a.d.n.j.a(t, "performButtonClickWithNewDownloader", null);
-        if (this.f70633g != null && d.o.a.e.b.j.a.r().l("fix_info")) {
-            this.f70633g = d.o.a.e.b.g.a.l(J()).f(this.f70633g.c0());
+        if (this.f70737g != null && d.o.a.e.b.j.a.r().l("fix_info")) {
+            this.f70737g = d.o.a.e.b.g.a.l(J()).f(this.f70737g.c0());
         }
-        DownloadInfo downloadInfo = this.f70633g;
-        if (downloadInfo != null && ((downloadInfo.H0() == -3 || d.o.a.e.b.g.a.l(n.a()).a(this.f70633g.c0())) && this.f70633g.H0() != 0)) {
+        DownloadInfo downloadInfo = this.f70737g;
+        if (downloadInfo != null && ((downloadInfo.H0() == -3 || d.o.a.e.b.g.a.l(n.a()).a(this.f70737g.c0())) && this.f70737g.H0() != 0)) {
             String str = t;
-            d.o.a.d.n.j.a(str, "performButtonClickWithNewDownloader continue download, status:" + this.f70633g.H0(), null);
-            DownloadInfo downloadInfo2 = this.f70633g;
+            d.o.a.d.n.j.a(str, "performButtonClickWithNewDownloader continue download, status:" + this.f70737g.H0(), null);
+            DownloadInfo downloadInfo2 = this.f70737g;
             if (downloadInfo2 != null && (dVar = this.m) != null) {
                 downloadInfo2.Q2(dVar.m());
             }
-            int H0 = this.f70633g.H0();
-            int c0 = this.f70633g.c0();
-            d.o.a.b.a.c.b c2 = c.g.e().c(this.f70633g);
+            int H0 = this.f70737g.H0();
+            int c0 = this.f70737g.c0();
+            d.o.a.b.a.c.b c2 = c.g.e().c(this.f70737g);
             if (H0 != -4 && H0 != -2 && H0 != -1) {
                 if (p.c(H0)) {
-                    this.f70629c.m(true);
-                    i.C1936i.a().g(c.g.e().u(this.l));
+                    this.f70733c.m(true);
+                    i.C1939i.a().g(c.g.e().u(this.l));
                     g.j.a().b(c2, H0, new c(z, c0, H0));
                     return;
                 }
-                this.f70628b.k(this.f70633g, z);
+                this.f70732b.k(this.f70737g, z);
                 d.o.a.e.a.e.F().j(n.a(), c0, H0);
                 return;
             }
-            this.f70628b.k(this.f70633g, z);
+            this.f70732b.k(this.f70737g, z);
             if (c2 != null) {
                 c2.I0(System.currentTimeMillis());
-                c2.M0(this.f70633g.E());
+                c2.M0(this.f70737g.E());
             }
-            this.f70633g.p2(false);
-            this.f70629c.j(new c.f(this.l, this.m, L(), M()));
-            this.f70629c.f(c0, this.f70633g.E(), this.f70633g.Q0(), new b(c0, H0));
+            this.f70737g.p2(false);
+            this.f70733c.j(new c.f(this.l, this.m, L(), M()));
+            this.f70733c.f(c0, this.f70737g.E(), this.f70737g.Q0(), new b(c0, H0));
             return;
         }
         c.f v = c.g.e().v(this.l);
-        DownloadInfo downloadInfo3 = this.f70633g;
+        DownloadInfo downloadInfo3 = this.f70737g;
         if (downloadInfo3 != null && downloadInfo3.H0() != 0) {
             p(z);
         } else if (this.q) {
             if (this.m.t() && this.s != null) {
-                if (S() && (bVar2 = v.f70547d) != null && bVar2.f()) {
+                if (S() && (bVar2 = v.f70651d) != null && bVar2.f()) {
                     p(z);
                     return;
                 }
                 return;
             }
             p(z);
-        } else if (this.m.t() && (bVar = v.f70547d) != null && bVar.e() && v.f70545b != null && d.o.a.d.f.f.b.a().e(v.f70545b) && d.o.a.d.f.f.b.a().f(v)) {
+        } else if (this.m.t() && (bVar = v.f70651d) != null && bVar.e() && v.f70649b != null && d.o.a.d.f.f.b.a().e(v.f70649b) && d.o.a.d.f.f.b.a().f(v)) {
         } else {
             p(z);
         }
     }
 
     public final boolean F() {
-        return n.s().optInt("quick_app_enable_switch", 0) == 0 && d.o.a.d.f.e.c(this.m) && d.o.a.d.f.e.d(this.f70633g);
+        return n.s().optInt("quick_app_enable_switch", 0) == 0 && d.o.a.d.f.e.c(this.m) && d.o.a.d.f.e.d(this.f70737g);
     }
 
     public final void I() {
@@ -310,9 +310,9 @@ public class i implements j, l.a {
     }
 
     public final Context J() {
-        WeakReference<Context> weakReference = this.f70630d;
+        WeakReference<Context> weakReference = this.f70734d;
         if (weakReference != null && weakReference.get() != null) {
-            return this.f70630d.get();
+            return this.f70734d.get();
         }
         return n.a();
     }
@@ -333,7 +333,7 @@ public class i implements j, l.a {
 
     public final void N() {
         d.o.a.d.n.j.a(t, "performItemClickWithNewDownloader", null);
-        if (this.f70628b.u(this.f70633g)) {
+        if (this.f70732b.u(this.f70737g)) {
             d.o.a.d.n.j.a(t, "performItemClickWithNewDownloader ButtonClick", null);
             B(false);
             return;
@@ -343,22 +343,22 @@ public class i implements j, l.a {
     }
 
     public final void O() {
-        this.f70629c.j(new c.f(this.l, this.m, L(), M()));
-        this.f70629c.f(0, 0L, 0L, new e());
+        this.f70733c.j(new c.f(this.l, this.m, L(), M()));
+        this.f70733c.f(0, 0L, 0L, new e());
     }
 
     public final void P() {
-        for (d.o.a.a.a.c.e eVar : k.d(this.f70631e)) {
+        for (d.o.a.a.a.c.e eVar : k.d(this.f70735e)) {
             eVar.a(this.m, M());
         }
-        int a2 = this.f70628b.a(n.a(), this.f70635i);
+        int a2 = this.f70732b.a(n.a(), this.f70739i);
         String str = t;
         d.o.a.d.n.j.a(str, "beginDownloadWithNewDownloader id:" + a2, null);
         if (a2 != 0) {
-            if (this.f70633g != null && !d.o.a.e.b.j.a.r().l("fix_click_start")) {
-                this.f70628b.k(this.f70633g, false);
+            if (this.f70737g != null && !d.o.a.e.b.j.a.r().l("fix_click_start")) {
+                this.f70732b.k(this.f70737g, false);
             } else {
-                this.f70628b.e();
+                this.f70732b.e();
             }
         } else {
             DownloadInfo C = new DownloadInfo.b(this.m.a()).C();
@@ -367,7 +367,7 @@ public class i implements j, l.a {
             j.c.a().e(this.l, new BaseException(2, "start download failed, id=0"));
             d.o.a.d.n.k.B();
         }
-        if (this.f70628b.n(s())) {
+        if (this.f70732b.n(s())) {
             String str2 = t;
             d.o.a.d.n.j.a(str2, "beginDownloadWithNewDownloader onItemClick id:" + a2, null);
             I();
@@ -375,20 +375,20 @@ public class i implements j, l.a {
     }
 
     public final void Q() {
-        h hVar = this.f70634h;
+        h hVar = this.f70738h;
         if (hVar != null && hVar.getStatus() != AsyncTask.Status.FINISHED) {
-            this.f70634h.cancel(true);
+            this.f70738h.cancel(true);
         }
         h hVar2 = new h(this, null);
-        this.f70634h = hVar2;
+        this.f70738h = hVar2;
         d.o.a.d.n.b.a(hVar2, this.m.a(), this.m.v());
     }
 
     public final d.o.a.a.a.d.e R() {
-        if (this.f70632f == null) {
-            this.f70632f = new d.o.a.a.a.d.e();
+        if (this.f70736f == null) {
+            this.f70736f = new d.o.a.a.a.d.e();
         }
-        return this.f70632f;
+        return this.f70736f;
     }
 
     public final boolean S() {
@@ -449,9 +449,9 @@ public class i implements j, l.a {
     public i g(int i2, d.o.a.a.a.c.e eVar) {
         if (eVar != null) {
             if (n.s().optInt("back_use_softref_listener") == 1) {
-                this.f70631e.put(Integer.valueOf(i2), eVar);
+                this.f70735e.put(Integer.valueOf(i2), eVar);
             } else {
-                this.f70631e.put(Integer.valueOf(i2), new SoftReference(eVar));
+                this.f70735e.put(Integer.valueOf(i2), new SoftReference(eVar));
             }
         }
         return this;
@@ -459,7 +459,7 @@ public class i implements j, l.a {
 
     public i h(Context context) {
         if (context != null) {
-            this.f70630d = new WeakReference<>(context);
+            this.f70734d = new WeakReference<>(context);
         }
         n.l(context);
         return this;
@@ -506,7 +506,7 @@ public class i implements j, l.a {
         Message obtain = Message.obtain();
         obtain.what = 3;
         obtain.obj = downloadInfo;
-        this.f70627a.sendMessage(obtain);
+        this.f70731a.sendMessage(obtain);
     }
 
     public void p(boolean z) {
@@ -514,11 +514,11 @@ public class i implements j, l.a {
             j.c.a().c(this.l, 2);
         }
         if (!d.o.a.d.n.i.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION) && !M().g()) {
-            this.m.a(this.f70628b.p());
+            this.m.a(this.f70732b.p());
         }
         if (d.o.a.d.n.e.j(this.m) == 0) {
             d.o.a.d.n.j.a(t, "performButtonClickWithNewDownloader not start", null);
-            this.f70628b.h(new d());
+            this.f70732b.h(new d());
             return;
         }
         O();
@@ -529,7 +529,7 @@ public class i implements j, l.a {
     }
 
     public boolean s() {
-        return this.f70633g != null;
+        return this.f70737g != null;
     }
 
     public final boolean t(int i2) {
@@ -551,7 +551,7 @@ public class i implements j, l.a {
                 Message obtain = Message.obtain();
                 obtain.what = i3;
                 obtain.obj = Long.valueOf(this.m.d());
-                this.f70627a.sendMessageDelayed(obtain, d.o.a.d.f.e.a().e());
+                this.f70731a.sendMessageDelayed(obtain, d.o.a.d.f.e.a().e());
                 d.o.a.d.f.e.a().b(i3, this.m, this.n);
             } else {
                 j.c.a().g(this.l, false, 0);
@@ -569,24 +569,24 @@ public class i implements j, l.a {
     }
 
     public void x() {
-        this.f70627a.post(new a());
+        this.f70731a.post(new a());
     }
 
     public final void y(boolean z) {
-        if (d.o.a.d.n.e.g(this.m).m("notification_opt_2") == 1 && this.f70633g != null) {
-            d.o.a.e.b.p.b.a().m(this.f70633g.c0());
+        if (d.o.a.d.n.e.g(this.m).m("notification_opt_2") == 1 && this.f70737g != null) {
+            d.o.a.e.b.p.b.a().m(this.f70737g.c0());
         }
         B(z);
     }
 
     public void z() {
-        if (this.f70631e.size() == 0) {
+        if (this.f70735e.size() == 0) {
             return;
         }
-        for (d.o.a.a.a.c.e eVar : k.d(this.f70631e)) {
+        for (d.o.a.a.a.c.e eVar : k.d(this.f70735e)) {
             eVar.a();
         }
-        DownloadInfo downloadInfo = this.f70633g;
+        DownloadInfo downloadInfo = this.f70737g;
         if (downloadInfo != null) {
             downloadInfo.a3(-4);
         }
@@ -614,9 +614,9 @@ public class i implements j, l.a {
         this.j = true;
         c.g.e().h(this.l, L());
         c.g.e().g(this.l, M());
-        this.f70628b.f(this.l);
+        this.f70732b.f(this.l);
         Q();
-        if (n.s().optInt("enable_empty_listener", 1) == 1 && this.f70631e.get(Integer.MIN_VALUE) == null) {
+        if (n.s().optInt("enable_empty_listener", 1) == 1 && this.f70735e.get(Integer.MIN_VALUE) == null) {
             g(Integer.MIN_VALUE, new d.o.a.a.a.a.a());
         }
     }
@@ -642,11 +642,11 @@ public class i implements j, l.a {
         if (i2 != 1 && i2 != 2) {
             throw new IllegalArgumentException("error actionType");
         }
-        this.f70628b.f(this.l);
+        this.f70732b.f(this.l);
         if (!c.g.e().v(this.l).x()) {
             d.o.a.d.n.k.B();
         }
-        if (this.f70628b.m(J(), i2, this.q)) {
+        if (this.f70732b.m(J(), i2, this.q)) {
             return;
         }
         boolean t2 = t(i2);
@@ -672,50 +672,50 @@ public class i implements j, l.a {
     @Override // d.o.a.d.f.j
     public boolean a(int i2) {
         if (i2 == 0) {
-            this.f70631e.clear();
+            this.f70735e.clear();
         } else {
-            this.f70631e.remove(Integer.valueOf(i2));
+            this.f70735e.remove(Integer.valueOf(i2));
         }
         boolean z = false;
-        if (this.f70631e.isEmpty()) {
+        if (this.f70735e.isEmpty()) {
             this.j = false;
             this.k = System.currentTimeMillis();
-            if (this.f70633g != null) {
-                d.o.a.e.b.g.a.l(n.a()).y(this.f70633g.c0());
+            if (this.f70737g != null) {
+                d.o.a.e.b.g.a.l(n.a()).y(this.f70737g.c0());
             }
-            h hVar = this.f70634h;
+            h hVar = this.f70738h;
             z = true;
             if (hVar != null && hVar.getStatus() != AsyncTask.Status.FINISHED) {
-                this.f70634h.cancel(true);
+                this.f70738h.cancel(true);
             }
-            this.f70628b.i(this.f70633g);
+            this.f70732b.i(this.f70737g);
             String str = t;
             StringBuilder sb = new StringBuilder();
             sb.append("onUnbind removeCallbacksAndMessages, downloadUrl:");
-            DownloadInfo downloadInfo = this.f70633g;
+            DownloadInfo downloadInfo = this.f70737g;
             sb.append(downloadInfo == null ? "" : downloadInfo.T0());
             d.o.a.d.n.j.a(str, sb.toString(), null);
-            this.f70627a.removeCallbacksAndMessages(null);
-            this.f70632f = null;
-            this.f70633g = null;
+            this.f70731a.removeCallbacksAndMessages(null);
+            this.f70736f = null;
+            this.f70737g = null;
         }
         return z;
     }
 
     @Override // d.o.a.d.f.j
     public void a(boolean z) {
-        if (this.f70633g != null) {
+        if (this.f70737g != null) {
             if (z) {
                 d.f t2 = d.o.a.e.a.e.F().t();
                 if (t2 != null) {
-                    t2.a(this.f70633g);
+                    t2.a(this.f70737g);
                 }
-                d.o.a.e.b.g.a.l(d.o.a.e.b.g.d.l()).c(this.f70633g.c0(), true);
+                d.o.a.e.b.g.a.l(d.o.a.e.b.g.d.l()).c(this.f70737g.c0(), true);
                 return;
             }
             Intent intent = new Intent(n.a(), DownloadHandlerService.class);
             intent.setAction("android.ss.intent.action.DOWNLOAD_DELETE");
-            intent.putExtra("extra_click_download_ids", this.f70633g.c0());
+            intent.putExtra("extra_click_download_ids", this.f70737g.c0());
             n.a().startService(intent);
         }
     }
@@ -727,7 +727,7 @@ public class i implements j, l.a {
             if (a2 != null) {
                 this.m = a2;
                 this.l = j;
-                this.f70628b.f(j);
+                this.f70732b.f(j);
             }
         } else {
             d.o.a.d.n.k.B();
@@ -742,8 +742,8 @@ public class i implements j, l.a {
         }
         int i2 = message.what;
         if (i2 == 3) {
-            this.f70633g = (DownloadInfo) message.obj;
-            this.f70628b.g(message, R(), this.f70631e);
+            this.f70737g = (DownloadInfo) message.obj;
+            this.f70732b.g(message, R(), this.f70735e);
         } else if (i2 == 4) {
             if (n.u() == null || !n.u().a()) {
                 j.c.a().g(this.l, false, 2);

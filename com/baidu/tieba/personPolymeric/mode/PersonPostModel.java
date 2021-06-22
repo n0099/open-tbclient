@@ -28,8 +28,8 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 import com.squareup.wire.Wire;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
-import d.a.n0.j2.e.i;
-import d.a.n0.j2.e.j;
+import d.a.o0.j2.e.i;
+import d.a.o0.j2.e.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -531,7 +531,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                 cardPersonDynamicThreadData.F = true;
                 cardPersonDynamicThreadData.E = true;
-                long j = cardPersonDynamicThreadData.f14336i * 1000;
+                long j = cardPersonDynamicThreadData.f14418i * 1000;
                 String yearBytime2 = StringHelper.getYearBytime(j);
                 String chineseMonthBytime = StringHelper.getChineseMonthBytime(j);
                 String dateBytime = StringHelper.getDateBytime(j);

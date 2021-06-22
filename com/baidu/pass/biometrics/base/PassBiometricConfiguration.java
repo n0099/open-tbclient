@@ -12,6 +12,8 @@ public class PassBiometricConfiguration {
     public Application f8980a;
     public final String appId;
     public final String appSignKey;
+    public final String licenseFileName;
+    public final String licenseID;
     public String passDomain;
     public boolean showPmnRationaleDialog;
     public final String tpl;
@@ -32,22 +34,28 @@ public class PassBiometricConfiguration {
         public String f8984d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8985e = false;
+        public String f8985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f8986f = false;
+        public String f8986f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Application f8987g;
+        public boolean f8987g = false;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f8988h = false;
+
+        /* renamed from: i  reason: collision with root package name */
+        public Application f8989i;
 
         public Builder(Application application) {
-            this.f8987g = application;
+            this.f8989i = application;
         }
 
         public PassBiometricConfiguration build() {
             if (!TextUtils.isEmpty(this.f8981a) && !TextUtils.isEmpty(this.f8982b) && !TextUtils.isEmpty(this.f8983c)) {
-                if (this.f8984d == null) {
-                    this.f8984d = PassBioEnv.PASSPORT_DOMAIN;
+                if (this.f8986f == null) {
+                    this.f8986f = PassBioEnv.PASSPORT_DOMAIN;
                 }
                 return new PassBiometricConfiguration(this);
             }
@@ -55,7 +63,13 @@ public class PassBiometricConfiguration {
         }
 
         public Builder debug(boolean z) {
-            this.f8986f = z;
+            this.f8988h = z;
+            return this;
+        }
+
+        public Builder setProductLicenseInfo(String str, String str2) {
+            this.f8984d = str;
+            this.f8985e = str2;
             return this;
         }
 
@@ -67,12 +81,12 @@ public class PassBiometricConfiguration {
         }
 
         public Builder setRuntimeEnvironment(String str) {
-            this.f8984d = str;
+            this.f8986f = str;
             return this;
         }
 
         public Builder showPmnRationaleDialog(boolean z) {
-            this.f8985e = z;
+            this.f8987g = z;
             return this;
         }
     }
@@ -89,9 +103,11 @@ public class PassBiometricConfiguration {
         this.tpl = builder.f8981a;
         this.appId = builder.f8982b;
         this.appSignKey = builder.f8983c;
-        this.passDomain = builder.f8984d;
-        debug(builder.f8986f);
-        this.showPmnRationaleDialog = builder.f8985e;
-        this.f8980a = builder.f8987g;
+        this.passDomain = builder.f8986f;
+        this.licenseID = builder.f8984d;
+        this.licenseFileName = builder.f8985e;
+        debug(builder.f8988h);
+        this.showPmnRationaleDialog = builder.f8987g;
+        this.f8980a = builder.f8989i;
     }
 }

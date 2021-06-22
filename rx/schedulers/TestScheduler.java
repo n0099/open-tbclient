@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class TestScheduler extends g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f72507c;
+    public static long f72611c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<c> f72508a = new PriorityQueue(11, new a());
+    public final Queue<c> f72612a = new PriorityQueue(11, new a());
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72509b;
+    public long f72613b;
 
     /* loaded from: classes8.dex */
     public static final class a implements Comparator<c> {
@@ -25,13 +25,13 @@ public class TestScheduler extends g {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(c cVar, c cVar2) {
-            long j = cVar.f72516a;
-            long j2 = cVar2.f72516a;
+            long j = cVar.f72620a;
+            long j2 = cVar2.f72620a;
             if (j == j2) {
-                if (cVar.f72519d < cVar2.f72519d) {
+                if (cVar.f72623d < cVar2.f72623d) {
                     return -1;
                 }
-                return cVar.f72519d > cVar2.f72519d ? 1 : 0;
+                return cVar.f72623d > cVar2.f72623d ? 1 : 0;
             } else if (j < j2) {
                 return -1;
             } else {
@@ -44,38 +44,38 @@ public class TestScheduler extends g {
     public final class b extends g.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.a f72510e = new h.u.a();
+        public final h.u.a f72614e = new h.u.a();
 
         /* loaded from: classes8.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f72512e;
+            public final /* synthetic */ c f72616e;
 
             public a(c cVar) {
-                this.f72512e = cVar;
+                this.f72616e = cVar;
             }
 
             @Override // h.n.a
             public void call() {
-                TestScheduler.this.f72508a.remove(this.f72512e);
+                TestScheduler.this.f72612a.remove(this.f72616e);
             }
         }
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C2007b implements h.n.a {
+        public class C2010b implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f72514e;
+            public final /* synthetic */ c f72618e;
 
-            public C2007b(c cVar) {
-                this.f72514e = cVar;
+            public C2010b(c cVar) {
+                this.f72618e = cVar;
             }
 
             @Override // h.n.a
             public void call() {
-                TestScheduler.this.f72508a.remove(this.f72514e);
+                TestScheduler.this.f72612a.remove(this.f72618e);
             }
         }
 
@@ -90,25 +90,25 @@ public class TestScheduler extends g {
         @Override // h.g.a
         public k b(h.n.a aVar) {
             c cVar = new c(this, 0L, aVar);
-            TestScheduler.this.f72508a.add(cVar);
-            return e.a(new C2007b(cVar));
+            TestScheduler.this.f72612a.add(cVar);
+            return e.a(new C2010b(cVar));
         }
 
         @Override // h.g.a
         public k c(h.n.a aVar, long j, TimeUnit timeUnit) {
-            c cVar = new c(this, TestScheduler.this.f72509b + timeUnit.toNanos(j), aVar);
-            TestScheduler.this.f72508a.add(cVar);
+            c cVar = new c(this, TestScheduler.this.f72613b + timeUnit.toNanos(j), aVar);
+            TestScheduler.this.f72612a.add(cVar);
             return e.a(new a(cVar));
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f72510e.isUnsubscribed();
+            return this.f72614e.isUnsubscribed();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f72510e.unsubscribe();
+            this.f72614e.unsubscribe();
         }
     }
 
@@ -116,52 +116,52 @@ public class TestScheduler extends g {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f72516a;
+        public final long f72620a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final h.n.a f72517b;
+        public final h.n.a f72621b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final g.a f72518c;
+        public final g.a f72622c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f72519d;
+        public final long f72623d;
 
         public c(g.a aVar, long j, h.n.a aVar2) {
-            long j2 = TestScheduler.f72507c;
-            TestScheduler.f72507c = 1 + j2;
-            this.f72519d = j2;
-            this.f72516a = j;
-            this.f72517b = aVar2;
-            this.f72518c = aVar;
+            long j2 = TestScheduler.f72611c;
+            TestScheduler.f72611c = 1 + j2;
+            this.f72623d = j2;
+            this.f72620a = j;
+            this.f72621b = aVar2;
+            this.f72622c = aVar;
         }
 
         public String toString() {
-            return String.format("TimedAction(time = %d, action = %s)", Long.valueOf(this.f72516a), this.f72517b.toString());
+            return String.format("TimedAction(time = %d, action = %s)", Long.valueOf(this.f72620a), this.f72621b.toString());
         }
     }
 
     public final void a(long j) {
-        while (!this.f72508a.isEmpty()) {
-            c peek = this.f72508a.peek();
-            long j2 = peek.f72516a;
+        while (!this.f72612a.isEmpty()) {
+            c peek = this.f72612a.peek();
+            long j2 = peek.f72620a;
             if (j2 > j) {
                 break;
             }
             if (j2 == 0) {
-                j2 = this.f72509b;
+                j2 = this.f72613b;
             }
-            this.f72509b = j2;
-            this.f72508a.remove();
-            if (!peek.f72518c.isUnsubscribed()) {
-                peek.f72517b.call();
+            this.f72613b = j2;
+            this.f72612a.remove();
+            if (!peek.f72622c.isUnsubscribed()) {
+                peek.f72621b.call();
             }
         }
-        this.f72509b = j;
+        this.f72613b = j;
     }
 
     public void advanceTimeBy(long j, TimeUnit timeUnit) {
-        advanceTimeTo(this.f72509b + timeUnit.toNanos(j), TimeUnit.NANOSECONDS);
+        advanceTimeTo(this.f72613b + timeUnit.toNanos(j), TimeUnit.NANOSECONDS);
     }
 
     public void advanceTimeTo(long j, TimeUnit timeUnit) {
@@ -175,10 +175,10 @@ public class TestScheduler extends g {
 
     @Override // h.g
     public long now() {
-        return TimeUnit.NANOSECONDS.toMillis(this.f72509b);
+        return TimeUnit.NANOSECONDS.toMillis(this.f72613b);
     }
 
     public void triggerActions() {
-        a(this.f72509b);
+        a(this.f72613b);
     }
 }

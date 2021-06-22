@@ -30,15 +30,15 @@ import com.baidu.tieba.R;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.m0.a0.c;
-import d.a.m0.r.k;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.y1;
-import d.a.n0.z.b0;
+import d.a.n0.a0.c;
+import d.a.n0.r.k;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.y1;
+import d.a.o0.z.b0;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements p<d.a.m0.r.q.a> {
+public class InterviewLiveLayout extends FrameLayout implements p<d.a.n0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
     public int f4414e;
@@ -47,10 +47,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.m0.r.q.a> 
     public boolean f4415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0<d.a.m0.r.q.a> f4416g;
+    public b0<d.a.n0.r.q.a> f4416g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.m0.r.q.a f4417h;
+    public d.a.n0.r.q.a f4417h;
 
     /* renamed from: i  reason: collision with root package name */
     public TbImageView f4418i;
@@ -200,7 +200,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.m0.r.q.a> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: k */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         this.f4417h = aVar;
         if (aVar != null && this.f4418i != null) {
             a2 i2 = aVar.i();
@@ -253,7 +253,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.m0.r.q.a> 
         }
     }
 
-    public void setSubClickListener(b0<d.a.m0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.n0.r.q.a> b0Var) {
         this.f4416g = b0Var;
     }
 

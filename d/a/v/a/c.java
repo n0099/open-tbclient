@@ -6,31 +6,31 @@ import java.security.InvalidParameterException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.v.e.b f68423a;
+    public d.a.v.e.b f68527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f68424b;
+    public BdAsyncTaskParallelType f68528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68425c = 1;
+    public int f68529c = 1;
 
     public c(BdAsyncTaskParallelType bdAsyncTaskParallelType, d.a.v.e.b bVar) {
-        this.f68423a = null;
-        this.f68424b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f68527a = null;
+        this.f68528b = BdAsyncTaskParallelType.MAX_PARALLEL;
         if (bdAsyncTaskParallelType != null && bVar != null) {
-            this.f68424b = bdAsyncTaskParallelType;
-            this.f68423a = bVar;
+            this.f68528b = bdAsyncTaskParallelType;
+            this.f68527a = bVar;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 
     public int a() {
-        return this.f68425c;
+        return this.f68529c;
     }
 
     public int b() {
-        d.a.v.e.b bVar = this.f68423a;
+        d.a.v.e.b bVar = this.f68527a;
         if (bVar == null) {
             return 0;
         }
@@ -38,6 +38,6 @@ public class c {
     }
 
     public BdAsyncTaskParallelType c() {
-        return this.f68424b;
+        return this.f68528b;
     }
 }

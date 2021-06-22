@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.l0.a.g1.k.d;
-import d.a.l0.a.j0.b.b;
+import d.a.m0.a.g1.k.d;
+import d.a.m0.a.j0.b.b;
 /* loaded from: classes3.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public volatile b mProvider;

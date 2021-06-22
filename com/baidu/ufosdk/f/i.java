@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f22629a;
+    public static SimpleDateFormat f22711a;
 
     public static int a() {
         return Build.VERSION.SDK_INT;
@@ -79,10 +79,10 @@ public final class i {
     }
 
     public static String a(long j) {
-        if (f22629a == null) {
-            f22629a = new SimpleDateFormat("MM-dd HH:mm");
+        if (f22711a == null) {
+            f22711a = new SimpleDateFormat("MM-dd HH:mm");
         }
-        return f22629a.format(new Date(j));
+        return f22711a.format(new Date(j));
     }
 
     public static void a(Context context, TextView textView) {
@@ -172,10 +172,10 @@ public final class i {
     }
 
     public static String b(long j) {
-        if (f22629a == null) {
-            f22629a = new SimpleDateFormat("yy-MM-dd");
+        if (f22711a == null) {
+            f22711a = new SimpleDateFormat("yy-MM-dd");
         }
-        return f22629a.format(new Date(j));
+        return f22711a.format(new Date(j));
     }
 
     public static boolean b(String str) {
@@ -187,9 +187,9 @@ public final class i {
 
     public static String c(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-        f22629a = simpleDateFormat;
+        f22711a = simpleDateFormat;
         String format = simpleDateFormat.format(new Date(j));
-        f22629a = null;
+        f22711a = null;
         return format.split(" ")[1];
     }
 

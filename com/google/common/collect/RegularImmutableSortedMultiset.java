@@ -9,29 +9,29 @@ import java.util.Comparator;
 public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMultiset<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient long[] f31332e;
+    public final transient long[] f31430e;
     public final transient RegularImmutableSortedSet<E> elementSet;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient int f31333f;
+    public final transient int f31431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int f31334g;
+    public final transient int f31432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final long[] f31331h = {0};
+    public static final long[] f31429h = {0};
     public static final ImmutableSortedMultiset<Comparable> NATURAL_EMPTY_MULTISET = new RegularImmutableSortedMultiset(Ordering.natural());
 
     public RegularImmutableSortedMultiset(Comparator<? super E> comparator) {
         this.elementSet = ImmutableSortedSet.emptySet(comparator);
-        this.f31332e = f31331h;
-        this.f31333f = 0;
-        this.f31334g = 0;
+        this.f31430e = f31429h;
+        this.f31431f = 0;
+        this.f31432g = 0;
     }
 
     public final int a(int i2) {
-        long[] jArr = this.f31332e;
-        int i3 = this.f31333f;
+        long[] jArr = this.f31430e;
+        int i3 = this.f31431f;
         return (int) (jArr[(i3 + i2) + 1] - jArr[i3 + i2]);
     }
 
@@ -58,11 +58,11 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
     }
 
     public ImmutableSortedMultiset<E> getSubMultiset(int i2, int i3) {
-        n.v(i2, i3, this.f31334g);
+        n.v(i2, i3, this.f31432g);
         if (i2 == i3) {
             return ImmutableSortedMultiset.emptyMultiset(comparator());
         }
-        return (i2 == 0 && i3 == this.f31334g) ? this : new RegularImmutableSortedMultiset(this.elementSet.getSubSet(i2, i3), this.f31332e, this.f31333f + i2, i3 - i2);
+        return (i2 == 0 && i3 == this.f31432g) ? this : new RegularImmutableSortedMultiset(this.elementSet.getSubSet(i2, i3), this.f31430e, this.f31431f + i2, i3 - i2);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -74,7 +74,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
 
     @Override // com.google.common.collect.ImmutableCollection
     public boolean isPartialView() {
-        return this.f31333f > 0 || this.f31334g < this.f31332e.length - 1;
+        return this.f31431f > 0 || this.f31432g < this.f31430e.length - 1;
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
@@ -82,14 +82,14 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         if (isEmpty()) {
             return null;
         }
-        return getEntry(this.f31334g - 1);
+        return getEntry(this.f31432g - 1);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public int size() {
-        long[] jArr = this.f31332e;
-        int i2 = this.f31333f;
-        return Ints.j(jArr[this.f31334g + i2] - jArr[i2]);
+        long[] jArr = this.f31430e;
+        int i2 = this.f31431f;
+        return Ints.j(jArr[this.f31432g + i2] - jArr[i2]);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -110,7 +110,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
     public ImmutableSortedMultiset<E> tailMultiset(E e2, BoundType boundType) {
         RegularImmutableSortedSet<E> regularImmutableSortedSet = this.elementSet;
         n.p(boundType);
-        return getSubMultiset(regularImmutableSortedSet.tailIndex(e2, boundType == BoundType.CLOSED), this.f31334g);
+        return getSubMultiset(regularImmutableSortedSet.tailIndex(e2, boundType == BoundType.CLOSED), this.f31432g);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -121,8 +121,8 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
 
     public RegularImmutableSortedMultiset(RegularImmutableSortedSet<E> regularImmutableSortedSet, long[] jArr, int i2, int i3) {
         this.elementSet = regularImmutableSortedSet;
-        this.f31332e = jArr;
-        this.f31333f = i2;
-        this.f31334g = i3;
+        this.f31430e = jArr;
+        this.f31431f = i2;
+        this.f31432g = i3;
     }
 }

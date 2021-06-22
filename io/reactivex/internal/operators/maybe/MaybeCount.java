@@ -16,7 +16,7 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public final SingleObserver<? super Long> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72276d;
+        public Disposable f72380d;
 
         public CountMaybeObserver(SingleObserver<? super Long> singleObserver) {
             this.actual = singleObserver;
@@ -24,38 +24,38 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72276d.dispose();
-            this.f72276d = DisposableHelper.DISPOSED;
+            this.f72380d.dispose();
+            this.f72380d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72276d.isDisposed();
+            return this.f72380d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f72276d = DisposableHelper.DISPOSED;
+            this.f72380d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(0L);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f72276d = DisposableHelper.DISPOSED;
+            this.f72380d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72276d, disposable)) {
-                this.f72276d = disposable;
+            if (DisposableHelper.validate(this.f72380d, disposable)) {
+                this.f72380d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(Object obj) {
-            this.f72276d = DisposableHelper.DISPOSED;
+            this.f72380d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(1L);
         }
     }

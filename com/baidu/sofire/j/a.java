@@ -1,84 +1,115 @@
 package com.baidu.sofire.j;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.sofire.o.b;
 /* loaded from: classes2.dex */
-public interface a extends IInterface {
+public class a implements b {
 
-    /* renamed from: com.baidu.sofire.j.a$a  reason: collision with other inner class name */
+    /* renamed from: a  reason: collision with root package name */
+    public static a f10343a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f10344b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f10345c = false;
+
+    /* renamed from: com.baidu.sofire.j.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0142a extends Binder implements a {
+    public static /* synthetic */ class AnonymousClass1 {
 
-        /* renamed from: com.baidu.sofire.j.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0143a implements a {
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f10346a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public static a f10341a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f10342b;
-
-            public C0143a(IBinder iBinder) {
-                this.f10342b = iBinder;
+        static {
+            int[] iArr = new int[b.a.values().length];
+            f10346a = iArr;
+            try {
+                iArr[b.a.VIVO.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-
-            @Override // com.baidu.sofire.j.a
-            public final String a(String str, String str2, String str3) {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
-                    obtain.writeString(str);
-                    obtain.writeString(str2);
-                    obtain.writeString(str3);
-                    if (this.f10342b.transact(1, obtain, obtain2, 0) || AbstractBinderC0142a.a() == null) {
-                        obtain2.readException();
-                        return obtain2.readString();
-                    }
-                    return AbstractBinderC0142a.a().a(str, str2, str3);
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
+            try {
+                f10346a[b.a.OPPO.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-
-            @Override // android.os.IInterface
-            public final IBinder asBinder() {
-                return this.f10342b;
+            try {
+                f10346a[b.a.XIAOMI.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-        }
-
-        public static a a() {
-            return C0143a.f10341a;
-        }
-
-        public static a a(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
+            try {
+                f10346a[b.a.HUA_WEI.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0143a(iBinder) : (a) queryLocalInterface;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
-                }
-                parcel2.writeString("com.heytap.openid.IOpenID");
-                return true;
+            try {
+                f10346a[b.a.UNSUPPORT.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
             }
-            parcel.enforceInterface("com.heytap.openid.IOpenID");
-            String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
-            parcel2.writeNoException();
-            parcel2.writeString(a2);
-            return true;
         }
     }
 
-    String a(String str, String str2, String str3);
+    public static a a() {
+        if (f10343a == null) {
+            synchronized (a.class) {
+                if (f10343a == null) {
+                    f10343a = new a();
+                }
+            }
+        }
+        return f10343a;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0047 A[Catch: all -> 0x004d, TRY_LEAVE, TryCatch #0 {all -> 0x004d, blocks: (B:2:0x0000, B:5:0x0005, B:22:0x0043, B:24:0x0047, B:16:0x0025, B:17:0x0029, B:18:0x002e, B:19:0x0031, B:20:0x0037, B:21:0x003d), top: B:29:0x0000 }] */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.sofire.j.b
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void a(Context context, c cVar) {
+        b cVar2;
+        try {
+            if (this.f10345c) {
+                return;
+            }
+            this.f10345c = true;
+            int i2 = AnonymousClass1.f10346a[b.a.a(Build.MANUFACTURER).ordinal()];
+            if (i2 == 1) {
+                cVar2 = new com.baidu.sofire.m.c();
+            } else if (i2 == 2) {
+                cVar2 = new com.baidu.sofire.l.c();
+            } else if (i2 == 3) {
+                cVar2 = new com.baidu.sofire.n.b();
+            } else if (i2 != 4) {
+                if (i2 == 5) {
+                    this.f10344b = null;
+                }
+                if (this.f10344b == null) {
+                    this.f10344b.a(context, cVar);
+                    return;
+                }
+                return;
+            } else {
+                cVar2 = new com.baidu.sofire.k.b();
+            }
+            this.f10344b = cVar2;
+            if (this.f10344b == null) {
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.sofire.j.b
+    public final String b() {
+        b bVar = this.f10344b;
+        if (bVar == null) {
+            return null;
+        }
+        try {
+            return bVar.b();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
+        }
+    }
 }

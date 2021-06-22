@@ -24,9 +24,9 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.m0.r.l.a;
-import d.a.m0.z0.n0;
-import d.a.n0.t2.y;
+import d.a.n0.r.l.a;
+import d.a.n0.z0.n0;
+import d.a.o0.t2.y;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -59,7 +59,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public Timer mTimer;
     public String mUrl;
     public String mUrlTitle;
-    public d.a.n0.q.c.b.c mView;
+    public d.a.o0.q.c.b.c mView;
     public final Runnable mRunnable = new a();
     public boolean mAutoChangeStyle = true;
     public boolean mShareResultToFe = false;
@@ -192,14 +192,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     private boolean isNeedUpdateCookie() {
         String str;
-        a.b d2 = d.a.m0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
+        a.b d2 = d.a.n0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f53539a;
+            String str3 = d2.f53646a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f53540b;
+            str = d2.f53647b;
             if (str == null) {
                 str = "";
             }
@@ -289,7 +289,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a012";
     }
@@ -431,7 +431,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
             this.mView.d();
-            d.a.n0.q.c.a.f(getPageContext().getPageActivity(), this.mUrl);
+            d.a.o0.q.c.a.f(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
             this.mView.d();
             d.a.c.e.p.a.a(this.mUrl);
@@ -444,7 +444,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initWebView();
-        this.mView = new d.a.n0.q.c.b.c(this);
+        this.mView = new d.a.o0.q.c.b.c(this);
         initData();
         this.mView.k();
         this.mView.y(new c());
@@ -453,7 +453,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.mView.t(this.mAdExtInfo);
         this.mView.s(this.mDeeplink);
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f61876a, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f62001a, R.color.CAM_X0303, false);
         }
         adjustResizeForSoftInput();
     }
@@ -470,7 +470,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         webViewDestory();
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         stopLoadTimer();
-        d.a.n0.q.c.b.c cVar = this.mView;
+        d.a.o0.q.c.b.c cVar = this.mView;
         if (cVar != null) {
             cVar.q();
         }
@@ -519,7 +519,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         dismissAllDialog();
         dismissAllPopupWindow();
         hideListMenu();
-        d.a.n0.q.c.b.c cVar = this.mView;
+        d.a.o0.q.c.b.c cVar = this.mView;
         if (cVar != null) {
             cVar.d();
         }
@@ -528,7 +528,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        d.a.n0.q.c.b.c cVar = this.mView;
+        d.a.o0.q.c.b.c cVar = this.mView;
         if (cVar != null) {
             cVar.v(z);
         }

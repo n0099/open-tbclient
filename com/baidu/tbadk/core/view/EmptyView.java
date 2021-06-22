@@ -9,53 +9,53 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 public class EmptyView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12269e;
+    public int f12351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12270f;
+    public int f12352f;
 
     public EmptyView(Context context) {
         super(context);
-        this.f12269e = 0;
-        this.f12270f = 0;
+        this.f12351e = 0;
+        this.f12352f = 0;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        int i4 = this.f12270f;
+        int i4 = this.f12352f;
         if (i4 == 0) {
-            setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f12269e);
-        } else if (this.f12269e == 0) {
+            setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f12351e);
+        } else if (this.f12351e == 0) {
             setMeasuredDimension(i4, i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
         }
     }
 
     public void setHeightDip(int i2) {
-        this.f12269e = l.e(getContext(), i2);
+        this.f12351e = l.e(getContext(), i2);
     }
 
     public void setHeightPx(int i2) {
-        this.f12269e = i2;
+        this.f12351e = i2;
     }
 
     public void setWidthDip(int i2) {
-        this.f12270f = l.e(getContext(), i2);
+        this.f12352f = l.e(getContext(), i2);
     }
 
     public void setWidthPx(int i2) {
-        this.f12270f = i2;
+        this.f12352f = i2;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12269e = 0;
-        this.f12270f = 0;
+        this.f12351e = 0;
+        this.f12352f = 0;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f12269e = 0;
-        this.f12270f = 0;
+        this.f12351e = 0;
+        this.f12352f = 0;
     }
 }

@@ -4,14 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34232a;
+    public Context f34330a;
 
     public d(Context context) {
-        this.f34232a = context;
+        this.f34330a = context;
     }
 
     private String a(Cursor cursor) {
@@ -36,7 +36,7 @@ public class d {
     public String a() {
         String str = "";
         try {
-            Cursor query = this.f34232a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
+            Cursor query = this.f34330a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
             str = a(query);
             com.kwad.sdk.core.d.a.b("MeizuDeviceIDHelper", "getOAID oaid:" + str);
             w.a(query);

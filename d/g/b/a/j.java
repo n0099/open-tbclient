@@ -6,30 +6,30 @@ import com.google.ar.core.InstallActivity;
 public final class j implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ int f69928e;
+    public final /* synthetic */ int f70032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ int f69929f;
+    public final /* synthetic */ int f70033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ int f69930g;
+    public final /* synthetic */ int f70034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f69931h;
+    public final /* synthetic */ InstallActivity f70035h;
 
     public j(InstallActivity installActivity, int i2, int i3, int i4) {
-        this.f69931h = installActivity;
-        this.f69928e = i2;
-        this.f69929f = i3;
-        this.f69930g = i4;
+        this.f70035h = installActivity;
+        this.f70032e = i2;
+        this.f70033f = i3;
+        this.f70034g = i4;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
         float animatedFraction2 = valueAnimator.getAnimatedFraction();
-        int i2 = this.f69929f;
-        this.f69931h.getWindow().setLayout((int) ((this.f69928e * animatedFraction) + (i2 * animatedFraction2)), (int) ((this.f69930g * animatedFraction) + (i2 * animatedFraction2)));
-        this.f69931h.getWindow().getDecorView().refreshDrawableState();
+        int i2 = this.f70033f;
+        this.f70035h.getWindow().setLayout((int) ((this.f70032e * animatedFraction) + (i2 * animatedFraction2)), (int) ((this.f70034g * animatedFraction) + (i2 * animatedFraction2)));
+        this.f70035h.getWindow().getDecorView().refreshDrawableState();
     }
 }

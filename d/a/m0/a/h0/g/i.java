@@ -1,0 +1,228 @@
+package d.a.m0.a.h0.g;
+
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import d.a.m0.a.v2.p;
+import d.a.m0.a.v2.q0;
+import d.a.m0.a.z1.b.c.a;
+import java.io.File;
+/* loaded from: classes3.dex */
+public class i extends d implements a.InterfaceC0994a {
+    public d.a.m0.a.z1.b.c.a C0;
+    public View D0;
+    public String E0;
+
+    /* loaded from: classes3.dex */
+    public class a implements d.a.m0.a.v2.e1.b<String> {
+        public a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.m0.a.v2.e1.b
+        /* renamed from: a */
+        public void onCallback(String str) {
+            i.this.E0 = str;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            i.this.N2();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements d.a.m0.a.v2.e1.b<String> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ StringBuilder f45878e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ TextView f45879f;
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public a() {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                c cVar = c.this;
+                cVar.f45879f.setText(cVar.f45878e.toString());
+            }
+        }
+
+        public c(StringBuilder sb, TextView textView) {
+            this.f45878e = sb;
+            this.f45879f = textView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.m0.a.v2.e1.b
+        /* renamed from: a */
+        public void onCallback(String str) {
+            i.this.E0 = str;
+            this.f45878e.append(str);
+            q0.X(new a());
+        }
+    }
+
+    static {
+        boolean z = d.a.m0.a.k.f46983a;
+    }
+
+    @Nullable
+    public static File K2() {
+        String x;
+        d.a.m0.a.a2.e Q = d.a.m0.a.a2.e.Q();
+        if (Q == null || (x = d.a.m0.a.k2.b.x(Q.getAppId())) == null) {
+            return null;
+        }
+        return new File(x, "running_info_share_cache");
+    }
+
+    public static i M2() {
+        return new i();
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View B0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View inflate = layoutInflater.inflate(d.a.m0.a.g.aiapps_running_info_fragment, viewGroup, false);
+        Q1(inflate);
+        L2(inflate);
+        if (P1()) {
+            inflate = S1(inflate);
+        }
+        View A1 = A1(inflate, this);
+        this.D0 = A1;
+        return A1;
+    }
+
+    public final boolean J2() {
+        File[] listFiles;
+        File K2 = K2();
+        if (K2 == null || !K2.exists() || (listFiles = K2.listFiles()) == null) {
+            return true;
+        }
+        for (File file : listFiles) {
+            if (!d.a.m0.t.d.K(file)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override // d.a.m0.a.h0.g.d
+    public boolean K() {
+        d.a.m0.a.z1.b.c.a aVar = this.C0;
+        return aVar != null && aVar.f();
+    }
+
+    public final void L2(View view) {
+        if (d.a.m0.a.a2.e.Q() == null) {
+            return;
+        }
+        TextView textView = (TextView) view.findViewById(d.a.m0.a.f.running_info_text);
+        textView.setTextIsSelectable(true);
+        StringBuilder sb = new StringBuilder();
+        sb.append(p.h(this.k0));
+        sb.append("===== 启动信息 =====");
+        sb.append("\n");
+        if (!TextUtils.isEmpty(this.E0)) {
+            sb.append(this.E0);
+            textView.setText(sb.toString());
+            return;
+        }
+        textView.setText(sb.toString());
+        p.g(this.k0, new c(sb, textView));
+    }
+
+    public final void N2() {
+        d.a.m0.a.c1.a.f0().a(this.k0);
+    }
+
+    public final void O2() {
+        TextView textView = new TextView(q());
+        textView.setText(d.a.m0.a.h.swan_app_reporting);
+        textView.setTextColor(ContextCompat.getColor(q(), d.a.m0.a.c.GC7));
+        textView.setOnClickListener(new b());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(15);
+        layoutParams.addRule(11);
+        layoutParams.rightMargin = q().getResources().getDimensionPixelSize(d.a.m0.a.d.aiapps_action_bar_right_operation_margin);
+        textView.setLayoutParams(layoutParams);
+        this.n0.addView(textView);
+    }
+
+    @Override // d.a.m0.a.h0.g.d
+    public void Q1(View view) {
+        R1(view);
+        z2(false);
+        l2(-1);
+        t2(-16777216);
+        n2(q().getResources().getString(d.a.m0.a.h.swan_app_running_info));
+        p2(true);
+        O2();
+    }
+
+    @Override // d.a.m0.a.h0.g.d
+    public boolean X1() {
+        return false;
+    }
+
+    @Override // d.a.m0.a.h0.g.d
+    public boolean Z1() {
+        return false;
+    }
+
+    @Override // d.a.m0.a.h0.g.d
+    public void e2() {
+    }
+
+    @Override // d.a.m0.a.z1.b.c.a.InterfaceC0994a
+    public d.a.m0.a.z1.b.c.a getFloatLayer() {
+        if (this.C0 == null) {
+            View view = this.D0;
+            if (view == null) {
+                return null;
+            }
+            this.C0 = new d.a.m0.a.z1.b.c.a(this, (LinearLayout) view.findViewById(d.a.m0.a.f.aiapps_running_info_fragment_base_view), 0);
+        }
+        return this.C0;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.E0 = null;
+        p.g(this.k0, new a());
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        if (J2()) {
+            return;
+        }
+        d.a.m0.a.e0.d.a("SwanAppRunningInfoFragment", "分享中间文件删除失败。。。");
+    }
+
+    @Override // d.a.m0.a.h0.g.d, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+        x2(1);
+    }
+}

@@ -5,28 +5,28 @@ import android.content.Context;
 public final class c extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f69912e;
+    public final Context f70016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final m f69913f;
+    public final m f70017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f69914g;
+    public volatile boolean f70018g;
 
     public c(Context context, m mVar) {
-        this.f69912e = context;
-        this.f69913f = mVar;
+        this.f70016e = context;
+        this.f70017f = mVar;
     }
 
     public final void a() {
-        this.f69914g = true;
+        this.f70018g = true;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
-        while (!this.f69914g) {
-            if (f.d().h(this.f69912e)) {
-                this.f69913f.a(com.google.ar.core.p.COMPLETED);
+        while (!this.f70018g) {
+            if (f.d().h(this.f70016e)) {
+                this.f70017f.a(com.google.ar.core.p.COMPLETED);
                 return;
             }
             try {

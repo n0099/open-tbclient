@@ -17,24 +17,24 @@ import com.baidu.tieba.im.chat.CommonPersonalMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
-import d.a.m0.w.h;
+import d.a.n0.w.h;
 /* loaded from: classes4.dex */
 public class PersonalChatView extends CommonPersonalMsglistView {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17514e;
+    public TextView f17596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonalChatActivity f17515f;
+    public PersonalChatActivity f17597f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f17516g;
+    public LinearLayout f17598g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f17517h;
+    public LinearLayout f17599h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17518i;
+    public TextView f17600i;
     public TextView j;
     public TextView k;
     public Button l;
@@ -47,7 +47,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PersonalChatView.this.f17515f.showToast(R.string.add_friend_cannot_send);
+            PersonalChatView.this.f17597f.showToast(R.string.add_friend_cannot_send);
         }
     }
 
@@ -55,15 +55,15 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation f17520a;
+        public final /* synthetic */ Animation f17602a;
 
         public b(Animation animation) {
-            this.f17520a = animation;
+            this.f17602a = animation;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            PersonalChatView.this.k.startAnimation(this.f17520a);
+            PersonalChatView.this.k.startAnimation(this.f17602a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -79,16 +79,16 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public class c implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation f17522a;
+        public final /* synthetic */ Animation f17604a;
 
         public c(Animation animation) {
-            this.f17522a = animation;
+            this.f17604a = animation;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             PersonalChatView.this.k.setVisibility(0);
-            PersonalChatView.this.k.setAnimation(this.f17522a);
+            PersonalChatView.this.k.setAnimation(this.f17604a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -104,26 +104,26 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public class d implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17524a;
+        public final /* synthetic */ String f17606a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17525b;
+        public final /* synthetic */ String f17607b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animation f17526c;
+        public final /* synthetic */ Animation f17608c;
 
         public d(String str, String str2, Animation animation) {
-            this.f17524a = str;
-            this.f17525b = str2;
-            this.f17526c = animation;
+            this.f17606a = str;
+            this.f17607b = str2;
+            this.f17608c = animation;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            PersonalChatView.this.f17517h.clearAnimation();
-            PersonalChatView.this.f17518i.setText(PersonalChatView.this.f17515f.getResources().getString(R.string.add_friend_agree_title, this.f17524a));
-            PersonalChatView.this.j.setText(this.f17525b);
-            PersonalChatView.this.f17517h.setAnimation(this.f17526c);
+            PersonalChatView.this.f17599h.clearAnimation();
+            PersonalChatView.this.f17600i.setText(PersonalChatView.this.f17597f.getResources().getString(R.string.add_friend_agree_title, this.f17606a));
+            PersonalChatView.this.j.setText(this.f17607b);
+            PersonalChatView.this.f17599h.setAnimation(this.f17608c);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -142,7 +142,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            PersonalChatView.this.f17516g.setVisibility(8);
+            PersonalChatView.this.f17598g.setVisibility(8);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -158,25 +158,25 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public static /* synthetic */ class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f17529a;
+        public static final /* synthetic */ int[] f17611a;
 
         static {
             int[] iArr = new int[PersonalMsglistModel.CardStatus.values().length];
-            f17529a = iArr;
+            f17611a = iArr;
             try {
                 iArr[PersonalMsglistModel.CardStatus.APPLY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f17529a[PersonalMsglistModel.CardStatus.WAIT.ordinal()] = 2;
+                f17611a[PersonalMsglistModel.CardStatus.WAIT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f17529a[PersonalMsglistModel.CardStatus.AGREE.ordinal()] = 3;
+                f17611a[PersonalMsglistModel.CardStatus.AGREE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f17529a[PersonalMsglistModel.CardStatus.PASS.ordinal()] = 4;
+                f17611a[PersonalMsglistModel.CardStatus.PASS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -186,7 +186,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         super(msglistActivity, z);
         EditorTools editorTools;
         this.m = new a();
-        if (this.f17515f.isFriend() || (editorTools = this.mTool) == null) {
+        if (this.f17597f.isFriend() || (editorTools = this.mTool) == null) {
             return;
         }
         k(editorTools.m(6));
@@ -196,31 +196,31 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initPersonalHeader(talkableActivity, z);
-        this.f17515f = (PersonalChatActivity) talkableActivity;
+        this.f17597f = (PersonalChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(R.string.more);
         if (string != null) {
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.personal_info_btn, talkableActivity);
             this.mBtnGroupInfo = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.group_info_btn_txt);
-            this.f17514e = textView;
+            this.f17596e = textView;
             textView.setText(string);
         }
-        if (this.f17515f.isFriend()) {
+        if (this.f17597f.isFriend()) {
             return;
         }
         LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.stranger_person_add_friend_stub)).inflate();
-        this.f17516g = linearLayout;
-        this.f17517h = (LinearLayout) linearLayout.findViewById(R.id.add_friend_tip_full);
-        this.f17518i = (TextView) this.f17516g.findViewById(R.id.add_friend_tip_title);
-        this.j = (TextView) this.f17516g.findViewById(R.id.add_friend_tip_content);
-        this.k = (TextView) this.f17516g.findViewById(R.id.add_friend_tip_center);
-        Button button = (Button) this.f17516g.findViewById(R.id.add_friend_tip_button);
+        this.f17598g = linearLayout;
+        this.f17599h = (LinearLayout) linearLayout.findViewById(R.id.add_friend_tip_full);
+        this.f17600i = (TextView) this.f17598g.findViewById(R.id.add_friend_tip_title);
+        this.j = (TextView) this.f17598g.findViewById(R.id.add_friend_tip_content);
+        this.k = (TextView) this.f17598g.findViewById(R.id.add_friend_tip_center);
+        Button button = (Button) this.f17598g.findViewById(R.id.add_friend_tip_button);
         this.l = button;
         button.setOnClickListener(talkableActivity);
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             return;
         }
-        this.f17516g.setVisibility(8);
+        this.f17598g.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -247,8 +247,8 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     public void n(PersonalMsglistModel.CardStatus cardStatus, boolean z, String... strArr) {
-        this.f17516g.setVisibility(0);
-        int i2 = f.f17529a[cardStatus.ordinal()];
+        this.f17598g.setVisibility(0);
+        int i2 = f.f17611a[cardStatus.ordinal()];
         if (i2 == 1) {
             p();
         } else if (i2 == 2) {
@@ -262,7 +262,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     public final void o(boolean z, String str) {
-        String name_show = this.f17515f.getCurrentModel().getUser().getName_show();
+        String name_show = this.f17597f.getCurrentModel().getUser().getName_show();
         this.k.setVisibility(8);
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -272,11 +272,11 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             translateAnimation2.setDuration(400L);
             translateAnimation2.setFillAfter(true);
             translateAnimation2.setAnimationListener(new d(name_show, str, translateAnimation));
-            this.f17517h.setVisibility(0);
-            this.f17517h.startAnimation(translateAnimation2);
+            this.f17599h.setVisibility(0);
+            this.f17599h.startAnimation(translateAnimation2);
         } else {
-            this.f17517h.setVisibility(0);
-            this.f17518i.setText(this.f17515f.getResources().getString(R.string.add_friend_agree_title, name_show));
+            this.f17599h.setVisibility(0);
+            this.f17600i.setText(this.f17597f.getResources().getString(R.string.add_friend_agree_title, name_show));
             this.j.setText(str);
         }
         this.l.setText(R.string.add_friend_agree_button);
@@ -285,7 +285,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        TextView textView = this.f17514e;
+        TextView textView = this.f17596e;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         }
@@ -293,10 +293,10 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     public final void p() {
-        this.f17516g.setVisibility(8);
-        this.f17517h.setVisibility(0);
+        this.f17598g.setVisibility(8);
+        this.f17599h.setVisibility(0);
         this.k.setVisibility(8);
-        this.f17518i.setText(R.string.add_friend_title);
+        this.f17600i.setText(R.string.add_friend_title);
         this.j.setText(R.string.add_friend_content);
         this.l.setText(R.string.add_friend_button);
     }
@@ -308,14 +308,14 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             translateAnimation.setDuration(500L);
             translateAnimation.setFillAfter(true);
             translateAnimation.setAnimationListener(new e());
-            this.f17516g.startAnimation(translateAnimation);
+            this.f17598g.startAnimation(translateAnimation);
             return;
         }
-        this.f17516g.setVisibility(8);
+        this.f17598g.setVisibility(8);
     }
 
     public final void r(boolean z) {
-        if (this.f17515f.getCurrentModel().F() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.f17597f.getCurrentModel().F() == PersonalMsglistModel.CardStatus.WAIT && z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -334,10 +334,10 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             translateAnimation4.setDuration(400L);
             translateAnimation4.setFillAfter(true);
             translateAnimation4.setAnimationListener(new c(translateAnimation3));
-            this.f17517h.setVisibility(8);
-            this.f17517h.startAnimation(translateAnimation4);
+            this.f17599h.setVisibility(8);
+            this.f17599h.startAnimation(translateAnimation4);
         } else {
-            this.f17517h.setVisibility(8);
+            this.f17599h.setVisibility(8);
             this.k.setVisibility(0);
         }
         this.k.setText(R.string.add_friend_wait);

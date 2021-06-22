@@ -3,11 +3,11 @@ package com.win.opensdk;
 public class m1 {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final m1 f40764c = new m1();
+    public static final m1 f40867c = new m1();
 
     /* renamed from: a  reason: collision with root package name */
-    public double f40765a;
+    public double f40868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f40766b;
+    public double f40869b;
 }

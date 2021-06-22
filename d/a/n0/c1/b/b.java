@@ -1,100 +1,56 @@
 package d.a.n0.c1.b;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class b extends BaseAdapter {
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes3.dex */
+public class b {
 
-    /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f56009e;
+    /* renamed from: a  reason: collision with root package name */
+    public final SharedPreferences f53019a = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f56010f;
+    /* renamed from: b  reason: collision with root package name */
+    public String f53020b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ItemViewHolder f56011g;
+    /* renamed from: c  reason: collision with root package name */
+    public String f53021c;
 
-    /* renamed from: h  reason: collision with root package name */
-    public List<c> f56012h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f56013i = new ArrayList<>();
-    public View.OnClickListener j;
-
-    public b(Context context, int i2, ItemViewHolder itemViewHolder) {
-        this.f56009e = LayoutInflater.from(context);
-        this.f56010f = i2;
-        this.f56011g = itemViewHolder;
+    public b(String str, String str2) {
+        this.f53020b = str;
+        this.f53021c = str2;
     }
 
-    public final void a(ItemViewHolder itemViewHolder, c cVar) {
-        if (cVar == null || itemViewHolder == null) {
-            return;
-        }
-        itemViewHolder.b(cVar);
-    }
-
-    public void b(int i2) {
-        if (ListUtils.getCount(this.f56013i) > 0) {
-            Iterator<ItemViewHolder> it = this.f56013i.iterator();
-            while (it.hasNext()) {
-                it.next().d(i2);
+    public void a(long j) {
+        if (b(this.f53020b, this.f53021c)) {
+            String str = this.f53020b + '_' + this.f53021c + "_youngster_tip_times";
+            String str2 = this.f53020b + '_' + this.f53021c + "_youngster_tip_time";
+            int i2 = this.f53019a.getInt(str, 0);
+            SharedPreferences.Editor edit = this.f53019a.edit();
+            int i3 = i2 + 1;
+            if (i3 <= 10) {
+                i2 = i3;
             }
+            edit.putInt(str, i2);
+            edit.putLong(str2, j);
+            edit.apply();
         }
     }
 
-    public void c(List<c> list) {
-        this.f56012h = list;
+    public final boolean b(String str, String str2) {
+        return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 
-    public void d(View.OnClickListener onClickListener) {
-        this.j = onClickListener;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return ListUtils.getCount(this.f56012h);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        return ListUtils.getItem(this.f56012h, i2);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        if (ListUtils.getItem(this.f56012h, i2) == null) {
-            return -1L;
+    public long c() {
+        if (b(this.f53020b, this.f53021c)) {
+            return this.f53019a.getLong(this.f53020b + '_' + this.f53021c + "_youngster_tip_time", 0L);
         }
-        return ((c) ListUtils.getItem(this.f56012h, i2)).hashCode();
+        return 0L;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = this.f56009e.inflate(this.f56010f, viewGroup, false);
-            ItemViewHolder c2 = this.f56011g.c(view);
-            c2.e(this.j);
-            view.setTag(c2);
-            this.f56013i.add(c2);
+    public int d() {
+        if (b(this.f53020b, this.f53021c)) {
+            return this.f53019a.getInt(this.f53020b + '_' + this.f53021c + "_youngster_tip_times", 0);
         }
-        ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        if (ListUtils.getItem(this.f56012h, i2) != null) {
-            a(itemViewHolder, this.f56012h.get(i2));
-        }
-        return itemViewHolder.a();
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        return true;
+        return 0;
     }
 }

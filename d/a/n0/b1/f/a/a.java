@@ -1,74 +1,93 @@
 package d.a.n0.b1.f.a;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
-import d.a.n0.b1.f.a.e.e;
-/* loaded from: classes4.dex */
-public class a {
-    public static void a(View view, Object obj, int i2, String str) {
-        if (obj instanceof d.a.n0.b1.f.a.e.c) {
-            d.a.n0.b1.f.a.e.c cVar = (d.a.n0.b1.f.a.e.c) obj;
-            if (cVar.f55260e) {
-                StatisticItem statisticItem = new StatisticItem("c13736");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.eventStat();
-                return;
+import android.view.ViewGroup;
+import d.a.n0.m.e;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
+public abstract class a<T> extends b {
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f52792b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<T> f52793c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f52794d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LayoutInflater f52795e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e<T> f52796f;
+
+    /* renamed from: d.a.n0.b1.f.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1166a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public T f52797e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f52798f;
+
+        public View$OnClickListenerC1166a(T t, int i2) {
+            this.f52797e = t;
+            this.f52798f = i2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            e<T> eVar = a.this.f52796f;
+            if (eVar != null) {
+                T t = this.f52797e;
+                int i2 = this.f52798f;
+                eVar.a(view, t, i2, i2);
             }
-            StatisticItem statisticItem2 = new StatisticItem("c13735");
-            statisticItem2.param("obj_locate", i2);
-            statisticItem2.param("topic_id", cVar.f55256a);
-            statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem2.eventStat();
-        } else if (obj instanceof e) {
-            a2 a2Var = ((e) obj).j;
-            StatisticItem statisticItem3 = new StatisticItem("c13738");
-            statisticItem3.param("obj_type", str);
-            statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (a2Var != null) {
-                statisticItem3.param("tid", a2Var.z1());
-                statisticItem3.param("fid", a2Var.c0());
-            }
-            statisticItem3.eventStat();
-        } else if ((obj instanceof d.a.m0.r.q.a) && c(view)) {
-            a2 i3 = ((d.a.m0.r.q.a) obj).i();
-            StatisticItem statisticItem4 = new StatisticItem("c13738");
-            statisticItem4.param("obj_type", str);
-            statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i3 != null) {
-                statisticItem4.param("tid", i3.z1());
-                statisticItem4.param("fid", i3.c0());
-            }
-            statisticItem4.eventStat();
         }
     }
 
-    public static void b(View view, Object obj, String str) {
-        if (obj instanceof e) {
-            a2 a2Var = ((e) obj).j;
-            StatisticItem statisticItem = new StatisticItem("c13825");
-            statisticItem.param("obj_type", str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (a2Var != null) {
-                statisticItem.param("tid", a2Var.z1());
-            }
-            statisticItem.eventStat();
-        } else if (obj instanceof d.a.m0.r.q.a) {
-            a2 i2 = ((d.a.m0.r.q.a) obj).i();
-            StatisticItem statisticItem2 = new StatisticItem("c13825");
-            statisticItem2.param("obj_type", str);
-            statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i2 != null) {
-                statisticItem2.param("tid", i2.z1());
-            }
-            statisticItem2.eventStat();
-        }
+    public a(Context context, List<T> list, int i2) {
+        this.f52794d = context;
+        this.f52793c = list == null ? new ArrayList() : new ArrayList(list);
+        this.f52792b = i2;
+        this.f52795e = LayoutInflater.from(this.f52794d);
     }
 
-    public static boolean c(View view) {
-        int id = view.getId();
-        return id == R.id.thread_card_root || id == R.id.thread_info_commont_container;
+    @Override // d.a.n0.b1.f.a.b
+    public int a() {
+        return this.f52793c.size();
+    }
+
+    @Override // d.a.n0.b1.f.a.b
+    public View b(int i2, ViewGroup viewGroup) {
+        View inflate = this.f52795e.inflate(this.f52792b, viewGroup, false);
+        c cVar = new c(inflate);
+        T t = this.f52793c.get(i2);
+        f(cVar, t, i2);
+        cVar.c(new View$OnClickListenerC1166a(t, i2));
+        return inflate;
+    }
+
+    public abstract void f(c cVar, T t, int i2);
+
+    public void g(List<T> list) {
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        this.f52793c = list;
+        c();
+    }
+
+    public void h(e<T> eVar) {
+        this.f52796f = eVar;
+    }
+
+    public a(Context context, int i2) {
+        this(context, null, i2);
     }
 }

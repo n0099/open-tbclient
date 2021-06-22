@@ -1,7 +1,7 @@
 package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.n0.f2.c.a;
+import d.a.o0.f2.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

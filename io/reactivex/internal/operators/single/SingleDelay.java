@@ -24,15 +24,15 @@ public final class SingleDelay<T> extends Single<T> {
         public final class OnError implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f72325e;
+            public final Throwable f72429e;
 
             public OnError(Throwable th) {
-                this.f72325e = th;
+                this.f72429e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Delay.this.s.onError(this.f72325e);
+                Delay.this.s.onError(this.f72429e);
             }
         }
 

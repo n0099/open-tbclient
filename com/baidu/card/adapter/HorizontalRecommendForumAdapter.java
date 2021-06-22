@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.m.f;
-import d.a.m0.r.q.n;
-import d.a.m0.r.q.n1;
+import d.a.n0.m.f;
+import d.a.n0.r.q.n;
+import d.a.n0.r.q.n1;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -25,7 +25,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
     public TbPageContext<?> f4344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d.a.m0.g0.b.a> f4345b = new ArrayList<>();
+    public ArrayList<d.a.n0.g0.b.a> f4345b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
     public f<n1> f4346c;
@@ -173,7 +173,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         this.f4344a = tbPageContext;
     }
 
-    public void d(ArrayList<? extends d.a.m0.g0.b.a> arrayList) {
+    public void d(ArrayList<? extends d.a.n0.g0.b.a> arrayList) {
         if (arrayList == null) {
             return;
         }
@@ -194,7 +194,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        ArrayList<d.a.m0.g0.b.a> arrayList = this.f4345b;
+        ArrayList<d.a.n0.g0.b.a> arrayList = this.f4345b;
         if (arrayList == null) {
             return 0;
         }
@@ -211,11 +211,11 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
-        ArrayList<d.a.m0.g0.b.a> arrayList = this.f4345b;
+        ArrayList<d.a.n0.g0.b.a> arrayList = this.f4345b;
         if (arrayList == null || arrayList.size() <= 0) {
             return;
         }
-        d.a.m0.g0.b.a aVar = this.f4345b.get(i2);
+        d.a.n0.g0.b.a aVar = this.f4345b.get(i2);
         if ((viewHolder instanceof a) && (aVar instanceof n)) {
             ((a) viewHolder).a((n) aVar);
         } else if ((viewHolder instanceof b) && (aVar instanceof n1)) {

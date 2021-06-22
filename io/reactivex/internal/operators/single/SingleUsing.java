@@ -27,7 +27,7 @@ public final class SingleUsing<T, U> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72336d;
+        public Disposable f72440d;
         public final Consumer<? super U> disposer;
         public final boolean eager;
 
@@ -40,8 +40,8 @@ public final class SingleUsing<T, U> extends Single<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72336d.dispose();
-            this.f72336d = DisposableHelper.DISPOSED;
+            this.f72440d.dispose();
+            this.f72440d = DisposableHelper.DISPOSED;
             disposeAfter();
         }
 
@@ -59,12 +59,12 @@ public final class SingleUsing<T, U> extends Single<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72336d.isDisposed();
+            return this.f72440d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            this.f72336d = DisposableHelper.DISPOSED;
+            this.f72440d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {
@@ -86,15 +86,15 @@ public final class SingleUsing<T, U> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72336d, disposable)) {
-                this.f72336d = disposable;
+            if (DisposableHelper.validate(this.f72440d, disposable)) {
+                this.f72440d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.SingleObserver
         public void onSuccess(T t) {
-            this.f72336d = DisposableHelper.DISPOSED;
+            this.f72440d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {

@@ -293,9 +293,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22577d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22577d);
-            hashMap.put("username", b.f22575b);
+            hashMap.put("uid", b.f22659d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22659d);
+            hashMap.put("username", b.f22657b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -382,9 +382,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22577d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22577d);
-            hashMap.put("username", b.f22575b);
+            hashMap.put("uid", b.f22659d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22659d);
+            hashMap.put("username", b.f22657b);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
@@ -435,9 +435,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22577d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22577d);
-            hashMap.put("username", b.f22575b);
+            hashMap.put("uid", b.f22659d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22659d);
+            hashMap.put("username", b.f22657b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -576,7 +576,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f22574a = true;
+        b.f22656a = true;
     }
 
     public static void openRobotAnswer() {
@@ -597,7 +597,7 @@ public class UfoSDK {
     }
 
     public static void setBackbtnText(String str) {
-        b.f22582i = str;
+        b.f22664i = str;
     }
 
     public static void setBackbtnTextColor(int i2) {
@@ -605,7 +605,7 @@ public class UfoSDK {
     }
 
     public static void setBaiduCuid(String str) {
-        b.f22576c = str;
+        b.f22658c = str;
     }
 
     public static void setChatThreadTime(int i2) {
@@ -621,11 +621,11 @@ public class UfoSDK {
     }
 
     public static void setCurrentUserIcon(Bitmap bitmap) {
-        b.f22580g = bitmap;
+        b.f22662g = bitmap;
     }
 
     public static void setCustomLocation(String str) {
-        b.f22581h = str;
+        b.f22663h = str;
     }
 
     public static void setCustomText(String str, String str2) {
@@ -640,7 +640,7 @@ public class UfoSDK {
     }
 
     public static void setExtraData(Map map) {
-        b.f22579f = com.baidu.ufosdk.c.a.a(map);
+        b.f22661f = com.baidu.ufosdk.c.a.a(map);
     }
 
     public static void setFaceBottomEntrance(int i2) {
@@ -804,14 +804,14 @@ public class UfoSDK {
     }
 
     public static void setUserId(String str) {
-        b.f22577d = str;
+        b.f22659d = str;
     }
 
     public static void setUserName(String str) {
-        b.f22575b = str;
+        b.f22657b = str;
     }
 
     public static void setUserStatus(int i2) {
-        b.f22578e = i2;
+        b.f22660e = i2;
     }
 }

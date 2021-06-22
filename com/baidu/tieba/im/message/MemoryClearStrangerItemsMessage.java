@@ -11,7 +11,7 @@ public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<MemoryModifyVisibilityMessage.a> f17359a;
+        public List<MemoryModifyVisibilityMessage.a> f17441a;
     }
 
     public MemoryClearStrangerItemsMessage(a aVar, boolean z) {

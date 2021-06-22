@@ -2,6 +2,7 @@ package com.baidu.wallet.base.datamodel;
 
 import android.text.TextUtils;
 import com.baidu.apollon.armor.SafePay;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -66,7 +67,7 @@ public class UserData implements NoProguard {
         }
 
         public String toString() {
-            return "[sp_company=" + this.sp_company + "]";
+            return "[sp_company=" + this.sp_company + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -180,7 +181,7 @@ public class UserData implements NoProguard {
             }
 
             public String toString() {
-                return "钱包余额信息-->[balance_amount:" + this.balance_amount + "&freeze_amount:" + this.freeze_amount + "&virtual_amount:" + this.virtual_amount + "&can_amount:" + this.can_amount + "&available_withdraw_amount:" + this.available_withdraw_amount + "]";
+                return "钱包余额信息-->[balance_amount:" + this.balance_amount + "&freeze_amount:" + this.freeze_amount + "&virtual_amount:" + this.virtual_amount + "&can_amount:" + this.can_amount + "&available_withdraw_amount:" + this.available_withdraw_amount + PreferencesUtil.RIGHT_MOUNT;
             }
         }
 

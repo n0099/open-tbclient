@@ -19,7 +19,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.m0.r.u.a;
+import d.a.n0.r.u.a;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundCornerFrameLayout extends FrameLayout {

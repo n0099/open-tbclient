@@ -15,7 +15,7 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43286a = d.a.d0.a.b.a.f43271a.get().s();
+    public static final boolean f43389a = d.a.d0.a.b.a.f43374a.get().s();
 
     public static boolean a(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;
@@ -39,7 +39,7 @@ public class i {
             } catch (ActivityNotFoundException unused) {
             }
         }
-        if (f43286a && !z) {
+        if (f43389a && !z) {
             Log.e("OpenAppUtil", "openAppByPkgName: " + str + "  failed");
         }
         return z;
@@ -58,7 +58,7 @@ public class i {
         intent.setPackage(queryIntentActivities.get(0).activityInfo.packageName);
         try {
             context.startActivity(intent);
-            if (f43286a) {
+            if (f43389a) {
                 Log.e("OpenAppUtil", "openAppByScheme success, match scheme size: " + queryIntentActivities.size());
                 return true;
             }

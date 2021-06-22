@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import d.a.m0.r.q.a2;
-import d.a.n0.e.e.e;
-import d.a.n0.t2.g;
-import d.a.n0.t2.i;
-import d.a.n0.t2.m;
-import d.a.n0.t2.w;
-import d.a.n0.t2.x;
-import d.a.n0.t2.z;
+import d.a.n0.r.q.a2;
+import d.a.o0.e.e.e;
+import d.a.o0.t2.g;
+import d.a.o0.t2.i;
+import d.a.o0.t2.m;
+import d.a.o0.t2.w;
+import d.a.o0.t2.x;
+import d.a.o0.t2.z;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +28,7 @@ public class RecAppStatic {
 
     /* loaded from: classes5.dex */
     public static class a implements m.a {
-        @Override // d.a.n0.t2.m.a
+        @Override // d.a.o0.t2.m.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 Uri parse = Uri.parse(strArr[0]);
@@ -91,10 +91,10 @@ public class RecAppStatic {
     }
 
     static {
-        x.f64887a.set(new z());
-        d.a.n0.t2.d0.a.f64721a.set(new w());
+        x.f65012a.set(new z());
+        d.a.o0.t2.d0.a.f64846a.set(new w());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        d.a.n0.q.a.l().e(new a());
+        d.a.o0.q.a.l().e(new a());
         e.b().c(1, new i());
         e.b().c(2, new g());
         a2.z3.set(true);
@@ -104,8 +104,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        d.a.n0.t2.e.t().b();
-        d.a.n0.t2.e.t().f();
-        d.a.n0.q.d.i.a.f61923a.set(new d.a.n0.t2.c0.b());
+        d.a.o0.t2.e.t().b();
+        d.a.o0.t2.e.t().f();
+        d.a.o0.q.d.i.a.f62048a.set(new d.a.o0.t2.c0.b());
     }
 }

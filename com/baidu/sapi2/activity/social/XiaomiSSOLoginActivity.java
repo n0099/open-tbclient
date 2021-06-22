@@ -21,7 +21,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiaomiOAuthFuture f9815a;
+        public final /* synthetic */ XiaomiOAuthFuture f9836a;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -36,41 +36,41 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0123b implements Runnable {
+        public class RunnableC0124b implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f9818a;
+            public final /* synthetic */ String f9839a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f9819b;
+            public final /* synthetic */ String f9840b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f9820c;
+            public final /* synthetic */ String f9841c;
 
-            public RunnableC0123b(String str, String str2, String str3) {
-                this.f9818a = str;
-                this.f9819b = str2;
-                this.f9820c = str3;
+            public RunnableC0124b(String str, String str2, String str3) {
+                this.f9839a = str;
+                this.f9840b = str2;
+                this.f9841c = str3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                XiaomiSSOLoginActivity.this.p.a(this.f9818a, this.f9819b, this.f9820c);
+                XiaomiSSOLoginActivity.this.p.a(this.f9839a, this.f9840b, this.f9841c);
             }
         }
 
         public b(XiaomiOAuthFuture xiaomiOAuthFuture) {
-            this.f9815a = xiaomiOAuthFuture;
+            this.f9836a = xiaomiOAuthFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9815a.getResult();
+                XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9836a.getResult();
                 if (xiaomiOAuthResults.hasError()) {
                     new Handler(Looper.getMainLooper()).post(new a());
                 } else {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0123b(xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0124b(xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 }
             } catch (Exception e2) {
                 Log.e(e2);
@@ -146,7 +146,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
         public void a() {
             XiaomiSSOLoginActivity xiaomiSSOLoginActivity = XiaomiSSOLoginActivity.this;
-            xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9790g);
+            xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9811g);
         }
     }
 }

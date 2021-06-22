@@ -9,23 +9,23 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29073a;
+    public l f29155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29074b;
+    public String f29156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29075c;
+    public String f29157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f29076d;
+    public JSONObject f29158d;
 
     public static a a() {
         return new a();
     }
 
     public a b(String str) {
-        this.f29075c = str;
+        this.f29157c = str;
         return this;
     }
 
@@ -63,7 +63,7 @@ public class a {
     }
 
     public a b(JSONObject jSONObject) {
-        this.f29076d = jSONObject;
+        this.f29158d = jSONObject;
         return this;
     }
 
@@ -71,13 +71,13 @@ public class a {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tag", this.f29074b);
-            jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f29075c);
-            if (this.f29076d != null) {
-                jSONObject.put("extra", this.f29076d);
+            jSONObject.put("tag", this.f29156b);
+            jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f29157c);
+            if (this.f29158d != null) {
+                jSONObject.put("extra", this.f29158d);
             }
-            if (this.f29073a != null) {
-                jSONObject.put("material_meta", this.f29073a.aL());
+            if (this.f29155a != null) {
+                jSONObject.put("material_meta", this.f29155a.aL());
             }
         } catch (Exception unused) {
         }
@@ -85,12 +85,12 @@ public class a {
     }
 
     public a a(l lVar) {
-        this.f29073a = lVar;
+        this.f29155a = lVar;
         return this;
     }
 
     public a a(String str) {
-        this.f29074b = str;
+        this.f29156b = str;
         return this;
     }
 }

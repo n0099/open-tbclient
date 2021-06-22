@@ -11,72 +11,72 @@ import okio.ByteString;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSource f70301a;
+    public final BufferedSource f70405a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f70304d;
+    public int f70408d;
 
     /* renamed from: h  reason: collision with root package name */
-    public FieldEncoding f70308h;
+    public FieldEncoding f70412h;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f70302b = 0;
+    public long f70406b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70303c = Long.MAX_VALUE;
+    public long f70407c = Long.MAX_VALUE;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f70305e = 2;
+    public int f70409e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f70306f = -1;
+    public int f70410f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f70307g = -1;
+    public long f70411g = -1;
 
     public c(BufferedSource bufferedSource) {
-        this.f70301a = bufferedSource;
+        this.f70405a = bufferedSource;
     }
 
     public final void a(int i2) throws IOException {
-        if (this.f70305e == i2) {
-            this.f70305e = 6;
+        if (this.f70409e == i2) {
+            this.f70409e = 6;
             return;
         }
-        long j = this.f70302b;
-        long j2 = this.f70303c;
+        long j = this.f70406b;
+        long j2 = this.f70407c;
         if (j > j2) {
-            throw new IOException("Expected to end at " + this.f70303c + " but was " + this.f70302b);
+            throw new IOException("Expected to end at " + this.f70407c + " but was " + this.f70406b);
         } else if (j == j2) {
-            this.f70303c = this.f70307g;
-            this.f70307g = -1L;
-            this.f70305e = 6;
+            this.f70407c = this.f70411g;
+            this.f70411g = -1L;
+            this.f70409e = 6;
         } else {
-            this.f70305e = 7;
+            this.f70409e = 7;
         }
     }
 
     public final long b() throws IOException {
-        if (this.f70305e == 2) {
-            long j = this.f70303c - this.f70302b;
-            this.f70301a.require(j);
-            this.f70305e = 6;
-            this.f70302b = this.f70303c;
-            this.f70303c = this.f70307g;
-            this.f70307g = -1L;
+        if (this.f70409e == 2) {
+            long j = this.f70407c - this.f70406b;
+            this.f70405a.require(j);
+            this.f70409e = 6;
+            this.f70406b = this.f70407c;
+            this.f70407c = this.f70411g;
+            this.f70411g = -1L;
             return j;
         }
-        throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.f70305e);
+        throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.f70409e);
     }
 
     public long c() throws IOException {
-        if (this.f70305e == 2) {
-            int i2 = this.f70304d + 1;
-            this.f70304d = i2;
+        if (this.f70409e == 2) {
+            int i2 = this.f70408d + 1;
+            this.f70408d = i2;
             if (i2 <= 65) {
-                long j = this.f70307g;
-                this.f70307g = -1L;
-                this.f70305e = 6;
+                long j = this.f70411g;
+                this.f70411g = -1L;
+                this.f70409e = 6;
                 return j;
             }
             throw new IOException("Wire recursion limit exceeded");
@@ -85,14 +85,14 @@ public final class c {
     }
 
     public void d(long j) throws IOException {
-        if (this.f70305e == 6) {
-            int i2 = this.f70304d - 1;
-            this.f70304d = i2;
-            if (i2 >= 0 && this.f70307g == -1) {
-                if (this.f70302b != this.f70303c && i2 != 0) {
-                    throw new IOException("Expected to end at " + this.f70303c + " but was " + this.f70302b);
+        if (this.f70409e == 6) {
+            int i2 = this.f70408d - 1;
+            this.f70408d = i2;
+            if (i2 >= 0 && this.f70411g == -1) {
+                if (this.f70406b != this.f70407c && i2 != 0) {
+                    throw new IOException("Expected to end at " + this.f70407c + " but was " + this.f70406b);
                 }
-                this.f70303c = j;
+                this.f70407c = j;
                 return;
             }
             throw new IllegalStateException("No corresponding call to beginMessage()");
@@ -102,35 +102,35 @@ public final class c {
 
     public final int e() throws IOException {
         int i2;
-        this.f70302b++;
-        byte readByte = this.f70301a.readByte();
+        this.f70406b++;
+        byte readByte = this.f70405a.readByte();
         if (readByte >= 0) {
             return readByte;
         }
         int i3 = readByte & ByteCompanionObject.MAX_VALUE;
-        this.f70302b++;
-        byte readByte2 = this.f70301a.readByte();
+        this.f70406b++;
+        byte readByte2 = this.f70405a.readByte();
         if (readByte2 >= 0) {
             i2 = readByte2 << 7;
         } else {
             i3 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
-            this.f70302b++;
-            byte readByte3 = this.f70301a.readByte();
+            this.f70406b++;
+            byte readByte3 = this.f70405a.readByte();
             if (readByte3 >= 0) {
                 i2 = readByte3 << 14;
             } else {
                 i3 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
-                this.f70302b++;
-                byte readByte4 = this.f70301a.readByte();
+                this.f70406b++;
+                byte readByte4 = this.f70405a.readByte();
                 if (readByte4 < 0) {
                     int i4 = i3 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
-                    this.f70302b++;
-                    byte readByte5 = this.f70301a.readByte();
+                    this.f70406b++;
+                    byte readByte5 = this.f70405a.readByte();
                     int i5 = i4 | (readByte5 << 28);
                     if (readByte5 < 0) {
                         for (int i6 = 0; i6 < 5; i6++) {
-                            this.f70302b++;
-                            if (this.f70301a.readByte() >= 0) {
+                            this.f70406b++;
+                            if (this.f70405a.readByte() >= 0) {
                                 return i5;
                             }
                         }
@@ -145,37 +145,37 @@ public final class c {
     }
 
     public int f() throws IOException {
-        int i2 = this.f70305e;
+        int i2 = this.f70409e;
         if (i2 == 7) {
-            this.f70305e = 2;
-            return this.f70306f;
+            this.f70409e = 2;
+            return this.f70410f;
         } else if (i2 == 6) {
-            while (this.f70302b < this.f70303c && !this.f70301a.exhausted()) {
+            while (this.f70406b < this.f70407c && !this.f70405a.exhausted()) {
                 int e2 = e();
                 if (e2 != 0) {
                     int i3 = e2 >> 3;
-                    this.f70306f = i3;
+                    this.f70410f = i3;
                     int i4 = e2 & 7;
                     if (i4 == 0) {
-                        this.f70308h = FieldEncoding.VARINT;
-                        this.f70305e = 0;
+                        this.f70412h = FieldEncoding.VARINT;
+                        this.f70409e = 0;
                         return i3;
                     } else if (i4 == 1) {
-                        this.f70308h = FieldEncoding.FIXED64;
-                        this.f70305e = 1;
+                        this.f70412h = FieldEncoding.FIXED64;
+                        this.f70409e = 1;
                         return i3;
                     } else if (i4 == 2) {
-                        this.f70308h = FieldEncoding.LENGTH_DELIMITED;
-                        this.f70305e = 2;
+                        this.f70412h = FieldEncoding.LENGTH_DELIMITED;
+                        this.f70409e = 2;
                         int e3 = e();
                         if (e3 >= 0) {
-                            if (this.f70307g == -1) {
-                                long j = this.f70303c;
-                                this.f70307g = j;
-                                long j2 = this.f70302b + e3;
-                                this.f70303c = j2;
+                            if (this.f70411g == -1) {
+                                long j = this.f70407c;
+                                this.f70411g = j;
+                                long j2 = this.f70406b + e3;
+                                this.f70407c = j2;
                                 if (j2 <= j) {
-                                    return this.f70306f;
+                                    return this.f70410f;
                                 }
                                 throw new EOFException();
                             }
@@ -185,8 +185,8 @@ public final class c {
                     } else if (i4 != 3) {
                         if (i4 != 4) {
                             if (i4 == 5) {
-                                this.f70308h = FieldEncoding.FIXED32;
-                                this.f70305e = 5;
+                                this.f70412h = FieldEncoding.FIXED32;
+                                this.f70409e = 5;
                                 return i3;
                             }
                             throw new ProtocolException("Unexpected field encoding: " + i4);
@@ -206,45 +206,45 @@ public final class c {
     }
 
     public FieldEncoding g() {
-        return this.f70308h;
+        return this.f70412h;
     }
 
     public ByteString h() throws IOException {
-        return this.f70301a.readByteString(b());
+        return this.f70405a.readByteString(b());
     }
 
     public int i() throws IOException {
-        int i2 = this.f70305e;
+        int i2 = this.f70409e;
         if (i2 != 5 && i2 != 2) {
-            throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.f70305e);
+            throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.f70409e);
         }
-        this.f70301a.require(4L);
-        this.f70302b += 4;
-        int readIntLe = this.f70301a.readIntLe();
+        this.f70405a.require(4L);
+        this.f70406b += 4;
+        int readIntLe = this.f70405a.readIntLe();
         a(5);
         return readIntLe;
     }
 
     public long j() throws IOException {
-        int i2 = this.f70305e;
+        int i2 = this.f70409e;
         if (i2 != 1 && i2 != 2) {
-            throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.f70305e);
+            throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.f70409e);
         }
-        this.f70301a.require(8L);
-        this.f70302b += 8;
-        long readLongLe = this.f70301a.readLongLe();
+        this.f70405a.require(8L);
+        this.f70406b += 8;
+        long readLongLe = this.f70405a.readLongLe();
         a(1);
         return readLongLe;
     }
 
     public String k() throws IOException {
-        return this.f70301a.readUtf8(b());
+        return this.f70405a.readUtf8(b());
     }
 
     public int l() throws IOException {
-        int i2 = this.f70305e;
+        int i2 = this.f70409e;
         if (i2 != 0 && i2 != 2) {
-            throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f70305e);
+            throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f70409e);
         }
         int e2 = e();
         a(0);
@@ -253,15 +253,15 @@ public final class c {
 
     public long m() throws IOException {
         byte readByte;
-        int i2 = this.f70305e;
+        int i2 = this.f70409e;
         if (i2 != 0 && i2 != 2) {
-            throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f70305e);
+            throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f70409e);
         }
         long j = 0;
         for (int i3 = 0; i3 < 64; i3 += 7) {
-            this.f70302b++;
+            this.f70406b++;
             j |= (readByte & ByteCompanionObject.MAX_VALUE) << i3;
-            if ((this.f70301a.readByte() & ByteCompanionObject.MIN_VALUE) == 0) {
+            if ((this.f70405a.readByte() & ByteCompanionObject.MIN_VALUE) == 0) {
                 a(0);
                 return j;
             }
@@ -270,7 +270,7 @@ public final class c {
     }
 
     public final void n(int i2) throws IOException {
-        while (this.f70302b < this.f70303c && !this.f70301a.exhausted()) {
+        while (this.f70406b < this.f70407c && !this.f70405a.exhausted()) {
             int e2 = e();
             if (e2 == 0) {
                 throw new ProtocolException("Unexpected tag 0");
@@ -278,15 +278,15 @@ public final class c {
             int i3 = e2 >> 3;
             int i4 = e2 & 7;
             if (i4 == 0) {
-                this.f70305e = 0;
+                this.f70409e = 0;
                 m();
             } else if (i4 == 1) {
-                this.f70305e = 1;
+                this.f70409e = 1;
                 j();
             } else if (i4 == 2) {
                 long e3 = e();
-                this.f70302b += e3;
-                this.f70301a.skip(e3);
+                this.f70406b += e3;
+                this.f70405a.skip(e3);
             } else if (i4 == 3) {
                 n(i3);
             } else if (i4 == 4) {
@@ -295,7 +295,7 @@ public final class c {
                 }
                 return;
             } else if (i4 == 5) {
-                this.f70305e = 5;
+                this.f70409e = 5;
                 i();
             } else {
                 throw new ProtocolException("Unexpected field encoding: " + i4);

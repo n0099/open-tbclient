@@ -34,7 +34,7 @@ import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import d.a.c.e.m.e;
 import d.a.c.e.n.a;
 import d.a.c.h.j.g.d;
-import d.a.m0.a.g;
+import d.a.n0.a.g;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -214,7 +214,7 @@ public class OpenFlutter {
             } else {
                 hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
             }
-            hashMap.put("abstatus", d.a.m0.b.d.a() ? "1" : "0");
+            hashMap.put("abstatus", d.a.n0.b.d.a() ? "1" : "0");
         }
         if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
             parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -230,7 +230,7 @@ public class OpenFlutter {
             String uri2 = uri.toString();
             if (g.c(uri)) {
                 g.b().h(uri, new g.b() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
-                    @Override // d.a.m0.a.g.b
+                    @Override // d.a.n0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         if (hashMap2 != null && (hashMap2.get(g.t) instanceof String)) {
                             String str2 = (String) hashMap2.get(g.t);

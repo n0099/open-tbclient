@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class GaidProvider extends d.a.q.h.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1846a f6261d;
+    public a.C1848a f6261d;
 
     /* renamed from: e  reason: collision with root package name */
     public c f6262e;
@@ -297,8 +297,8 @@ public class GaidProvider extends d.a.q.h.a {
                     if (GaidProvider.this.f6266i != null) {
                         GaidProvider.this.f6266i.removeMessages(0);
                     }
-                    GaidProvider.this.f67969b.f67976d.submit(new RunnableC0088a(a2, a3));
-                    GaidProvider.this.f67969b.f67973a.unbindService(e.this);
+                    GaidProvider.this.f67925b.f67932d.submit(new RunnableC0088a(a2, a3));
+                    GaidProvider.this.f67925b.f67929a.unbindService(e.this);
                 } catch (Exception unused) {
                 }
             }
@@ -309,7 +309,7 @@ public class GaidProvider extends d.a.q.h.a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            GaidProvider.this.f67969b.f67977e.submit(new a(iBinder));
+            GaidProvider.this.f67925b.f67933e.submit(new a(iBinder));
         }
 
         @Override // android.content.ServiceConnection
@@ -374,7 +374,7 @@ public class GaidProvider extends d.a.q.h.a {
             if (message.what != 0) {
                 return;
             }
-            GaidProvider.this.f67969b.f67976d.submit(new a());
+            GaidProvider.this.f67925b.f67932d.submit(new a());
         }
     }
 
@@ -394,8 +394,8 @@ public class GaidProvider extends d.a.q.h.a {
         String a2;
         b bVar = new b(this);
         this.f6264g = bVar;
-        this.f6261d = this.f67968a.f("gaid");
-        Context context = this.f67969b.f67973a;
+        this.f6261d = this.f67924a.f("gaid");
+        Context context = this.f67925b.f67929a;
         this.f6263f = new f(null);
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -436,7 +436,7 @@ public class GaidProvider extends d.a.q.h.a {
 
     @Override // d.a.q.h.a
     public void g(a.d<String> dVar) {
-        this.f67969b.f67976d.submit(new a(dVar));
+        this.f67925b.f67932d.submit(new a(dVar));
     }
 
     public void i() {

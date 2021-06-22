@@ -9,41 +9,41 @@ public final class c {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f70048a;
+        public static final /* synthetic */ int[] f70152a;
 
         static {
             int[] iArr = new int[RoundingMode.values().length];
-            f70048a = iArr;
+            f70152a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f70048a[RoundingMode.DOWN.ordinal()] = 2;
+                f70152a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f70048a[RoundingMode.FLOOR.ordinal()] = 3;
+                f70152a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f70048a[RoundingMode.UP.ordinal()] = 4;
+                f70152a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f70048a[RoundingMode.CEILING.ordinal()] = 5;
+                f70152a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f70048a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f70152a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f70048a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f70152a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f70048a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f70152a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -67,7 +67,7 @@ public final class c {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int d(int i2, RoundingMode roundingMode) {
         e.c("x", i2);
-        switch (a.f70048a[roundingMode.ordinal()]) {
+        switch (a.f70152a[roundingMode.ordinal()]) {
             case 1:
                 e.d(b(i2));
                 break;

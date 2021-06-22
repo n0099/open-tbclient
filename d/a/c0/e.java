@@ -18,9 +18,9 @@ public final class e {
     public static final int pay_view_bg = 2131236022;
     public static final int pop_window_bg = 2131236420;
     public static final int popup_view_bg = 2131236421;
-    public static final int success = 2131237052;
-    public static final int tip_view_bg = 2131237326;
-    public static final int tips_loading = 2131237329;
-    public static final int toast_loading_view_bg = 2131237336;
-    public static final int unchecked = 2131237552;
+    public static final int success = 2131237053;
+    public static final int tip_view_bg = 2131237327;
+    public static final int tips_loading = 2131237330;
+    public static final int toast_loading_view_bg = 2131237337;
+    public static final int unchecked = 2131237553;
 }

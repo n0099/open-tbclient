@@ -1,6 +1,7 @@
 package com.baidu.wallet.fastpay.datamodel;
 
 import android.text.TextUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
@@ -27,7 +28,7 @@ public class PriceInfo implements NoProguard, Serializable {
     }
 
     public String toString() {
-        return "PriceInfo [face=" + this.face + ", sell_price=" + this.sell_price + ", discount=" + this.discount + "]";
+        return "PriceInfo [face=" + this.face + ", sell_price=" + this.sell_price + ", discount=" + this.discount + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public PriceInfo(String str, String str2, String str3) {

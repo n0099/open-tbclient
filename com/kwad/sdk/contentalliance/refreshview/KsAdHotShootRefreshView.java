@@ -16,13 +16,13 @@ import com.kwad.sdk.utils.ao;
 public class KsAdHotShootRefreshView extends RelativeLayout implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f33549a = ao.a(KsAdSDKImpl.get().getContext(), 10.0f);
+    public static final float f33647a = ao.a(KsAdSDKImpl.get().getContext(), 10.0f);
 
     /* renamed from: b  reason: collision with root package name */
-    public LottieAnimationView f33550b;
+    public LottieAnimationView f33648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RefreshLayout.b f33551c;
+    public RefreshLayout.b f33649c;
 
     public KsAdHotShootRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -34,18 +34,18 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
 
     @Override // com.kwad.sdk.contentalliance.refreshview.d
     public void a(float f2, float f3) {
-        if (f2 < f33549a) {
+        if (f2 < f33647a) {
             setAlpha(0.0f);
-            if (this.f33550b.c()) {
-                this.f33550b.d();
+            if (this.f33648b.c()) {
+                this.f33648b.d();
                 return;
             }
             return;
         }
-        if (!this.f33550b.c()) {
-            this.f33550b.b();
+        if (!this.f33648b.c()) {
+            this.f33648b.b();
         }
-        float f4 = f33549a;
+        float f4 = f33647a;
         setAlpha(Math.min(1.0f, (f2 - f4) / (f4 * 2.0f)));
     }
 
@@ -62,12 +62,12 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
         });
         ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2
             private void a() {
-                if (KsAdHotShootRefreshView.this.f33550b != null) {
-                    KsAdHotShootRefreshView.this.f33550b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2.1
+                if (KsAdHotShootRefreshView.this.f33648b != null) {
+                    KsAdHotShootRefreshView.this.f33648b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (KsAdHotShootRefreshView.this.f33551c != null) {
-                                KsAdHotShootRefreshView.this.f33551c.a();
+                            if (KsAdHotShootRefreshView.this.f33649c != null) {
+                                KsAdHotShootRefreshView.this.f33649c.a();
                             }
                         }
                     });
@@ -76,8 +76,8 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (KsAdHotShootRefreshView.this.f33551c != null) {
-                    KsAdHotShootRefreshView.this.f33551c.a();
+                if (KsAdHotShootRefreshView.this.f33649c != null) {
+                    KsAdHotShootRefreshView.this.f33649c.a();
                 } else {
                     a();
                 }
@@ -112,17 +112,17 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
     public void onFinishInflate() {
         super.onFinishInflate();
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_pull_to_refresh_animation_view);
-        this.f33550b = lottieAnimationView;
+        this.f33648b = lottieAnimationView;
         int i2 = R.raw.ksad_detail_loading_amin_new;
         lottieAnimationView.setVisibility(0);
-        this.f33550b.setAnimation(i2);
-        this.f33550b.setRepeatMode(1);
-        this.f33550b.setRepeatCount(-1);
-        this.f33550b.setAnimation(i2);
+        this.f33648b.setAnimation(i2);
+        this.f33648b.setRepeatMode(1);
+        this.f33648b.setRepeatCount(-1);
+        this.f33648b.setAnimation(i2);
     }
 
     public void setOnRefreshListener(RefreshLayout.b bVar) {
-        this.f33551c = bVar;
+        this.f33649c = bVar;
     }
 
     @Override // android.view.View

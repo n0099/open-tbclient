@@ -21,19 +21,19 @@ import java.util.List;
 public class ForumEmotionItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f14965e;
+    public HListView f15047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f14966f;
+    public TextView f15048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14967g;
+    public TextView f15049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14968h;
+    public TextView f15050h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14969i;
+    public TextView f15051i;
     public TextView j;
     public View k;
     public View l;
@@ -47,40 +47,40 @@ public class ForumEmotionItemView extends LinearLayout {
     public static class a extends BaseAdapter {
 
         /* renamed from: f  reason: collision with root package name */
-        public TbPageContext f14971f;
+        public TbPageContext f15053f;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<EmotionPackageData.SingleEmotionData> f14970e = new ArrayList();
+        public List<EmotionPackageData.SingleEmotionData> f15052e = new ArrayList();
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f14972g = false;
+        public boolean f15054g = false;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f14973h = false;
+        public boolean f15055h = false;
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0173a {
+        public static class C0176a {
 
             /* renamed from: a  reason: collision with root package name */
-            public View f14974a;
+            public View f15056a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TbImageView f14975b;
+            public TbImageView f15057b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f14976c;
+            public TextView f15058c;
 
             /* renamed from: d  reason: collision with root package name */
-            public View f14977d;
+            public View f15059d;
 
-            public C0173a(View view) {
-                this.f14974a = view;
+            public C0176a(View view) {
+                this.f15056a = view;
                 view.setEnabled(false);
-                this.f14975b = (TbImageView) this.f14974a.findViewById(R.id.emotion_img);
-                this.f14976c = (TextView) this.f14974a.findViewById(R.id.emotion_single_bar_icon);
-                View findViewById = this.f14974a.findViewById(R.id.emotion_cover_view);
-                this.f14977d = findViewById;
+                this.f15057b = (TbImageView) this.f15056a.findViewById(R.id.emotion_img);
+                this.f15058c = (TextView) this.f15056a.findViewById(R.id.emotion_single_bar_icon);
+                View findViewById = this.f15056a.findViewById(R.id.emotion_cover_view);
+                this.f15059d = findViewById;
                 findViewById.setVisibility(8);
             }
 
@@ -89,44 +89,44 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.f14975b.setDefaultResource(R.drawable.img_default_100);
-                    this.f14975b.U(singleEmotionData.thumbnail, 10, false);
+                    this.f15057b.setDefaultResource(R.drawable.img_default_100);
+                    this.f15057b.U(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
-                    this.f14976c.setVisibility(0);
+                    this.f15058c.setVisibility(0);
                 } else {
-                    this.f14976c.setVisibility(8);
+                    this.f15058c.setVisibility(8);
                 }
                 if (i2 == 7 && z2) {
-                    this.f14977d.setVisibility(0);
+                    this.f15059d.setVisibility(0);
                 } else {
-                    this.f14977d.setVisibility(8);
+                    this.f15059d.setVisibility(8);
                 }
             }
         }
 
         public a(TbPageContext tbPageContext) {
-            this.f14971f = tbPageContext;
+            this.f15053f = tbPageContext;
         }
 
         public void a(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f14972g = z;
+            this.f15054g = z;
             if (list.size() > 8) {
-                this.f14970e = list.subList(0, 8);
-                this.f14973h = true;
+                this.f15052e = list.subList(0, 8);
+                this.f15055h = true;
             } else {
-                this.f14970e = list;
-                this.f14973h = false;
+                this.f15052e = list;
+                this.f15055h = false;
             }
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            List<EmotionPackageData.SingleEmotionData> list = this.f14970e;
+            List<EmotionPackageData.SingleEmotionData> list = this.f15052e;
             if (list == null) {
                 return 0;
             }
@@ -135,7 +135,7 @@ public class ForumEmotionItemView extends LinearLayout {
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            List<EmotionPackageData.SingleEmotionData> list = this.f14970e;
+            List<EmotionPackageData.SingleEmotionData> list = this.f15052e;
             if (list == null) {
                 return null;
             }
@@ -149,15 +149,15 @@ public class ForumEmotionItemView extends LinearLayout {
 
         @Override // android.widget.Adapter
         public View getView(int i2, View view, ViewGroup viewGroup) {
-            C0173a c0173a;
+            C0176a c0176a;
             if (view == null) {
-                view = LayoutInflater.from(this.f14971f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                c0173a = new C0173a(view);
-                view.setTag(c0173a);
+                view = LayoutInflater.from(this.f15053f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                c0176a = new C0176a(view);
+                view.setTag(c0176a);
             } else {
-                c0173a = (C0173a) view.getTag();
+                c0176a = (C0176a) view.getTag();
             }
-            c0173a.a(this.f14970e.get(i2), i2 == 0 && this.f14972g, this.f14973h, i2);
+            c0176a.a(this.f15052e.get(i2), i2 == 0 && this.f15054g, this.f15055h, i2);
             return view;
         }
     }
@@ -170,29 +170,29 @@ public class ForumEmotionItemView extends LinearLayout {
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
-        this.f14965e = (HListView) findViewById(R.id.forum_emotion_item_list);
+        this.f15047e = (HListView) findViewById(R.id.forum_emotion_item_list);
         this.l = findViewById(R.id.forum_emotion_list_head);
         this.m = (TextView) findViewById(R.id.forum_emotion_filter);
         this.n = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
         this.j = (TextView) findViewById(R.id.forum_emotion_rank);
-        this.f14966f = (TextView) findViewById(R.id.forum_emotion_title_tv);
-        this.f14967g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
-        this.f14968h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
-        this.f14969i = (TextView) findViewById(R.id.forum_emotion_download_tv);
+        this.f15048f = (TextView) findViewById(R.id.forum_emotion_title_tv);
+        this.f15049g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
+        this.f15050h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
+        this.f15051i = (TextView) findViewById(R.id.forum_emotion_download_tv);
         this.k = findViewById(R.id.line);
         this.o = (TextView) findViewById(R.id.forum_emotion_board_title);
-        this.f14965e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.f14965e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
+        this.f15047e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f15047e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
         a aVar = new a(this.q);
         this.p = aVar;
-        this.f14965e.setAdapter((ListAdapter) aVar);
+        this.f15047e.setAdapter((ListAdapter) aVar);
     }
 
     public void b(int i2) {
-        SkinManager.setViewTextColor(this.f14966f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f14967g, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f14968h, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f14969i, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15048f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f15049g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15050h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15051i, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0105);
         SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.n.getChildAt(0), R.color.CAM_X0107);
@@ -208,11 +208,11 @@ public class ForumEmotionItemView extends LinearLayout {
     }
 
     public TextView getDownLoadView() {
-        return this.f14969i;
+        return this.f15051i;
     }
 
     public TextView getDownloadNumView() {
-        return this.f14967g;
+        return this.f15049g;
     }
 
     public ViewGroup getFilterDropDownView() {
@@ -232,7 +232,7 @@ public class ForumEmotionItemView extends LinearLayout {
     }
 
     public HListView getListView() {
-        return this.f14965e;
+        return this.f15047e;
     }
 
     public TextView getRankView() {
@@ -240,10 +240,10 @@ public class ForumEmotionItemView extends LinearLayout {
     }
 
     public TextView getShareNumView() {
-        return this.f14968h;
+        return this.f15050h;
     }
 
     public TextView getTitleView() {
-        return this.f14966f;
+        return this.f15048f;
     }
 }

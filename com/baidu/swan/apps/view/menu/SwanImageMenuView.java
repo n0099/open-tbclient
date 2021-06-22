@@ -16,30 +16,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.view.SwanAppRoundCornerListView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.a.l0.a.e;
-import d.a.l0.a.f;
-import d.a.l0.a.g;
-import d.a.l0.a.z1.b.e.a;
-import d.a.l0.a.z1.b.e.b;
-import d.a.l0.a.z1.b.e.d;
+import d.a.m0.a.e;
+import d.a.m0.a.f;
+import d.a.m0.a.g;
+import d.a.m0.a.z1.b.e.a;
+import d.a.m0.a.z1.b.e.b;
+import d.a.m0.a.z1.b.e.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SwanImageMenuView extends FrameLayout implements a.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11465e;
+    public boolean f11547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f11466f;
+    public c f11548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f11467g;
+    public Context f11549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SwanAppRoundCornerListView f11468h;
+    public SwanAppRoundCornerListView f11550h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.a.w2.j.b f11469i;
+    public d.a.m0.a.w2.j.b f11551i;
     public View j;
     public int k;
 
@@ -50,7 +50,7 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            SwanImageMenuView.this.f11466f.b(i2);
+            SwanImageMenuView.this.f11548f.b(i2);
         }
     }
 
@@ -61,8 +61,8 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SwanImageMenuView.this.f11469i != null) {
-                SwanImageMenuView.this.f11469i.j();
+            if (SwanImageMenuView.this.f11551i != null) {
+                SwanImageMenuView.this.f11551i.j();
             }
         }
     }
@@ -71,25 +71,25 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
     public static class c extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<d.a.l0.a.z1.b.e.b> f11472e;
+        public List<d.a.m0.a.z1.b.e.b> f11554e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f11473f;
+        public Context f11555f;
 
-        public c(Context context, List<d.a.l0.a.z1.b.e.b> list) {
-            this.f11472e = list;
-            this.f11473f = context;
+        public c(Context context, List<d.a.m0.a.z1.b.e.b> list) {
+            this.f11554e = list;
+            this.f11555f = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public d.a.l0.a.z1.b.e.b getItem(int i2) {
-            return this.f11472e.get(i2);
+        public d.a.m0.a.z1.b.e.b getItem(int i2) {
+            return this.f11554e.get(i2);
         }
 
         public void b(int i2) {
-            d.a.l0.a.z1.b.e.b bVar = this.f11472e.get(i2);
+            d.a.m0.a.z1.b.e.b bVar = this.f11554e.get(i2);
             b.a d2 = bVar.d();
             if (d2 != null) {
                 d2.a(bVar);
@@ -98,20 +98,20 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
 
         public final void c(@NonNull View view, int i2) {
             if (i2 == 0) {
-                view.setBackground(this.f11473f.getResources().getDrawable(e.swan_image_menu_item_rounded_bg));
+                view.setBackground(this.f11555f.getResources().getDrawable(e.swan_image_menu_item_rounded_bg));
             } else {
-                view.setBackground(this.f11473f.getResources().getDrawable(e.swan_image_menu_item_bg));
+                view.setBackground(this.f11555f.getResources().getDrawable(e.swan_image_menu_item_bg));
             }
         }
 
-        public void d(List<d.a.l0.a.z1.b.e.b> list) {
-            this.f11472e = list;
+        public void d(List<d.a.m0.a.z1.b.e.b> list) {
+            this.f11554e = list;
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f11472e.size();
+            return this.f11554e.size();
         }
 
         @Override // android.widget.Adapter
@@ -122,18 +122,18 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
         @Override // android.widget.Adapter
         public View getView(int i2, View view, ViewGroup viewGroup) {
             View inflate;
-            d.a.l0.a.z1.b.e.b item = getItem(i2);
+            d.a.m0.a.z1.b.e.b item = getItem(i2);
             if (item instanceof d) {
-                inflate = View.inflate(this.f11473f, g.swan_app_img_menu_swan_item_layout, null);
+                inflate = View.inflate(this.f11555f, g.swan_app_img_menu_swan_item_layout, null);
                 String i3 = ((d) item).i();
                 if (!TextUtils.isEmpty(i3)) {
                     ((SimpleDraweeView) inflate.findViewById(f.icon)).setImageURI(i3);
                 }
                 ((TextView) inflate.findViewById(f.name)).setText(item.e());
             } else {
-                inflate = View.inflate(this.f11473f, g.aiapps_scheme_utils_show_action_sheet_item, null);
+                inflate = View.inflate(this.f11555f, g.aiapps_scheme_utils_show_action_sheet_item, null);
                 TextView textView = (TextView) inflate.findViewById(f.text);
-                textView.setTextColor(this.f11473f.getResources().getColor(d.a.l0.a.c.aiapps_action_sheet_item_color));
+                textView.setTextColor(this.f11555f.getResources().getColor(d.a.m0.a.c.aiapps_action_sheet_item_color));
                 textView.setText(item.e());
             }
             c(inflate, i2);
@@ -143,22 +143,22 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
 
     public SwanImageMenuView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11465e = false;
+        this.f11547e = false;
         this.k = -1;
-        this.f11467g = context;
+        this.f11549g = context;
         c();
     }
 
     public final void c() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f11467g).inflate(g.swan_app_img_menu, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f11549g).inflate(g.swan_app_img_menu, (ViewGroup) null);
         SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(f.list);
-        this.f11468h = swanAppRoundCornerListView;
+        this.f11550h = swanAppRoundCornerListView;
         swanAppRoundCornerListView.setOnItemClickListener(new a());
-        this.f11468h.setSelector(new ColorDrawable(0));
+        this.f11550h.setSelector(new ColorDrawable(0));
         ((TextView) linearLayout.findViewById(f.negative_button)).setOnClickListener(new b());
         addView(linearLayout);
-        if (d.a.l0.a.c1.a.H().a()) {
-            View view = new View(this.f11467g);
+        if (d.a.m0.a.c1.a.H().a()) {
+            View view = new View(this.f11549g);
             this.j = view;
             view.setBackgroundResource(e.swan_image_menu_night_mask);
             this.j.setVisibility(8);
@@ -166,19 +166,19 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
         }
     }
 
-    public void d(List<d.a.l0.a.z1.b.e.b> list) {
-        if (this.f11465e) {
+    public void d(List<d.a.m0.a.z1.b.e.b> list) {
+        if (this.f11547e) {
             return;
         }
-        c cVar = this.f11466f;
+        c cVar = this.f11548f;
         if (cVar == null) {
-            c cVar2 = new c(this.f11467g, list);
-            this.f11466f = cVar2;
-            this.f11468h.setAdapter((ListAdapter) cVar2);
+            c cVar2 = new c(this.f11549g, list);
+            this.f11548f = cVar2;
+            this.f11550h.setAdapter((ListAdapter) cVar2);
         } else {
             cVar.d(list);
         }
-        this.f11465e = true;
+        this.f11547e = true;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -194,23 +194,23 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
         this.k = measuredHeight;
     }
 
-    public void setMenu(d.a.l0.a.w2.j.b bVar) {
-        this.f11469i = bVar;
+    public void setMenu(d.a.m0.a.w2.j.b bVar) {
+        this.f11551i = bVar;
     }
 
     public SwanImageMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11465e = false;
+        this.f11547e = false;
         this.k = -1;
-        this.f11467g = context;
+        this.f11549g = context;
         c();
     }
 
     public SwanImageMenuView(Context context) {
         super(context);
-        this.f11465e = false;
+        this.f11547e = false;
         this.k = -1;
-        this.f11467g = context;
+        this.f11549g = context;
         c();
     }
 }

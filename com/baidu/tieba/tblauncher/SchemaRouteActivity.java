@@ -34,10 +34,10 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import d.a.c.a.b;
-import d.a.m0.a.d;
-import d.a.m0.a.g;
-import d.a.m0.a.x;
-import d.a.n0.e3.h0.m;
+import d.a.n0.a.d;
+import d.a.n0.a.g;
+import d.a.n0.a.x;
+import d.a.o0.e3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -49,7 +49,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.a.m0.a.g.b
+        @Override // d.a.n0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(g.v) instanceof String)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(g.v), true);
@@ -133,7 +133,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f52386b + g.k)) {
+                if (dataString.contains(g.f52493b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(g.E);
                     String queryParameter2 = parse.getQueryParameter(g.F);

@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -123,7 +124,7 @@ public final class Util {
     public static String canonicalizeHost(String str) {
         InetAddress decodeIpv6;
         if (str.contains(":")) {
-            if (str.startsWith("[") && str.endsWith("]")) {
+            if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                 decodeIpv6 = decodeIpv6(str, 1, str.length() - 1);
             } else {
                 decodeIpv6 = decodeIpv6(str, 0, str.length());
@@ -369,7 +370,7 @@ public final class Util {
     public static String hostHeader(HttpUrl httpUrl, boolean z) {
         String host;
         if (httpUrl.host().contains(":")) {
-            host = "[" + httpUrl.host() + "]";
+            host = PreferencesUtil.LEFT_MOUNT + httpUrl.host() + PreferencesUtil.RIGHT_MOUNT;
         } else {
             host = httpUrl.host();
         }

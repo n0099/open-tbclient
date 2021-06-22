@@ -12,25 +12,25 @@ import java.util.Locale;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SimpleDateFormat f37456a = new SimpleDateFormat("MM/dd", Locale.US);
+    public static final SimpleDateFormat f37554a = new SimpleDateFormat("MM/dd", Locale.US);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f37457b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat f37555b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f37458c = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat f37556c = new SimpleDateFormat("MM月dd日", Locale.US);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f37459d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat f37557d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f37460e = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat f37558e = new SimpleDateFormat("HH:mm", Locale.US);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f37461f = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat f37559f = new SimpleDateFormat("MM-dd", Locale.US);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f37462g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+    public static final SimpleDateFormat f37560g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
     public static String a(long j) {
         return j <= 9999 ? String.valueOf(j) : j < 10000000 ? String.format("%.1fw", Double.valueOf(new BigDecimal(String.valueOf(j / 10000.0d)).setScale(1, 1).doubleValue())) : "999.9w";
@@ -83,8 +83,8 @@ public class ag {
 
     public static String c(long j) {
         String format;
-        synchronized (f37460e) {
-            format = f37460e.format(new Date(j));
+        synchronized (f37558e) {
+            format = f37558e.format(new Date(j));
         }
         return format;
     }
@@ -95,16 +95,16 @@ public class ag {
 
     public static String d(long j) {
         String format;
-        synchronized (f37461f) {
-            format = f37461f.format(new Date(j));
+        synchronized (f37559f) {
+            format = f37559f.format(new Date(j));
         }
         return format;
     }
 
     public static String e(long j) {
         String format;
-        synchronized (f37462g) {
-            format = f37462g.format(new Date(j));
+        synchronized (f37560g) {
+            format = f37560g.format(new Date(j));
         }
         return format;
     }

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.core.assist.deque;
 
 import java.util.Iterator;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface Deque<E> extends Queue<E> {
     @Override // java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
     boolean add(E e2);

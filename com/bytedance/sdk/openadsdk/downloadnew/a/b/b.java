@@ -108,17 +108,17 @@ public class b {
         return bVar;
     }
 
-    public static b.C1922b a(l lVar, String str) {
-        b.C1922b c1922b = new b.C1922b();
-        c1922b.b(str);
-        c1922b.f(str);
-        c1922b.i("click_start");
-        c1922b.n("click_continue");
-        c1922b.l("click_pause");
-        c1922b.t("download_failed");
-        c1922b.p("click_install");
-        c1922b.c(true);
-        c1922b.j(false);
-        return c1922b;
+    public static b.C1925b a(l lVar, String str) {
+        b.C1925b c1925b = new b.C1925b();
+        c1925b.b(str);
+        c1925b.f(str);
+        c1925b.i("click_start");
+        c1925b.n("click_continue");
+        c1925b.l("click_pause");
+        c1925b.t("download_failed");
+        c1925b.p("click_install");
+        c1925b.c(true);
+        c1925b.j(false);
+        return c1925b;
     }
 }

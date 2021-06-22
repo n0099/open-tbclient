@@ -8,19 +8,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import d.a.c.a.j;
 import d.a.c.e.q.f;
-import d.a.n0.e3.p0.a;
+import d.a.o0.e3.p0.a;
 /* loaded from: classes5.dex */
 public class VoiceButton extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f20953e;
+    public f f21035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20954f;
+    public boolean f21036f;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20954f = false;
+        this.f21036f = false;
     }
 
     public a getRecorderManager() {
@@ -50,14 +50,14 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.f()) {
                 return false;
             }
-            this.f20954f = recorderManager.b(this.f20953e, -1);
+            this.f21036f = recorderManager.b(this.f21035e, -1);
             setPressed(true);
         } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
             if (!isPressed()) {
                 setPressed(true);
             }
         } else {
-            if (this.f20954f && recorderManager != null) {
+            if (this.f21036f && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -66,7 +66,7 @@ public class VoiceButton extends ImageView {
     }
 
     public void setRecorderView(f fVar) {
-        this.f20953e = fVar;
+        this.f21035e = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.e(fVar);

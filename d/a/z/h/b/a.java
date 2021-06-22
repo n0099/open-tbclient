@@ -11,25 +11,25 @@ import java.util.Enumeration;
 public class a extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public ClassLoader f68675a;
+    public ClassLoader f68779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ClassLoader f68676b;
+    public ClassLoader f68780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f68677c;
+    public Context f68781c;
 
     public a(String str, String str2, String str3, Context context) {
         super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
-        this.f68677c = context;
-        this.f68675a = context.getClass().getClassLoader();
-        this.f68676b = ClassLoader.getSystemClassLoader();
+        this.f68781c = context;
+        this.f68779a = context.getClass().getClassLoader();
+        this.f68780b = ClassLoader.getSystemClassLoader();
     }
 
     public final Class<?> a(String str) throws ClassNotFoundException {
         Class<?> cls;
         try {
-            cls = this.f68676b.loadClass(str);
+            cls = this.f68780b.loadClass(str);
         } catch (ClassNotFoundException unused) {
             cls = null;
         }
@@ -49,13 +49,13 @@ public class a extends BaseDexClassLoader {
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
     public String findLibrary(String str) {
         String findLibrary = super.findLibrary(str);
-        return findLibrary != null ? findLibrary : ((PathClassLoader) this.f68675a).findLibrary(str);
+        return findLibrary != null ? findLibrary : ((PathClassLoader) this.f68779a).findLibrary(str);
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
     public URL findResource(String str) {
         URL findResource = super.findResource(str);
-        return findResource != null ? findResource : this.f68675a.getResource(str);
+        return findResource != null ? findResource : this.f68779a.getResource(str);
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
@@ -65,7 +65,7 @@ public class a extends BaseDexClassLoader {
             return findResources;
         }
         try {
-            return this.f68675a.getResources(str);
+            return this.f68779a.getResources(str);
         } catch (IOException unused) {
             return findResources;
         }
@@ -85,7 +85,7 @@ public class a extends BaseDexClassLoader {
             return findLoadedClass;
         }
         try {
-            findLoadedClass = this.f68675a.loadClass(str);
+            findLoadedClass = this.f68779a.loadClass(str);
         } catch (ClassNotFoundException unused2) {
         }
         if (findLoadedClass != null) {

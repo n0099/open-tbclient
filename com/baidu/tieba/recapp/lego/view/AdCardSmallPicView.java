@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.a.n0.k1.o.k.a;
-import d.a.n0.t2.f0.b.c;
+import d.a.o0.k1.o.k.a;
+import d.a.o0.t2.f0.b.c;
 /* loaded from: classes5.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public TbImageView A;
@@ -20,8 +20,8 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public void O(AdCard adCard) {
         c cVar;
-        if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f64759c) >= 1) {
-            String str = (String) a.d(adCard.picInfo.f64759c, 0);
+        if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f64884c) >= 1) {
+            String str = (String) a.d(adCard.picInfo.f64884c, 0);
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
                 this.A.U(str, 17, false);

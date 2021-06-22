@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d implements d.a.f0.a.g.d {
+public class d implements d.a.g0.a.g.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.f0.a.g.b f43321a;
+    public d.a.g0.a.g.b f43424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f43322b;
+    public final Context f43425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.d0.b.d f43323c;
+    public final d.a.d0.b.d f43426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SplashAdFacade.b f43324d;
+    public SplashAdFacade.b f43427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43325e;
+    public int f43428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43326f;
+    public int f43429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.d0.b.c f43327g = new a();
+    public final d.a.d0.b.c f43430g = new a();
 
     /* loaded from: classes2.dex */
     public class a implements d.a.d0.b.c {
@@ -41,13 +41,13 @@ public class d implements d.a.f0.a.g.d {
 
         @Override // d.a.d0.b.c
         public void a(Throwable th) {
-            if (d.a.d0.a.b.a.f43271a.get().s()) {
+            if (d.a.d0.a.b.a.f43374a.get().s()) {
                 Log.i("PrologueAd", "onAdFailed: " + th.getMessage());
             }
-            if (d.this.f43324d != null) {
-                d.this.f43324d.onFailed();
-            } else if (d.this.f43323c != null) {
-                d.this.f43323c.a(th == null ? "unKnow" : th.getMessage());
+            if (d.this.f43427d != null) {
+                d.this.f43427d.onFailed();
+            } else if (d.this.f43426c != null) {
+                d.this.f43426c.a(th == null ? "unKnow" : th.getMessage());
             }
             b.g(64, th != null ? th.getMessage() : "unKnow");
         }
@@ -58,41 +58,41 @@ public class d implements d.a.f0.a.g.d {
                 return;
             }
             int e2 = f.e(hVar);
-            if (d.a.d0.a.b.a.f43271a.get().s()) {
+            if (d.a.d0.a.b.a.f43374a.get().s()) {
                 Log.i("PrologueAd", "onAdSuccess, statusCode: " + e2);
             }
             if (e2 == 0) {
-                d.a.f0.a.b a2 = e.a(hVar);
-                d.a.f0.a.g.b a3 = new d.a.f0.a.a().a(d.this.f43322b, a2);
+                d.a.g0.a.b a2 = e.a(hVar);
+                d.a.g0.a.g.b a3 = new d.a.g0.a.a().a(d.this.f43425b, a2);
                 if (a3 != null) {
-                    d.this.f43321a = a3;
-                    if (d.this.f43323c != null) {
-                        d.a.d0.b.e eVar = new d.a.d0.b.e(a3, d.this.f43323c.d(), hVar);
-                        eVar.d(d.this.f43323c);
+                    d.this.f43424a = a3;
+                    if (d.this.f43426c != null) {
+                        d.a.d0.b.e eVar = new d.a.d0.b.e(a3, d.this.f43426c.d(), hVar);
+                        eVar.d(d.this.f43426c);
                         a3.d(eVar);
                         a3.b(eVar);
                         eVar.c(d.this);
                         a3.a();
                     }
-                    if (d.this.f43324d != null) {
-                        d.this.f43324d.onSuccess();
+                    if (d.this.f43427d != null) {
+                        d.this.f43427d.onSuccess();
                         return;
                     }
                     return;
-                } else if (d.a.d0.a.b.a.f43271a.get().s()) {
+                } else if (d.a.d0.a.b.a.f43374a.get().s()) {
                     Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
                     return;
                 } else {
                     return;
                 }
             }
-            if (d.a.d0.a.b.a.f43271a.get().s()) {
+            if (d.a.d0.a.b.a.f43374a.get().s()) {
                 Log.e("PrologueAd", "query 后物料效验失败");
             }
-            if (d.this.f43324d != null) {
-                d.this.f43324d.onFailed();
-            } else if (d.this.f43323c != null) {
-                d.a.d0.b.d dVar = d.this.f43323c;
+            if (d.this.f43427d != null) {
+                d.this.f43427d.onFailed();
+            } else if (d.this.f43426c != null) {
+                d.a.d0.b.d dVar = d.this.f43426c;
                 dVar.a("query 后物料效验失败: " + e2);
             }
             b.f(e2);
@@ -100,23 +100,23 @@ public class d implements d.a.f0.a.g.d {
     }
 
     public d(Context context, String str, RequestParameters requestParameters, d.a.d0.b.d dVar) {
-        this.f43322b = context;
-        this.f43323c = dVar;
+        this.f43425b = context;
+        this.f43426c = dVar;
     }
 
     public void e() {
-        if (this.f43321a != null) {
-            this.f43321a = null;
+        if (this.f43424a != null) {
+            this.f43424a = null;
         }
     }
 
     public JSONObject f() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("place_id", d.a.d0.a.b.a.f43271a.get().l());
+            jSONObject.put("place_id", d.a.d0.a.b.a.f43374a.get().l());
             jSONObject.put("source", "gd");
-            jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f43325e);
-            jSONObject.put("full_type", this.f43326f);
+            jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f43428e);
+            jSONObject.put("full_type", this.f43429f);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -124,24 +124,24 @@ public class d implements d.a.f0.a.g.d {
     }
 
     public void g() {
-        new d.a.d0.b.a().j(d.a.d0.a.b.a.f43271a.get(), this.f43327g);
+        new d.a.d0.b.a().j(d.a.d0.a.b.a.f43374a.get(), this.f43430g);
     }
 
     public void h(int i2) {
-        this.f43325e = i2;
+        this.f43428e = i2;
     }
 
-    public void i(d.a.f0.a.g.b bVar) {
-        this.f43321a = bVar;
+    public void i(d.a.g0.a.g.b bVar) {
+        this.f43424a = bVar;
     }
 
     public void j(int i2) {
-        this.f43326f = i2;
+        this.f43429f = i2;
     }
 
     public void k(ViewGroup viewGroup) {
-        d.a.f0.a.g.b bVar;
-        if (viewGroup != null && (bVar = this.f43321a) != null) {
+        d.a.g0.a.g.b bVar;
+        if (viewGroup != null && (bVar = this.f43424a) != null) {
             View adView = bVar.getAdView();
             if (adView != null && adView.getParent() == null) {
                 viewGroup.addView(adView);

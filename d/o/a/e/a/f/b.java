@@ -9,37 +9,37 @@ import d.o.a.e.b.g.d;
 public class b extends n {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f70863b;
+    public Context f70967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70864c;
+    public int f70968c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f70865d;
+    public String f70969d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f70866e;
+    public String f70970e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f70867f;
+    public String f70971f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f70868g;
+    public String f70972g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.p.a f70869h;
+    public d.o.a.e.b.p.a f70973h;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         if (context != null) {
-            this.f70863b = context.getApplicationContext();
+            this.f70967b = context.getApplicationContext();
         } else {
-            this.f70863b = d.l();
+            this.f70967b = d.l();
         }
-        this.f70864c = i2;
-        this.f70865d = str;
-        this.f70866e = str2;
-        this.f70867f = str3;
-        this.f70868g = str4;
+        this.f70968c = i2;
+        this.f70969d = str;
+        this.f70970e = str2;
+        this.f70971f = str3;
+        this.f70972g = str4;
     }
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
@@ -60,7 +60,7 @@ public class b extends n {
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void f(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || this.f70863b == null) {
+        if (downloadInfo == null || this.f70967b == null) {
             return;
         }
         if (downloadInfo.e() && !downloadInfo.c1()) {
@@ -79,7 +79,7 @@ public class b extends n {
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
-        if (downloadInfo == null || this.f70863b == null || !downloadInfo.e() || downloadInfo.c1()) {
+        if (downloadInfo == null || this.f70967b == null || !downloadInfo.e() || downloadInfo.c1()) {
             return;
         }
         super.h(downloadInfo, baseException);
@@ -96,14 +96,14 @@ public class b extends n {
     @Override // d.o.a.e.b.f.n
     public d.o.a.e.b.p.a n() {
         Context context;
-        if (this.f70869h == null && (context = this.f70863b) != null) {
-            return new a(context, this.f70864c, this.f70865d, this.f70866e, this.f70867f, this.f70868g);
+        if (this.f70973h == null && (context = this.f70967b) != null) {
+            return new a(context, this.f70968c, this.f70969d, this.f70970e, this.f70971f, this.f70972g);
         }
-        return this.f70869h;
+        return this.f70973h;
     }
 
     public b(d.o.a.e.b.p.a aVar) {
-        this.f70863b = d.l();
-        this.f70869h = aVar;
+        this.f70967b = d.l();
+        this.f70973h = aVar;
     }
 }

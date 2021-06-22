@@ -10,6 +10,7 @@ public class PassBiometricResult {
     public static final int ERROR_CODE_NO_LOGIN = 101;
     public static final int ERROR_CODE_PARAM = -205;
     public static final int ERROR_CODE_SERVER_ERROR = -206;
+    public static final int ERROR_CODE_SO_ERROR = -207;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
     public static final int ERROR_CODE_USER_CANCEL = -204;
@@ -24,6 +25,7 @@ public class PassBiometricResult {
     public static final String ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.pass_bio_error_msg_user_cancel);
     public static final String ERROR_MSG_PARAM = ResUtils.getString(R.string.pass_bio_error_msg_param);
     public static final String ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_server_error);
+    public static final String ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_so_error);
     public static final String ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.pass_bio_error_msg_no_login);
 
     public PassBiometricResult() {

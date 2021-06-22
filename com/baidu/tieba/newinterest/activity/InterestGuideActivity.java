@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.activity;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import d.a.n0.a2.f.a;
-/* loaded from: classes4.dex */
+import d.a.o0.a2.f.a;
+/* loaded from: classes5.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public a mGuideView;
     public int mScene;

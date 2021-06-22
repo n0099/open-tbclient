@@ -6,7 +6,7 @@ import com.xiaomi.push.db;
 public class dd extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public al.b f41110a;
+    public al.b f41213a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f227a;
@@ -22,9 +22,9 @@ public class dd extends al.b {
             return;
         }
         if (this.f227a.f215a.remove(bVar)) {
-            this.f41110a = bVar;
+            this.f41213a = bVar;
         }
-        al.b bVar2 = this.f41110a;
+        al.b bVar2 = this.f41213a;
         if (bVar2 != null) {
             bVar2.b();
         }
@@ -33,7 +33,7 @@ public class dd extends al.b {
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
     public void mo228c() {
-        al.b bVar = this.f41110a;
+        al.b bVar = this.f41213a;
         if (bVar != null) {
             bVar.mo228c();
         }

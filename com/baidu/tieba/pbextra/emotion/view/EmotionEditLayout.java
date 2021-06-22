@@ -13,48 +13,48 @@ import androidx.customview.widget.ViewDragHelper;
 public class EmotionEditLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewDragHelper f19690e;
+    public ViewDragHelper f19772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f19691f;
+    public float f19773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f19692g;
+    public float f19774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f19693h;
+    public float f19775h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f19694i;
+    public long f19776i;
 
     /* loaded from: classes5.dex */
     public class a extends ViewDragHelper.Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditText f19695a;
+        public final /* synthetic */ EmotionEditText f19777a;
 
         public a(EmotionEditText emotionEditText) {
-            this.f19695a = emotionEditText;
+            this.f19777a = emotionEditText;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionHorizontal(View view, int i2, int i3) {
-            return Math.min(Math.max(i2, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - this.f19695a.getWidth());
+            return Math.min(Math.max(i2, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - this.f19777a.getWidth());
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionVertical(View view, int i2, int i3) {
-            return Math.min(Math.max(i2, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - this.f19695a.getHeight());
+            return Math.min(Math.max(i2, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - this.f19777a.getHeight());
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewCaptured(View view, int i2) {
             super.onViewCaptured(view, i2);
             if (view instanceof EmotionEditText) {
-                EmotionEditLayout.this.f19694i = System.currentTimeMillis();
-                EmotionEditLayout.this.f19692g = view.getX();
-                EmotionEditLayout.this.f19693h = view.getY();
-                this.f19695a.m();
+                EmotionEditLayout.this.f19776i = System.currentTimeMillis();
+                EmotionEditLayout.this.f19774g = view.getX();
+                EmotionEditLayout.this.f19775h = view.getY();
+                this.f19777a.m();
             }
         }
 
@@ -64,22 +64,22 @@ public class EmotionEditLayout extends FrameLayout {
             if (view instanceof EmotionEditText) {
                 float x = view.getX();
                 float y = view.getY();
-                float abs = Math.abs(x - EmotionEditLayout.this.f19692g);
-                float abs2 = Math.abs(y - EmotionEditLayout.this.f19693h);
-                if (abs < EmotionEditLayout.this.f19691f && abs2 < EmotionEditLayout.this.f19691f && System.currentTimeMillis() - EmotionEditLayout.this.f19694i < 300) {
-                    this.f19695a.u();
+                float abs = Math.abs(x - EmotionEditLayout.this.f19774g);
+                float abs2 = Math.abs(y - EmotionEditLayout.this.f19775h);
+                if (abs < EmotionEditLayout.this.f19773f && abs2 < EmotionEditLayout.this.f19773f && System.currentTimeMillis() - EmotionEditLayout.this.f19776i < 300) {
+                    this.f19777a.u();
                 }
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
-                this.f19695a.setLayoutParams(layoutParams);
+                this.f19777a.setLayoutParams(layoutParams);
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view, int i2) {
-            boolean z = view == this.f19695a;
+            boolean z = view == this.f19777a;
             if (view instanceof ImageView) {
-                this.f19695a.m();
+                this.f19777a.m();
             }
             return z;
         }
@@ -90,22 +90,22 @@ public class EmotionEditLayout extends FrameLayout {
     }
 
     public void h(EmotionEditText emotionEditText) {
-        this.f19690e = ViewDragHelper.create(this, 1.0f, new a(emotionEditText));
+        this.f19772e = ViewDragHelper.create(this, 1.0f, new a(emotionEditText));
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked != 3 && actionMasked != 1) {
-            return this.f19690e.shouldInterceptTouchEvent(motionEvent);
+            return this.f19772e.shouldInterceptTouchEvent(motionEvent);
         }
-        this.f19690e.cancel();
+        this.f19772e.cancel();
         return false;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.f19690e.processTouchEvent(motionEvent);
+        this.f19772e.processTouchEvent(motionEvent);
         return true;
     }
 
@@ -115,6 +115,6 @@ public class EmotionEditLayout extends FrameLayout {
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19691f = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f19773f = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 }

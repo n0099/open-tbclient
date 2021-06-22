@@ -16,23 +16,23 @@ import com.win.opensdk.core.Info;
 public class K implements U1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public X1 f40528a;
+    public X1 f40631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public V1 f40529b;
+    public V1 f40632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f40530c;
+    public WebView f40633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40531d;
+    public boolean f40634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40532e;
+    public String f40635e;
 
     public K(Context context) {
         WebView webView = new WebView(context);
-        this.f40530c = webView;
+        this.f40633c = webView;
         webView.setScrollContainer(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
@@ -61,22 +61,22 @@ public class K implements U1 {
                 cookieManager.setAcceptThirdPartyCookies(webView, true);
             }
         }
-        this.f40530c.getSettings().setJavaScriptEnabled(true);
+        this.f40633c.getSettings().setJavaScriptEnabled(true);
         JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.f40530c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.f40530c.setWebViewClient(new J(this));
+        this.f40633c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.f40633c.setWebViewClient(new J(this));
     }
 
     public void a(String str, Info info) {
         if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-            this.f40530c.loadUrl(str);
+            this.f40633c.loadUrl(str);
         } else {
-            this.f40530c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+            this.f40633c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
         }
-        X1 x1 = this.f40528a;
+        X1 x1 = this.f40631a;
         if (x1 != null) {
             x1.a();
         }
-        this.f40530c.setOnTouchListener(new L(info, new I(this)));
+        this.f40633c.setOnTouchListener(new L(info, new I(this)));
     }
 }

@@ -27,24 +27,24 @@ import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import d.a.c.a.f;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
-import d.a.n0.d1.c.i;
-/* loaded from: classes4.dex */
+import d.a.o0.d1.c.i;
+/* loaded from: classes5.dex */
 public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18568e;
+    public int f18650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<HotTopicDetailActivity> f18569f;
+    public TbPageContext<HotTopicDetailActivity> f18651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18570g;
+    public TextView f18652g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18571h;
+    public TextView f18653h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18572i;
+    public TextView f18654i;
     public TextView j;
     public TextView k;
     public View l;
@@ -62,7 +62,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public ColorStateList x;
     public Runnable y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -76,23 +76,23 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f18574e;
+        public final /* synthetic */ long f18656e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18575f;
+        public final /* synthetic */ int f18657f;
 
         public b(long j, int i2) {
-            this.f18574e = j;
-            this.f18575f = i2;
+            this.f18656e = j;
+            this.f18657f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f18574e == 0) {
+            if (this.f18656e == 0) {
                 if (HotTopicDetailPkLayout.this.v.k == 1) {
                     TextView textView = HotTopicDetailPkLayout.this.s;
                     textView.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
@@ -109,7 +109,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             } else {
                 if (HotTopicDetailPkLayout.this.v.k != 0) {
                     if (HotTopicDetailPkLayout.this.v.k == 1) {
-                        int i2 = this.f18575f;
+                        int i2 = this.f18657f;
                         if (i2 == 1) {
                             TextView textView3 = HotTopicDetailPkLayout.this.s;
                             textView3.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
@@ -124,7 +124,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                             HotTopicDetailPkLayout.this.u.setText("");
                         }
                     } else {
-                        int i3 = this.f18575f;
+                        int i3 = this.f18657f;
                         if (i3 == 1) {
                             TextView textView6 = HotTopicDetailPkLayout.this.s;
                             textView6.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
@@ -140,7 +140,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         }
                     }
                 } else {
-                    int i4 = this.f18575f;
+                    int i4 = this.f18657f;
                     if (i4 == 1) {
                         TextView textView9 = HotTopicDetailPkLayout.this.s;
                         textView9.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
@@ -154,9 +154,9 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         HotTopicDetailPkLayout.this.u.setText("");
                     }
                 }
-                HotTopicDetailPkLayout.this.v.k = this.f18575f;
+                HotTopicDetailPkLayout.this.v.k = this.f18657f;
             }
-            HotTopicDetailPkLayout.this.v.m = this.f18574e;
+            HotTopicDetailPkLayout.this.v.m = this.f18656e;
             HotTopicDetailPkLayout.this.s.setVisibility(0);
             HotTopicDetailPkLayout.this.u.setVisibility(0);
             HotTopicDetailPkLayout.this.q(true);
@@ -167,7 +167,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -183,7 +183,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
 
     public HotTopicDetailPkLayout(Context context) {
         super(context);
-        this.f18568e = 3;
+        this.f18650e = 3;
         this.n = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
         this.w = SkinManager.getColorList(R.color.CAM_X0308);
@@ -205,7 +205,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
 
     public final boolean k() {
         if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f18569f.getPageActivity(), true, 110435)));
+            TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f18651f.getPageActivity(), true, 110435)));
             return true;
         }
         return false;
@@ -214,12 +214,12 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public final void l() {
         f<?> a2 = j.a(getContext());
         if (a2 instanceof TbPageContext) {
-            this.f18569f = (TbPageContext) a2;
+            this.f18651f = (TbPageContext) a2;
         }
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_pk_layout, (ViewGroup) this, true);
-        this.f18570g = (TextView) findViewById(R.id.tagView);
-        this.f18571h = (TextView) findViewById(R.id.titleView);
-        this.f18572i = (TextView) findViewById(R.id.descView);
+        this.f18652g = (TextView) findViewById(R.id.tagView);
+        this.f18653h = (TextView) findViewById(R.id.titleView);
+        this.f18654i = (TextView) findViewById(R.id.descView);
         TextView textView = (TextView) findViewById(R.id.pkBtn1);
         this.j = textView;
         textView.setOnClickListener(this);
@@ -241,20 +241,20 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public void m(int i2) {
-        if (this.f18568e != i2) {
+        if (this.f18650e != i2) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             this.w = SkinManager.getColorList(R.color.CAM_X0308);
             this.x = SkinManager.getColorList(R.color.CAM_X0303);
             r();
-            SkinManager.setViewTextColor(this.f18570g, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f18571h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f18572i, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f18652g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f18653h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f18654i, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0308);
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0308);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0303);
             this.q.g(i2);
-            this.f18568e = i2;
+            this.f18650e = i2;
         }
     }
 
@@ -299,7 +299,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public final void p() {
-        TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.f18569f.getOrignalPage().getTopicId()));
+        TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.f18651f.getOrignalPage().getTopicId()));
     }
 
     public final void q(boolean z) {
@@ -307,10 +307,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         i iVar = this.v;
         long j2 = iVar.k == 1 ? 1 : 0;
         long j3 = iVar.n + iVar.o + j2 + (iVar.k == 2 ? 1 : 0);
-        this.f18570g.setText(String.format(getContext().getString(R.string.hot_topic_pk_head_tag), StringHelper.numberUniformFormatExtra(j3)));
-        this.f18572i.setText(iVar.f56271f);
-        this.j.setText(iVar.f56272g);
-        this.k.setText(iVar.f56274i);
+        this.f18652g.setText(String.format(getContext().getString(R.string.hot_topic_pk_head_tag), StringHelper.numberUniformFormatExtra(j3)));
+        this.f18654i.setText(iVar.f56396f);
+        this.j.setText(iVar.f56397g);
+        this.k.setText(iVar.f56399i);
         this.r.setText("" + (iVar.n + j2));
         this.t.setText("" + (iVar.o + j));
         if (j3 > 0) {
@@ -401,12 +401,12 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public final void t(int i2) {
-        this.f18569f.getOrignalPage().sendPkData(this.v, i2);
+        this.f18651f.getOrignalPage().sendPkData(this.v, i2);
     }
 
     public HotTopicDetailPkLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18568e = 3;
+        this.f18650e = 3;
         this.n = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
         this.w = SkinManager.getColorList(R.color.CAM_X0308);
@@ -417,7 +417,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
 
     public HotTopicDetailPkLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f18568e = 3;
+        this.f18650e = 3;
         this.n = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
         this.w = SkinManager.getColorList(R.color.CAM_X0308);

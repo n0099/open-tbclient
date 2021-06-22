@@ -34,36 +34,36 @@ public class b {
     public static String p;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f42256a;
+    public e f42359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f42257b;
+    public HttpURLConnection f42360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42258c = 0;
+    public long f42361c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42259d = 0;
+    public long f42362d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42260e = 0;
+    public long f42363e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42261f = 0;
+    public long f42364f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f42262g = 0;
+    public long f42365g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42263h = false;
+    public boolean f42366h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42264i = true;
+    public boolean f42367i = true;
     public boolean j = true;
     public boolean k = true;
     public int l = 0;
     public TimerTask m = new a();
-    public TimerTask n = new C0541b();
+    public TimerTask n = new C0544b();
     public Timer o = new Timer();
 
     /* loaded from: classes.dex */
@@ -83,14 +83,14 @@ public class b {
 
     /* renamed from: d.a.c.e.j.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0541b extends TimerTask {
-        public C0541b() {
+    public class C0544b extends TimerTask {
+        public C0544b() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             try {
-                d.a.c.e.m.a.e(b.this.f42257b);
+                d.a.c.e.m.a.e(b.this.f42360b);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -101,17 +101,17 @@ public class b {
     public class c implements HostnameVerifier {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HttpsURLConnection f42267a;
+        public final /* synthetic */ HttpsURLConnection f42370a;
 
         public c(b bVar, HttpsURLConnection httpsURLConnection) {
-            this.f42267a = httpsURLConnection;
+            this.f42370a = httpsURLConnection;
         }
 
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {
-            String requestProperty = this.f42267a.getRequestProperty("Host");
+            String requestProperty = this.f42370a.getRequestProperty("Host");
             if (requestProperty == null) {
-                requestProperty = this.f42267a.getURL().getHost();
+                requestProperty = this.f42370a.getURL().getHost();
             }
             return HttpsURLConnection.getDefaultHostnameVerifier().verify(requestProperty, sSLSession);
         }
@@ -125,15 +125,15 @@ public class b {
 
     public b(e eVar) {
         if (eVar != null) {
-            this.f42256a = eVar;
+            this.f42359a = eVar;
             return;
         }
         throw new NullPointerException("init HttpImpl's args context is null");
     }
 
     public void b() {
-        this.f42256a.c().f42294a = true;
-        d.a.c.e.m.a.e(this.f42257b);
+        this.f42359a.c().f42397a = true;
+        d.a.c.e.m.a.e(this.f42360b);
     }
 
     public final byte[] c(String str, byte[] bArr) throws Exception {
@@ -141,11 +141,11 @@ public class b {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
             d.a.c.e.p.g.c(byteArrayInputStream, byteArrayOutputStream);
-            this.f42262g = System.currentTimeMillis();
+            this.f42365g = System.currentTimeMillis();
             return byteArrayOutputStream.toByteArray();
         }
-        if (this.f42262g == 0) {
-            this.f42262g = System.currentTimeMillis();
+        if (this.f42365g == 0) {
+            this.f42365g = System.currentTimeMillis();
         }
         return bArr;
     }
@@ -168,14 +168,14 @@ public class b {
         d dVar2 = dVar == null ? new d() : dVar;
         InputStream inputStream2 = null;
         try {
-            String i6 = this.f42256a.b().i();
+            String i6 = this.f42359a.b().i();
             dVar2.s = i6;
             URL n = n(i6, dVar2);
-            this.f42257b = g(n, i3, i2);
-            if (this.f42256a.c().f42294a) {
-                this.f42261f = System.currentTimeMillis();
+            this.f42360b = g(n, i3, i2);
+            if (this.f42359a.c().f42397a) {
+                this.f42364f = System.currentTimeMillis();
                 d.a.c.e.m.a.c(null);
-                d.a.c.e.m.a.e(this.f42257b);
+                d.a.c.e.m.a.e(this.f42360b);
                 d.a.c.e.m.a.d(null);
                 return false;
             }
@@ -185,9 +185,9 @@ public class b {
                 } catch (Throwable th) {
                     th = th;
                     r15 = inputStream2;
-                    this.f42261f = System.currentTimeMillis();
+                    this.f42364f = System.currentTimeMillis();
                     d.a.c.e.m.a.c(inputStream2);
-                    d.a.c.e.m.a.e(this.f42257b);
+                    d.a.c.e.m.a.e(this.f42360b);
                     d.a.c.e.m.a.d(r15);
                     throw th;
                 }
@@ -202,39 +202,39 @@ public class b {
                 r15 = new FileOutputStream(i4, true);
                 try {
                     try {
-                        this.f42256a.b().t(this.f42257b);
-                        this.f42257b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                        this.f42257b.connect();
-                        if (this.f42258c <= 0) {
+                        this.f42359a.b().t(this.f42360b);
+                        this.f42360b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.f42360b.connect();
+                        if (this.f42361c <= 0) {
                             try {
-                                this.f42258c = System.currentTimeMillis();
+                                this.f42361c = System.currentTimeMillis();
                             } catch (Throwable th2) {
                                 th = th2;
                                 inputStream2 = null;
-                                this.f42261f = System.currentTimeMillis();
+                                this.f42364f = System.currentTimeMillis();
                                 d.a.c.e.m.a.c(inputStream2);
-                                d.a.c.e.m.a.e(this.f42257b);
+                                d.a.c.e.m.a.e(this.f42360b);
                                 d.a.c.e.m.a.d(r15);
                                 throw th;
                             }
                         }
-                        this.f42259d = System.currentTimeMillis();
-                        int responseCode = this.f42257b.getResponseCode();
-                        this.f42260e = System.currentTimeMillis();
+                        this.f42362d = System.currentTimeMillis();
+                        int responseCode = this.f42360b.getResponseCode();
+                        this.f42363e = System.currentTimeMillis();
                         if (responseCode == 302) {
-                            url = this.f42257b.getURL();
+                            url = this.f42360b.getURL();
                             if (url != null) {
                                 dVar2.r = url.toString();
                             }
                             if (url != null) {
                                 i5 = responseCode;
                                 if (!TextUtils.equals(url.getProtocol(), n.getProtocol())) {
-                                    d.a.c.e.m.a.e(this.f42257b);
-                                    this.f42257b = g(new URL(url.toString()), i3, i2);
-                                    this.f42256a.b().t(this.f42257b);
-                                    this.f42257b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                                    this.f42257b.connect();
-                                    responseCode = this.f42257b.getResponseCode();
+                                    d.a.c.e.m.a.e(this.f42360b);
+                                    this.f42360b = g(new URL(url.toString()), i3, i2);
+                                    this.f42359a.b().t(this.f42360b);
+                                    this.f42360b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.f42360b.connect();
+                                    responseCode = this.f42360b.getResponseCode();
                                     z3 = true;
                                 }
                             } else {
@@ -246,54 +246,54 @@ public class b {
                             z3 = false;
                             url = null;
                         }
-                        this.f42256a.c().f42295b = responseCode;
-                        String headerField2 = this.f42257b.getHeaderField("Content-Range");
+                        this.f42359a.c().f42398b = responseCode;
+                        String headerField2 = this.f42360b.getHeaderField("Content-Range");
                         int d2 = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : d.a.c.e.m.b.d(headerField2.substring(indexOf + 1), 0);
-                        if (d2 == 0 && this.f42256a.c().f42295b == 200 && (headerField = this.f42257b.getHeaderField("Content-Length")) != null) {
+                        if (d2 == 0 && this.f42359a.c().f42398b == 200 && (headerField = this.f42360b.getHeaderField("Content-Length")) != null) {
                             d2 = d.a.c.e.m.b.d(headerField, 0);
                         }
-                        this.f42256a.c().f42299f = String.valueOf(d2);
+                        this.f42359a.c().f42402f = String.valueOf(d2);
                         if (!o()) {
                             str2 = "";
                             if (responseCode == 302) {
                                 str2 = (z3 ? "isReConn " : "") + "url=" + n + "-newUrl=" + url;
                             } else if (responseCode == 416) {
                                 if (d2 > 0 && d2 == length) {
-                                    this.f42261f = System.currentTimeMillis();
+                                    this.f42364f = System.currentTimeMillis();
                                     d.a.c.e.m.a.c(null);
-                                    d.a.c.e.m.a.e(this.f42257b);
+                                    d.a.c.e.m.a.e(this.f42360b);
                                     d.a.c.e.m.a.d(r15);
                                     return false;
                                 }
                                 str2 = "fileLen=" + length + "-contentLen=" + d2;
                             }
                             throw new UnsupportedOperationException(str2);
-                        } else if (this.f42257b.getContentType() != null && this.f42257b.getContentType().contains("text/vnd.wap.wml")) {
-                            this.f42257b.disconnect();
-                            this.f42256a.c().f42295b = 0;
+                        } else if (this.f42360b.getContentType() != null && this.f42360b.getContentType().contains("text/vnd.wap.wml")) {
+                            this.f42360b.disconnect();
+                            this.f42359a.c().f42398b = 0;
                             boolean d3 = d(str, hVar, i2, i3, z, dVar2, z2);
-                            this.f42261f = System.currentTimeMillis();
+                            this.f42364f = System.currentTimeMillis();
                             d.a.c.e.m.a.c(null);
-                            d.a.c.e.m.a.e(this.f42257b);
+                            d.a.c.e.m.a.e(this.f42360b);
                             d.a.c.e.m.a.d(r15);
                             return d3;
                         } else {
-                            dVar2.f42274a = i6.getBytes().length;
-                            long length2 = this.f42257b.getHeaderFields().toString().getBytes().length;
-                            dVar2.f42275b = length2;
+                            dVar2.f42377a = i6.getBytes().length;
+                            long length2 = this.f42360b.getHeaderFields().toString().getBytes().length;
+                            dVar2.f42378b = length2;
                             long j = d2;
-                            dVar2.f42275b = length2 + j;
+                            dVar2.f42378b = length2 + j;
                             if (d2 != 0 && length >= j) {
-                                this.f42261f = System.currentTimeMillis();
-                                this.f42261f = System.currentTimeMillis();
+                                this.f42364f = System.currentTimeMillis();
+                                this.f42364f = System.currentTimeMillis();
                                 d.a.c.e.m.a.c(null);
-                                d.a.c.e.m.a.e(this.f42257b);
+                                d.a.c.e.m.a.e(this.f42360b);
                                 d.a.c.e.m.a.d(r15);
                                 return true;
                             }
                             inputStream = null;
                             try {
-                                inputStream2 = this.f42257b.getInputStream();
+                                inputStream2 = this.f42360b.getInputStream();
                                 try {
                                     byte[] bArr = new byte[1024];
                                     int i7 = d2 > 0 ? d2 / 50 : 0;
@@ -303,7 +303,7 @@ public class b {
                                     int i8 = 0;
                                     loop0: while (true) {
                                         int i9 = 0;
-                                        while (!this.f42256a.c().f42294a) {
+                                        while (!this.f42359a.c().f42397a) {
                                             int read = inputStream2.read(bArr);
                                             if (read == -1) {
                                                 break loop0;
@@ -332,9 +332,9 @@ public class b {
                                         dVar2.x = length;
                                         dVar2.y = j;
                                         boolean z4 = j2 + length >= j;
-                                        this.f42261f = System.currentTimeMillis();
+                                        this.f42364f = System.currentTimeMillis();
                                         d.a.c.e.m.a.c(inputStream2);
-                                        d.a.c.e.m.a.e(this.f42257b);
+                                        d.a.c.e.m.a.e(this.f42360b);
                                         d.a.c.e.m.a.d(r15);
                                         return z4;
                                     } catch (Exception unused2) {
@@ -342,18 +342,18 @@ public class b {
                                     }
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    this.f42261f = System.currentTimeMillis();
+                                    this.f42364f = System.currentTimeMillis();
                                     d.a.c.e.m.a.c(inputStream2);
-                                    d.a.c.e.m.a.e(this.f42257b);
+                                    d.a.c.e.m.a.e(this.f42360b);
                                     d.a.c.e.m.a.d(r15);
                                     throw th;
                                 }
                             } catch (Throwable th4) {
                                 th = th4;
                                 inputStream2 = inputStream;
-                                this.f42261f = System.currentTimeMillis();
+                                this.f42364f = System.currentTimeMillis();
                                 d.a.c.e.m.a.c(inputStream2);
-                                d.a.c.e.m.a.e(this.f42257b);
+                                d.a.c.e.m.a.e(this.f42360b);
                                 d.a.c.e.m.a.d(r15);
                                 throw th;
                             }
@@ -372,9 +372,9 @@ public class b {
                     th = th7;
                     inputStream2 = null;
                     r15 = inputStream2;
-                    this.f42261f = System.currentTimeMillis();
+                    this.f42364f = System.currentTimeMillis();
                     d.a.c.e.m.a.c(inputStream2);
-                    d.a.c.e.m.a.e(this.f42257b);
+                    d.a.c.e.m.a.e(this.f42360b);
                     d.a.c.e.m.a.d(r15);
                     throw th;
                 }
@@ -385,7 +385,7 @@ public class b {
     }
 
     public long e() {
-        return this.f42262g;
+        return this.f42365g;
     }
 
     public final HttpURLConnection f(URL url) {
@@ -406,7 +406,7 @@ public class b {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.f42256a.b().a("X-Online-Host", url.getHost());
+                            this.f42359a.b().a("X-Online-Host", url.getHost());
                         } catch (Exception e2) {
                             e = e2;
                             httpsURLConnection = httpURLConnection;
@@ -421,7 +421,7 @@ public class b {
                 if (httpsURLConnection == null) {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                if (this.f42263h && url.getProtocol().equals("https")) {
+                if (this.f42366h && url.getProtocol().equals("https")) {
                     HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
                     httpsURLConnection2.setSSLSocketFactory(new i(httpsURLConnection2));
                     httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
@@ -446,15 +446,15 @@ public class b {
     }
 
     public long h() {
-        return this.f42260e;
+        return this.f42363e;
     }
 
     public long i() {
-        return this.f42258c;
+        return this.f42361c;
     }
 
     public long j() {
-        return this.f42259d;
+        return this.f42362d;
     }
 
     public void k(int i2, int i3, d dVar) throws Exception {
@@ -463,65 +463,65 @@ public class b {
         Map<String, List<String>> map;
         List<String> list;
         dVar.j = -1;
-        if (!this.f42256a.c().f42294a) {
-            String f2 = this.f42256a.b().f(dVar);
+        if (!this.f42359a.c().f42397a) {
+            String f2 = this.f42359a.b().f(dVar);
             dVar.s = f2;
             URL n = n(f2, dVar);
-            if (!this.f42256a.c().f42294a) {
+            if (!this.f42359a.c().f42397a) {
                 dVar.j = -2;
-                this.f42257b = f(n);
+                this.f42360b = f(n);
                 dVar.j = -3;
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
-                    if (this.f42257b != null) {
-                        this.f42257b.setRequestMethod("GET");
-                        this.f42257b.setConnectTimeout(i3);
-                        this.f42257b.setReadTimeout(i2);
-                        this.f42256a.b().t(this.f42257b);
-                        if (!this.f42256a.c().f42294a) {
-                            dVar.f42280g = new Date().getTime() - currentTimeMillis;
+                    if (this.f42360b != null) {
+                        this.f42360b.setRequestMethod("GET");
+                        this.f42360b.setConnectTimeout(i3);
+                        this.f42360b.setReadTimeout(i2);
+                        this.f42359a.b().t(this.f42360b);
+                        if (!this.f42359a.c().f42397a) {
+                            dVar.f42383g = new Date().getTime() - currentTimeMillis;
                             dVar.j = -4;
-                            this.f42257b.connect();
-                            if (this.f42258c <= 0) {
-                                this.f42258c = System.currentTimeMillis();
+                            this.f42360b.connect();
+                            if (this.f42361c <= 0) {
+                                this.f42361c = System.currentTimeMillis();
                             }
-                            this.f42259d = System.currentTimeMillis();
+                            this.f42362d = System.currentTimeMillis();
                             dVar.j = -5;
-                            dVar.f42276c = (new Date().getTime() - currentTimeMillis) - dVar.f42280g;
-                            if (!this.f42256a.c().f42294a) {
-                                if (this.f42256a.b().k() && this.o != null && this.l >= 0 && this.l < 3) {
+                            dVar.f42379c = (new Date().getTime() - currentTimeMillis) - dVar.f42383g;
+                            if (!this.f42359a.c().f42397a) {
+                                if (this.f42359a.b().k() && this.o != null && this.l >= 0 && this.l < 3) {
                                     this.o.schedule(this.n, (this.l + 1) * 3000);
                                 }
-                                String contentType = this.f42257b.getContentType();
-                                this.f42260e = System.currentTimeMillis();
+                                String contentType = this.f42360b.getContentType();
+                                this.f42363e = System.currentTimeMillis();
                                 if (d.a.c.e.j.b.b.c(contentType)) {
-                                    this.f42257b.disconnect();
-                                    this.f42257b.connect();
-                                    if (this.f42256a.c().f42294a) {
+                                    this.f42360b.disconnect();
+                                    this.f42360b.connect();
+                                    if (this.f42359a.c().f42397a) {
                                         throw new BdHttpCancelException();
                                     }
                                 }
                                 dVar.j = -8;
-                                this.f42256a.c().a(this.f42257b);
-                                if (f2.contains("c.tieba.baidu.com") && (map = this.f42256a.c().f42300g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                this.f42359a.c().a(this.f42360b);
+                                if (f2.contains("c.tieba.baidu.com") && (map = this.f42359a.c().f42403g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                                     dVar.t = list.get(0);
                                     dVar.u = list.get(1);
                                 }
-                                if (this.f42256a.c().f42295b == 302 && (url = this.f42257b.getURL()) != null) {
+                                if (this.f42359a.c().f42398b == 302 && (url = this.f42360b.getURL()) != null) {
                                     dVar.r = url.toString();
                                 }
-                                dVar.f42282i = this.f42256a.c().f42295b;
-                                dVar.f42275b = this.f42257b.getHeaderFields().toString().getBytes().length;
+                                dVar.f42385i = this.f42359a.c().f42398b;
+                                dVar.f42378b = this.f42360b.getHeaderFields().toString().getBytes().length;
                                 if (this.o != null) {
                                     this.o.cancel();
                                 }
-                                byte[] m = m(this.f42257b);
+                                byte[] m = m(this.f42360b);
                                 if (m != null) {
-                                    dVar.f42275b += m.length;
-                                    this.f42256a.c().f42301h = c(this.f42256a.c().f42297d, m);
+                                    dVar.f42378b += m.length;
+                                    this.f42359a.c().f42404h = c(this.f42359a.c().f42400d, m);
                                 }
                                 dVar.j = -9;
-                                dVar.f42277d = new Date().getTime() - currentTimeMillis;
+                                dVar.f42380d = new Date().getTime() - currentTimeMillis;
                                 if (httpURLConnection != null) {
                                     return;
                                 }
@@ -537,7 +537,7 @@ public class b {
                     if (timer != null) {
                         timer.cancel();
                     }
-                    httpURLConnection = this.f42257b;
+                    httpURLConnection = this.f42360b;
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
@@ -549,7 +549,7 @@ public class b {
     }
 
     public long l() {
-        return this.f42261f;
+        return this.f42364f;
     }
 
     public final byte[] m(HttpURLConnection httpURLConnection) throws Exception {
@@ -561,17 +561,17 @@ public class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 InputStream inputStream2 = httpURLConnection.getInputStream();
-                while (!this.f42256a.c().f42294a && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.f42359a.c().f42397a && (read = inputStream2.read(bArr2)) != -1) {
                     byteArrayOutputStream.write(bArr2, 0, read);
                 }
-                if (!this.f42256a.c().f42294a) {
+                if (!this.f42359a.c().f42397a) {
                     bArr = byteArrayOutputStream.toByteArray();
                     inputStream = inputStream2;
                 } else {
                     throw new BdHttpCancelException();
                 }
             } catch (Throwable th) {
-                this.f42261f = System.currentTimeMillis();
+                this.f42364f = System.currentTimeMillis();
                 d.a.c.e.m.a.d(byteArrayOutputStream);
                 d.a.c.e.m.a.c(null);
                 throw th;
@@ -579,7 +579,7 @@ public class b {
         } else {
             inputStream = null;
         }
-        this.f42261f = System.currentTimeMillis();
+        this.f42364f = System.currentTimeMillis();
         d.a.c.e.m.a.d(byteArrayOutputStream);
         d.a.c.e.m.a.c(inputStream);
         return bArr;
@@ -606,10 +606,10 @@ public class b {
                             int size = this.l % a2.size();
                             String str3 = a2.get(size);
                             if (!TextUtils.isEmpty(str3) && (!str3.startsWith("10.") || !url.getProtocol().equals("https"))) {
-                                this.f42256a.b().a("Host", str2);
+                                this.f42359a.b().a("Host", str2);
                                 URL url2 = new URL(str.replaceFirst("://(.*)" + str2, "://" + str3));
                                 try {
-                                    this.f42263h = true;
+                                    this.f42366h = true;
                                     dVar.q = size;
                                     dVar.l = str3;
                                     dVar.n = true;
@@ -618,7 +618,7 @@ public class b {
                                     e = e2;
                                     url = url2;
                                     BdLog.e(e);
-                                    return this.f42264i ? url : url;
+                                    return this.f42367i ? url : url;
                                 }
                             }
                         }
@@ -628,87 +628,87 @@ public class b {
                 e = e3;
             }
         }
-        if (this.f42264i || !this.k || (b2 = d.a.c.e.j.a.a.b()) == null) {
+        if (this.f42367i || !this.k || (b2 = d.a.c.e.j.a.a.b()) == null) {
             return url;
         }
         String a3 = b2.a(str);
         if (TextUtils.isEmpty(a3)) {
             return url;
         }
-        this.f42256a.b().a("Host", url.getHost());
+        this.f42359a.b().a("Host", url.getHost());
         URL url3 = new URL(str.replace("://" + url.getHost(), "://" + a3));
-        this.f42263h = true;
+        this.f42366h = true;
         dVar.l = a3;
         return url3;
     }
 
     public final boolean o() {
-        return this.f42256a.c().f42295b == 200 || this.f42256a.c().f42295b == 206;
+        return this.f42359a.c().f42398b == 200 || this.f42359a.c().f42398b == 206;
     }
 
     public boolean p() {
-        return this.f42263h;
+        return this.f42366h;
     }
 
     public void q(int i2, int i3, d dVar) throws Exception {
         dVar.j = -1;
         try {
-            String i4 = this.f42256a.b().i();
+            String i4 = this.f42359a.b().i();
             dVar.s = i4;
             URL n = n(i4, dVar);
-            if (!this.f42256a.c().f42294a) {
+            if (!this.f42359a.c().f42397a) {
                 dVar.j = -2;
-                this.f42257b = f(n);
+                this.f42360b = f(n);
                 dVar.j = -3;
                 System.currentTimeMillis();
-                if (this.f42257b != null) {
-                    this.f42257b.setRequestMethod("POST");
-                    this.f42257b.setDoOutput(true);
-                    this.f42257b.setDoInput(true);
-                    this.f42257b.setConnectTimeout(i3);
-                    this.f42257b.setReadTimeout(i2);
-                    this.f42257b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + p);
-                    if (!this.f42256a.c().f42294a) {
-                        this.f42256a.b().t(this.f42257b);
-                        if (!this.f42256a.c().f42294a) {
+                if (this.f42360b != null) {
+                    this.f42360b.setRequestMethod("POST");
+                    this.f42360b.setDoOutput(true);
+                    this.f42360b.setDoInput(true);
+                    this.f42360b.setConnectTimeout(i3);
+                    this.f42360b.setReadTimeout(i2);
+                    this.f42360b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + p);
+                    if (!this.f42359a.c().f42397a) {
+                        this.f42359a.b().t(this.f42360b);
+                        if (!this.f42359a.c().f42397a) {
                             long time = new Date().getTime();
-                            dVar.f42280g = new Date().getTime() - time;
+                            dVar.f42383g = new Date().getTime() - time;
                             dVar.j = -4;
-                            this.f42257b.connect();
-                            if (this.f42258c <= 0) {
-                                this.f42258c = System.currentTimeMillis();
+                            this.f42360b.connect();
+                            if (this.f42361c <= 0) {
+                                this.f42361c = System.currentTimeMillis();
                             }
-                            this.f42259d = System.currentTimeMillis();
+                            this.f42362d = System.currentTimeMillis();
                             dVar.j = -5;
-                            dVar.f42276c = (new Date().getTime() - time) - dVar.f42280g;
-                            if (!this.f42256a.c().f42294a) {
+                            dVar.f42379c = (new Date().getTime() - time) - dVar.f42383g;
+                            if (!this.f42359a.c().f42397a) {
                                 if (this.o != null) {
                                     this.o.schedule(this.m, 45000L);
                                 }
                                 dVar.j = -6;
-                                this.f42256a.b().v(this.f42257b, p, dVar);
+                                this.f42359a.b().v(this.f42360b, p, dVar);
                                 dVar.j = -7;
-                                String contentType = this.f42257b.getContentType();
-                                this.f42260e = System.currentTimeMillis();
+                                String contentType = this.f42360b.getContentType();
+                                this.f42363e = System.currentTimeMillis();
                                 if (d.a.c.e.j.b.b.c(contentType)) {
-                                    this.f42257b.disconnect();
-                                    this.f42257b.connect();
-                                    if (this.f42256a.c().f42294a) {
+                                    this.f42360b.disconnect();
+                                    this.f42360b.connect();
+                                    if (this.f42359a.c().f42397a) {
                                         throw new BdHttpCancelException();
                                     }
                                 }
-                                if (!this.f42256a.c().f42294a) {
+                                if (!this.f42359a.c().f42397a) {
                                     dVar.j = -8;
-                                    this.f42256a.c().a(this.f42257b);
-                                    dVar.f42282i = this.f42256a.c().f42295b;
-                                    dVar.f42275b = this.f42257b.getHeaderFields().toString().getBytes().length;
-                                    byte[] m = m(this.f42257b);
+                                    this.f42359a.c().a(this.f42360b);
+                                    dVar.f42385i = this.f42359a.c().f42398b;
+                                    dVar.f42378b = this.f42360b.getHeaderFields().toString().getBytes().length;
+                                    byte[] m = m(this.f42360b);
                                     if (m != null) {
-                                        dVar.f42275b += m.length;
-                                        this.f42256a.c().f42302i = m.length;
-                                        this.f42256a.c().f42301h = c(this.f42256a.c().f42297d, m);
+                                        dVar.f42378b += m.length;
+                                        this.f42359a.c().f42405i = m.length;
+                                        this.f42359a.c().f42404h = c(this.f42359a.c().f42400d, m);
                                     }
-                                    dVar.f42277d = new Date().getTime() - time;
+                                    dVar.f42380d = new Date().getTime() - time;
                                     dVar.j = -9;
                                     return;
                                 }
@@ -728,65 +728,65 @@ public class b {
             if (timer != null) {
                 timer.cancel();
             }
-            d.a.c.e.m.a.e(this.f42257b);
+            d.a.c.e.m.a.e(this.f42360b);
         }
     }
 
     public void r(int i2, int i3, d dVar) throws Exception {
         dVar.j = -1;
         try {
-            String i4 = this.f42256a.b().i();
+            String i4 = this.f42359a.b().i();
             dVar.s = i4;
             URL n = n(i4, dVar);
-            if (!this.f42256a.c().f42294a) {
+            if (!this.f42359a.c().f42397a) {
                 dVar.j = -2;
-                this.f42257b = f(n);
+                this.f42360b = f(n);
                 dVar.j = -3;
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f42257b != null) {
-                    this.f42257b.setRequestMethod("POST");
-                    this.f42257b.setDoOutput(true);
-                    this.f42257b.setDoInput(true);
-                    this.f42257b.setConnectTimeout(i3);
-                    this.f42257b.setReadTimeout(i2);
-                    this.f42257b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                    if (!this.f42256a.c().f42294a) {
-                        this.f42256a.b().t(this.f42257b);
-                        if (!this.f42256a.c().f42294a) {
-                            dVar.f42280g = System.currentTimeMillis() - currentTimeMillis;
+                if (this.f42360b != null) {
+                    this.f42360b.setRequestMethod("POST");
+                    this.f42360b.setDoOutput(true);
+                    this.f42360b.setDoInput(true);
+                    this.f42360b.setConnectTimeout(i3);
+                    this.f42360b.setReadTimeout(i2);
+                    this.f42360b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    if (!this.f42359a.c().f42397a) {
+                        this.f42359a.b().t(this.f42360b);
+                        if (!this.f42359a.c().f42397a) {
+                            dVar.f42383g = System.currentTimeMillis() - currentTimeMillis;
                             dVar.j = -4;
-                            this.f42257b.connect();
-                            if (this.f42258c <= 0) {
-                                this.f42258c = System.currentTimeMillis();
+                            this.f42360b.connect();
+                            if (this.f42361c <= 0) {
+                                this.f42361c = System.currentTimeMillis();
                             }
-                            this.f42259d = System.currentTimeMillis();
+                            this.f42362d = System.currentTimeMillis();
                             dVar.j = -5;
-                            dVar.f42276c = (System.currentTimeMillis() - currentTimeMillis) - dVar.f42280g;
-                            if (!this.f42256a.c().f42294a) {
+                            dVar.f42379c = (System.currentTimeMillis() - currentTimeMillis) - dVar.f42383g;
+                            if (!this.f42359a.c().f42397a) {
                                 dVar.j = -6;
-                                this.f42256a.b().u(this.f42257b, dVar);
+                                this.f42359a.b().u(this.f42360b, dVar);
                                 dVar.j = -7;
-                                if (!this.f42256a.c().f42294a) {
-                                    String contentType = this.f42257b.getContentType();
-                                    this.f42260e = System.currentTimeMillis();
+                                if (!this.f42359a.c().f42397a) {
+                                    String contentType = this.f42360b.getContentType();
+                                    this.f42363e = System.currentTimeMillis();
                                     if (d.a.c.e.j.b.b.c(contentType)) {
-                                        this.f42257b.disconnect();
-                                        this.f42257b.connect();
-                                        if (this.f42256a.c().f42294a) {
+                                        this.f42360b.disconnect();
+                                        this.f42360b.connect();
+                                        if (this.f42359a.c().f42397a) {
                                             throw new BdHttpCancelException();
                                         }
                                     }
                                     dVar.j = -8;
-                                    this.f42256a.c().a(this.f42257b);
-                                    dVar.f42282i = this.f42256a.c().f42295b;
-                                    dVar.f42275b = this.f42257b.getHeaderFields().toString().getBytes().length;
-                                    byte[] m = m(this.f42257b);
+                                    this.f42359a.c().a(this.f42360b);
+                                    dVar.f42385i = this.f42359a.c().f42398b;
+                                    dVar.f42378b = this.f42360b.getHeaderFields().toString().getBytes().length;
+                                    byte[] m = m(this.f42360b);
                                     if (m != null) {
-                                        dVar.f42275b += m.length;
-                                        this.f42256a.c().f42302i = m.length;
-                                        this.f42256a.c().f42301h = c(this.f42256a.c().f42297d, m);
+                                        dVar.f42378b += m.length;
+                                        this.f42359a.c().f42405i = m.length;
+                                        this.f42359a.c().f42404h = c(this.f42359a.c().f42400d, m);
                                     }
-                                    dVar.f42277d = new Date().getTime() - currentTimeMillis;
+                                    dVar.f42380d = new Date().getTime() - currentTimeMillis;
                                     dVar.j = -9;
                                     return;
                                 }
@@ -802,7 +802,7 @@ public class b {
             }
             throw new BdHttpCancelException();
         } finally {
-            d.a.c.e.m.a.e(this.f42257b);
+            d.a.c.e.m.a.e(this.f42360b);
         }
     }
 

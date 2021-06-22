@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g extends RecyclerView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34576a;
+    public boolean f34674a;
 
     public g(Context context) {
         super(context);
@@ -25,11 +25,11 @@ public class g extends RecyclerView {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public void removeDetachedView(View view, boolean z) {
-        boolean z2 = this.f34576a;
+        boolean z2 = this.f34674a;
         super.removeDetachedView(view, z);
     }
 
     public void setIngoreTmpDetachedFlag(boolean z) {
-        this.f34576a = z;
+        this.f34674a = z;
     }
 }

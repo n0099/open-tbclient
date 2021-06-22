@@ -5,16 +5,16 @@ import com.win.opensdk.bridge.core.NativeMethodInjectHelper;
 public class JsBridge {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile JsBridge f40687a;
+    public static volatile JsBridge f40790a;
 
     public static JsBridge getInstance() {
-        JsBridge jsBridge = f40687a;
+        JsBridge jsBridge = f40790a;
         if (jsBridge == null) {
             synchronized (JsBridge.class) {
-                jsBridge = f40687a;
+                jsBridge = f40790a;
                 if (jsBridge == null) {
                     jsBridge = new JsBridge();
-                    f40687a = jsBridge;
+                    f40790a = jsBridge;
                 }
             }
         }

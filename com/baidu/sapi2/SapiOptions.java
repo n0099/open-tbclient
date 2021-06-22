@@ -435,6 +435,7 @@ public final class SapiOptions implements NoProguard {
             hashMap.put("com.baidu.duershow.swan", "ff3cc4b3dfcb2419ea8cf8abfcba6684");
             hashMap.put("com.baidu.launcher", "2171946eb93787d73348c42064b5c8b7");
             hashMap.put("com.baidu.rap", "44488ccee79ea8da05b4654a4d689016");
+            hashMap.put("com.baidu.input", "c2b0b497d0389e6de1505e7fd8f4d539");
             return hashMap;
         }
 
@@ -569,7 +570,6 @@ public final class SapiOptions implements NoProguard {
 
     public static List<String> getInitialCachePackagesWhiteList() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add("com.baidu.(.*)input(.*)");
         arrayList.add("com.baidu.browser.(.+)");
         return arrayList;
     }

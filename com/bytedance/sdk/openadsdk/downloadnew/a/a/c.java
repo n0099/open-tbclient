@@ -14,10 +14,10 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29043a;
+    public final WeakReference<Context> f29125a;
 
     public c(Context context) {
-        this.f29043a = new WeakReference<>(context);
+        this.f29125a = new WeakReference<>(context);
     }
 
     @Override // d.o.a.a.a.a.g
@@ -82,17 +82,17 @@ public class c implements g {
         String valueOf;
         if (oVar != null && oVar.f()) {
             if (pVar != null) {
-                pVar.a(oVar.f69540a);
+                pVar.a(oVar.f69644a);
                 return;
             }
             return;
         }
-        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f69542c != null ? oVar.f69542c.getMessage() : null);
+        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f69646c != null ? oVar.f69646c.getMessage() : null);
         if (pVar != null) {
             if (isEmpty) {
-                valueOf = oVar.f69542c.getMessage();
+                valueOf = oVar.f69646c.getMessage();
             } else {
-                valueOf = oVar != null ? String.valueOf(oVar.f69547h) : "";
+                valueOf = oVar != null ? String.valueOf(oVar.f69651h) : "";
             }
             pVar.a(new Exception(valueOf));
         }

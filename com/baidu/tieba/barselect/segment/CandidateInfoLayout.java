@@ -20,16 +20,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.n0.x.b.d;
-import d.a.n0.x.b.f;
+import d.a.o0.x.b.d;
+import d.a.o0.x.b.f;
 /* loaded from: classes4.dex */
 public class CandidateInfoLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14231h;
+    public Context f14313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BazhuHeadView f14232i;
+    public BazhuHeadView f14314i;
     public LinearLayout j;
     public TextView k;
     public TextView l;
@@ -44,13 +44,13 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d dVar = CandidateInfoLayout.this.f14236g;
+            d dVar = CandidateInfoLayout.this.f14318g;
             if (dVar == null || dVar.l() == 0) {
                 return;
             }
             long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = CandidateInfoLayout.this.f14236g.l();
-            if (!(CandidateInfoLayout.this.getContext() instanceof Activity) || CandidateInfoLayout.this.f14236g.f() == 2) {
+            long l = CandidateInfoLayout.this.f14318g.l();
+            if (!(CandidateInfoLayout.this.getContext() instanceof Activity) || CandidateInfoLayout.this.f14318g.f() == 2) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(l, l == f2, false)));
@@ -63,9 +63,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
     public final void a() {
         BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-        this.f14232i = bazhuHeadView;
+        this.f14314i = bazhuHeadView;
         if (bazhuHeadView.getHeadView() != null) {
-            this.f14232i.getHeadView().setIsRound(true);
+            this.f14314i.getHeadView().setIsRound(true);
         }
         this.j = (LinearLayout) findViewById(R.id.user_name_and_active_status);
         this.k = (TextView) findViewById(R.id.user_name);
@@ -75,7 +75,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     public void b() {
-        this.f14231h = getContext();
+        this.f14313h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -90,7 +90,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i2);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1, i2);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1, i2);
-        d dVar = this.f14236g;
+        d dVar = this.f14318g;
         if (dVar != null) {
             setGrade(dVar.d());
         }
@@ -101,45 +101,45 @@ public class CandidateInfoLayout extends CardBasicLayout {
         int i3;
         String str;
         super.setData(i2, fVar);
-        if (this.f14235f != null && this.f14236g != null && (i3 = this.f14234e) >= 0) {
-            if (i3 == d.a.n0.x.e.a.f66918c) {
-                int g2 = l.g(this.f14231h, R.dimen.tbds191);
-                int g3 = l.g(this.f14231h, R.dimen.tbds157);
-                int g4 = l.g(this.f14231h, R.dimen.tbds6);
-                int g5 = l.g(this.f14231h, R.dimen.tbds24);
-                int g6 = l.g(this.f14231h, R.dimen.tbds30);
+        if (this.f14317f != null && this.f14318g != null && (i3 = this.f14316e) >= 0) {
+            if (i3 == d.a.o0.x.e.a.f67043c) {
+                int g2 = l.g(this.f14313h, R.dimen.tbds191);
+                int g3 = l.g(this.f14313h, R.dimen.tbds157);
+                int g4 = l.g(this.f14313h, R.dimen.tbds6);
+                int g5 = l.g(this.f14313h, R.dimen.tbds24);
+                int g6 = l.g(this.f14313h, R.dimen.tbds30);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g3, g2);
                 layoutParams.setMargins(layoutParams.leftMargin - g4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                this.f14232i.setLayoutParams(layoutParams);
-                this.f14232i.n(true);
-                this.f14232i.setBawuLogoView(R.drawable.pic_election_bazhu);
-                this.f14232i.setPendantView(R.drawable.icon_crown);
-                this.k.setTextSize(0, l.g(this.f14231h, R.dimen.tbfontsize46));
+                this.f14314i.setLayoutParams(layoutParams);
+                this.f14314i.n(true);
+                this.f14314i.setBawuLogoView(R.drawable.pic_election_bazhu);
+                this.f14314i.setPendantView(R.drawable.icon_crown);
+                this.k.setTextSize(0, l.g(this.f14313h, R.dimen.tbfontsize46));
                 setGravity(16);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.setMargins(g6, g5, layoutParams2.rightMargin, g4);
-                this.f14232i.setLayoutParams(layoutParams);
+                this.f14314i.setLayoutParams(layoutParams);
                 this.j.setLayoutParams(layoutParams2);
             } else {
-                this.f14232i.n(false);
+                this.f14314i.n(false);
             }
-            this.f14232i.k(this.f14236g.g());
-            this.f14232i.setOnClickListener(this.o);
-            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14236g.e(), 14, StringHelper.STRING_MORE));
-            setGrade(this.f14236g.d());
-            if (this.f14236g.f() == 2) {
+            this.f14314i.k(this.f14318g.g());
+            this.f14314i.setOnClickListener(this.o);
+            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14318g.e(), 14, StringHelper.STRING_MORE));
+            setGrade(this.f14318g.d());
+            if (this.f14318g.f() == 2) {
                 this.l.setVisibility(8);
             } else {
                 this.l.setVisibility(0);
-                if (this.f14236g.c() < 1000) {
-                    String str2 = "0000" + this.f14236g.c();
+                if (this.f14318g.c() < 1000) {
+                    String str2 = "0000" + this.f14318g.c();
                     str = str2.substring(str2.length() - 4, str2.length());
                 } else {
-                    str = "" + this.f14236g.c();
+                    str = "" + this.f14318g.c();
                 }
                 this.l.setText("NO." + str);
             }
-            this.n.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.f14236g.a()), StringHelper.numFormatOverWanWithNegative(this.f14236g.j()), StringHelper.numFormatOverWanWithNegative(this.f14236g.h())));
+            this.n.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.f14318g.a()), StringHelper.numFormatOverWanWithNegative(this.f14318g.j()), StringHelper.numFormatOverWanWithNegative(this.f14318g.h())));
             return;
         }
         setVisibility(8);

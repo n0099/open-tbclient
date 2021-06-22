@@ -3,28 +3,28 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 public abstract class DownsampleStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final DownsampleStrategy f36329a = new e();
+    public static final DownsampleStrategy f36427a = new e();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final DownsampleStrategy f36330b = new d();
+    public static final DownsampleStrategy f36428b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DownsampleStrategy f36331c = new a();
+    public static final DownsampleStrategy f36429c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final DownsampleStrategy f36332d = new b();
+    public static final DownsampleStrategy f36430d = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final DownsampleStrategy f36333e = new c();
+    public static final DownsampleStrategy f36431e = new c();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final DownsampleStrategy f36334f = new f();
+    public static final DownsampleStrategy f36432f = new f();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final DownsampleStrategy f36335g;
+    public static final DownsampleStrategy f36433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f36336h;
+    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f36434h;
 
     /* loaded from: classes7.dex */
     public enum SampleSizeRounding {
@@ -68,7 +68,7 @@ public abstract class DownsampleStrategy {
     public static class c extends DownsampleStrategy {
         @Override // com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy
         public float a(int i2, int i3, int i4, int i5) {
-            return Math.min(1.0f, DownsampleStrategy.f36329a.a(i2, i3, i4, i5));
+            return Math.min(1.0f, DownsampleStrategy.f36427a.a(i2, i3, i4, i5));
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy
@@ -117,9 +117,9 @@ public abstract class DownsampleStrategy {
     }
 
     static {
-        DownsampleStrategy downsampleStrategy = f36330b;
-        f36335g = downsampleStrategy;
-        f36336h = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", downsampleStrategy);
+        DownsampleStrategy downsampleStrategy = f36428b;
+        f36433g = downsampleStrategy;
+        f36434h = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", downsampleStrategy);
     }
 
     public abstract float a(int i2, int i3, int i4, int i5);

@@ -50,7 +50,7 @@ public class SplashAdFacade {
                 if (SplashAdFacade.this.f2117b == null) {
                     SplashAdFacade.this.f2117b = new d.a.d0.b.a();
                 }
-                SplashAdFacade.this.f2117b.l(d.a.d0.a.b.a.f43271a.get());
+                SplashAdFacade.this.f2117b.l(d.a.d0.a.b.a.f43374a.get());
                 SplashAdFacade.this.f2118c = System.currentTimeMillis();
             }
         }
@@ -80,7 +80,7 @@ public class SplashAdFacade {
             Log.e("SplashAdFacade", "appContext is null ,init failed");
             return;
         }
-        d.a.d0.a.b.a.f43271a.set(aVar);
+        d.a.d0.a.b.a.f43374a.set(aVar);
         aVar.o().registerActivityLifecycleCallbacks(new f());
         new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
@@ -94,7 +94,7 @@ public class SplashAdFacade {
     }
 
     public void h(int i2) {
-        if (d.a.d0.a.b.a.f43271a.get() == null) {
+        if (d.a.d0.a.b.a.f43374a.get() == null) {
             return;
         }
         this.f2119d.postDelayed(new a(i2), 5000L);

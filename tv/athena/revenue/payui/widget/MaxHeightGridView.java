@@ -16,7 +16,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class MaxHeightGridView extends GridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72983e;
+    public int f73087e;
 
     @JvmOverloads
     public MaxHeightGridView(Context context) {
@@ -38,8 +38,8 @@ public final class MaxHeightGridView extends GridView {
         try {
             try {
                 int size = View.MeasureSpec.getSize(i3);
-                if (this.f72983e != -1) {
-                    size = this.f72983e;
+                if (this.f73087e != -1) {
+                    size = this.f73087e;
                     i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
                 } else {
                     i3 = View.MeasureSpec.makeMeasureSpec(size, 0);
@@ -56,12 +56,12 @@ public final class MaxHeightGridView extends GridView {
     @JvmOverloads
     public MaxHeightGridView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f72983e = -1;
+        this.f73087e = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(h.PayUi_NoScrollGridView_pay_ui_gv_max_height_dp, 536870911);
-        this.f72983e = integer;
+        this.f73087e = integer;
         if (integer != 536870911) {
-            this.f72983e = b.a(integer);
+            this.f73087e = b.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

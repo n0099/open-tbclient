@@ -5,7 +5,7 @@ import java.util.Collection;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f72190a = new b();
+    public static final b f72294a = new b();
 
     public final int a(Collection<?> collection) {
         if (collection != null) {

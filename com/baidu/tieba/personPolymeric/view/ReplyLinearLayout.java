@@ -21,16 +21,16 @@ import java.util.List;
 public class ReplyLinearLayout extends LinearLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f19999h;
+    public static ViewGroup.LayoutParams f20081h;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f20000e;
+    public List<TextView> f20082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20001f;
+    public boolean f20083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f20002g;
+    public View.OnClickListener f20084g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +40,7 @@ public class ReplyLinearLayout extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String[] strArr = (String[]) view.getTag();
-            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", ReplyLinearLayout.this.f20001f ? 1 : 2));
+            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", ReplyLinearLayout.this.f20083f ? 1 : 2));
             if (strArr != null) {
                 Context context = ReplyLinearLayout.this.getContext();
                 if ("0".equals(strArr[3])) {
@@ -87,19 +87,19 @@ public class ReplyLinearLayout extends LinearLayout {
         CharSequence[] charSequenceArr;
         int i3;
         int i4;
-        if (f19999h == null) {
-            f19999h = new LinearLayout.LayoutParams(-1, -2);
+        if (f20081h == null) {
+            f20081h = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.f20000e.size();
+        int size2 = size - this.f20082e.size();
         for (int i5 = 0; i5 < size2; i5++) {
             TextView textView = new TextView(getContext());
-            this.f20000e.add(textView);
+            this.f20082e.add(textView);
             addView(textView);
         }
-        for (int i6 = 0; i6 < this.f20000e.size(); i6++) {
-            TextView textView2 = this.f20000e.get(i6);
+        for (int i6 = 0; i6 < this.f20082e.size(); i6++) {
+            TextView textView2 = this.f20082e.get(i6);
             if (i6 < size) {
                 if (i6 != 0 && i6 != 1) {
                     int i7 = i6 % 3;
@@ -115,12 +115,12 @@ public class ReplyLinearLayout extends LinearLayout {
                         textView2.setText(charSequenceArr[4]);
                     }
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f20002g);
+                    textView2.setOnClickListener(this.f20084g);
                     b(textView2, i6);
                     if (i6 != 0) {
                         textView2.setTextSize(17.0f);
                         textView2.setMaxLines(3);
-                        textView2.setLayoutParams(f19999h);
+                        textView2.setLayoutParams(f20081h);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                     } else if (i6 == 1 || (i3 = i6 % 3) == 1) {
                         textView2.setLayoutParams(layoutParams);
@@ -128,11 +128,11 @@ public class ReplyLinearLayout extends LinearLayout {
                     } else if (i3 == 2) {
                         textView2.setTextSize(15.0f);
                         textView2.setMaxLines(2);
-                        textView2.setLayoutParams(f19999h);
+                        textView2.setLayoutParams(f20081h);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                     } else if (i3 == 0) {
                         textView2.setTextSize(10.0f);
-                        textView2.setLayoutParams(f19999h);
+                        textView2.setLayoutParams(f20081h);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                     }
                     textView2.setVisibility(0);
@@ -143,7 +143,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setText(charSequenceArr[0]);
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.f20002g);
+                textView2.setOnClickListener(this.f20084g);
                 b(textView2, i6);
                 if (i6 != 0) {
                 }
@@ -155,12 +155,12 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     public void setIsHost(boolean z) {
-        this.f20001f = z;
+        this.f20083f = z;
     }
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20002g = new a();
-        this.f20000e = new ArrayList();
+        this.f20084g = new a();
+        this.f20082e = new ArrayList();
     }
 }

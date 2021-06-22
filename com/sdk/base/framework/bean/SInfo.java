@@ -5,13 +5,13 @@ import com.sdk.base.framework.f.c.a;
 public class SInfo {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39326c;
+    public int f39424c;
     public String cm;
     public String n;
     public String v;
 
     public int getC() {
-        return this.f39326c;
+        return this.f39424c;
     }
 
     public String getCm() {
@@ -27,7 +27,7 @@ public class SInfo {
     }
 
     public void setC(int i2) {
-        this.f39326c = i2;
+        this.f39424c = i2;
     }
 
     public void setCm(String str) {

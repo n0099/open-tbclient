@@ -20,7 +20,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
 
         public void onError(OAuthError oAuthError) {
             MeizuSSOLoginActivity meizuSSOLoginActivity = MeizuSSOLoginActivity.this;
-            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9790g);
+            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9811g);
         }
 
         public void onGetToken(OAuthToken oAuthToken) {
@@ -31,7 +31,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             MeizuSSOLoginActivity meizuSSOLoginActivity = MeizuSSOLoginActivity.this;
-            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9790g);
+            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9811g);
         }
     }
 

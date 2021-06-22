@@ -12,35 +12,35 @@ import java.util.concurrent.TimeUnit;
 public class d implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Display f70153a;
+    public final Display f70257a;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f70161i;
+    public volatile boolean f70265i;
     public a l;
     public e m;
     public b n;
     public long o;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f70154b = new float[16];
+    public final float[] f70258b = new float[16];
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f70155c = new float[16];
+    public final float[] f70259c = new float[16];
 
     /* renamed from: d  reason: collision with root package name */
-    public float f70156d = -1.0f;
+    public float f70260d = -1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float[] f70157e = new float[16];
+    public final float[] f70261e = new float[16];
 
     /* renamed from: f  reason: collision with root package name */
-    public final float[] f70158f = new float[16];
+    public final float[] f70262f = new float[16];
 
     /* renamed from: g  reason: collision with root package name */
-    public final float[] f70159g = new float[16];
+    public final float[] f70263g = new float[16];
 
     /* renamed from: h  reason: collision with root package name */
-    public float f70160h = 1.0f;
+    public float f70264h = 1.0f;
     public final Object k = new Object();
     public volatile boolean p = true;
     public float[] q = new float[3];
@@ -52,13 +52,13 @@ public class d implements SensorEventListener {
     public d(e eVar, b bVar, Display display) {
         this.n = bVar;
         this.m = eVar;
-        this.f70153a = display;
+        this.f70257a = display;
         b(true);
-        Matrix.setIdentityM(this.f70157e, 0);
+        Matrix.setIdentityM(this.f70261e, 0);
     }
 
     public void a() {
-        if (this.f70161i) {
+        if (this.f70265i) {
             return;
         }
         this.j.a();
@@ -70,7 +70,7 @@ public class d implements SensorEventListener {
         this.p = true;
         this.m.b(this);
         this.m.a();
-        this.f70161i = true;
+        this.f70265i = true;
     }
 
     public void b(boolean z) {
@@ -93,7 +93,7 @@ public class d implements SensorEventListener {
         if (i2 + 16 > fArr.length) {
             throw new IllegalArgumentException("Not enough space to write the result");
         }
-        int rotation = this.f70153a.getRotation();
+        int rotation = this.f70257a.getRotation();
         if (rotation != 0) {
             if (rotation == 1) {
                 f2 = 90.0f;
@@ -102,42 +102,42 @@ public class d implements SensorEventListener {
             } else if (rotation == 3) {
                 f2 = 270.0f;
             }
-            if (f2 != this.f70156d) {
-                this.f70156d = f2;
-                Matrix.setRotateEulerM(this.f70155c, 0, 0.0f, 0.0f, -f2);
-                Matrix.setRotateEulerM(this.f70154b, 0, -90.0f, 0.0f, f2);
+            if (f2 != this.f70260d) {
+                this.f70260d = f2;
+                Matrix.setRotateEulerM(this.f70259c, 0, 0.0f, 0.0f, -f2);
+                Matrix.setRotateEulerM(this.f70258b, 0, -90.0f, 0.0f, f2);
             }
             synchronized (this.j) {
                 if (this.j.i()) {
                     double[] e2 = this.j.e(TimeUnit.NANOSECONDS.toSeconds(this.n.a() - this.o) + 0.057999998331069946d);
                     for (int i3 = 0; i3 < fArr.length; i3++) {
-                        this.f70158f[i3] = (float) e2[i3];
+                        this.f70262f[i3] = (float) e2[i3];
                     }
-                    Matrix.multiplyMM(this.f70159g, 0, this.f70155c, 0, this.f70158f, 0);
-                    Matrix.multiplyMM(fArr, i2, this.f70159g, 0, this.f70154b, 0);
-                    Matrix.setIdentityM(this.f70157e, 0);
-                    float[] fArr2 = this.f70157e;
-                    float f3 = this.f70160h;
+                    Matrix.multiplyMM(this.f70263g, 0, this.f70259c, 0, this.f70262f, 0);
+                    Matrix.multiplyMM(fArr, i2, this.f70263g, 0, this.f70258b, 0);
+                    Matrix.setIdentityM(this.f70261e, 0);
+                    float[] fArr2 = this.f70261e;
+                    float f3 = this.f70264h;
                     Matrix.translateM(fArr2, 0, 0.0f, (-f3) * 0.075f, f3 * 0.08f);
-                    Matrix.multiplyMM(this.f70158f, 0, this.f70157e, 0, fArr, i2);
-                    Matrix.translateM(fArr, i2, this.f70158f, 0, 0.0f, this.f70160h * 0.075f, 0.0f);
+                    Matrix.multiplyMM(this.f70262f, 0, this.f70261e, 0, fArr, i2);
+                    Matrix.translateM(fArr, i2, this.f70262f, 0, 0.0f, this.f70264h * 0.075f, 0.0f);
                     return;
                 }
                 return;
             }
         }
         f2 = 0.0f;
-        if (f2 != this.f70156d) {
+        if (f2 != this.f70260d) {
         }
         synchronized (this.j) {
         }
     }
 
     public void d() {
-        if (this.f70161i) {
+        if (this.f70265i) {
             this.m.a(this);
             this.m.b();
-            this.f70161i = false;
+            this.f70265i = false;
         }
     }
 

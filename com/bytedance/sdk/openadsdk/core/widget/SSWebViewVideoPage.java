@@ -16,32 +16,32 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 public class SSWebViewVideoPage extends SSWebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28667a;
+    public boolean f28749a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28668b;
+    public float f28750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28669c;
+    public boolean f28751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewParent f28670d;
+    public ViewParent f28752d;
 
     public SSWebViewVideoPage(Context context) {
         super(context);
-        this.f28667a = true;
-        this.f28668b = -1.0f;
-        this.f28669c = false;
+        this.f28749a = true;
+        this.f28750b = -1.0f;
+        this.f28751c = false;
     }
 
     public void a(boolean z) {
-        if (((ScrollView) this.f28670d).getScrollY() == 0) {
+        if (((ScrollView) this.f28752d).getScrollY() == 0) {
             if (z) {
                 a();
             } else {
                 b();
             }
-        } else if (!this.f28667a) {
+        } else if (!this.f28749a) {
             a();
         } else if (z) {
             b();
@@ -51,69 +51,69 @@ public class SSWebViewVideoPage extends SSWebView {
     }
 
     public void b() {
-        if (this.f28669c) {
+        if (this.f28751c) {
             return;
         }
-        this.f28670d.requestDisallowInterceptTouchEvent(false);
-        this.f28669c = true;
+        this.f28752d.requestDisallowInterceptTouchEvent(false);
+        this.f28751c = true;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         super.onOverScrolled(i2, i3, z, z2);
         if (i3 == 0 && z2) {
-            this.f28667a = true;
+            this.f28749a = true;
         } else {
-            this.f28667a = false;
+            this.f28749a = false;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView, android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f28670d == null) {
-            this.f28670d = a(this);
+        if (this.f28752d == null) {
+            this.f28752d = a(this);
         }
         if (motionEvent.getAction() == 0) {
-            this.f28668b = motionEvent.getY();
+            this.f28750b = motionEvent.getY();
         } else if (motionEvent.getAction() == 2) {
-            float y = motionEvent.getY() - this.f28668b;
+            float y = motionEvent.getY() - this.f28750b;
             int i2 = (y > 0.0f ? 1 : (y == 0.0f ? 0 : -1));
             if (i2 > 0) {
                 a(true);
             } else if (i2 != 0 && y < 0.0f) {
                 a(false);
             }
-            this.f28668b = motionEvent.getY();
+            this.f28750b = motionEvent.getY();
         } else if (motionEvent.getAction() == 1) {
             a();
-            this.f28669c = false;
+            this.f28751c = false;
         } else if (motionEvent.getAction() == 3) {
             a();
-            this.f28669c = false;
+            this.f28751c = false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public SSWebViewVideoPage(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28667a = true;
-        this.f28668b = -1.0f;
-        this.f28669c = false;
+        this.f28749a = true;
+        this.f28750b = -1.0f;
+        this.f28751c = false;
     }
 
     public void a() {
-        if (this.f28669c) {
+        if (this.f28751c) {
             return;
         }
-        this.f28670d.requestDisallowInterceptTouchEvent(true);
-        this.f28669c = true;
+        this.f28752d.requestDisallowInterceptTouchEvent(true);
+        this.f28751c = true;
     }
 
     public SSWebViewVideoPage(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f28667a = true;
-        this.f28668b = -1.0f;
-        this.f28669c = false;
+        this.f28749a = true;
+        this.f28750b = -1.0f;
+        this.f28751c = false;
     }
 
     private ViewParent a(View view) {

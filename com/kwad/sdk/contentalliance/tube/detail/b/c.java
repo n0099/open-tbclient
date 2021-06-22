@@ -14,10 +14,10 @@ import java.util.List;
 public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public WarpLinearLayout f33804b;
+    public WarpLinearLayout f33902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a f33805c = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.c.1
+    public b.a f33903c = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.c.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
         }
@@ -28,9 +28,9 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            if (((com.kwad.sdk.contentalliance.tube.detail.a.a) c.this).f33768a.f33770b.mTubeInfo != null) {
+            if (((com.kwad.sdk.contentalliance.tube.detail.a.a) c.this).f33866a.f33868b.mTubeInfo != null) {
                 c cVar = c.this;
-                cVar.a(((com.kwad.sdk.contentalliance.tube.detail.a.a) cVar).f33768a.f33770b.mTubeInfo.tagList);
+                cVar.a(((com.kwad.sdk.contentalliance.tube.detail.a.a) cVar).f33866a.f33868b.mTubeInfo.tagList);
             }
         }
 
@@ -53,17 +53,17 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     public void a(List<String> list) {
         WarpLinearLayout warpLinearLayout;
         int i2;
-        this.f33804b.removeAllViews();
+        this.f33902b.removeAllViews();
         if (list == null || list.isEmpty()) {
-            warpLinearLayout = this.f33804b;
+            warpLinearLayout = this.f33902b;
             i2 = 8;
         } else {
             for (String str : list) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.rightMargin = ao.a(o(), 8.0f);
-                this.f33804b.addView(a(str), layoutParams);
+                this.f33902b.addView(a(str), layoutParams);
             }
-            warpLinearLayout = this.f33804b;
+            warpLinearLayout = this.f33902b;
             i2 = 0;
         }
         warpLinearLayout.setVisibility(i2);
@@ -72,19 +72,19 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33768a.f33772d.add(this.f33805c);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33866a.f33870d.add(this.f33903c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33768a.f33772d.remove(this.f33805c);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33866a.f33870d.remove(this.f33903c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeHeaderTagListPresenter", "TubeHeaderTagListPresenter onCreate");
-        this.f33804b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
+        this.f33902b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
     }
 }

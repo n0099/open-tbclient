@@ -8,25 +8,25 @@ import com.tencent.tauth.IUiListener;
 public class SocialApi {
 
     /* renamed from: a  reason: collision with root package name */
-    public SocialApiIml f39991a;
+    public SocialApiIml f40094a;
 
     public SocialApi(QQToken qQToken) {
-        this.f39991a = new SocialApiIml(qQToken);
+        this.f40094a = new SocialApiIml(qQToken);
     }
 
     public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f39991a.ask(activity, bundle, iUiListener);
+        this.f40094a.ask(activity, bundle, iUiListener);
     }
 
     public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f39991a.gift(activity, bundle, iUiListener);
+        this.f40094a.gift(activity, bundle, iUiListener);
     }
 
     public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f39991a.invite(activity, bundle, iUiListener);
+        this.f40094a.invite(activity, bundle, iUiListener);
     }
 
     public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f39991a.story(activity, bundle, iUiListener);
+        this.f40094a.story(activity, bundle, iUiListener);
     }
 }

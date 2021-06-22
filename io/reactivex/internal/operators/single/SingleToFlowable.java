@@ -16,7 +16,7 @@ public final class SingleToFlowable<T> extends Flowable<T> {
         public static final long serialVersionUID = 187782011903685568L;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72334d;
+        public Disposable f72438d;
 
         public SingleToFlowableObserver(Subscriber<? super T> subscriber) {
             super(subscriber);
@@ -25,7 +25,7 @@ public final class SingleToFlowable<T> extends Flowable<T> {
         @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
         public void cancel() {
             super.cancel();
-            this.f72334d.dispose();
+            this.f72438d.dispose();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -35,8 +35,8 @@ public final class SingleToFlowable<T> extends Flowable<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72334d, disposable)) {
-                this.f72334d = disposable;
+            if (DisposableHelper.validate(this.f72438d, disposable)) {
+                this.f72438d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

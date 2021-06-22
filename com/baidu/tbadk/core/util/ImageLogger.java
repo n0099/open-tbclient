@@ -17,7 +17,7 @@ import d.a.c.e.n.a;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.z0.o;
+import d.a.n0.z0.o;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
@@ -167,7 +167,7 @@ public class ImageLogger {
             } else {
                 str4 = ImageLoggerHelper.getInstance().getTiebaIp();
                 if (!TextUtils.isEmpty(str4)) {
-                    ICDNProblemUploader.getInstance().insertErrorData(dVar.f42282i, str);
+                    ICDNProblemUploader.getInstance().insertErrorData(dVar.f42385i, str);
                 }
             }
         }
@@ -184,13 +184,13 @@ public class ImageLogger {
             }
         }
         if (z && z3) {
-            if (H && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53261d) {
+            if (H && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53368d) {
                 return;
             }
-            if (!H && j.t() && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53263f) {
+            if (!H && j.t() && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53370f) {
                 return;
             }
-            if (!H && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53262e) {
+            if (!H && j < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f53369e) {
                 return;
             }
         }
@@ -205,9 +205,9 @@ public class ImageLogger {
         logItem.b("requrl", str2);
         logItem.b("netlib", dVar.v == 0 ? "Apache" : "HttpManager");
         logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j));
-        logItem.b("connTime", String.valueOf(dVar.f42276c));
-        logItem.b("rspTime", String.valueOf(dVar.f42277d));
-        logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f42278e));
+        logItem.b("connTime", String.valueOf(dVar.f42379c));
+        logItem.b("rspTime", String.valueOf(dVar.f42380d));
+        logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f42381e));
         logItem.b("clientIp", CommonHelper.getIp());
         logItem.b("tiebaIp", str4);
         String domainIp = ImageLoggerHelper.getInstance().getDomainIp(str);
@@ -215,19 +215,19 @@ public class ImageLogger {
             logItem.b("domainIp", domainIp);
         }
         logItem.b("wifiDnsIp", dnsIp);
-        long j2 = dVar.f42276c;
+        long j2 = dVar.f42379c;
         if (j2 > 1500 || j2 < 0) {
             logItem.b("connBaidu", String.valueOf(connBaidu()));
         }
         logItem.b("memory", memoryUsage());
         logItem.b("task", taskStatus());
         logItem.b("status", String.valueOf(dVar.j));
-        logItem.b("up", String.valueOf(dVar.f42274a));
-        logItem.b("down", String.valueOf(dVar.f42275b));
+        logItem.b("up", String.valueOf(dVar.f42377a));
+        logItem.b("down", String.valueOf(dVar.f42378b));
         logItem.b("isCDN", b2 ? "1" : "0");
         logItem.b("isWebp", bool.booleanValue() ? "1" : "0");
         logItem.b("isMobileProxy", z2 ? "1" : "0");
-        logItem.b("exception", dVar.f42281h);
+        logItem.b("exception", dVar.f42384h);
         logItem.b("reason", str3);
         if (i2 != 0) {
             logItem.c("procType", Integer.valueOf(i2));
@@ -246,7 +246,7 @@ public class ImageLogger {
             logItem.b("httpDnsIp", dVar.l);
         }
         logItem.c("ipIndex", Integer.valueOf(dVar.q));
-        logItem.c("dnsSwitch1", Boolean.valueOf(c.f42268f));
+        logItem.c("dnsSwitch1", Boolean.valueOf(c.f42371f));
         logItem.c("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
         logItem.b("httpDnsIpList", dVar.p);
         logItem.c("dnsResolveType", dVar.m);
@@ -266,7 +266,7 @@ public class ImageLogger {
     }
 
     public static String memoryUsage() {
-        return d.a.m0.a0.c.k().v();
+        return d.a.n0.a0.c.k().v();
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j) {

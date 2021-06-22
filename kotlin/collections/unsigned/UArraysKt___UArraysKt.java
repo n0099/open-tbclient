@@ -2,6 +2,7 @@ package kotlin.collections.unsigned;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -672,7 +673,7 @@ public class UArraysKt___UArraysKt extends UArraysKt___UArraysJvmKt {
     /* renamed from: contentToString-2csIQuQ  reason: not valid java name */
     public static final String m1159contentToString2csIQuQ(byte[] bArr) {
         if (bArr != null) {
-            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(bArr != null ? Intrinsics.checkNotNullParameter(bArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, "[", "]", 0, null, null, 56, null);
+            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(bArr != null ? Intrinsics.checkNotNullParameter(bArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, null, 56, null);
             if (joinToString$default != null) {
                 return joinToString$default;
             }
@@ -685,7 +686,7 @@ public class UArraysKt___UArraysKt extends UArraysKt___UArraysJvmKt {
     /* renamed from: contentToString-XUkPCBk  reason: not valid java name */
     public static final String m1162contentToStringXUkPCBk(int[] iArr) {
         if (iArr != null) {
-            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(iArr != null ? Intrinsics.checkNotNullParameter(iArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, "[", "]", 0, null, null, 56, null);
+            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(iArr != null ? Intrinsics.checkNotNullParameter(iArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, null, 56, null);
             if (joinToString$default != null) {
                 return joinToString$default;
             }
@@ -698,7 +699,7 @@ public class UArraysKt___UArraysKt extends UArraysKt___UArraysJvmKt {
     /* renamed from: contentToString-d-6D3K8  reason: not valid java name */
     public static final String m1163contentToStringd6D3K8(short[] sArr) {
         if (sArr != null) {
-            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(sArr != null ? Intrinsics.checkNotNullParameter(sArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, "[", "]", 0, null, null, 56, null);
+            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(sArr != null ? Intrinsics.checkNotNullParameter(sArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, null, 56, null);
             if (joinToString$default != null) {
                 return joinToString$default;
             }
@@ -711,7 +712,7 @@ public class UArraysKt___UArraysKt extends UArraysKt___UArraysJvmKt {
     /* renamed from: contentToString-uLth9ew  reason: not valid java name */
     public static final String m1165contentToStringuLth9ew(long[] jArr) {
         if (jArr != null) {
-            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(jArr != null ? Intrinsics.checkNotNullParameter(jArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, "[", "]", 0, null, null, 56, null);
+            String joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(jArr != null ? Intrinsics.checkNotNullParameter(jArr, "v") : null, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, null, 56, null);
             if (joinToString$default != null) {
                 return joinToString$default;
             }

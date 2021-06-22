@@ -8,8 +8,8 @@ public class h implements com.kwad.sdk.core.c<l.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(l.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "progress", aVar.f35026a);
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f35027b);
+        com.kwad.sdk.utils.o.a(jSONObject, "progress", aVar.f35124a);
+        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f35125b);
         return jSONObject;
     }
 
@@ -19,7 +19,7 @@ public class h implements com.kwad.sdk.core.c<l.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f35026a = jSONObject.optDouble("progress");
-        aVar.f35027b = jSONObject.optInt("status");
+        aVar.f35124a = jSONObject.optDouble("progress");
+        aVar.f35125b = jSONObject.optInt("status");
     }
 }

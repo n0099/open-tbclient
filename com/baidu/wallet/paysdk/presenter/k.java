@@ -21,23 +21,23 @@ import java.util.Map;
 public abstract class k implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f25512a;
+    public Handler f25594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayBaseBeanActivity f25513b;
+    public PayBaseBeanActivity f25595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LoginBackListenerProxy f25514c;
+    public LoginBackListenerProxy f25596c;
 
     public k(PayBaseBeanActivity payBaseBeanActivity) {
-        this.f25513b = payBaseBeanActivity;
+        this.f25595b = payBaseBeanActivity;
     }
 
     private Handler f() {
-        if (this.f25512a == null) {
-            this.f25512a = new Handler(this.f25513b.getMainLooper());
+        if (this.f25594a == null) {
+            this.f25594a = new Handler(this.f25595b.getMainLooper());
         }
-        return this.f25512a;
+        return this.f25594a;
     }
 
     public abstract void a();
@@ -87,15 +87,15 @@ public abstract class k implements IBeanResponseCallback {
     public void a(int i2, int i3, String str) {
         if (i3 != 100035 && i3 != 100036) {
             if (i3 == 5003) {
-                AccountManager.getInstance(this.f25513b).logout();
+                AccountManager.getInstance(this.f25595b).logout();
                 WalletLoginHelper.getInstance().logout(false);
                 if (WalletLoginHelper.getInstance().isInnerPassLogin()) {
-                    GlobalUtils.toast(this.f25513b, str);
-                    this.f25514c = new LoginBackListenerProxy(this.f25513b, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.presenter.k.4
+                    GlobalUtils.toast(this.f25595b, str);
+                    this.f25596c = new LoginBackListenerProxy(this.f25595b, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.presenter.k.4
                         @Override // com.baidu.wallet.api.ILoginBackListener
                         public void onFail(int i4, String str2) {
                             if (i4 == 603) {
-                                WalletLoginHelper.getInstance().onlyLogin(k.this.f25514c);
+                                WalletLoginHelper.getInstance().onlyLogin(k.this.f25596c);
                             }
                         }
 
@@ -104,15 +104,15 @@ public abstract class k implements IBeanResponseCallback {
                             k.this.c();
                         }
                     });
-                    WalletLoginHelper.getInstance().login(this.f25514c);
+                    WalletLoginHelper.getInstance().login(this.f25596c);
                     return;
                 }
                 WalletLoginHelper.getInstance().handlerWalletError(5003);
-            } else if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.f25513b.getActivity(), i3, str, new WalletApiExtListener.ThirdPartyLoginListener() { // from class: com.baidu.wallet.paysdk.presenter.k.5
+            } else if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.f25595b.getActivity(), i3, str, new WalletApiExtListener.ThirdPartyLoginListener() { // from class: com.baidu.wallet.paysdk.presenter.k.5
                 @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
                 public void onCallFail(int i4, String str2) {
-                    PayCallBackManager.callBackClientCancel(k.this.f25513b.getActivity(), "WelcomeBaseActivity.onPrepareDialog().1");
-                    k.this.f25513b.finish();
+                    PayCallBackManager.callBackClientCancel(k.this.f25595b.getActivity(), "WelcomeBaseActivity.onPrepareDialog().1");
+                    k.this.f25595b.finish();
                 }
 
                 @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
@@ -122,11 +122,11 @@ public abstract class k implements IBeanResponseCallback {
             })) {
                 return;
             }
-            GlobalUtils.toast(this.f25513b, str);
+            GlobalUtils.toast(this.f25595b, str);
             e();
             return;
         }
-        PassUtil.passNormalized(this.f25513b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.presenter.k.3
+        PassUtil.passNormalized(this.f25595b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.presenter.k.3
             @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
             public boolean onNormalize(Context context, int i4, Map<String, String> map) {
                 if (super.onNormalize(context, i4, map)) {

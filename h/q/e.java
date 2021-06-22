@@ -5,7 +5,7 @@ import h.j;
 public class e<T> extends j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<T> f71984e;
+    public final h.e<T> f72088e;
 
     public e(j<? super T> jVar) {
         this(jVar, true);
@@ -13,21 +13,21 @@ public class e<T> extends j<T> {
 
     @Override // h.e
     public void onCompleted() {
-        this.f71984e.onCompleted();
+        this.f72088e.onCompleted();
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f71984e.onError(th);
+        this.f72088e.onError(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f71984e.onNext(t);
+        this.f72088e.onNext(t);
     }
 
     public e(j<? super T> jVar, boolean z) {
         super(jVar, z);
-        this.f71984e = new d(jVar);
+        this.f72088e = new d(jVar);
     }
 }

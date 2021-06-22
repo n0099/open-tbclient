@@ -7,22 +7,22 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.b.b;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34224a;
+    public Context f34322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34225b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f34323b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34226c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
+    public ServiceConnection f34324c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "onServiceConnected");
-                b.this.f34225b.put(iBinder);
+                b.this.f34323b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -34,7 +34,7 @@ public class b {
     };
 
     public b(Context context) {
-        this.f34224a = context;
+        this.f34322a = context;
     }
 
     public String a() {
@@ -44,18 +44,18 @@ public class b {
         try {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.f34224a.bindService(intent, this.f34226c, 1)) {
+            if (this.f34322a.bindService(intent, this.f34324c, 1)) {
                 try {
-                    b.a aVar = new b.a(this.f34225b.take());
+                    b.a aVar = new b.a(this.f34323b.take());
                     str = aVar.a();
                     boolean b2 = aVar.b();
                     com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
-                    context = this.f34224a;
-                    serviceConnection = this.f34226c;
+                    context = this.f34322a;
+                    serviceConnection = this.f34324c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
-                    context = this.f34224a;
-                    serviceConnection = this.f34226c;
+                    context = this.f34322a;
+                    serviceConnection = this.f34324c;
                 }
                 context.unbindService(serviceConnection);
             }

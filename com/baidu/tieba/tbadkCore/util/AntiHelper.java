@@ -16,8 +16,8 @@ import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.VideoItemData;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.s.a;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.s.a;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
@@ -34,9 +34,9 @@ public class AntiHelper {
 
     /* loaded from: classes5.dex */
     public static class a implements a.e {
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            d.a.m0.r.d0.b.j().t("anti_vcode_no_longer_tip", true);
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            d.a.n0.r.d0.b.j().t("anti_vcode_no_longer_tip", true);
             aVar.dismiss();
         }
     }
@@ -45,28 +45,28 @@ public class AntiHelper {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f20926e;
+        public final /* synthetic */ k f21008e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f20927f;
+        public final /* synthetic */ Context f21009f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f20928g;
+        public final /* synthetic */ BlockPopInfoData f21010g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
-            this.f20926e = kVar;
-            this.f20927f = context;
-            this.f20928g = blockPopInfoData;
+            this.f21008e = kVar;
+            this.f21009f = context;
+            this.f21010g = blockPopInfoData;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            k kVar = this.f20926e;
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            k kVar = this.f21008e;
             if (kVar != null) {
                 kVar.onPositiveButtonClick(aVar);
             }
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20927f, this.f20928g.ahead_url);
+            d.a.n0.l.a.l(this.f21009f, this.f21010g.ahead_url);
         }
     }
 
@@ -74,15 +74,15 @@ public class AntiHelper {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f20929e;
+        public final /* synthetic */ k f21011e;
 
         public c(k kVar) {
-            this.f20929e = kVar;
+            this.f21011e = kVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            k kVar = this.f20929e;
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            k kVar = this.f21011e;
             if (kVar != null) {
                 kVar.onNavigationButtonClick(aVar);
             }
@@ -94,23 +94,23 @@ public class AntiHelper {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20930e;
+        public final /* synthetic */ Context f21012e;
 
         public d(Context context) {
-            this.f20930e = context;
+            this.f21012e = context;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20930e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.a.n0.l.a.l(this.f21012e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
     /* loaded from: classes5.dex */
     public static class e implements a.e {
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -119,31 +119,31 @@ public class AntiHelper {
     public static class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20931e;
+        public final /* synthetic */ Context f21013e;
 
         public f(Context context) {
-            this.f20931e = context;
+            this.f21013e = context;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20931e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.a.n0.l.a.l(this.f21013e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
     /* loaded from: classes5.dex */
     public static class g implements a.e {
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
     /* loaded from: classes5.dex */
     public static class h implements a.e {
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -152,42 +152,42 @@ public class AntiHelper {
     public static class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20932e;
+        public final /* synthetic */ Context f21014e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f20933f;
+        public final /* synthetic */ PageType f21015f;
 
         public i(Context context, PageType pageType) {
-            this.f20932e = context;
-            this.f20933f = pageType;
+            this.f21014e = context;
+            this.f21015f = pageType;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f20932e, this.f20933f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f21014e, this.f21015f)));
         }
     }
 
     /* loaded from: classes5.dex */
     public static class j implements a.e {
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
     /* loaded from: classes5.dex */
     public interface k {
-        void onNavigationButtonClick(d.a.m0.r.s.a aVar);
+        void onNavigationButtonClick(d.a.n0.r.s.a aVar);
 
-        void onPositiveButtonClick(d.a.m0.r.s.a aVar);
+        void onPositiveButtonClick(d.a.n0.r.s.a aVar);
     }
 
     public static void A(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         String string;
         String string2;
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {
@@ -301,19 +301,19 @@ public class AntiHelper {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair("nomenu", "1"));
         arrayList.add(new Pair("noshare", "1"));
-        d.a.m0.l.a.l(context, d.a.m0.l.a.c(str, arrayList));
+        d.a.n0.l.a.l(context, d.a.n0.l.a.c(str, arrayList));
     }
 
     public static void q() {
-        d.a.m0.r.d0.b.j().C("anti_vcode_no_longer_tip");
+        d.a.n0.r.d0.b.j().C("anti_vcode_no_longer_tip");
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
-        if (d.a.m0.r.d0.b.j().g("anti_vcode_no_longer_tip", false)) {
+        if (d.a.n0.r.d0.b.j().g("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         aVar.setMessage(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
         if (!isHas_chance) {
             aVar.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
@@ -326,15 +326,15 @@ public class AntiHelper {
         }
     }
 
-    public static d.a.m0.r.s.a s(Context context, BlockPopInfoData blockPopInfoData) {
+    public static d.a.n0.r.s.a s(Context context, BlockPopInfoData blockPopInfoData) {
         return t(context, blockPopInfoData, null);
     }
 
-    public static d.a.m0.r.s.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
+    public static d.a.n0.r.s.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
         if (blockPopInfoData == null) {
             return null;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         if (blockPopInfoData.block_info == null) {
             blockPopInfoData.block_info = "";
         }
@@ -348,11 +348,11 @@ public class AntiHelper {
         return null;
     }
 
-    public static d.a.m0.r.s.a u(Context context, String str) {
+    public static d.a.n0.r.s.a u(Context context, String str) {
         return v(context, str, 0);
     }
 
-    public static d.a.m0.r.s.a v(Context context, String str, int i2) {
+    public static d.a.n0.r.s.a v(Context context, String str, int i2) {
         String str2;
         if (str == null) {
             str = "";
@@ -368,7 +368,7 @@ public class AntiHelper {
         return s(context, blockPopInfoData);
     }
 
-    public static d.a.m0.r.s.a w(Context context, String str, int i2, k kVar) {
+    public static d.a.n0.r.s.a w(Context context, String str, int i2, k kVar) {
         String str2;
         if (str == null) {
             str = "";
@@ -407,7 +407,7 @@ public class AntiHelper {
     public static void y(Context context, AntiData antiData, OperationType operationType) {
         String format;
         String string;
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {
@@ -434,7 +434,7 @@ public class AntiHelper {
     public static void z(Context context, AntiData antiData, OperationType operationType) {
         String string;
         String string2;
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {

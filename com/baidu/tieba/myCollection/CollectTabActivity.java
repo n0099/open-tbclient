@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.a.m0.a.x;
-import d.a.m0.e0.c;
-import d.a.n0.x1.b;
+import d.a.n0.a.x;
+import d.a.n0.e0.c;
+import d.a.o0.x1.b;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
-    public d.a.n0.x1.a mController;
+    public d.a.o0.x1.a mController;
     public CustomMessageListener mEditorEnableListener = new a(2022209);
 
     /* loaded from: classes4.dex */
@@ -68,13 +68,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a081";
     }
 
     public void initTabsOnActivityCreated() {
-        d.a.m0.q.a aVar = new d.a.m0.q.a(getPageContext().getPageActivity());
+        d.a.n0.q.a aVar = new d.a.n0.q.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.b() != null) {
@@ -82,7 +82,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             if (fragmentTabStructure == null) {
                 return;
             }
-            fragmentTabStructure.f53008a.setArguments(new Bundle());
+            fragmentTabStructure.f53115a.setArguments(new Bundle());
         }
         this.mController.h(aVar.c());
     }
@@ -107,7 +107,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                d.a.n0.x1.c.a("c14067");
+                d.a.o0.x1.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -117,7 +117,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.mController = new d.a.n0.x1.a(this);
+        this.mController = new d.a.o0.x1.a(this);
         registerListener(this.mEditorEnableListener);
         initTabsOnActivityCreated();
         checkSchemeFromIntent(getIntent());
@@ -139,7 +139,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.a.n0.x1.c.a("c14061");
+        d.a.o0.x1.c.a("c14061");
         b.b().f(true);
         b.b().e(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);

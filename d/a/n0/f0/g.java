@@ -1,47 +1,41 @@
 package d.a.n0.f0;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.ContentResolver;
+import android.net.Uri;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
-        Collection<String> collection;
-        if (collectionArr == null || collectionArr.length != 1 || (collection = collectionArr[0]) == null) {
+/* loaded from: classes3.dex */
+public class g {
+    public static String a() {
+        return d.a.n0.r.d0.b.j().h();
+    }
+
+    public static ContentResolver b() {
+        return d.a.n0.r.d0.b.j().i();
+    }
+
+    public static OrmObject c(String str, Class<?> cls) {
+        if (str == null || cls == null) {
             return null;
         }
-        HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap = new HashMap<>(collection.size());
-        for (String str : collection) {
-            try {
-                InetAddress[] allByName = InetAddress.getAllByName(str);
-                if (allByName != null) {
-                    ArrayList arrayList = new ArrayList(allByName.length);
-                    for (InetAddress inetAddress : allByName) {
-                        if (inetAddress != null) {
-                            DnsProxyResponseData.DnsProxyIpData dnsProxyIpData = new DnsProxyResponseData.DnsProxyIpData();
-                            dnsProxyIpData.setIp(inetAddress.getHostAddress());
-                            arrayList.add(dnsProxyIpData);
-                        }
-                    }
-                    hashMap.put(str, arrayList);
-                }
-            } catch (UnknownHostException e2) {
-                BdLog.detailException(e2);
-                d.c().a("sysdns_get", e2.getMessage());
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                d.c().a("sysdns_get", th.getMessage());
-            }
+        return OrmObject.objectWithJsonStr(d(str), cls);
+    }
+
+    public static String d(String str) {
+        return e(Uri.parse(a() + str));
+    }
+
+    public static String e(Uri uri) {
+        String str;
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            str = b().getType(uri);
+        } catch (SecurityException e2) {
+            BdLog.detailException(e2);
+            str = null;
         }
-        return hashMap;
+        long currentTimeMillis2 = System.currentTimeMillis();
+        f.f("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+        return str;
     }
 }

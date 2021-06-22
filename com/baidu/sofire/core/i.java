@@ -7,14 +7,13 @@ public final class i {
         try {
             com.baidu.sofire.a.a a2 = com.baidu.sofire.a.a.a(context);
             c a3 = c.a(context);
-            com.baidu.sofire.b.a();
             for (ApkInfo apkInfo : a2.a()) {
                 if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
                     a3.a(apkInfo.packageName);
                 }
             }
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
     }
 }

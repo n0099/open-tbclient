@@ -25,22 +25,22 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PayWayInfo> f72920a;
+        public List<PayWayInfo> f73024a;
 
         /* renamed from: b  reason: collision with root package name */
-        public i.a.a.e.l.a f72921b;
+        public i.a.a.e.l.a f73025b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f72922c;
+        public AppCustomExpand f73026c;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f72924e;
+        public AbsViewEventHandler f73028e;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f72923d = false;
+        public boolean f73027d = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public PaySource f72925f = PaySource.UNKNOW;
+        public PaySource f73029f = PaySource.UNKNOW;
     }
 
     void setCallback(a aVar);

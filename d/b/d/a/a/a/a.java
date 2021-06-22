@@ -18,14 +18,14 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1897a f69573a = null;
+    public static InterfaceC1900a f69677a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69574b = false;
+    public static boolean f69678b = false;
 
     /* renamed from: d.b.d.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1897a {
+    public interface InterfaceC1900a {
         boolean a();
 
         boolean b();
@@ -75,7 +75,7 @@ public class a {
     }
 
     public static String c(String str, List<Pair<String, String>> list) {
-        if (TextUtils.isEmpty(str) || f69573a == null || f69574b) {
+        if (TextUtils.isEmpty(str) || f69677a == null || f69678b) {
             return str;
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -99,12 +99,12 @@ public class a {
             }
             String encodeToString = Base64.encodeToString(a2, 2);
             LinkedList linkedList2 = new LinkedList();
-            if (f69573a.a()) {
+            if (f69677a.a()) {
                 LinkedList linkedList3 = new LinkedList();
                 linkedList3.add(encodeToString);
                 linkedList2.add(new Pair("ss_queries", linkedList3));
             }
-            if (f69573a.b() && list != null) {
+            if (f69677a.b() && list != null) {
                 list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
             }
             if (!linkedHashMap.isEmpty()) {
@@ -189,7 +189,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (f69573a.c()) {
+        if (f69677a.c()) {
             return true;
         }
         map.remove(str);

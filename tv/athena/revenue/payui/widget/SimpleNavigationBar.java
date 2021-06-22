@@ -14,16 +14,16 @@ import i.a.a.e.e;
 public class SimpleNavigationBar extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f72985e;
+    public TextView f73089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f72986f;
+    public TextView f73090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f72987g;
+    public ImageView f73091g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f72988h;
+    public c f73092h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -32,8 +32,8 @@ public class SimpleNavigationBar extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SimpleNavigationBar.this.f72988h != null) {
-                SimpleNavigationBar.this.f72988h.D();
+            if (SimpleNavigationBar.this.f73092h != null) {
+                SimpleNavigationBar.this.f73092h.D();
             }
         }
     }
@@ -45,8 +45,8 @@ public class SimpleNavigationBar extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SimpleNavigationBar.this.f72988h != null) {
-                SimpleNavigationBar.this.f72988h.onRightClick();
+            if (SimpleNavigationBar.this.f73092h != null) {
+                SimpleNavigationBar.this.f73092h.onRightClick();
             }
         }
     }
@@ -64,30 +64,30 @@ public class SimpleNavigationBar extends FrameLayout {
 
     public final void b(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(e.pay_ui_layout_navigation, (ViewGroup) this, true);
-        this.f72987g = (ImageView) findViewById(d.iv_back);
-        this.f72985e = (TextView) findViewById(d.tv_title);
-        this.f72986f = (TextView) findViewById(d.tv_right);
-        this.f72987g.setOnClickListener(new a());
-        this.f72986f.setOnClickListener(new b());
+        this.f73091g = (ImageView) findViewById(d.iv_back);
+        this.f73089e = (TextView) findViewById(d.tv_title);
+        this.f73090f = (TextView) findViewById(d.tv_right);
+        this.f73091g.setOnClickListener(new a());
+        this.f73090f.setOnClickListener(new b());
     }
 
     public void setCallback(c cVar) {
-        this.f72988h = cVar;
+        this.f73092h = cVar;
     }
 
     public void setRight(String str) {
         if (str == null || str.isEmpty()) {
             return;
         }
-        this.f72986f.setText(str);
-        this.f72986f.setVisibility(0);
+        this.f73090f.setText(str);
+        this.f73090f.setVisibility(0);
     }
 
     public void setTitle(String str) {
         if (str != null && !str.isEmpty()) {
-            this.f72985e.setText(str);
+            this.f73089e.setText(str);
         }
-        this.f72985e.setVisibility(0);
+        this.f73089e.setVisibility(0);
     }
 
     public SimpleNavigationBar(Context context, AttributeSet attributeSet) {

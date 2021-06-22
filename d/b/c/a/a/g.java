@@ -6,11 +6,11 @@ import java.io.IOException;
 public abstract class g implements q {
 
     /* renamed from: e  reason: collision with root package name */
-    public final q f68896e;
+    public final q f69000e;
 
     public g(q qVar) {
         if (qVar != null) {
-            this.f68896e = qVar;
+            this.f69000e = qVar;
             return;
         }
         throw new IllegalArgumentException("delegate == null");
@@ -18,19 +18,19 @@ public abstract class g implements q {
 
     @Override // d.b.c.a.a.q
     public r a() {
-        return this.f68896e.a();
+        return this.f69000e.a();
     }
 
     @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f68896e.close();
+        this.f69000e.close();
     }
 
     public final q n() {
-        return this.f68896e;
+        return this.f69000e;
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.f68896e.toString() + SmallTailInfo.EMOTION_SUFFIX;
+        return getClass().getSimpleName() + "(" + this.f69000e.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

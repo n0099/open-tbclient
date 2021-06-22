@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f12654e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+    public HttpMessageListener f12736e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
 
     /* loaded from: classes3.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -37,7 +37,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
             if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            this.mActDialogData = d.a.n0.e2.b.a(optJSONObject);
+            this.mActDialogData = d.a.o0.e2.b.a(optJSONObject);
         }
 
         public CustomDialogData getActivityDialogData() {
@@ -77,9 +77,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f12654e.setTag(getUniqueId());
-        this.f12654e.setSelfListener(true);
-        registerListener(this.f12654e);
+        this.f12736e.setTag(getUniqueId());
+        this.f12736e.setSelfListener(true);
+        registerListener(this.f12736e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -89,7 +89,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f12654e);
+        MessageManager.getInstance().unRegisterListener(this.f12736e);
         return false;
     }
 

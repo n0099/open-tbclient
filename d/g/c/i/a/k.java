@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public abstract class k<V> implements l<V> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Logger f70088e = Logger.getLogger(k.class.getName());
+    public static final Logger f70192e = Logger.getLogger(k.class.getName());
 
     /* loaded from: classes6.dex */
     public static final class a<V> extends AbstractFuture.i<V> {
@@ -23,22 +23,22 @@ public abstract class k<V> implements l<V> {
     public static class b<V> extends k<V> {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b<Object> f70089g = new b<>(null);
+        public static final b<Object> f70193g = new b<>(null);
 
         /* renamed from: f  reason: collision with root package name */
-        public final V f70090f;
+        public final V f70194f;
 
         public b(V v) {
-            this.f70090f = v;
+            this.f70194f = v;
         }
 
         @Override // d.g.c.i.a.k, java.util.concurrent.Future
         public V get() {
-            return this.f70090f;
+            return this.f70194f;
         }
 
         public String toString() {
-            return super.toString() + "[status=SUCCESS, result=[" + this.f70090f + "]]";
+            return super.toString() + "[status=SUCCESS, result=[" + this.f70194f + "]]";
         }
     }
 
@@ -49,7 +49,7 @@ public abstract class k<V> implements l<V> {
         try {
             executor.execute(runnable);
         } catch (RuntimeException e2) {
-            Logger logger = f70088e;
+            Logger logger = f70192e;
             Level level = Level.SEVERE;
             logger.log(level, "RuntimeException while executing runnable " + runnable + " with executor " + executor, (Throwable) e2);
         }

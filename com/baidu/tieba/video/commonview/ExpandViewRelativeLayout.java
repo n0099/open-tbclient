@@ -8,19 +8,19 @@ import android.widget.RelativeLayout;
 public class ExpandViewRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21298e;
+    public a f21380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21299f;
+    public boolean f21381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21300g;
+    public float f21382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21301h;
+    public float f21383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21302i;
+    public boolean f21384i;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -39,15 +39,15 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public final void a(Context context) {
-        this.f21302i = true;
+        this.f21384i = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f21300g = motionEvent.getY();
-            this.f21301h = motionEvent.getY();
-            a aVar = this.f21298e;
+            this.f21382g = motionEvent.getY();
+            this.f21383h = motionEvent.getY();
+            a aVar = this.f21380e;
             if (aVar != null) {
                 aVar.c(motionEvent.getY());
             }
@@ -59,17 +59,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action != 0) {
-            if (action == 2 && this.f21298e != null) {
-                this.f21300g = motionEvent.getY();
-                boolean a2 = this.f21298e.a(motionEvent.getY() - this.f21300g, motionEvent.getY(), motionEvent.getY() - this.f21301h > 0.0f ? 1 : 2);
-                this.f21299f = a2;
+            if (action == 2 && this.f21380e != null) {
+                this.f21382g = motionEvent.getY();
+                boolean a2 = this.f21380e.a(motionEvent.getY() - this.f21382g, motionEvent.getY(), motionEvent.getY() - this.f21383h > 0.0f ? 1 : 2);
+                this.f21381f = a2;
                 return a2;
             }
         } else {
-            a aVar = this.f21298e;
+            a aVar = this.f21380e;
             if (aVar != null) {
                 boolean a3 = aVar.a(0.0f, motionEvent.getY(), 0);
-                this.f21299f = a3;
+                this.f21381f = a3;
                 return a3;
             }
         }
@@ -78,7 +78,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        if (this.f21302i) {
+        if (this.f21384i) {
             super.onLayout(z, i2, i3, i4, i5);
         }
     }
@@ -89,16 +89,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         int action = motionEvent.getAction();
         if (action != 1) {
             if (action == 2) {
-                float y = motionEvent.getY() - this.f21300g;
-                int i2 = motionEvent.getY() - this.f21301h > 0.0f ? 1 : 2;
-                if (this.f21299f && (aVar = this.f21298e) != null) {
+                float y = motionEvent.getY() - this.f21382g;
+                int i2 = motionEvent.getY() - this.f21383h > 0.0f ? 1 : 2;
+                if (this.f21381f && (aVar = this.f21380e) != null) {
                     aVar.d(motionEvent.getY(), y, i2);
                     return true;
                 }
             }
         } else {
-            this.f21299f = false;
-            a aVar2 = this.f21298e;
+            this.f21381f = false;
+            a aVar2 = this.f21380e;
             if (aVar2 != null) {
                 aVar2.b();
             }
@@ -112,11 +112,11 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.f21302i = z;
+        this.f21384i = z;
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f21298e = aVar;
+        this.f21380e = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet) {

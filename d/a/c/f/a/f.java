@@ -3,10 +3,10 @@ package d.a.c.f.a;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f42683a = new f();
+    public static f f42786a = new f();
 
     public static f b() {
-        return f42683a;
+        return f42786a;
     }
 
     public a a(int i2) {

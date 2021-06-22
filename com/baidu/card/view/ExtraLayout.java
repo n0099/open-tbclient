@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.r.f0.m.b;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.f0.m.b;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
 
@@ -65,7 +65,7 @@ public class ExtraLayout extends RelativeLayout {
         this.f4391e.setText(getResources().getString(R.string.download_just_now));
     }
 
-    public void setData(d.a.m0.r.q.a aVar) {
+    public void setData(d.a.n0.r.q.a aVar) {
         boolean z;
         a2 i2 = aVar.i();
         boolean z2 = true;

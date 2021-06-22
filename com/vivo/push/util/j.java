@@ -7,14 +7,14 @@ import android.graphics.Color;
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f40387a;
+    public Resources f40490a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40388b;
+    public String f40491b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f40387a.getIdentifier("push_notify", "layout", this.f40388b);
+        return this.f40490a.getIdentifier("push_notify", "layout", this.f40491b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -22,17 +22,17 @@ public final class j implements BaseNotifyLayoutAdapter {
         Resources resources;
         String str;
         String str2;
-        if (k.f40395g) {
-            resources = this.f40387a;
-            str = this.f40388b;
+        if (k.f40498g) {
+            resources = this.f40490a;
+            str = this.f40491b;
             str2 = "notify_icon_rom30";
-        } else if (k.f40394f) {
-            resources = this.f40387a;
-            str = this.f40388b;
+        } else if (k.f40497f) {
+            resources = this.f40490a;
+            str = this.f40491b;
             str2 = "notify_icon_rom20";
         } else {
-            resources = this.f40387a;
-            str = this.f40388b;
+            resources = this.f40490a;
+            str = this.f40491b;
             str2 = "notify_icon";
         }
         return resources.getIdentifier(str2, "id", str);
@@ -48,13 +48,13 @@ public final class j implements BaseNotifyLayoutAdapter {
             i2 = 0;
         }
         if (i2 > 0) {
-            return this.f40387a.getColor(i2);
+            return this.f40490a.getColor(i2);
         }
-        if (k.f40395g) {
+        if (k.f40498g) {
             return -1;
         }
-        if (k.f40394f) {
-            if (k.f40395g) {
+        if (k.f40497f) {
+            if (k.f40498g) {
                 return Color.parseColor("#ff999999");
             }
             return -1;
@@ -64,7 +64,7 @@ public final class j implements BaseNotifyLayoutAdapter {
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
-        this.f40388b = context.getPackageName();
-        this.f40387a = context.getResources();
+        this.f40491b = context.getPackageName();
+        this.f40490a = context.getResources();
     }
 }

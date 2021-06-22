@@ -10,7 +10,7 @@ public class b extends d.m.a.a.b {
         super(context, str);
         this.q = null;
         this.q = context;
-        this.f70257c = d.m.a.a.a.a() + "/v2/s" + q();
+        this.f70361c = d.m.a.a.a.a() + "/v2/s" + q();
     }
 
     @Override // d.m.a.a.b
@@ -21,13 +21,13 @@ public class b extends d.m.a.a.b {
             try {
                 if (bArr.length > 0 && (str = (String) com.pgl.sys.ces.a.meta(200, this.q, bArr)) != null && str.length() > 0) {
                     if (str.equalsIgnoreCase("AYE")) {
-                        com.pgl.sys.ces.b.f38795d = true;
+                        com.pgl.sys.ces.b.f38893d = true;
                         return z;
                     }
-                    com.pgl.sys.ces.b.f38795d = false;
+                    com.pgl.sys.ces.b.f38893d = false;
                 }
             } catch (Throwable unused) {
-                com.pgl.sys.ces.b.f38795d = false;
+                com.pgl.sys.ces.b.f38893d = false;
                 return false;
             }
         }

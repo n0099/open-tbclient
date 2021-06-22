@@ -5,10 +5,10 @@ import androidx.annotation.Nullable;
 public class MergePaths implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32015a;
+    public final String f32113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MergePathsMode f32016b;
+    public final MergePathsMode f32114b;
 
     /* loaded from: classes6.dex */
     public enum MergePathsMode {
@@ -24,8 +24,8 @@ public class MergePaths implements b {
     }
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
-        this.f32015a = str;
-        this.f32016b = mergePathsMode;
+        this.f32113a = str;
+        this.f32114b = mergePathsMode;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -39,14 +39,14 @@ public class MergePaths implements b {
     }
 
     public String a() {
-        return this.f32015a;
+        return this.f32113a;
     }
 
     public MergePathsMode b() {
-        return this.f32016b;
+        return this.f32114b;
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.f32016b + '}';
+        return "MergePaths{mode=" + this.f32114b + '}';
     }
 }

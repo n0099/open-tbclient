@@ -3,6 +3,7 @@ package com.kwad.sdk.utils;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.kwad.sdk.KsAdSDKImpl;
 /* loaded from: classes7.dex */
 public final class s {
@@ -11,85 +12,85 @@ public final class s {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37544a;
+        public int f37642a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37545b;
+        public int f37643b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37546c;
+        public int f37644c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f37547d;
+        public int f37645d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f37548e;
+        public int f37646e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f37549f;
+        public int f37647f;
 
         public a() {
-            this.f37544a = -1;
-            this.f37545b = -1;
-            this.f37546c = -1;
-            this.f37547d = -1;
-            this.f37548e = -1;
-            this.f37549f = -1;
+            this.f37642a = -1;
+            this.f37643b = -1;
+            this.f37644c = -1;
+            this.f37645d = -1;
+            this.f37646e = -1;
+            this.f37647f = -1;
         }
 
         public a(int i2, int i3) {
-            this.f37544a = -1;
-            this.f37545b = -1;
-            this.f37546c = -1;
-            this.f37547d = -1;
-            this.f37548e = -1;
-            this.f37549f = -1;
-            this.f37544a = i2;
-            this.f37545b = i3;
+            this.f37642a = -1;
+            this.f37643b = -1;
+            this.f37644c = -1;
+            this.f37645d = -1;
+            this.f37646e = -1;
+            this.f37647f = -1;
+            this.f37642a = i2;
+            this.f37643b = i3;
         }
 
         public int a() {
-            return this.f37544a;
+            return this.f37642a;
         }
 
         public void a(float f2, float f3) {
-            this.f37546c = (int) f2;
-            this.f37547d = (int) f3;
+            this.f37644c = (int) f2;
+            this.f37645d = (int) f3;
         }
 
         public void a(int i2, int i3) {
-            this.f37544a = i2;
-            this.f37545b = i3;
+            this.f37642a = i2;
+            this.f37643b = i3;
         }
 
         public int b() {
-            return this.f37545b;
+            return this.f37643b;
         }
 
         public void b(float f2, float f3) {
-            this.f37548e = (int) f2;
-            this.f37549f = (int) f3;
+            this.f37646e = (int) f2;
+            this.f37647f = (int) f3;
         }
 
         public int c() {
-            return this.f37546c;
+            return this.f37644c;
         }
 
         public int d() {
-            return this.f37547d;
+            return this.f37645d;
         }
 
         public int e() {
-            return this.f37548e;
+            return this.f37646e;
         }
 
         public int f() {
-            return this.f37549f;
+            return this.f37647f;
         }
 
         @NonNull
         public String toString() {
-            return "[" + this.f37544a + "," + this.f37545b + "," + this.f37546c + "," + this.f37547d + "," + this.f37548e + "," + this.f37549f + "]";
+            return PreferencesUtil.LEFT_MOUNT + this.f37642a + "," + this.f37643b + "," + this.f37644c + "," + this.f37645d + "," + this.f37646e + "," + this.f37647f + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

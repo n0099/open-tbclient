@@ -14,24 +14,24 @@ import javax.crypto.spec.SecretKeySpec;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f39185a = {91, -62};
+    public static final byte[] f39283a = {91, -62};
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f39186b = null;
+    public static Cipher f39284b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f39187c = null;
+    public static Cipher f39285c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39188d = String.format("AES/%s/PKCS7Padding", "ECB");
+    public static String f39286d = String.format("AES/%s/PKCS7Padding", "ECB");
 
     /* renamed from: e  reason: collision with root package name */
-    public static byte[] f39189e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+    public static byte[] f39287e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0471a extends Exception {
-        public C0471a(String str, Throwable th) {
+    public static class C0474a extends Exception {
+        public C0474a(String str, Throwable th) {
             super(str, th);
         }
     }
@@ -44,18 +44,18 @@ public final class a {
     }
 
     @SuppressLint({"TrulyRandom"})
-    public static synchronized Cipher a() throws C0471a {
+    public static synchronized Cipher a() throws C0474a {
         synchronized (a.class) {
-            if (f39186b != null) {
-                return f39186b;
+            if (f39284b != null) {
+                return f39284b;
             }
             try {
-                Cipher cipher = Cipher.getInstance(f39188d);
-                cipher.init(1, new SecretKeySpec(f39189e, "AES"));
-                f39186b = cipher;
+                Cipher cipher = Cipher.getInstance(f39286d);
+                cipher.init(1, new SecretKeySpec(f39287e, "AES"));
+                f39284b = cipher;
                 return cipher;
             } catch (Exception e2) {
-                throw new C0471a("Fail To Init Cipher", e2);
+                throw new C0474a("Fail To Init Cipher", e2);
             }
         }
     }
@@ -64,7 +64,7 @@ public final class a {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
         try {
-            dataOutputStream.write(f39185a);
+            dataOutputStream.write(f39283a);
             dataOutputStream.writeByte(1);
             dataOutputStream.writeByte(2);
             dataOutputStream.write(c(com.qq.e.comm.a.a(bArr)));
@@ -75,18 +75,18 @@ public final class a {
         }
     }
 
-    public static synchronized Cipher b() throws C0471a {
+    public static synchronized Cipher b() throws C0474a {
         synchronized (a.class) {
-            if (f39187c != null) {
-                return f39187c;
+            if (f39285c != null) {
+                return f39285c;
             }
             try {
-                Cipher cipher = Cipher.getInstance(f39188d);
-                cipher.init(2, new SecretKeySpec(f39189e, "AES"));
-                f39187c = cipher;
+                Cipher cipher = Cipher.getInstance(f39286d);
+                cipher.init(2, new SecretKeySpec(f39287e, "AES"));
+                f39285c = cipher;
                 return cipher;
             } catch (Exception e2) {
-                throw new C0471a("Fail To Init Cipher", e2);
+                throw new C0474a("Fail To Init Cipher", e2);
             }
         }
     }
@@ -99,7 +99,7 @@ public final class a {
         try {
             byte[] bArr2 = new byte[4];
             new DataInputStream(new ByteArrayInputStream(bArr)).read(bArr2);
-            if (f39185a[0] == bArr2[0] && f39185a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
+            if (f39283a[0] == bArr2[0] && f39283a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
                 return com.qq.e.comm.a.b(d(Arrays.copyOfRange(bArr, 4, bArr.length)));
             }
             throw new b("S2SS Package Magic/Version FormatError", null);
@@ -108,19 +108,19 @@ public final class a {
         }
     }
 
-    public static byte[] c(byte[] bArr) throws C0471a {
+    public static byte[] c(byte[] bArr) throws C0474a {
         try {
             return a().doFinal(bArr);
         } catch (Exception e2) {
-            throw new C0471a("Exception While encrypt byte array", e2);
+            throw new C0474a("Exception While encrypt byte array", e2);
         }
     }
 
-    public static byte[] d(byte[] bArr) throws C0471a {
+    public static byte[] d(byte[] bArr) throws C0474a {
         try {
             return b().doFinal(bArr);
         } catch (Exception e2) {
-            throw new C0471a("Exception While dencrypt byte array", e2);
+            throw new C0474a("Exception While dencrypt byte array", e2);
         }
     }
 }

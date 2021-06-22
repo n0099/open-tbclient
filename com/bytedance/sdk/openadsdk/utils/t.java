@@ -7,7 +7,7 @@ import android.webkit.WebView;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f30333a;
+    public static final a f30415a;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -58,13 +58,13 @@ public class t {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            f30333a = new b();
+            f30415a = new b();
         } else {
-            f30333a = new a();
+            f30415a = new a();
         }
     }
 
     public static void a(WebView webView, String str) {
-        f30333a.a(webView, str);
+        f30415a.a(webView, str);
     }
 }

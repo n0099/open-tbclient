@@ -36,22 +36,22 @@ import org.json.JSONObject;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f29111a;
+    public static volatile String f29193a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f29113c;
+    public static Context f29195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<Integer, a.InterfaceC0305a> f29114d;
+    public static Map<Integer, a.InterfaceC0308a> f29196d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicBoolean f29112b = new AtomicBoolean(false);
+    public static final AtomicBoolean f29194b = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f29115e = true;
+    public static boolean f29197e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.o.a.a.a.c.a.a f29116f = new d.o.a.a.a.c.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.1
+    public static d.o.a.a.a.c.a.a f29198f = new d.o.a.a.a.c.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.1
         @Override // d.o.a.a.a.c.a.a
         public void a(@NonNull d.o.a.a.a.c.d dVar, @Nullable d.o.a.a.a.c.b bVar, @Nullable d.o.a.a.a.c.c cVar) {
             u.b("LibHolder", "completeListener: onDownloadStart");
@@ -81,7 +81,7 @@ public final class g {
 
     static {
         try {
-            f29111a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+            f29193a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
         } catch (Throwable unused) {
         }
     }
@@ -94,7 +94,7 @@ public final class g {
         l lVar;
         if (!al.a()) {
             u.b("LibHolder", "锁屏不执行自启动调起");
-        } else if (TextUtils.isEmpty(str) || (d2 = c.g.e().d(str)) == null || (g2 = d2.g()) == null || (optJSONObject = g2.optJSONObject("open_ad_sdk_download_extra")) == null || (a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(optJSONObject)) == null || (lVar = a2.f29073a) == null) {
+        } else if (TextUtils.isEmpty(str) || (d2 = c.g.e().d(str)) == null || (g2 = d2.g()) == null || (optJSONObject = g2.optJSONObject("open_ad_sdk_download_extra")) == null || (a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(optJSONObject)) == null || (lVar = a2.f29155a) == null) {
         } else {
             a(str, lVar);
         }
@@ -107,7 +107,7 @@ public final class g {
     }
 
     public static d.o.a.d.l d() {
-        if (!f29112b.get()) {
+        if (!f29194b.get()) {
             b(p.a());
         }
         return d.o.a.d.l.b(g());
@@ -115,20 +115,20 @@ public final class g {
 
     public static void e() {
         d().p();
-        if (TextUtils.isEmpty(f29111a)) {
+        if (TextUtils.isEmpty(f29193a)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.utils.l.c(new File(f29111a));
+        com.bytedance.sdk.openadsdk.utils.l.c(new File(f29193a));
     }
 
     public static Context g() {
-        Context context = f29113c;
+        Context context = f29195c;
         return context == null ? p.a() : context;
     }
 
     @Nullable
-    public static Map<Integer, a.InterfaceC0305a> h() {
-        return f29114d;
+    public static Map<Integer, a.InterfaceC0308a> h() {
+        return f29196d;
     }
 
     @NonNull
@@ -143,10 +143,10 @@ public final class g {
     public static void c() {
         boolean w;
         h h2 = p.h();
-        if (h2 == null || f29115e == (w = h2.w())) {
+        if (h2 == null || f29197e == (w = h2.w())) {
             return;
         }
-        f29115e = w;
+        f29197e = w;
         a();
     }
 
@@ -181,8 +181,8 @@ public final class g {
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        c2.a(new a.InterfaceC0323a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.2
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+        c2.a(new a.InterfaceC0326a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.2
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void a() {
                 if (!al.a()) {
                     u.b("LibHolder", "锁屏不执行自启动调起");
@@ -202,23 +202,23 @@ public final class g {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void b() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void c() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void d() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void e() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void f() {
             }
         });
@@ -298,8 +298,8 @@ public final class g {
         if (c3 == null) {
             return;
         }
-        c3.a(new a.InterfaceC0323a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.3
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+        c3.a(new a.InterfaceC0326a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.3
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void a() {
                 try {
                     if (!al.a()) {
@@ -320,23 +320,23 @@ public final class g {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void b() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void c() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void d() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void e() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0323a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0326a
             public void f() {
             }
         });
@@ -362,12 +362,12 @@ public final class g {
         if (a2 == null) {
             return false;
         }
-        a.C1919a c1919a = new a.C1919a();
-        c1919a.d("143");
-        c1919a.a("open_news");
-        c1919a.f("3.4.5.5");
-        c1919a.h(String.valueOf(3455));
-        d.o.a.a.a.d.a b2 = c1919a.b();
+        a.C1922a c1922a = new a.C1922a();
+        c1922a.d("143");
+        c1922a.a("open_news");
+        c1922a.f("3.4.5.5");
+        c1922a.h(String.valueOf(3455));
+        d.o.a.a.a.d.a b2 = c1922a.b();
         a2.g(new com.bytedance.sdk.openadsdk.downloadnew.a.a.d(applicationContext));
         a2.e(new com.bytedance.sdk.openadsdk.downloadnew.a.a.b(applicationContext));
         a2.a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.e(applicationContext));
@@ -384,7 +384,7 @@ public final class g {
         a2.d(a(applicationContext, i()));
         d.o.a.d.n.a.c();
         d.o.a.d.l.b(applicationContext).m().a(1);
-        d.o.a.d.l.b(applicationContext).e(f29116f);
+        d.o.a.d.l.b(applicationContext).e(f29198f);
         d.o.a.e.a.e.F().o(new d.o.a.e.b.f.h() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.6
             @Override // d.o.a.e.b.f.h
             public boolean a(Intent intent) {
@@ -401,14 +401,14 @@ public final class g {
         if (context == null) {
             return;
         }
-        f29113c = context.getApplicationContext();
+        f29195c = context.getApplicationContext();
         a();
-        if (f29112b.get()) {
+        if (f29194b.get()) {
             return;
         }
         synchronized (g.class) {
-            if (!f29112b.get()) {
-                f29112b.set(b(f29113c));
+            if (!f29194b.get()) {
+                f29194b.set(b(f29195c));
             }
         }
     }
@@ -417,7 +417,7 @@ public final class g {
         File externalFilesDir;
         String str = null;
         try {
-            if (f29115e && !b()) {
+            if (f29197e && !b()) {
                 File file = new File(g().getCacheDir(), Environment.DIRECTORY_DOWNLOADS);
                 file.mkdirs();
                 str = file.getPath();
@@ -433,37 +433,37 @@ public final class g {
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f29111a = str;
+                f29193a = str;
                 m.a();
             }
-            u.b("LibHolder", "path: " + String.valueOf(f29111a));
+            u.b("LibHolder", "path: " + String.valueOf(f29193a));
         } catch (Throwable unused) {
         }
     }
 
     public static void a(int i2) {
-        Map<Integer, a.InterfaceC0305a> map = f29114d;
+        Map<Integer, a.InterfaceC0308a> map = f29196d;
         if (map != null) {
             map.remove(Integer.valueOf(i2));
         }
     }
 
-    public static void a(int i2, a.InterfaceC0305a interfaceC0305a) {
-        if (interfaceC0305a != null) {
-            if (f29114d == null) {
-                f29114d = Collections.synchronizedMap(new WeakHashMap());
+    public static void a(int i2, a.InterfaceC0308a interfaceC0308a) {
+        if (interfaceC0308a != null) {
+            if (f29196d == null) {
+                f29196d = Collections.synchronizedMap(new WeakHashMap());
             }
-            f29114d.put(Integer.valueOf(i2), interfaceC0305a);
+            f29196d.put(Integer.valueOf(i2), interfaceC0308a);
         }
     }
 
     public static boolean a(String str, String str2, l lVar, Object obj) {
-        Map<Integer, a.InterfaceC0305a> h2;
+        Map<Integer, a.InterfaceC0308a> h2;
         boolean z = false;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && lVar != null && (h2 = h()) != null) {
-            for (Map.Entry<Integer, a.InterfaceC0305a> entry : h2.entrySet()) {
+            for (Map.Entry<Integer, a.InterfaceC0308a> entry : h2.entrySet()) {
                 int intValue = entry.getKey().intValue();
-                a.InterfaceC0305a value = entry.getValue();
+                a.InterfaceC0308a value = entry.getValue();
                 if (value != null) {
                     boolean a2 = value.a(intValue, lVar, str, str2, obj);
                     if (!z && !a2) {

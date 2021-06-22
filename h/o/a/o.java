@@ -11,31 +11,31 @@ import rx.internal.operators.NotificationLite;
 public final class o<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f71765e;
+    public final h.g f71869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f71766f;
+    public final boolean f71870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f71767g;
+    public final int f71871g;
 
     /* loaded from: classes8.dex */
     public static final class a<T> extends h.j<T> implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f71768e;
+        public final h.j<? super T> f71872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g.a f71769f;
+        public final g.a f71873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f71770g;
+        public final boolean f71874g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Queue<Object> f71771h;
+        public final Queue<Object> f71875h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f71772i;
+        public final int f71876i;
         public volatile boolean j;
         public final AtomicLong k = new AtomicLong();
         public final AtomicLong l = new AtomicLong();
@@ -44,8 +44,8 @@ public final class o<T> implements d.b<T, T> {
 
         /* renamed from: h.o.a.o$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1972a implements h.f {
-            public C1972a() {
+        public class C1975a implements h.f {
+            public C1975a() {
             }
 
             @Override // h.f
@@ -58,15 +58,15 @@ public final class o<T> implements d.b<T, T> {
         }
 
         public a(h.g gVar, h.j<? super T> jVar, boolean z, int i2) {
-            this.f71768e = jVar;
-            this.f71769f = gVar.createWorker();
-            this.f71770g = z;
-            i2 = i2 <= 0 ? h.o.d.f.f71929g : i2;
-            this.f71772i = i2 - (i2 >> 2);
+            this.f71872e = jVar;
+            this.f71873f = gVar.createWorker();
+            this.f71874g = z;
+            i2 = i2 <= 0 ? h.o.d.f.f72033g : i2;
+            this.f71876i = i2 - (i2 >> 2);
             if (f0.b()) {
-                this.f71771h = new h.o.d.j.r(i2);
+                this.f71875h = new h.o.d.j.r(i2);
             } else {
-                this.f71771h = new h.o.d.i.c(i2);
+                this.f71875h = new h.o.d.i.c(i2);
             }
             request(i2);
         }
@@ -76,7 +76,7 @@ public final class o<T> implements d.b<T, T> {
                 queue.clear();
                 return true;
             } else if (z) {
-                if (this.f71770g) {
+                if (this.f71874g) {
                     if (z2) {
                         Throwable th = this.m;
                         try {
@@ -114,9 +114,9 @@ public final class o<T> implements d.b<T, T> {
         }
 
         public void c() {
-            h.j<? super T> jVar = this.f71768e;
-            jVar.setProducer(new C1972a());
-            jVar.add(this.f71769f);
+            h.j<? super T> jVar = this.f71872e;
+            jVar.setProducer(new C1975a());
+            jVar.add(this.f71873f);
             jVar.add(this);
         }
 
@@ -124,8 +124,8 @@ public final class o<T> implements d.b<T, T> {
         public void call() {
             int i2;
             long j = this.n;
-            Queue<Object> queue = this.f71771h;
-            h.j<? super T> jVar = this.f71768e;
+            Queue<Object> queue = this.f71875h;
+            h.j<? super T> jVar = this.f71872e;
             long j2 = 1;
             do {
                 long j3 = this.k.get();
@@ -145,7 +145,7 @@ public final class o<T> implements d.b<T, T> {
                     }
                     jVar.onNext((Object) NotificationLite.e(poll));
                     j++;
-                    if (j == this.f71772i) {
+                    if (j == this.f71876i) {
                         j3 = h.o.a.a.g(this.k, j);
                         request(j);
                         j = 0;
@@ -161,7 +161,7 @@ public final class o<T> implements d.b<T, T> {
 
         public void d() {
             if (this.l.getAndIncrement() == 0) {
-                this.f71769f.b(this);
+                this.f71873f.b(this);
             }
         }
 
@@ -190,7 +190,7 @@ public final class o<T> implements d.b<T, T> {
             if (isUnsubscribed() || this.j) {
                 return;
             }
-            if (!this.f71771h.offer(NotificationLite.h(t))) {
+            if (!this.f71875h.offer(NotificationLite.h(t))) {
                 onError(new MissingBackpressureException());
             } else {
                 d();
@@ -199,20 +199,20 @@ public final class o<T> implements d.b<T, T> {
     }
 
     public o(h.g gVar, boolean z, int i2) {
-        this.f71765e = gVar;
-        this.f71766f = z;
-        this.f71767g = i2 <= 0 ? h.o.d.f.f71929g : i2;
+        this.f71869e = gVar;
+        this.f71870f = z;
+        this.f71871g = i2 <= 0 ? h.o.d.f.f72033g : i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        h.g gVar = this.f71765e;
+        h.g gVar = this.f71869e;
         if ((gVar instanceof h.o.c.e) || (gVar instanceof h.o.c.j)) {
             return jVar;
         }
-        a aVar = new a(gVar, jVar, this.f71766f, this.f71767g);
+        a aVar = new a(gVar, jVar, this.f71870f, this.f71871g);
         aVar.c();
         return aVar;
     }

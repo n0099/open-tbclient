@@ -8,16 +8,16 @@ import java.util.List;
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f34676a = false;
+    public static volatile boolean f34774a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f34677b = new g();
+    public static g f34775b = new g();
 
     public static void a(@NonNull a aVar) {
         if (aVar == null) {
             return;
         }
-        if (b(aVar.f34629c)) {
+        if (b(aVar.f34727c)) {
             c(aVar);
         } else {
             b(aVar);
@@ -28,7 +28,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        f34677b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        f34775b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -43,14 +43,14 @@ public class g extends c<ReportAction, f> {
     }
 
     public static g c() {
-        return f34677b;
+        return f34775b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        f34677b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        f34775b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -62,7 +62,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f34676a) {
+        if (f34774a) {
             return;
         }
         super.a(context);
@@ -73,7 +73,7 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f34676a = true;
+        f34774a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

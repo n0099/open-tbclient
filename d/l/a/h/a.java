@@ -3,21 +3,21 @@ package d.l.a.h;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f70245a;
+    public final float f70349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f70246b;
+    public final float f70350b;
 
     public a(float f2, float f3, float f4) {
-        this.f70245a = f2;
-        this.f70246b = f3;
+        this.f70349a = f2;
+        this.f70350b = f3;
     }
 
     public final float a() {
-        return this.f70245a;
+        return this.f70349a;
     }
 
     public final float b() {
-        return this.f70246b;
+        return this.f70350b;
     }
 }

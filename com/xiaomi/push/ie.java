@@ -63,31 +63,31 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public static final jg f641a = new jg("XmPushActionNotification");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41540a = new iy("", (byte) 11, 1);
+    public static final iy f41643a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41541b = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f41644b = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41542c = new iy("", (byte) 11, 3);
+    public static final iy f41645c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41543d = new iy("", (byte) 11, 4);
+    public static final iy f41646d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41544e = new iy("", (byte) 11, 5);
+    public static final iy f41647e = new iy("", (byte) 11, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41545f = new iy("", (byte) 2, 6);
+    public static final iy f41648f = new iy("", (byte) 2, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f41546g = new iy("", (byte) 11, 7);
+    public static final iy f41649g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f41547h = new iy("", (byte) 13, 8);
+    public static final iy f41650h = new iy("", (byte) 13, 8);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f41548i = new iy("", (byte) 11, 9);
+    public static final iy f41651i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 11, 10);
     public static final iy k = new iy("", (byte) 11, 12);
     public static final iy l = new iy("", (byte) 11, 13);
@@ -291,7 +291,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 jbVar.f();
                 if (f()) {
@@ -537,40 +537,40 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         m453a();
         jbVar.a(f641a);
         if (this.f644a != null && m455a()) {
-            jbVar.a(f41540a);
+            jbVar.a(f41643a);
             jbVar.a(this.f644a);
             jbVar.b();
         }
         if (this.f643a != null && m458b()) {
-            jbVar.a(f41541b);
+            jbVar.a(f41644b);
             this.f643a.b(jbVar);
             jbVar.b();
         }
         if (this.f649b != null) {
-            jbVar.a(f41542c);
+            jbVar.a(f41645c);
             jbVar.a(this.f649b);
             jbVar.b();
         }
         if (this.f651c != null && d()) {
-            jbVar.a(f41543d);
+            jbVar.a(f41646d);
             jbVar.a(this.f651c);
             jbVar.b();
         }
         if (this.f652d != null && e()) {
-            jbVar.a(f41544e);
+            jbVar.a(f41647e);
             jbVar.a(this.f652d);
             jbVar.b();
         }
-        jbVar.a(f41545f);
+        jbVar.a(f41648f);
         jbVar.a(this.f648a);
         jbVar.b();
         if (this.f653e != null && g()) {
-            jbVar.a(f41546g);
+            jbVar.a(f41649g);
             jbVar.a(this.f653e);
             jbVar.b();
         }
         if (this.f647a != null && h()) {
-            jbVar.a(f41547h);
+            jbVar.a(f41650h);
             jbVar.a(new ja((byte) 11, (byte) 11, this.f647a.size()));
             for (Map.Entry<String, String> entry : this.f647a.entrySet()) {
                 jbVar.a(entry.getKey());
@@ -580,7 +580,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         if (this.f654f != null && i()) {
-            jbVar.a(f41548i);
+            jbVar.a(f41651i);
             jbVar.a(this.f654f);
             jbVar.b();
         }

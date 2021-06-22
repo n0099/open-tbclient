@@ -18,31 +18,31 @@ import com.kwad.sdk.core.view.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f32277a;
+    public AdTemplate f32375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32278b;
+    public long f32376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f32279c;
+    public g f32377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f32280d;
+    public com.kwad.sdk.contentalliance.detail.video.a f32378d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32281e;
+    public boolean f32379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32282f;
+    public boolean f32380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f32283g;
+    public Context f32381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f32284h;
+    public f f32382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g.a f32285i = new g.a() { // from class: com.kwad.sdk.a.c.a.3
+    public g.a f32383i = new g.a() { // from class: com.kwad.sdk.a.c.a.3
         @Override // com.kwad.sdk.core.view.g.a
         public void a(boolean z) {
             if (z) {
@@ -54,14 +54,14 @@ public class a {
     };
 
     public a(@NonNull final AdTemplate adTemplate, @NonNull g gVar, @NonNull DetailVideoView detailVideoView, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
-        this.f32277a = adTemplate;
-        this.f32278b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
-        this.f32279c = gVar;
+        this.f32375a = adTemplate;
+        this.f32376b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
+        this.f32377c = gVar;
         boolean z = true;
-        this.f32281e = ksAdVideoPlayConfig != null && ksAdVideoPlayConfig.isVideoSoundEnable();
-        this.f32282f = (ksAdVideoPlayConfig == null || !ksAdVideoPlayConfig.isDataFlowAutoStart()) ? false : false;
-        this.f32283g = detailVideoView.getContext();
-        this.f32280d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f32379e = ksAdVideoPlayConfig != null && ksAdVideoPlayConfig.isVideoSoundEnable();
+        this.f32380f = (ksAdVideoPlayConfig == null || !ksAdVideoPlayConfig.isDataFlowAutoStart()) ? false : false;
+        this.f32381g = detailVideoView.getContext();
+        this.f32378d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         f fVar = new f() { // from class: com.kwad.sdk.a.c.a.1
             @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
             public void a(int i2, int i3) {
@@ -69,15 +69,15 @@ public class a {
                 e.b(adTemplate, i2, i3);
             }
         };
-        this.f32284h = fVar;
-        this.f32280d.a(fVar);
+        this.f32382h = fVar;
+        this.f32378d.a(fVar);
         g();
-        this.f32280d.a(new c.e() { // from class: com.kwad.sdk.a.c.a.2
+        this.f32378d.a(new c.e() { // from class: com.kwad.sdk.a.c.a.2
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
-                if (a.this.h() && a.this.f32279c.d()) {
-                    a.this.f32280d.a(new com.kwad.sdk.contentalliance.detail.video.c(a.this.f32278b, System.currentTimeMillis()));
-                    a.this.f32280d.f();
+                if (a.this.h() && a.this.f32377c.d()) {
+                    a.this.f32378d.a(new com.kwad.sdk.contentalliance.detail.video.c(a.this.f32376b, System.currentTimeMillis()));
+                    a.this.f32378d.f();
                 }
             }
         });
@@ -87,41 +87,41 @@ public class a {
         com.kwad.sdk.contentalliance.detail.video.a aVar;
         float f2;
         if (z) {
-            aVar = this.f32280d;
+            aVar = this.f32378d;
             f2 = 1.0f;
         } else {
-            aVar = this.f32280d;
+            aVar = this.f32378d;
             f2 = 0.0f;
         }
         aVar.a(f2, f2);
     }
 
     private void g() {
-        this.f32280d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f32277a)).a(this.f32277a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f32277a)).a());
-        a(this.f32281e);
+        this.f32378d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f32375a)).a(this.f32375a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f32375a)).a());
+        a(this.f32379e);
         if (h()) {
-            this.f32280d.e();
+            this.f32378d.e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean h() {
-        if (!this.f32282f) {
-            this.f32282f = b.b(this.f32283g);
+        if (!this.f32380f) {
+            this.f32380f = b.b(this.f32381g);
         }
-        return this.f32282f;
+        return this.f32380f;
     }
 
     public void a() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f32280d.a() == null) {
+        if (this.f32378d.a() == null) {
             g();
         }
-        if (h() && this.f32279c.d()) {
-            this.f32280d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f32278b, currentTimeMillis));
-            this.f32280d.f();
+        if (h() && this.f32377c.d()) {
+            this.f32378d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f32376b, currentTimeMillis));
+            this.f32378d.f();
         }
-        this.f32279c.a(this.f32285i);
+        this.f32377c.a(this.f32383i);
     }
 
     @MainThread
@@ -129,12 +129,12 @@ public class a {
         if (eVar == null) {
             return;
         }
-        this.f32280d.a(eVar);
+        this.f32378d.a(eVar);
     }
 
     public void b() {
-        this.f32279c.b(this.f32285i);
-        this.f32280d.k();
+        this.f32377c.b(this.f32383i);
+        this.f32378d.k();
     }
 
     @MainThread
@@ -142,40 +142,40 @@ public class a {
         if (eVar == null) {
             return;
         }
-        this.f32280d.b(eVar);
+        this.f32378d.b(eVar);
     }
 
     public void c() {
         if (h()) {
-            if (this.f32281e) {
+            if (this.f32379e) {
                 com.kwad.sdk.utils.b.a().a(false);
                 if (com.kwad.sdk.utils.b.a().b()) {
-                    this.f32281e = false;
+                    this.f32379e = false;
                     a(false);
                 }
             }
-            this.f32280d.h();
+            this.f32378d.h();
         }
     }
 
     public void d() {
-        this.f32280d.j();
+        this.f32378d.j();
     }
 
     @MainThread
     public void e() {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32280d;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32378d;
         if (aVar != null) {
             aVar.p();
-            this.f32280d.k();
+            this.f32378d.k();
         }
     }
 
     public void f() {
-        this.f32282f = true;
-        if (this.f32279c.d()) {
-            this.f32280d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f32278b, System.currentTimeMillis()));
-            this.f32280d.f();
+        this.f32380f = true;
+        if (this.f32377c.d()) {
+            this.f32378d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f32376b, System.currentTimeMillis()));
+            this.f32378d.f();
         }
     }
 }

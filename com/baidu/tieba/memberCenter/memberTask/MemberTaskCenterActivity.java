@@ -15,32 +15,32 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import d.a.c.e.p.j;
-import d.a.m0.r.s.a;
-import d.a.n0.s1.c.b.r;
-import d.a.n0.s1.e.a;
-import d.a.n0.s1.e.c;
+import d.a.n0.r.s.a;
+import d.a.o0.s1.c.b.r;
+import d.a.o0.s1.e.a;
+import d.a.o0.s1.e.c;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.GetMemberTaskList.ImgInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
     public String imageUrl;
     public String jumpUrl;
-    public d.a.n0.s1.e.a mFinishMemberTaskModel;
-    public d.a.n0.s1.e.c mModel;
-    public d.a.n0.s1.e.d mView;
+    public d.a.o0.s1.e.a mFinishMemberTaskModel;
+    public d.a.o0.s1.e.c mModel;
+    public d.a.o0.s1.e.d mView;
     public int type;
     public boolean isFromH5 = false;
     public a.b mFinishMemberTaskCallbak = new a();
     public c.b mTaskLoadCallback = new b();
     public View.OnClickListener mCommenClickListener = new c();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.b {
         public a() {
         }
 
-        @Override // d.a.n0.s1.e.a.b
+        @Override // d.a.o0.s1.e.a.b
         public void a(int i2, String str, int i3, int i4, long j) {
             if (i2 == 0 && MemberTaskCenterActivity.this.mView != null) {
                 MemberTaskCenterActivity.this.showGetScoresSuccessDialog(i4);
@@ -67,12 +67,12 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements c.b {
         public b() {
         }
 
-        @Override // d.a.n0.s1.e.c.b
+        @Override // d.a.o0.s1.e.c.b
         public void a(int i2, String str) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(8);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
@@ -82,7 +82,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             MemberTaskCenterActivity.this.setNetRefreshViewEmotionDefMarginTop();
         }
 
-        @Override // d.a.n0.s1.e.c.b
+        @Override // d.a.o0.s1.e.c.b
         public void b(List<ImgInfo> list, List<r> list2, long j) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(0);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
@@ -97,7 +97,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -128,71 +128,71 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f18333e;
+        public final /* synthetic */ d.a.n0.r.s.a f18415e;
 
-        public d(d.a.m0.r.s.a aVar) {
-            this.f18333e = aVar;
+        public d(d.a.n0.r.s.a aVar) {
+            this.f18415e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            this.f18333e.dismiss();
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            this.f18415e.dismiss();
             ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f18335e;
+        public final /* synthetic */ d.a.n0.r.s.a f18417e;
 
-        public e(d.a.m0.r.s.a aVar) {
-            this.f18335e = aVar;
+        public e(d.a.n0.r.s.a aVar) {
+            this.f18417e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            this.f18335e.dismiss();
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            this.f18417e.dismiss();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f18337e;
+        public final /* synthetic */ d.a.n0.r.s.a f18419e;
 
-        public f(d.a.m0.r.s.a aVar) {
-            this.f18337e = aVar;
+        public f(d.a.n0.r.s.a aVar) {
+            this.f18419e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            this.f18337e.dismiss();
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            this.f18419e.dismiss();
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f18339e;
+        public final /* synthetic */ d.a.n0.r.s.a f18421e;
 
-        public g(d.a.m0.r.s.a aVar) {
-            this.f18339e = aVar;
+        public g(d.a.n0.r.s.a aVar) {
+            this.f18421e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            this.f18339e.dismiss();
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            this.f18421e.dismiss();
         }
     }
 
@@ -202,19 +202,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
             aVar.setTitle(R.string.tips_login_and_get_scores);
             aVar.setPositiveButton(R.string.login, new d(aVar));
             aVar.setNegativeButton(R.string.cancel, new e(aVar));
             aVar.create(getPageContext());
             aVar.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-            d.a.n0.s1.e.a aVar2 = this.mFinishMemberTaskModel;
+            d.a.o0.s1.e.a aVar2 = this.mFinishMemberTaskModel;
             if (aVar2 != null) {
                 aVar2.f(rVar.c(), rVar.a());
             }
         } else {
-            d.a.m0.r.s.a aVar3 = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar3 = new d.a.n0.r.s.a(getPageContext().getPageActivity());
             aVar3.setTitle(R.string.tips_nomal_member_get_scores);
             aVar3.setButtonTextColor(R.color.CAM_X0305);
             aVar3.setPositiveButton(R.string.open_now, new f(aVar3));
@@ -246,11 +246,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.a.n0.s1.e.d(this, this.mCommenClickListener);
-        d.a.n0.s1.e.c cVar = new d.a.n0.s1.e.c();
+        this.mView = new d.a.o0.s1.e.d(this, this.mCommenClickListener);
+        d.a.o0.s1.e.c cVar = new d.a.o0.s1.e.c();
         this.mModel = cVar;
         cVar.m(this.mTaskLoadCallback);
-        d.a.n0.s1.e.a aVar = new d.a.n0.s1.e.a();
+        d.a.o0.s1.e.a aVar = new d.a.o0.s1.e.a();
         this.mFinishMemberTaskModel = aVar;
         aVar.h(this.mFinishMemberTaskCallbak);
         this.mModel.j();
@@ -260,11 +260,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.a.n0.s1.e.a aVar = this.mFinishMemberTaskModel;
+        d.a.o0.s1.e.a aVar = this.mFinishMemberTaskModel;
         if (aVar != null) {
             aVar.g();
         }
-        d.a.n0.s1.e.c cVar = this.mModel;
+        d.a.o0.s1.e.c cVar = this.mModel;
         if (cVar != null) {
             cVar.k();
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.s1.c.b.r;
+import d.a.o0.s1.c.b.r;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -11,7 +11,7 @@ import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberTaskCenterHttpResMessage extends TbHttpResponsedMessage {
     public List<ImgInfo> mImageList;
     public List<r> mTaskList;

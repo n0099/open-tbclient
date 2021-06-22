@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.tail.data;
 
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TailData implements Serializable {
     public static final long serialVersionUID = -4226675025601937685L;
     public String content;

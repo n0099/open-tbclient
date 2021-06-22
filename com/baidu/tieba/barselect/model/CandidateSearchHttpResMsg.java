@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.x.b.a;
+import d.a.o0.x.b.a;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
 /* loaded from: classes4.dex */
@@ -34,7 +34,7 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }
-            this.candidateData.f66854a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+            this.candidateData.f66979a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
         }
     }
 }

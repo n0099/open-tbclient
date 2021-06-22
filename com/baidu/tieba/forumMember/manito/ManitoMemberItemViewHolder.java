@@ -9,34 +9,34 @@ import com.baidu.tieba.forumMember.view.GodHeadImageView;
 public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public GodHeadImageView f15013a;
+    public GodHeadImageView f15095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15014b;
+    public TextView f15096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15015c;
+    public TextView f15097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15016d;
+    public TextView f15098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15017e;
+    public View f15099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15018f;
+    public int f15100f;
 
     public ManitoMemberItemViewHolder(View view) {
         super(view);
-        this.f15018f = 3;
+        this.f15100f = 3;
         GodHeadImageView godHeadImageView = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.f15013a = godHeadImageView;
+        this.f15095a = godHeadImageView;
         godHeadImageView.setShapeType(0);
-        this.f15013a.setShowType(1);
-        this.f15013a.setRadius(14);
-        this.f15014b = (TextView) view.findViewById(R.id.item_manito_name);
-        this.f15015c = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.f15016d = (TextView) view.findViewById(R.id.item_manito_fans);
-        this.f15017e = view.findViewById(R.id.divider_line);
+        this.f15095a.setShowType(1);
+        this.f15095a.setRadius(14);
+        this.f15096b = (TextView) view.findViewById(R.id.item_manito_name);
+        this.f15097c = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.f15098d = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.f15099e = view.findViewById(R.id.divider_line);
     }
 }

@@ -14,11 +14,11 @@ public final class r0 {
     public static final class b<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Field f70036a;
+        public final Field f70140a;
 
         public void a(T t, int i2) {
             try {
-                this.f70036a.set(t, Integer.valueOf(i2));
+                this.f70140a.set(t, Integer.valueOf(i2));
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
@@ -26,14 +26,14 @@ public final class r0 {
 
         public void b(T t, Object obj) {
             try {
-                this.f70036a.set(t, obj);
+                this.f70140a.set(t, obj);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
         }
 
         public b(Field field) {
-            this.f70036a = field;
+            this.f70140a = field;
             field.setAccessible(true);
         }
     }

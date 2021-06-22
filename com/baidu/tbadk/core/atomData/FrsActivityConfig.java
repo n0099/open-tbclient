@@ -16,12 +16,12 @@ import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.m0.b.d;
-import d.a.m0.b.g.a;
-import d.a.m0.r.q.a2;
-import d.a.m0.z0.c0;
-import d.a.n0.r0.n2.k;
-import d.a.n0.t2.x;
+import d.a.n0.b.d;
+import d.a.n0.b.g.a;
+import d.a.n0.r.q.a2;
+import d.a.n0.z0.c0;
+import d.a.o0.r0.n2.k;
+import d.a.o0.t2.x;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -149,7 +149,7 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i2 = 6;
         }
-        if (d.n() && a.f52562c != a.d()) {
+        if (d.n() && a.f52669c != a.d()) {
             frsRequestData.H(k.d(a.d()));
         }
         frsRequestData.setSortType(k.d(i2));

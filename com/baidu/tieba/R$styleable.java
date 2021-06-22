@@ -1885,6 +1885,10 @@ public final class R$styleable {
     public static final int sapi_sdk_RoundWebview_sapi_sdk_bottom_right = 1;
     public static final int sapi_sdk_RoundWebview_sapi_sdk_top_left = 2;
     public static final int sapi_sdk_RoundWebview_sapi_sdk_top_right = 3;
+    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_directionMode = 0;
+    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_isSwipeFromEdge = 1;
+    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_maskAlpha = 2;
+    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_swipeBackFactor = 3;
     public static final int sapi_sdk_sms_login_view_sapi_sdk_show_keyboard = 0;
     public static final int scaleStyle_scalableType = 0;
     public static final int swan_pickerview_swan_wheelview_gravity = 0;
@@ -2115,6 +2119,7 @@ public final class R$styleable {
     public static final int[] pass_liveness_CircleProgressView = {R.attr.pass_liveness_cpvBlockAngle, R.attr.pass_liveness_cpvCapRound, R.attr.pass_liveness_cpvCirclePadding, R.attr.pass_liveness_cpvDuration, R.attr.pass_liveness_cpvLabelPaddingBottom, R.attr.pass_liveness_cpvLabelPaddingLeft, R.attr.pass_liveness_cpvLabelPaddingRight, R.attr.pass_liveness_cpvLabelPaddingTop, R.attr.pass_liveness_cpvMax, R.attr.pass_liveness_cpvNormalColor, R.attr.pass_liveness_cpvProgress, R.attr.pass_liveness_cpvProgressColor, R.attr.pass_liveness_cpvShowTick, R.attr.pass_liveness_cpvStartAngle, R.attr.pass_liveness_cpvStrokeWidth, R.attr.pass_liveness_cpvSweepAngle, R.attr.pass_liveness_cpvTickSplitAngle, R.attr.pass_liveness_cpvTurn};
     public static final int[] pickerview = {R.attr.wheelview_dividerColor, R.attr.wheelview_gravity, R.attr.wheelview_lineSpacingMultiplier, R.attr.wheelview_textColorCenter, R.attr.wheelview_textColorOut, R.attr.wheelview_textSize};
     public static final int[] sapi_sdk_RoundWebview = {R.attr.sapi_sdk_bottom_left, R.attr.sapi_sdk_bottom_right, R.attr.sapi_sdk_top_left, R.attr.sapi_sdk_top_right};
+    public static final int[] sapi_sdk_SwipeBackLayout = {R.attr.sapi_sdk_directionMode, R.attr.sapi_sdk_isSwipeFromEdge, R.attr.sapi_sdk_maskAlpha, R.attr.sapi_sdk_swipeBackFactor};
     public static final int[] sapi_sdk_sms_login_view = {R.attr.sapi_sdk_show_keyboard};
     public static final int[] scaleStyle = {R.attr.scalableType};
     public static final int[] swan_pickerview = {R.attr.swan_wheelview_gravity, R.attr.wheelview_dividerColor, R.attr.wheelview_lineSpacingMultiplier, R.attr.wheelview_textColorCenter, R.attr.wheelview_textColorOut, R.attr.wheelview_textSize};

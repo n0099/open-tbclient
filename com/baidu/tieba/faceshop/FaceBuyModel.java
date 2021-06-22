@@ -13,25 +13,25 @@ import d.a.c.e.p.k;
 public class FaceBuyModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f14716e;
+    public c f14798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14717f;
+    public b f14799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14718g;
+    public int f14800g;
 
     /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14719a;
+        public NetWork f14801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f14720b;
+        public volatile boolean f14802b;
 
         public b() {
-            this.f14720b = false;
+            this.f14802b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,10 +43,10 @@ public class FaceBuyModel extends BdBaseModel {
             FaceBuyQueryData faceBuyQueryData = null;
             if (!k.isEmpty(obj)) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.f14719a = netWork;
+                this.f14801a = netWork;
                 netWork.addPostData("order_id", obj);
-                for (int i2 = 0; !this.f14720b && i2 < FaceBuyModel.this.f14718g; i2++) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f14719a.postNetData(), FaceBuyQueryData.class);
+                for (int i2 = 0; !this.f14802b && i2 < FaceBuyModel.this.f14800g; i2++) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f14801a.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && (buyResult = faceBuyQueryData.buy_result) != null) {
                         if (buyResult.status == 2) {
                             break;
@@ -73,19 +73,19 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.f14717f = null;
-            this.f14720b = true;
+            FaceBuyModel.this.f14799f = null;
+            this.f14802b = true;
             FaceBuyModel.this.mLoadDataCallBack.c(faceBuyQueryData);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f14719a;
+            NetWork netWork = this.f14801a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            FaceBuyModel.this.f14717f = null;
+            FaceBuyModel.this.f14799f = null;
             FaceBuyModel.this.mLoadDataCallBack.c(null);
         }
     }
@@ -94,7 +94,7 @@ public class FaceBuyModel extends BdBaseModel {
     public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14722a;
+        public NetWork f14804a;
 
         public c() {
         }
@@ -106,9 +106,9 @@ public class FaceBuyModel extends BdBaseModel {
             String obj = objArr[0].toString();
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.f14722a = netWork;
+                this.f14804a = netWork;
                 netWork.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.f14722a.postNetData(), FaceBuyData.class);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.f14804a.postNetData(), FaceBuyData.class);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
                 return null;
@@ -120,44 +120,44 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.f14716e = null;
+            FaceBuyModel.this.f14798e = null;
             FaceBuyModel.this.mLoadDataCallBack.c(faceBuyData);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f14722a;
+            NetWork netWork = this.f14804a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            FaceBuyModel.this.f14716e = null;
+            FaceBuyModel.this.f14798e = null;
             FaceBuyModel.this.mLoadDataCallBack.c(null);
         }
     }
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.f14718g = 3;
-        this.f14716e = null;
-        this.f14717f = null;
+        this.f14800g = 3;
+        this.f14798e = null;
+        this.f14799f = null;
     }
 
     public void D(String str) {
-        if (this.f14716e == null) {
+        if (this.f14798e == null) {
             c cVar = new c();
-            this.f14716e = cVar;
+            this.f14798e = cVar;
             cVar.setPriority(3);
-            this.f14716e.execute(str);
+            this.f14798e.execute(str);
         }
     }
 
     public void E(String str) {
-        if (this.f14717f == null) {
+        if (this.f14799f == null) {
             b bVar = new b();
-            this.f14717f = bVar;
+            this.f14799f = bVar;
             bVar.setPriority(3);
-            this.f14717f.execute(str);
+            this.f14799f.execute(str);
         }
     }
 
@@ -168,7 +168,7 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        c cVar = this.f14716e;
+        c cVar = this.f14798e;
         if (cVar != null) {
             cVar.cancel();
             return true;

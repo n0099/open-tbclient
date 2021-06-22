@@ -23,15 +23,15 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f17059a;
+        public T f17141a;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.f17059a = t;
+            this.f17141a = t;
         }
 
         public T b() {
-            return this.f17059a;
+            return this.f17141a;
         }
     }
 

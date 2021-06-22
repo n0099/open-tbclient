@@ -1,6 +1,7 @@
 package com.baidu.tieba.h5power;
 
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.live.interfaces.DI;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -19,7 +20,7 @@ public class DescriptionTableInfo {
         mModuleSet.add(DI.ROUTER_NAME);
         mModuleSet.add("toast");
         mModuleSet.add(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
-        mModuleSet.add("system");
+        mModuleSet.add(ConstantHelper.LOG_OS);
         mModuleSet.add("share");
         mModuleSet.add("clipper");
         mModuleSet.add("navigationBar");

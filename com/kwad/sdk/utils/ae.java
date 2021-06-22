@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37455a = "";
+    public static String f37553a = "";
 
     public static int a(@NonNull Context context, int i2) {
         return context.getSharedPreferences("ksadsdk_pref", 0).getInt("profile_guide_times", i2);
@@ -74,7 +74,7 @@ public class ae {
     }
 
     public static void f(Context context, String str) {
-        f37455a = str;
+        f37553a = str;
         if (context == null) {
             return;
         }
@@ -82,7 +82,7 @@ public class ae {
     }
 
     public static String g(Context context) {
-        return !TextUtils.isEmpty(f37455a) ? f37455a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
+        return !TextUtils.isEmpty(f37553a) ? f37553a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
     }
 
     public static void g(Context context, String str) {

@@ -1,163 +1,222 @@
 package d.a.n0.b0;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.vivo.push.PushClientConstants;
-import d.a.c.a.j;
-import d.a.n0.b0.a;
-/* loaded from: classes4.dex */
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
-    public static class a implements c {
+    /* renamed from: a  reason: collision with root package name */
+    public Queue<C1161b> f52682a = new ConcurrentLinkedQueue();
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C1238a f54930a;
-
-        public a(a.C1238a c1238a) {
-            this.f54930a = c1238a;
-        }
-
-        @Override // d.a.n0.b0.c
-        public void onFailed(int i2) {
-            this.f54930a.a(2, i2);
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public volatile c f52683b;
 
     /* renamed from: d.a.n0.b0.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1239b implements c {
+    /* loaded from: classes3.dex */
+    public class C1161b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C1238a f54931a;
+        public ImageFileInfo f52684a;
 
-        public C1239b(a.C1238a c1238a) {
-            this.f54931a = c1238a;
-        }
+        /* renamed from: b  reason: collision with root package name */
+        public d.a.n0.a0.b f52685b;
 
-        @Override // d.a.n0.b0.c
-        public void onFailed(int i2) {
-            this.f54931a.a(2, i2);
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f52686c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public d.a.c.k.d.a f52687d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f52688e;
+
+        public C1161b(b bVar) {
         }
     }
 
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        return b(context, uri, null, bundle, z);
+    /* loaded from: classes3.dex */
+    public class c extends BdAsyncTask<Void, C1161b, C1161b> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final Queue<C1161b> f52689a;
+
+        public c(Queue<C1161b> queue) {
+            this.f52689a = queue;
+            super.setPriority(2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public C1161b doInBackground(Void... voidArr) {
+            int i2;
+            while (true) {
+                C1161b poll = this.f52689a.poll();
+                Bitmap bitmap = null;
+                if (poll == null) {
+                    return null;
+                }
+                if (isCancelled()) {
+                    this.f52689a.add(poll);
+                    return null;
+                }
+                d.a.c.k.d.a m = d.a.n0.a0.c.k().m(poll.f52684a.toCachedKey(poll.f52686c));
+                if (m != null) {
+                    poll.f52687d = m;
+                    poll.f52688e = true;
+                } else {
+                    Bitmap f2 = b.this.f(poll.f52684a, poll.f52686c);
+                    if (f2 != null) {
+                        try {
+                            i2 = BitmapHelper.readPictureDegree(poll.f52684a.getFilePath());
+                            if (i2 != 0) {
+                                try {
+                                    Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f2, i2);
+                                    if (f2 != rotateBitmapBydegree) {
+                                        try {
+                                            f2.recycle();
+                                            f2 = null;
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    bitmap = rotateBitmapBydegree;
+                                } catch (Exception unused2) {
+                                }
+                            }
+                        } catch (Exception unused3) {
+                            i2 = 0;
+                        }
+                        if (i2 != 0 && bitmap != null) {
+                            poll.f52687d = new d.a.c.k.d.a(bitmap, poll.f52684a.isGif(), poll.f52684a.getFilePath());
+                        } else {
+                            poll.f52687d = new d.a.c.k.d.a(f2, poll.f52684a.isGif(), poll.f52684a.getFilePath());
+                        }
+                    }
+                }
+                publishProgress(poll);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(C1161b c1161b) {
+            super.onPostExecute(c1161b);
+            b.this.f52683b = null;
+            b.this.g();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(C1161b... c1161bArr) {
+            if (c1161bArr != null) {
+                for (C1161b c1161b : c1161bArr) {
+                    d.a.c.k.d.a aVar = c1161b.f52687d;
+                    if (aVar != null && !c1161b.f52688e) {
+                        d.a.n0.a0.c.k().d(c1161b.f52684a.toCachedKey(c1161b.f52686c), aVar);
+                    }
+                    d.a.n0.a0.b bVar = c1161b.f52685b;
+                    if (bVar != null) {
+                        bVar.a(aVar, c1161b.f52684a.toCachedKey(c1161b.f52686c), c1161b.f52688e);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            super.onCancelled();
+            b.this.f52683b = null;
+            while (true) {
+                C1161b poll = this.f52689a.poll();
+                if (poll == null) {
+                    return;
+                }
+                d.a.n0.a0.b bVar = poll.f52685b;
+                if (bVar != null) {
+                    bVar.a(null, poll.f52684a.toCachedKey(poll.f52686c), false);
+                }
+            }
+        }
     }
 
-    public static boolean b(Context context, Uri uri, d.a.n0.b0.a aVar, Bundle bundle, boolean z) {
-        a.C1238a c1238a = new a.C1238a();
-        if (uri == null) {
-            if (aVar != null) {
-                aVar.b(1, "Uri is empty.", c1238a);
+    public void b() {
+        this.f52682a = new ConcurrentLinkedQueue();
+        if (this.f52683b != null) {
+            this.f52683b.cancel(true);
+            this.f52683b = null;
+        }
+    }
+
+    public d.a.c.k.d.a c(ImageFileInfo imageFileInfo, boolean z) {
+        if (imageFileInfo == null) {
+            return null;
+        }
+        return d.a.n0.a0.c.k().m(imageFileInfo.toCachedKey(z));
+    }
+
+    public d.a.c.k.d.a d(ImageFileInfo imageFileInfo, d.a.n0.a0.b bVar, boolean z) {
+        return e(imageFileInfo, bVar, z, false);
+    }
+
+    public d.a.c.k.d.a e(ImageFileInfo imageFileInfo, d.a.n0.a0.b bVar, boolean z, boolean z2) {
+        d.a.c.k.d.a c2 = c(imageFileInfo, z);
+        if (c2 != null) {
+            return c2;
+        }
+        if (z2) {
+            return null;
+        }
+        C1161b c1161b = new C1161b();
+        c1161b.f52685b = bVar;
+        c1161b.f52684a = imageFileInfo;
+        c1161b.f52686c = z;
+        this.f52682a.add(c1161b);
+        g();
+        return null;
+    }
+
+    public Bitmap f(ImageFileInfo imageFileInfo, boolean z) {
+        if (imageFileInfo == null) {
+            return null;
+        }
+        LinkedList linkedList = new LinkedList();
+        if (z && imageFileInfo.getPersistActionsList() != null) {
+            linkedList.addAll(imageFileInfo.getPersistActionsList());
+        }
+        if (imageFileInfo.getPageActionsList() != null) {
+            linkedList.addAll(imageFileInfo.getPageActionsList());
+        }
+        if (imageFileInfo.getOrginalBitmap() != null) {
+            try {
+                return d.a.n0.b0.g.c.d().b(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return false;
-        } else if (!"deeplink".equals(uri.getHost())) {
-            if (aVar != null) {
-                aVar.b(2, "Uri host is not deeplink.", c1238a);
+        } else if (imageFileInfo.hasActions(z)) {
+            try {
+                return d.a.n0.b0.g.c.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                return null;
             }
-            return false;
         } else {
-            String queryParameter = uri.getQueryParameter("appUrl");
-            String queryParameter2 = uri.getQueryParameter("marketUrl");
-            String queryParameter3 = uri.getQueryParameter(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL);
-            String queryParameter4 = uri.getQueryParameter(PushClientConstants.TAG_PKG_NAME);
-            String queryParameter5 = uri.getQueryParameter("marketPkgName");
-            boolean booleanQueryParameter = uri.getBooleanQueryParameter("isDesignatePkg", true);
-            if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c1238a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c1238a)) {
-                return true;
-            }
-            return g(context, queryParameter3, bundle, aVar, c1238a, z);
+            return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
         }
     }
 
-    public static boolean c(Context context, String str, String str2, boolean z, c cVar) {
-        try {
-            Intent b2 = d.b(context, str, str2, z, cVar);
-            if (b2 == null) {
-                return false;
-            }
-            context.startActivity(b2);
-            return true;
-        } catch (Exception unused) {
-            if (cVar != null) {
-                cVar.onFailed(-101);
-            }
-            return false;
+    public void g() {
+        if (this.f52683b != null || this.f52682a.isEmpty()) {
+            return;
         }
-    }
-
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        TbPageContext<?> tbPageContext;
-        String[] strArr = {str};
-        UrlManager urlManager = UrlManager.getInstance();
-        if (urlManager == null || (tbPageContext = (TbPageContext) j.a(context)) == null) {
-            return false;
-        }
-        if (urlManager.UrlValidated(str)) {
-            urlManager.dealOneLink(tbPageContext, strArr, true);
-            return true;
-        }
-        return urlManager.dealOneLink(tbPageContext, strArr);
-    }
-
-    public static boolean e(Context context, String str, String str2, d.a.n0.b0.a aVar, boolean z, a.C1238a c1238a) {
-        if (TextUtils.isEmpty(str)) {
-            c1238a.a(1, -4);
-            return false;
-        } else if (c(context, str, str2, z, new a(c1238a))) {
-            c1238a.b(1);
-            if (aVar != null) {
-                aVar.a(1, c1238a);
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean f(Context context, String str, String str2, d.a.n0.b0.a aVar, boolean z, a.C1238a c1238a) {
-        if (TextUtils.isEmpty(str)) {
-            c1238a.a(2, -5);
-            return false;
-        } else if (c(context, str, str2, z, new C1239b(c1238a))) {
-            c1238a.b(2);
-            if (aVar != null) {
-                aVar.a(2, c1238a);
-                return true;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean g(Context context, String str, Bundle bundle, d.a.n0.b0.a aVar, a.C1238a c1238a, boolean z) {
-        if (TextUtils.isEmpty(str)) {
-            c1238a.a(3, -6);
-            if (aVar != null) {
-                aVar.b(-6, "Uri web url is empty", c1238a);
-            }
-            return false;
-        } else if (d(context, str, bundle, z)) {
-            c1238a.b(3);
-            if (aVar != null) {
-                aVar.a(3, c1238a);
-                return true;
-            }
-            return true;
-        } else {
-            c1238a.a(3, -7);
-            if (aVar != null) {
-                aVar.b(-7, "Uri web url open failed", c1238a);
-            }
-            return false;
-        }
+        this.f52683b = new c(this.f52682a);
+        this.f52683b.execute(new Void[0]);
     }
 }

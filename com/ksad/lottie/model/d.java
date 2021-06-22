@@ -8,30 +8,30 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<j> f32087a;
+    public final List<j> f32185a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final char f32088b;
+    public final char f32186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f32089c;
+    public final double f32187c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final double f32090d;
+    public final double f32188d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f32091e;
+    public final String f32189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f32092f;
+    public final String f32190f;
 
     public d(List<j> list, char c2, double d2, double d3, String str, String str2) {
-        this.f32087a = list;
-        this.f32088b = c2;
-        this.f32089c = d2;
-        this.f32090d = d3;
-        this.f32091e = str;
-        this.f32092f = str2;
+        this.f32185a = list;
+        this.f32186b = c2;
+        this.f32187c = d2;
+        this.f32188d = d3;
+        this.f32189e = str;
+        this.f32190f = str2;
     }
 
     public static int a(char c2, String str, String str2) {
@@ -39,14 +39,14 @@ public class d {
     }
 
     public List<j> a() {
-        return this.f32087a;
+        return this.f32185a;
     }
 
     public double b() {
-        return this.f32090d;
+        return this.f32188d;
     }
 
     public int hashCode() {
-        return a(this.f32088b, this.f32092f, this.f32091e);
+        return a(this.f32186b, this.f32190f, this.f32189e);
     }
 }

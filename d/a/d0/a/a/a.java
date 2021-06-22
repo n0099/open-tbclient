@@ -5,15 +5,15 @@ import android.text.TextUtils;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43269a = d.a.d0.a.b.a.f43271a.get().s();
+    public static final boolean f43372a = d.a.d0.a.b.a.f43374a.get().s();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43270b = "https://afd.baidu.com/afd/entry";
+    public static String f43373b = "https://afd.baidu.com/afd/entry";
 
     public static String a() {
-        if (!f43269a || TextUtils.isEmpty(d.a.d0.a.b.a.f43271a.get().c())) {
-            return TextUtils.isEmpty(f43270b) ? "https://afd.baidu.com/afd/entry" : f43270b;
+        if (!f43372a || TextUtils.isEmpty(d.a.d0.a.b.a.f43374a.get().c())) {
+            return TextUtils.isEmpty(f43373b) ? "https://afd.baidu.com/afd/entry" : f43373b;
         }
-        return d.a.d0.a.b.a.f43271a.get().c();
+        return d.a.d0.a.b.a.f43374a.get().c();
     }
 }

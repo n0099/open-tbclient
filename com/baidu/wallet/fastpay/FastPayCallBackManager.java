@@ -1,5 +1,6 @@
 package com.baidu.wallet.fastpay;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.fastpay.datamodel.SimpleOrderInfo;
 import com.baidu.wallet.fastpay.sdk.a;
@@ -14,7 +15,7 @@ public final class FastPayCallBackManager {
         public String order_no = "";
 
         public String toString() {
-            return "PayStateContent [notify=" + this.notify + ", order_no=" + this.order_no + "]";
+            return "PayStateContent [notify=" + this.notify + ", order_no=" + this.order_no + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -54,7 +55,7 @@ public final class FastPayCallBackManager {
         if (a2 == null) {
             return;
         }
-        a2.onFastPayFail(i2, i3, new a.C0235a(i4, str, simpleOrderInfo));
+        a2.onFastPayFail(i2, i3, new a.C0238a(i4, str, simpleOrderInfo));
         a.a().b(i2);
     }
 

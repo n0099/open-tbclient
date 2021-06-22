@@ -13,58 +13,58 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.a.c.k.e.n;
-import d.a.n0.b1.c.f.c;
-import d.a.n0.b1.c.f.d;
-import d.a.n0.b1.c.g.b;
+import d.a.o0.b1.c.f.c;
+import d.a.o0.b1.c.f.d;
+import d.a.o0.b1.c.g.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class RecommendBarPageAdapter extends PagerAdapter {
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f16249c;
+    public TbPageContext<?> f16331c;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte f16251e;
+    public byte f16333e;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16250d = 3;
+    public int f16332d = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<n> f16247a = new ArrayList(6);
+    public List<n> f16329a = new ArrayList(6);
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f16248b = new ArrayList(6);
+    public List<b> f16330b = new ArrayList(6);
 
     public RecommendBarPageAdapter(TbPageContext<?> tbPageContext, byte b2) {
-        this.f16249c = tbPageContext;
-        this.f16251e = b2;
+        this.f16331c = tbPageContext;
+        this.f16333e = b2;
         for (int i2 = 0; i2 < 6; i2++) {
-            this.f16248b.add(new b(LayoutInflater.from(this.f16249c.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.f16249c, b2));
+            this.f16330b.add(new b(LayoutInflater.from(this.f16331c.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.f16331c, b2));
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, @NonNull Object obj) {
-        viewGroup.removeView(this.f16248b.get(i2).b());
+        viewGroup.removeView(this.f16330b.get(i2).b());
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f16247a);
+        return ListUtils.getCount(this.f16329a);
     }
 
     public n i(int i2) {
-        if (ListUtils.isEmpty(this.f16247a) || i2 >= this.f16247a.size()) {
+        if (ListUtils.isEmpty(this.f16329a) || i2 >= this.f16329a.size()) {
             return null;
         }
-        return this.f16247a.get(i2);
+        return this.f16329a.get(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        List<b> list = this.f16248b;
+        List<b> list = this.f16330b;
         if (list == null) {
             return super.instantiateItem(viewGroup, i2);
         }
@@ -76,7 +76,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             viewGroup.addView(bVar.b(), new ViewGroup.LayoutParams(-2, -2));
         }
         bVar.b().setTag(Integer.valueOf(i2));
-        bVar.c((n) ListUtils.getItem(this.f16247a, i2));
+        bVar.c((n) ListUtils.getItem(this.f16329a, i2));
         return bVar.b();
     }
 
@@ -86,15 +86,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     }
 
     public void j(int i2) {
-        if (this.f16250d == i2) {
+        if (this.f16332d == i2) {
             return;
         }
-        this.f16250d = i2;
-        List<b> list = this.f16248b;
+        this.f16332d = i2;
+        List<b> list = this.f16330b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f16248b) {
+        for (b bVar : this.f16330b) {
             bVar.l(i2);
         }
     }
@@ -103,40 +103,40 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         if (cVar == null || ListUtils.isEmpty(cVar.z())) {
             return;
         }
-        this.f16247a.clear();
-        this.f16247a.addAll(cVar.z());
-        for (int i2 = 0; i2 < this.f16247a.size() && i2 < this.f16248b.size(); i2++) {
-            b bVar = this.f16248b.get(i2);
+        this.f16329a.clear();
+        this.f16329a.addAll(cVar.z());
+        for (int i2 = 0; i2 < this.f16329a.size() && i2 < this.f16330b.size(); i2++) {
+            b bVar = this.f16330b.get(i2);
             bVar.m(!cVar.A());
-            bVar.c((n) ListUtils.getItem(this.f16247a, i2));
+            bVar.c((n) ListUtils.getItem(this.f16329a, i2));
         }
         notifyDataSetChanged();
-        if (this.f16247a.get(0) instanceof d) {
-            d dVar = (d) this.f16247a.get(0);
-            StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f16251e).param("obj_param1", 0);
-            if (!StringUtils.isNull(dVar.f55076e)) {
-                param = param.param("obj_name", dVar.f55076e);
+        if (this.f16329a.get(0) instanceof d) {
+            d dVar = (d) this.f16329a.get(0);
+            StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f16333e).param("obj_param1", 0);
+            if (!StringUtils.isNull(dVar.f55201e)) {
+                param = param.param("obj_name", dVar.f55201e);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.b()).param("obj_locate", (int) this.f16251e);
-            if (!StringUtils.isNull(dVar.f55076e)) {
-                param2 = param2.param("obj_name", dVar.f55076e);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.b()).param("obj_locate", (int) this.f16333e);
+            if (!StringUtils.isNull(dVar.f55201e)) {
+                param2 = param2.param("obj_name", dVar.f55201e);
             }
             TiebaStatic.log(param2);
         }
     }
 
     public void l(long j, boolean z) {
-        if (ListUtils.isEmpty(this.f16248b)) {
+        if (ListUtils.isEmpty(this.f16330b)) {
             return;
         }
-        for (int i2 = 0; i2 < this.f16248b.size(); i2++) {
-            b bVar = this.f16248b.get(i2);
+        for (int i2 = 0; i2 < this.f16330b.size(); i2++) {
+            b bVar = this.f16330b.get(i2);
             d j2 = bVar.j();
             if (j2 != null) {
                 int i3 = 0;
                 while (true) {
-                    d.a[] aVarArr = j2.f55079h;
+                    d.a[] aVarArr = j2.f55204h;
                     if (i3 < aVarArr.length) {
                         if (aVarArr[i3].h() == j) {
                             bVar.n(i3, z);

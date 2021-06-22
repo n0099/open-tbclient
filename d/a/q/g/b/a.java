@@ -3,24 +3,24 @@ package d.a.q.g.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.q.g.b.d.a.b f67925a;
+    public d.a.q.g.b.d.a.b f67881a;
 
     public static a b() {
         a aVar = new a();
         d.a.q.g.b.d.a.b bVar = new d.a.q.g.b.d.a.b();
-        aVar.f67925a = bVar;
+        aVar.f67881a = bVar;
         bVar.e("PKCS1Padding");
         return aVar;
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr != null) {
-            return this.f67925a.d(bArr, 0, bArr.length);
+            return this.f67881a.d(bArr, 0, bArr.length);
         }
         throw new IllegalArgumentException("Null input buffer");
     }
 
     public void c(int i2, d.a.q.g.b.e.a aVar) {
-        this.f67925a.a(i2, aVar, d.a.q.g.b.d.a.a.f67927a);
+        this.f67881a.a(i2, aVar, d.a.q.g.b.d.a.a.f67883a);
     }
 }

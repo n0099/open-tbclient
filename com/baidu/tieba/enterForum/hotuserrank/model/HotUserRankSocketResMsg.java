@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.hotuserrank.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.j0.i.c.c;
+import d.a.o0.j0.i.c.c;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
 /* loaded from: classes4.dex */

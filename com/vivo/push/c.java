@@ -2,15 +2,16 @@ package com.vivo.push;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class c implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f40246a;
+    public final /* synthetic */ b f40349a;
 
     public c(b bVar) {
-        this.f40246a = bVar;
+        this.f40349a = bVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,18 +25,18 @@ public final class c implements Handler.Callback {
         int i2 = message.what;
         if (i2 == 1) {
             com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-            atomicInteger = this.f40246a.f40199f;
+            atomicInteger = this.f40349a.f40302f;
             if (atomicInteger.get() == 2) {
-                this.f40246a.a(1);
+                this.f40349a.a(1);
             }
         } else if (i2 == 2) {
-            atomicInteger2 = this.f40246a.f40199f;
+            atomicInteger2 = this.f40349a.f40302f;
             if (atomicInteger2.get() == 4) {
-                this.f40246a.e();
+                this.f40349a.e();
             }
-            this.f40246a.a(1);
+            this.f40349a.a(1);
         } else {
-            com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + "]");
+            com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
         }
         return true;
     }

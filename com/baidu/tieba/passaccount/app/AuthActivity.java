@@ -103,13 +103,13 @@ public class AuthActivity extends BaseActivity {
     public void finishActivity(boolean z, String str) {
         int i2 = this.type;
         if (i2 == 0) {
-            d.a.n0.c2.d.b.f().b(z, str);
+            d.a.o0.c2.d.b.f().b(z, str);
         } else if (i2 == 1) {
-            d.a.n0.c2.d.b.f().e(z);
+            d.a.o0.c2.d.b.f().e(z);
         } else if (i2 == 2) {
-            d.a.n0.c2.d.b.f().c(z);
+            d.a.o0.c2.d.b.f().c(z);
         } else {
-            d.a.n0.c2.d.b.f().a(null);
+            d.a.o0.c2.d.b.f().a(null);
         }
         finish();
     }

@@ -5,43 +5,43 @@ import androidx.annotation.NonNull;
 public class f implements Comparable<f> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f37981a;
+    public final String f38079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f37982b;
+    public final String f38080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f37983c;
+    public final long f38081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37984d;
+    public String f38082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f37985e;
+    public long f38083e;
 
     public f(String str, String str2, ResolverType resolverType, long j) {
-        this.f37981a = str;
-        this.f37982b = str2;
-        this.f37984d = resolverType.mValue;
-        this.f37983c = System.currentTimeMillis() + j;
+        this.f38079a = str;
+        this.f38080b = str2;
+        this.f38082d = resolverType.mValue;
+        this.f38081c = System.currentTimeMillis() + j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull f fVar) {
-        return (int) (this.f37985e - fVar.f37985e);
+        return (int) (this.f38083e - fVar.f38083e);
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && this.f37982b.equals(((f) obj).f37982b);
+        return (obj instanceof f) && this.f38080b.equals(((f) obj).f38080b);
     }
 
     public int hashCode() {
-        return this.f37982b.hashCode();
+        return this.f38080b.hashCode();
     }
 
     public String toString() {
-        return this.f37982b;
+        return this.f38080b;
     }
 }

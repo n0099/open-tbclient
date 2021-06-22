@@ -2,6 +2,7 @@ package com.baidu.apollon.restnet.http;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.http.response.StatusCodeException;
 /* loaded from: classes.dex */
 public enum HttpStatus {
@@ -99,7 +100,7 @@ public enum HttpStatus {
                     return series;
                 }
             }
-            throw new IllegalArgumentException("No matching constant for [" + httpStatus + "]");
+            throw new IllegalArgumentException("No matching constant for [" + httpStatus + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
@@ -132,6 +133,6 @@ public enum HttpStatus {
                 return httpStatus;
             }
         }
-        throw new IllegalArgumentException("No matching constant for [" + i2 + "]");
+        throw new IllegalArgumentException("No matching constant for [" + i2 + PreferencesUtil.RIGHT_MOUNT);
     }
 }

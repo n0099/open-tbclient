@@ -2,8 +2,8 @@ package com.baidu.swan.apps.view.loading;
 
 import android.app.Application;
 import android.content.res.Resources;
-import d.a.l0.a.b;
-import d.a.l0.a.c1.a;
+import d.a.m0.a.b;
+import d.a.m0.a.c1.a;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;

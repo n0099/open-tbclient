@@ -18,19 +18,19 @@ import java.util.List;
 public class LabelSettingModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17819e;
+    public TbPageContext<?> f17901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.i1.c.a f17820f;
+    public d.a.o0.i1.c.a f17902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.i1.b.b f17821g;
+    public d.a.o0.i1.b.b f17903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.a f17822h;
+    public d.a.c.c.g.a f17904h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f17823i;
+    public d.a.c.c.g.a f17905i;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -43,8 +43,8 @@ public class LabelSettingModel extends BdBaseModel {
             if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.f17820f != null) {
-                LabelSettingModel.this.f17820f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.f17821g : null, responsedMessage.getError());
+            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.f17902f != null) {
+                LabelSettingModel.this.f17902f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.f17903g : null, responsedMessage.getError());
             }
         }
     }
@@ -62,29 +62,29 @@ public class LabelSettingModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof ResponseHttpSubLabelMessage) || (responsedMessage instanceof ResponseSocketSubLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
-                    LabelSettingModel.this.f17819e.showToast(responsedMessage.getErrorString());
+                    LabelSettingModel.this.f17901e.showToast(responsedMessage.getErrorString());
                 }
-                if (LabelSettingModel.this.f17820f == null) {
+                if (LabelSettingModel.this.f17902f == null) {
                     return;
                 }
-                LabelSettingModel.this.f17820f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                LabelSettingModel.this.f17902f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
             }
         }
     }
 
     public LabelSettingModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f17822h = new a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
-        this.f17823i = new b(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
-        this.f17819e = tbPageContext;
-        this.f17821g = new d.a.n0.i1.b.b();
-        registerListener(this.f17822h);
-        registerListener(this.f17823i);
+        this.f17904h = new a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
+        this.f17905i = new b(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
+        this.f17901e = tbPageContext;
+        this.f17903g = new d.a.o0.i1.b.b();
+        registerListener(this.f17904h);
+        registerListener(this.f17905i);
     }
 
     public void B() {
         if (!j.A()) {
-            d.a.n0.i1.c.a aVar = this.f17820f;
+            d.a.o0.i1.c.a aVar = this.f17902f;
             if (aVar != null) {
                 aVar.callback(LabelRequestEnum.GET_LABEL, null, -1);
                 return;
@@ -93,14 +93,14 @@ public class LabelSettingModel extends BdBaseModel {
         }
         RequestGetLabelMessage requestGetLabelMessage = new RequestGetLabelMessage();
         requestGetLabelMessage.setFrom(1);
-        requestGetLabelMessage.setLabelDataSet(this.f17821g);
+        requestGetLabelMessage.setLabelDataSet(this.f17903g);
         requestGetLabelMessage.setTag(this.unique_id);
         sendMessage(requestGetLabelMessage);
     }
 
     public void C(List<Integer> list) {
         if (!j.A()) {
-            this.f17819e.showToast(R.string.neterror);
+            this.f17901e.showToast(R.string.neterror);
             return;
         }
         RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -109,8 +109,8 @@ public class LabelSettingModel extends BdBaseModel {
         sendMessage(requestSubLabelMessage);
     }
 
-    public void D(d.a.n0.i1.c.a aVar) {
-        this.f17820f = aVar;
+    public void D(d.a.o0.i1.c.a aVar) {
+        this.f17902f = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

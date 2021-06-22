@@ -6,17 +6,17 @@ import java.io.File;
 public final class w extends v {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f41857a;
+    public final /* synthetic */ Runnable f41960a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(Context context, File file, Runnable runnable) {
         super(context, file, null);
-        this.f41857a = runnable;
+        this.f41960a = runnable;
     }
 
     @Override // com.xiaomi.push.v
     public void a(Context context) {
-        Runnable runnable = this.f41857a;
+        Runnable runnable = this.f41960a;
         if (runnable != null) {
             runnable.run();
         }

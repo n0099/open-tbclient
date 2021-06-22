@@ -10,86 +10,86 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28108a;
+    public String f28190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28109b;
+    public float f28191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28110c;
+    public float f28192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28111d;
+    public float f28193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28112e;
+    public float f28194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28113f;
+    public float f28195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f28114g;
+    public c f28196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<f> f28115h;
+    public List<f> f28197h;
 
     public void a(String str) {
-        this.f28108a = str;
+        this.f28190a = str;
     }
 
     public float b() {
-        return this.f28110c;
+        return this.f28192c;
     }
 
     public float c() {
-        return this.f28111d;
+        return this.f28193d;
     }
 
     public float d() {
-        return this.f28112e;
+        return this.f28194e;
     }
 
     public void e(float f2) {
-        this.f28113f = f2;
+        this.f28195f = f2;
     }
 
     public List<f> f() {
-        return this.f28115h;
+        return this.f28197h;
     }
 
     public float a() {
-        return this.f28109b;
+        return this.f28191b;
     }
 
     public void b(float f2) {
-        this.f28110c = f2;
+        this.f28192c = f2;
     }
 
     public void c(float f2) {
-        this.f28111d = f2;
+        this.f28193d = f2;
     }
 
     public void d(float f2) {
-        this.f28112e = f2;
+        this.f28194e = f2;
     }
 
     public c e() {
-        return this.f28114g;
+        return this.f28196g;
     }
 
     public void a(float f2) {
-        this.f28109b = f2;
+        this.f28191b = f2;
     }
 
     public void a(c cVar) {
-        this.f28114g = cVar;
+        this.f28196g = cVar;
     }
 
     public void a(f fVar) {
-        if (this.f28115h == null) {
-            this.f28115h = new ArrayList();
+        if (this.f28197h == null) {
+            this.f28197h = new ArrayList();
         }
-        this.f28115h.add(fVar);
+        this.f28197h.add(fVar);
     }
 
     public static void a(JSONObject jSONObject, f fVar) {

@@ -3,21 +3,21 @@ package com.baidu.webkit.logsdk.b;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26766a;
+    public String f26848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26767b;
+    public int f26849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26768c;
+    public String f26850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26769d;
+    public String f26851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26770e = "full";
+    public String f26852e = "full";
 
     public a(String str) {
-        this.f26766a = str;
+        this.f26848a = str;
     }
 }

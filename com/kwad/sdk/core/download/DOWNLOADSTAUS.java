@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum DOWNLOADSTAUS {
     UNKNOWN(0),
     START(1),

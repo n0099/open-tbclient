@@ -1,6 +1,7 @@
 package org.webrtc;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -50,14 +51,14 @@ public class MediaConstraints {
     }
 
     public static String stringifyKeyValuePairList(List<KeyValuePair> list) {
-        StringBuilder sb = new StringBuilder("[");
+        StringBuilder sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT);
         for (KeyValuePair keyValuePair : list) {
             if (sb.length() > 1) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append(keyValuePair.toString());
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

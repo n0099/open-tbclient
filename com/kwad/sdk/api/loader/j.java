@@ -9,27 +9,27 @@ import java.io.File;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32348a;
+    public final String f32446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32349b;
+    public final String f32447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f32350c;
+    public final String f32448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f32351d;
+    public Resources f32449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClassLoader f32352e;
+    public ClassLoader f32450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKsAdSDK f32353f;
+    public IKsAdSDK f32451f;
 
     public j(String str, String str2, String str3) {
-        this.f32348a = str;
-        this.f32349b = str2;
-        this.f32350c = str3;
+        this.f32446a = str;
+        this.f32447b = str2;
+        this.f32448c = str3;
     }
 
     public static synchronized j a(Context context, String str) {
@@ -60,14 +60,14 @@ public class j {
 
     private void a(Context context) {
         d();
-        Resources a2 = o.a(context, context.getResources(), this.f32348a);
-        ClassLoader a3 = d.a(context, this.f32348a, this.f32349b, this.f32350c);
+        Resources a2 = o.a(context, context.getResources(), this.f32446a);
+        ClassLoader a3 = d.a(context, this.f32446a, this.f32447b, this.f32448c);
         IKsAdSDK a4 = Loader.a(a3);
-        this.f32351d = a2;
-        this.f32352e = a3;
-        this.f32353f = a4;
+        this.f32449d = a2;
+        this.f32450e = a3;
+        this.f32451f = a4;
         int sDKType = a4.getSDKType();
-        int i2 = com.kwad.sdk.api.a.f32290a;
+        int i2 = com.kwad.sdk.api.a.f32388a;
         if (sDKType == i2) {
             return;
         }
@@ -75,28 +75,28 @@ public class j {
     }
 
     private void d() {
-        if (TextUtils.isEmpty(this.f32348a)) {
+        if (TextUtils.isEmpty(this.f32446a)) {
             throw new RuntimeException("mApk is null");
         }
-        File file = new File(this.f32348a);
+        File file = new File(this.f32446a);
         if (!file.isFile() || !file.exists()) {
             throw new RuntimeException("mApk not a file");
         }
     }
 
     public Resources a() {
-        return this.f32351d;
+        return this.f32449d;
     }
 
     public ClassLoader b() {
-        return this.f32352e;
+        return this.f32450e;
     }
 
     public IKsAdSDK c() {
-        return this.f32353f;
+        return this.f32451f;
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.f32348a + "', mDexDir='" + this.f32349b + "', mNativeLibDir='" + this.f32350c + "', mResource=" + this.f32351d + ", mClassLoader=" + this.f32352e + ", mKsSdk=" + this.f32353f + '}';
+        return "ExternalPackage{mApk='" + this.f32446a + "', mDexDir='" + this.f32447b + "', mNativeLibDir='" + this.f32448c + "', mResource=" + this.f32449d + ", mClassLoader=" + this.f32450e + ", mKsSdk=" + this.f32451f + '}';
     }
 }

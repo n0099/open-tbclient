@@ -26,7 +26,7 @@ public class BankCardProcessing {
     public AtomicInteger mNumberOfTasks = new AtomicInteger(0);
 
     static {
-        System.loadLibrary(License.LICENSE_DEFAULT_FILE_NAME);
+        System.loadLibrary("idl_license");
         System.loadLibrary("bankcardprocess.1.1.1");
         mInstance = null;
         mAuthorityStatus = 256;

@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.g0.c.b;
-import d.a.m0.r.f0.f;
-import d.a.n0.g1.b.d;
+import d.a.n0.g0.c.b;
+import d.a.n0.r.f0.f;
+import d.a.o0.g1.b.d;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.a.m0.g0.c.a {
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.a.n0.g0.c.a {
     public AtMeModelController atMeModelController;
     public d atMeViewController;
     public CustomMessageListener mMessageFromNotifyCenterListener = new a(2016321);
@@ -107,7 +107,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.atMeViewController.h();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }
@@ -122,15 +122,15 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void hideNetRefreshView() {
         d dVar = this.atMeViewController;
         if (dVar != null) {
-            BdListView bdListView = dVar.f58696b;
+            BdListView bdListView = dVar.f58821b;
             if (bdListView != null) {
                 bdListView.setVisibility(0);
             }
-            hideNetRefreshView(this.atMeViewController.f58697c);
+            hideNetRefreshView(this.atMeViewController.f58822c);
         }
     }
 
-    @Override // d.a.m0.g0.c.a
+    @Override // d.a.n0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
@@ -162,25 +162,25 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.atMeModelController.y();
     }
 
-    @Override // d.a.m0.g0.c.a
+    @Override // d.a.n0.g0.c.a
     public boolean onEventDispatch(b bVar) {
         if (bVar == null) {
             return true;
         }
         if (bVar.b() == 9484) {
-            d.a.m0.g0.b.a a2 = bVar.a();
+            d.a.n0.g0.b.a a2 = bVar.a();
             if (a2 instanceof FeedData) {
                 return toPb((FeedData) a2);
             }
             return false;
         } else if (bVar.b() == 9483) {
-            d.a.m0.g0.b.a a3 = bVar.a();
+            d.a.n0.g0.b.a a3 = bVar.a();
             if (a3 instanceof FeedData) {
                 return toPersonInfo((FeedData) a3);
             }
             return false;
         } else if (bVar.b() == 9489) {
-            d.a.m0.g0.b.a a4 = bVar.a();
+            d.a.n0.g0.b.a a4 = bVar.a();
             if (a4 instanceof FeedData) {
                 this.atMeViewController.g((FeedData) a4);
                 return true;
@@ -191,7 +191,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // d.a.m0.r.f0.f.g
+    @Override // d.a.n0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         this.atMeModelController.C();
     }
@@ -213,19 +213,19 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f58696b;
+        BdListView bdListView = this.atMeViewController.f58821b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f58697c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f58822c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(d.a.m0.g0.b.a aVar) {
+    public void onViewDataChanged(d.a.n0.g0.b.a aVar) {
         this.atMeViewController.m(aVar);
     }
 
-    public void onViewStateChanged(d.a.m0.g0.d.b bVar) {
+    public void onViewStateChanged(d.a.n0.g0.d.b bVar) {
         this.atMeViewController.n(bVar);
     }
 

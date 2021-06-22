@@ -3,5 +3,5 @@ package i.a.a.e.j;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f72085a = {"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
+    public static String[] f72189a = {"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
 }

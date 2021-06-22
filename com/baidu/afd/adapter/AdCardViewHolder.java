@@ -2,7 +2,7 @@ package com.baidu.afd.adapter;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.a.n0.k1.o.l.e;
+import d.a.o0.k1.o.l.e;
 /* loaded from: classes.dex */
 public class AdCardViewHolder<T extends e> extends TypeAdapter.ViewHolder {
 

@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class LongAddables {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final r<g> f30963a;
+    public static final r<g> f31061a;
 
     /* loaded from: classes6.dex */
     public static final class PureJavaLongAddable extends AtomicLong implements g {
@@ -62,10 +62,10 @@ public final class LongAddables {
         } catch (Throwable unused) {
             bVar = new b();
         }
-        f30963a = bVar;
+        f31061a = bVar;
     }
 
     public static g a() {
-        return f30963a.get();
+        return f31061a.get();
     }
 }

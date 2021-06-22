@@ -13,33 +13,33 @@ public class f implements d.o.a.e.b.o.j {
     public class a implements d.o.a.e.b.o.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f71179a;
+        public final /* synthetic */ Response f71283a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Call f71180b;
+        public final /* synthetic */ Call f71284b;
 
         public a(f fVar, Response response, Call call) {
-            this.f71179a = response;
-            this.f71180b = call;
+            this.f71283a = response;
+            this.f71284b = call;
         }
 
         @Override // d.o.a.e.b.o.i
         public String a(String str) {
-            return this.f71179a.header(str);
+            return this.f71283a.header(str);
         }
 
         @Override // d.o.a.e.b.o.i
         public int b() throws IOException {
-            return this.f71179a.code();
+            return this.f71283a.code();
         }
 
         @Override // d.o.a.e.b.o.i
         public void c() {
-            Call call = this.f71180b;
+            Call call = this.f71284b;
             if (call == null || call.isCanceled()) {
                 return;
             }
-            this.f71180b.cancel();
+            this.f71284b.cancel();
         }
     }
 

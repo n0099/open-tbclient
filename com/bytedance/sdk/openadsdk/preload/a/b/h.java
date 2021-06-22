@@ -13,10 +13,10 @@ import java.util.Set;
 public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f29925f = !h.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f30007f = !h.class.desiredAssertionStatus();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Comparator<Comparable> f29926g = new Comparator<Comparable>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.h.1
+    public static final Comparator<Comparable> f30008g = new Comparator<Comparable>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -26,25 +26,25 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public Comparator<? super K> f29927a;
+    public Comparator<? super K> f30009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d<K, V> f29928b;
+    public d<K, V> f30010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29929c;
+    public int f30011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29930d;
+    public int f30012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<K, V> f29931e;
+    public final d<K, V> f30013e;
 
     /* renamed from: h  reason: collision with root package name */
-    public h<K, V>.a f29932h;
+    public h<K, V>.a f30014h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h<K, V>.b f29933i;
+    public h<K, V>.b f30015i;
 
     /* loaded from: classes6.dex */
     public class a extends AbstractSet<Map.Entry<K, V>> {
@@ -89,7 +89,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return h.this.f29929c;
+            return h.this.f30011c;
         }
     }
 
@@ -117,7 +117,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
                 @Override // java.util.Iterator
                 public K next() {
-                    return b().f29947f;
+                    return b().f30029f;
                 }
             };
         }
@@ -129,7 +129,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return h.this.f29929c;
+            return h.this.f30011c;
         }
     }
 
@@ -137,28 +137,28 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: b  reason: collision with root package name */
-        public d<K, V> f29938b;
+        public d<K, V> f30020b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d<K, V> f29939c;
+        public d<K, V> f30021c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29940d;
+        public int f30022d;
 
         public c() {
             h hVar = h.this;
-            this.f29938b = hVar.f29931e.f29945d;
-            this.f29939c = null;
-            this.f29940d = hVar.f29930d;
+            this.f30020b = hVar.f30013e.f30027d;
+            this.f30021c = null;
+            this.f30022d = hVar.f30012d;
         }
 
         public final d<K, V> b() {
-            d<K, V> dVar = this.f29938b;
+            d<K, V> dVar = this.f30020b;
             h hVar = h.this;
-            if (dVar != hVar.f29931e) {
-                if (hVar.f29930d == this.f29940d) {
-                    this.f29938b = dVar.f29945d;
-                    this.f29939c = dVar;
+            if (dVar != hVar.f30013e) {
+                if (hVar.f30012d == this.f30022d) {
+                    this.f30020b = dVar.f30027d;
+                    this.f30021c = dVar;
                     return dVar;
                 }
                 throw new ConcurrentModificationException();
@@ -168,16 +168,16 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.f29938b != h.this.f29931e;
+            return this.f30020b != h.this.f30013e;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
-            d<K, V> dVar = this.f29939c;
+            d<K, V> dVar = this.f30021c;
             if (dVar != null) {
                 h.this.a((d) dVar, true);
-                this.f29939c = null;
-                this.f29940d = h.this.f29930d;
+                this.f30021c = null;
+                this.f30022d = h.this.f30012d;
                 return;
             }
             throw new IllegalStateException();
@@ -185,27 +185,27 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     }
 
     public h() {
-        this(f29926g);
+        this(f30008g);
     }
 
     /* JADX DEBUG: Type inference failed for r4v2. Raw type applied. Possible types: K, ? super K */
     public d<K, V> a(K k, boolean z) {
         int i2;
         d<K, V> dVar;
-        Comparator<? super K> comparator = this.f29927a;
-        d<K, V> dVar2 = this.f29928b;
+        Comparator<? super K> comparator = this.f30009a;
+        d<K, V> dVar2 = this.f30010b;
         if (dVar2 != null) {
-            Comparable comparable = comparator == f29926g ? (Comparable) k : null;
+            Comparable comparable = comparator == f30008g ? (Comparable) k : null;
             while (true) {
                 if (comparable != null) {
-                    i2 = comparable.compareTo(dVar2.f29947f);
+                    i2 = comparable.compareTo(dVar2.f30029f);
                 } else {
-                    i2 = comparator.compare(k, (K) dVar2.f29947f);
+                    i2 = comparator.compare(k, (K) dVar2.f30029f);
                 }
                 if (i2 == 0) {
                     return dVar2;
                 }
-                d<K, V> dVar3 = i2 < 0 ? dVar2.f29943b : dVar2.f29944c;
+                d<K, V> dVar3 = i2 < 0 ? dVar2.f30025b : dVar2.f30026c;
                 if (dVar3 == null) {
                     break;
                 }
@@ -215,24 +215,24 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             i2 = 0;
         }
         if (z) {
-            d<K, V> dVar4 = this.f29931e;
+            d<K, V> dVar4 = this.f30013e;
             if (dVar2 == null) {
-                if (comparator == f29926g && !(k instanceof Comparable)) {
+                if (comparator == f30008g && !(k instanceof Comparable)) {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
-                dVar = new d<>(dVar2, k, dVar4, dVar4.f29946e);
-                this.f29928b = dVar;
+                dVar = new d<>(dVar2, k, dVar4, dVar4.f30028e);
+                this.f30010b = dVar;
             } else {
-                dVar = new d<>(dVar2, k, dVar4, dVar4.f29946e);
+                dVar = new d<>(dVar2, k, dVar4, dVar4.f30028e);
                 if (i2 < 0) {
-                    dVar2.f29943b = dVar;
+                    dVar2.f30025b = dVar;
                 } else {
-                    dVar2.f29944c = dVar;
+                    dVar2.f30026c = dVar;
                 }
                 b(dVar2, true);
             }
-            this.f29929c++;
-            this.f29930d++;
+            this.f30011c++;
+            this.f30012d++;
             return dVar;
         }
         return null;
@@ -248,12 +248,12 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     @Override // java.util.AbstractMap, java.util.Map
     public void clear() {
-        this.f29928b = null;
-        this.f29929c = 0;
-        this.f29930d++;
-        d<K, V> dVar = this.f29931e;
-        dVar.f29946e = dVar;
-        dVar.f29945d = dVar;
+        this.f30010b = null;
+        this.f30011c = 0;
+        this.f30012d++;
+        d<K, V> dVar = this.f30013e;
+        dVar.f30028e = dVar;
+        dVar.f30027d = dVar;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -263,12 +263,12 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        h<K, V>.a aVar = this.f29932h;
+        h<K, V>.a aVar = this.f30014h;
         if (aVar != null) {
             return aVar;
         }
         h<K, V>.a aVar2 = new a();
-        this.f29932h = aVar2;
+        this.f30014h = aVar2;
         return aVar2;
     }
 
@@ -276,19 +276,19 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public V get(Object obj) {
         d<K, V> a2 = a(obj);
         if (a2 != null) {
-            return a2.f29948g;
+            return a2.f30030g;
         }
         return null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<K> keySet() {
-        h<K, V>.b bVar = this.f29933i;
+        h<K, V>.b bVar = this.f30015i;
         if (bVar != null) {
             return bVar;
         }
         h<K, V>.b bVar2 = new b();
-        this.f29933i = bVar2;
+        this.f30015i = bVar2;
         return bVar2;
     }
 
@@ -296,8 +296,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public V put(K k, V v) {
         if (k != null) {
             d<K, V> a2 = a((h<K, V>) k, true);
-            V v2 = a2.f29948g;
-            a2.f29948g = v;
+            V v2 = a2.f30030g;
+            a2.f30030g = v;
             return v2;
         }
         throw new NullPointerException("key == null");
@@ -307,59 +307,59 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public V remove(Object obj) {
         d<K, V> b2 = b(obj);
         if (b2 != null) {
-            return b2.f29948g;
+            return b2.f30030g;
         }
         return null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public int size() {
-        return this.f29929c;
+        return this.f30011c;
     }
 
     public h(Comparator<? super K> comparator) {
-        this.f29929c = 0;
-        this.f29930d = 0;
-        this.f29931e = new d<>();
-        this.f29927a = comparator == null ? f29926g : comparator;
+        this.f30011c = 0;
+        this.f30012d = 0;
+        this.f30013e = new d<>();
+        this.f30009a = comparator == null ? f30008g : comparator;
     }
 
     /* loaded from: classes6.dex */
     public static final class d<K, V> implements Map.Entry<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d<K, V> f29942a;
+        public d<K, V> f30024a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d<K, V> f29943b;
+        public d<K, V> f30025b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d<K, V> f29944c;
+        public d<K, V> f30026c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d<K, V> f29945d;
+        public d<K, V> f30027d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d<K, V> f29946e;
+        public d<K, V> f30028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final K f29947f;
+        public final K f30029f;
 
         /* renamed from: g  reason: collision with root package name */
-        public V f29948g;
+        public V f30030g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f29949h;
+        public int f30031h;
 
         public d() {
-            this.f29947f = null;
-            this.f29946e = this;
-            this.f29945d = this;
+            this.f30029f = null;
+            this.f30028e = this;
+            this.f30027d = this;
         }
 
         public d<K, V> a() {
             d<K, V> dVar = this;
-            for (d<K, V> dVar2 = this.f29943b; dVar2 != null; dVar2 = dVar2.f29943b) {
+            for (d<K, V> dVar2 = this.f30025b; dVar2 != null; dVar2 = dVar2.f30025b) {
                 dVar = dVar2;
             }
             return dVar;
@@ -367,7 +367,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
         public d<K, V> b() {
             d<K, V> dVar = this;
-            for (d<K, V> dVar2 = this.f29944c; dVar2 != null; dVar2 = dVar2.f29944c) {
+            for (d<K, V> dVar2 = this.f30026c; dVar2 != null; dVar2 = dVar2.f30026c) {
                 dVar = dVar2;
             }
             return dVar;
@@ -377,7 +377,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                K k = this.f29947f;
+                K k = this.f30029f;
                 if (k == null) {
                     if (entry.getKey() != null) {
                         return false;
@@ -385,7 +385,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 } else if (!k.equals(entry.getKey())) {
                     return false;
                 }
-                V v = this.f29948g;
+                V v = this.f30030g;
                 if (v == null) {
                     if (entry.getValue() != null) {
                         return false;
@@ -400,57 +400,57 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
         @Override // java.util.Map.Entry
         public K getKey() {
-            return this.f29947f;
+            return this.f30029f;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            return this.f29948g;
+            return this.f30030g;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            K k = this.f29947f;
+            K k = this.f30029f;
             int hashCode = k == null ? 0 : k.hashCode();
-            V v = this.f29948g;
+            V v = this.f30030g;
             return hashCode ^ (v != null ? v.hashCode() : 0);
         }
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = this.f29948g;
-            this.f29948g = v;
+            V v2 = this.f30030g;
+            this.f30030g = v;
             return v2;
         }
 
         public String toString() {
-            return this.f29947f + "=" + this.f29948g;
+            return this.f30029f + "=" + this.f30030g;
         }
 
         public d(d<K, V> dVar, K k, d<K, V> dVar2, d<K, V> dVar3) {
-            this.f29942a = dVar;
-            this.f29947f = k;
-            this.f29949h = 1;
-            this.f29945d = dVar2;
-            this.f29946e = dVar3;
-            dVar3.f29945d = this;
-            dVar2.f29946e = this;
+            this.f30024a = dVar;
+            this.f30029f = k;
+            this.f30031h = 1;
+            this.f30027d = dVar2;
+            this.f30028e = dVar3;
+            dVar3.f30027d = this;
+            dVar2.f30028e = this;
         }
     }
 
     private void b(d<K, V> dVar, boolean z) {
         while (dVar != null) {
-            d<K, V> dVar2 = dVar.f29943b;
-            d<K, V> dVar3 = dVar.f29944c;
-            int i2 = dVar2 != null ? dVar2.f29949h : 0;
-            int i3 = dVar3 != null ? dVar3.f29949h : 0;
+            d<K, V> dVar2 = dVar.f30025b;
+            d<K, V> dVar3 = dVar.f30026c;
+            int i2 = dVar2 != null ? dVar2.f30031h : 0;
+            int i3 = dVar3 != null ? dVar3.f30031h : 0;
             int i4 = i2 - i3;
             if (i4 == -2) {
-                d<K, V> dVar4 = dVar3.f29943b;
-                d<K, V> dVar5 = dVar3.f29944c;
-                int i5 = (dVar4 != null ? dVar4.f29949h : 0) - (dVar5 != null ? dVar5.f29949h : 0);
+                d<K, V> dVar4 = dVar3.f30025b;
+                d<K, V> dVar5 = dVar3.f30026c;
+                int i5 = (dVar4 != null ? dVar4.f30031h : 0) - (dVar5 != null ? dVar5.f30031h : 0);
                 if (i5 != -1 && (i5 != 0 || z)) {
-                    if (!f29925f && i5 != 1) {
+                    if (!f30007f && i5 != 1) {
                         throw new AssertionError();
                     }
                     b((d) dVar3);
@@ -462,11 +462,11 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             } else if (i4 == 2) {
-                d<K, V> dVar6 = dVar2.f29943b;
-                d<K, V> dVar7 = dVar2.f29944c;
-                int i6 = (dVar6 != null ? dVar6.f29949h : 0) - (dVar7 != null ? dVar7.f29949h : 0);
+                d<K, V> dVar6 = dVar2.f30025b;
+                d<K, V> dVar7 = dVar2.f30026c;
+                int i6 = (dVar6 != null ? dVar6.f30031h : 0) - (dVar7 != null ? dVar7.f30031h : 0);
                 if (i6 != 1 && (i6 != 0 || z)) {
-                    if (!f29925f && i6 != -1) {
+                    if (!f30007f && i6 != -1) {
                         throw new AssertionError();
                     }
                     a((d) dVar2);
@@ -478,19 +478,19 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             } else if (i4 == 0) {
-                dVar.f29949h = i2 + 1;
+                dVar.f30031h = i2 + 1;
                 if (z) {
                     return;
                 }
-            } else if (!f29925f && i4 != -1 && i4 != 1) {
+            } else if (!f30007f && i4 != -1 && i4 != 1) {
                 throw new AssertionError();
             } else {
-                dVar.f29949h = Math.max(i2, i3) + 1;
+                dVar.f30031h = Math.max(i2, i3) + 1;
                 if (!z) {
                     return;
                 }
             }
-            dVar = dVar.f29942a;
+            dVar = dVar.f30024a;
         }
     }
 
@@ -509,7 +509,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     public d<K, V> a(Map.Entry<?, ?> entry) {
         d<K, V> a2 = a(entry.getKey());
-        if (a2 != null && a(a2.f29948g, entry.getValue())) {
+        if (a2 != null && a(a2.f30030g, entry.getValue())) {
             return a2;
         }
         return null;
@@ -522,102 +522,102 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public void a(d<K, V> dVar, boolean z) {
         int i2;
         if (z) {
-            d<K, V> dVar2 = dVar.f29946e;
-            dVar2.f29945d = dVar.f29945d;
-            dVar.f29945d.f29946e = dVar2;
+            d<K, V> dVar2 = dVar.f30028e;
+            dVar2.f30027d = dVar.f30027d;
+            dVar.f30027d.f30028e = dVar2;
         }
-        d<K, V> dVar3 = dVar.f29943b;
-        d<K, V> dVar4 = dVar.f29944c;
-        d<K, V> dVar5 = dVar.f29942a;
+        d<K, V> dVar3 = dVar.f30025b;
+        d<K, V> dVar4 = dVar.f30026c;
+        d<K, V> dVar5 = dVar.f30024a;
         int i3 = 0;
         if (dVar3 != null && dVar4 != null) {
-            d<K, V> b2 = dVar3.f29949h > dVar4.f29949h ? dVar3.b() : dVar4.a();
+            d<K, V> b2 = dVar3.f30031h > dVar4.f30031h ? dVar3.b() : dVar4.a();
             a((d) b2, false);
-            d<K, V> dVar6 = dVar.f29943b;
+            d<K, V> dVar6 = dVar.f30025b;
             if (dVar6 != null) {
-                i2 = dVar6.f29949h;
-                b2.f29943b = dVar6;
-                dVar6.f29942a = b2;
-                dVar.f29943b = null;
+                i2 = dVar6.f30031h;
+                b2.f30025b = dVar6;
+                dVar6.f30024a = b2;
+                dVar.f30025b = null;
             } else {
                 i2 = 0;
             }
-            d<K, V> dVar7 = dVar.f29944c;
+            d<K, V> dVar7 = dVar.f30026c;
             if (dVar7 != null) {
-                i3 = dVar7.f29949h;
-                b2.f29944c = dVar7;
-                dVar7.f29942a = b2;
-                dVar.f29944c = null;
+                i3 = dVar7.f30031h;
+                b2.f30026c = dVar7;
+                dVar7.f30024a = b2;
+                dVar.f30026c = null;
             }
-            b2.f29949h = Math.max(i2, i3) + 1;
+            b2.f30031h = Math.max(i2, i3) + 1;
             a((d) dVar, (d) b2);
             return;
         }
         if (dVar3 != null) {
             a((d) dVar, (d) dVar3);
-            dVar.f29943b = null;
+            dVar.f30025b = null;
         } else if (dVar4 != null) {
             a((d) dVar, (d) dVar4);
-            dVar.f29944c = null;
+            dVar.f30026c = null;
         } else {
             a((d) dVar, (d) null);
         }
         b(dVar5, false);
-        this.f29929c--;
-        this.f29930d++;
+        this.f30011c--;
+        this.f30012d++;
     }
 
     private void b(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.f29943b;
-        d<K, V> dVar3 = dVar.f29944c;
-        d<K, V> dVar4 = dVar2.f29943b;
-        d<K, V> dVar5 = dVar2.f29944c;
-        dVar.f29943b = dVar5;
+        d<K, V> dVar2 = dVar.f30025b;
+        d<K, V> dVar3 = dVar.f30026c;
+        d<K, V> dVar4 = dVar2.f30025b;
+        d<K, V> dVar5 = dVar2.f30026c;
+        dVar.f30025b = dVar5;
         if (dVar5 != null) {
-            dVar5.f29942a = dVar;
+            dVar5.f30024a = dVar;
         }
         a((d) dVar, (d) dVar2);
-        dVar2.f29944c = dVar;
-        dVar.f29942a = dVar2;
-        int max = Math.max(dVar3 != null ? dVar3.f29949h : 0, dVar5 != null ? dVar5.f29949h : 0) + 1;
-        dVar.f29949h = max;
-        dVar2.f29949h = Math.max(max, dVar4 != null ? dVar4.f29949h : 0) + 1;
+        dVar2.f30026c = dVar;
+        dVar.f30024a = dVar2;
+        int max = Math.max(dVar3 != null ? dVar3.f30031h : 0, dVar5 != null ? dVar5.f30031h : 0) + 1;
+        dVar.f30031h = max;
+        dVar2.f30031h = Math.max(max, dVar4 != null ? dVar4.f30031h : 0) + 1;
     }
 
     private void a(d<K, V> dVar, d<K, V> dVar2) {
-        d<K, V> dVar3 = dVar.f29942a;
-        dVar.f29942a = null;
+        d<K, V> dVar3 = dVar.f30024a;
+        dVar.f30024a = null;
         if (dVar2 != null) {
-            dVar2.f29942a = dVar3;
+            dVar2.f30024a = dVar3;
         }
         if (dVar3 != null) {
-            if (dVar3.f29943b == dVar) {
-                dVar3.f29943b = dVar2;
+            if (dVar3.f30025b == dVar) {
+                dVar3.f30025b = dVar2;
                 return;
-            } else if (!f29925f && dVar3.f29944c != dVar) {
+            } else if (!f30007f && dVar3.f30026c != dVar) {
                 throw new AssertionError();
             } else {
-                dVar3.f29944c = dVar2;
+                dVar3.f30026c = dVar2;
                 return;
             }
         }
-        this.f29928b = dVar2;
+        this.f30010b = dVar2;
     }
 
     private void a(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.f29943b;
-        d<K, V> dVar3 = dVar.f29944c;
-        d<K, V> dVar4 = dVar3.f29943b;
-        d<K, V> dVar5 = dVar3.f29944c;
-        dVar.f29944c = dVar4;
+        d<K, V> dVar2 = dVar.f30025b;
+        d<K, V> dVar3 = dVar.f30026c;
+        d<K, V> dVar4 = dVar3.f30025b;
+        d<K, V> dVar5 = dVar3.f30026c;
+        dVar.f30026c = dVar4;
         if (dVar4 != null) {
-            dVar4.f29942a = dVar;
+            dVar4.f30024a = dVar;
         }
         a((d) dVar, (d) dVar3);
-        dVar3.f29943b = dVar;
-        dVar.f29942a = dVar3;
-        int max = Math.max(dVar2 != null ? dVar2.f29949h : 0, dVar4 != null ? dVar4.f29949h : 0) + 1;
-        dVar.f29949h = max;
-        dVar3.f29949h = Math.max(max, dVar5 != null ? dVar5.f29949h : 0) + 1;
+        dVar3.f30025b = dVar;
+        dVar.f30024a = dVar3;
+        int max = Math.max(dVar2 != null ? dVar2.f30031h : 0, dVar4 != null ? dVar4.f30031h : 0) + 1;
+        dVar.f30031h = max;
+        dVar3.f30031h = Math.max(max, dVar5 != null ? dVar5.f30031h : 0) + 1;
     }
 }

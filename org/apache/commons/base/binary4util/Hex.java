@@ -1,5 +1,6 @@
 package org.apache.commons.base.binary4util;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.apache.commons.base.BinaryDecoder;
@@ -58,7 +59,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
     }
 
     public String toString() {
-        return super.toString() + "[charsetName=" + this.charset + "]";
+        return super.toString() + "[charsetName=" + this.charset + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public static byte[] decodeHex(char[] cArr) throws DecoderException {

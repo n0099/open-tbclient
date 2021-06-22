@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f72168a = new h();
+    public static final h f72272a = new h();
 
     @TargetApi(17)
     public final boolean a(Context context) {

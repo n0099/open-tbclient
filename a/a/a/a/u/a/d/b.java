@@ -151,11 +151,11 @@ public class b extends a.a.a.a.c<PBNative> {
         JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(activity).inflate(R.layout.jy_ad_native_view, viewGroup, false);
         viewGroup.removeAllViews();
         viewGroup.addView(jYNativeAdView);
-        jYNativeAdView.f30748a.setText(pBNative2.getBody());
-        jYNativeAdView.f30750c.setText(pBNative2.getHeadline());
+        jYNativeAdView.f30830a.setText(pBNative2.getBody());
+        jYNativeAdView.f30832c.setText(pBNative2.getHeadline());
         Context context = jYNativeAdView.getContext();
         String icon = pBNative2.getIcon();
-        ImageView imageView = jYNativeAdView.f30751d;
+        ImageView imageView = jYNativeAdView.f30833d;
         if (context == null) {
             a.a.a.a.y.d.b("GlideHelper: context is null when load: " + icon, new Object[0]);
         } else if (context instanceof Activity) {
@@ -168,9 +168,9 @@ public class b extends a.a.a.a.c<PBNative> {
         } else {
             Glide.with(context).load(icon).into(imageView);
         }
-        jYNativeAdView.f30752e.setText(pBNative2.getCallToAction());
-        jYNativeAdView.f30753f = (pBNative2.getMediaViewWidth() * 1.0f) / (pBNative2.getMediaViewHeight() * 1.0f);
-        pBNative2.registerViewForInteraction(jYNativeAdView, jYNativeAdView.f30749b);
+        jYNativeAdView.f30834e.setText(pBNative2.getCallToAction());
+        jYNativeAdView.f30835f = (pBNative2.getMediaViewWidth() * 1.0f) / (pBNative2.getMediaViewHeight() * 1.0f);
+        pBNative2.registerViewForInteraction(jYNativeAdView, jYNativeAdView.f30831b);
         return true;
     }
 

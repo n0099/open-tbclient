@@ -13,54 +13,54 @@ import android.text.TextUtils;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f71374c;
+    public static volatile b f71478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f71375d;
+    public static a f71479d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Object f71376e = new Object();
+    public static Object f71480e = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public static HandlerThread f71377f;
+    public static HandlerThread f71481f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Handler f71378g;
+    public static Handler f71482g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f71379h;
+    public static String f71483h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f71380i;
+    public static String f71484i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71381a;
+    public Context f71485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f71382b;
+    public boolean f71486b;
 
     public b(Context context) {
-        this.f71382b = false;
-        this.f71381a = context;
+        this.f71486b = false;
+        this.f71485a = context;
         boolean equals = "1".equals(d("persist.sys.identifierid.supported", "0"));
-        this.f71382b = equals;
+        this.f71486b = equals;
         if (equals) {
             HandlerThread handlerThread = new HandlerThread("vivo_work");
-            f71377f = handlerThread;
+            f71481f = handlerThread;
             handlerThread.start();
-            f71378g = new c(this, f71377f.getLooper(), context);
+            f71482g = new c(this, f71481f.getLooper(), context);
         }
     }
 
     public static b a(Context context) {
-        if (f71374c == null) {
+        if (f71478c == null) {
             synchronized (b.class) {
-                if (f71374c == null) {
-                    f71374c = new b(context);
+                if (f71478c == null) {
+                    f71478c = new b(context);
                 }
             }
         }
-        return f71374c;
+        return f71478c;
     }
 
     public static String d(String str, String str2) {
@@ -130,7 +130,7 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0055, code lost:
-        if (android.text.TextUtils.isEmpty(d.q.a.a.a.b.i.a.b.f71379h) == false) goto L21;
+        if (android.text.TextUtils.isEmpty(d.q.a.a.a.b.i.a.b.f71483h) == false) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -141,8 +141,8 @@ public class b {
             d.q.a.a.c.b.b.c(th);
             return;
         }
-        synchronized (f71376e) {
-            Message obtainMessage = f71378g.obtainMessage();
+        synchronized (f71480e) {
+            Message obtainMessage = f71482g.obtainMessage();
             obtainMessage.what = 666;
             Bundle bundle = new Bundle();
             bundle.putInt("type", i2);
@@ -150,44 +150,44 @@ public class b {
                 bundle.putString("appid", str);
             }
             obtainMessage.setData(bundle);
-            f71378g.sendMessage(obtainMessage);
+            f71482g.sendMessage(obtainMessage);
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                f71376e.wait(2000L);
+                f71480e.wait(2000L);
             } catch (InterruptedException unused) {
             }
             if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
                 if (i2 != 0) {
                     if (i2 != 1) {
-                        if (i2 == 2 && !TextUtils.isEmpty(f71379h)) {
+                        if (i2 == 2 && !TextUtils.isEmpty(f71483h)) {
                         }
                     }
                     d.q.a.a.c.b.b.c(th);
                     return;
                 }
-                f71380i = f71379h;
-                f71379h = null;
+                f71484i = f71483h;
+                f71483h = null;
             }
         }
     }
 
     public final boolean f() {
-        return this.f71382b;
+        return this.f71486b;
     }
 
     public final String g() {
-        if (this.f71382b) {
-            String str = f71380i;
+        if (this.f71486b) {
+            String str = f71484i;
             if (str != null) {
                 return str;
             }
             e(0, null);
-            if (f71375d == null) {
-                Context context = this.f71381a;
-                f71375d = new a(f71374c, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f71375d);
+            if (f71479d == null) {
+                Context context = this.f71485a;
+                f71479d = new a(f71478c, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f71479d);
             }
-            return f71380i;
+            return f71484i;
         }
         return null;
     }

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-import com.baidu.sofire.g.t;
+import com.baidu.sofire.utility.x;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -25,16 +25,9 @@ public class MyActivity extends Activity {
             Object invoke2 = method2.invoke(cls, new Object[0]);
             Method method3 = invoke2.getClass().getMethod("getLaunchedFromUid", IBinder.class);
             method3.setAccessible(true);
-            Object invoke3 = method3.invoke(invoke2, invoke);
-            String nameForUid = activity.getPackageManager().getNameForUid(((Integer) invoke3).intValue());
-            StringBuilder sb = new StringBuilder("getLaunchedFromUid:");
-            sb.append(invoke3);
-            sb.append(" packageName:");
-            sb.append(nameForUid);
-            b.a();
-            return nameForUid;
+            return activity.getPackageManager().getNameForUid(((Integer) method3.invoke(invoke2, invoke)).intValue());
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
             return "";
         }
     }
@@ -49,7 +42,6 @@ public class MyActivity extends Activity {
         try {
             final Intent intent = getIntent();
             if ("teac".equals(intent.getAction())) {
-                b.a();
                 Intent intent2 = new Intent(intent);
                 intent2.setAction("teac");
                 intent2.setComponent(new ComponentName(getApplicationContext().getPackageName(), MyService.class.getCanonicalName()));
@@ -58,12 +50,10 @@ public class MyActivity extends Activity {
             if ("a".equals(intent.getStringExtra("t"))) {
                 final WeakReference weakReference = new WeakReference(this);
                 final Context applicationContext = getApplicationContext();
-                t.a(applicationContext).a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
+                x.a(applicationContext).a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
-                            new StringBuilder().append(intent.toString());
-                            b.a();
                             String stringExtra = intent.getStringExtra("c");
                             Intent intent3 = new Intent();
                             intent3.putExtra("t", "a");
@@ -72,19 +62,17 @@ public class MyActivity extends Activity {
                             if (a2 == null) {
                                 a2 = "";
                             }
-                            b.a();
                             intent3.putExtra("source", a2);
                             a.a(applicationContext.getApplicationContext(), intent3);
                         } catch (Throwable unused) {
-                            com.baidu.sofire.g.d.a();
+                            com.baidu.sofire.utility.c.a();
                         }
                     }
                 });
             }
             super.onCreate(bundle);
-            b.a();
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
         finish();
     }

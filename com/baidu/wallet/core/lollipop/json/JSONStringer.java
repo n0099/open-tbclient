@@ -1,6 +1,7 @@
 package com.baidu.wallet.core.lollipop.json;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -118,7 +119,7 @@ public class JSONStringer {
     }
 
     public JSONStringer array() throws JSONException {
-        return open(Scope.EMPTY_ARRAY, "[");
+        return open(Scope.EMPTY_ARRAY, PreferencesUtil.LEFT_MOUNT);
     }
 
     public JSONStringer close(Scope scope, Scope scope2, String str) throws JSONException {
@@ -136,7 +137,7 @@ public class JSONStringer {
     }
 
     public JSONStringer endArray() throws JSONException {
-        return close(Scope.EMPTY_ARRAY, Scope.NONEMPTY_ARRAY, "]");
+        return close(Scope.EMPTY_ARRAY, Scope.NONEMPTY_ARRAY, PreferencesUtil.RIGHT_MOUNT);
     }
 
     public JSONStringer endObject() throws JSONException {

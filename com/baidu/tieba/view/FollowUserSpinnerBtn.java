@@ -19,25 +19,25 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.b {
+public class FollowUserSpinnerBtn extends LinearLayout implements d.a.n0.r.f0.q.b {
     public static final int t = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
     public static final int u = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
     public static final int v = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f21694e;
+    public FrameLayout f21776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f21695f;
+    public FrameLayout f21777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21696g;
+    public TextView f21778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21697h;
+    public ImageView f21779h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f21698i;
+    public Paint f21780i;
     public int j;
     public int k;
     public RectF l;
@@ -53,15 +53,15 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21699e;
+        public final /* synthetic */ b f21781e;
 
         public a(b bVar) {
-            this.f21699e = bVar;
+            this.f21781e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b bVar = this.f21699e;
+            b bVar = this.f21781e;
             if (bVar != null) {
                 bVar.a(!FollowUserSpinnerBtn.this.p, false);
             }
@@ -77,21 +77,21 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
         this(context, null);
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void a(View view) {
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void b(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void c(boolean z, int i2, boolean z2) {
         e(z, i2);
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void d(int i2) {
     }
 
@@ -103,13 +103,13 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
         canvas.clipPath(this.m);
         super.draw(canvas);
         if (this.r) {
-            this.f21698i.setColor(SkinManager.getColor(this.j));
-            float right = this.f21694e.getRight();
-            canvas.drawLine(right, this.f21697h.getTop(), right, this.f21697h.getBottom(), this.f21698i);
+            this.f21780i.setColor(SkinManager.getColor(this.j));
+            float right = this.f21776e.getRight();
+            canvas.drawLine(right, this.f21779h.getTop(), right, this.f21779h.getBottom(), this.f21780i);
         }
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void e(boolean z, int i2) {
         i(z);
     }
@@ -117,33 +117,33 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
         setOrientation(0);
-        this.f21694e = (FrameLayout) findViewById(R.id.leftBox);
-        this.f21695f = (FrameLayout) findViewById(R.id.rightBox);
-        this.f21696g = (TextView) findViewById(R.id.title);
-        this.f21697h = (ImageView) findViewById(R.id.arrow);
+        this.f21776e = (FrameLayout) findViewById(R.id.leftBox);
+        this.f21777f = (FrameLayout) findViewById(R.id.rightBox);
+        this.f21778g = (TextView) findViewById(R.id.title);
+        this.f21779h = (ImageView) findViewById(R.id.arrow);
         Paint paint = new Paint(1);
-        this.f21698i = paint;
+        this.f21780i = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f21698i.setStrokeCap(Paint.Cap.ROUND);
-        this.f21698i.setStrokeWidth(l.g(context, R.dimen.tbds3));
+        this.f21780i.setStrokeCap(Paint.Cap.ROUND);
+        this.f21780i.setStrokeWidth(l.g(context, R.dimen.tbds3));
         this.l = new RectF();
         this.m = new Path();
         this.j = R.color.CAM_X0105;
         Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
         this.o = pureDrawable;
-        this.f21697h.setImageDrawable(pureDrawable);
+        this.f21779h.setImageDrawable(pureDrawable);
     }
 
     public ImageView getArrow() {
-        return this.f21697h;
+        return this.f21779h;
     }
 
     public void h(int i2) {
         setBackgroundColor(SkinManager.getColor(this.k));
-        SkinManager.setViewTextColor(this.f21696g, this.j);
+        SkinManager.setViewTextColor(this.f21778g, this.j);
         Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
         this.o = pureDrawable;
-        this.f21697h.setImageDrawable(pureDrawable);
+        this.f21779h.setImageDrawable(pureDrawable);
         invalidate();
     }
 
@@ -158,7 +158,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
             this.j = R.color.CAM_X0105;
             this.k = R.color.CAM_X0901;
         }
-        this.f21696g.setText(this.n);
+        this.f21778g.setText(this.n);
         requestLayout();
         h(0);
         if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {
@@ -177,26 +177,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.a.m0.r.f0.q.
 
     public void setOpenListener(b bVar) {
         this.s = bVar;
-        this.f21695f.setOnClickListener(new a(bVar));
+        this.f21777f.setOnClickListener(new a(bVar));
     }
 
     public void setShowPullBtn(boolean z) {
         this.r = z;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21696g.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21778g.getLayoutParams();
         if (z) {
-            this.f21695f.setVisibility(0);
+            this.f21777f.setVisibility(0);
             layoutParams.leftMargin = u;
             layoutParams.rightMargin = v;
             layoutParams.gravity = 16;
             layoutParams.width = -2;
         } else {
-            this.f21695f.setVisibility(8);
+            this.f21777f.setVisibility(8);
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
             layoutParams.gravity = 17;
             layoutParams.width = t;
         }
-        this.f21696g.setLayoutParams(layoutParams);
+        this.f21778g.setLayoutParams(layoutParams);
         requestLayout();
     }
 

@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.e;
-import d.a.n0.e2.h.p;
-import d.a.n0.e2.k.e.o;
-import d.a.n0.e2.k.e.z0.c;
-import d.a.n0.e2.o.i;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.e;
+import d.a.o0.e2.h.p;
+import d.a.o0.e2.k.e.o;
+import d.a.o0.e2.k.e.z0.c;
+import d.a.o0.e2.o.i;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
@@ -29,28 +29,28 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
     public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public PbThreadCommentAndPraiseInfoLayout f19225a;
+        public PbThreadCommentAndPraiseInfoLayout f19307a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f19226b;
+        public View f19308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19227c;
+        public int f19309c;
 
         public PbFirstFloorCommentAndPraiseViewHolder(View view) {
             super(view);
             if (view == null) {
                 return;
             }
-            this.f19225a = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+            this.f19307a = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
             e eVar = new e();
-            eVar.f53670b = 4;
-            eVar.f53676h = 7;
-            eVar.f53671c = this.f19227c;
-            eVar.f53674f = PbFirstFloorCommentAndPraiseAdapter.w;
-            this.f19225a.setAgreeStatisticData(eVar);
+            eVar.f53777b = 4;
+            eVar.f53783h = 7;
+            eVar.f53778c = this.f19309c;
+            eVar.f53781f = PbFirstFloorCommentAndPraiseAdapter.w;
+            this.f19307a.setAgreeStatisticData(eVar);
             View findViewById = view.findViewById(R.id.bottom_divider_line);
-            this.f19226b = findViewById;
+            this.f19308b = findViewById;
             findViewById.setVisibility(0);
         }
 
@@ -60,24 +60,24 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
                 if (e2.L() != null) {
                     e2.L().postId = e2.f0();
                 }
-                this.f19225a.U(e2, pVar.c());
-                this.f19226b.setVisibility(pVar.h() ? 0 : 8);
+                this.f19307a.U(e2, pVar.c());
+                this.f19308b.setVisibility(pVar.h() ? 0 : 8);
                 if (e2.D2() && e2.x1() != null) {
-                    this.f19227c = 2;
+                    this.f19309c = 2;
                 } else {
-                    this.f19227c = 1;
+                    this.f19309c = 1;
                 }
-                if (pVar.f56650f) {
+                if (pVar.f56775f) {
                     a().setPadding(0, 0, 0, l.g(a().getContext(), R.dimen.tbds32));
                 }
-                this.f19225a.showOperationMaskView(pVar.i());
+                this.f19307a.showOperationMaskView(pVar.i());
             }
             c();
         }
 
         public void c() {
-            SkinManager.setBackgroundColor(this.f19226b, R.color.CAM_X0203);
-            this.f19225a.onChangeSkinType();
+            SkinManager.setBackgroundColor(this.f19308b, R.color.CAM_X0203);
+            this.f19307a.onChangeSkinType();
         }
     }
 
@@ -91,7 +91,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
         this.t = new c(iVar);
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    @Override // d.a.o0.e2.k.e.o, d.a.c.k.e.a
     public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         q0(i2, view, viewGroup, (p) obj, (PbFirstFloorCommentAndPraiseViewHolder) viewHolder);
         return view;
@@ -103,7 +103,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
             Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
             while (it.hasNext()) {
                 PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-                if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19225a) != null) {
+                if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19307a) != null) {
                     pbThreadCommentAndPraiseInfoLayout.Q(str);
                 }
             }
@@ -133,7 +133,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
     @Override // d.a.c.k.e.a
     /* renamed from: m0 */
     public PbFirstFloorCommentAndPraiseViewHolder Q(ViewGroup viewGroup) {
-        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
+        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f43012e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
         this.u.add(pbFirstFloorCommentAndPraiseViewHolder);
         return pbFirstFloorCommentAndPraiseViewHolder;
     }
@@ -151,7 +151,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
         Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
         while (it.hasNext()) {
             PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-            if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19225a) != null) {
+            if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19307a) != null) {
                 pbThreadCommentAndPraiseInfoLayout.onDestroy();
             }
         }
@@ -160,9 +160,9 @@ public class PbFirstFloorCommentAndPraiseAdapter extends o<p, PbFirstFloorCommen
     public View q0(int i2, View view, ViewGroup viewGroup, p pVar, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
         super.X(i2, view, viewGroup, pVar, pbFirstFloorCommentAndPraiseViewHolder);
         if (pVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-            pbFirstFloorCommentAndPraiseViewHolder.f19225a.setOnClickOutListener(this.s);
-            pbFirstFloorCommentAndPraiseViewHolder.f19225a.setPostId(l0());
-            pbFirstFloorCommentAndPraiseViewHolder.f19225a.setForumId(j0());
+            pbFirstFloorCommentAndPraiseViewHolder.f19307a.setOnClickOutListener(this.s);
+            pbFirstFloorCommentAndPraiseViewHolder.f19307a.setPostId(l0());
+            pbFirstFloorCommentAndPraiseViewHolder.f19307a.setForumId(j0());
             pVar.l(this.v);
             pbFirstFloorCommentAndPraiseViewHolder.b(pVar);
         }

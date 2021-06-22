@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -80,7 +81,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
 
         public String toString() {
-            return "[resolveInfo:" + this.resolveInfo.toString() + "; weight:" + new BigDecimal(this.weight) + "]";
+            return PreferencesUtil.LEFT_MOUNT + "resolveInfo:" + this.resolveInfo.toString() + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +162,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
 
         public String toString() {
-            return "[; activity:" + this.activity + "; time:" + this.time + "; weight:" + new BigDecimal(this.weight) + "]";
+            return PreferencesUtil.LEFT_MOUNT + "; activity:" + this.activity + "; time:" + this.time + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
         }
 
         public HistoricalRecord(ComponentName componentName, long j, float f2) {

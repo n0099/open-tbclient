@@ -29,57 +29,57 @@ public class AuthnHelper {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static AuthnHelper f30527c;
+    public static AuthnHelper f30609c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.cmic.sso.sdk.auth.a f30528a;
+    public final com.cmic.sso.sdk.auth.a f30610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f30529b;
+    public final Context f30611b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30530d;
+    public long f30612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f30531e;
+    public final Handler f30613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30532f;
+    public String f30614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f30533g;
+    public final Object f30615g;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.cmic.sso.sdk.a f30562b;
+        public final com.cmic.sso.sdk.a f30644b;
 
         public a(com.cmic.sso.sdk.a aVar) {
-            this.f30562b = aVar;
+            this.f30644b = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.a(AuthnHelper.this.f30529b).a() && this.f30562b.b("doNetworkSwitch", false)) {
+            if (!t.a(AuthnHelper.this.f30611b).a() && this.f30644b.b("doNetworkSwitch", false)) {
                 a2 = c.a("102508", "数据网络切换失败");
             } else {
                 a2 = c.a("200023", "登录超时");
             }
-            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30562b, a2);
+            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30644b, a2);
         }
     }
 
     public AuthnHelper(Context context) {
-        this.f30530d = 8000L;
-        this.f30533g = new Object();
-        this.f30529b = context.getApplicationContext();
-        this.f30531e = new Handler(this.f30529b.getMainLooper());
-        this.f30528a = com.cmic.sso.sdk.auth.a.a(this.f30529b);
-        t.a(this.f30529b);
-        k.a(this.f30529b);
-        j.a(this.f30529b);
+        this.f30612d = 8000L;
+        this.f30615g = new Object();
+        this.f30611b = context.getApplicationContext();
+        this.f30613e = new Handler(this.f30611b.getMainLooper());
+        this.f30610a = com.cmic.sso.sdk.auth.a.a(this.f30611b);
+        t.a(this.f30611b);
+        k.a(this.f30611b);
+        j.a(this.f30611b);
         o.a(new o.a() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.1
             @Override // com.cmic.sso.sdk.d.o.a
             public void a() {
@@ -88,7 +88,7 @@ public class AuthnHelper {
                 if (TextUtils.isEmpty(b2)) {
                     AuthnHelper.this.a();
                 }
-                if (com.cmic.sso.sdk.d.b.a(AuthnHelper.this.f30529b, true)) {
+                if (com.cmic.sso.sdk.d.b.a(AuthnHelper.this.f30611b, true)) {
                     com.cmic.sso.sdk.d.c.b("AuthnHelper", "生成androidkeystore成功");
                 } else {
                     com.cmic.sso.sdk.d.c.b("AuthnHelper", "生成androidkeystore失败");
@@ -98,14 +98,14 @@ public class AuthnHelper {
     }
 
     public static AuthnHelper getInstance(Context context) {
-        if (f30527c == null) {
+        if (f30609c == null) {
             synchronized (AuthnHelper.class) {
-                if (f30527c == null) {
-                    f30527c = new AuthnHelper(context);
+                if (f30609c == null) {
+                    f30609c = new AuthnHelper(context);
                 }
             }
         }
-        return f30527c;
+        return f30609c;
     }
 
     public static void setDebugMode(boolean z) {
@@ -137,13 +137,13 @@ public class AuthnHelper {
                     a2 = c.a(str, str2, aVar, jSONObject);
                 }
                 a2.put("scripExpiresIn", String.valueOf(h.b()));
-                this.f30531e.post(new Runnable() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
+                this.f30613e.post(new Runnable() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
                     @Override // java.lang.Runnable
                     public void run() {
                         c2.onGetTokenComplete(a2);
                     }
                 });
-                a(this.f30529b, str, aVar);
+                a(this.f30611b, str, aVar);
                 if (aVar.b("isNeedToGetCert", false) || q.a()) {
                     o.a(new o.a() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.7
                         @Override // com.cmic.sso.sdk.d.o.a
@@ -153,7 +153,7 @@ public class AuthnHelper {
                     });
                 }
                 if (e.a()) {
-                    t.a(this.f30529b).b();
+                    t.a(this.f30611b).b();
                 }
             }
         } catch (Exception e2) {
@@ -202,7 +202,7 @@ public class AuthnHelper {
 
     public void getPhoneInfo(final String str, final String str2, final TokenListener tokenListener) {
         final com.cmic.sso.sdk.a a2 = a(tokenListener);
-        o.a(new o.a(this.f30529b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.4
+        o.a(new o.a(this.f30611b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.4
             @Override // com.cmic.sso.sdk.d.o.a
             public void a() {
                 if (AuthnHelper.this.a(a2, str, str2, "preGetMobile", 3, tokenListener)) {
@@ -214,7 +214,7 @@ public class AuthnHelper {
 
     public void loginAuth(final String str, final String str2, final TokenListener tokenListener) {
         final com.cmic.sso.sdk.a a2 = a(tokenListener);
-        o.a(new o.a(this.f30529b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.2
+        o.a(new o.a(this.f30611b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.2
             @Override // com.cmic.sso.sdk.d.o.a
             public void a() {
                 if (AuthnHelper.this.a(a2, str, str2, "loginAuth", 1, tokenListener)) {
@@ -226,7 +226,7 @@ public class AuthnHelper {
 
     public void mobileAuth(final String str, final String str2, final TokenListener tokenListener) {
         final com.cmic.sso.sdk.a a2 = a(tokenListener);
-        o.a(new o.a(this.f30529b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.3
+        o.a(new o.a(this.f30611b, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.3
             @Override // com.cmic.sso.sdk.d.o.a
             public void a() {
                 if (AuthnHelper.this.a(a2, str, str2, "mobileAuth", 0, tokenListener)) {
@@ -237,7 +237,7 @@ public class AuthnHelper {
     }
 
     public void setOverTime(long j) {
-        this.f30530d = j;
+        this.f30612d = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -250,14 +250,14 @@ public class AuthnHelper {
     }
 
     public static AuthnHelper getInstance(Context context, String str) {
-        if (f30527c == null) {
+        if (f30609c == null) {
             synchronized (AuthnHelper.class) {
-                if (f30527c == null) {
-                    f30527c = new AuthnHelper(context, str);
+                if (f30609c == null) {
+                    f30609c = new AuthnHelper(context, str);
                 }
             }
         }
-        return f30527c;
+        return f30609c;
     }
 
     private com.cmic.sso.sdk.a a(TokenListener tokenListener) {
@@ -274,17 +274,17 @@ public class AuthnHelper {
 
     public AuthnHelper(Context context, String str) {
         this(context);
-        this.f30532f = str;
+        this.f30614f = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.cmic.sso.sdk.a aVar) {
         final a aVar2 = new a(aVar);
-        this.f30531e.postDelayed(aVar2, this.f30530d);
-        this.f30528a.a(aVar, new b() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.5
+        this.f30613e.postDelayed(aVar2, this.f30612d);
+        this.f30610a.a(aVar, new b() { // from class: com.cmic.sso.sdk.auth.AuthnHelper.5
             @Override // com.cmic.sso.sdk.auth.b
             public void a(String str, String str2, com.cmic.sso.sdk.a aVar3, JSONObject jSONObject) {
-                AuthnHelper.this.f30531e.removeCallbacks(aVar2);
+                AuthnHelper.this.f30613e.removeCallbacks(aVar2);
                 AuthnHelper.this.callBackResult(str, str2, aVar3, jSONObject);
             }
         });
@@ -294,18 +294,18 @@ public class AuthnHelper {
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i2, TokenListener tokenListener) {
         boolean a2;
         aVar.a("CLOSE_CERT_VERIFY", q.j());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.f30532f));
+        aVar.a("use2048PublicKey", "rsa2048".equals(this.f30614f));
         aVar.a("systemStartTime", SystemClock.elapsedRealtime());
         aVar.a("starttime", p.a());
         aVar.a("loginMethod", str3);
         aVar.a("appkey", str2);
         aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.f30530d));
-        boolean a3 = g.a(this.f30529b, "android.permission.READ_PHONE_STATE");
+        aVar.a("timeOut", String.valueOf(this.f30612d));
+        boolean a3 = g.a(this.f30611b, "android.permission.READ_PHONE_STATE");
         com.cmic.sso.sdk.d.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + a3);
         aVar.a("hsaReadPhoneStatePermission", a3);
-        com.cmic.sso.sdk.a.b.a().a(this.f30529b, a3);
-        aVar.a("networkClass", com.cmic.sso.sdk.a.b.a().a(this.f30529b));
+        com.cmic.sso.sdk.a.b.a().a(this.f30611b, a3);
+        aVar.a("networkClass", com.cmic.sso.sdk.a.b.a().a(this.f30611b));
         aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.a().b().h()));
         String b2 = j.a().b();
         String e2 = j.a().e();
@@ -335,14 +335,14 @@ public class AuthnHelper {
             aVar.a("scripType", "operator");
             aVar.a("scripKey", a4);
         }
-        int a5 = n.a(this.f30529b, a4);
+        int a5 = n.a(this.f30611b, a4);
         aVar.a("networktype", a5);
-        synchronized (this.f30533g) {
+        synchronized (this.f30615g) {
             a2 = h.a(aVar);
             if (a2) {
                 aVar.a("securityphone", k.b("securityphone", ""));
                 if (3 != i2 && a5 != 0) {
-                    String a6 = h.a(this.f30529b);
+                    String a6 = h.a(this.f30611b);
                     if (TextUtils.isEmpty(a6)) {
                         a2 = false;
                     } else {

@@ -24,16 +24,16 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     public volatile boolean E;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f36070d;
+    public final d f36168d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Pools.Pool<DecodeJob<?>> f36071e;
+    public final Pools.Pool<DecodeJob<?>> f36169e;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.glide.e f36074h;
+    public com.kwad.sdk.glide.e f36172h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.glide.load.c f36075i;
+    public com.kwad.sdk.glide.load.c f36173i;
     public Priority j;
     public l k;
     public int l;
@@ -53,78 +53,78 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     public Object z;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f<R> f36067a = new f<>();
+    public final f<R> f36165a = new f<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Throwable> f36068b = new ArrayList();
+    public final List<Throwable> f36166b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.g.a.c f36069c = com.kwad.sdk.glide.g.a.c.a();
+    public final com.kwad.sdk.glide.g.a.c f36167c = com.kwad.sdk.glide.g.a.c.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public final c<?> f36072f = new c<>();
+    public final c<?> f36170f = new c<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f36073g = new e();
+    public final e f36171g = new e();
 
     /* renamed from: com.kwad.sdk.glide.load.engine.DecodeJob$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36076a;
+        public static final /* synthetic */ int[] f36174a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36077b;
+        public static final /* synthetic */ int[] f36175b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36078c;
+        public static final /* synthetic */ int[] f36176c;
 
         static {
             int[] iArr = new int[EncodeStrategy.values().length];
-            f36078c = iArr;
+            f36176c = iArr;
             try {
                 iArr[EncodeStrategy.SOURCE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f36078c[EncodeStrategy.TRANSFORMED.ordinal()] = 2;
+                f36176c[EncodeStrategy.TRANSFORMED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[Stage.values().length];
-            f36077b = iArr2;
+            f36175b = iArr2;
             try {
                 iArr2[Stage.RESOURCE_CACHE.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f36077b[Stage.DATA_CACHE.ordinal()] = 2;
+                f36175b[Stage.DATA_CACHE.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f36077b[Stage.SOURCE.ordinal()] = 3;
+                f36175b[Stage.SOURCE.ordinal()] = 3;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f36077b[Stage.FINISHED.ordinal()] = 4;
+                f36175b[Stage.FINISHED.ordinal()] = 4;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f36077b[Stage.INITIALIZE.ordinal()] = 5;
+                f36175b[Stage.INITIALIZE.ordinal()] = 5;
             } catch (NoSuchFieldError unused7) {
             }
             int[] iArr3 = new int[RunReason.values().length];
-            f36076a = iArr3;
+            f36174a = iArr3;
             try {
                 iArr3[RunReason.INITIALIZE.ordinal()] = 1;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f36076a[RunReason.SWITCH_TO_SOURCE_SERVICE.ordinal()] = 2;
+                f36174a[RunReason.SWITCH_TO_SOURCE_SERVICE.ordinal()] = 2;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f36076a[RunReason.DECODE_DATA.ordinal()] = 3;
+                f36174a[RunReason.DECODE_DATA.ordinal()] = 3;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -160,16 +160,16 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     public final class b<Z> implements g.a<Z> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final DataSource f36080b;
+        public final DataSource f36178b;
 
         public b(DataSource dataSource) {
-            this.f36080b = dataSource;
+            this.f36178b = dataSource;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.g.a
         @NonNull
         public s<Z> a(@NonNull s<Z> sVar) {
-            return DecodeJob.this.a(this.f36080b, sVar);
+            return DecodeJob.this.a(this.f36178b, sVar);
         }
     }
 
@@ -177,41 +177,41 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     public static class c<Z> {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.kwad.sdk.glide.load.c f36081a;
+        public com.kwad.sdk.glide.load.c f36179a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.glide.load.g<Z> f36082b;
+        public com.kwad.sdk.glide.load.g<Z> f36180b;
 
         /* renamed from: c  reason: collision with root package name */
-        public r<Z> f36083c;
+        public r<Z> f36181c;
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.kwad.sdk.glide.load.g<X> */
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.kwad.sdk.glide.load.engine.r<X> */
         /* JADX WARN: Multi-variable type inference failed */
         public <X> void a(com.kwad.sdk.glide.load.c cVar, com.kwad.sdk.glide.load.g<X> gVar, r<X> rVar) {
-            this.f36081a = cVar;
-            this.f36082b = gVar;
-            this.f36083c = rVar;
+            this.f36179a = cVar;
+            this.f36180b = gVar;
+            this.f36181c = rVar;
         }
 
         public void a(d dVar, com.kwad.sdk.glide.load.e eVar) {
             com.kwad.sdk.glide.g.a.b.a("DecodeJob.encode");
             try {
-                dVar.a().a(this.f36081a, new com.kwad.sdk.glide.load.engine.d(this.f36082b, this.f36083c, eVar));
+                dVar.a().a(this.f36179a, new com.kwad.sdk.glide.load.engine.d(this.f36180b, this.f36181c, eVar));
             } finally {
-                this.f36083c.b();
+                this.f36181c.b();
                 com.kwad.sdk.glide.g.a.b.a();
             }
         }
 
         public boolean a() {
-            return this.f36083c != null;
+            return this.f36181c != null;
         }
 
         public void b() {
-            this.f36081a = null;
-            this.f36082b = null;
-            this.f36083c = null;
+            this.f36179a = null;
+            this.f36180b = null;
+            this.f36181c = null;
         }
     }
 
@@ -224,43 +224,43 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36084a;
+        public boolean f36182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f36085b;
+        public boolean f36183b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f36086c;
+        public boolean f36184c;
 
         private boolean b(boolean z) {
-            return (this.f36086c || z || this.f36085b) && this.f36084a;
+            return (this.f36184c || z || this.f36183b) && this.f36182a;
         }
 
         public synchronized boolean a() {
-            this.f36085b = true;
+            this.f36183b = true;
             return b(false);
         }
 
         public synchronized boolean a(boolean z) {
-            this.f36084a = true;
+            this.f36182a = true;
             return b(z);
         }
 
         public synchronized boolean b() {
-            this.f36086c = true;
+            this.f36184c = true;
             return b(false);
         }
 
         public synchronized void c() {
-            this.f36085b = false;
-            this.f36084a = false;
-            this.f36086c = false;
+            this.f36183b = false;
+            this.f36182a = false;
+            this.f36184c = false;
         }
     }
 
     public DecodeJob(d dVar, Pools.Pool<DecodeJob<?>> pool) {
-        this.f36070d = dVar;
-        this.f36071e = pool;
+        this.f36168d = dVar;
+        this.f36169e = pool;
     }
 
     @NonNull
@@ -269,19 +269,19 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
         if (Build.VERSION.SDK_INT < 26) {
             return eVar;
         }
-        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.f36067a.m();
-        Boolean bool = (Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f36364d);
+        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.f36165a.m();
+        Boolean bool = (Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f36462d);
         if (bool == null || (bool.booleanValue() && !z)) {
             com.kwad.sdk.glide.load.e eVar2 = new com.kwad.sdk.glide.load.e();
             eVar2.a(this.o);
-            eVar2.a(com.kwad.sdk.glide.load.resource.bitmap.k.f36364d, Boolean.valueOf(z));
+            eVar2.a(com.kwad.sdk.glide.load.resource.bitmap.k.f36462d, Boolean.valueOf(z));
             return eVar2;
         }
         return eVar;
     }
 
     private Stage a(Stage stage) {
-        int i2 = AnonymousClass1.f36077b[stage.ordinal()];
+        int i2 = AnonymousClass1.f36175b[stage.ordinal()];
         if (i2 == 1) {
             return this.n.b() ? Stage.DATA_CACHE : a(Stage.DATA_CACHE);
         } else if (i2 == 2) {
@@ -314,12 +314,12 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
 
     /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.kwad.sdk.glide.load.engine.q<Data, ?, R>, com.kwad.sdk.glide.load.engine.q<Data, ResourceType, R> */
     private <Data> s<R> a(Data data, DataSource dataSource) {
-        return a((DecodeJob<R>) data, dataSource, (q<DecodeJob<R>, ResourceType, R>) ((q<Data, ?, R>) this.f36067a.b(data.getClass())));
+        return a((DecodeJob<R>) data, dataSource, (q<DecodeJob<R>, ResourceType, R>) ((q<Data, ?, R>) this.f36165a.b(data.getClass())));
     }
 
     private <Data, ResourceType> s<R> a(Data data, DataSource dataSource, q<Data, ResourceType, R> qVar) {
         com.kwad.sdk.glide.load.e a2 = a(dataSource);
-        com.kwad.sdk.glide.load.a.e<Data> b2 = this.f36074h.d().b((Registry) data);
+        com.kwad.sdk.glide.load.a.e<Data> b2 = this.f36172h.d().b((Registry) data);
         try {
             return qVar.a(b2, a2, this.l, this.m, new b(dataSource));
         } finally {
@@ -364,15 +364,15 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
             ((o) sVar).b();
         }
         r rVar = 0;
-        if (this.f36072f.a()) {
+        if (this.f36170f.a()) {
             sVar = r.a(sVar);
             rVar = sVar;
         }
         a((s) sVar, dataSource);
         this.r = Stage.ENCODE;
         try {
-            if (this.f36072f.a()) {
-                this.f36072f.a(this.f36070d, this.o);
+            if (this.f36170f.a()) {
+                this.f36170f.a(this.f36168d, this.o);
             }
             e();
         } finally {
@@ -383,24 +383,24 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     }
 
     private void e() {
-        if (this.f36073g.a()) {
+        if (this.f36171g.a()) {
             g();
         }
     }
 
     private void f() {
-        if (this.f36073g.b()) {
+        if (this.f36171g.b()) {
             g();
         }
     }
 
     private void g() {
-        this.f36073g.c();
-        this.f36072f.b();
-        this.f36067a.a();
+        this.f36171g.c();
+        this.f36170f.b();
+        this.f36165a.a();
         this.D = false;
-        this.f36074h = null;
-        this.f36075i = null;
+        this.f36172h = null;
+        this.f36173i = null;
         this.o = null;
         this.j = null;
         this.k = null;
@@ -415,8 +415,8 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
         this.t = 0L;
         this.E = false;
         this.v = null;
-        this.f36068b.clear();
-        this.f36071e.release(this);
+        this.f36166b.clear();
+        this.f36169e.release(this);
     }
 
     private int h() {
@@ -424,7 +424,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     }
 
     private void i() {
-        int i2 = AnonymousClass1.f36076a[this.s.ordinal()];
+        int i2 = AnonymousClass1.f36174a[this.s.ordinal()];
         if (i2 == 1) {
             this.r = a(Stage.INITIALIZE);
             this.C = j();
@@ -439,7 +439,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     }
 
     private com.kwad.sdk.glide.load.engine.e j() {
-        int i2 = AnonymousClass1.f36077b[this.r.ordinal()];
+        int i2 = AnonymousClass1.f36175b[this.r.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {
@@ -448,11 +448,11 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
                     }
                     throw new IllegalStateException("Unrecognized stage: " + this.r);
                 }
-                return new w(this.f36067a, this);
+                return new w(this.f36165a, this);
             }
-            return new com.kwad.sdk.glide.load.engine.b(this.f36067a, this);
+            return new com.kwad.sdk.glide.load.engine.b(this.f36165a, this);
         }
-        return new t(this.f36067a, this);
+        return new t(this.f36165a, this);
     }
 
     private void k() {
@@ -474,21 +474,21 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
 
     private void l() {
         m();
-        this.p.a(new GlideException("Failed to load resource", new ArrayList(this.f36068b)));
+        this.p.a(new GlideException("Failed to load resource", new ArrayList(this.f36166b)));
         f();
     }
 
     private void m() {
         Throwable th;
-        this.f36069c.b();
+        this.f36167c.b();
         if (!this.D) {
             this.D = true;
             return;
         }
-        if (this.f36068b.isEmpty()) {
+        if (this.f36166b.isEmpty()) {
             th = null;
         } else {
-            List<Throwable> list = this.f36068b;
+            List<Throwable> list = this.f36166b;
             th = list.get(list.size() - 1);
         }
         throw new IllegalStateException("Already notified", th);
@@ -504,7 +504,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
             sVar = a(this.B, (com.kwad.sdk.glide.load.a.d<?>) this.z, this.A);
         } catch (GlideException e2) {
             e2.setLoggingDetails(this.y, this.A);
-            this.f36068b.add(e2);
+            this.f36166b.add(e2);
         }
         if (sVar != null) {
             b(sVar, this.A);
@@ -522,9 +522,9 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     }
 
     public DecodeJob<R> a(com.kwad.sdk.glide.e eVar, Object obj, l lVar, com.kwad.sdk.glide.load.c cVar, int i2, int i3, Class<?> cls, Class<R> cls2, Priority priority, h hVar, Map<Class<?>, com.kwad.sdk.glide.load.h<?>> map, boolean z, boolean z2, boolean z3, com.kwad.sdk.glide.load.e eVar2, a<R> aVar, int i4) {
-        this.f36067a.a(eVar, obj, cVar, i2, i3, hVar, cls, cls2, priority, eVar2, map, z, z2, this.f36070d);
-        this.f36074h = eVar;
-        this.f36075i = cVar;
+        this.f36165a.a(eVar, obj, cVar, i2, i3, hVar, cls, cls2, priority, eVar2, map, z, z2, this.f36168d);
+        this.f36172h = eVar;
+        this.f36173i = cVar;
         this.j = priority;
         this.k = lVar;
         this.l = i2;
@@ -548,9 +548,9 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
         Class<?> cls = sVar.e().getClass();
         com.kwad.sdk.glide.load.g<Z> gVar = null;
         if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
-            com.kwad.sdk.glide.load.h<Z> c2 = this.f36067a.c(cls);
+            com.kwad.sdk.glide.load.h<Z> c2 = this.f36165a.c(cls);
             hVar = c2;
-            sVar2 = c2.a(this.f36074h, sVar, this.l, this.m);
+            sVar2 = c2.a(this.f36172h, sVar, this.l, this.m);
         } else {
             sVar2 = sVar;
             hVar = null;
@@ -558,25 +558,25 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
         if (!sVar.equals(sVar2)) {
             sVar.d_();
         }
-        if (this.f36067a.a((s<?>) sVar2)) {
-            gVar = this.f36067a.b(sVar2);
+        if (this.f36165a.a((s<?>) sVar2)) {
+            gVar = this.f36165a.b(sVar2);
             encodeStrategy = gVar.a(this.o);
         } else {
             encodeStrategy = EncodeStrategy.NONE;
         }
         com.kwad.sdk.glide.load.g gVar2 = gVar;
-        if (this.n.a(!this.f36067a.a(this.x), dataSource, encodeStrategy)) {
+        if (this.n.a(!this.f36165a.a(this.x), dataSource, encodeStrategy)) {
             if (gVar2 != null) {
-                int i2 = AnonymousClass1.f36078c[encodeStrategy.ordinal()];
+                int i2 = AnonymousClass1.f36176c[encodeStrategy.ordinal()];
                 if (i2 == 1) {
-                    cVar = new com.kwad.sdk.glide.load.engine.c(this.x, this.f36075i);
+                    cVar = new com.kwad.sdk.glide.load.engine.c(this.x, this.f36173i);
                 } else if (i2 != 2) {
                     throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
                 } else {
-                    cVar = new u(this.f36067a.i(), this.x, this.f36075i, this.l, this.m, hVar, cls, this.o);
+                    cVar = new u(this.f36165a.i(), this.x, this.f36173i, this.l, this.m, hVar, cls, this.o);
                 }
                 r a2 = r.a(sVar2);
-                this.f36072f.a(cVar, gVar2, a2);
+                this.f36170f.a(cVar, gVar2, a2);
                 return a2;
             }
             throw new Registry.NoResultEncoderAvailableException(sVar2.e().getClass());
@@ -589,7 +589,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
         dVar.b();
         GlideException glideException = new GlideException("Fetching data failed", exc);
         glideException.setLoggingDetails(cVar, dataSource, dVar.a());
-        this.f36068b.add(glideException);
+        this.f36166b.add(glideException);
         if (Thread.currentThread() == this.w) {
             k();
             return;
@@ -619,7 +619,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     }
 
     public void a(boolean z) {
-        if (this.f36073g.a(z)) {
+        if (this.f36171g.a(z)) {
             g();
         }
     }
@@ -646,7 +646,7 @@ public class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnabl
     @Override // com.kwad.sdk.glide.g.a.a.c
     @NonNull
     public com.kwad.sdk.glide.g.a.c d() {
-        return this.f36069c;
+        return this.f36167c;
     }
 
     @Override // java.lang.Runnable

@@ -8,14 +8,14 @@ import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 public class CacheManager {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41896c;
+    public Context f41999c;
     public String mCacheKey;
     public String mCacheValue;
     public String mPrefCacheKey;
     public String mPrefCacheValue;
 
     public CacheManager(Context context, String str, String str2) {
-        this.f41896c = context;
+        this.f41999c = context;
         this.mPrefCacheKey = str;
         this.mPrefCacheValue = str2;
         String cacheKey = getCacheKey();
@@ -52,7 +52,7 @@ public class CacheManager {
     }
 
     public void finish() {
-        saveCacheValue(this.f41896c, this.mCacheKey, this.mCacheValue);
+        saveCacheValue(this.f41999c, this.mCacheKey, this.mCacheValue);
         this.mCacheValue = null;
     }
 

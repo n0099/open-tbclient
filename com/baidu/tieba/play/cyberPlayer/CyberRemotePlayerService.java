@@ -2,7 +2,7 @@ package com.baidu.tieba.play.cyberPlayer;
 
 import android.content.Intent;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-import d.a.n0.k2.p.c;
+import d.a.o0.k2.p.c;
 /* loaded from: classes5.dex */
 public class CyberRemotePlayerService extends RemotePlayerService {
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService

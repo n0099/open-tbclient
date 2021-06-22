@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -1052,7 +1053,7 @@ public class StringHelper extends k {
     public static boolean isJSONArray(String str) {
         if (!k.isEmpty(str)) {
             String trim = str.trim();
-            if (trim.startsWith("[") && trim.endsWith("]")) {
+            if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                 return true;
             }
         }

@@ -2,6 +2,7 @@ package com.baidu.sofire.ac;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.util.Pair;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -17,6 +18,12 @@ public interface FI {
     Pair<Integer, Object> cmsi(int i2, String str, Class<?>[] clsArr, Object... objArr);
 
     boolean cp(Context context);
+
+    SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str);
+
+    SharedPreferences getPlatformPrivateSharedPreferences(Context context);
+
+    SharedPreferences getPlatformSharedSharedPreferences(Context context);
 
     Map<Integer, String> gpd();
 

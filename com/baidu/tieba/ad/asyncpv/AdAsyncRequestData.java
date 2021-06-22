@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import d.a.c.e.p.j;
-import d.a.n0.k1.o.k.a;
+import d.a.o0.k1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;

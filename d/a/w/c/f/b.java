@@ -15,48 +15,48 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f68527h = "b";
+    public static final String f68631h = "b";
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f68528a;
+    public HandlerThread f68632a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f68529b;
+    public Handler f68633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.w.b.a f68530c;
+    public d.a.w.b.a f68634c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f68531d;
+    public g f68635d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f68532e;
+    public e f68636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68533f = false;
+    public volatile boolean f68637f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f68534g = false;
+    public boolean f68638g = false;
 
     /* loaded from: classes2.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<c> f68535a;
+        public ArrayList<c> f68639a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f68536b;
+        public d f68640b;
 
         public a(b bVar, ArrayList<c> arrayList, d dVar) {
-            this.f68535a = arrayList;
-            this.f68536b = dVar;
+            this.f68639a = arrayList;
+            this.f68640b = dVar;
         }
     }
 
     /* renamed from: d.a.w.c.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC1875b extends Handler {
-        public HandlerC1875b(Looper looper) {
+    public class HandlerC1878b extends Handler {
+        public HandlerC1878b(Looper looper) {
             super(looper);
         }
 
@@ -65,7 +65,7 @@ public class b {
             switch (message.what) {
                 case 1001:
                     a aVar = (a) message.obj;
-                    b.this.n(aVar.f68535a, aVar.f68536b);
+                    b.this.n(aVar.f68639a, aVar.f68640b);
                     return;
                 case 1002:
                     b.this.o();
@@ -97,17 +97,17 @@ public class b {
     public void i(long j) {
         int i2 = (int) (j >> 32);
         int i3 = (int) j;
-        if (this.f68529b == null || !this.f68533f) {
+        if (this.f68633b == null || !this.f68637f) {
             return;
         }
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         handler.sendMessage(handler.obtainMessage(1005, i2, i3));
-        synchronized (this.f68530c) {
+        synchronized (this.f68634c) {
             try {
-                if (this.f68534g) {
-                    this.f68530c.wait(12L);
+                if (this.f68638g) {
+                    this.f68634c.wait(12L);
                 } else {
-                    this.f68530c.wait(2L);
+                    this.f68634c.wait(2L);
                 }
             } catch (InterruptedException unused) {
                 Thread.currentThread().interrupt();
@@ -116,7 +116,7 @@ public class b {
     }
 
     public long j() {
-        g gVar = this.f68531d;
+        g gVar = this.f68635d;
         if (gVar != null) {
             return gVar.d();
         }
@@ -125,53 +125,53 @@ public class b {
 
     public final void k(long j) {
         g gVar;
-        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68531d) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68635d) == null) {
             return;
         }
         gVar.c(false);
-        this.f68530c.a(j);
+        this.f68634c.a(j);
     }
 
     public final void l() {
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            this.f68529b = null;
+            this.f68633b = null;
         }
-        HandlerThread handlerThread = this.f68528a;
+        HandlerThread handlerThread = this.f68632a;
         if (handlerThread != null) {
             handlerThread.quit();
-            this.f68528a = null;
+            this.f68632a = null;
         }
     }
 
     public final void m() {
         g gVar;
-        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68531d) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68635d) == null) {
             return;
         }
         gVar.i();
-        this.f68531d.e();
-        this.f68531d = null;
-        this.f68532e = null;
-        this.f68530c.c();
-        this.f68530c = null;
+        this.f68635d.e();
+        this.f68635d = null;
+        this.f68636e = null;
+        this.f68634c.c();
+        this.f68634c = null;
     }
 
     public final void n(ArrayList<c> arrayList, d dVar) {
         g gVar;
-        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68531d) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68635d) == null) {
             return;
         }
-        gVar.l(dVar, this.f68532e);
-        if (this.f68530c == null) {
-            this.f68530c = new d.a.w.b.a(this.f68531d.k(), arrayList);
+        gVar.l(dVar, this.f68636e);
+        if (this.f68634c == null) {
+            this.f68634c = new d.a.w.b.a(this.f68635d.k(), arrayList);
         }
     }
 
     public final void o() {
         g gVar;
-        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68531d) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68635d) == null) {
             return;
         }
         gVar.h();
@@ -179,7 +179,7 @@ public class b {
 
     public final void p() {
         g gVar;
-        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68531d) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (gVar = this.f68635d) == null) {
             return;
         }
         gVar.c(true);
@@ -187,95 +187,95 @@ public class b {
 
     public final void q(d.a.w.b.e.c cVar) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.f68530c.d(cVar);
+            this.f68634c.d(cVar);
         }
     }
 
     public final void r(ArrayList<c> arrayList) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.f68530c.e(arrayList);
+            this.f68634c.e(arrayList);
         }
     }
 
     public final void s(e eVar, d.a.w.c.g.c cVar) {
         HandlerThread handlerThread = new HandlerThread("VideoRecorderThread");
-        this.f68528a = handlerThread;
+        this.f68632a = handlerThread;
         handlerThread.start();
-        this.f68529b = new HandlerC1875b(this.f68528a.getLooper());
+        this.f68633b = new HandlerC1878b(this.f68632a.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
             try {
-                this.f68531d = new g();
+                this.f68635d = new g();
             } catch (VerifyError unused) {
-                Log.e(f68527h, "initRecorder videorecorder verifyError");
-                if (this.f68531d == null) {
+                Log.e(f68631h, "initRecorder videorecorder verifyError");
+                if (this.f68635d == null) {
                     return;
                 }
             }
-            this.f68531d.f(cVar);
-            this.f68532e = eVar;
+            this.f68635d.f(cVar);
+            this.f68636e = eVar;
         }
         if (Build.HARDWARE.toLowerCase().startsWith("kirin")) {
-            this.f68534g = true;
+            this.f68638g = true;
         } else {
-            this.f68534g = false;
+            this.f68638g = false;
         }
     }
 
     public boolean t() {
-        HandlerThread handlerThread = this.f68528a;
+        HandlerThread handlerThread = this.f68632a;
         return handlerThread != null && handlerThread.isAlive();
     }
 
     public void u() {
-        if (this.f68529b == null || !this.f68533f) {
+        if (this.f68633b == null || !this.f68637f) {
             return;
         }
-        this.f68529b.removeMessages(1005);
+        this.f68633b.removeMessages(1005);
     }
 
     public void v() {
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            Handler handler2 = this.f68529b;
+            Handler handler2 = this.f68633b;
             handler2.sendMessage(handler2.obtainMessage(1007));
-            Handler handler3 = this.f68529b;
+            Handler handler3 = this.f68633b;
             handler3.sendMessage(handler3.obtainMessage(1008));
         }
     }
 
     public boolean w(ArrayList<c> arrayList, d dVar, e eVar, d.a.w.c.g.c cVar) {
         if (t()) {
-            Log.e(f68527h, "setupRecorder error! As last video recorder thread is alive!");
+            Log.e(f68631h, "setupRecorder error! As last video recorder thread is alive!");
             return false;
         }
         s(eVar, cVar);
         a aVar = new a(this, arrayList, dVar);
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         handler.sendMessage(handler.obtainMessage(1001, aVar));
-        this.f68533f = true;
+        this.f68637f = true;
         return true;
     }
 
     public void x() {
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         if (handler != null) {
             handler.sendMessage(handler.obtainMessage(1002));
         }
     }
 
     public void y() {
-        if (this.f68529b == null || !this.f68533f) {
+        if (this.f68633b == null || !this.f68637f) {
             return;
         }
-        this.f68533f = false;
-        this.f68529b.removeMessages(1005);
-        Handler handler = this.f68529b;
+        this.f68637f = false;
+        this.f68633b.removeMessages(1005);
+        Handler handler = this.f68633b;
         handler.sendMessage(handler.obtainMessage(1006));
     }
 
     public void z(ArrayList<c> arrayList) {
-        Handler handler = this.f68529b;
+        Handler handler = this.f68633b;
         if (handler != null) {
             handler.sendMessage(handler.obtainMessage(1003, arrayList));
         }

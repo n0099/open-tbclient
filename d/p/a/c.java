@@ -12,32 +12,32 @@ import org.json.JSONObject;
 public class c implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f71309e;
+    public Context f71413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71310f = "";
+    public String f71414f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71311g = "";
+    public String f71415g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f71312h = "";
+    public String f71416h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f71313i = "";
+    public String f71417i = "";
     public String j = "";
     public String k = "";
     public HashMap<String, String> l = new HashMap<>();
 
     public String a(boolean z) {
         if (z) {
-            return m(this.f71310f);
+            return m(this.f71414f);
         }
-        return this.f71310f;
+        return this.f71414f;
     }
 
     public Context b() {
-        return this.f71309e;
+        return this.f71413e;
     }
 
     public String c(boolean z) {
@@ -74,9 +74,9 @@ public class c implements Cloneable {
 
     public String d(boolean z) {
         if (z) {
-            return m(this.f71312h);
+            return m(this.f71416h);
         }
-        return this.f71312h;
+        return this.f71416h;
     }
 
     public String e(boolean z) {
@@ -88,9 +88,9 @@ public class c implements Cloneable {
 
     public String f(boolean z) {
         if (z) {
-            return m(this.f71311g);
+            return m(this.f71415g);
         }
-        return this.f71311g;
+        return this.f71415g;
     }
 
     public String g(boolean z) {
@@ -102,25 +102,25 @@ public class c implements Cloneable {
 
     public String h(boolean z) {
         if (z) {
-            return m(this.f71313i);
+            return m(this.f71417i);
         }
-        return this.f71313i;
+        return this.f71417i;
     }
 
     public void i(String str) {
-        this.f71310f = str;
+        this.f71414f = str;
     }
 
     public void j(Context context) {
-        this.f71309e = context.getApplicationContext();
+        this.f71413e = context.getApplicationContext();
     }
 
     public void k(String str) {
-        this.f71312h = str;
+        this.f71416h = str;
     }
 
     public void l(String str) {
-        this.f71313i = str;
+        this.f71417i = str;
     }
 
     public final String m(String str) {
@@ -132,6 +132,6 @@ public class c implements Cloneable {
     }
 
     public boolean n() {
-        return (this.f71309e == null || TextUtils.isEmpty(this.f71310f) || TextUtils.isEmpty(this.f71312h) || TextUtils.isEmpty(this.f71313i)) ? false : true;
+        return (this.f71413e == null || TextUtils.isEmpty(this.f71414f) || TextUtils.isEmpty(this.f71416h) || TextUtils.isEmpty(this.f71417i)) ? false : true;
     }
 }

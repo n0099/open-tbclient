@@ -2,9 +2,9 @@ package d.a.j.a;
 /* loaded from: classes2.dex */
 public final class g extends e {
     public g(int i2, int i3) {
-        this.f43774a = 32;
-        this.f43775b = i2;
-        this.f43776c = i3;
+        this.f43877a = 32;
+        this.f43878b = i2;
+        this.f43879c = i3;
     }
 
     @Override // d.a.j.a.e

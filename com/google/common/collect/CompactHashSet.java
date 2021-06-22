@@ -23,55 +23,55 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     public static final int UNSET = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient int[] f31049e;
+    public transient int[] f31147e;
     public transient Object[] elements;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient long[] f31050f;
+    public transient long[] f31148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public transient int f31051g;
+    public transient int f31149g;
     public transient int modCount;
 
     /* loaded from: classes6.dex */
     public class a implements Iterator<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31052e;
+        public int f31150e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31053f;
+        public int f31151f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31054g;
+        public int f31152g;
 
         public a() {
             CompactHashSet compactHashSet = CompactHashSet.this;
-            this.f31052e = compactHashSet.modCount;
-            this.f31053f = compactHashSet.firstEntryIndex();
-            this.f31054g = -1;
+            this.f31150e = compactHashSet.modCount;
+            this.f31151f = compactHashSet.firstEntryIndex();
+            this.f31152g = -1;
         }
 
         public final void a() {
-            if (CompactHashSet.this.modCount != this.f31052e) {
+            if (CompactHashSet.this.modCount != this.f31150e) {
                 throw new ConcurrentModificationException();
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31053f >= 0;
+            return this.f31151f >= 0;
         }
 
         @Override // java.util.Iterator
         public E next() {
             a();
             if (hasNext()) {
-                int i2 = this.f31053f;
-                this.f31054g = i2;
+                int i2 = this.f31151f;
+                this.f31152g = i2;
                 CompactHashSet compactHashSet = CompactHashSet.this;
                 E e2 = (E) compactHashSet.elements[i2];
-                this.f31053f = compactHashSet.getSuccessor(i2);
+                this.f31151f = compactHashSet.getSuccessor(i2);
                 return e2;
             }
             throw new NoSuchElementException();
@@ -80,12 +80,12 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         @Override // java.util.Iterator
         public void remove() {
             a();
-            m.e(this.f31054g >= 0);
-            this.f31052e++;
+            m.e(this.f31152g >= 0);
+            this.f31150e++;
             CompactHashSet compactHashSet = CompactHashSet.this;
-            compactHashSet.f(compactHashSet.elements[this.f31054g], CompactHashSet.a(compactHashSet.f31050f[this.f31054g]));
-            this.f31053f = CompactHashSet.this.adjustAfterRemove(this.f31053f, this.f31054g);
-            this.f31054g = -1;
+            compactHashSet.f(compactHashSet.elements[this.f31152g], CompactHashSet.a(compactHashSet.f31148f[this.f31152g]));
+            this.f31151f = CompactHashSet.this.adjustAfterRemove(this.f31151f, this.f31152g);
+            this.f31152g = -1;
         }
     }
 
@@ -142,7 +142,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         objectOutputStream.defaultWriteObject();
-        objectOutputStream.writeInt(this.f31051g);
+        objectOutputStream.writeInt(this.f31149g);
         int firstEntryIndex = firstEntryIndex();
         while (firstEntryIndex >= 0) {
             objectOutputStream.writeObject(this.elements[firstEntryIndex]);
@@ -155,12 +155,12 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         if (needsAllocArrays()) {
             allocArrays();
         }
-        long[] jArr = this.f31050f;
+        long[] jArr = this.f31148f;
         Object[] objArr = this.elements;
         int d2 = e0.d(e2);
         int c2 = c() & d2;
-        int i2 = this.f31051g;
-        int[] iArr = this.f31049e;
+        int i2 = this.f31149g;
+        int[] iArr = this.f31147e;
         int i3 = iArr[c2];
         if (i3 == -1) {
             iArr[c2] = i2;
@@ -182,8 +182,8 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             int i4 = i2 + 1;
             g(i4);
             insertEntry(i2, e2, d2);
-            this.f31051g = i4;
-            int length = this.f31049e.length;
+            this.f31149g = i4;
+            int length = this.f31147e.length;
             if (e0.b(i2, length, 1.0d)) {
                 h(length * 2);
             }
@@ -200,13 +200,13 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     public void allocArrays() {
         n.x(needsAllocArrays(), "Arrays already allocated");
         int i2 = this.modCount;
-        this.f31049e = e(e0.a(i2, 1.0d));
-        this.f31050f = d(i2);
+        this.f31147e = e(e0.a(i2, 1.0d));
+        this.f31148f = d(i2);
         this.elements = new Object[i2];
     }
 
     public final int c() {
-        return this.f31049e.length - 1;
+        return this.f31147e.length - 1;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -215,10 +215,10 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             return;
         }
         this.modCount++;
-        Arrays.fill(this.elements, 0, this.f31051g, (Object) null);
-        Arrays.fill(this.f31049e, -1);
-        Arrays.fill(this.f31050f, 0, this.f31051g, -1L);
-        this.f31051g = 0;
+        Arrays.fill(this.elements, 0, this.f31149g, (Object) null);
+        Arrays.fill(this.f31147e, -1);
+        Arrays.fill(this.f31148f, 0, this.f31149g, -1L);
+        this.f31149g = 0;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -227,9 +227,9 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             return false;
         }
         int d2 = e0.d(obj);
-        int i2 = this.f31049e[c() & d2];
+        int i2 = this.f31147e[c() & d2];
         while (i2 != -1) {
-            long j = this.f31050f[i2];
+            long j = this.f31148f[i2];
             if (a(j) == d2 && k.a(obj, this.elements[i2])) {
                 return true;
             }
@@ -240,25 +240,25 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
 
     public final boolean f(Object obj, int i2) {
         int c2 = c() & i2;
-        int i3 = this.f31049e[c2];
+        int i3 = this.f31147e[c2];
         if (i3 == -1) {
             return false;
         }
         int i4 = -1;
         while (true) {
-            if (a(this.f31050f[i3]) == i2 && k.a(obj, this.elements[i3])) {
+            if (a(this.f31148f[i3]) == i2 && k.a(obj, this.elements[i3])) {
                 if (i4 == -1) {
-                    this.f31049e[c2] = b(this.f31050f[i3]);
+                    this.f31147e[c2] = b(this.f31148f[i3]);
                 } else {
-                    long[] jArr = this.f31050f;
+                    long[] jArr = this.f31148f;
                     jArr[i4] = i(jArr[i4], b(jArr[i3]));
                 }
                 moveLastEntry(i3);
-                this.f31051g--;
+                this.f31149g--;
                 this.modCount++;
                 return true;
             }
-            int b2 = b(this.f31050f[i3]);
+            int b2 = b(this.f31148f[i3]);
             if (b2 == -1) {
                 return false;
             }
@@ -272,7 +272,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     }
 
     public final void g(int i2) {
-        int length = this.f31050f.length;
+        int length = this.f31148f.length;
         if (i2 > length) {
             int max = Math.max(1, length >>> 1) + length;
             if (max < 0) {
@@ -286,7 +286,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
 
     public int getSuccessor(int i2) {
         int i3 = i2 + 1;
-        if (i3 < this.f31051g) {
+        if (i3 < this.f31149g) {
             return i3;
         }
         return -1;
@@ -294,16 +294,16 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
 
     public final void h(int i2) {
         int[] e2 = e(i2);
-        long[] jArr = this.f31050f;
+        long[] jArr = this.f31148f;
         int length = e2.length - 1;
-        for (int i3 = 0; i3 < this.f31051g; i3++) {
+        for (int i3 = 0; i3 < this.f31149g; i3++) {
             int a2 = a(jArr[i3]);
             int i4 = a2 & length;
             int i5 = e2[i4];
             e2[i4] = i3;
             jArr[i3] = (a2 << 32) | (i5 & 4294967295L);
         }
-        this.f31049e = e2;
+        this.f31147e = e2;
     }
 
     public void init(int i2) {
@@ -312,13 +312,13 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     }
 
     public void insertEntry(int i2, E e2, int i3) {
-        this.f31050f[i2] = (i3 << 32) | 4294967295L;
+        this.f31148f[i2] = (i3 << 32) | 4294967295L;
         this.elements[i2] = e2;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public boolean isEmpty() {
-        return this.f31051g == 0;
+        return this.f31149g == 0;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -332,34 +332,34 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             Object[] objArr = this.elements;
             objArr[i2] = objArr[size];
             objArr[size] = null;
-            long[] jArr = this.f31050f;
+            long[] jArr = this.f31148f;
             long j = jArr[size];
             jArr[i2] = j;
             jArr[size] = -1;
             int a2 = a(j) & c();
-            int[] iArr = this.f31049e;
+            int[] iArr = this.f31147e;
             int i3 = iArr[a2];
             if (i3 == size) {
                 iArr[a2] = i2;
                 return;
             }
             while (true) {
-                long j2 = this.f31050f[i3];
+                long j2 = this.f31148f[i3];
                 int b2 = b(j2);
                 if (b2 == size) {
-                    this.f31050f[i3] = i(j2, i2);
+                    this.f31148f[i3] = i(j2, i2);
                     return;
                 }
                 i3 = b2;
             }
         } else {
             this.elements[i2] = null;
-            this.f31050f[i2] = -1;
+            this.f31148f[i2] = -1;
         }
     }
 
     public boolean needsAllocArrays() {
-        return this.f31049e == null;
+        return this.f31147e == null;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -372,35 +372,35 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
 
     public void resizeEntries(int i2) {
         this.elements = Arrays.copyOf(this.elements, i2);
-        long[] jArr = this.f31050f;
+        long[] jArr = this.f31148f;
         int length = jArr.length;
         long[] copyOf = Arrays.copyOf(jArr, i2);
         if (i2 > length) {
             Arrays.fill(copyOf, length, i2, -1L);
         }
-        this.f31050f = copyOf;
+        this.f31148f = copyOf;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public int size() {
-        return this.f31051g;
+        return this.f31149g;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public Object[] toArray() {
-        return needsAllocArrays() ? new Object[0] : Arrays.copyOf(this.elements, this.f31051g);
+        return needsAllocArrays() ? new Object[0] : Arrays.copyOf(this.elements, this.f31149g);
     }
 
     public void trimToSize() {
         if (needsAllocArrays()) {
             return;
         }
-        int i2 = this.f31051g;
-        if (i2 < this.f31050f.length) {
+        int i2 = this.f31149g;
+        if (i2 < this.f31148f.length) {
             resizeEntries(i2);
         }
         int a2 = e0.a(i2, 1.0d);
-        if (a2 < this.f31049e.length) {
+        if (a2 < this.f31147e.length) {
             h(a2);
         }
     }
@@ -423,7 +423,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             }
             return tArr;
         }
-        return (T[]) j0.h(this.elements, 0, this.f31051g, tArr);
+        return (T[]) j0.h(this.elements, 0, this.f31149g, tArr);
     }
 
     public static <E> CompactHashSet<E> create(E... eArr) {

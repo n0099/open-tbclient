@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.xiaomi.mipush.sdk.Constants;
@@ -109,7 +110,7 @@ public class c {
     }
 
     private String b(String str) {
-        return TextUtils.isEmpty(str) ? "" : str.replace("[", "【").replace("]", "】").replace("(", "（").replace(SmallTailInfo.EMOTION_SUFFIX, "）").replace(",", "，").replace("-", "=").replace(PayTypeItemView.PayTypeItemViewData.MASK_FLAG, Constants.WAVE_SEPARATOR);
+        return TextUtils.isEmpty(str) ? "" : str.replace(PreferencesUtil.LEFT_MOUNT, "【").replace(PreferencesUtil.RIGHT_MOUNT, "】").replace("(", "（").replace(SmallTailInfo.EMOTION_SUFFIX, "）").replace(",", "，").replace("-", "=").replace(PayTypeItemView.PayTypeItemViewData.MASK_FLAG, Constants.WAVE_SEPARATOR);
     }
 
     private String c(String str) {

@@ -29,16 +29,16 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71412a = "";
+    public static String f71516a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71413b = "";
+    public static String f71517b = "";
 
     public static synchronized String a() {
         synchronized (d.class) {
             try {
-                if (!TextUtils.isEmpty(f71413b)) {
-                    return f71413b;
+                if (!TextUtils.isEmpty(f71517b)) {
+                    return f71517b;
                 }
                 String f2 = Orange.a().f();
                 d.q.a.a.c.b.b.e("user dis :" + f2);
@@ -47,13 +47,13 @@ public final class d {
                     for (int i2 = 0; i2 < bytes.length; i2++) {
                         bytes[i2] = (byte) (bytes[i2] ^ 165);
                     }
-                    f71413b = "fuels:" + Base64.encodeToString(bytes, 0);
+                    f71517b = "fuels:" + Base64.encodeToString(bytes, 0);
                 }
-                if (TextUtils.isEmpty(f71413b)) {
-                    f71413b = "KWE_N";
+                if (TextUtils.isEmpty(f71517b)) {
+                    f71517b = "KWE_N";
                     return "KWE_N";
                 }
-                return f71413b;
+                return f71517b;
             }
         }
     }
@@ -73,7 +73,7 @@ public final class d {
                     }
                 } else {
                     try {
-                        str = f.d(context).f71423b.c();
+                        str = f.d(context).f71527b.c();
                     } catch (Throwable unused) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -110,10 +110,10 @@ public final class d {
         /*
             java.lang.Class<d.q.a.a.c.a.d> r4 = d.q.a.a.c.a.d.class
             monitor-enter(r4)
-            java.lang.String r0 = d.q.a.a.c.a.d.f71412a     // Catch: java.lang.Throwable -> L42
+            java.lang.String r0 = d.q.a.a.c.a.d.f71516a     // Catch: java.lang.Throwable -> L42
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L42
             if (r0 != 0) goto Lf
-            java.lang.String r3 = d.q.a.a.c.a.d.f71412a     // Catch: java.lang.Throwable -> L42
+            java.lang.String r3 = d.q.a.a.c.a.d.f71516a     // Catch: java.lang.Throwable -> L42
             monitor-exit(r4)
             return r3
         Lf:
@@ -127,9 +127,9 @@ public final class d {
             d.q.a.a.c.b.b.e(r1)     // Catch: java.lang.Throwable -> L42
             boolean r1 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L42
             if (r1 != 0) goto L30
-            d.q.a.a.c.a.d.f71412a = r0     // Catch: java.lang.Throwable -> L42
+            d.q.a.a.c.a.d.f71516a = r0     // Catch: java.lang.Throwable -> L42
         L30:
-            java.lang.String r0 = d.q.a.a.c.a.d.f71412a     // Catch: java.lang.Throwable -> L42
+            java.lang.String r0 = d.q.a.a.c.a.d.f71516a     // Catch: java.lang.Throwable -> L42
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L42
             if (r0 == 0) goto L3e
             java.lang.String r3 = p(r3)     // Catch: java.lang.Throwable -> L42
@@ -205,7 +205,7 @@ public final class d {
                 return "";
             }
             try {
-                str = f.d(context).f71423b.a();
+                str = f.d(context).f71527b.a();
             } catch (Throwable unused) {
                 str = "";
             }
@@ -256,7 +256,7 @@ public final class d {
 
     public static String k(Context context) {
         try {
-            String d2 = d.q.a.a.b.c().d(context, b.f71407a.e(), false);
+            String d2 = d.q.a.a.b.c().d(context, b.f71511a.e(), false);
             return !TextUtils.isEmpty(d2) ? d2 : "KWE_N";
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -507,21 +507,21 @@ public final class d {
     public static String p(Context context) {
         try {
             String g2 = g();
-            f71412a = g2;
-            if (TextUtils.isEmpty(g2) || f71412a.equals(Config.DEF_MAC_ID)) {
+            f71516a = g2;
+            if (TextUtils.isEmpty(g2) || f71516a.equals(Config.DEF_MAC_ID)) {
                 if (!d.q.a.a.c.b.e.e(context, new String[]{"android.permission.ACCESS_WIFI_STATE"}) || context == null) {
                     return "KWE_OTHER";
                 }
                 try {
-                    f71412a = f.d(context).f71424c.a();
+                    f71516a = f.d(context).f71528c.a();
                 } catch (Throwable unused) {
                 }
-                if (TextUtils.isEmpty(f71412a)) {
-                    f71412a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                if (TextUtils.isEmpty(f71516a)) {
+                    f71516a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
                 }
-                return (TextUtils.isEmpty(f71412a) || f71412a.equals(Config.DEF_MAC_ID)) ? "KWE_OTHER" : f71412a;
+                return (TextUtils.isEmpty(f71516a) || f71516a.equals(Config.DEF_MAC_ID)) ? "KWE_OTHER" : f71516a;
             }
-            return f71412a;
+            return f71516a;
         } catch (Throwable unused2) {
             return "KWE_PE";
         }

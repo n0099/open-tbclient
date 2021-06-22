@@ -9,10 +9,10 @@ import java.util.Properties;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39368a = "a";
+    public static final String f39466a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f39369b = f.f39341b;
+    public static final boolean f39467b = f.f39439b;
 
     public static String a(String str, String str2) {
         if (c.a(str2).booleanValue()) {
@@ -22,8 +22,8 @@ public class a {
         try {
             properties.load(SDKManager.getContext().getAssets().open(str));
         } catch (IOException unused) {
-            String str3 = f39368a;
-            c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f39369b));
+            String str3 = f39466a;
+            c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f39467b));
         }
         return properties.getProperty(str2);
     }

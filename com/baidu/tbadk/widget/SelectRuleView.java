@@ -12,19 +12,19 @@ import java.util.List;
 public class SelectRuleView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13092e;
+    public int f13174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13093f;
+    public int f13175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13094g;
+    public int f13176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f13095h;
+    public List<String> f13177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f13096i;
+    public List<String> f13178i;
     public List<String> j;
 
     public SelectRuleView(Context context) {
@@ -56,19 +56,19 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void d(int i2) {
-        if (this.f13094g == i2) {
+        if (this.f13176g == i2) {
             return;
         }
-        int i3 = this.f13092e;
+        int i3 = this.f13174e;
         if (i3 == 0) {
-            setData(this.f13095h, this.f13096i);
+            setData(this.f13177h, this.f13178i);
         } else if (i3 == 1) {
-            setData(this.j, this.f13095h, this.f13096i);
+            setData(this.j, this.f13177h, this.f13178i);
         }
     }
 
     public void setColumn(int i2) {
-        this.f13093f = i2;
+        this.f13175f = i2;
     }
 
     public void setData(List<String> list, List<String> list2) {
@@ -76,8 +76,8 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f13095h = list;
-        this.f13096i = list2;
+        this.f13177h = list;
+        this.f13178i = list2;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list);
         List<String> arrayList2 = new ArrayList<>();
@@ -91,13 +91,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i2 = 0;
         while (true) {
-            int i3 = this.f13093f;
+            int i3 = this.f13175f;
             if (i2 >= ((size + i3) - 1) / i3) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f13092e);
-            int i4 = this.f13093f;
+            selectRuleRowItem.setType(this.f13174e);
+            int i4 = this.f13175f;
             int i5 = i2 * i4;
             i2++;
             int i6 = i4 * i2;
@@ -107,7 +107,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setType(int i2) {
-        this.f13092e = i2;
+        this.f13174e = i2;
     }
 
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet) {
@@ -116,9 +116,9 @@ public class SelectRuleView extends LinearLayout {
 
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13092e = 0;
-        this.f13093f = 2;
-        this.f13094g = 3;
+        this.f13174e = 0;
+        this.f13175f = 2;
+        this.f13176g = 3;
         c();
     }
 
@@ -127,8 +127,8 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f13095h = list2;
-        this.f13096i = list3;
+        this.f13177h = list2;
+        this.f13178i = list3;
         this.j = list;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list2);
@@ -151,13 +151,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i2 = 0;
         while (true) {
-            int i3 = this.f13093f;
+            int i3 = this.f13175f;
             if (i2 >= ((size + i3) - 1) / i3) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f13092e);
-            int i4 = this.f13093f;
+            selectRuleRowItem.setType(this.f13174e);
+            int i4 = this.f13175f;
             int i5 = i2 * i4;
             i2++;
             int i6 = i4 * i2;

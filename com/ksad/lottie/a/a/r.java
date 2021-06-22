@@ -5,49 +5,49 @@ import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class r implements b, a.InterfaceC0352a {
+public class r implements b, a.InterfaceC0355a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31810a;
+    public final String f31908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a.InterfaceC0352a> f31811b = new ArrayList();
+    public final List<a.InterfaceC0355a> f31909b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public final ShapeTrimPath.Type f31812c;
+    public final ShapeTrimPath.Type f31910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31813d;
+    public final com.ksad.lottie.a.b.a<?, Float> f31911d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31814e;
+    public final com.ksad.lottie.a.b.a<?, Float> f31912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31815f;
+    public final com.ksad.lottie.a.b.a<?, Float> f31913f;
 
     public r(com.ksad.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
-        this.f31810a = shapeTrimPath.a();
-        this.f31812c = shapeTrimPath.b();
-        this.f31813d = shapeTrimPath.d().a();
-        this.f31814e = shapeTrimPath.c().a();
-        this.f31815f = shapeTrimPath.e().a();
-        aVar.a(this.f31813d);
-        aVar.a(this.f31814e);
-        aVar.a(this.f31815f);
-        this.f31813d.a(this);
-        this.f31814e.a(this);
-        this.f31815f.a(this);
+        this.f31908a = shapeTrimPath.a();
+        this.f31910c = shapeTrimPath.b();
+        this.f31911d = shapeTrimPath.d().a();
+        this.f31912e = shapeTrimPath.c().a();
+        this.f31913f = shapeTrimPath.e().a();
+        aVar.a(this.f31911d);
+        aVar.a(this.f31912e);
+        aVar.a(this.f31913f);
+        this.f31911d.a(this);
+        this.f31912e.a(this);
+        this.f31913f.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC0352a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0355a
     public void a() {
-        for (int i2 = 0; i2 < this.f31811b.size(); i2++) {
-            this.f31811b.get(i2).a();
+        for (int i2 = 0; i2 < this.f31909b.size(); i2++) {
+            this.f31909b.get(i2).a();
         }
     }
 
-    public void a(a.InterfaceC0352a interfaceC0352a) {
-        this.f31811b.add(interfaceC0352a);
+    public void a(a.InterfaceC0355a interfaceC0355a) {
+        this.f31909b.add(interfaceC0355a);
     }
 
     @Override // com.ksad.lottie.a.a.b
@@ -55,18 +55,18 @@ public class r implements b, a.InterfaceC0352a {
     }
 
     public ShapeTrimPath.Type b() {
-        return this.f31812c;
+        return this.f31910c;
     }
 
     public com.ksad.lottie.a.b.a<?, Float> c() {
-        return this.f31813d;
+        return this.f31911d;
     }
 
     public com.ksad.lottie.a.b.a<?, Float> d() {
-        return this.f31814e;
+        return this.f31912e;
     }
 
     public com.ksad.lottie.a.b.a<?, Float> e() {
-        return this.f31815f;
+        return this.f31913f;
     }
 }

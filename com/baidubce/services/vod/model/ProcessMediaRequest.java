@@ -3,7 +3,7 @@ package com.baidubce.services.vod.model;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ProcessMediaRequest extends VodBceRequest {
     public String description;
     public String mediaId;

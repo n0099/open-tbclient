@@ -13,6 +13,7 @@ import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.executor.BaseTask;
 import com.baidu.mobads.container.executor.TaskScheduler;
 import com.baidu.mobads.container.service.PluginLoader;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class DeviceUtils {
@@ -178,7 +179,7 @@ public class DeviceUtils {
                                     strArr[1] = gsmCellLocation.getLac() + "";
                                     strArr[2] = "0";
                                 } else {
-                                    String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
+                                    String[] split = cellLocation.toString().replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "").split(",");
                                     strArr[0] = split[0];
                                     strArr[1] = split[3];
                                     strArr[2] = split[4];

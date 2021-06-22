@@ -10,54 +10,54 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f37532a = new AtomicBoolean(false);
+    public static final AtomicBoolean f37630a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile h f37533b;
+    public static volatile h f37631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f37534c;
+    public Context f37632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f37535d;
+    public a f37633d;
 
     public h(Context context) {
-        this.f37534c = context.getApplicationContext();
+        this.f37632c = context.getApplicationContext();
     }
 
     public static h a(@NonNull Context context) {
-        if (f37533b == null) {
+        if (f37631b == null) {
             synchronized (h.class) {
-                if (f37533b == null) {
-                    f37533b = new h(context);
+                if (f37631b == null) {
+                    f37631b = new h(context);
                 }
             }
         }
-        return f37533b;
+        return f37631b;
     }
 
     private void c() {
         Context context;
-        if (!f37532a.get() || (context = this.f37534c) == null) {
+        if (!f37630a.get() || (context = this.f37632c) == null) {
             return;
         }
-        context.unregisterReceiver(this.f37535d);
-        f37532a.set(false);
+        context.unregisterReceiver(this.f37633d);
+        f37630a.set(false);
     }
 
     public void a() {
-        if (this.f37534c == null || f37532a.get()) {
+        if (this.f37632c == null || f37630a.get()) {
             return;
         }
-        if (this.f37535d == null) {
-            this.f37535d = new a();
+        if (this.f37633d == null) {
+            this.f37633d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-        this.f37534c.registerReceiver(this.f37535d, intentFilter);
-        f37532a.set(true);
+        this.f37632c.registerReceiver(this.f37633d, intentFilter);
+        f37630a.set(true);
     }
 
     public void b() {

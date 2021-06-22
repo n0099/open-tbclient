@@ -11,22 +11,22 @@ import java.util.List;
 public class b<PAGE, MODEL> {
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c> f36605d = new ArrayList();
+    public List<c> f36703d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public KsFragment f36606e;
+    public KsFragment f36704e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f36607f;
+    public RecyclerView f36705f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<PAGE, MODEL> f36608g;
+    public com.kwad.sdk.lib.b.c<PAGE, MODEL> f36706g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f36609h;
+    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f36707h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f36610i;
+    public d f36708i;
     public RefreshLayout j;
     public com.kwad.sdk.lib.a.b<PAGE> k;
     public int l;

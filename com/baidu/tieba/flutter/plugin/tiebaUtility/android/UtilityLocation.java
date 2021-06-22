@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityLocationAuto;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.n0.t2.g0.a;
+import d.a.o0.t2.g0.a;
 import tbclient.AppPosInfo;
 /* loaded from: classes4.dex */
 public class UtilityLocation implements TiebaUtilityLocationAuto.HostUtilityLocation {

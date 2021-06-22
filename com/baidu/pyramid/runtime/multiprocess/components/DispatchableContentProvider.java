@@ -26,7 +26,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public static final boolean DEBUG = false;
     public static final String TAG = "DispProvider";
     public String mAuthority;
-    public ArrayList<d.a.e0.b.a.i.a> mContentProviderDelegates;
+    public ArrayList<d.a.f0.b.a.i.a> mContentProviderDelegates;
     public a mUriMatcher;
     public volatile boolean mIsInit = false;
     public final Object mInitLocker = new Object();
@@ -35,18 +35,18 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public static class a extends UriMatcher {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9463a;
+        public int f9472a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9464b;
+        public int f9473b;
 
         public a(int i2) {
             super(i2);
         }
 
         public final void a(int i2) {
-            if (i2 < this.f9464b || i2 > this.f9463a) {
-                throw new IllegalArgumentException("The minCode is : " + this.f9464b + "The maxCode is : " + this.f9463a + "The error code is : " + i2);
+            if (i2 < this.f9473b || i2 > this.f9472a) {
+                throw new IllegalArgumentException("The minCode is : " + this.f9473b + "The maxCode is : " + this.f9472a + "The error code is : " + i2);
             }
         }
 
@@ -57,12 +57,12 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         }
     }
 
-    private d.a.e0.b.a.i.a findContentProviderDelegate(int i2) {
+    private d.a.f0.b.a.i.a findContentProviderDelegate(int i2) {
         int size = this.mContentProviderDelegates.size() - 1;
         int i3 = 0;
         while (i3 <= size) {
             int i4 = (i3 + size) / 2;
-            d.a.e0.b.a.i.a aVar = this.mContentProviderDelegates.get(i4);
+            d.a.f0.b.a.i.a aVar = this.mContentProviderDelegates.get(i4);
             if (i2 >= aVar.l() && i2 <= aVar.k()) {
                 return aVar;
             }
@@ -89,16 +89,16 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             if (authority != null) {
                 this.mUriMatcher = new a(-1);
                 this.mContentProviderDelegates = new ArrayList<>();
-                List<d.a.e0.b.a.i.a> contentProviderDelegates = getContentProviderDelegates();
+                List<d.a.f0.b.a.i.a> contentProviderDelegates = getContentProviderDelegates();
                 if (contentProviderDelegates != null) {
-                    for (d.a.e0.b.a.i.a aVar : contentProviderDelegates) {
+                    for (d.a.f0.b.a.i.a aVar : contentProviderDelegates) {
                         insertContentProviderDelegate(aVar);
-                        this.mUriMatcher.f9464b = aVar.l();
-                        this.mUriMatcher.f9463a = aVar.k();
+                        this.mUriMatcher.f9473b = aVar.l();
+                        this.mUriMatcher.f9472a = aVar.k();
                         aVar.h(this.mUriMatcher, this.mAuthority);
                     }
                 }
-                Iterator<d.a.e0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+                Iterator<d.a.f0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
                 while (it.hasNext()) {
                     it.next().n();
                 }
@@ -108,7 +108,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         }
     }
 
-    private void insertContentProviderDelegate(d.a.e0.b.a.i.a aVar) {
+    private void insertContentProviderDelegate(d.a.f0.b.a.i.a aVar) {
         if (aVar.l() <= aVar.k()) {
             int size = this.mContentProviderDelegates.size();
             int i2 = 0;
@@ -128,7 +128,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        d.a.e0.b.a.i.a findContentProviderDelegate;
+        d.a.f0.b.a.i.a findContentProviderDelegate;
         initIfNeed();
         if (arrayList == null) {
             return null;
@@ -150,7 +150,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         }
         ArrayList arrayList3 = new ArrayList();
         for (Map.Entry entry : hashMap.entrySet()) {
-            for (ContentProviderResult contentProviderResult : ((d.a.e0.b.a.i.a) entry.getKey()).a((ArrayList) entry.getValue())) {
+            for (ContentProviderResult contentProviderResult : ((d.a.f0.b.a.i.a) entry.getKey()).a((ArrayList) entry.getValue())) {
                 arrayList3.add(contentProviderResult);
             }
         }
@@ -165,7 +165,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public void attachInfo(Context context, ProviderInfo providerInfo) {
         initIfNeed();
-        Iterator<d.a.e0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+        Iterator<d.a.f0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
         while (it.hasNext()) {
             it.next().b(this);
         }
@@ -176,7 +176,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public int bulkInsert(Uri uri, ContentValues[] contentValuesArr) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 6);
             return findContentProviderDelegate.c(match, uri, contentValuesArr);
@@ -187,9 +187,9 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
         initIfNeed();
-        Iterator<d.a.e0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+        Iterator<d.a.f0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
         while (it.hasNext()) {
-            d.a.e0.b.a.i.a next = it.next();
+            d.a.f0.b.a.i.a next = it.next();
             if (next.e(str, str2, bundle)) {
                 next.g(null, 3);
                 return next.d(str, str2, bundle);
@@ -202,7 +202,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public int delete(Uri uri, String str, String[] strArr) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 5);
             return findContentProviderDelegate.f(match, uri, str, strArr);
@@ -212,13 +212,13 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     public abstract String getAuthority();
 
-    public abstract List<d.a.e0.b.a.i.a> getContentProviderDelegates();
+    public abstract List<d.a.f0.b.a.i.a> getContentProviderDelegates();
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 4);
             return findContentProviderDelegate.i(match, uri);
@@ -230,7 +230,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues contentValues) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 1);
             return findContentProviderDelegate.j(match, uri, contentValues);
@@ -242,7 +242,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public void onConfigurationChanged(Configuration configuration) {
         initIfNeed();
         super.onConfigurationChanged(configuration);
-        Iterator<d.a.e0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+        Iterator<d.a.f0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
         while (it.hasNext()) {
             it.next().m(configuration);
         }
@@ -257,7 +257,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public AssetFileDescriptor openAssetFile(Uri uri, String str) throws FileNotFoundException {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 7);
             findContentProviderDelegate.o(match, uri, str);
@@ -270,7 +270,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.q(match, uri, str);
             throw null;
@@ -282,7 +282,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 0);
             return findContentProviderDelegate.r(match, uri, strArr, str, strArr2, str2);
@@ -294,7 +294,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 2);
             return findContentProviderDelegate.t(match, uri, contentValues, str, strArr);
@@ -306,7 +306,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 7);
             findContentProviderDelegate.p(match, uri, str, cancellationSignal);
@@ -319,7 +319,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
         initIfNeed();
         int match = this.mUriMatcher.match(uri);
-        d.a.e0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+        d.a.f0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
         if (findContentProviderDelegate != null) {
             findContentProviderDelegate.g(uri, 0);
             return findContentProviderDelegate.s(match, uri, strArr, str, strArr2, str2, cancellationSignal);

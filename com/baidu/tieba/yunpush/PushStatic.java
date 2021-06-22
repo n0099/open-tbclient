@@ -10,20 +10,20 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-import d.a.m0.r.d0.b;
+import d.a.n0.r.d0.b;
 /* loaded from: classes5.dex */
 public class PushStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f22290a = new a(0);
+    public static CustomMessageListener f22372a = new a(0);
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0221a implements Runnable {
-            public RunnableC0221a(a aVar) {
+        public class RunnableC0224a implements Runnable {
+            public RunnableC0224a(a aVar) {
             }
 
             @Override // java.lang.Runnable
@@ -40,13 +40,13 @@ public class PushStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC0221a(this)).start();
+                new Thread(new RunnableC0224a(this)).start();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(2007015, f22290a);
+        MessageManager.getInstance().registerListener(2007015, f22372a);
     }
 
     public static void b() {
@@ -75,7 +75,7 @@ public class PushStatic {
         }
         PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
         PushManager.enableVivoProxy(context, true);
-        PushManager.startWork(context, 0, d.a.n0.x3.a.a(context, Constants.API_KEY));
+        PushManager.startWork(context, 0, d.a.o0.x3.a.a(context, Constants.API_KEY));
     }
 
     public static void f(Context context) {

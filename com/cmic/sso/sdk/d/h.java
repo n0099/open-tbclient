@@ -9,16 +9,16 @@ import com.cmic.sso.sdk.d.o;
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30662b;
+    public static String f30744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30663c;
+    public static String f30745c;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f30661a = m.a();
+    public static final boolean f30743a = m.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f30664d = 0;
+    public static long f30746d = 0;
 
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
@@ -33,11 +33,11 @@ public class h {
     }
 
     public static boolean d() {
-        if (TextUtils.isEmpty(f30662b)) {
+        if (TextUtils.isEmpty(f30744b)) {
             return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
         }
-        c.b("PhoneScripUtils", f30663c + " " + f30664d);
-        return a(f30664d);
+        c.b("PhoneScripUtils", f30745c + " " + f30746d);
+        return a(f30746d);
     }
 
     public static void a(boolean z, boolean z2) {
@@ -51,9 +51,9 @@ public class h {
             a2.b();
         }
         if (z) {
-            f30662b = null;
-            f30663c = null;
-            f30664d = 0L;
+            f30744b = null;
+            f30745c = null;
+            f30746d = 0L;
         }
     }
 
@@ -61,9 +61,9 @@ public class h {
         long a2;
         long j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (!TextUtils.isEmpty(f30662b)) {
-            c.b("PhoneScripUtils", f30663c + " " + f30664d);
-            a2 = f30664d;
+        if (!TextUtils.isEmpty(f30744b)) {
+            c.b("PhoneScripUtils", f30745c + " " + f30746d);
+            a2 = f30746d;
         } else {
             String b2 = k.b("phonescripcache", "");
             a2 = k.a("phonescripstarttime", 0L);
@@ -77,7 +77,7 @@ public class h {
     }
 
     public static boolean a() {
-        return f30661a;
+        return f30743a;
     }
 
     public static void a(final Context context, final String str, long j, final String str2, String str3) {
@@ -85,40 +85,40 @@ public class h {
             return;
         }
         c.b("PhoneScripUtils", "save phone scrip simKey = " + str2);
-        f30662b = str;
+        f30744b = str;
         long j2 = j * 1000;
-        f30664d = System.currentTimeMillis() + j2;
-        c.b("sLifeTime", f30664d + "");
-        f30663c = str2;
-        if (!f30661a && !"operator".equals(str3)) {
+        f30746d = System.currentTimeMillis() + j2;
+        c.b("sLifeTime", f30746d + "");
+        f30745c = str2;
+        if (!f30743a && !"operator".equals(str3)) {
             o.a(new o.a() { // from class: com.cmic.sso.sdk.d.h.1
                 @Override // com.cmic.sso.sdk.d.o.a
                 public void a() {
                     c.b("PhoneScripUtils", "start save scrip to sp in sub thread");
-                    h.b(context, str, h.f30664d, str2);
+                    h.b(context, str, h.f30746d, str2);
                 }
             });
         } else if (j2 > 3600000) {
-            f30664d = System.currentTimeMillis() + 3600000;
+            f30746d = System.currentTimeMillis() + 3600000;
         } else {
-            f30664d = System.currentTimeMillis() + j2;
+            f30746d = System.currentTimeMillis() + j2;
         }
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f30662b)) {
+        if (TextUtils.isEmpty(f30744b)) {
             String b2 = k.b("phonescripcache", "");
             if (TextUtils.isEmpty(b2)) {
                 c.a("PhoneScripUtils", StringUtil.NULL_STRING);
                 return null;
             }
-            f30664d = k.a("phonescripstarttime", 0L);
-            f30663c = k.b("pre_sim_key", "");
+            f30746d = k.a("phonescripstarttime", 0L);
+            f30745c = k.b("pre_sim_key", "");
             String b3 = b.b(context, b2);
-            f30662b = b3;
+            f30744b = b3;
             return b3;
         }
-        return f30662b;
+        return f30744b;
     }
 
     public static boolean a(long j) {
@@ -130,11 +130,11 @@ public class h {
 
     public static int a(String str) {
         String b2;
-        if (!TextUtils.isEmpty(f30663c)) {
-            b2 = f30663c;
+        if (!TextUtils.isEmpty(f30745c)) {
+            b2 = f30745c;
         } else {
             b2 = k.b("pre_sim_key", "");
-            f30663c = b2;
+            f30745c = b2;
         }
         if (TextUtils.isEmpty(b2)) {
             return 0;
@@ -152,7 +152,7 @@ public class h {
             }
             return false;
         }
-        if (f30661a) {
+        if (f30743a) {
             c.b("PhoneScripUtils", "phone is root");
             a(false, false);
         }

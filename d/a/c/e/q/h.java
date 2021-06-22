@@ -7,13 +7,13 @@ import com.baidu.adp.base.BdBaseApplication;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42563a = 0;
+    public static int f42666a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f42564b = 3;
+    public static int f42667b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f42565c = {"meizu"};
+    public static final String[] f42668c = {"meizu"};
 
     public static String a(int i2) {
         Application app = BdBaseApplication.getInst().getApp();
@@ -28,7 +28,7 @@ public class h {
         String lowerCase = str.toLowerCase();
         int i2 = 0;
         while (true) {
-            String[] strArr = f42565c;
+            String[] strArr = f42668c;
             if (i2 >= strArr.length) {
                 return false;
             }

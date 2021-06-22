@@ -33,13 +33,13 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity;
 import com.tencent.connect.share.QzonePublish;
 import d.a.c.e.p.k;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.q1;
-import d.a.n0.e3.e0;
-import d.a.n0.e3.l;
-import d.a.n0.r0.b1;
-import d.a.n0.r0.j0;
-import d.a.n0.z.e0.n;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.q1;
+import d.a.o0.e3.e0;
+import d.a.o0.e3.l;
+import d.a.o0.r0.b1;
+import d.a.o0.r0.j0;
+import d.a.o0.z.e0.n;
 import java.net.URLDecoder;
 import java.util.Map;
 import tbclient.FrsTabInfo;
@@ -58,9 +58,9 @@ public class FRSExtraStatic {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, q1.L3, null));
-                absDelegateAdapterList.add(new d.a.n0.r0.p1.a.a(null, n.k, true));
-                absDelegateAdapterList.add(new d.a.n0.r0.p1.a.b(null, e0.M3, null));
-                absDelegateAdapterList.add(new d.a.n0.r0.t1.a(null, d.a.n0.u0.b.f65023i, null));
+                absDelegateAdapterList.add(new d.a.o0.r0.p1.a.a(null, n.k, true));
+                absDelegateAdapterList.add(new d.a.o0.r0.p1.a.b(null, e0.M3, null));
+                absDelegateAdapterList.add(new d.a.o0.r0.t1.a(null, d.a.o0.u0.b.f65148i, null));
             }
         }
     }
@@ -153,19 +153,19 @@ public class FRSExtraStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                j0Var.a(new d.a.n0.r0.u1.a(j0Var.d(), j0Var.e()));
+                j0Var.a(new d.a.o0.r0.u1.a(j0Var.d(), j0Var.e()));
                 for (FrsTabInfo frsTabInfo : j0Var.g()) {
                     if (frsTabInfo.tab_id.intValue() > 100) {
-                        d.a.n0.r0.y1.c cVar = new d.a.n0.r0.y1.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
+                        d.a.o0.r0.y1.c cVar = new d.a.o0.r0.y1.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                         j0Var.a(cVar);
                         if (j0Var.b() == null) {
                             continue;
                         } else {
-                            d.a.m0.e0.c fragmentTabStructure = cVar.getFragmentTabStructure();
+                            d.a.n0.e0.c fragmentTabStructure = cVar.getFragmentTabStructure();
                             if (fragmentTabStructure == null) {
                                 return;
                             }
-                            fragmentTabStructure.f53008a.setArguments(new Bundle());
+                            fragmentTabStructure.f53115a.setArguments(new Bundle());
                         }
                     }
                 }
@@ -183,7 +183,7 @@ public class FRSExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.a.n0.r0.r1.c(null, l.f57801g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.a.o0.r0.r1.c(null, l.f57926g, true));
             }
         }
     }
@@ -192,7 +192,7 @@ public class FRSExtraStatic {
     public static class f implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            return new CustomResponsedMessage<>(2016468, new d.a.n0.r0.r1.a());
+            return new CustomResponsedMessage<>(2016468, new d.a.o0.r0.r1.a());
         }
     }
 
@@ -206,7 +206,7 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
         a2.y3.set(true);
-        d.a.n0.r0.e.f62135a.set(new b1());
+        d.a.o0.r0.e.f62260a.set(new b1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

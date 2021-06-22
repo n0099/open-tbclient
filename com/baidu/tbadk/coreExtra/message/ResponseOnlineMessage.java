@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.m0.c0.a;
+import d.a.n0.c0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;

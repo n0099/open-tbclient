@@ -11,10 +11,10 @@ import d.a.c.e.p.j;
 public abstract class CollectFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12041e = false;
+    public boolean f12123e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f12042f = new a(2000994);
+    public final CustomMessageListener f12124f = new a(2000994);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -29,7 +29,7 @@ public abstract class CollectFragment extends BaseFragment {
                 CollectFragment collectFragment = CollectFragment.this;
                 collectFragment.J0(collectFragment.G0());
                 CollectFragment collectFragment2 = CollectFragment.this;
-                if (collectFragment2.f12041e) {
+                if (collectFragment2.f12123e) {
                     return;
                 }
                 collectFragment2.K0(false, collectFragment2.G0());
@@ -42,13 +42,13 @@ public abstract class CollectFragment extends BaseFragment {
     public abstract boolean H0();
 
     public boolean I0() {
-        return this.f12041e;
+        return this.f12123e;
     }
 
     public void J0(int i2) {
         Bundle bundle = new Bundle();
         boolean z = !H0() && j.z();
-        this.f12041e = z;
+        this.f12123e = z;
         bundle.putBoolean("is_enable_edit", z);
         bundle.putInt("fragment_type", i2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
@@ -64,12 +64,12 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.f12042f);
+        registerListener(this.f12124f);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.f12042f);
+        MessageManager.getInstance().unRegisterListener(this.f12124f);
     }
 }

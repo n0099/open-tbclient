@@ -21,16 +21,16 @@ import java.util.List;
 public class LangBridgeMenuDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdMenuItem.OnItemClickListener f25030a;
+    public BdMenuItem.OnItemClickListener f25112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f25031b;
+    public GridLayout f25113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f25032c;
+    public TextView f25114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<BdMenuItem> f25033d;
+    public List<BdMenuItem> f25115d;
     public boolean mMenuLoaded;
 
     public LangBridgeMenuDialog(Context context) {
@@ -45,12 +45,12 @@ public class LangBridgeMenuDialog extends Dialog {
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
             public void onClick(BdMenuItem bdMenuItem2) {
                 LangBridgeMenuDialog.this.dismiss();
-                if (LangBridgeMenuDialog.this.f25030a != null) {
-                    LangBridgeMenuDialog.this.f25030a.onClick(bdMenuItem2);
+                if (LangBridgeMenuDialog.this.f25112a != null) {
+                    LangBridgeMenuDialog.this.f25112a.onClick(bdMenuItem2);
                 }
             }
         });
-        this.f25033d.add(bdMenuItem);
+        this.f25115d.add(bdMenuItem);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -65,18 +65,18 @@ public class LangBridgeMenuDialog extends Dialog {
         if (this.mMenuLoaded) {
             return;
         }
-        this.f25031b.removeAllViews();
-        if (this.f25033d.size() <= 0) {
+        this.f25113b.removeAllViews();
+        if (this.f25115d.size() <= 0) {
             return;
         }
-        for (BdMenuItem bdMenuItem : this.f25033d) {
-            this.f25031b.addView(a(bdMenuItem));
+        for (BdMenuItem bdMenuItem : this.f25115d) {
+            this.f25113b.addView(a(bdMenuItem));
         }
         this.mMenuLoaded = true;
     }
 
     public void setMenuItemClickListener(BdMenuItem.OnItemClickListener onItemClickListener) {
-        this.f25030a = onItemClickListener;
+        this.f25112a = onItemClickListener;
     }
 
     @Override // android.app.Dialog
@@ -88,7 +88,7 @@ public class LangBridgeMenuDialog extends Dialog {
     }
 
     private void a() {
-        this.f25033d = new ArrayList();
+        this.f25115d = new ArrayList();
         requestWindowFeature(1);
         setContentView(ResUtils.layout(getContext(), "wallet_langbridge_menu"));
         Window window = getWindow();
@@ -101,13 +101,13 @@ public class LangBridgeMenuDialog extends Dialog {
         onWindowAttributesChanged(attributes);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.f25031b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
-        this.f25032c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
-        this.f25031b.setColumnCount(5);
-        this.f25031b.setHorizontalSpacing(0);
-        this.f25031b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
-        this.f25031b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f));
-        this.f25032c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
+        this.f25113b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
+        this.f25114c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
+        this.f25113b.setColumnCount(5);
+        this.f25113b.setHorizontalSpacing(0);
+        this.f25113b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
+        this.f25113b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f));
+        this.f25114c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LangBridgeMenuDialog.this.dismiss();
@@ -122,12 +122,12 @@ public class LangBridgeMenuDialog extends Dialog {
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
             public void onClick(BdMenuItem bdMenuItem2) {
                 LangBridgeMenuDialog.this.dismiss();
-                if (LangBridgeMenuDialog.this.f25030a != null) {
-                    LangBridgeMenuDialog.this.f25030a.onClick(bdMenuItem2);
+                if (LangBridgeMenuDialog.this.f25112a != null) {
+                    LangBridgeMenuDialog.this.f25112a.onClick(bdMenuItem2);
                 }
             }
         });
-        this.f25033d.add(bdMenuItem);
+        this.f25115d.add(bdMenuItem);
     }
 
     private View a(final BdMenuItem bdMenuItem) {

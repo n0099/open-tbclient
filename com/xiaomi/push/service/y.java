@@ -44,7 +44,7 @@ public final class y {
             String str = lVar.f959a;
             ibVar.f630a.f555a = str.substring(0, str.indexOf("@"));
             ibVar.f630a.f559c = str.substring(str.indexOf("/") + 1);
-            faVar.a(ip.a(ibVar), lVar.f41829c);
+            faVar.a(ip.a(ibVar), lVar.f41932c);
             faVar.a((short) 1);
             com.xiaomi.channel.commonutils.logger.b.m56a("try send mi push message. packagename:" + ibVar.f635b + " action:" + ibVar.f628a);
             return faVar;

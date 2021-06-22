@@ -22,11 +22,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import d.a.c.e.p.l;
-import d.a.n0.z1.g.f;
+import d.a.o0.z1.g.f;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public static final int ALBUM_TYPE = 3;
     public static final int COLLECT_TYPE = 2;
@@ -43,7 +43,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public int mChoosedNum = 0;
     public ViewPager.OnPageChangeListener mOnPageChangeListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -82,7 +82,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public b() {
         }
@@ -107,12 +107,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12213c = fragment;
-        bVar.f12211a = i2;
+        bVar.f12295c = fragment;
+        bVar.f12293a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12212b = fragmentTabIndicator;
+        bVar.f12294b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -186,7 +186,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTitleBar.setRightText(string);
     }
 
-    @Override // d.a.n0.z1.g.f
+    @Override // d.a.o0.z1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < 24;
     }
@@ -204,7 +204,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTabHost.p(i2);
     }
 
-    @Override // d.a.n0.z1.g.f
+    @Override // d.a.o0.z1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
@@ -226,7 +226,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         initFragment();
     }
 
-    @Override // d.a.n0.z1.g.f
+    @Override // d.a.o0.z1.g.f
     public void onUnChoose() {
         int i2 = this.mChoosedNum;
         if (i2 > 0) {

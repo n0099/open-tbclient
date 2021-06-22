@@ -5,9 +5,9 @@ import java.net.SocketException;
 public class n extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public SocketException f42648a;
+    public SocketException f42751a;
 
     public n(SocketException socketException) {
-        this.f42648a = socketException;
+        this.f42751a = socketException;
     }
 }

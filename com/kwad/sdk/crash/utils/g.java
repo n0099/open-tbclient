@@ -19,31 +19,31 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f35143a = Charset.forName("US-ASCII");
+    public static final Charset f35241a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f35144b = Charset.forName("UTF-8");
+    public static final Charset f35242b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f35145c;
+    public static final BigInteger f35243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f35146d;
+    public static final BigInteger f35244d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f35147e;
+    public static final BigInteger f35245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f35148f;
+    public static final BigInteger f35246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f35149g;
+    public static final BigInteger f35247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f35150h;
+    public static final BigInteger f35248h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f35151i;
+    public static final char f35249i;
     public static final BigInteger j;
     public static final BigInteger k;
     public static final File[] l;
@@ -53,24 +53,24 @@ public class g {
 
     static {
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f35145c = valueOf;
+        f35243c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f35146d = multiply;
-        BigInteger multiply2 = f35145c.multiply(multiply);
-        f35147e = multiply2;
-        BigInteger multiply3 = f35145c.multiply(multiply2);
-        f35148f = multiply3;
-        BigInteger multiply4 = f35145c.multiply(multiply3);
-        f35149g = multiply4;
-        f35150h = f35145c.multiply(multiply4);
+        f35244d = multiply;
+        BigInteger multiply2 = f35243c.multiply(multiply);
+        f35245e = multiply2;
+        BigInteger multiply3 = f35243c.multiply(multiply2);
+        f35246f = multiply3;
+        BigInteger multiply4 = f35243c.multiply(multiply3);
+        f35247g = multiply4;
+        f35248h = f35243c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
         j = multiply5;
-        k = f35145c.multiply(multiply5);
+        k = f35243c.multiply(multiply5);
         l = new File[0];
         m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f35151i = a() ? '/' : '\\';
+        f35249i = a() ? '/' : '\\';
     }
 
     public static FileInputStream a(File file) {

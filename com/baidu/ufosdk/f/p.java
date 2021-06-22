@@ -6,28 +6,28 @@ import android.content.pm.PackageManager;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PackageManager f22635a;
+    public static PackageManager f22717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f22636b;
+    public static Context f22718b;
 
     public static void a(Context context) {
-        f22636b = context;
+        f22718b = context;
         PackageManager packageManager = context.getPackageManager();
-        f22635a = packageManager;
+        f22717a = packageManager;
         if (packageManager == null) {
             c.d("PermissionUtil#init fail to get PackageManager.");
         }
     }
 
     public static boolean a(String str) {
-        PackageManager packageManager = f22635a;
+        PackageManager packageManager = f22717a;
         if (packageManager == null) {
             c.d("PermissionUtil fail to get PackageManager.");
             return false;
         }
         try {
-            return packageManager.checkPermission(str, f22636b.getPackageName()) == 0;
+            return packageManager.checkPermission(str, f22718b.getPackageName()) == 0;
         } catch (RuntimeException e2) {
             c.a("PermissionUtil#hasPermission failed.", e2);
             return false;

@@ -11,28 +11,28 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f33019a;
+    public ImageView f33117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33020b;
+    public ImageView f33118b;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f33024f;
+    public Handler f33122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f33025g;
+    public a f33123g;
 
     /* renamed from: c  reason: collision with root package name */
-    public AnimatorSet f33021c = new AnimatorSet();
+    public AnimatorSet f33119c = new AnimatorSet();
 
     /* renamed from: d  reason: collision with root package name */
-    public AnimatorSet f33022d = new AnimatorSet();
+    public AnimatorSet f33120d = new AnimatorSet();
 
     /* renamed from: e  reason: collision with root package name */
-    public AnimatorSet f33023e = new AnimatorSet();
+    public AnimatorSet f33121e = new AnimatorSet();
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f33026h = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.1
+    public Runnable f33124h = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.1
         @Override // java.lang.Runnable
         public void run() {
             b.this.b();
@@ -40,7 +40,7 @@ public class b {
     };
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f33027i = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.2
+    public Runnable f33125i = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.2
         @Override // java.lang.Runnable
         public void run() {
             b.this.d();
@@ -49,23 +49,23 @@ public class b {
     public Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f33020b == null) {
+            if (b.this.f33118b == null) {
                 return;
             }
-            b.this.f33020b.setVisibility(0);
-            b.this.f33020b.setPivotX(ao.a(b.this.f33020b.getContext(), 154.0f));
-            b.this.f33020b.setPivotY(ao.a(b.this.f33020b.getContext(), 27.0f));
-            b.this.f33020b.invalidate();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f33020b, "alpha", 0.0f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f33020b, "scaleX", 0.5f, 1.0f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f33020b, "scaleY", 0.5f, 1.0f);
+            b.this.f33118b.setVisibility(0);
+            b.this.f33118b.setPivotX(ao.a(b.this.f33118b.getContext(), 154.0f));
+            b.this.f33118b.setPivotY(ao.a(b.this.f33118b.getContext(), 27.0f));
+            b.this.f33118b.invalidate();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f33118b, "alpha", 0.0f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f33118b, "scaleX", 0.5f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f33118b, "scaleY", 0.5f, 1.0f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
             arrayList.add(ofFloat3);
-            b.this.f33022d.playTogether(arrayList);
-            b.this.f33022d.setDuration(300L);
-            b.this.f33022d.start();
+            b.this.f33120d.playTogether(arrayList);
+            b.this.f33120d.setDuration(300L);
+            b.this.f33120d.start();
         }
     };
 
@@ -77,94 +77,94 @@ public class b {
     }
 
     public b(@NonNull ImageView imageView, @NonNull ImageView imageView2, @NonNull Handler handler, @NonNull a aVar) {
-        this.f33019a = imageView;
-        this.f33020b = imageView2;
-        this.f33025g = aVar;
-        this.f33024f = handler;
+        this.f33117a = imageView;
+        this.f33118b = imageView2;
+        this.f33123g = aVar;
+        this.f33122f = handler;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f33020b == null || this.f33019a == null) {
+        if (this.f33118b == null || this.f33117a == null) {
             return;
         }
-        a aVar = this.f33025g;
+        a aVar = this.f33123g;
         if (aVar != null) {
             aVar.a();
         }
         c();
-        this.f33024f.postDelayed(this.j, 500L);
-        this.f33024f.postDelayed(this.f33027i, 3000L);
+        this.f33122f.postDelayed(this.j, 500L);
+        this.f33122f.postDelayed(this.f33125i, 3000L);
     }
 
     private void c() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f33019a, "scaleX", 1.1f, 1.0f, 1.1f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f33019a, "scaleY", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f33117a, "scaleX", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f33117a, "scaleY", 1.1f, 1.0f, 1.1f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.f33021c.setDuration(600L);
-        this.f33021c.play(ofFloat).with(ofFloat2);
-        this.f33021c.start();
+        this.f33119c.setDuration(600L);
+        this.f33119c.play(ofFloat).with(ofFloat2);
+        this.f33119c.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        a aVar = this.f33025g;
+        a aVar = this.f33123g;
         if (aVar != null) {
             aVar.b();
         }
-        ImageView imageView = this.f33020b;
+        ImageView imageView = this.f33118b;
         if (imageView != null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "alpha", 1.0f, 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f33020b, "scaleX", 1.0f, 0.5f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f33020b, "scaleY", 1.0f, 0.5f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f33118b, "scaleX", 1.0f, 0.5f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f33118b, "scaleY", 1.0f, 0.5f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
             arrayList.add(ofFloat3);
-            this.f33023e.playTogether(arrayList);
-            this.f33023e.setDuration(300L);
-            this.f33023e.start();
+            this.f33121e.playTogether(arrayList);
+            this.f33121e.setDuration(300L);
+            this.f33121e.start();
         }
-        AnimatorSet animatorSet = this.f33021c;
+        AnimatorSet animatorSet = this.f33119c;
         if (animatorSet != null) {
             animatorSet.cancel();
         }
     }
 
     public void a() {
-        a aVar = this.f33025g;
+        a aVar = this.f33123g;
         if (aVar != null) {
             aVar.b();
         }
-        Handler handler = this.f33024f;
+        Handler handler = this.f33122f;
         if (handler != null) {
             handler.removeCallbacks(this.j);
-            this.f33024f.removeCallbacks(this.f33026h);
-            this.f33024f.removeCallbacks(this.f33027i);
+            this.f33122f.removeCallbacks(this.f33124h);
+            this.f33122f.removeCallbacks(this.f33125i);
         }
-        ImageView imageView = this.f33020b;
+        ImageView imageView = this.f33118b;
         if (imageView != null) {
             imageView.setVisibility(8);
         }
-        AnimatorSet animatorSet = this.f33022d;
+        AnimatorSet animatorSet = this.f33120d;
         if (animatorSet != null) {
             animatorSet.cancel();
         }
-        AnimatorSet animatorSet2 = this.f33023e;
+        AnimatorSet animatorSet2 = this.f33121e;
         if (animatorSet2 != null) {
             animatorSet2.cancel();
         }
-        AnimatorSet animatorSet3 = this.f33021c;
+        AnimatorSet animatorSet3 = this.f33119c;
         if (animatorSet3 != null) {
             animatorSet3.cancel();
         }
-        this.f33019a = null;
-        this.f33020b = null;
-        this.f33025g = null;
+        this.f33117a = null;
+        this.f33118b = null;
+        this.f33123g = null;
     }
 
     public void a(long j) {
-        this.f33024f.postDelayed(this.f33026h, j);
+        this.f33122f.postDelayed(this.f33124h, j);
     }
 }

@@ -20,17 +20,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import d.a.m0.r.s.a;
-import d.a.m0.z0.f0;
-import d.a.m0.z0.h0;
-import d.a.m0.z0.n;
-import d.a.n0.f1.h.m;
-import d.a.n0.g1.a.b.b.f;
+import d.a.n0.r.s.a;
+import d.a.n0.z0.f0;
+import d.a.n0.z0.h0;
+import d.a.n0.z0.n;
+import d.a.o0.f1.h.m;
+import d.a.o0.g1.a.b.b.f;
 /* loaded from: classes4.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements f.e, BdSwitchView.b {
-    public d.a.n0.g1.a.b.b.f mModel;
-    public d.a.n0.m3.a mUserReportController;
-    public d.a.n0.g1.a.b.b.g mView;
+    public d.a.o0.g1.a.b.b.f mModel;
+    public d.a.o0.m3.a mUserReportController;
+    public d.a.o0.g1.a.b.b.g mView;
     public d.a.c.c.g.c switchListener = new i(104102);
     public long userId;
 
@@ -38,16 +38,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f17534e;
+        public final /* synthetic */ boolean f17616e;
 
         public a(boolean z) {
-            this.f17534e = z;
+            this.f17616e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PersonalTalkSettingActivity.this.mView.e(null);
-            PersonalTalkSettingActivity.this.mView.b(!this.f17534e);
+            PersonalTalkSettingActivity.this.mView.b(!this.f17616e);
             PersonalTalkSettingActivity.this.mView.e(PersonalTalkSettingActivity.this);
         }
     }
@@ -57,8 +57,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public b() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -68,8 +68,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public c() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
             PersonalTalkSettingActivity.this.mModel.q(false);
         }
@@ -80,8 +80,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public d() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -96,7 +96,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.m0.z0.f0
+            @Override // d.a.n0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(m.t().o(String.valueOf(PersonalTalkSettingActivity.this.userId)));
             }
@@ -108,7 +108,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.z0.n
+            @Override // d.a.n0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 PersonalTalkSettingActivity.this.closeLoadingDialog();
@@ -121,8 +121,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public e() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
             PersonalTalkSettingActivity.this.showLoadingDialog(null);
             h0.c(new a(), new b());
@@ -134,8 +134,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public f() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -145,8 +145,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public g() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
             TiebaStatic.log("personalchat_morepage_addblack");
             PersonalTalkSettingActivity.this.mModel.q(true);
@@ -157,15 +157,15 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f17544e;
+        public final /* synthetic */ d.a.n0.r.s.a f17626e;
 
-        public h(d.a.m0.r.s.a aVar) {
-            this.f17544e = aVar;
+        public h(d.a.n0.r.s.a aVar) {
+            this.f17626e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            this.f17544e.dismiss();
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            this.f17626e.dismiss();
         }
     }
 
@@ -193,20 +193,20 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class j extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17547a;
+        public final /* synthetic */ boolean f17629a;
 
         public j(boolean z) {
-            this.f17547a = z;
+            this.f17629a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (!this.f17547a) {
-                d.a.n0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
+            if (!this.f17629a) {
+                d.a.o0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
                 return null;
             }
-            d.a.n0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
+            d.a.o0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
             return null;
         }
     }
@@ -217,11 +217,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         } else {
             this.userId = bundle.getLong("userId");
         }
-        this.mModel = new d.a.n0.g1.a.b.b.f(this, this, this.userId);
+        this.mModel = new d.a.o0.g1.a.b.b.f(this, this, this.userId);
     }
 
     private void initView() {
-        d.a.n0.g1.a.b.b.g gVar = new d.a.n0.g1.a.b.b.g(this);
+        d.a.o0.g1.a.b.b.g gVar = new d.a.o0.g1.a.b.b.g(this);
         this.mView = gVar;
         gVar.e(this);
     }
@@ -246,13 +246,13 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         if (z) {
-            if (d.a.m0.s.d.d.d().s() && d.a.m0.s.d.d.d().p()) {
+            if (d.a.n0.s.d.d.d().s() && d.a.n0.s.d.d.d().p()) {
                 closeLoadingDialog();
                 showLoadingDialog(null);
                 this.mModel.p(z);
                 return;
             }
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getActivity());
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getActivity());
             aVar.setMessageId(R.string.error_open_personal_single_alloff);
             aVar.setNegativeButton(getResources().getString(R.string.group_create_private_isee), new h(aVar));
             aVar.create(getPageContext());
@@ -277,31 +277,31 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         CustomResponsedMessage runTask;
         int id = view.getId();
         if (id == R.id.user_info_lin) {
-            d.a.n0.g1.a.b.b.f fVar = this.mModel;
+            d.a.o0.g1.a.b.b.f fVar = this.mModel;
             if (fVar == null || fVar.j() == null) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.mModel.j().name)));
         } else if (id == R.id.remove_from_black_man) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
             aVar.setMessage(getPageContext().getContext().getString(R.string.add_black_alert, this.mModel.j().nameShow)).setPositiveButton(R.string.alert_yes_button, new c()).setNegativeButton(R.string.cancel, new b()).create(getPageContext());
             aVar.show();
         } else if (id == R.id.st_delete_talk_history) {
-            d.a.m0.r.s.a aVar2 = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar2 = new d.a.n0.r.s.a(getPageContext().getPageActivity());
             aVar2.setMessage(getPageContext().getContext().getString(R.string.remove_personal_history)).setPositiveButton(R.string.alert_yes_button, new e()).setNegativeButton(R.string.cancel, new d()).create(getPageContext());
             aVar2.show();
         } else if (id == R.id.st_report) {
-            if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.a.n0.m3.a.class, getPageContext().getPageActivity())) != null) {
-                this.mUserReportController = (d.a.n0.m3.a) runTask.getData();
+            if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.a.o0.m3.a.class, getPageContext().getPageActivity())) != null) {
+                this.mUserReportController = (d.a.o0.m3.a) runTask.getData();
             }
-            d.a.n0.m3.a aVar3 = this.mUserReportController;
+            d.a.o0.m3.a aVar3 = this.mUserReportController;
             if (aVar3 != null) {
                 aVar3.a(getUniqueId());
                 this.mUserReportController.b(String.valueOf(this.userId));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
             }
         } else if (id == R.id.add_to_black) {
-            d.a.m0.r.s.a aVar4 = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar4 = new d.a.n0.r.s.a(getPageContext().getPageActivity());
             aVar4.setTitle(getPageContext().getContext().getString(R.string.sure_add_somebody_to_black, this.mModel.j().nameShow));
             aVar4.setMessage(getPageContext().getContext().getString(R.string.remove_black_alert)).setPositiveButton(R.string.alert_yes_button, new g()).setNegativeButton(R.string.cancel, new f()).create(getPageContext());
             aVar4.show();
@@ -331,11 +331,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         bundle.putLong("userId", this.userId);
     }
 
-    @Override // d.a.n0.g1.a.b.b.f.e
+    @Override // d.a.o0.g1.a.b.b.f.e
     public void updateUI() {
-        d.a.n0.g1.a.b.b.f fVar;
+        d.a.o0.g1.a.b.b.f fVar;
         closeLoadingDialog();
-        d.a.n0.g1.a.b.b.g gVar = this.mView;
+        d.a.o0.g1.a.b.b.g gVar = this.mView;
         if (gVar == null || (fVar = this.mModel) == null) {
             return;
         }

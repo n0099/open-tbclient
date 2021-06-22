@@ -11,19 +11,19 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static int B = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f27834a;
+    public static float f27916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f27835b;
+    public static float f27917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f27836c;
+    public static float f27918c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f27837d;
+    public static float f27919d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f27838e;
+    public static long f27920e;
     public int A;
     public SparseArray<a> C = new SparseArray<>();
     public int s;
@@ -39,23 +39,23 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27839a;
+        public int f27921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f27840b;
+        public double f27922b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f27841c;
+        public double f27923c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f27842d;
+        public long f27924d;
 
         public a(int i2, double d2, double d3, long j) {
-            this.f27839a = -1;
-            this.f27839a = i2;
-            this.f27840b = d2;
-            this.f27841c = d3;
-            this.f27842d = j;
+            this.f27921a = -1;
+            this.f27921a = i2;
+            this.f27922b = d2;
+            this.f27923c = d3;
+            this.f27924d = j;
         }
     }
 
@@ -63,11 +63,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(p.a()) != null) {
             B = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f27834a = 0.0f;
-        f27835b = 0.0f;
-        f27836c = 0.0f;
-        f27837d = 0.0f;
-        f27838e = 0L;
+        f27916a = 0.0f;
+        f27917b = 0.0f;
+        f27918c = 0.0f;
+        f27919d = 0.0f;
+        f27920e = 0L;
     }
 
     public abstract void a(View view, int i2, int i3, int i4, int i5);
@@ -90,7 +90,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             this.y = motionEvent.getToolType(0);
             this.z = motionEvent.getDeviceId();
             this.A = motionEvent.getSource();
-            f27838e = System.currentTimeMillis();
+            f27920e = System.currentTimeMillis();
             i2 = 0;
         } else if (actionMasked == 1) {
             this.u = (int) motionEvent.getRawX();
@@ -100,14 +100,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         } else if (actionMasked != 2) {
             i2 = actionMasked != 3 ? -1 : 4;
         } else {
-            f27836c += Math.abs(motionEvent.getX() - f27834a);
-            f27837d += Math.abs(motionEvent.getY() - f27835b);
-            f27834a = motionEvent.getX();
-            f27835b = motionEvent.getY();
-            if (System.currentTimeMillis() - f27838e > 200) {
-                float f2 = f27836c;
+            f27918c += Math.abs(motionEvent.getX() - f27916a);
+            f27919d += Math.abs(motionEvent.getY() - f27917b);
+            f27916a = motionEvent.getX();
+            f27917b = motionEvent.getY();
+            if (System.currentTimeMillis() - f27920e > 200) {
+                float f2 = f27918c;
                 int i3 = B;
-                if (f2 > i3 || f27837d > i3) {
+                if (f2 > i3 || f27919d > i3) {
                     i2 = 1;
                 }
             }

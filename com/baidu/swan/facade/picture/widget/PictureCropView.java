@@ -15,10 +15,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
-import d.a.l0.a.k;
+import d.a.m0.a.k;
 /* loaded from: classes3.dex */
 public class PictureCropView extends PictureView {
-    public static final boolean s = k.f46875a;
+    public static final boolean s = k.f46983a;
     public Drawable n;
     public final Rect o;
     public int p;
@@ -29,17 +29,17 @@ public class PictureCropView extends PictureView {
     public class a implements ZoomImageView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11559a;
+        public final /* synthetic */ ZoomImageView f11641a;
 
         public a(ZoomImageView zoomImageView) {
-            this.f11559a = zoomImageView;
+            this.f11641a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.a
         public void a(Drawable drawable) {
             PictureCropView.this.r = drawable != null;
             if (drawable != null) {
-                PictureCropView.this.q(this.f11559a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                PictureCropView.this.q(this.f11641a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
         }
 
@@ -47,7 +47,7 @@ public class PictureCropView extends PictureView {
         public void b(Bitmap bitmap) {
             PictureCropView.this.r = bitmap != null;
             if (bitmap != null) {
-                PictureCropView.this.q(this.f11559a, bitmap.getWidth(), bitmap.getHeight());
+                PictureCropView.this.q(this.f11641a, bitmap.getWidth(), bitmap.getHeight());
             }
         }
     }
@@ -56,15 +56,15 @@ public class PictureCropView extends PictureView {
     public class b implements BdImageViewTouchBase.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11561a;
+        public final /* synthetic */ ZoomImageView f11643a;
 
         public b(ZoomImageView zoomImageView) {
-            this.f11561a = zoomImageView;
+            this.f11643a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.f
         public void a(Drawable drawable) {
-            PictureCropView.this.o(this.f11561a, drawable);
+            PictureCropView.this.o(this.f11643a, drawable);
         }
     }
 
@@ -72,7 +72,7 @@ public class PictureCropView extends PictureView {
     public class c implements ZoomImageView.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public RectF f11563a = new RectF();
+        public RectF f11645a = new RectF();
 
         public c() {
         }
@@ -80,9 +80,9 @@ public class PictureCropView extends PictureView {
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
         public boolean a(ZoomImageView zoomImageView, double d2, double d3) {
             RectF bitmapRect = zoomImageView.getBitmapRect();
-            this.f11563a.set((float) d2, (float) d3, 0.0f, 0.0f);
-            PictureCropView.this.t(bitmapRect, this.f11563a);
-            RectF rectF = this.f11563a;
+            this.f11645a.set((float) d2, (float) d3, 0.0f, 0.0f);
+            PictureCropView.this.t(bitmapRect, this.f11645a);
+            RectF rectF = this.f11645a;
             zoomImageView.v(rectF.left, rectF.top);
             return true;
         }
@@ -113,7 +113,7 @@ public class PictureCropView extends PictureView {
     private void g(Context context) {
         this.q.setColor(this.p);
         this.q.setStyle(Paint.Style.FILL);
-        this.n = context.getResources().getDrawable(d.a.l0.e.b.swan_app_picture_crop_bounds);
+        this.n = context.getResources().getDrawable(d.a.m0.e.b.swan_app_picture_crop_bounds);
         ZoomImageView zoomImageView = (ZoomImageView) getImageView();
         zoomImageView.setDoubleTapEnabled(true);
         zoomImageView.setCalcBaseMatrix(false);

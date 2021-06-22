@@ -3314,14 +3314,11 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
             return true;
         }
-        if (errCode == FaceTracker.ErrCode.OK) {
-            float[] fArr = faceInfo.headPose;
-            if (fArr.length == 3) {
-                float abs = Math.abs(fArr[0]);
-                GetFPResponse.LivenessConfig livenessConfig = this.br;
-                if (abs >= (livenessConfig != null ? livenessConfig.getPitch() : 15)) {
-                    return true;
-                }
+        if (errCode == FaceTracker.ErrCode.OK && faceInfo.headPose.length == 3) {
+            float abs = Math.abs(faceInfo.headPose[0]);
+            GetFPResponse.LivenessConfig livenessConfig = this.br;
+            if (abs >= (livenessConfig != null ? livenessConfig.getPitch() : 15)) {
+                return true;
             }
         }
         return false;
@@ -3419,14 +3416,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
             return true;
         }
-        if (errCode == FaceTracker.ErrCode.OK) {
-            float[] fArr = faceInfo.headPose;
-            if (fArr.length == 3) {
-                float abs = Math.abs(fArr[1]);
-                GetFPResponse.LivenessConfig livenessConfig = this.br;
-                return abs >= ((float) (livenessConfig != null ? livenessConfig.getYaw() : 15));
-            }
-            return false;
+        if (errCode == FaceTracker.ErrCode.OK && faceInfo.headPose.length == 3) {
+            float abs = Math.abs(faceInfo.headPose[1]);
+            GetFPResponse.LivenessConfig livenessConfig = this.br;
+            return abs >= ((float) (livenessConfig != null ? livenessConfig.getYaw() : 15));
         }
         return false;
     }
@@ -3436,19 +3429,16 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE || errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
             return true;
         }
-        if (errCode == FaceTracker.ErrCode.OK) {
-            float[] fArr = faceInfo.headPose;
-            if (fArr.length == 3) {
-                float abs = Math.abs(fArr[0]);
-                GetFPResponse.LivenessConfig livenessConfig = this.br;
-                if (abs < (livenessConfig != null ? livenessConfig.getPitch() : 15)) {
-                    float abs2 = Math.abs(faceInfo.headPose[1]);
-                    GetFPResponse.LivenessConfig livenessConfig2 = this.br;
-                    if (abs2 >= (livenessConfig2 != null ? livenessConfig2.getYaw() : 15)) {
-                    }
+        if (errCode == FaceTracker.ErrCode.OK && faceInfo.headPose.length == 3) {
+            float abs = Math.abs(faceInfo.headPose[0]);
+            GetFPResponse.LivenessConfig livenessConfig = this.br;
+            if (abs < (livenessConfig != null ? livenessConfig.getPitch() : 15)) {
+                float abs2 = Math.abs(faceInfo.headPose[1]);
+                GetFPResponse.LivenessConfig livenessConfig2 = this.br;
+                if (abs2 >= (livenessConfig2 != null ? livenessConfig2.getYaw() : 15)) {
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }

@@ -1,7 +1,8 @@
 package com.baidubce.services.bos.model;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BucketSummary {
     public Date creationDate;
     public String location;
@@ -38,7 +39,7 @@ public class BucketSummary {
     }
 
     public String toString() {
-        return "Bucket [name=" + this.name + ", creationDate=" + this.creationDate + "]";
+        return "Bucket [name=" + this.name + ", creationDate=" + this.creationDate + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public BucketSummary(String str, String str2) {

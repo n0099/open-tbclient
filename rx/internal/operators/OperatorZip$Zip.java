@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
 public final class OperatorZip$Zip<R> extends AtomicLong {
-    public static final int THRESHOLD = (int) (f.f71929g * 0.7d);
+    public static final int THRESHOLD = (int) (f.f72033g * 0.7d);
     public static final long serialVersionUID = 5995274816189928317L;
     public final e<? super R> child;
     public final b childSubscription;
@@ -22,7 +22,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
     public final class a extends h.j {
 
         /* renamed from: e  reason: collision with root package name */
-        public final f f72453e = f.a();
+        public final f f72557e = f.a();
 
         public a() {
         }
@@ -33,7 +33,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
 
         @Override // h.e
         public void onCompleted() {
-            this.f72453e.f();
+            this.f72557e.f();
             OperatorZip$Zip.this.tick();
         }
 
@@ -45,7 +45,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         @Override // h.e
         public void onNext(Object obj) {
             try {
-                this.f72453e.g(obj);
+                this.f72557e.g(obj);
             } catch (MissingBackpressureException e2) {
                 onError(e2);
             }
@@ -54,7 +54,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
 
         @Override // h.j
         public void onStart() {
-            request(f.f71929g);
+            request(f.f72033g);
         }
     }
 
@@ -93,7 +93,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             Object[] objArr2 = new Object[length];
             boolean z = true;
             for (int i2 = 0; i2 < length; i2++) {
-                f fVar = ((a) objArr[i2]).f72453e;
+                f fVar = ((a) objArr[i2]).f72557e;
                 Object h2 = fVar.h();
                 if (h2 == null) {
                     z = false;
@@ -111,7 +111,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     atomicLong.decrementAndGet();
                     this.emitted++;
                     for (Object obj : objArr) {
-                        f fVar2 = ((a) obj).f72453e;
+                        f fVar2 = ((a) obj).f72557e;
                         fVar2.i();
                         if (fVar2.d(fVar2.h())) {
                             eVar.onCompleted();

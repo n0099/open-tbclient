@@ -8,14 +8,14 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.a.m0.r.q.a2;
-import d.a.n0.o.e;
-import d.a.n0.o.f;
-import d.a.n0.r0.j;
-import d.a.n0.r0.k;
-import d.a.n0.v.i.e.c;
-import d.a.n0.z.b0;
-import d.a.n0.z.z;
+import d.a.n0.r.q.a2;
+import d.a.o0.o.e;
+import d.a.o0.o.f;
+import d.a.o0.r0.j;
+import d.a.o0.r0.k;
+import d.a.o0.v.i.e.c;
+import d.a.o0.z.b0;
+import d.a.o0.z.z;
 /* loaded from: classes4.dex */
 public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> implements z, f {
     public String w;
@@ -27,11 +27,11 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f14049a;
+        public c f14131a;
 
         public FrsPageAlaShareHolder(c cVar) {
             super(cVar.m());
-            this.f14049a = cVar;
+            this.f14131a = cVar;
         }
     }
 
@@ -41,7 +41,7 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.n0.z.b0
+        @Override // d.a.o0.z.b0
         /* renamed from: d */
         public void a(View view, a2 a2Var) {
             CustomMessage customMessage;
@@ -65,17 +65,17 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
         this.z = new a();
     }
 
-    @Override // d.a.n0.z.z
+    @Override // d.a.o0.z.z
     public void a(String str) {
         this.w = str;
     }
 
-    @Override // d.a.n0.o.f
+    @Override // d.a.o0.o.f
     public void g(String str) {
         this.y = str;
     }
 
-    @Override // d.a.n0.z.z
+    @Override // d.a.o0.z.z
     public void r(int i2) {
     }
 
@@ -87,16 +87,16 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
         if (tbPageContext == null) {
             return null;
         }
-        c cVar = new c(tbPageContext, this.f42913i);
+        c cVar = new c(tbPageContext, this.f43016i);
         this.x = cVar;
-        cVar.U(this.f42913i);
+        cVar.U(this.f43016i);
         this.x.a(this.w);
         this.x.p(this.z);
         return new FrsPageAlaShareHolder(this.x);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    @Override // d.a.o0.r0.k, d.a.c.k.e.a
     /* renamed from: w0 */
     public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(2921017);
@@ -105,14 +105,14 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (a2Var != null) {
-            c cVar = frsPageAlaShareHolder.f14049a;
+            c cVar = frsPageAlaShareHolder.f14131a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f14049a.a(this.w);
-            j.h(frsPageAlaShareHolder.f14049a.N(), this.n);
-            j.h(frsPageAlaShareHolder.f14049a.P(), this.n);
-            frsPageAlaShareHolder.f14049a.n(a2Var);
+            frsPageAlaShareHolder.f14131a.a(this.w);
+            j.h(frsPageAlaShareHolder.f14131a.N(), this.n);
+            j.h(frsPageAlaShareHolder.f14131a.P(), this.n);
+            frsPageAlaShareHolder.f14131a.n(a2Var);
             a2Var.C4();
         }
         return frsPageAlaShareHolder.a();

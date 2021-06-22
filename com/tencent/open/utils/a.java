@@ -1,6 +1,7 @@
 package com.tencent.open.utils;
 
 import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -14,23 +15,23 @@ import java.util.zip.ZipException;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f40133a = new k(101010256);
+    public static final k f40236a = new k(101010256);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f40134b = new l(38651);
+    public static final l f40237b = new l(38651);
 
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0520a {
+    public static class C0523a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Properties f40135a;
+        public Properties f40238a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f40136b;
+        public byte[] f40239b;
 
-        public C0520a() {
-            this.f40135a = new Properties();
+        public C0523a() {
+            this.f40238a = new Properties();
         }
 
         public void a(byte[] bArr) throws IOException {
@@ -38,10 +39,10 @@ public final class a {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            int length = a.f40134b.a().length;
+            int length = a.f40237b.a().length;
             byte[] bArr2 = new byte[length];
             wrap.get(bArr2);
-            if (a.f40134b.equals(new l(bArr2))) {
+            if (a.f40237b.equals(new l(bArr2))) {
                 if (bArr.length - length <= 2) {
                     return;
                 }
@@ -53,21 +54,21 @@ public final class a {
                 }
                 byte[] bArr4 = new byte[b2];
                 wrap.get(bArr4);
-                this.f40135a.load(new ByteArrayInputStream(bArr4));
+                this.f40238a.load(new ByteArrayInputStream(bArr4));
                 int length2 = ((bArr.length - length) - b2) - 2;
                 if (length2 > 0) {
                     byte[] bArr5 = new byte[length2];
-                    this.f40136b = bArr5;
+                    this.f40239b = bArr5;
                     wrap.get(bArr5);
                     return;
                 }
                 return;
             }
-            throw new ProtocolException("unknow protocl [" + Arrays.toString(bArr) + "]");
+            throw new ProtocolException("unknow protocl [" + Arrays.toString(bArr) + PreferencesUtil.RIGHT_MOUNT);
         }
 
         public String toString() {
-            return "ApkExternalInfo [p=" + this.f40135a + ", otherData=" + Arrays.toString(this.f40136b) + "]";
+            return "ApkExternalInfo [p=" + this.f40238a + ", otherData=" + Arrays.toString(this.f40239b) + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -81,9 +82,9 @@ public final class a {
                     randomAccessFile2.close();
                     return null;
                 }
-                C0520a c0520a = new C0520a();
-                c0520a.a(a2);
-                String property = c0520a.f40135a.getProperty(str);
+                C0523a c0523a = new C0523a();
+                c0523a.a(a2);
+                String property = c0523a.f40238a.getProperty(str);
                 randomAccessFile2.close();
                 return property;
             } catch (Throwable th) {
@@ -107,7 +108,7 @@ public final class a {
         boolean z;
         long length = randomAccessFile.length() - 22;
         randomAccessFile.seek(length);
-        byte[] a2 = f40133a.a();
+        byte[] a2 = f40236a.a();
         int read = randomAccessFile.read();
         while (true) {
             z = true;

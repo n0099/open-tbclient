@@ -12,71 +12,71 @@ import org.json.JSONObject;
 public class f extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33165c;
+    public boolean f33263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33166d = false;
+    public boolean f33264d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f33167e;
+    public SceneImpl f33265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f33168f;
+    public String f33266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, LiveInfoResultData> f33169g;
+    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, LiveInfoResultData> f33267g;
 
     public f(SceneImpl sceneImpl, boolean z) {
-        this.f33167e = sceneImpl;
-        this.f33165c = z;
+        this.f33265e = sceneImpl;
+        this.f33263c = z;
     }
 
     private boolean e() {
-        return !"no_more".equals(this.f33168f);
+        return !"no_more".equals(this.f33266f);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.a
     public void a(final boolean z, boolean z2, int i2) {
-        if (this.f33166d) {
+        if (this.f33264d) {
             return;
         }
-        this.f33166d = true;
+        this.f33264d = true;
         a(z, z2, i2, 0);
         if (com.kwad.sdk.contentalliance.home.c.a()) {
-            this.f33144b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.1
+            this.f33242b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.f33143a.clear();
+                    f.this.f33241a.clear();
                     m.e();
-                    f.this.f33143a.addAll(com.kwad.sdk.contentalliance.home.c.b());
-                    if (!f.this.f33143a.isEmpty()) {
+                    f.this.f33241a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    if (!f.this.f33241a.isEmpty()) {
                         f fVar = f.this;
-                        List<AdTemplate> list = fVar.f33143a;
-                        fVar.f33168f = list.get(list.size() - 1).mLiveInfo.pcursor;
+                        List<AdTemplate> list = fVar.f33241a;
+                        fVar.f33266f = list.get(list.size() - 1).mLiveInfo.pcursor;
                     }
                     com.kwad.sdk.contentalliance.home.c.c();
                     f.this.a(z, 0);
-                    f.this.f33166d = false;
+                    f.this.f33264d = false;
                 }
             });
-        } else if (!this.f33165c) {
-            this.f33144b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.5
+        } else if (!this.f33263c) {
+            this.f33242b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.5
                 @Override // java.lang.Runnable
                 public void run() {
                     f fVar = f.this;
-                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34503g;
+                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34601g;
                     fVar.a(fVar2.k, fVar2.l);
-                    f.this.f33166d = false;
+                    f.this.f33264d = false;
                 }
             });
         } else if (!e()) {
-            this.f33144b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.2
+            this.f33242b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.2
                 @Override // java.lang.Runnable
                 public void run() {
                     f fVar = f.this;
-                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34503g;
+                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34601g;
                     fVar.a(fVar2.k, fVar2.l);
-                    f.this.f33166d = false;
+                    f.this.f33264d = false;
                 }
             });
         } else {
@@ -99,18 +99,18 @@ public class f extends a {
                 @Override // com.kwad.sdk.core.network.a
                 @NonNull
                 public com.kwad.sdk.core.network.g b() {
-                    return ag.a(f.this.f33168f) ? new com.kwad.sdk.live.a.a() : new com.kwad.sdk.live.a.a(f.this.f33168f);
+                    return ag.a(f.this.f33266f) ? new com.kwad.sdk.live.a.a() : new com.kwad.sdk.live.a.a(f.this.f33266f);
                 }
             };
-            this.f33169g = iVar;
+            this.f33267g = iVar;
             iVar.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.network.g, LiveInfoResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.f.4
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i3, final String str) {
-                    f.this.f33144b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.2
+                    f.this.f33242b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             f.this.a(i3, str);
-                            f.this.f33166d = false;
+                            f.this.f33264d = false;
                         }
                     });
                 }
@@ -118,22 +118,22 @@ public class f extends a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final LiveInfoResultData liveInfoResultData) {
-                    f.this.f33144b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.1
+                    f.this.f33242b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass4 anonymousClass4 = AnonymousClass4.this;
                             if (z) {
-                                f.this.f33143a.clear();
+                                f.this.f33241a.clear();
                             }
-                            if (f.this.f33143a.isEmpty()) {
+                            if (f.this.f33241a.isEmpty()) {
                                 m.e();
                             }
-                            f.this.f33168f = liveInfoResultData.pcursor;
+                            f.this.f33266f = liveInfoResultData.pcursor;
                             f fVar = f.this;
-                            fVar.f33143a.addAll(com.kwad.sdk.live.mode.a.a(liveInfoResultData, fVar.f33167e));
+                            fVar.f33241a.addAll(com.kwad.sdk.live.mode.a.a(liveInfoResultData, fVar.f33265e));
                             AnonymousClass4 anonymousClass42 = AnonymousClass4.this;
                             f.this.a(z, 0);
-                            f.this.f33166d = false;
+                            f.this.f33264d = false;
                         }
                     });
                 }
@@ -144,7 +144,7 @@ public class f extends a {
     @Override // com.kwad.sdk.contentalliance.home.a.a, com.kwad.sdk.contentalliance.home.a.b
     public void d() {
         super.d();
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, LiveInfoResultData> iVar = this.f33169g;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, LiveInfoResultData> iVar = this.f33267g;
         if (iVar != null) {
             iVar.e();
         }

@@ -3,10 +3,10 @@ package com.kwai.filedownloader.event;
 public class DownloadServiceConnectChangedEvent extends b {
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConnectStatus f37762c;
+    public final ConnectStatus f37860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Class<?> f37763d;
+    public final Class<?> f37861d;
 
     /* loaded from: classes7.dex */
     public enum ConnectStatus {
@@ -17,11 +17,11 @@ public class DownloadServiceConnectChangedEvent extends b {
 
     public DownloadServiceConnectChangedEvent(ConnectStatus connectStatus, Class<?> cls) {
         super("event.service.connect.changed");
-        this.f37762c = connectStatus;
-        this.f37763d = cls;
+        this.f37860c = connectStatus;
+        this.f37861d = cls;
     }
 
     public ConnectStatus a() {
-        return this.f37762c;
+        return this.f37860c;
     }
 }

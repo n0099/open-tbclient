@@ -6,17 +6,17 @@ import com.xiaomi.push.service.av;
 public class bx implements av.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41801a;
+    public final /* synthetic */ XMPushService f41904a;
 
     public bx(XMPushService xMPushService) {
-        this.f41801a = xMPushService;
+        this.f41904a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.a
     public void a() {
-        this.f41801a.e();
+        this.f41904a.e();
         if (av.a().m585a() <= 0) {
-            XMPushService xMPushService = this.f41801a;
+            XMPushService xMPushService = this.f41904a;
             xMPushService.a(new XMPushService.f(12, null));
         }
     }

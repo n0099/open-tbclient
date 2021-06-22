@@ -18,7 +18,7 @@ public class s0 extends h {
     public int m;
     public int n;
     public Context o;
-    public d.a.m0.r.q.a p;
+    public d.a.n0.r.q.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
@@ -33,9 +33,9 @@ public class s0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var = s0.this;
-            a.InterfaceC0598a interfaceC0598a = s0Var.f43692i;
-            if (interfaceC0598a != null) {
-                interfaceC0598a.a(s0Var.p);
+            a.InterfaceC0600a interfaceC0600a = s0Var.f43785i;
+            if (interfaceC0600a != null) {
+                interfaceC0600a.a(s0Var.p);
             }
         }
     }
@@ -46,7 +46,7 @@ public class s0 extends h {
         }
 
         @Override // d.a.i.w0.a
-        public void a(d.a.m0.r.q.a aVar) {
+        public void a(d.a.n0.r.q.a aVar) {
             if (s0.this.u != null) {
                 s0.this.u.a(s0.this.p);
             }
@@ -72,7 +72,7 @@ public class s0 extends h {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
+    public void l(d.a.o0.z.b0<d.a.n0.r.q.a> b0Var) {
         super.l(b0Var);
         this.q.setOnCardSubClickListener(b0Var);
     }
@@ -96,14 +96,14 @@ public class s0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x00e5, code lost:
-        r1 = d.a.m0.b.g.b.l(r11, r0, r2, r3, r5);
+        r1 = d.a.n0.b.g.b.l(r11, r0, r2, r3, r5);
      */
     @Override // d.a.i.p
     /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         int k = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
         if (k != this.r) {
             w = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
@@ -177,8 +177,8 @@ public class s0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC0598a interfaceC0598a) {
-        this.f43692i = interfaceC0598a;
+    public void w(a.InterfaceC0600a interfaceC0600a) {
+        this.f43785i = interfaceC0600a;
     }
 
     public void x(d.a.i.w0.a aVar) {

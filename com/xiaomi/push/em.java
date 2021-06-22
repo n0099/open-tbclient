@@ -12,17 +12,17 @@ import java.util.Map;
 public class em extends ep {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41202a;
+    public int f41305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f41203b;
+    public Bitmap f41306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f41204c;
+    public Bitmap f41307c;
 
     public em(Context context, String str) {
         super(context, str);
-        this.f41202a = 16777216;
+        this.f41305a = 16777216;
     }
 
     @Override // com.xiaomi.push.ep
@@ -31,7 +31,7 @@ public class em extends ep {
             if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
                 com.xiaomi.channel.commonutils.logger.b.m56a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
             } else {
-                this.f41203b = bitmap;
+                this.f41306b = bitmap;
             }
         }
         return this;
@@ -40,7 +40,7 @@ public class em extends ep {
     public em a(String str) {
         if (m281b() && !TextUtils.isEmpty(str)) {
             try {
-                this.f41202a = Color.parseColor(str);
+                this.f41305a = Color.parseColor(str);
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.m56a("parse banner notification image text color error");
             }
@@ -64,7 +64,7 @@ public class em extends ep {
     public void a() {
         RemoteViews a2;
         Bitmap bitmap;
-        if (!m281b() || this.f41203b == null) {
+        if (!m281b() || this.f41306b == null) {
             m280b();
             return;
         }
@@ -74,26 +74,26 @@ public class em extends ep {
         int a3 = a(resources, "bg", "id", packageName);
         if (l.a(a()) >= 10) {
             a2 = a();
-            bitmap = a(this.f41203b, 30.0f);
+            bitmap = a(this.f41306b, 30.0f);
         } else {
             a2 = a();
-            bitmap = this.f41203b;
+            bitmap = this.f41306b;
         }
         a2.setImageViewBitmap(a3, bitmap);
         int a4 = a(resources, "icon", "id", packageName);
-        if (this.f41204c != null) {
-            a().setImageViewBitmap(a4, this.f41204c);
+        if (this.f41307c != null) {
+            a().setImageViewBitmap(a4, this.f41307c);
         } else {
             a(a4);
         }
         int a5 = a(resources, "title", "id", packageName);
         a().setTextViewText(a5, ((ep) this).f324a);
         Map<String, String> map = ((ep) this).f326a;
-        if (map != null && this.f41202a == 16777216) {
+        if (map != null && this.f41305a == 16777216) {
             a(map.get("notification_image_text_color"));
         }
         RemoteViews a6 = a();
-        int i2 = this.f41202a;
+        int i2 = this.f41305a;
         a6.setTextColor(a5, (i2 == 16777216 || !m279a(i2)) ? -1 : -16777216);
         setCustomContentView(a());
         Bundle bundle = new Bundle();
@@ -113,7 +113,7 @@ public class em extends ep {
 
     public em b(Bitmap bitmap) {
         if (m281b() && bitmap != null) {
-            this.f41204c = bitmap;
+            this.f41307c = bitmap;
         }
         return this;
     }

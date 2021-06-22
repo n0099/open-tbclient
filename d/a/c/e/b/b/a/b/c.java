@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class c implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f42105a;
+    public Bundle f42208a;
 
     public c(Bundle bundle) {
-        this.f42105a = bundle;
+        this.f42208a = bundle;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -30,17 +30,17 @@ public class c implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42105a;
+        return this.f42208a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42105a;
+        return this.f42208a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42105a;
+        return this.f42208a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -51,10 +51,10 @@ public class c implements h {
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
         Type[] b2 = cVar.b();
-        Set<String> keySet = this.f42105a.keySet();
+        Set<String> keySet = this.f42208a.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.f42105a.get(str);
+            Object obj = this.f42208a.get(str);
             if (b2 != null && b2.length >= 2) {
                 try {
                     jSONObject.put(str, d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[1])));

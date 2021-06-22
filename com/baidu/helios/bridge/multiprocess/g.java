@@ -35,8 +35,8 @@ public class g extends a implements IBinder.DeathRecipient {
 
     public static Bundle j(a.d dVar) {
         Bundle bundle = new Bundle();
-        bundle.putInt("errcode", dVar.f67769b);
-        bundle.putString("id", dVar.f67768a);
+        bundle.putInt("errcode", dVar.f67725b);
+        bundle.putString("id", dVar.f67724a);
         return bundle;
     }
 
@@ -100,7 +100,7 @@ public class g extends a implements IBinder.DeathRecipient {
 
     @Override // d.a.q.d.a
     public void e(a.b bVar) {
-        this.f6221h = p(this.f67761e.f67765c);
+        this.f6221h = p(this.f67717e.f67721c);
     }
 
     @Override // d.a.q.d.a

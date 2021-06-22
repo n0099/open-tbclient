@@ -40,19 +40,19 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f71431b = new b();
+    public static final b f71535b = new b();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f71432c = FilenameFilter.class;
+    public static final Object f71536c = FilenameFilter.class;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f71433a = null;
+    public d f71537a = null;
 
     /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f71434a;
+        public static String f71538a;
 
         @SuppressLint({"NewApi"})
         public static String a() {
@@ -87,11 +87,11 @@ public final class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (f71434a != null) {
-                return f71434a;
+            if (f71538a != null) {
+                return f71538a;
             }
-            f71434a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-            return f71434a;
+            f71538a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            return f71538a;
         }
 
         public static boolean c(Context context, String str) {
@@ -113,10 +113,10 @@ public final class b {
 
     /* renamed from: d.r.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1958b {
+    public static class C1961b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final char[] f71435a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
+        public static final char[] f71539a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 
         public static int a(char c2) {
             int i2;
@@ -150,26 +150,26 @@ public final class b {
             int i3 = 0;
             while (i3 <= i2) {
                 int i4 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8) | (bArr[i3 + 2] & 255);
-                stringBuffer.append(f71435a[(i4 >> 18) & 63]);
-                stringBuffer.append(f71435a[(i4 >> 12) & 63]);
-                stringBuffer.append(f71435a[(i4 >> 6) & 63]);
-                stringBuffer.append(f71435a[i4 & 63]);
+                stringBuffer.append(f71539a[(i4 >> 18) & 63]);
+                stringBuffer.append(f71539a[(i4 >> 12) & 63]);
+                stringBuffer.append(f71539a[(i4 >> 6) & 63]);
+                stringBuffer.append(f71539a[i4 & 63]);
                 i3 += 3;
             }
             int i5 = length + 0;
             if (i3 != i5 - 2) {
                 if (i3 == i5 - 1) {
                     int i6 = (bArr[i3] & 255) << 16;
-                    stringBuffer.append(f71435a[(i6 >> 18) & 63]);
-                    stringBuffer.append(f71435a[(i6 >> 12) & 63]);
+                    stringBuffer.append(f71539a[(i6 >> 18) & 63]);
+                    stringBuffer.append(f71539a[(i6 >> 12) & 63]);
                     str = "==";
                 }
                 return stringBuffer.toString();
             }
             int i7 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16);
-            stringBuffer.append(f71435a[(i7 >> 18) & 63]);
-            stringBuffer.append(f71435a[(i7 >> 12) & 63]);
-            stringBuffer.append(f71435a[(i7 >> 6) & 63]);
+            stringBuffer.append(f71539a[(i7 >> 18) & 63]);
+            stringBuffer.append(f71539a[(i7 >> 12) & 63]);
+            stringBuffer.append(f71539a[(i7 >> 6) & 63]);
             str = "=";
             stringBuffer.append(str);
             return stringBuffer.toString();
@@ -226,7 +226,7 @@ public final class b {
         }
 
         public static String b(String str, String str2) {
-            return C1958b.b(d(str.getBytes("UTF-8"), str2.getBytes("UTF-8")));
+            return C1961b.b(d(str.getBytes("UTF-8"), str2.getBytes("UTF-8")));
         }
 
         public static String c(byte[] bArr) {
@@ -251,7 +251,7 @@ public final class b {
             if (str == null) {
                 return null;
             }
-            return f(g(C1958b.d(str), str2.getBytes("UTF-8")));
+            return f(g(C1961b.d(str), str2.getBytes("UTF-8")));
         }
 
         public static String f(byte[] bArr) {
@@ -271,35 +271,35 @@ public final class b {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f71436a;
+        public String f71540a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71437b;
+        public String f71541b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f71438c;
+        public String f71542c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f71439d;
+        public String f71543d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f71440e;
+        public String f71544e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f71441f;
+        public JSONObject f71545f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f71442g;
+        public long f71546g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f71443h;
+        public int f71547h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f71444i;
+        public String f71548i;
 
         public d() {
-            this.f71439d = "0";
-            this.f71442g = 0L;
+            this.f71543d = "0";
+            this.f71546g = 0L;
         }
 
         public /* synthetic */ d(byte b2) {
@@ -418,13 +418,13 @@ public final class b {
         String e6 = e(jSONObject, "mac");
         if (k(e3 + e5 + e6).equals(e(jSONObject, "key"))) {
             d dVar = new d((byte) 0);
-            dVar.f71441f = jSONObject;
-            dVar.f71436a = e3;
-            dVar.f71437b = e5;
-            dVar.f71438c = e6;
-            dVar.f71439d = e4;
-            dVar.f71440e = e(jSONObject, BaseStatisContent.ARID);
-            dVar.f71442g = i(jSONObject, "crtTime");
+            dVar.f71545f = jSONObject;
+            dVar.f71540a = e3;
+            dVar.f71541b = e5;
+            dVar.f71542c = e6;
+            dVar.f71543d = e4;
+            dVar.f71544e = e(jSONObject, BaseStatisContent.ARID);
+            dVar.f71546g = i(jSONObject, "crtTime");
             return dVar;
         }
         return null;
@@ -439,22 +439,22 @@ public final class b {
     }
 
     public static String c(Context context) {
-        return f71431b.m(context).f71436a;
+        return f71535b.m(context).f71540a;
     }
 
     public static String d(d dVar) {
-        if (dVar.f71441f == null) {
-            dVar.f71441f = new JSONObject();
+        if (dVar.f71545f == null) {
+            dVar.f71545f = new JSONObject();
         }
-        h(dVar.f71441f, "hdid", dVar.f71436a);
-        h(dVar.f71441f, "type", dVar.f71439d);
-        h(dVar.f71441f, "imei", dVar.f71437b);
-        h(dVar.f71441f, "mac", dVar.f71438c);
-        h(dVar.f71441f, BaseStatisContent.ARID, dVar.f71440e);
-        JSONObject jSONObject = dVar.f71441f;
-        h(jSONObject, "key", k(dVar.f71436a + dVar.f71437b + dVar.f71438c));
-        g(dVar.f71441f, "crtTime", dVar.f71442g);
-        return dVar.f71441f.toString();
+        h(dVar.f71545f, "hdid", dVar.f71540a);
+        h(dVar.f71545f, "type", dVar.f71543d);
+        h(dVar.f71545f, "imei", dVar.f71541b);
+        h(dVar.f71545f, "mac", dVar.f71542c);
+        h(dVar.f71545f, BaseStatisContent.ARID, dVar.f71544e);
+        JSONObject jSONObject = dVar.f71545f;
+        h(jSONObject, "key", k(dVar.f71540a + dVar.f71541b + dVar.f71542c));
+        g(dVar.f71545f, "crtTime", dVar.f71546g);
+        return dVar.f71545f.toString();
     }
 
     public static String e(JSONObject jSONObject, String str) {
@@ -591,30 +591,30 @@ public final class b {
     public static d n(Context context) {
         d dVar = new d((byte) 0);
         String str = "";
-        dVar.f71437b = "";
+        dVar.f71541b = "";
         String a2 = a.a();
-        dVar.f71440e = a.b(context);
-        dVar.f71442g = System.currentTimeMillis();
+        dVar.f71544e = a.b(context);
+        dVar.f71546g = System.currentTimeMillis();
         try {
-            int i2 = !TextUtils.isEmpty(dVar.f71440e) ? 1 : 0;
+            int i2 = !TextUtils.isEmpty(dVar.f71544e) ? 1 : 0;
             boolean d2 = a.d(a2);
             if (i2 == 0 && !d2) {
-                dVar.f71439d = "0";
-                dVar.f71436a = b();
+                dVar.f71543d = "0";
+                dVar.f71540a = b();
                 return dVar;
             }
             StringBuilder sb = new StringBuilder();
             sb.append(i2 | (d2 ? 2 : 0));
-            dVar.f71439d = sb.toString();
-            String str2 = dVar.f71440e == null ? "" : dVar.f71440e;
+            dVar.f71543d = sb.toString();
+            String str2 = dVar.f71544e == null ? "" : dVar.f71544e;
             if (a2 != null) {
                 str = a2;
             }
-            dVar.f71436a = c.a(str2 + "_" + str);
+            dVar.f71540a = c.a(str2 + "_" + str);
             return dVar;
         } catch (Exception unused) {
-            dVar.f71439d = "0";
-            dVar.f71436a = b();
+            dVar.f71543d = "0";
+            dVar.f71540a = b();
             return dVar;
         }
     }
@@ -672,13 +672,13 @@ public final class b {
     public final d m(Context context) {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
-        d dVar = this.f71433a;
+        d dVar = this.f71537a;
         if (dVar != null) {
             return dVar;
         }
-        synchronized (f71432c) {
-            if (this.f71433a != null) {
-                return this.f71433a;
+        synchronized (f71536c) {
+            if (this.f71537a != null) {
+                return this.f71537a;
             }
             FileLock fileLock = null;
             try {
@@ -702,17 +702,17 @@ public final class b {
                                             o = n(context);
                                             f(context, o);
                                             l(context, o);
-                                            this.f71433a = o;
+                                            this.f71537a = o;
                                             break;
                                             break;
                                         }
-                                        p.f71443h = 6;
+                                        p.f71547h = 6;
                                         f(context, p);
                                         o = p;
-                                        this.f71433a = o;
+                                        this.f71537a = o;
                                         break;
                                     }
-                                    o.f71443h = 4;
+                                    o.f71547h = 4;
                                 } else {
                                     Thread.sleep(2L);
                                 }
@@ -754,26 +754,26 @@ public final class b {
                                 } catch (Exception e7) {
                                     e = e7;
                                     e.printStackTrace();
-                                    if (this.f71433a == null) {
+                                    if (this.f71537a == null) {
                                     }
-                                    this.f71433a.f71444i = q(context);
-                                    return this.f71433a;
+                                    this.f71537a.f71548i = q(context);
+                                    return this.f71537a;
                                 }
                             }
-                            if (this.f71433a == null) {
+                            if (this.f71537a == null) {
                             }
-                            this.f71433a.f71444i = q(context);
-                            return this.f71433a;
+                            this.f71537a.f71548i = q(context);
+                            return this.f71537a;
                         }
                         try {
                             fileOutputStream.close();
                         } catch (Exception e8) {
                             e = e8;
                             e.printStackTrace();
-                            if (this.f71433a == null) {
+                            if (this.f71537a == null) {
                             }
-                            this.f71433a.f71444i = q(context);
-                            return this.f71433a;
+                            this.f71537a.f71548i = q(context);
+                            return this.f71537a;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -823,11 +823,11 @@ public final class b {
                 fileChannel = null;
                 fileOutputStream = null;
             }
-            if (this.f71433a == null) {
-                this.f71433a = n(context);
+            if (this.f71537a == null) {
+                this.f71537a = n(context);
             }
-            this.f71433a.f71444i = q(context);
-            return this.f71433a;
+            this.f71537a.f71548i = q(context);
+            return this.f71537a;
         }
     }
 }

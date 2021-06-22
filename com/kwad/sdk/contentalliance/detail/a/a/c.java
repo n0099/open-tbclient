@@ -15,26 +15,26 @@ import java.lang.ref.WeakReference;
 public class c extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public MarqueeView f32501b;
+    public MarqueeView f32599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f32502c;
+    public com.kwad.sdk.contentalliance.detail.video.b f32600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdBaseFrameLayout f32503d;
+    public AdBaseFrameLayout f32601d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f32504e;
+    public AdTemplate f32602e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32505f;
+    public com.kwad.sdk.core.download.b.b f32603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f32506g;
+    public a f32604g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.a.a f32507h = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.1
+    public com.kwad.sdk.contentalliance.a.a f32605h = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.1
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             c.this.f();
@@ -42,7 +42,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     };
 
     /* renamed from: i  reason: collision with root package name */
-    public e f32508i = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.2
+    public e f32606i = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.2
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             c.this.e();
@@ -63,15 +63,15 @@ public class c extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<MarqueeView> f32512a;
+        public WeakReference<MarqueeView> f32610a;
 
         public a(MarqueeView marqueeView) {
-            this.f32512a = new WeakReference<>(marqueeView);
+            this.f32610a = new WeakReference<>(marqueeView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MarqueeView marqueeView = this.f32512a.get();
+            MarqueeView marqueeView = this.f32610a.get();
             if (marqueeView != null) {
                 marqueeView.a();
             }
@@ -80,86 +80,86 @@ public class c extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        a aVar = this.f32506g;
+        a aVar = this.f32604g;
         if (aVar != null) {
-            this.f32501b.removeCallbacks(aVar);
-            this.f32501b.postDelayed(this.f32506g, 200L);
+            this.f32599b.removeCallbacks(aVar);
+            this.f32599b.postDelayed(this.f32604g, 200L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f32501b.b();
+        this.f32599b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        com.kwad.sdk.core.report.b.a(this.f32504e, 25, this.f32503d.getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f32602e, 25, this.f32601d.getTouchCoords());
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
         AdTemplate adTemplate = cVar.j;
-        this.f32504e = adTemplate;
-        this.f32505f = cVar.o;
+        this.f32602e = adTemplate;
+        this.f32603f = cVar.o;
         String y = com.kwad.sdk.core.response.b.c.y(adTemplate);
-        if (ag.a(y) && com.kwad.sdk.core.response.b.c.c(this.f32504e)) {
+        if (ag.a(y) && com.kwad.sdk.core.response.b.c.c(this.f32602e)) {
             y = o().getString(R.string.ksad_ad_default_author);
         }
         if (ag.a(y)) {
-            this.f32501b.setVisibility(8);
+            this.f32599b.setVisibility(8);
         } else {
-            this.f32501b.setContent(y);
-            this.f32501b.setVisibility(0);
-            this.f32501b.setSelected(true);
-            this.f32501b.setOnClickListener(this);
+            this.f32599b.setContent(y);
+            this.f32599b.setVisibility(0);
+            this.f32599b.setSelected(true);
+            this.f32599b.setOnClickListener(this);
         }
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.m;
-        this.f32502c = bVar;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
+        this.f32600c = bVar;
         if (bVar != null) {
-            bVar.a(this.f32508i);
+            bVar.a(this.f32606i);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.add(this.f32507h);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(this.f32605h);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32501b.removeCallbacks(this.f32506g);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32502c;
+        this.f32599b.removeCallbacks(this.f32604g);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32600c;
         if (bVar != null) {
-            bVar.b(this.f32508i);
+            bVar.b(this.f32606i);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.remove(this.f32507h);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.remove(this.f32605h);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32503d = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32601d = (AdBaseFrameLayout) b(R.id.ksad_root_container);
         MarqueeView marqueeView = (MarqueeView) b(R.id.ksad_bottom_marquee_tip);
-        this.f32501b = marqueeView;
+        this.f32599b = marqueeView;
         marqueeView.setSelected(true);
-        this.f32501b.setTextDistance(10);
-        this.f32501b.setTextColor(-65538);
-        this.f32501b.setTextSpeed(3.0f);
-        this.f32501b.setTextSize(14.0f);
-        this.f32501b.setRepetType(2);
-        this.f32501b.setStartLocationDistance(0.0f);
-        this.f32506g = new a(this.f32501b);
+        this.f32599b.setTextDistance(10);
+        this.f32599b.setTextColor(-65538);
+        this.f32599b.setTextSpeed(3.0f);
+        this.f32599b.setTextSize(14.0f);
+        this.f32599b.setRepetType(2);
+        this.f32599b.setStartLocationDistance(0.0f);
+        this.f32604g = new a(this.f32599b);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.kwad.sdk.core.response.b.c.c(this.f32504e)) {
-            com.kwad.sdk.core.download.b.a.a(this.f32501b.getContext(), this.f32504e, new a.InterfaceC0379a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.3
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
+        if (com.kwad.sdk.core.response.b.c.c(this.f32602e)) {
+            com.kwad.sdk.core.download.b.a.a(this.f32599b.getContext(), this.f32602e, new a.InterfaceC0382a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.c.3
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0382a
                 public void a() {
                     c.this.g();
                 }
-            }, this.f32505f);
+            }, this.f32603f);
         }
     }
 }

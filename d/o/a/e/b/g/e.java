@@ -14,44 +14,44 @@ import java.util.List;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f70999d;
+    public static volatile e f71103d;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f71000a = new SparseArray<>();
+    public volatile SparseArray<Boolean> f71104a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f71001b = new Handler(Looper.getMainLooper());
+    public Handler f71105b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile List<d.o.a.e.b.f.g> f71002c = new ArrayList();
+    public volatile List<d.o.a.e.b.f.g> f71106c = new ArrayList();
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f71003e;
+        public final /* synthetic */ m f71107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.n.a f71004f;
+        public final /* synthetic */ d.o.a.e.b.n.a f71108f;
 
         public a(e eVar, m mVar, d.o.a.e.b.n.a aVar) {
-            this.f71003e = mVar;
-            this.f71004f = aVar;
+            this.f71107e = mVar;
+            this.f71108f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f71003e.b(this.f71004f);
+            this.f71107e.b(this.f71108f);
         }
     }
 
     public static e c() {
-        if (f70999d == null) {
+        if (f71103d == null) {
             synchronized (e.class) {
-                f70999d = new e();
+                f71103d = new e();
             }
         }
-        return f70999d;
+        return f71103d;
     }
 
     public List<DownloadInfo> A(String str) {
@@ -246,7 +246,7 @@ public class e {
                 d.o.a.e.b.e.a.e(aVar.O(), aVar.H(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), aVar.H() != null ? aVar.H().H0() : 0);
             }
         } else if (aVar.W()) {
-            this.f71001b.postDelayed(new a(this, n, aVar), 500L);
+            this.f71105b.postDelayed(new a(this, n, aVar), 500L);
         } else {
             n.b(aVar);
         }
@@ -272,10 +272,10 @@ public class e {
     }
 
     public synchronized int m(int i2) {
-        if (this.f71000a.get(i2) == null) {
+        if (this.f71104a.get(i2) == null) {
             return -1;
         }
-        return this.f71000a.get(i2).booleanValue() ? 1 : 0;
+        return this.f71104a.get(i2).booleanValue() ? 1 : 0;
     }
 
     public final m n(d.o.a.e.b.n.a aVar) {
@@ -327,8 +327,8 @@ public class e {
     }
 
     public void p() {
-        synchronized (this.f71002c) {
-            for (d.o.a.e.b.f.g gVar : this.f71002c) {
+        synchronized (this.f71106c) {
+            for (d.o.a.e.b.f.g gVar : this.f71106c) {
                 if (gVar != null) {
                     gVar.a();
                 }
@@ -345,7 +345,7 @@ public class e {
     }
 
     public synchronized void r(int i2, boolean z) {
-        this.f71000a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+        this.f71104a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public void s(List<String> list) {

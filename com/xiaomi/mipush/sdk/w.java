@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40962a = 0;
+    public int f41065a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public String f95a = "";

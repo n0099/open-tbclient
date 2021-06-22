@@ -11,23 +11,23 @@ import d.a.c.e.p.l;
 public class FlowLabelLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13197e;
+    public int f13279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13198f;
+    public int f13280f;
 
     public FlowLabelLayout(Context context) {
         super(context);
-        this.f13197e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f13198f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.f13279e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f13280f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {
-        return this.f13198f;
+        return this.f13280f;
     }
 
     public int getVerticalSpacing() {
-        return this.f13197e;
+        return this.f13279e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -42,12 +42,12 @@ public class FlowLabelLayout extends ViewGroup {
             View childAt = getChildAt(i8);
             if (childAt.getVisibility() != 8) {
                 if (childAt.getMeasuredWidth() + i7 + paddingRight > i6) {
-                    paddingTop += childAt.getMeasuredHeight() + this.f13197e;
+                    paddingTop += childAt.getMeasuredHeight() + this.f13279e;
                     i7 = paddingLeft;
                 }
                 if (childAt.getVisibility() != 8) {
                     childAt.layout(i7, paddingTop, childAt.getMeasuredWidth() + i7, childAt.getMeasuredHeight() + paddingTop);
-                    i7 += childAt.getMeasuredWidth() + this.f13198f;
+                    i7 += childAt.getMeasuredWidth() + this.f13280f;
                 }
             }
         }
@@ -68,31 +68,31 @@ public class FlowLabelLayout extends ViewGroup {
             View childAt = getChildAt(i6);
             i5 = Math.max(childAt.getMeasuredHeight() + paddingTop, i5);
             if (childAt.getMeasuredWidth() + i4 + paddingRight > size) {
-                i5 += childAt.getMeasuredHeight() + this.f13197e;
+                i5 += childAt.getMeasuredHeight() + this.f13279e;
                 i4 = paddingLeft;
             }
-            i4 += childAt.getMeasuredWidth() + this.f13198f;
+            i4 += childAt.getMeasuredWidth() + this.f13280f;
         }
         setMeasuredDimension(size, i5 + paddingBottom);
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f13198f = i2;
+        this.f13280f = i2;
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f13197e = i2;
+        this.f13279e = i2;
     }
 
     public FlowLabelLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13197e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f13198f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.f13279e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f13280f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public FlowLabelLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13197e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f13198f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.f13279e = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f13280f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 }

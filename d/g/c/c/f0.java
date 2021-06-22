@@ -13,19 +13,19 @@ public final class f0 {
     public static class a extends q<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable f69999f;
+        public final /* synthetic */ Iterable f70103f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.o f70000g;
+        public final /* synthetic */ d.g.c.a.o f70104g;
 
         public a(Iterable iterable, d.g.c.a.o oVar) {
-            this.f69999f = iterable;
-            this.f70000g = oVar;
+            this.f70103f = iterable;
+            this.f70104g = oVar;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return Iterators.k(this.f69999f.iterator(), this.f70000g);
+            return Iterators.k(this.f70103f.iterator(), this.f70104g);
         }
     }
 
@@ -33,19 +33,19 @@ public final class f0 {
     public static class b extends q<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable f70001f;
+        public final /* synthetic */ Iterable f70105f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.g f70002g;
+        public final /* synthetic */ d.g.c.a.g f70106g;
 
         public b(Iterable iterable, d.g.c.a.g gVar) {
-            this.f70001f = iterable;
-            this.f70002g = gVar;
+            this.f70105f = iterable;
+            this.f70106g = gVar;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return Iterators.w(this.f70001f.iterator(), this.f70002g);
+            return Iterators.w(this.f70105f.iterator(), this.f70106g);
         }
     }
 
@@ -53,58 +53,58 @@ public final class f0 {
     public static class c extends q<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable f70003f;
+        public final /* synthetic */ Iterable f70107f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f70004g;
+        public final /* synthetic */ int f70108g;
 
         /* loaded from: classes6.dex */
         public class a implements Iterator<T> {
 
             /* renamed from: e  reason: collision with root package name */
-            public boolean f70005e = true;
+            public boolean f70109e = true;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Iterator f70006f;
+            public final /* synthetic */ Iterator f70110f;
 
             public a(c cVar, Iterator it) {
-                this.f70006f = it;
+                this.f70110f = it;
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f70006f.hasNext();
+                return this.f70110f.hasNext();
             }
 
             /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
             @Override // java.util.Iterator
             public T next() {
-                ?? next = this.f70006f.next();
-                this.f70005e = false;
+                ?? next = this.f70110f.next();
+                this.f70109e = false;
                 return next;
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                m.e(!this.f70005e);
-                this.f70006f.remove();
+                m.e(!this.f70109e);
+                this.f70110f.remove();
             }
         }
 
         public c(Iterable iterable, int i2) {
-            this.f70003f = iterable;
-            this.f70004g = i2;
+            this.f70107f = iterable;
+            this.f70108g = i2;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            Iterable iterable = this.f70003f;
+            Iterable iterable = this.f70107f;
             if (iterable instanceof List) {
                 List list = (List) iterable;
-                return list.subList(Math.min(list.size(), this.f70004g), list.size()).iterator();
+                return list.subList(Math.min(list.size(), this.f70108g), list.size()).iterator();
             }
             Iterator it = iterable.iterator();
-            Iterators.b(it, this.f70004g);
+            Iterators.b(it, this.f70108g);
             return new a(this, it);
         }
     }

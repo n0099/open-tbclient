@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -21,7 +22,7 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41963a;
+    public static int f42066a;
 
     public static String a(String str, Object obj, List list) {
         int i2;
@@ -46,7 +47,7 @@ public class a {
             } else {
                 while (i3 < Array.getLength(obj)) {
                     Object obj2 = Array.get(obj, i3);
-                    stringBuffer.append(k(str + "[" + i3 + "]", obj2, list));
+                    stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i3 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
                     i3++;
                 }
             }
@@ -66,7 +67,7 @@ public class a {
                         Object c4 = c(obj4);
                         if (f(c4) || f(c3)) {
                             map = map2;
-                            stringBuffer.append(k(str + "[" + c3 + "]", c4, list));
+                            stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c3 + PreferencesUtil.RIGHT_MOUNT, c4, list));
                         } else if (i4 == 0) {
                             stringBuffer.append(str + " = [");
                             map = map2;
@@ -102,7 +103,7 @@ public class a {
                     while (it.hasNext()) {
                         Object c5 = c(it.next());
                         if (f(c5)) {
-                            stringBuffer.append(k(str + "[" + i5 + "]", c5, list));
+                            stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i5 + PreferencesUtil.RIGHT_MOUNT, c5, list));
                         } else if (i5 == 0) {
                             stringBuffer.append(str + " = [");
                         } else if (i5 == i2 - 1) {
@@ -125,7 +126,7 @@ public class a {
                         Object c6 = c(valueOf);
                         Object c7 = c(valueAt);
                         if (f(c7) || f(c6)) {
-                            stringBuffer.append(k(str + "[" + c6 + "]", c7, list));
+                            stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c6 + PreferencesUtil.RIGHT_MOUNT, c7, list));
                         } else if (i6 == 0) {
                             stringBuffer.append(str + " = [");
                         } else if (i6 == size2 - 1) {
@@ -159,9 +160,9 @@ public class a {
             stringBuffer.append(str + " = {\n");
             while (cls != null && g(cls)) {
                 if (cls.getSimpleName().equals("Object")) {
-                    f41963a++;
+                    f42066a++;
                     i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    f41963a--;
+                    f42066a--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -187,7 +188,7 @@ public class a {
 
     public static String d() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i2 = 0; i2 < f41963a; i2++) {
+        for (int i2 = 0; i2 < f42066a; i2++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -215,7 +216,7 @@ public class a {
 
     public static void h(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (c.f41965a) {
+        if (c.f42068a) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(j("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

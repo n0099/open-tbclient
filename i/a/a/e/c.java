@@ -127,6 +127,6 @@ public final class c {
     public static final int pay_ui_recharge_zhifubao = 2131236019;
     public static final int pay_ui_selector_bg_list_item = 2131236020;
     public static final int pay_ui_selector_transparent = 2131236021;
-    public static final int tooltip_frame_dark = 2131237339;
-    public static final int tooltip_frame_light = 2131237340;
+    public static final int tooltip_frame_dark = 2131237340;
+    public static final int tooltip_frame_light = 2131237341;
 }

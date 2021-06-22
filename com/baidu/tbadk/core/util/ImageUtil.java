@@ -49,7 +49,7 @@ public class ImageUtil {
         if (r2 == 1296891946) goto L44;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x0078, code lost:
-        android.util.Log.e(com.baidu.tbadk.core.util.ImageUtil.TAG, "Invalid byte order");
+        android.util.Log.e("CameraExif", "Invalid byte order");
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x007d, code lost:
         return 0;
@@ -116,13 +116,13 @@ public class ImageUtil {
         r2 = r4;
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x00c5, code lost:
-        android.util.Log.e(com.baidu.tbadk.core.util.ImageUtil.TAG, "Invalid offset");
+        android.util.Log.e("CameraExif", "Invalid offset");
      */
     /* JADX WARN: Code restructure failed: missing block: B:76:0x00ca, code lost:
         return 0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:77:0x00cb, code lost:
-        android.util.Log.i(com.baidu.tbadk.core.util.ImageUtil.TAG, "Orientation not found");
+        android.util.Log.i("CameraExif", "Orientation not found");
      */
     /* JADX WARN: Code restructure failed: missing block: B:78:0x00d0, code lost:
         return 0;
@@ -168,7 +168,7 @@ public class ImageUtil {
             }
             i3 = i4;
         }
-        Log.e(TAG, "Invalid length");
+        Log.e("CameraExif", "Invalid length");
         return 0;
     }
 

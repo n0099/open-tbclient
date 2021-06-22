@@ -14,16 +14,16 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HandlerThread f71241a = new HandlerThread("Downloader-preconnecter");
+    public static final HandlerThread f71345a = new HandlerThread("Downloader-preconnecter");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f71242b;
+    public static final Handler f71346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f71243c;
+    public static long f71347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f71244d;
+    public static long f71348d;
 
     /* loaded from: classes7.dex */
     public static class a implements Runnable {
@@ -38,32 +38,32 @@ public class b {
 
     /* renamed from: d.o.a.e.b.o.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1955b implements Runnable {
+    public static class RunnableC1958b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f71245e;
+        public final /* synthetic */ String f71349e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f71246f;
+        public final /* synthetic */ l f71350f;
 
-        public RunnableC1955b(String str, l lVar) {
-            this.f71245e = str;
-            this.f71246f = lVar;
+        public RunnableC1958b(String str, l lVar) {
+            this.f71349e = str;
+            this.f71350f = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.f71245e)) {
+            if (!TextUtils.isEmpty(this.f71349e)) {
                 try {
                     try {
                         List<com.ss.android.socialbase.downloader.model.c> d2 = b.d(0L, null, null);
-                        r1 = d.o.a.e.b.o.b.a.a().e(this.f71245e) ? d.o.a.e.b.o.b.a.a().b(this.f71245e, d2) : null;
+                        r1 = d.o.a.e.b.o.b.a.a().e(this.f71349e) ? d.o.a.e.b.o.b.a.a().b(this.f71349e, d2) : null;
                         if (r1 == null) {
-                            c cVar = new c(this.f71245e, d2, 0L);
+                            c cVar = new c(this.f71349e, d2, 0L);
                             try {
                                 cVar.e();
                                 if (cVar.h()) {
-                                    d.o.a.e.b.o.b.a.a().d(this.f71245e, cVar);
+                                    d.o.a.e.b.o.b.a.a().d(this.f71349e, cVar);
                                 }
                                 r1 = cVar;
                             } catch (Exception e2) {
@@ -82,8 +82,8 @@ public class b {
                             }
                         }
                         Map<String, String> l = r1.l();
-                        if (this.f71246f != null) {
-                            this.f71246f.a(l);
+                        if (this.f71350f != null) {
+                            this.f71350f.a(l);
                         }
                     } catch (Throwable th2) {
                         th = th2;
@@ -96,7 +96,7 @@ public class b {
                 } catch (Throwable unused2) {
                 }
             } else {
-                l lVar = this.f71246f;
+                l lVar = this.f71350f;
                 if (lVar != null) {
                     lVar.a(null);
                 }
@@ -106,18 +106,18 @@ public class b {
 
     static {
         e();
-        f71241a.start();
-        Handler handler = new Handler(f71241a.getLooper());
-        f71242b = handler;
+        f71345a.start();
+        Handler handler = new Handler(f71345a.getLooper());
+        f71346b = handler;
         handler.post(new a());
     }
 
     public static Looper a() {
-        return f71241a.getLooper();
+        return f71345a.getLooper();
     }
 
     public static void c(String str, l lVar) {
-        f71242b.post(new RunnableC1955b(str, lVar));
+        f71346b.post(new RunnableC1958b(str, lVar));
     }
 
     public static List<com.ss.android.socialbase.downloader.model.c> d(long j, DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.model.c> list) {
@@ -125,8 +125,8 @@ public class b {
     }
 
     public static void e() {
-        f71243c = d.o.a.e.b.j.a.r().c("preconnect_connection_outdate_time", 300000L);
-        f71244d = d.o.a.e.b.j.a.r().c("preconnect_head_info_outdate_time", 300000L);
+        f71347c = d.o.a.e.b.j.a.r().c("preconnect_connection_outdate_time", 300000L);
+        f71348d = d.o.a.e.b.j.a.r().c("preconnect_head_info_outdate_time", 300000L);
         d.o.a.e.b.o.b.a.a().c(d.o.a.e.b.j.a.r().b("preconnect_max_cache_size", 3));
     }
 }

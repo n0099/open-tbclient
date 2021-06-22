@@ -1,15 +1,31 @@
 package d.a.n0.s.f;
+/* loaded from: classes3.dex */
+public class b {
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-/* loaded from: classes4.dex */
-public class b implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null) {
-            return null;
-        }
-        return new CustomResponsedMessage<>(2001178, f.f().e());
+    /* renamed from: a  reason: collision with root package name */
+    public String f54445a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f54446b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f54447c;
+
+    public b(String str, long j, int i2) {
+        this.f54445a = str;
+        this.f54446b = j;
+        this.f54447c = i2;
+    }
+
+    public String a() {
+        return this.f54445a;
+    }
+
+    public int b() {
+        return this.f54447c;
+    }
+
+    public long c() {
+        return this.f54446b;
     }
 }

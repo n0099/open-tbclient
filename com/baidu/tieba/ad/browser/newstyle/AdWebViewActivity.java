@@ -32,12 +32,12 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import d.a.m0.r.y.j;
-import d.a.m0.r.y.l;
-import d.a.m0.r.y.m;
-import d.a.m0.r.y.n;
-import d.a.m0.r.y.o;
-import d.a.m0.r.y.q;
+import d.a.n0.r.y.j;
+import d.a.n0.r.y.l;
+import d.a.n0.r.y.m;
+import d.a.n0.r.y.n;
+import d.a.n0.r.y.o;
+import d.a.n0.r.y.q;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -47,19 +47,19 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWebView.d {
     public static boolean sFrameLostTracked = false;
-    public d.a.n0.e3.l0.a jsBridge;
+    public d.a.o0.e3.l0.a jsBridge;
     public l mHybridBridge;
     public TBAdWebView mWebView;
-    public d.a.n0.e3.l0.c jsCallback = new a();
+    public d.a.o0.e3.l0.c jsCallback = new a();
     public boolean mShowShareItem = true;
     public boolean isShowFullScreen = false;
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.n0.e3.l0.c {
+    public class a implements d.a.o0.e3.l0.c {
         public a() {
         }
 
-        @Override // d.a.n0.e3.l0.c
+        @Override // d.a.o0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             if (AdWebViewActivity.this.jsBridge != null) {
                 return AdWebViewActivity.this.jsBridge.c(str, jsPromptResult);
@@ -79,7 +79,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             AdWebViewActivity.this.trackFPS();
         }
 
-        @Override // d.a.m0.r.y.n
+        @Override // d.a.n0.r.y.n
         public String g() {
             return "TBHY_COMMON_Performance";
         }
@@ -92,15 +92,15 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ShareItem f13539e;
+            public final /* synthetic */ ShareItem f13621e;
 
             public a(ShareItem shareItem) {
-                this.f13539e = shareItem;
+                this.f13621e = shareItem;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                AdWebViewActivity.this.mView.E(this.f13539e);
+                AdWebViewActivity.this.mView.E(this.f13621e);
             }
         }
 
@@ -123,7 +123,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             d.a.c.e.m.e.a().post(new a(AdWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3)));
         }
 
-        @Override // d.a.m0.r.y.n
+        @Override // d.a.n0.r.y.n
         public String g() {
             return "TBHY_COMMON_Share";
         }
@@ -150,7 +150,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             adWebViewActivity.mView.z(adWebViewActivity.mShowShareItem);
         }
 
-        @Override // d.a.m0.r.y.n
+        @Override // d.a.n0.r.y.n
         public String g() {
             return "TBHY_COMMON_UISwitch";
         }
@@ -179,7 +179,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         public f() {
         }
 
-        @Override // d.a.m0.r.y.j
+        @Override // d.a.n0.r.y.j
         public void a(List<Long> list) {
             if (list == null || list.size() == 0) {
                 return;
@@ -191,7 +191,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                 sb.append(l);
                 str = "_";
             }
-            d.a.c.e.n.a a2 = d.a.m0.m0.j.a();
+            d.a.c.e.n.a a2 = d.a.n0.m0.j.a();
             a2.a("frame_delta", sb.toString());
             BdStatisticsManager.getInstance().performance("webview", a2);
         }
@@ -278,11 +278,11 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
 
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            d.a.n0.q.c.b.c cVar;
+            d.a.o0.q.c.b.c cVar;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int i2 = d.a.n0.q.a.l().i(AdWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
+            int i2 = d.a.o0.q.a.l().i(AdWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
             if (i2 == 1) {
                 AdWebViewActivity.this.finish();
                 return true;
@@ -309,12 +309,12 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         }
     }
 
-    private d.a.n0.e3.l0.b buildGameDownloadJSPrompt() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, d.a.n0.e3.l0.b.class, getPageContext());
+    private d.a.o0.e3.l0.b buildGameDownloadJSPrompt() {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, d.a.o0.e3.l0.b.class, getPageContext());
         if (runTask == null || runTask.getData() == null) {
             return null;
         }
-        return (d.a.n0.e3.l0.b) runTask.getData();
+        return (d.a.o0.e3.l0.b) runTask.getData();
     }
 
     private void handleUploadResult(Intent intent, int i2) {
@@ -358,9 +358,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         Intent intent = getIntent();
         String stringExtra = intent != null ? intent.getStringExtra(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID) : "";
         if (!TextUtils.isEmpty(stringExtra)) {
-            h2 = d.a.n0.q.d.e.c().g(stringExtra);
+            h2 = d.a.o0.q.d.e.c().g(stringExtra);
         } else {
-            h2 = d.a.n0.q.d.e.c().h(this.mUrl);
+            h2 = d.a.o0.q.d.e.c().h(this.mUrl);
         }
         if (h2 == null) {
             if (!TextUtils.isEmpty(stringExtra)) {
@@ -377,7 +377,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             if (h2 == null) {
                 h2 = DownloadCacheKey.create(String.valueOf(System.currentTimeMillis()), "");
             }
-            d.a.n0.q.d.e.c().i(h2, null);
+            d.a.o0.q.d.e.c().i(h2, null);
         }
         TBAdWebView tBAdWebView = this.mWebView;
         if (tBAdWebView == null) {
@@ -393,7 +393,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             return;
         }
         sFrameLostTracked = true;
-        d.a.m0.r.y.g.a().b(16, new f());
+        d.a.n0.r.y.g.a().b(16, new f());
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -418,7 +418,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         this.mWebView.setDownloadStartListener(this);
         h hVar = new h(this.mWebView, this);
         this.mWebView.setWebViewClient(hVar);
-        d.a.n0.q.c.b.b bVar = new d.a.n0.q.c.b.b(this);
+        d.a.o0.q.c.b.b bVar = new d.a.o0.q.c.b.b(this);
         bVar.a(this.jsCallback);
         this.mWebView.setWebChromeClient(bVar);
         if (this.mEnableJs) {
@@ -430,12 +430,12 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         this.mHybridBridge = n;
         if (isHybridBridgeEnabled) {
             n.d(new b(n));
-            n.d(new d.a.m0.r.y.s.a(n));
-            n.d(new d.a.m0.r.y.s.c(n));
-            n.d(new d.a.m0.r.y.s.b(n));
+            n.d(new d.a.n0.r.y.s.a(n));
+            n.d(new d.a.n0.r.y.s.c(n));
+            n.d(new d.a.n0.r.y.s.b(n));
             n.d(new c(n));
             n.d(new d(n));
-            n.d(new d.a.n0.q.c.b.a(n));
+            n.d(new d.a.o0.q.c.b.a(n));
         }
     }
 
@@ -453,7 +453,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         super.finish();
     }
 
-    @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public /* bridge */ /* synthetic */ String getCurrentPageKey() {
         return super.getCurrentPageKey();
     }
@@ -490,7 +490,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void initCookie() {
-        d.a.n0.q.c.a.c(getApplicationContext());
+        d.a.o0.q.c.a.c(getApplicationContext());
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -514,7 +514,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void loadUrl(String str) {
-        d.a.n0.q.c.b.c cVar;
+        d.a.o0.q.c.b.c cVar;
         if (this.isShowFullScreen && (cVar = this.mView) != null) {
             cVar.u();
         }
@@ -551,7 +551,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2001308, (Class) null);
-        d.a.n0.e3.l0.a aVar = new d.a.n0.e3.l0.a();
+        d.a.o0.e3.l0.a aVar = new d.a.o0.e3.l0.a();
         this.jsBridge = aVar;
         aVar.a(new XiubaTbJsBridge(getPageContext()));
         this.jsBridge.a(new CommonTbJsBridge(getPageContext()));
@@ -674,7 +674,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void webViewDestory() {
-        d.a.n0.e3.l0.a aVar = this.jsBridge;
+        d.a.o0.e3.l0.a aVar = this.jsBridge;
         if (aVar != null) {
             aVar.f();
         }

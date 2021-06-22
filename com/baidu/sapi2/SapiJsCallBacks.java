@@ -55,6 +55,7 @@ public class SapiJsCallBacks {
         public InvoiceBuildCallback invoiceBuildCallback;
         public SapiWebView.InvokeScAppCallback invokeScAppCallback;
         public JoinLoginParams joinLoginParams;
+        public JumpToUriCallBack jumpToUriCallBack;
         public SapiWebView.LeftBtnVisibleCallback leftBtnVisibleCallback;
         public SapiWebView.LoadExternalWebViewCallback loadExternalWebViewCallback;
         public SapiWebView.LoadSlideWebViewCallback loadSlideWebViewCallback;
@@ -150,6 +151,11 @@ public class SapiJsCallBacks {
     public static class JoinLoginParams {
         public LinkedHashMap<String, String> agreement;
         public boolean hasThirdAccount;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface JumpToUriCallBack {
+        void onJumpTo(String str);
     }
 
     /* loaded from: classes2.dex */

@@ -30,7 +30,7 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import d.a.c.a.e;
 import d.a.c.e.p.k;
-import d.a.n0.e3.w;
+import d.a.o0.e3.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,19 +38,19 @@ import java.util.List;
 public class HorizonalScrollListView extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f13142e;
+    public LinearLayout f13224e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f13143f;
+    public final ArrayList<ItemViewHolder> f13225f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13144g;
+    public int f13226g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f13145h;
+    public TbPageContext<?> f13227h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f13146i;
+    public View.OnClickListener f13228i;
     public View j;
     public String k;
     public String l;
@@ -65,29 +65,29 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
     public static class ItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f13147a;
+        public BarImageView f13229a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13148b;
+        public TextView f13230b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f13149c;
+        public TbImageView f13231c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EntelechyUserLikeButton f13150d;
+        public EntelechyUserLikeButton f13232d;
 
         public ItemViewHolder(View view) {
             super(view);
-            this.f13147a = null;
-            this.f13148b = null;
-            this.f13149c = null;
-            this.f13150d = null;
+            this.f13229a = null;
+            this.f13230b = null;
+            this.f13231c = null;
+            this.f13232d = null;
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.f13147a = barImageView;
+            this.f13229a = barImageView;
             barImageView.setGifIconSupport(false);
-            this.f13148b = (TextView) view.findViewById(R.id.m_forum_name_textview);
-            this.f13149c = (TbImageView) view.findViewById(R.id.hot_rank);
-            this.f13150d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+            this.f13230b = (TextView) view.findViewById(R.id.m_forum_name_textview);
+            this.f13231c = (TbImageView) view.findViewById(R.id.hot_rank);
+            this.f13232d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
         }
     }
 
@@ -130,26 +130,26 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         public class a extends e {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LikeModel f13154a;
+            public final /* synthetic */ LikeModel f13236a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ EntelechyUserLikeButton f13155b;
+            public final /* synthetic */ EntelechyUserLikeButton f13237b;
 
             public a(LikeModel likeModel, EntelechyUserLikeButton entelechyUserLikeButton) {
-                this.f13154a = likeModel;
-                this.f13155b = entelechyUserLikeButton;
+                this.f13236a = likeModel;
+                this.f13237b = entelechyUserLikeButton;
             }
 
             @Override // d.a.c.a.e
             public void c(Object obj) {
-                if ((obj instanceof w) && this.f13154a.getErrorCode() == 0) {
+                if ((obj instanceof w) && this.f13236a.getErrorCode() == 0) {
                     w wVar = (w) obj;
                     wVar.v(1);
-                    HorizonalScrollListView.this.o(this.f13155b, wVar.l() == 1);
-                } else if (AntiHelper.m(this.f13154a.getErrorCode(), this.f13154a.getErrorString())) {
-                    AntiHelper.u(HorizonalScrollListView.this.f13145h.getPageActivity(), this.f13154a.getErrorString());
+                    HorizonalScrollListView.this.o(this.f13237b, wVar.l() == 1);
+                } else if (AntiHelper.m(this.f13236a.getErrorCode(), this.f13236a.getErrorString())) {
+                    AntiHelper.u(HorizonalScrollListView.this.f13227h.getPageActivity(), this.f13236a.getErrorString());
                 } else {
-                    HorizonalScrollListView.this.f13145h.showToast(this.f13154a.getErrorString());
+                    HorizonalScrollListView.this.f13227h.showToast(this.f13236a.getErrorString());
                 }
             }
         }
@@ -167,7 +167,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                     if (!TextUtils.isEmpty(HorizonalScrollListView.this.k)) {
                         TiebaStatic.log(new StatisticItem(HorizonalScrollListView.this.k).param("obj_type", 1).param("fid", valueOf));
                     }
-                    LikeModel likeModel = new LikeModel(HorizonalScrollListView.this.f13145h);
+                    LikeModel likeModel = new LikeModel(HorizonalScrollListView.this.f13227h);
                     likeModel.setLoadDataCallBack(new a(likeModel, entelechyUserLikeButton));
                     likeModel.L(str, valueOf);
                 }
@@ -188,16 +188,16 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                 if (!TextUtils.isEmpty(HorizonalScrollListView.this.l)) {
                     TiebaStatic.log(new StatisticItem(HorizonalScrollListView.this.l).param("fid", valueOf));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(HorizonalScrollListView.this.f13145h.getPageActivity()).createNormalCfg(str, HorizonalScrollListView.this.getFrom())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(HorizonalScrollListView.this.f13227h.getPageActivity()).createNormalCfg(str, HorizonalScrollListView.this.getFrom())));
             }
         }
     }
 
     public HorizonalScrollListView(Context context) {
         super(context);
-        this.f13143f = new ArrayList<>();
-        this.f13144g = 3;
-        this.f13146i = null;
+        this.f13225f = new ArrayList<>();
+        this.f13226g = 3;
+        this.f13228i = null;
         this.m = null;
         this.o = new a(2001336);
         this.p = new b(2001335);
@@ -215,7 +215,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
     }
 
     public final View h() {
-        return View.inflate(this.f13145h.getPageActivity(), R.layout.widget_hot_forum_list_item, null);
+        return View.inflate(this.f13227h.getPageActivity(), R.layout.widget_hot_forum_list_item, null);
     }
 
     public final void i(ItemViewHolder itemViewHolder) {
@@ -223,45 +223,45 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             return;
         }
         this.j = itemViewHolder.a();
-        itemViewHolder.f13150d.setVisibility(8);
-        itemViewHolder.f13148b.setText(this.f13145h.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
-        itemViewHolder.f13149c.setVisibility(8);
-        itemViewHolder.f13147a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SkinManager.setImageResource(itemViewHolder.f13147a, R.drawable.icon_pic_more);
-        SkinManager.setViewTextColor(itemViewHolder.f13148b, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(itemViewHolder.f13147a, R.drawable.selector_load_more_bg);
+        itemViewHolder.f13232d.setVisibility(8);
+        itemViewHolder.f13230b.setText(this.f13227h.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
+        itemViewHolder.f13231c.setVisibility(8);
+        itemViewHolder.f13229a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        SkinManager.setImageResource(itemViewHolder.f13229a, R.drawable.icon_pic_more);
+        SkinManager.setViewTextColor(itemViewHolder.f13230b, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundResource(itemViewHolder.f13229a, R.drawable.selector_load_more_bg);
         this.j.setClickable(true);
-        this.j.setOnClickListener(this.f13146i);
+        this.j.setOnClickListener(this.f13228i);
     }
 
-    public final void j(View view, d.a.m0.b1.g.a aVar) {
+    public final void j(View view, d.a.n0.b1.g.a aVar) {
         if (aVar == null || view == null || view.getTag() == null) {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        itemViewHolder.f13147a.setTag(aVar.f52697b);
-        itemViewHolder.f13147a.U(aVar.f52697b, 10, false);
-        itemViewHolder.f13148b.setText(aVar.f52698c);
-        itemViewHolder.f13148b.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
-        itemViewHolder.f13149c.setDefaultBgResource(0);
-        itemViewHolder.f13149c.setDefaultResource(0);
-        itemViewHolder.f13150d.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
-        itemViewHolder.f13150d.setTag(R.id.tag_forum_name, aVar.f52698c);
-        itemViewHolder.a().setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
-        itemViewHolder.a().setTag(R.id.tag_forum_name, aVar.f52698c);
-        o(itemViewHolder.f13150d, aVar.f52700e);
-        int i2 = aVar.f52696a;
+        itemViewHolder.f13229a.setTag(aVar.f52804b);
+        itemViewHolder.f13229a.U(aVar.f52804b, 10, false);
+        itemViewHolder.f13230b.setText(aVar.f52805c);
+        itemViewHolder.f13230b.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52806d));
+        itemViewHolder.f13231c.setDefaultBgResource(0);
+        itemViewHolder.f13231c.setDefaultResource(0);
+        itemViewHolder.f13232d.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52806d));
+        itemViewHolder.f13232d.setTag(R.id.tag_forum_name, aVar.f52805c);
+        itemViewHolder.a().setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52806d));
+        itemViewHolder.a().setTag(R.id.tag_forum_name, aVar.f52805c);
+        o(itemViewHolder.f13232d, aVar.f52807e);
+        int i2 = aVar.f52803a;
         if (i2 == 1) {
-            itemViewHolder.f13149c.setVisibility(0);
-            SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu1);
+            itemViewHolder.f13231c.setVisibility(0);
+            SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu1);
         } else if (i2 == 2) {
-            itemViewHolder.f13149c.setVisibility(0);
-            SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu2);
+            itemViewHolder.f13231c.setVisibility(0);
+            SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu2);
         } else if (i2 != 3) {
-            itemViewHolder.f13149c.setVisibility(8);
+            itemViewHolder.f13231c.setVisibility(8);
         } else {
-            itemViewHolder.f13149c.setVisibility(0);
-            SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu3);
+            itemViewHolder.f13231c.setVisibility(0);
+            SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu3);
         }
         n(view, aVar);
     }
@@ -271,10 +271,10 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         if (itemViewHolder == null || itemViewHolder.a() == null) {
             return;
         }
-        if (itemViewHolder.f13150d.getTag(R.id.forum_follow) != null && (itemViewHolder.f13150d.getTag(R.id.forum_follow) instanceof Boolean)) {
-            o(itemViewHolder.f13150d, ((Boolean) itemViewHolder.f13150d.getTag(R.id.forum_follow)).booleanValue());
+        if (itemViewHolder.f13232d.getTag(R.id.forum_follow) != null && (itemViewHolder.f13232d.getTag(R.id.forum_follow) instanceof Boolean)) {
+            o(itemViewHolder.f13232d, ((Boolean) itemViewHolder.f13232d.getTag(R.id.forum_follow)).booleanValue());
         }
-        SkinManager.setViewTextColor(itemViewHolder.f13148b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(itemViewHolder.f13230b, R.color.CAM_X0105, 1);
     }
 
     public final void l(Context context) {
@@ -283,15 +283,15 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f13142e = linearLayout;
+        this.f13224e = linearLayout;
         linearLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        this.f13142e.setOrientation(0);
-        addView(this.f13142e);
+        this.f13224e.setOrientation(0);
+        addView(this.f13224e);
     }
 
     public void m(int i2) {
-        if (this.f13144g != i2) {
-            Iterator<ItemViewHolder> it = this.f13143f.iterator();
+        if (this.f13226g != i2) {
+            Iterator<ItemViewHolder> it = this.f13225f.iterator();
             while (it.hasNext()) {
                 ItemViewHolder next = it.next();
                 if (next != null) {
@@ -305,31 +305,31 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                 SkinManager.setImageResource(barImageView, R.drawable.icon_pic_more);
                 SkinManager.setViewTextColor((TextView) this.j.findViewById(R.id.m_forum_name_textview), R.color.CAM_X0105, 1);
             }
-            int count = ListUtils.getCount(this.f13143f);
+            int count = ListUtils.getCount(this.f13225f);
             for (int i3 = 0; i3 < 3 && i3 < count; i3++) {
-                ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f13143f, i3);
+                ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f13225f, i3);
                 if (itemViewHolder != null) {
                     int i4 = i3 + 1;
                     if (i4 == 1) {
-                        SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu1);
+                        SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu1);
                     } else if (i4 == 2) {
-                        SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu2);
+                        SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu2);
                     } else if (i4 == 3) {
-                        SkinManager.setImageResource(itemViewHolder.f13149c, R.drawable.icon_grade_shaitu3);
+                        SkinManager.setImageResource(itemViewHolder.f13231c, R.drawable.icon_grade_shaitu3);
                     }
                 }
             }
-            this.f13144g = i2;
+            this.f13226g = i2;
         }
     }
 
-    public final void n(View view, d.a.m0.b1.g.a aVar) {
+    public final void n(View view, d.a.n0.b1.g.a aVar) {
         if (view == null || view.getTag() == null || aVar == null) {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        itemViewHolder.f13150d.setClickable(true);
-        itemViewHolder.f13150d.setOnClickListener(this.q);
+        itemViewHolder.f13232d.setClickable(true);
+        itemViewHolder.f13232d.setOnClickListener(this.q);
         view.setClickable(true);
         view.setOnClickListener(this.r);
     }
@@ -344,12 +344,12 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
     }
 
     public final void p(long j, boolean z) {
-        Iterator<ItemViewHolder> it = this.f13143f.iterator();
+        Iterator<ItemViewHolder> it = this.f13225f.iterator();
         while (it.hasNext()) {
             ItemViewHolder next = it.next();
-            if (next != null && next.a() != null && next.f13148b.getTag(R.id.tag_forum_id) != null) {
-                EntelechyUserLikeButton entelechyUserLikeButton = next.f13150d;
-                if (((Long) next.f13148b.getTag(R.id.tag_forum_id)).longValue() == j) {
+            if (next != null && next.a() != null && next.f13230b.getTag(R.id.tag_forum_id) != null) {
+                EntelechyUserLikeButton entelechyUserLikeButton = next.f13232d;
+                if (((Long) next.f13230b.getTag(R.id.tag_forum_id)).longValue() == j) {
                     o(entelechyUserLikeButton, z);
                     return;
                 }
@@ -357,49 +357,49 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<d.a.m0.b1.g.a> list, TbPageContext<?> tbPageContext) {
+    public void setData(List<d.a.n0.b1.g.a> list, TbPageContext<?> tbPageContext) {
         if (ListUtils.getCount(list) <= 0 || tbPageContext == null) {
             return;
         }
-        this.f13145h = tbPageContext;
-        list.add(new d.a.m0.b1.g.a());
-        int count = ListUtils.getCount(this.f13143f);
+        this.f13227h = tbPageContext;
+        list.add(new d.a.n0.b1.g.a());
+        int count = ListUtils.getCount(this.f13225f);
         int count2 = ListUtils.getCount(list);
         if (count > count2) {
             for (int i2 = 0; i2 < count - count2; i2++) {
-                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f13143f, i2);
+                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f13225f, i2);
                 if (viewHolder != null) {
-                    this.f13142e.removeView(viewHolder.a());
+                    this.f13224e.removeView(viewHolder.a());
                 }
-                this.f13143f.remove(viewHolder);
+                this.f13225f.remove(viewHolder);
             }
         }
         for (int i3 = 0; i3 < count2; i3++) {
-            d.a.m0.b1.g.a aVar = (d.a.m0.b1.g.a) ListUtils.getItem(list, i3);
-            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f13143f, i3);
+            d.a.n0.b1.g.a aVar = (d.a.n0.b1.g.a) ListUtils.getItem(list, i3);
+            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f13225f, i3);
             if (itemViewHolder != null) {
                 j(itemViewHolder.a(), aVar);
             } else {
                 View h2 = h();
                 if (h2 != null) {
                     ItemViewHolder itemViewHolder2 = new ItemViewHolder(h2);
-                    this.f13143f.add(itemViewHolder2);
+                    this.f13225f.add(itemViewHolder2);
                     j(itemViewHolder2.a(), aVar);
-                    this.f13142e.addView(h2);
+                    this.f13224e.addView(h2);
                 }
             }
             int i4 = count2 - 1;
             if (i3 == i4) {
-                i(this.f13143f.get(i4));
+                i(this.f13225f.get(i4));
             }
         }
-        this.f13145h.registerListener(this.o);
-        this.f13145h.registerListener(this.p);
+        this.f13227h.registerListener(this.o);
+        this.f13227h.registerListener(this.p);
         if (getTag() != null) {
             this.o.setTag(getTag());
             this.p.setTag(getTag());
         }
-        m(this.f13144g);
+        m(this.f13226g);
     }
 
     public void setFrom(String str) {
@@ -407,7 +407,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
     }
 
     public void setLoadMoreClickListener(View.OnClickListener onClickListener) {
-        this.f13146i = onClickListener;
+        this.f13228i = onClickListener;
     }
 
     public void setStatKey(String str, String str2) {
@@ -438,9 +438,9 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
 
     public HorizonalScrollListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13143f = new ArrayList<>();
-        this.f13144g = 3;
-        this.f13146i = null;
+        this.f13225f = new ArrayList<>();
+        this.f13226g = 3;
+        this.f13228i = null;
         this.m = null;
         this.o = new a(2001336);
         this.p = new b(2001335);
@@ -451,9 +451,9 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
 
     public HorizonalScrollListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13143f = new ArrayList<>();
-        this.f13144g = 3;
-        this.f13146i = null;
+        this.f13225f = new ArrayList<>();
+        this.f13226g = 3;
+        this.f13228i = null;
         this.m = null;
         this.o = new a(2001336);
         this.p = new b(2001335);

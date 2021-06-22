@@ -6,31 +6,31 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38035a = 0;
+    public int f38133a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38036b = 0;
+    public int f38134b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38037c = 0;
+    public int f38135c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38038d = 0;
+    public int f38136d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38039e = 0;
+    public int f38137e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f38040f = 0.0d;
+    public double f38138f = 0.0d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38041g = 0;
+    public int f38139g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38042h = 0;
+    public int f38140h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f38043i = 0.0d;
+    public double f38141i = 0.0d;
     public double j = 0.0d;
     public double k = 60000.0d;
     public int l = 600000;
@@ -47,15 +47,15 @@ public class n {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("rate_adapt_type", this.f38035a);
-            jSONObject.put("bandwidth_estimation_type", this.f38036b);
-            jSONObject.put("absolute_low_res_low_device", this.f38037c);
-            jSONObject.put("adapt_under_4G", this.f38038d);
-            jSONObject.put("adapt_under_wifi", this.f38039e);
-            jSONObject.put("adapt_under_other_net", this.f38040f);
-            jSONObject.put("absolute_low_rate_4G", this.f38041g);
-            jSONObject.put("absolute_low_rate_wifi", this.f38042h);
-            jSONObject.put("absolute_low_res_4G", this.f38043i);
+            jSONObject.put("rate_adapt_type", this.f38133a);
+            jSONObject.put("bandwidth_estimation_type", this.f38134b);
+            jSONObject.put("absolute_low_res_low_device", this.f38135c);
+            jSONObject.put("adapt_under_4G", this.f38136d);
+            jSONObject.put("adapt_under_wifi", this.f38137e);
+            jSONObject.put("adapt_under_other_net", this.f38138f);
+            jSONObject.put("absolute_low_rate_4G", this.f38139g);
+            jSONObject.put("absolute_low_rate_wifi", this.f38140h);
+            jSONObject.put("absolute_low_res_4G", this.f38141i);
             jSONObject.put("absolute_low_res_wifi", this.j);
             jSONObject.put("short_keep_interval", this.k);
             jSONObject.put("long_keep_interval", this.l);

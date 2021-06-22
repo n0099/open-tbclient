@@ -7,7 +7,7 @@ import android.os.ResultReceiver;
 public class FragmentResultReceiver extends ResultReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f23930a;
+    public a f24012a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -19,18 +19,18 @@ public class FragmentResultReceiver extends ResultReceiver {
     }
 
     public void a() {
-        this.f23930a = null;
+        this.f24012a = null;
     }
 
     @Override // android.os.ResultReceiver
     public void onReceiveResult(int i2, Bundle bundle) {
-        a aVar = this.f23930a;
+        a aVar = this.f24012a;
         if (aVar != null) {
             aVar.onReceiveResult(i2, bundle);
         }
     }
 
     public void a(a aVar) {
-        this.f23930a = aVar;
+        this.f24012a = aVar;
     }
 }

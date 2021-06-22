@@ -27,7 +27,7 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import d.a.c.e.m.c;
 import d.a.c.h.h.b;
 import d.a.c.h.j.g.d;
-import d.a.m0.m0.l;
+import d.a.n0.m0.l;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -187,7 +187,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                 boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                 if (!this.isKeepLiveProcess) {
                     if (!this.mPluginIsInited) {
-                        PluginPackageManager.O().i0(d.a.m0.o0.c.n(), new d.a.m0.o0.d(), z3, null);
+                        PluginPackageManager.O().i0(d.a.n0.o0.c.n(), new d.a.n0.o0.d(), z3, null);
                     }
                     PluginSettings l = d.k().l();
                     if (l != null) {
@@ -263,7 +263,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = d.a.m0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = d.a.n0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
         if (checkSyncPatchBlacklist() && d.a.c.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -277,7 +277,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        d.a.m0.r.d0.b.j().C("account_share");
+        d.a.n0.r.d0.b.j().C("account_share");
     }
 
     public void loginShareSave(String str) {

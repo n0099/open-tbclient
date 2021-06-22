@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.a.e0.b.a.a;
+import d.a.f0.b.a.a;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;

@@ -7,7 +7,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.paysdk.contract.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0255a {
+    public interface InterfaceC0258a {
         boolean a(String str);
 
         boolean b(String str);

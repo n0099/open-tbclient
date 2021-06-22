@@ -35,10 +35,10 @@ public class AugmentedFace extends TrackableBase {
     private native d.g.b.a.a nativeGetRegionPose(long j, long j2, int i2);
 
     public void a() {
-        Session.a(nativeGetMeshVerticesByteBuffer(this.f30868b.f30844a, this.f30867a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshNormalsByteBuffer(this.f30868b.f30844a, this.f30867a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f30868b.f30844a, this.f30867a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f30868b.f30844a, this.f30867a)).asCharBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshVerticesByteBuffer(this.f30966b.f30942a, this.f30965a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshNormalsByteBuffer(this.f30966b.f30942a, this.f30965a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f30966b.f30942a, this.f30965a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f30966b.f30942a, this.f30965a)).asCharBuffer().asReadOnlyBuffer();
     }
 
     public AugmentedFace() {

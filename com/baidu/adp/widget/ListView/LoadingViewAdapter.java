@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.c.k.e.a;
 import d.a.c.k.e.t;
-import d.a.m0.d0.g;
+import d.a.n0.d0.g;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
@@ -31,7 +31,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f43004e);
+        super(tbPageContext.getPageActivity(), t.f43107e);
         this.m = new LinkedList<>();
         this.n = e0(R.dimen.tbds304);
         this.o = e0(R.dimen.tbds198);
@@ -52,13 +52,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public TabLoadingViewHolder Q(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.f42909e);
+        RelativeLayout relativeLayout = new RelativeLayout(this.f43012e);
         ViewGroup.LayoutParams u = u(viewGroup);
         u.width = -1;
         u.height = -1;
         relativeLayout.setLayoutParams(u);
         relativeLayout.setGravity(1);
-        g gVar = new g(this.f42909e, 0);
+        g gVar = new g(this.f43012e, 0);
         gVar.attachView(relativeLayout);
         gVar.q(this.n);
         gVar.o(this.o);

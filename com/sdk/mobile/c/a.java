@@ -6,7 +6,7 @@ import com.sdk.mobile.config.MobileConfig;
 /* loaded from: classes7.dex */
 public class a<T> extends com.sdk.base.module.b.a<T> {
     static {
-        boolean z = f.f39341b;
+        boolean z = f.f39439b;
     }
 
     public a(Context context, com.sdk.base.framework.b.a<T> aVar) {

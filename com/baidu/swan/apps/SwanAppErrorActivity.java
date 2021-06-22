@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.a.l0.a.a;
-import d.a.l0.a.f;
-import d.a.l0.a.f1.e.b;
-import d.a.l0.a.g;
-import d.a.l0.a.h0.g.e;
-import d.a.l0.a.k;
-import d.a.l0.a.v1.c.f.c;
-import d.a.l0.a.v2.q0;
-import d.a.l0.o.a.a.n;
+import d.a.m0.a.a;
+import d.a.m0.a.f;
+import d.a.m0.a.f1.e.b;
+import d.a.m0.a.g;
+import d.a.m0.a.h0.g.e;
+import d.a.m0.a.k;
+import d.a.m0.a.v1.c.f.c;
+import d.a.m0.a.v2.q0;
+import d.a.m0.o.a.a.n;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f46875a;
+    public static final boolean DEBUG = k.f46983a;
     public static final int INVALID_ANIM = 0;
     public static final String KEY_ERROR_FORBIDDEN_INFO = "swan_error_forbidden_info";
     public static final String KEY_ERROR_MENU_NOTICE_COUNT = "swan_error_menu_notice_count";
@@ -38,7 +38,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public b mLaunchInfo;
     public int mMenuNoticeCount;
     public int mMenuPrivateCount;
-    public d.a.l0.a.g2.b mSkinDecorator = null;
+    public d.a.m0.a.g2.b mSkinDecorator = null;
     public int mEnterAnimWhenFinishing = 0;
     public int mExitAnimWhenFinishing = 0;
 
@@ -103,7 +103,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return this.mLaunchInfo;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.l0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.m0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         setPendingTransition(a.aiapps_hold, a.aiapps_slide_out_to_bottom);
         int Z = q0.Z(this);
@@ -131,7 +131,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             return;
         }
         if (this.mSkinDecorator == null) {
-            this.mSkinDecorator = new d.a.l0.a.g2.b();
+            this.mSkinDecorator = new d.a.m0.a.g2.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
@@ -151,12 +151,12 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void onStart() {
         c i2;
         super.onStart();
-        if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = d.a.l0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
-            d.a.l0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
+        if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = d.a.m0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
+            d.a.m0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
         }
     }
 
     public void updateCurrentNightMode() {
-        onNightModeCoverChanged(d.a.l0.a.c1.a.H().a());
+        onNightModeCoverChanged(d.a.m0.a.c1.a.H().a());
     }
 }

@@ -1,43 +1,84 @@
 package com.baidu.sofire.l;
 
-import android.content.Context;
-import android.util.Log;
-import java.lang.reflect.Method;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 /* loaded from: classes2.dex */
-public final class a {
+public interface a extends IInterface {
 
-    /* renamed from: a  reason: collision with root package name */
-    public Object f10358a;
+    /* renamed from: com.baidu.sofire.l.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static abstract class AbstractBinderC0145a extends Binder implements a {
 
-    /* renamed from: b  reason: collision with root package name */
-    public Class<?> f10359b;
+        /* renamed from: com.baidu.sofire.l.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes2.dex */
+        public static class C0146a implements a {
 
-    /* renamed from: c  reason: collision with root package name */
-    public Method f10360c;
+            /* renamed from: a  reason: collision with root package name */
+            public static a f10355a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public Method f10361d;
+            /* renamed from: b  reason: collision with root package name */
+            public IBinder f10356b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Method f10362e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f10363f;
-
-    public final String a(Context context, Method method) {
-        Object obj = this.f10358a;
-        if (obj == null || method == null) {
-            return null;
-        }
-        try {
-            Object invoke = method.invoke(obj, context);
-            if (invoke != null) {
-                return (String) invoke;
+            public C0146a(IBinder iBinder) {
+                this.f10356b = iBinder;
             }
-            return null;
-        } catch (Exception e2) {
-            Log.d("IdentifierManager", "invoke exception!", e2);
-            return null;
+
+            @Override // com.baidu.sofire.l.a
+            public final String a(String str, String str2, String str3) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    obtain.writeString(str3);
+                    if (this.f10356b.transact(1, obtain, obtain2, 0) || AbstractBinderC0145a.a() == null) {
+                        obtain2.readException();
+                        return obtain2.readString();
+                    }
+                    return AbstractBinderC0145a.a().a(str, str2, str3);
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.os.IInterface
+            public final IBinder asBinder() {
+                return this.f10356b;
+            }
+        }
+
+        public static a a() {
+            return C0146a.f10355a;
+        }
+
+        public static a a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0146a(iBinder) : (a) queryLocalInterface;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
+                }
+                parcel2.writeString("com.heytap.openid.IOpenID");
+                return true;
+            }
+            parcel.enforceInterface("com.heytap.openid.IOpenID");
+            String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
+            parcel2.writeNoException();
+            parcel2.writeString(a2);
+            return true;
         }
     }
+
+    String a(String str, String str2, String str3);
 }

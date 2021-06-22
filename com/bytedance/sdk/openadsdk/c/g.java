@@ -17,31 +17,31 @@ import java.util.List;
 public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27339a = "AdEventThread";
+    public static String f27421a = "AdEventThread";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f27340b = "ttad_bk";
+    public static String f27422b = "ttad_bk";
 
     /* renamed from: c  reason: collision with root package name */
-    public final e<T> f27341c;
+    public final e<T> f27423c;
 
     /* renamed from: d  reason: collision with root package name */
-    public q<T> f27342d;
+    public q<T> f27424d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<T> f27343e;
+    public final List<T> f27425e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27344f;
+    public long f27426f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27345g;
+    public boolean f27427g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27346h;
+    public int f27428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f27347i;
+    public Handler f27429i;
     public final a j;
     public final b k;
     public boolean l;
@@ -55,30 +55,30 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f27348a;
+        public final int f27430a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f27349b;
+        public final long f27431b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f27350c;
+        public final long f27432c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f27351d;
+        public final int f27433d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f27352e;
+        public final long f27434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f27353f;
+        public final long f27435f;
 
         public b(int i2, long j, long j2, int i3, long j3, long j4) {
-            this.f27348a = i2;
-            this.f27349b = j;
-            this.f27350c = j2;
-            this.f27351d = i3;
-            this.f27352e = j3;
-            this.f27353f = j4;
+            this.f27430a = i2;
+            this.f27431b = j;
+            this.f27432c = j2;
+            this.f27433d = i3;
+            this.f27434e = j3;
+            this.f27435f = j4;
         }
 
         public static b a() {
@@ -91,29 +91,29 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     public g(e<T> eVar, q<T> qVar, b bVar, a aVar) {
-        super("tt_pangle_thread__" + f27340b);
+        super("tt_pangle_thread__" + f27422b);
         this.k = bVar;
         this.j = aVar;
-        this.f27341c = eVar;
-        this.f27342d = qVar;
-        this.f27343e = Collections.synchronizedList(new LinkedList());
+        this.f27423c = eVar;
+        this.f27424d = qVar;
+        this.f27425e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
     private void a() {
-        e<T> eVar = this.f27341c;
+        e<T> eVar = this.f27423c;
         b bVar = this.k;
-        eVar.a(bVar.f27351d, bVar.f27352e);
-        this.f27345g = this.f27341c.a();
-        this.f27346h = this.f27341c.b();
-        if (this.f27345g) {
-            a("onHandleInitEvent serverBusy, retryCount = " + this.f27346h);
+        eVar.a(bVar.f27433d, bVar.f27434e);
+        this.f27427g = this.f27423c.a();
+        this.f27428h = this.f27423c.b();
+        if (this.f27427g) {
+            a("onHandleInitEvent serverBusy, retryCount = " + this.f27428h);
             h();
             return;
         }
-        b(this.f27341c.a(100, "_id"));
+        b(this.f27423c.a(100, "_id"));
         a("onHandleInitEvent,mCloseSaveAndRetry is false, read db event data");
-        a("onHandleInitEvent cacheData count = " + this.f27343e.size());
+        a("onHandleInitEvent cacheData count = " + this.f27425e.size());
         e();
     }
 
@@ -122,12 +122,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             try {
                 if (list.size() != 0) {
                     HashSet hashSet = new HashSet();
-                    for (T t : this.f27343e) {
+                    for (T t : this.f27425e) {
                         hashSet.add(t.b());
                     }
                     for (T t2 : list) {
                         if (!hashSet.contains(t2.b())) {
-                            this.f27343e.add(t2);
+                            this.f27425e.add(t2);
                         }
                     }
                     return;
@@ -140,7 +140,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void c() {
-        if (this.f27345g) {
+        if (this.f27427g) {
             return;
         }
         a("onHandleRoutineRetryEvent");
@@ -148,7 +148,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void d() {
-        if (this.f27345g) {
+        if (this.f27427g) {
             return;
         }
         a("onHandleRoutineUploadEvent");
@@ -156,18 +156,18 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void e() {
-        this.f27347i.removeMessages(3);
-        this.f27347i.removeMessages(2);
-        if (s.a(this.f27343e)) {
-            this.f27344f = System.currentTimeMillis();
+        this.f27429i.removeMessages(3);
+        this.f27429i.removeMessages(2);
+        if (s.a(this.f27425e)) {
+            this.f27426f = System.currentTimeMillis();
             j();
         } else if (!this.j.a()) {
             a("doRoutineUpload no net, wait retry");
             i();
         } else {
-            h a2 = a(this.f27343e);
+            h a2 = a(this.f27425e);
             if (a2 != null) {
-                if (a2.f27354a) {
+                if (a2.f27436a) {
                     a("doRoutineUpload success");
                     g();
                     f();
@@ -177,7 +177,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 } else if (b(a2)) {
                     g();
                     f();
-                } else if (this.f27345g) {
+                } else if (this.f27427g) {
                 } else {
                     if (!this.l) {
                         i();
@@ -191,15 +191,15 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void f() {
-        this.f27344f = System.currentTimeMillis();
+        this.f27426f = System.currentTimeMillis();
         o();
         j();
     }
 
     private void g() {
         a("clearCacheList, delete event from cache and db");
-        this.f27341c.a(this.f27343e);
-        this.f27343e.clear();
+        this.f27423c.a(this.f27425e);
+        this.f27425e.clear();
     }
 
     private void h() {
@@ -207,45 +207,45 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void i() {
-        a(3, this.k.f27350c);
+        a(3, this.k.f27432c);
     }
 
     private void j() {
-        a(2, this.k.f27349b);
+        a(2, this.k.f27431b);
     }
 
     private void k() {
-        this.f27345g = true;
-        this.f27341c.a(true);
-        this.f27343e.clear();
-        this.f27347i.removeMessages(3);
-        this.f27347i.removeMessages(2);
+        this.f27427g = true;
+        this.f27423c.a(true);
+        this.f27425e.clear();
+        this.f27429i.removeMessages(3);
+        this.f27429i.removeMessages(2);
         h();
     }
 
     private void l() {
-        this.f27345g = true;
-        this.f27341c.a(true);
-        this.f27343e.clear();
-        this.f27347i.removeMessages(3);
-        this.f27347i.removeMessages(2);
+        this.f27427g = true;
+        this.f27423c.a(true);
+        this.f27425e.clear();
+        this.f27429i.removeMessages(3);
+        this.f27429i.removeMessages(2);
         h();
     }
 
     private long m() {
-        return ((this.f27346h % 3) + 1) * this.k.f27353f;
+        return ((this.f27428h % 3) + 1) * this.k.f27435f;
     }
 
     private boolean n() {
-        return !this.f27345g && (this.f27343e.size() >= this.k.f27348a || System.currentTimeMillis() - this.f27344f >= this.k.f27349b);
+        return !this.f27427g && (this.f27425e.size() >= this.k.f27430a || System.currentTimeMillis() - this.f27426f >= this.k.f27431b);
     }
 
     private void o() {
-        this.f27345g = false;
-        this.f27341c.a(false);
-        this.f27346h = 0;
-        this.f27341c.a(0);
-        this.f27347i.removeMessages(4);
+        this.f27427g = false;
+        this.f27423c.a(false);
+        this.f27428h = 0;
+        this.f27423c.a(0);
+        this.f27429i.removeMessages(4);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.bytedance.sdk.openadsdk.c.g<T extends com.bytedance.sdk.openadsdk.c.i> */
@@ -269,8 +269,8 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     @Override // android.os.HandlerThread
     public void onLooperPrepared() {
-        this.f27344f = System.currentTimeMillis();
-        this.f27347i = new Handler(getLooper(), this);
+        this.f27426f = System.currentTimeMillis();
+        this.f27429i = new Handler(getLooper(), this);
     }
 
     private void c(List<T> list) {
@@ -288,28 +288,28 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             arrayList.add(list.get(i2));
         }
         list.removeAll(arrayList);
-        this.f27341c.a(arrayList);
+        this.f27423c.a(arrayList);
         a("end checkAndDeleteEvent local size:" + list.size());
     }
 
     public g(String str, String str2, e<T> eVar, q<T> qVar, b bVar, a aVar) {
         super("tt_pangle_thread__" + str);
-        f27339a = str2;
+        f27421a = str2;
         this.k = bVar;
         this.j = aVar;
-        this.f27341c = eVar;
-        this.f27342d = qVar;
-        this.f27343e = Collections.synchronizedList(new LinkedList());
+        this.f27423c = eVar;
+        this.f27424d = qVar;
+        this.f27425e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
     private void b() {
         if (!this.j.a()) {
-            a(4, this.k.f27350c);
+            a(4, this.k.f27432c);
             a("onHandleServerBusyRetryEvent, no net");
             return;
         }
-        List<T> a2 = this.f27341c.a(100, "_id");
+        List<T> a2 = this.f27423c.a(100, "_id");
         c(a2);
         if (s.a(a2)) {
             a("onHandleServerBusyRetryEvent, empty list start routine");
@@ -319,19 +319,19 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         }
         h a3 = a(a2);
         if (a3 != null) {
-            if (a3.f27354a) {
+            if (a3.f27436a) {
                 a("onHandleServerBusyRetryEvent, success");
                 g();
                 f();
             } else if (a(a3)) {
-                int i2 = this.f27346h + 1;
-                this.f27346h = i2;
-                this.f27341c.a(i2);
-                e<T> eVar = this.f27341c;
+                int i2 = this.f27428h + 1;
+                this.f27428h = i2;
+                this.f27423c.a(i2);
+                e<T> eVar = this.f27423c;
                 b bVar = this.k;
-                eVar.a(a2, bVar.f27351d, bVar.f27352e);
+                eVar.a(a2, bVar.f27433d, bVar.f27434e);
                 h();
-                a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f27346h);
+                a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f27428h);
             } else if (b(a3)) {
                 g();
                 f();
@@ -339,22 +339,22 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 i();
                 a("onHandleServerBusyRetryEvent, net fail");
             } else {
-                int i3 = this.f27346h + 1;
-                this.f27346h = i3;
-                this.f27341c.a(i3);
-                e<T> eVar2 = this.f27341c;
+                int i3 = this.f27428h + 1;
+                this.f27428h = i3;
+                this.f27423c.a(i3);
+                e<T> eVar2 = this.f27423c;
                 b bVar2 = this.k;
-                eVar2.a(a2, bVar2.f27351d, bVar2.f27352e);
+                eVar2.a(a2, bVar2.f27433d, bVar2.f27434e);
                 l();
             }
         }
     }
 
     public h a(List<T> list) {
-        if (this.f27342d == null) {
+        if (this.f27424d == null) {
             com.bytedance.sdk.openadsdk.core.p.f();
         }
-        q<T> qVar = this.f27342d;
+        q<T> qVar = this.f27424d;
         if (qVar == null) {
             return null;
         }
@@ -362,14 +362,14 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void a(T t) {
-        c(this.f27343e);
-        this.f27341c.a((e<T>) t);
+        c(this.f27425e);
+        this.f27423c.a((e<T>) t);
         a("onHandleReceivedAdEvent mCloseSaveAndRetry is false, save event into db");
-        if (this.f27345g) {
+        if (this.f27427g) {
             return;
         }
         a("onHandleReceivedAdEvent");
-        this.f27343e.add(t);
+        this.f27425e.add(t);
         if (n()) {
             a("onHandleReceivedAdEvent upload");
             e();
@@ -377,20 +377,20 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void a(int i2, long j) {
-        Message obtainMessage = this.f27347i.obtainMessage();
+        Message obtainMessage = this.f27429i.obtainMessage();
         obtainMessage.what = i2;
-        this.f27347i.sendMessageDelayed(obtainMessage, j);
+        this.f27429i.sendMessageDelayed(obtainMessage, j);
     }
 
     public static boolean a(h hVar) {
-        return hVar.f27355b == 509;
+        return hVar.f27437b == 509;
     }
 
     private void a(String str) {
-        u.b(f27339a, str);
+        u.b(f27421a, str);
     }
 
     public static boolean b(h hVar) {
-        return hVar.f27357d;
+        return hVar.f27439d;
     }
 }

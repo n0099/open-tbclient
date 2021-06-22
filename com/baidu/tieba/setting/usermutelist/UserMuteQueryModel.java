@@ -13,10 +13,10 @@ public class UserMuteQueryModel extends BdBaseModel {
     public static int NET_SUCCESS;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20594e;
+    public b f20676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f20595f;
+    public d.a.c.c.g.a f20677f;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -36,7 +36,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                 if (list != null) {
                     arrayList.addAll(list);
                 }
-                UserMuteQueryModel.this.f20594e.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
+                UserMuteQueryModel.this.f20676e.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
             }
             if (responsedMessage instanceof UserMuteQueryHttpResponsedMessage) {
                 UserMuteQueryHttpResponsedMessage userMuteQueryHttpResponsedMessage = (UserMuteQueryHttpResponsedMessage) responsedMessage;
@@ -50,7 +50,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                         arrayList2.add(muteUser);
                     }
                 }
-                UserMuteQueryModel.this.f20594e.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
+                UserMuteQueryModel.this.f20676e.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
             }
         }
     }
@@ -62,11 +62,11 @@ public class UserMuteQueryModel extends BdBaseModel {
 
     public UserMuteQueryModel(b bVar) {
         a aVar = new a(CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
-        this.f20595f = aVar;
-        this.f20594e = bVar;
+        this.f20677f = aVar;
+        this.f20676e = bVar;
         registerListener(aVar);
-        d.a.n0.e3.d0.a.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
-        d.a.n0.e3.d0.a.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
+        d.a.o0.e3.d0.a.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -81,7 +81,7 @@ public class UserMuteQueryModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f20595f);
+        MessageManager.getInstance().unRegisterListener(this.f20677f);
     }
 
     public void x(long j) {

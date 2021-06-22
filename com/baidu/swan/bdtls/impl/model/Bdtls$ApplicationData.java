@@ -39,10 +39,10 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11510e;
+        public int f11592e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ByteString f11511f = ByteString.EMPTY;
+        public ByteString f11593f = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -88,16 +88,16 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         /* renamed from: n */
         public Bdtls$ApplicationData buildPartial() {
             Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this);
-            int i2 = (this.f11510e & 1) != 1 ? 0 : 1;
-            bdtls$ApplicationData.sKR_ = this.f11511f;
+            int i2 = (this.f11592e & 1) != 1 ? 0 : 1;
+            bdtls$ApplicationData.sKR_ = this.f11593f;
             bdtls$ApplicationData.bitField0_ = i2;
             return bdtls$ApplicationData;
         }
 
         public b o() {
             super.clear();
-            this.f11511f = ByteString.EMPTY;
-            this.f11510e &= -2;
+            this.f11593f = ByteString.EMPTY;
+            this.f11592e &= -2;
             return this;
         }
 
@@ -118,7 +118,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
 
         public boolean s() {
-            return (this.f11510e & 1) == 1;
+            return (this.f11592e & 1) == 1;
         }
 
         public b t(Bdtls$ApplicationData bdtls$ApplicationData) {
@@ -164,8 +164,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f11510e |= 1;
-                this.f11511f = byteString;
+                this.f11592e |= 1;
+                this.f11593f = byteString;
                 return this;
             }
             throw null;

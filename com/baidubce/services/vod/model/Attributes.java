@@ -2,7 +2,7 @@ package com.baidubce.services.vod.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Attributes {
     public String description;
     public String sourceExtension;

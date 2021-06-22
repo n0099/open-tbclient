@@ -29,7 +29,7 @@ import org.apache.http.protocol.HTTP;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f32341a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    public static final String f32439a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -42,10 +42,10 @@ public class h {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f32345a;
+        public final OutputStream f32443a;
 
         public b(File file, boolean z) {
-            this.f32345a = new FileOutputStream(file, z);
+            this.f32443a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -58,12 +58,12 @@ public class h {
 
         @Override // com.kwad.sdk.api.loader.h.d
         public void a(byte[] bArr, int i2, int i3) {
-            this.f32345a.write(bArr, i2, i3);
+            this.f32443a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f32345a.close();
+            this.f32443a.close();
         }
     }
 
@@ -311,7 +311,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f32341a, random.nextInt() + ".tmp");
+                    file2 = new File(f32439a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                     } catch (Throwable th5) {

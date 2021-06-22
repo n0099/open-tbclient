@@ -34,9 +34,9 @@ public class IdentityReviewActivity extends BaseActivity {
     public static final int STATUS_UPLOAD_FINISHED = 2;
     public long forumId;
     public View idCardView;
-    public d.a.n0.x.b.b mCheckModel;
+    public d.a.o0.x.b.b mCheckModel;
     public TextView mIdCardViewTitle;
-    public d.a.n0.x.b.c mModel;
+    public d.a.o0.x.b.c mModel;
     public NavigationBar mNavigationBar;
     public TbImageView mNegativeIdCard;
     public TextView mNegativeIdCardLogo;
@@ -45,7 +45,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView mPositiveIdCard;
     public TextView mPositiveIdCardLogo;
     public TextView mPositiveIdCardTip;
-    public d.a.n0.x.f.a mToastDialog;
+    public d.a.o0.x.f.a mToastDialog;
     public String negativeImagePath;
     public String positiveImgePath;
     public boolean needRetry = false;
@@ -71,9 +71,9 @@ public class IdentityReviewActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.negativeImagePath, "IDCardBack", 102)));
             } else if (view.getId() == R.id.bottom_next_button) {
                 IdentityReviewActivity identityReviewActivity3 = IdentityReviewActivity.this;
-                new d.a.n0.x.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
+                new d.a.o0.x.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
                 IdentityReviewActivity.this.needRetry = true;
-                IdentityReviewActivity.this.mToastDialog = new d.a.n0.x.f.a(IdentityReviewActivity.this);
+                IdentityReviewActivity.this.mToastDialog = new d.a.o0.x.f.a(IdentityReviewActivity.this);
                 IdentityReviewActivity.this.mToastDialog.setCancelable(true);
                 IdentityReviewActivity.this.mToastDialog.setCanceledOnTouchOutside(false);
                 IdentityReviewActivity.this.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
@@ -101,7 +101,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
             }
             if (str != null) {
-                d.a.m0.a0.c k = d.a.m0.a0.c.k();
+                d.a.n0.a0.c k = d.a.n0.a0.c.k();
                 k.h(str + 32);
             }
         }
@@ -136,7 +136,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     if (IdentityReviewActivity.this.mModel != null) {
                         IdentityReviewActivity.this.needRetry = false;
                         IdentityReviewActivity identityReviewActivity = IdentityReviewActivity.this;
-                        new d.a.n0.x.c.a(identityReviewActivity.positiveImgePath, 1, identityReviewActivity.mModel).execute(new Void[0]);
+                        new d.a.o0.x.c.a(identityReviewActivity.positiveImgePath, 1, identityReviewActivity.mModel).execute(new Void[0]);
                         return;
                     }
                     return;
@@ -157,7 +157,7 @@ public class IdentityReviewActivity extends BaseActivity {
                             return;
                         }
                         IdentityReviewActivity identityReviewActivity2 = IdentityReviewActivity.this;
-                        new d.a.n0.x.c.a(identityReviewActivity2.negativeImagePath, 2, identityReviewActivity2.mModel).execute(new Void[0]);
+                        new d.a.o0.x.c.a(identityReviewActivity2.negativeImagePath, 2, identityReviewActivity2.mModel).execute(new Void[0]);
                     }
                 } else if (IdentityReviewActivity.this.mCheckModel != null) {
                     IdentityReviewActivity.this.mCheckModel.a(IdentityReviewActivity.this.forumId);
@@ -253,8 +253,8 @@ public class IdentityReviewActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.identity_review_activity);
         this.forumId = getIntent().getLongExtra("fid", 0L);
-        this.mModel = new d.a.n0.x.b.c(getPageContext());
-        this.mCheckModel = new d.a.n0.x.b.b(getPageContext());
+        this.mModel = new d.a.o0.x.b.c(getPageContext());
+        this.mCheckModel = new d.a.o0.x.b.b(getPageContext());
         this.positiveImgePath = new File(TbadkCoreApplication.getInst().getFilesDir(), POSITIVE_IMAGE_NAME).getAbsolutePath();
         this.negativeImagePath = new File(TbadkCoreApplication.getInst().getFilesDir(), NEGATIVE_IMAGE_NAME).getAbsolutePath();
         this.idCardView = findViewById(R.id.id_card_view);
@@ -284,7 +284,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mNetMessageListener);
         MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
-        d.a.n0.x.f.a aVar = this.mToastDialog;
+        d.a.o0.x.f.a aVar = this.mToastDialog;
         if (aVar != null && aVar.isShowing()) {
             g.a(this.mToastDialog, this);
         }

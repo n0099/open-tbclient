@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static c a(String str, Map<String, String> map) {
         StringBuilder sb = new StringBuilder();
@@ -24,7 +24,7 @@ public class a {
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Accept", "application/json");
             httpURLConnection.setRequestProperty("User-Agent", k.a());
-            cVar.f34494a = httpURLConnection.getResponseCode();
+            cVar.f34592a = httpURLConnection.getResponseCode();
             InputStream inputStream = httpURLConnection.getInputStream();
             byte[] bArr = new byte[1024];
             while (true) {
@@ -37,7 +37,7 @@ public class a {
         } catch (MalformedURLException | IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        cVar.f34495b = sb.toString();
+        cVar.f34593b = sb.toString();
         return cVar;
     }
 
@@ -85,9 +85,9 @@ public class a {
                 outputStream2.flush();
             }
             int responseCode = httpURLConnection.getResponseCode();
-            cVar.f34494a = responseCode;
+            cVar.f34592a = responseCode;
             if (responseCode == 200) {
-                cVar.f34495b = a(httpURLConnection.getInputStream());
+                cVar.f34593b = a(httpURLConnection.getInputStream());
             }
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();

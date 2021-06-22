@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.JsonReader;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import d.a.l.c.f;
@@ -52,7 +53,7 @@ public class CommonUtils {
             String f2 = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
             String arrays = Arrays.toString(Build.VERSION.SDK_INT >= 21 ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI});
             if (!TextUtils.isEmpty(arrays)) {
-                arrays = arrays.replace("[", "").replace("]", "");
+                arrays = arrays.replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "");
             }
             sCPU = str + ";" + num + ";" + f2 + ";" + arrays;
         }

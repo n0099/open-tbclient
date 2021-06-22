@@ -17,86 +17,86 @@ import com.bytedance.sdk.openadsdk.utils.x;
 public abstract class BackupView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28311a;
+    public Context f28393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28312b;
+    public com.bytedance.sdk.openadsdk.core.d.l f28394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f28313c;
+    public com.bytedance.sdk.openadsdk.dislike.b f28395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTDislikeDialogAbstract f28314d;
+    public TTDislikeDialogAbstract f28396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28315e;
+    public String f28397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28316f;
+    public int f28398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28317g;
+    public int f28399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28318h;
+    public int f28400h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28319i;
+    public boolean f28401i;
     public boolean j;
 
     public BackupView(@NonNull Context context) {
         super(context);
-        this.f28315e = "embeded_ad";
-        this.f28319i = true;
+        this.f28397e = "embeded_ad";
+        this.f28401i = true;
         this.j = true;
         setTag("tt_express_backup_fl_tag_26");
     }
 
     private boolean b() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28312b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28394b;
         return lVar != null && com.bytedance.sdk.openadsdk.core.d.l.c(lVar);
     }
 
     public void a() {
-        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28314d;
+        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28396d;
         if (tTDislikeDialogAbstract != null) {
             tTDislikeDialogAbstract.show();
             return;
         }
-        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28313c;
+        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28395c;
         if (bVar != null) {
             bVar.showDislikeDialog();
         } else {
-            TTDelegateActivity.a(getContext(), this.f28312b);
+            TTDelegateActivity.a(getContext(), this.f28394b);
         }
     }
 
     public abstract void a(int i2, com.bytedance.sdk.openadsdk.core.d.j jVar);
 
     public String getDescription() {
-        if (TextUtils.isEmpty(this.f28312b.aj())) {
-            return !TextUtils.isEmpty(this.f28312b.ak()) ? this.f28312b.ak() : "";
+        if (TextUtils.isEmpty(this.f28394b.aj())) {
+            return !TextUtils.isEmpty(this.f28394b.ak()) ? this.f28394b.ak() : "";
         }
-        return this.f28312b.aj();
+        return this.f28394b.aj();
     }
 
     public String getNameOrSource() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28312b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28394b;
         if (lVar == null) {
             return "";
         }
-        if (lVar.an() == null || TextUtils.isEmpty(this.f28312b.an().c())) {
-            return !TextUtils.isEmpty(this.f28312b.Y()) ? this.f28312b.Y() : "";
+        if (lVar.an() == null || TextUtils.isEmpty(this.f28394b.an().c())) {
+            return !TextUtils.isEmpty(this.f28394b.Y()) ? this.f28394b.Y() : "";
         }
-        return this.f28312b.an().c();
+        return this.f28394b.an().c();
     }
 
     public float getRealHeight() {
-        return al.b(this.f28311a, this.f28317g);
+        return al.b(this.f28393a, this.f28399g);
     }
 
     public float getRealWidth() {
-        return al.b(this.f28311a, this.f28316f);
+        return al.b(this.f28393a, this.f28398f);
     }
 
     @Override // android.view.View
@@ -105,27 +105,27 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public String getTitle() {
-        if (this.f28312b.an() != null && !TextUtils.isEmpty(this.f28312b.an().c())) {
-            return this.f28312b.an().c();
+        if (this.f28394b.an() != null && !TextUtils.isEmpty(this.f28394b.an().c())) {
+            return this.f28394b.an().c();
         }
-        if (TextUtils.isEmpty(this.f28312b.Y())) {
-            return !TextUtils.isEmpty(this.f28312b.aj()) ? this.f28312b.aj() : "";
+        if (TextUtils.isEmpty(this.f28394b.Y())) {
+            return !TextUtils.isEmpty(this.f28394b.aj()) ? this.f28394b.aj() : "";
         }
-        return this.f28312b.Y();
+        return this.f28394b.Y();
     }
 
     public View getVideoView() {
         NativeVideoTsView nativeVideoTsView;
-        if (this.f28312b != null && this.f28311a != null) {
+        if (this.f28394b != null && this.f28393a != null) {
             if (b()) {
                 try {
-                    nativeVideoTsView = new NativeVideoTsView(this.f28311a, this.f28312b, this.f28315e, true, false);
+                    nativeVideoTsView = new NativeVideoTsView(this.f28393a, this.f28394b, this.f28397e, true, false);
                     nativeVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView.2
                         @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                         public void a(boolean z, long j, long j2, long j3, boolean z2) {
                         }
                     });
-                    nativeVideoTsView.setIsAutoPlay(this.f28319i);
+                    nativeVideoTsView.setIsAutoPlay(this.f28401i);
                     nativeVideoTsView.setIsQuiet(this.j);
                 } catch (Throwable unused) {
                 }
@@ -142,16 +142,16 @@ public abstract class BackupView extends FrameLayout {
 
     public void setDislikeInner(TTAdDislike tTAdDislike) {
         if (tTAdDislike instanceof com.bytedance.sdk.openadsdk.dislike.b) {
-            this.f28313c = (com.bytedance.sdk.openadsdk.dislike.b) tTAdDislike;
+            this.f28395c = (com.bytedance.sdk.openadsdk.dislike.b) tTAdDislike;
         }
     }
 
     public void setDislikeOuter(TTDislikeDialogAbstract tTDislikeDialogAbstract) {
         com.bytedance.sdk.openadsdk.core.d.l lVar;
-        if (tTDislikeDialogAbstract != null && (lVar = this.f28312b) != null) {
+        if (tTDislikeDialogAbstract != null && (lVar = this.f28394b) != null) {
             tTDislikeDialogAbstract.setMaterialMeta(lVar);
         }
-        this.f28314d = tTDislikeDialogAbstract;
+        this.f28396d = tTDislikeDialogAbstract;
     }
 
     @Override // android.view.View
@@ -165,14 +165,14 @@ public abstract class BackupView extends FrameLayout {
             return;
         }
         if (z) {
-            Context context = this.f28311a;
-            com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28312b;
-            String str = this.f28315e;
+            Context context = this.f28393a;
+            com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28394b;
+            String str = this.f28397e;
             bVar = new com.bytedance.sdk.openadsdk.core.a.a(context, lVar, str, ak.a(str));
         } else {
-            Context context2 = this.f28311a;
-            com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28312b;
-            String str2 = this.f28315e;
+            Context context2 = this.f28393a;
+            com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28394b;
+            String str2 = this.f28397e;
             bVar = new com.bytedance.sdk.openadsdk.core.a.b(context2, lVar2, str2, ak.a(str2));
         }
         view.setOnTouchListener(bVar);
@@ -186,25 +186,25 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public void a(int i2) {
-        this.j = p.h().a(this.f28318h);
+        this.j = p.h().a(this.f28400h);
         int c2 = p.h().c(i2);
         if (3 == c2) {
-            this.f28319i = false;
-        } else if (1 == c2 && x.d(this.f28311a)) {
-            this.f28319i = true;
+            this.f28401i = false;
+        } else if (1 == c2 && x.d(this.f28393a)) {
+            this.f28401i = true;
         } else if (2 == c2) {
-            if (x.e(this.f28311a) || x.d(this.f28311a)) {
-                this.f28319i = true;
+            if (x.e(this.f28393a) || x.d(this.f28393a)) {
+                this.f28401i = true;
             }
         }
     }
 
     public void a(View view) {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28312b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28394b;
         if (lVar == null || lVar.X() == null || view == null) {
             return;
         }
-        if (this.f28312b.k() == 1 && this.f28319i) {
+        if (this.f28394b.k() == 1 && this.f28401i) {
             a(view, true);
         } else {
             a(view, false);

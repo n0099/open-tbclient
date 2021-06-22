@@ -10,19 +10,19 @@ import com.baidu.adp.widget.SwipeBackLayout;
 public class ListViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13399e;
+    public float f13481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13400f;
+    public float f13482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13401g;
+    public float f13483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13402h;
+    public float f13484h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f13403i;
+    public GestureDetector f13485i;
     public boolean j;
     public SwipeBackLayout.c k;
 
@@ -47,7 +47,7 @@ public class ListViewPager extends ViewPager {
     }
 
     public final void c() {
-        this.f13403i = new GestureDetector((Context) null, new b());
+        this.f13485i = new GestureDetector((Context) null, new b());
     }
 
     public final boolean d(MotionEvent motionEvent) {
@@ -76,7 +76,7 @@ public class ListViewPager extends ViewPager {
                 return false;
             }
         }
-        if (getCurrentItem() != 0 && this.f13403i.onTouchEvent(motionEvent)) {
+        if (getCurrentItem() != 0 && this.f13485i.onTouchEvent(motionEvent)) {
             e(true);
         }
         try {
@@ -114,11 +114,11 @@ public class ListViewPager extends ViewPager {
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f13401g = motionEvent.getX() - this.f13399e;
-                    this.f13402h = motionEvent.getY() - this.f13400f;
-                    this.f13399e = motionEvent.getX();
-                    this.f13400f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f13401g) > Math.abs(this.f13402h)) {
+                    this.f13483g = motionEvent.getX() - this.f13481e;
+                    this.f13484h = motionEvent.getY() - this.f13482f;
+                    this.f13481e = motionEvent.getX();
+                    this.f13482f = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f13483g) > Math.abs(this.f13484h)) {
                         e(true);
                     }
                 } else if (action != 3) {
@@ -138,10 +138,10 @@ public class ListViewPager extends ViewPager {
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f13399e = 0.0f;
-            this.f13400f = 0.0f;
-            this.f13401g = 0.0f;
-            this.f13402h = 0.0f;
+            this.f13481e = 0.0f;
+            this.f13482f = 0.0f;
+            this.f13483g = 0.0f;
+            this.f13484h = 0.0f;
             if (d(motionEvent)) {
             }
         }
@@ -149,8 +149,8 @@ public class ListViewPager extends ViewPager {
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f13399e = motionEvent.getX();
-        this.f13400f = motionEvent.getY();
+        this.f13481e = motionEvent.getX();
+        this.f13482f = motionEvent.getY();
         if (d(motionEvent)) {
         }
     }

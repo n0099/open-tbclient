@@ -25,13 +25,13 @@ public class e extends RefreshLayout {
     public void a(AttributeSet attributeSet) {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_shoot_refresh_view, (ViewGroup) this, true);
         View findViewById = findViewById(R.id.ksad_slide_shoot_refresh_view);
-        this.f33558d = findViewById;
+        this.f33656d = findViewById;
         findViewById.setVisibility(8);
-        View view = this.f33558d;
+        View view = this.f33656d;
         if (!(view instanceof d)) {
             throw new ClassCastException("the refreshView must implement the interface IRefreshStatus");
         }
-        this.f33559e = (d) view;
+        this.f33657e = (d) view;
     }
 
     public void a(MotionEvent motionEvent) {

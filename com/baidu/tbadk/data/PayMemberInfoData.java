@@ -8,45 +8,45 @@ import tbclient.PayMemberInfo;
 public class PayMemberInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12782e;
+    public int f12864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12783f;
+    public int f12865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12784g;
+    public String f12866g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12785h;
+    public String f12867h;
 
     public void A(String str) {
-        this.f12785h = str;
+        this.f12867h = str;
     }
 
     public String getUrl() {
-        return this.f12784g;
+        return this.f12866g;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f12782e = jSONObject.optInt("props_id");
-        this.f12783f = jSONObject.optInt(ResultTB.ENDTIME, 0);
-        this.f12784g = jSONObject.optString(this.f12784g, "");
-        this.f12785h = jSONObject.optString("expire_remind");
+        this.f12864e = jSONObject.optInt("props_id");
+        this.f12865f = jSONObject.optInt(ResultTB.ENDTIME, 0);
+        this.f12866g = jSONObject.optString(this.f12866g, "");
+        this.f12867h = jSONObject.optString("expire_remind");
     }
 
     public int w() {
-        return this.f12783f;
+        return this.f12865f;
     }
 
     public String x() {
-        return this.f12785h;
+        return this.f12867h;
     }
 
     public int y() {
-        return this.f12782e;
+        return this.f12864e;
     }
 
     public void z(PayMemberInfo payMemberInfo) {
@@ -55,13 +55,13 @@ public class PayMemberInfoData extends OrmObject {
         }
         Integer num = payMemberInfo.props_id;
         if (num != null) {
-            this.f12782e = num.intValue();
+            this.f12864e = num.intValue();
         }
         Integer num2 = payMemberInfo.end_time;
         if (num2 != null) {
-            this.f12783f = num2.intValue();
+            this.f12865f = num2.intValue();
         }
-        this.f12784g = payMemberInfo.url;
-        this.f12785h = payMemberInfo.expire_remind;
+        this.f12866g = payMemberInfo.url;
+        this.f12867h = payMemberInfo.expire_remind;
     }
 }

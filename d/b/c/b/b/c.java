@@ -283,7 +283,7 @@ public class c extends Request<File> {
             aVar = this.A;
         }
         if (aVar != null) {
-            aVar.a(o.c(this.x, oVar.f69541b));
+            aVar.a(o.c(this.x, oVar.f69645b));
         }
     }
 

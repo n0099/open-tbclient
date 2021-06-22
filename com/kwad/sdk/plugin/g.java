@@ -10,11 +10,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class, e> f36791a = new ConcurrentHashMap();
+    public static final Map<Class, e> f36889a = new ConcurrentHashMap();
 
     @Nullable
     public static <T extends e> T a(Class<T> cls) {
-        T t = (T) f36791a.get(cls);
+        T t = (T) f36889a.get(cls);
         if (t != null) {
             return t;
         }
@@ -26,7 +26,7 @@ public final class g {
                         return null;
                     }
                 });
-                f36791a.put(cls, t2);
+                f36889a.put(cls, t2);
                 return t2;
             }
             return null;
@@ -37,6 +37,6 @@ public final class g {
     }
 
     public static void a(Class cls, e eVar) {
-        f36791a.put(cls, eVar);
+        f36889a.put(cls, eVar);
     }
 }

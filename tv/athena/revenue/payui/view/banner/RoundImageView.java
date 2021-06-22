@@ -20,19 +20,19 @@ import kotlin.jvm.internal.Intrinsics;
 public final class RoundImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72978e;
+    public int f73082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72979f;
+    public int f73083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72980g;
+    public int f73084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72981h;
+    public int f73085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f72982i;
+    public Paint f73086i;
     public Paint j;
 
     public RoundImageView(Context context) {
@@ -40,66 +40,66 @@ public final class RoundImageView extends ImageView {
     }
 
     public final void a(Canvas canvas) {
-        if (this.f72980g > 0) {
+        if (this.f73084g > 0) {
             int height = getHeight();
             Path path = new Path();
             float f2 = height;
-            path.moveTo(0.0f, f2 - this.f72980g);
+            path.moveTo(0.0f, f2 - this.f73084g);
             path.lineTo(0.0f, f2);
-            path.lineTo(this.f72980g, f2);
+            path.lineTo(this.f73084g, f2);
             float f3 = 2;
-            int i2 = this.f72980g;
+            int i2 = this.f73084g;
             path.arcTo(new RectF(0.0f, f2 - (i2 * f3), i2 * f3, f2), 90.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.f72982i);
+            canvas.drawPath(path, this.f73086i);
         }
     }
 
     public final void b(Canvas canvas) {
-        if (this.f72981h > 0) {
+        if (this.f73085h > 0) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
             float f3 = height;
-            path.moveTo(f2 - this.f72981h, f3);
+            path.moveTo(f2 - this.f73085h, f3);
             path.lineTo(f2, f3);
-            path.lineTo(f2, f3 - this.f72981h);
+            path.lineTo(f2, f3 - this.f73085h);
             float f4 = 2;
-            int i2 = this.f72981h;
+            int i2 = this.f73085h;
             path.arcTo(new RectF(f2 - (i2 * f4), f3 - (f4 * i2), f2, f3), 0.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.f72982i);
+            canvas.drawPath(path, this.f73086i);
         }
     }
 
     public final void c(Canvas canvas) {
-        if (this.f72978e > 0) {
+        if (this.f73082e > 0) {
             Path path = new Path();
-            path.moveTo(0.0f, this.f72978e);
+            path.moveTo(0.0f, this.f73082e);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.f72978e, 0.0f);
-            int i2 = this.f72978e;
+            path.lineTo(this.f73082e, 0.0f);
+            int i2 = this.f73082e;
             float f2 = 2;
             path.arcTo(new RectF(0.0f, 0.0f, i2 * f2, i2 * f2), -90.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.f72982i);
+            canvas.drawPath(path, this.f73086i);
         }
     }
 
     public final void d(Canvas canvas) {
-        if (this.f72979f > 0) {
+        if (this.f73083f > 0) {
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
-            path.moveTo(f2 - this.f72979f, 0.0f);
+            path.moveTo(f2 - this.f73083f, 0.0f);
             path.lineTo(f2, 0.0f);
-            path.lineTo(f2, this.f72979f);
+            path.lineTo(f2, this.f73083f);
             float f3 = 2;
-            int i2 = this.f72979f;
+            int i2 = this.f73083f;
             path.arcTo(new RectF(f2 - (i2 * f3), 0.0f, f2, i2 * f3), 0.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.f72982i);
+            canvas.drawPath(path, this.f73086i);
         }
     }
 
@@ -125,30 +125,30 @@ public final class RoundImageView extends ImageView {
     }
 
     public final void setBottomLeftRadius(int i2) {
-        this.f72980g = i2;
+        this.f73084g = i2;
         invalidate();
     }
 
     public final void setBottomRightRadius(int i2) {
-        this.f72981h = i2;
+        this.f73085h = i2;
         invalidate();
     }
 
     public final void setRadius(int i2) {
-        this.f72978e = i2;
-        this.f72979f = i2;
-        this.f72980g = i2;
-        this.f72981h = i2;
+        this.f73082e = i2;
+        this.f73083f = i2;
+        this.f73084g = i2;
+        this.f73085h = i2;
         invalidate();
     }
 
     public final void setTopLeftRadius(int i2) {
-        this.f72978e = i2;
+        this.f73082e = i2;
         invalidate();
     }
 
     public final void setTopRightRadius(int i2) {
-        this.f72979f = i2;
+        this.f73083f = i2;
         invalidate();
     }
 
@@ -158,18 +158,18 @@ public final class RoundImageView extends ImageView {
 
     public RoundImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f72982i = new Paint();
+        this.f73086i = new Paint();
         this.j = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_RoundImageView, i2, 0);
-        this.f72978e = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopLeftRadius, 0);
-        this.f72979f = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopRightRadius, 0);
-        this.f72980g = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomLeftRadius, 0);
-        this.f72981h = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomRightRadius, 0);
+        this.f73082e = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopLeftRadius, 0);
+        this.f73083f = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopRightRadius, 0);
+        this.f73084g = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomLeftRadius, 0);
+        this.f73085h = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomRightRadius, 0);
         obtainStyledAttributes.recycle();
-        this.f72982i.setColor(-1);
-        this.f72982i.setAntiAlias(true);
-        this.f72982i.setStyle(Paint.Style.FILL);
-        this.f72982i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f73086i.setColor(-1);
+        this.f73086i.setAntiAlias(true);
+        this.f73086i.setStyle(Paint.Style.FILL);
+        this.f73086i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         this.j.setXfermode(null);
     }
 }

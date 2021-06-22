@@ -118,7 +118,7 @@ public class RefresherView extends ViewGroup {
             } else {
                 RefresherView refresherView2 = RefresherView.this;
                 int i3 = this.f2523e;
-                refresherView2.w = (int) (refresherView2.y + (i3 * (1.0f - d.a.c.k.a.f42881a.getInterpolation(this.f2522d / i3))));
+                refresherView2.w = (int) (refresherView2.y + (i3 * (1.0f - d.a.c.k.a.f42984a.getInterpolation(this.f2522d / i3))));
                 this.f2519a = uptimeMillis;
                 this.f2520b = uptimeMillis + 16;
                 RefresherView.this.A.removeMessages(1000);
@@ -423,7 +423,7 @@ public class RefresherView extends ViewGroup {
             } else {
                 RefresherView refresherView2 = RefresherView.this;
                 float f3 = this.f2532i;
-                refresherView2.x = (int) (refresherView2.y + (f3 * (1.0f - d.a.c.k.a.f42881a.getInterpolation(this.f2531h / f3))));
+                refresherView2.x = (int) (refresherView2.y + (f3 * (1.0f - d.a.c.k.a.f42984a.getInterpolation(this.f2531h / f3))));
                 this.f2530g = uptimeMillis;
                 this.f2529f = uptimeMillis + 16;
                 removeMessages(1000);

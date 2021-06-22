@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import d.a.c.k.e.a;
-import d.a.n0.d1.c.n;
+import d.a.o0.d1.c.n;
 /* loaded from: classes4.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public HotTopicActivity m;
@@ -19,24 +19,24 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f16815a;
+        public int f16897a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.n0.d1.f.a f16816b;
+        public d.a.o0.d1.f.a f16898b;
 
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.n0.d1.f.a aVar) {
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.o0.d1.f.a aVar) {
             super(aVar.m());
-            this.f16815a = 3;
-            this.f16816b = aVar;
+            this.f16897a = 3;
+            this.f16898b = aVar;
         }
 
         public void b(int i2) {
-            if (this.f16815a != i2) {
-                d.a.n0.d1.f.a aVar = this.f16816b;
+            if (this.f16897a != i2) {
+                d.a.o0.d1.f.a aVar = this.f16898b;
                 if (aVar != null) {
                     aVar.o(aVar.k(), i2);
                 }
-                this.f16815a = i2;
+                this.f16897a = i2;
             }
         }
     }
@@ -57,7 +57,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public CardGroupRelateForumHolder Q(ViewGroup viewGroup) {
-        d.a.n0.d1.f.a aVar = new d.a.n0.d1.f.a(this.m.getPageContext());
+        d.a.o0.d1.f.a aVar = new d.a.o0.d1.f.a(this.m.getPageContext());
         aVar.q(e0());
         aVar.setFrom(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
         this.n = true;
@@ -68,8 +68,8 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: h0 */
     public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
-        d.a.n0.d1.f.a aVar;
-        if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f16816b) == null) {
+        d.a.o0.d1.f.a aVar;
+        if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f16898b) == null) {
             return null;
         }
         if (this.n) {

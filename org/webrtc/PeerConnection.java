@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -238,7 +239,7 @@ public class PeerConnection {
         }
 
         public String toString() {
-            return this.urls + " [" + this.username + ":" + this.password + "] [" + this.tlsCertPolicy + "] [" + this.hostname + "] [" + this.tlsAlpnProtocols + "] [" + this.tlsEllipticCurves + "]";
+            return this.urls + " [" + this.username + ":" + this.password + "] [" + this.tlsCertPolicy + "] [" + this.hostname + "] [" + this.tlsAlpnProtocols + "] [" + this.tlsEllipticCurves + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import d.a.c.k.e.n;
-import d.a.n0.b1.f.a.c;
-import d.a.n0.b1.f.a.f.a;
+import d.a.o0.b1.f.a.c;
+import d.a.o0.b1.f.a.f.a;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
@@ -16,12 +16,12 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         super(309661);
     }
 
-    @Override // d.a.n0.b1.f.a.f.a
+    @Override // d.a.o0.b1.f.a.f.a
     public List<n> getDataList() {
         return this.mHotTopicDataList;
     }
 
-    @Override // d.a.n0.b1.f.a.f.a
+    @Override // d.a.o0.b1.f.a.f.a
     public HotThreadListResIdl getResData() {
         return this.mData;
     }

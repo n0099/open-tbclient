@@ -13,32 +13,32 @@ import java.lang.reflect.Method;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f72060a;
+    public static Method f72164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f72061b;
+    public static Method f72165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f72062c;
+    public static Field f72166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f72063d;
+    public static int f72167d;
 
     static {
         try {
-            f72060a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f72164a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException unused) {
         }
         try {
-            f72061b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f72165b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException unused2) {
         }
         try {
-            f72062c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f72166c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException unused3) {
         }
         try {
-            f72063d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f72167d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException | NoSuchFieldException unused4) {
         }
     }
@@ -78,11 +78,11 @@ public class c {
 
     public static void c(Window window, int i2) {
         WindowManager.LayoutParams attributes = window.getAttributes();
-        Field field = f72062c;
+        Field field = f72166c;
         if (field != null) {
             try {
                 if (field.getInt(attributes) != i2) {
-                    f72062c.set(attributes, Integer.valueOf(i2));
+                    f72166c.set(attributes, Integer.valueOf(i2));
                     window.setAttributes(attributes);
                 }
             } catch (IllegalAccessException e2) {
@@ -92,7 +92,7 @@ public class c {
     }
 
     public static void d(Activity activity, int i2) {
-        Method method = f72060a;
+        Method method = f72164a;
         if (method != null) {
             try {
                 method.invoke(activity, Integer.valueOf(i2));
@@ -106,7 +106,7 @@ public class c {
             }
         }
         boolean b2 = b(i2, 50);
-        if (f72062c != null) {
+        if (f72166c != null) {
             f(activity, b2, b2);
             h(activity.getWindow(), i2);
             return;
@@ -119,7 +119,7 @@ public class c {
     }
 
     public static void f(Activity activity, boolean z, boolean z2) {
-        Method method = f72061b;
+        Method method = f72165b;
         if (method == null) {
             if (z2) {
                 i(activity.getWindow(), z);
@@ -140,9 +140,9 @@ public class c {
         int i2;
         int systemUiVisibility = view.getSystemUiVisibility();
         if (z) {
-            i2 = f72063d | systemUiVisibility;
+            i2 = f72167d | systemUiVisibility;
         } else {
-            i2 = (~f72063d) & systemUiVisibility;
+            i2 = (~f72167d) & systemUiVisibility;
         }
         if (i2 != systemUiVisibility) {
             view.setSystemUiVisibility(i2);

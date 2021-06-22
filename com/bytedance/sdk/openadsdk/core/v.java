@@ -21,10 +21,10 @@ import java.lang.reflect.Method;
 public class v implements TTAdManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28483a = "com.union_test.toutiao";
+    public String f28565a = "com.union_test.toutiao";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28484b = "5001121";
+    public String f28566b = "5001121";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -89,7 +89,7 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public boolean onlyVerityPlayable(String str, int i2, String str2, String str3, String str4) {
-        if (this.f28483a.equals(p.a().getPackageName()) && this.f28484b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
+        if (this.f28565a.equals(p.a().getPackageName()) && this.f28566b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
             try {
                 Method a2 = ai.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                 if (a2 != null) {

@@ -26,19 +26,19 @@ public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21580e;
+    public b f21662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21581f;
+    public int f21663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21582g;
+    public String f21664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21583h;
+    public String f21665h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21584i;
+    public boolean f21666i;
     public VideoItemData j;
     public String k;
     public String l;
@@ -57,11 +57,11 @@ public class VideoPlayModel extends BdBaseModel {
                 ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
                 if (responseGetNaniVideoMessage.getError() == 0) {
                     TbSingleton.getInstance().clearVideoRecord();
-                    if (VideoPlayModel.this.f21580e != null) {
-                        if (VideoPlayModel.this.f21581f == 1) {
-                            VideoPlayModel.this.f21580e.a(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                    if (VideoPlayModel.this.f21662e != null) {
+                        if (VideoPlayModel.this.f21663f == 1) {
+                            VideoPlayModel.this.f21662e.a(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                         } else {
-                            VideoPlayModel.this.f21580e.b(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                            VideoPlayModel.this.f21662e.b(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                         }
                     }
                     VideoPlayModel.y(VideoPlayModel.this);
@@ -86,8 +86,8 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int y(VideoPlayModel videoPlayModel) {
-        int i2 = videoPlayModel.f21581f;
-        videoPlayModel.f21581f = i2 + 1;
+        int i2 = videoPlayModel.f21663f;
+        videoPlayModel.f21663f = i2 + 1;
         return i2;
     }
 
@@ -97,10 +97,10 @@ public class VideoPlayModel extends BdBaseModel {
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
         httpMessage.addParam("tid", this.j.thread_id);
-        httpMessage.addParam("st_type", this.f21582g);
-        httpMessage.addParam("yuelaou_locate", this.f21583h);
-        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, this.f21584i ? "1" : "0");
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f21581f);
+        httpMessage.addParam("st_type", this.f21664g);
+        httpMessage.addParam("yuelaou_locate", this.f21665h);
+        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, this.f21666i ? "1" : "0");
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21663f);
         httpMessage.addParam("user_view_data", z());
         BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
         if (baijiahaoData != null) {
@@ -113,20 +113,20 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void B(VideoItemData videoItemData, String str, String str2, boolean z) {
-        this.f21581f = 1;
+        this.f21663f = 1;
         if (videoItemData == null) {
             return;
         }
-        this.f21582g = str;
-        this.f21583h = str2;
-        this.f21584i = z;
+        this.f21664g = str;
+        this.f21665h = str2;
+        this.f21666i = z;
         this.j = videoItemData;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
         httpMessage.addParam("tid", videoItemData.thread_id);
         httpMessage.addParam("st_type", str);
         httpMessage.addParam("yuelaou_locate", str2);
         httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, z ? "1" : "0");
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f21581f);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21663f);
         httpMessage.addParam("user_view_data", z());
         if ("frs".equals(this.k)) {
             this.l = "client_frs";
@@ -147,7 +147,7 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void C(b bVar) {
-        this.f21580e = bVar;
+        this.f21662e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -166,13 +166,13 @@ public class VideoPlayModel extends BdBaseModel {
 
     public final String z() {
         JSONArray jSONArray = new JSONArray();
-        LinkedList<d.a.m0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+        LinkedList<d.a.n0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {
             try {
                 if (videoRecordList.size() > 0) {
-                    Iterator<d.a.m0.g.a> it = videoRecordList.iterator();
+                    Iterator<d.a.n0.g.a> it = videoRecordList.iterator();
                     while (it.hasNext()) {
-                        d.a.m0.g.a next = it.next();
+                        d.a.n0.g.a next = it.next();
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("tid", next.a());
                         jSONObject.put("duration", next.b());

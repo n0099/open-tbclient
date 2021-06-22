@@ -6,13 +6,13 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.a.m0.r.f0.q.b;
+import d.a.n0.r.f0.q.b;
 /* loaded from: classes5.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public String s;
     public String t;
-    public d.a.m0.r.f0.m.b u;
-    public d.a.m0.r.f0.m.b v;
+    public d.a.n0.r.f0.m.b u;
+    public d.a.n0.r.f0.m.b v;
     public View.OnClickListener w;
 
     public PbFirstFloorUserLikeButton(Context context) {
@@ -25,10 +25,10 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         this.t = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.T_X08);
         setText(this.t);
-        d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
+        d.a.n0.r.f0.m.b bVar = new d.a.n0.r.f0.m.b();
         this.u = bVar;
         bVar.q(R.color.CAM_X0302);
-        d.a.m0.r.f0.m.b bVar2 = new d.a.m0.r.f0.m.b();
+        d.a.n0.r.f0.m.b bVar2 = new d.a.n0.r.f0.m.b();
         this.v = bVar2;
         bVar2.r(R.color.CAM_X0109);
         setConfig(this.u);
@@ -41,22 +41,22 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void b(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void c(boolean z, int i2, boolean z2) {
         s(z);
         setVisibility(0);
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void d(int i2) {
     }
 
-    @Override // d.a.m0.r.f0.q.b
+    @Override // d.a.n0.r.f0.q.b
     public void e(boolean z, int i2) {
         s(z);
     }
@@ -66,11 +66,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     }
 
     public void s(boolean z) {
-        Object obj = this.f12535e;
+        Object obj = this.f12617e;
         if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
             return;
         }
-        this.f12535e = Boolean.valueOf(z);
+        this.f12617e = Boolean.valueOf(z);
         if (z) {
             setVisibility(8);
             setClickable(false);

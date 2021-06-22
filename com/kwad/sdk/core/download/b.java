@@ -2,7 +2,7 @@ package com.kwad.sdk.core.download;
 
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends com.ksad.download.c {
     private String g(DownloadTask downloadTask) {
         return t.a(downloadTask.getUrl());

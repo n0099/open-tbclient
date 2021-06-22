@@ -56,57 +56,57 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.k.e.n;
 import d.a.c.k.e.q;
 import d.a.c.k.e.w;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.w0;
-import d.a.m0.r.q.z1;
-import d.a.n0.e3.m;
-import d.a.n0.e3.s;
-import d.a.n0.r0.q0;
-import d.a.n0.r0.r0;
-import d.a.n0.r0.s0;
-import d.a.n0.t2.u;
-import d.a.n0.z.t;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.w0;
+import d.a.n0.r.q.z1;
+import d.a.o0.e3.m;
+import d.a.o0.e3.s;
+import d.a.o0.r0.q0;
+import d.a.o0.r0.r0;
+import d.a.o0.r0.s0;
+import d.a.o0.t2.u;
+import d.a.o0.z.t;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a.n0.r0.d2.a, UserIconBox.c, BdListView.p, FrsCommonImageLayout.e, q0, ActivityCompat.OnRequestPermissionsResultCallback, u, r0, d.a.n0.e.e.b, s0 {
-    public d.a.m0.d0.c A;
+public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a.o0.r0.d2.a, UserIconBox.c, BdListView.p, FrsCommonImageLayout.e, q0, ActivityCompat.OnRequestPermissionsResultCallback, u, r0, d.a.o0.e.e.b, s0 {
+    public d.a.n0.d0.c A;
     public String B;
     public boolean E;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15656e;
+    public String f15738e;
     public VoiceManager m;
     public long o;
     public FrsGoodModelController q;
     public FrsLoadMoreModel r;
-    public d.a.n0.r0.x1.b y;
+    public d.a.o0.r0.x1.b y;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15657f = null;
+    public String f15739f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15658g = null;
+    public String f15740g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15659h = 0;
+    public int f15741h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15660i = 1;
+    public int f15742i = 1;
     public boolean j = false;
     public String k = null;
     public FrsViewData l = new FrsViewData();
     public long n = -1;
     public long p = -1;
-    public d.a.n0.r0.a2.a s = null;
+    public d.a.o0.r0.a2.a s = null;
     public int t = -1;
     public int u = 0;
     public int v = 3;
     public boolean w = false;
-    public SparseArray<d.a.n0.e.e.a> x = new SparseArray<>();
+    public SparseArray<d.a.o0.e.e.a> x = new SparseArray<>();
     public boolean z = false;
     public int C = 0;
     public int D = 0;
@@ -130,7 +130,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             if (i2 == 0) {
                 t.b().e(true);
-                d.a.n0.d3.c.g().h(FrsGoodFragment.this.getUniqueId(), true);
+                d.a.o0.d3.c.g().h(FrsGoodFragment.this.getUniqueId(), true);
             }
         }
 
@@ -171,15 +171,15 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f15664e;
+            public final /* synthetic */ String f15746e;
 
             public a(c cVar, String str) {
-                this.f15664e = str;
+                this.f15746e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetWork netWork = new NetWork(this.f15664e);
+                NetWork netWork = new NetWork(this.f15746e);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                 netWork.getNetData();
@@ -198,10 +198,10 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             a2 a2Var = ((z1) nVar).w;
             if (a2Var.O() == null || a2Var.O().getGroup_id() == 0 || ViewHelper.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
                 if (a2Var.G() != 1 || ViewHelper.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
-                    d.a.n0.e3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                    d.a.o0.e3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null && !readThreadHistory.d(a2Var.o0())) {
                         readThreadHistory.a(a2Var.o0());
-                        d.a.n0.r0.a2.a aVar = FrsGoodFragment.this.s;
+                        d.a.o0.r0.a2.a aVar = FrsGoodFragment.this.s;
                         if (aVar != null) {
                             aVar.v();
                         }
@@ -224,22 +224,22 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                     if (z1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB) && z1.length() > 3 && z1.length() > 3) {
                         a2Var.I3(z1.substring(3));
                     }
-                    PbActivityConfig createFromThreadCfg = new PbActivityConfig(FrsGoodFragment.this.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, FrsGoodFragment.this.f15657f, "frs_page", 18003, true, false, z);
+                    PbActivityConfig createFromThreadCfg = new PbActivityConfig(FrsGoodFragment.this.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, FrsGoodFragment.this.f15739f, "frs_page", 18003, true, false, z);
                     createFromThreadCfg.setForumId(String.valueOf(a2Var.c0()));
                     createFromThreadCfg.setStartFrom(3);
                     FrsGoodFragment.this.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
                     if (FrsGoodFragment.this.l == null || FrsGoodFragment.this.l.getForum() == null) {
                         return;
                     }
-                    d.a.n0.r0.j2.b bVar = new d.a.n0.r0.j2.b();
-                    bVar.f62465a = FrsGoodFragment.this.l.needLog == 1;
-                    bVar.f62467c = FrsGoodFragment.this.l.getForum().getId();
-                    d.a.n0.r0.j2.b bVar2 = d.a.n0.r0.j2.d.L0;
+                    d.a.o0.r0.j2.b bVar = new d.a.o0.r0.j2.b();
+                    bVar.f62590a = FrsGoodFragment.this.l.needLog == 1;
+                    bVar.f62592c = FrsGoodFragment.this.l.getForum().getId();
+                    d.a.o0.r0.j2.b bVar2 = d.a.o0.r0.j2.d.h0;
                     if (bVar2 != null) {
-                        bVar.f62468d = bVar2.f62468d;
-                        bVar.f62469e = bVar2.f62469e;
+                        bVar.f62593d = bVar2.f62593d;
+                        bVar.f62594e = bVar2.f62594e;
                     }
-                    d.a.n0.r0.j2.a.c(a2Var, 1, FrsGoodFragment.this.getUniqueId(), bVar, FrsGoodFragment.this.getTbPageTag());
+                    d.a.o0.r0.j2.a.c(a2Var, 1, FrsGoodFragment.this.getUniqueId(), bVar, FrsGoodFragment.this.getTbPageTag());
                 }
             }
         }
@@ -254,7 +254,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.n0.r0.a2.a aVar = FrsGoodFragment.this.s;
+            d.a.o0.r0.a2.a aVar = FrsGoodFragment.this.s;
             if (aVar != null) {
                 aVar.y();
             }
@@ -306,8 +306,8 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 return;
             }
             a2 a2Var = (a2) customResponsedMessage.getData();
-            FrsGoodFragment.this.f15656e = a2Var.o0();
-            if (TextUtils.isEmpty(FrsGoodFragment.this.f15656e) || a2Var.R0() == null) {
+            FrsGoodFragment.this.f15738e = a2Var.o0();
+            if (TextUtils.isEmpty(FrsGoodFragment.this.f15738e) || a2Var.R0() == null) {
                 return;
             }
             FrsGoodFragment.this.E1(a2Var.R0().getIsLike());
@@ -335,7 +335,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                     FrsGoodFragment.this.r1(false);
                     return;
                 }
-                d.a.n0.r0.a2.a aVar = FrsGoodFragment.this.s;
+                d.a.o0.r0.a2.a aVar = FrsGoodFragment.this.s;
                 if (aVar != null) {
                     aVar.Z();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
@@ -348,12 +348,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     public class i implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f15670a = 1;
+        public long f15752a = 1;
 
         public i() {
         }
 
-        @Override // d.a.n0.e3.s
+        @Override // d.a.o0.e3.s
         public void a(int i2) {
             if (FrsGoodFragment.this.z) {
                 return;
@@ -366,16 +366,16 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             }
         }
 
-        @Override // d.a.n0.e3.s
+        @Override // d.a.o0.e3.s
         public void b() {
         }
 
-        @Override // d.a.n0.e3.s
+        @Override // d.a.o0.e3.s
         public void c(m mVar) {
         }
 
-        @Override // d.a.n0.e3.s
-        public void d(int i2, boolean z, d.a.n0.e3.f fVar) {
+        @Override // d.a.o0.e3.s
+        public void d(int i2, boolean z, d.a.o0.e3.f fVar) {
             ArrayList<n> C;
             if (FrsGoodFragment.this.z) {
                 if (FrsGoodFragment.this.l1().x() == null) {
@@ -388,11 +388,11 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 }
             }
             if (fVar == null) {
-                this.f15670a = 1L;
-            } else if (fVar.f57648b) {
-                this.f15670a = 0L;
+                this.f15752a = 1L;
+            } else if (fVar.f57773b) {
+                this.f15752a = 0L;
             } else {
-                this.f15670a = 1L;
+                this.f15752a = 1L;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (i2 == 3) {
@@ -421,7 +421,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 if (C2 != null) {
                     FrsGoodFragment.this.l.setThreadList(C2);
                     FrsGoodFragment frsGoodFragment3 = FrsGoodFragment.this;
-                    frsGoodFragment3.s.T(C2, frsGoodFragment3.f15660i, FrsGoodFragment.this.l, FrsGoodFragment.this.t);
+                    frsGoodFragment3.s.T(C2, frsGoodFragment3.f15742i, FrsGoodFragment.this.l, FrsGoodFragment.this.t);
                     return;
                 }
                 return;
@@ -436,12 +436,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 FrsGoodFragment.this.s.v();
             }
             FrsGoodFragment.this.o();
-            if (this.f15670a != 0) {
+            if (this.f15752a != 0) {
                 FrsGoodFragment.this.B1(fVar);
             } else {
                 if (FrsGoodFragment.this.l != null) {
                     FrsGoodFragment frsGoodFragment4 = FrsGoodFragment.this;
-                    frsGoodFragment4.f15657f = frsGoodFragment4.l.getForum().getName();
+                    frsGoodFragment4.f15739f = frsGoodFragment4.l.getForum().getName();
                     FrsGoodFragment frsGoodFragment5 = FrsGoodFragment.this;
                     frsGoodFragment5.k = frsGoodFragment5.l.getForum().getId();
                     FrsGoodFragment frsGoodFragment6 = FrsGoodFragment.this;
@@ -460,7 +460,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 } else {
                     FrsGoodFragment frsGoodFragment8 = FrsGoodFragment.this;
                     frsGoodFragment8.showToast(frsGoodFragment8.getPageContext().getString(R.string.no_more_to_load));
-                    if (FrsGoodFragment.this.f15660i > 1) {
+                    if (FrsGoodFragment.this.f15742i > 1) {
                         FrsGoodFragment.N0(FrsGoodFragment.this);
                     }
                     if (FrsGoodFragment.this.n > -1) {
@@ -497,7 +497,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.n0.r0.a2.a aVar;
+            d.a.o0.r0.a2.a aVar;
             if (customResponsedMessage == null || (aVar = FrsGoodFragment.this.s) == null) {
                 return;
             }
@@ -527,18 +527,18 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.n0.e3.n0.a.o(FrsGoodFragment.this.f15657f);
+            d.a.o0.e3.n0.a.o(FrsGoodFragment.this.f15739f);
         }
     }
 
     public static /* synthetic */ int N0(FrsGoodFragment frsGoodFragment) {
-        int i2 = frsGoodFragment.f15660i;
-        frsGoodFragment.f15660i = i2 - 1;
+        int i2 = frsGoodFragment.f15742i;
+        frsGoodFragment.f15742i = i2 - 1;
         return i2;
     }
 
     public final void A1() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null) {
             return;
         }
@@ -546,8 +546,8 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         showLoadingView(this.s.o(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
     }
 
-    public final void B1(d.a.n0.e3.f fVar) {
-        d.a.n0.r0.a2.a aVar = this.s;
+    public final void B1(d.a.o0.e3.f fVar) {
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null) {
             return;
         }
@@ -557,7 +557,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         this.s.n().getData().clear();
         this.s.v();
         if (this.A == null) {
-            d.a.m0.d0.c cVar = new d.a.m0.d0.c(getPageContext().getContext(), getNetRefreshListener());
+            d.a.n0.d0.c cVar = new d.a.n0.d0.c(getPageContext().getContext(), getNetRefreshListener());
             this.A = cVar;
             cVar.e(null);
             this.A.c(null);
@@ -565,7 +565,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             this.A.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         if (fVar != null) {
-            this.A.d(getPageContext().getResources().getString(R.string.net_error_text, fVar.f57650d, Integer.valueOf(fVar.f57649c)));
+            this.A.d(getPageContext().getResources().getString(R.string.net_error_text, fVar.f57775d, Integer.valueOf(fVar.f57774c)));
         } else {
             this.A.d(null);
         }
@@ -618,9 +618,9 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         }
     }
 
-    @Override // d.a.n0.r0.q0
+    @Override // d.a.o0.r0.q0
     public void E0() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null || aVar.n() == null) {
             return;
         }
@@ -638,9 +638,9 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 n next = it.next();
                 if (next instanceof z1) {
                     a2 a2Var = ((z1) next).w;
-                    if (a2Var.o0() != null && a2Var.o0().equals(this.f15656e)) {
+                    if (a2Var.o0() != null && a2Var.o0().equals(this.f15738e)) {
                         D1(a2Var, i2);
-                        this.f15656e = null;
+                        this.f15738e = null;
                         break;
                     }
                 }
@@ -650,12 +650,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         }
     }
 
-    @Override // d.a.n0.t2.u
+    @Override // d.a.o0.t2.u
     public String G() {
         return this.k;
     }
 
-    @Override // d.a.n0.t2.u
+    @Override // d.a.o0.t2.u
     public void P() {
         FrsGoodModelController frsGoodModelController = this.q;
         if (frsGoodModelController != null) {
@@ -672,13 +672,13 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         ArrayList<n> C = this.r.C(false, false, false, arrayList, null);
         if (C != null) {
             this.l.setThreadList(C);
-            this.s.T(C, this.f15660i, this.l, 0);
+            this.s.T(C, this.f15742i, this.l, 0);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, this.l.getForum()));
     }
 
-    @Override // d.a.n0.e.e.b
-    public void dispatchInjectPluginMessage(d.a.n0.e.d dVar) {
+    @Override // d.a.o0.e.e.b
+    public void dispatchInjectPluginMessage(d.a.o0.e.d dVar) {
     }
 
     public void g1(w0 w0Var) {
@@ -688,14 +688,14 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         if (ListUtils.isEmpty(j0().getThreadList())) {
             j0().getThreadList().add(w0Var);
         } else {
-            if (j0().getThreadList().size() == 1 && (j0().getThreadList().get(0) instanceof d.a.n0.r0.t)) {
+            if (j0().getThreadList().size() == 1 && (j0().getThreadList().get(0) instanceof d.a.o0.r0.t)) {
                 j0().getThreadList().remove(0);
             }
             j0().getThreadList().add(0, w0Var);
         }
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         ArrayList<n> threadList = this.l.getThreadList();
-        int i2 = this.f15660i;
+        int i2 = this.f15742i;
         FrsViewData frsViewData = this.l;
         aVar.T(threadList, i2, frsViewData, frsViewData.getPage().b());
         this.s.H();
@@ -710,12 +710,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         return null;
     }
 
-    @Override // d.a.n0.e.e.b
-    public d.a.n0.e.e.a getInjectPlugin(int i2) {
+    @Override // d.a.o0.e.e.b
+    public d.a.o0.e.e.a getInjectPlugin(int i2) {
         return this.x.get(i2);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.r0.d2.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.o0.r0.d2.a
     public /* bridge */ /* synthetic */ d.a.c.a.f getPageContext() {
         return super.getPageContext();
     }
@@ -729,7 +729,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     public TbPageTag getTbPageTag() {
         TbPageTag tbPageTag = super.getTbPageTag();
         FrsViewData frsViewData = this.l;
-        tbPageTag.sortType = d.a.n0.r0.n2.k.g(frsViewData != null ? frsViewData.getSortType() : -1);
+        tbPageTag.sortType = d.a.o0.r0.n2.k.g(frsViewData != null ? frsViewData.getSortType() : -1);
         tbPageTag.locatePage = "a072";
         return tbPageTag;
     }
@@ -750,12 +750,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         return this.m;
     }
 
-    @Override // d.a.n0.r0.d2.a, d.a.n0.r0.u0
+    @Override // d.a.o0.r0.d2.a, d.a.o0.r0.u0
     public String h() {
-        return this.f15657f;
+        return this.f15739f;
     }
 
-    @Override // d.a.n0.r0.r0
+    @Override // d.a.o0.r0.r0
     public NavigationBar h0() {
         return null;
     }
@@ -781,14 +781,14 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     }
 
     public BdTypeRecyclerView i1() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null) {
             return null;
         }
         return aVar.n();
     }
 
-    @Override // d.a.n0.r0.d2.a
+    @Override // d.a.o0.r0.d2.a
     public FrsViewData j0() {
         return this.l;
     }
@@ -804,9 +804,9 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         return this.r;
     }
 
-    @Override // d.a.n0.r0.s0
+    @Override // d.a.o0.r0.s0
     public void l() {
-        d.a.n0.d3.c.g().h(getUniqueId(), false);
+        d.a.o0.d3.c.g().h(getUniqueId(), false);
     }
 
     public FrsGoodModelController l1() {
@@ -814,26 +814,26 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     }
 
     public final void m1() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null) {
             return;
         }
         aVar.J(true);
         this.s.N(true);
-        d.a.m0.d0.c cVar = this.A;
+        d.a.n0.d0.c cVar = this.A;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
         this.A.dettachView(this.s.o());
     }
 
-    @Override // d.a.n0.r0.s0
+    @Override // d.a.o0.r0.s0
     public void n() {
         if (getPageContext() != null) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
         }
         if (d.a.c.e.p.j.z()) {
-            d.a.n0.o.d.c().f("page_frs_good");
+            d.a.o0.o.d.c().f("page_frs_good");
             r1(true);
             return;
         }
@@ -845,7 +845,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     }
 
     public final void o() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null) {
             return;
         }
@@ -856,18 +856,18 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     public final void o1(Bundle bundle) {
         n1();
         if (bundle != null) {
-            this.f15657f = bundle.getString("name");
-            this.f15658g = bundle.getString("from");
-            this.f15659h = bundle.getInt("flag", 0);
+            this.f15739f = bundle.getString("name");
+            this.f15740g = bundle.getString("from");
+            this.f15741h = bundle.getInt("flag", 0);
         } else {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f15657f = arguments.getString("name");
-                this.f15658g = arguments.getString("from");
-                this.f15659h = arguments.getInt("flag", 0);
+                this.f15739f = arguments.getString("name");
+                this.f15740g = arguments.getString("from");
+                this.f15741h = arguments.getInt("flag", 0);
             }
         }
-        if (TextUtils.isEmpty(this.f15658g) || !FrsActivityConfig.FRS_FROM_WRITESHARE.equals(this.f15658g)) {
+        if (TextUtils.isEmpty(this.f15740g) || !FrsActivityConfig.FRS_FROM_WRITESHARE.equals(this.f15740g)) {
             return;
         }
         getBaseFragmentActivity().setSwipeBackEnabled(false);
@@ -892,7 +892,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 this.l.removeThreadData(threadDataById);
                 ArrayList<n> threadList = this.l.getThreadList();
                 if (threadList != null && threadList.size() <= 0) {
-                    threadList.add(new d.a.n0.r0.t());
+                    threadList.add(new d.a.o0.r0.t());
                 }
                 this.s.H();
             }
@@ -906,11 +906,11 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         }
         this.v = i2;
         super.onChangeSkinType(i2);
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar != null) {
             aVar.w(i2);
         }
-        d.a.m0.d0.c cVar = this.A;
+        d.a.n0.d0.c cVar = this.A;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
@@ -931,7 +931,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         }
         this.p = System.currentTimeMillis();
         super.onCreate(bundle);
-        d.a.n0.d3.c.g().i(getUniqueId());
+        d.a.o0.d3.c.g().i(getUniqueId());
         FrsGoodModelController frsGoodModelController = new FrsGoodModelController(this);
         this.q = frsGoodModelController;
         if (arguments != null) {
@@ -957,7 +957,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         frsLoadMoreModel.registerListener();
         this.r.S(2);
         this.r.P(true);
-        this.r.O(d.a.n0.t0.a.a(this.E));
+        this.r.O(d.a.o0.t0.a.a(this.E));
         System.currentTimeMillis();
         this.C = UtilHelper.getScreenHeight(getActivity());
     }
@@ -965,7 +965,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_good_activity, (ViewGroup) null);
-        d.a.n0.r0.a2.a aVar = new d.a.n0.r0.a2.a(this, inflate, this.j);
+        d.a.o0.r0.a2.a aVar = new d.a.o0.r0.a2.a(this, inflate, this.j);
         this.s = aVar;
         aVar.m().A();
         p1();
@@ -974,12 +974,12 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar != null) {
             aVar.x();
         }
         MessageManager.getInstance().unRegisterListener(this.F);
-        d.a.n0.d3.c.g().k(getUniqueId());
+        d.a.o0.d3.c.g().k(getUniqueId());
         t.b().e(false);
         super.onDestroy();
         this.q.H();
@@ -1068,7 +1068,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar != null) {
             aVar.v();
         }
@@ -1080,8 +1080,8 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("name", this.f15657f);
-        bundle.putString("from", this.f15658g);
+        bundle.putString("name", this.f15739f);
+        bundle.putString("from", this.f15740g);
         bundle.putBoolean("is_game_frs", this.j);
         this.q.onSaveInstanceState(bundle);
         VoiceManager voiceManager = getVoiceManager();
@@ -1105,15 +1105,15 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             }
             if (this.r.A(this.l.getThreadListIds())) {
                 FrsViewData frsViewData = this.l;
-                String e2 = d.a.n0.t2.a.e(frsViewData != null ? frsViewData.getThreadList() : null, false);
-                this.s.T(this.r.L(), this.f15660i, this.l, 0);
-                this.r.M(d.a.c.e.m.b.f(this.k, 0L), this.l.getThreadListIds(), this.f15657f, this.f15660i, this.l.isBrandForum, e2);
+                String e2 = d.a.o0.t2.a.e(frsViewData != null ? frsViewData.getThreadList() : null, false);
+                this.s.T(this.r.L(), this.f15742i, this.l, 0);
+                this.r.M(d.a.c.e.m.b.f(this.k, 0L), this.l.getThreadListIds(), this.f15739f, this.f15742i, this.l.isBrandForum, e2);
             } else if (this.t != 0) {
                 FrsViewData frsViewData2 = this.l;
-                String e3 = d.a.n0.t2.a.e(frsViewData2 != null ? frsViewData2.getThreadList() : null, false);
-                this.s.T(this.r.L(), this.f15660i, this.l, 0);
-                int i2 = this.f15660i + 1;
-                this.f15660i = i2;
+                String e3 = d.a.o0.t2.a.e(frsViewData2 != null ? frsViewData2.getThreadList() : null, false);
+                this.s.T(this.r.L(), this.f15742i, this.l, 0);
+                int i2 = this.f15742i + 1;
+                this.f15742i = i2;
                 this.q.G(i2, e3);
                 FrsLoadMoreModel frsLoadMoreModel = this.r;
                 frsLoadMoreModel.loadingDone = false;
@@ -1134,10 +1134,10 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     public void onStop() {
         super.onStop();
         t.b().e(false);
-        d.a.n0.d3.c.g().h(getUniqueId(), false);
+        d.a.o0.d3.c.g().h(getUniqueId(), false);
         FrsViewData frsViewData = this.l;
         if (frsViewData != null && frsViewData.getForum() != null) {
-            d.a.m0.u.a.k().y(getPageContext().getPageActivity(), "frs", this.l.getForum().getId(), 0L);
+            d.a.n0.u.a.k().y(getPageContext().getPageActivity(), "frs", this.l.getForum().getId(), 0L);
         }
         VoiceManager voiceManager = getVoiceManager();
         this.m = voiceManager;
@@ -1146,16 +1146,16 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
         }
     }
 
-    @Override // d.a.n0.t2.u
+    @Override // d.a.o0.t2.u
     public TbPageContext<?> p() {
         return getPageContext();
     }
 
     public final void p1() {
-        if (this.f15659h != 0) {
-            this.f15659h = 1;
+        if (this.f15741h != 0) {
+            this.f15741h = 1;
         }
-        this.y = new d.a.n0.r0.x1.b(getActivity(), getBaseFragmentActivity().getUniqueId(), getBaseFragmentActivity() instanceof FrsActivity);
+        this.y = new d.a.o0.r0.x1.b(getActivity(), getBaseFragmentActivity().getUniqueId(), getBaseFragmentActivity() instanceof FrsActivity);
         this.s.L(this.N);
         this.s.M(this.L);
         this.s.n().setOnTouchListener(new k());
@@ -1185,24 +1185,24 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     }
 
     public final void s1() {
-        if (this.f15659h == 1) {
+        if (this.f15741h == 1) {
             d.a.c.e.m.h.a().b(new l());
         }
-        this.f15659h = 0;
+        this.f15741h = 0;
     }
 
     public void setFrom(String str) {
-        this.f15658g = str;
+        this.f15740g = str;
     }
 
-    @Override // d.a.n0.e.e.b
-    public void setInjectPlugin(int i2, d.a.n0.e.e.a aVar) {
+    @Override // d.a.o0.e.e.b
+    public void setInjectPlugin(int i2, d.a.o0.e.e.a aVar) {
         this.x.put(i2, aVar);
     }
 
     public final void t1() {
         HashMap<Integer, a2> j2;
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar == null || aVar.m() == null || (j2 = this.s.m().j()) == null) {
             return;
         }
@@ -1213,10 +1213,10 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 arrayList.add((AdvertAppInfo) value);
             }
         }
-        d.a.m0.v.b.l().m(arrayList);
+        d.a.n0.v.b.l().m(arrayList);
     }
 
-    @Override // d.a.n0.r0.q0
+    @Override // d.a.o0.r0.q0
     public void u() {
         if (this.s != null) {
             E0();
@@ -1232,7 +1232,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             }
             this.s.F();
             this.s.W();
-            this.f15657f = this.l.getForum().getName();
+            this.f15739f = this.l.getForum().getName();
             this.k = this.l.getForum().getId();
             if (this.l != null && this.l.getForum() != null) {
                 this.s.S(this.l.getForum().getThemeColorInfo());
@@ -1246,7 +1246,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
             }
             ArrayList<n> threadList = this.l.getThreadList();
             if (threadList != null) {
-                this.s.T(threadList, this.f15660i, this.l, this.l.getPage().b());
+                this.s.T(threadList, this.f15742i, this.l, this.l.getPage().b());
                 t1();
                 this.s.H();
                 if (this.l.getIsNewUrl() == 1) {
@@ -1254,7 +1254,7 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
                 } else {
                     this.s.m().x(false);
                 }
-                this.s.K(j1(l1().getType(), this.f15660i));
+                this.s.K(j1(l1().getType(), this.f15742i));
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -1262,27 +1262,27 @@ public class FrsGoodFragment extends BaseFragment implements VoiceManager.j, d.a
     }
 
     public void v1() {
-        d.a.n0.r0.a2.a aVar = this.s;
+        d.a.o0.r0.a2.a aVar = this.s;
         if (aVar != null) {
             aVar.A();
         }
     }
 
-    @Override // d.a.n0.t2.u
+    @Override // d.a.o0.t2.u
     public int w0() {
-        return this.f15660i;
+        return this.f15742i;
     }
 
     public void w1(int i2) {
-        this.f15659h = i2;
+        this.f15741h = i2;
     }
 
     public void x1(String str) {
-        this.f15657f = str;
+        this.f15739f = str;
     }
 
     public void y1(int i2) {
-        this.f15660i = i2;
+        this.f15742i = i2;
     }
 
     public final void z1() {

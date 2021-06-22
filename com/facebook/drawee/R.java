@@ -34,7 +34,7 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040503;
+        public static final int svgImage = 0x7f040507;
         public static final int viewAspectRatio = 0x7f040489;
     }
 
@@ -49,7 +49,7 @@ public final class R {
         public static final int fitStart = 0x7f090b66;
         public static final int fitXY = 0x7f090b68;
         public static final int focusCrop = 0x7f090b91;
-        public static final int none = 0x7f09175a;
+        public static final int none = 0x7f09175b;
     }
 
     /* loaded from: classes6.dex */

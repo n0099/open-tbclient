@@ -10,10 +10,10 @@ import android.widget.Scroller;
 public class ExpandGridView extends GridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f21296e;
+    public Scroller f21378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f21297f;
+    public a f21379f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -22,14 +22,14 @@ public class ExpandGridView extends GridView {
 
     public ExpandGridView(Context context) {
         super(context);
-        this.f21296e = new Scroller(context);
+        this.f21378e = new Scroller(context);
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.f21296e.computeScrollOffset()) {
-            int currY = this.f21296e.getCurrY();
-            a aVar = this.f21297f;
+        if (this.f21378e.computeScrollOffset()) {
+            int currY = this.f21378e.getCurrY();
+            a aVar = this.f21379f;
             if (aVar != null) {
                 aVar.a(currY);
             }
@@ -56,16 +56,16 @@ public class ExpandGridView extends GridView {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f21297f = aVar;
+        this.f21379f = aVar;
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21296e = new Scroller(context);
+        this.f21378e = new Scroller(context);
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21296e = new Scroller(context);
+        this.f21378e = new Scroller(context);
     }
 }

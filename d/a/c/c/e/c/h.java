@@ -13,31 +13,31 @@ public class h {
     public static String C = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42001a = -100000000;
+    public static int f42104a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f42002b = (-100000000) - 200;
+    public static final int f42105b = (-100000000) - 200;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f42003c = (-100000000) - 211;
+    public static final int f42106c = (-100000000) - 211;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f42004d = (-100000000) - 213;
+    public static final int f42107d = (-100000000) - 213;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f42005e = (-100000000) - 214;
+    public static final int f42108e = (-100000000) - 214;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f42006f = (-100000000) - 221;
+    public static final int f42109f = (-100000000) - 221;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f42007g = (-100000000) - 230;
+    public static final int f42110g = (-100000000) - 230;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f42008h = (-100000000) - 232;
+    public static final int f42111h = (-100000000) - 232;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f42009i = (-100000000) - 233;
+    public static final int f42112i = (-100000000) - 233;
     public static final int j = (-100000000) - 234;
     public static final int k = (-100000000) - 235;
     public static final int l = (-100000000) - 236;
@@ -56,7 +56,7 @@ public class h {
     public static final int y = (-100000000) - 310;
     public static final int z = (-100000000) - 311;
     public static final int A = (-100000000) + ErrorCode.ARGS_ERROR;
-    public static int[] D = d.a.c.c.c.f41968a;
+    public static int[] D = d.a.c.c.c.f42071a;
     public static ArrayList<BasicNameValuePair> E = null;
 
     public static String a() {
@@ -95,7 +95,7 @@ public class h {
     }
 
     public static String i(int i2) {
-        int i3 = f42001a - i2;
+        int i3 = f42104a - i2;
         Application app = BdBaseApplication.getInst().getApp();
         if (i3 > -300 && i3 <= -200) {
             return app.getString(R.string.im_error_codec);

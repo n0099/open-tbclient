@@ -6,10 +6,10 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.a.l0.a.c;
-import d.a.l0.a.h;
-import d.a.l0.a.k;
-import d.a.l0.a.w1.b;
+import d.a.m0.a.c;
+import d.a.m0.a.h;
+import d.a.m0.a.k;
+import d.a.m0.a.w1.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,19 +21,19 @@ public class ReplyEditorParams implements Parcelable {
     public static final String MODULE_PICTURE = "image";
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11059e;
+    public final String f11141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f11060f;
+    public final String f11142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f11061g;
+    public final int f11143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f11062h;
+    public final int f11144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f11063i;
+    public final String f11145i;
     public final String j;
     public List<String> showList;
     public static final List<String> DEFAULT_LIST = Collections.emptyList();
@@ -57,12 +57,12 @@ public class ReplyEditorParams implements Parcelable {
     }
 
     public ReplyEditorParams(String str, String str2, String str3, String str4, int i2, int i3, List<String> list) {
-        this.f11059e = str;
-        this.f11063i = str2;
+        this.f11141e = str;
+        this.f11145i = str2;
         this.j = str3;
-        this.f11060f = str4;
-        this.f11061g = i2;
-        this.f11062h = i3;
+        this.f11142f = str4;
+        this.f11143g = i2;
+        this.f11144h = i3;
         this.showList = list;
     }
 
@@ -91,18 +91,18 @@ public class ReplyEditorParams implements Parcelable {
         try {
             i2 = SwanAppConfigData.s(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e2) {
-            if (k.f46875a) {
+            if (k.f46983a) {
                 e2.printStackTrace();
             }
             i2 = -1;
         }
-        Application b2 = d.a.l0.a.c1.a.b();
+        Application b2 = d.a.m0.a.c1.a.b();
         String c3 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
         int color = b2.getResources().getColor(c.swanapp_publish_btn_enable_color);
         try {
             i3 = SwanAppConfigData.s(c3);
         } catch (Exception e3) {
-            if (k.f46875a) {
+            if (k.f46983a) {
                 e3.printStackTrace();
             }
             i3 = color;
@@ -137,21 +137,21 @@ public class ReplyEditorParams implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f11059e);
-        parcel.writeString(this.f11060f);
-        parcel.writeInt(this.f11061g);
-        parcel.writeInt(this.f11062h);
-        parcel.writeString(this.f11063i);
+        parcel.writeString(this.f11141e);
+        parcel.writeString(this.f11142f);
+        parcel.writeInt(this.f11143g);
+        parcel.writeInt(this.f11144h);
+        parcel.writeString(this.f11145i);
         parcel.writeString(this.j);
         parcel.writeStringList(this.showList);
     }
 
     public ReplyEditorParams(Parcel parcel) {
-        this.f11059e = parcel.readString();
-        this.f11060f = parcel.readString();
-        this.f11061g = parcel.readInt();
-        this.f11062h = parcel.readInt();
-        this.f11063i = parcel.readString();
+        this.f11141e = parcel.readString();
+        this.f11142f = parcel.readString();
+        this.f11143g = parcel.readInt();
+        this.f11144h = parcel.readInt();
+        this.f11145i = parcel.readString();
         this.j = parcel.readString();
         this.showList = parcel.createStringArrayList();
     }

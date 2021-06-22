@@ -11,30 +11,30 @@ import kotlin.text.StringsKt__StringsKt;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f70234a;
+    public final String f70338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f70235b;
+    public Path f70339b;
 
     public b(String str) {
-        this.f70234a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.f70338a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        Path path2 = this.f70235b;
+        Path path2 = this.f70339b;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.f70234a, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.f70338a, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String segment = stringTokenizer.nextToken();
             Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
             if (!(segment.length() == 0)) {
-                set = c.f70236a;
+                set = c.f70340a;
                 if (set.contains(segment)) {
                     if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
                         b(path3, segment, new StringTokenizer("", ""));
@@ -45,7 +45,7 @@ public final class b {
                 }
             }
         }
-        this.f70235b = path3;
+        this.f70339b = path3;
         path.set(path3);
     }
 

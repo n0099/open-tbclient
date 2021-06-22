@@ -24,44 +24,44 @@ import org.json.JSONObject;
 public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static ExecutorService f34648e;
+    public static ExecutorService f34746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f34653f;
+    public Context f34751f;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f34649a = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
+    public volatile long f34747a = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f34650b = new j();
+    public i f34748b = new j();
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f34651c = null;
+    public HandlerThread f34749c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f34652d = null;
+    public Handler f34750d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f34654g = new AtomicInteger(0);
+    public AtomicInteger f34752g = new AtomicInteger(0);
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f34655h = new AtomicInteger(0);
+    public AtomicInteger f34753h = new AtomicInteger(0);
 
     /* renamed from: i  reason: collision with root package name */
-    public int f34656i = 5;
+    public int f34754i = 5;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f34672b;
+        public final i f34770b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Context f34673c;
+        public final Context f34771c;
 
         public a(Context context, i iVar) {
-            this.f34673c = context;
-            this.f34672b = iVar;
+            this.f34771c = context;
+            this.f34770b = iVar;
         }
 
         private void a(@NonNull List<T> list) {
@@ -76,7 +76,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
         @Override // java.lang.Runnable
         public void run() {
             List<T> b2;
-            if (c.this.f34654g.get() > 0 || !com.ksad.download.d.b.a(this.f34673c) || (b2 = this.f34672b.b()) == null || b2.isEmpty()) {
+            if (c.this.f34752g.get() > 0 || !com.ksad.download.d.b.a(this.f34771c) || (b2 = this.f34770b.b()) == null || b2.isEmpty()) {
                 return;
             }
             a(b2);
@@ -84,40 +84,40 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     }
 
     public c() {
-        if (f34648e == null) {
-            f34648e = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        if (f34746e == null) {
+            f34746e = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j) {
-        Handler handler = this.f34652d;
+        Handler handler = this.f34750d;
         if (handler == null) {
             return;
         }
         handler.removeMessages(16843025);
-        Message obtain = Message.obtain(this.f34652d, new a(this.f34653f, this.f34650b));
+        Message obtain = Message.obtain(this.f34750d, new a(this.f34751f, this.f34748b));
         obtain.what = 16843025;
-        this.f34652d.sendMessageDelayed(obtain, j);
+        this.f34750d.sendMessageDelayed(obtain, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        int i2 = this.f34655h.get();
+        int i2 = this.f34753h.get();
         if (i2 > 16) {
             i2 = 16;
         }
-        return this.f34650b.a() >= ((long) (com.kwad.sdk.core.config.c.v() << i2));
+        return this.f34748b.a() >= ((long) (com.kwad.sdk.core.config.c.v() << i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        int andIncrement = this.f34655h.getAndIncrement();
-        if (andIncrement <= this.f34656i) {
+        int andIncrement = this.f34753h.getAndIncrement();
+        if (andIncrement <= this.f34754i) {
             if (andIncrement > 0) {
-                this.f34649a *= 2;
+                this.f34747a *= 2;
             }
-            b(this.f34649a);
+            b(this.f34747a);
         }
     }
 
@@ -128,15 +128,15 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     }
 
     public void a(long j) {
-        this.f34649a = j < 60 ? 60000L : j * 1000;
+        this.f34747a = j < 60 ? 60000L : j * 1000;
     }
 
     public void a(Context context) {
-        this.f34653f = context;
+        this.f34751f = context;
         HandlerThread handlerThread = new HandlerThread(b());
-        this.f34651c = handlerThread;
+        this.f34749c = handlerThread;
         handlerThread.start();
-        this.f34652d = new Handler(this.f34651c.getLooper());
+        this.f34750d = new Handler(this.f34749c.getLooper());
     }
 
     public void a(final T t) {
@@ -187,14 +187,14 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     }
 
     public void a(@NonNull final h<T> hVar) {
-        f34648e.execute(new Runnable() { // from class: com.kwad.sdk.core.report.c.1
+        f34746e.execute(new Runnable() { // from class: com.kwad.sdk.core.report.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!c.this.f34652d.hasMessages(16843025)) {
+                if (!c.this.f34750d.hasMessages(16843025)) {
                     c cVar = c.this;
-                    cVar.b(cVar.f34649a);
+                    cVar.b(cVar.f34747a);
                 }
-                c.this.f34650b.a((i) hVar.a());
+                c.this.f34748b.a((i) hVar.a());
                 if (c.this.c()) {
                     c.this.a();
                 }
@@ -203,14 +203,14 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     }
 
     public void a(i iVar) {
-        this.f34650b = iVar;
+        this.f34748b = iVar;
     }
 
     public void a(final List<T> list, final AtomicBoolean atomicBoolean) {
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f34654g.getAndIncrement();
+        this.f34752g.getAndIncrement();
         new com.kwad.sdk.core.network.i<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.i
@@ -232,7 +232,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull R r, int i2, String str) {
                 atomicBoolean.set(true);
-                if (c.this.f34654g.decrementAndGet() == 0) {
+                if (c.this.f34752g.decrementAndGet() == 0) {
                     c.this.d();
                 }
             }
@@ -243,13 +243,13 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
             }
 
             public void a(@NonNull R r, @NonNull BatchReportResult batchReportResult) {
-                c.this.f34650b.a(list);
-                if (c.this.f34654g.decrementAndGet() == 0 && atomicBoolean.get()) {
+                c.this.f34748b.a(list);
+                if (c.this.f34752g.decrementAndGet() == 0 && atomicBoolean.get()) {
                     c.this.d();
                 }
                 c.this.a(batchReportResult.getInterval());
                 c cVar = c.this;
-                cVar.b(cVar.f34649a);
+                cVar.b(cVar.f34747a);
             }
         });
     }
@@ -257,7 +257,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     public abstract String b();
 
     public void b(@NonNull final h<T> hVar) {
-        f34648e.execute(new Runnable() { // from class: com.kwad.sdk.core.report.c.4
+        f34746e.execute(new Runnable() { // from class: com.kwad.sdk.core.report.c.4
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.kwad.sdk.core.report.c */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable

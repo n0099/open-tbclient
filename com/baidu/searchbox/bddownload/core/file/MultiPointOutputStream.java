@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -127,7 +128,7 @@ public class MultiPointOutputStream {
                 try {
                     close(num.intValue());
                 } catch (IOException e2) {
-                    Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + "]" + e2);
+                    Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + PreferencesUtil.RIGHT_MOUNT + e2);
                 }
             }
             this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
@@ -148,7 +149,7 @@ public class MultiPointOutputStream {
             try {
                 close(num2.intValue());
             } catch (IOException e3) {
-                Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + "]" + e3);
+                Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + PreferencesUtil.RIGHT_MOUNT + e3);
             }
         }
         this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
@@ -174,7 +175,7 @@ public class MultiPointOutputStream {
             downloadOutputStream.close();
             this.outputStreamMap.remove(i2);
             this.noSyncLengthMap.remove(i2);
-            Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i2 + "]");
+            Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i2 + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
@@ -189,9 +190,9 @@ public class MultiPointOutputStream {
                         ensureSync(this.doneState.isNoMoreStream, i2);
                     }
                 } else if (this.syncFuture == null) {
-                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i2 + "]");
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i2 + PreferencesUtil.RIGHT_MOUNT);
                 } else {
-                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i2 + "]");
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i2 + PreferencesUtil.RIGHT_MOUNT);
                 }
                 return;
             }
@@ -414,7 +415,7 @@ public class MultiPointOutputStream {
 
     public void runSync() throws IOException {
         int i2;
-        Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + "]");
+        Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + PreferencesUtil.RIGHT_MOUNT);
         this.runSyncThread = Thread.currentThread();
         long j = (long) this.syncBufferIntervalMills;
         flushProcess();
@@ -422,7 +423,7 @@ public class MultiPointOutputStream {
             parkThread(j);
             inspectStreamState(this.state);
             if (this.state.isStreamsEndOrChanged()) {
-                Util.d(TAG, "runSync state change isNoMoreStream[" + this.state.isNoMoreStream + "] newNoMoreStreamBlockList[" + this.state.newNoMoreStreamBlockList + "]");
+                Util.d(TAG, "runSync state change isNoMoreStream[" + this.state.isNoMoreStream + "] newNoMoreStreamBlockList[" + this.state.newNoMoreStreamBlockList + PreferencesUtil.RIGHT_MOUNT);
                 if (this.allNoSyncLength.get() > 0) {
                     flushProcess();
                 }
@@ -457,7 +458,7 @@ public class MultiPointOutputStream {
             }
         }
         this.parkedRunBlockThreadMap.clear();
-        Util.d(TAG, "OutputStream stop flush looper task[" + this.task.getId() + "]");
+        Util.d(TAG, "OutputStream stop flush looper task[" + this.task.getId() + PreferencesUtil.RIGHT_MOUNT);
     }
 
     public void runSyncDelayException() {

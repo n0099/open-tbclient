@@ -8,25 +8,25 @@ import java.net.URL;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f40157a;
+    public static g f40260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f40158b = null;
+    public volatile WeakReference<SharedPreferences> f40261b = null;
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f40157a == null) {
-                f40157a = new g();
+            if (f40260a == null) {
+                f40260a = new g();
             }
-            gVar = f40157a;
+            gVar = f40260a;
         }
         return gVar;
     }
 
     public String a(Context context, String str) {
-        if (this.f40158b == null || this.f40158b.get() == null) {
-            this.f40158b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+        if (this.f40261b == null || this.f40261b.get() == null) {
+            this.f40261b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
         }
         try {
             String host = new URL(str).getHost();
@@ -34,7 +34,7 @@ public class g {
                 com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                 return str;
             }
-            String string = this.f40158b.get().getString(host, null);
+            String string = this.f40261b.get().getString(host, null);
             if (string != null && !host.equals(string)) {
                 String replace = str.replace(host, string);
                 com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "return environment url : " + replace);

@@ -8,21 +8,21 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import d.a.l0.a.v2.b0;
+import d.a.m0.a.v2.b0;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11112e;
+    public boolean f11194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11113f;
+    public int f11195f;
 
     public BdBaseImageView(Context context) {
         super(context);
-        this.f11112e = true;
-        this.f11113f = 0;
+        this.f11194e = true;
+        this.f11195f = 0;
     }
 
     public final boolean a() {
@@ -30,15 +30,15 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean b() {
-        return this.f11112e || this.f11113f != b0.d(getContext());
+        return this.f11194e || this.f11195f != b0.d(getContext());
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (b()) {
             b0.b(getContext(), getDrawable());
-            this.f11113f = b0.d(getContext());
-            this.f11112e = false;
+            this.f11195f = b0.d(getContext());
+            this.f11194e = false;
         }
         super.draw(canvas);
     }
@@ -54,19 +54,19 @@ public class BdBaseImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageDrawable(@Nullable Drawable drawable) {
-        this.f11112e = true;
+        this.f11194e = true;
         super.setImageDrawable(drawable);
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11112e = true;
-        this.f11113f = 0;
+        this.f11194e = true;
+        this.f11195f = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11112e = true;
-        this.f11113f = 0;
+        this.f11194e = true;
+        this.f11195f = 0;
     }
 }

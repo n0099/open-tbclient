@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
 import d.a.c.e.p.l;
-import d.a.n0.e3.v;
+import d.a.o0.e3.v;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class RankScoreCardView extends BaseCardView<RankScoreCard> {
@@ -37,15 +37,15 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18026e;
+        public final /* synthetic */ RankScoreCard f18108e;
 
         public a(RankScoreCard rankScoreCard) {
-            this.f18026e = rankScoreCard;
+            this.f18108e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(RankScoreCardView.this.m, this.f18026e.getD2Scheme());
+            v.c(RankScoreCardView.this.m, this.f18108e.getD2Scheme());
         }
     }
 
@@ -53,17 +53,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18028e;
+        public final /* synthetic */ RankScoreCard f18110e;
 
         public b(RankScoreCard rankScoreCard) {
-            this.f18028e = rankScoreCard;
+            this.f18110e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankScoreCardView.this.getContext())) {
-                d.a.n0.k1.m.b a2 = d.a.n0.k1.m.b.a();
-                RankScoreCard rankScoreCard = this.f18028e;
+                d.a.o0.k1.m.b a2 = d.a.o0.k1.m.b.a();
+                RankScoreCard rankScoreCard = this.f18110e;
                 a2.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
             }
         }
@@ -73,15 +73,15 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18030e;
+        public final /* synthetic */ RankScoreCard f18112e;
 
         public c(RankScoreCard rankScoreCard) {
-            this.f18030e = rankScoreCard;
+            this.f18112e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankScoreCardView.this.p(this.f18030e);
+            RankScoreCardView.this.p(this.f18112e);
         }
     }
 
@@ -125,7 +125,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: J */
     public void w(RankScoreCard rankScoreCard, int i2) {
-        d.a.m0.s0.a.a(this.m, getRootView());
+        d.a.n0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0106);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0106);
@@ -197,7 +197,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                 } else {
                     SkinManager.setViewTextColor(this.y, R.color.CAM_X0111);
                 }
-                SkinManager.setBackgroundColor(this.y, d.a.n0.k1.a.f60277a[i2]);
+                SkinManager.setBackgroundColor(this.y, d.a.o0.k1.a.f60402a[i2]);
                 this.y.setText(rankScoreCard.getRank() + "");
             }
         }

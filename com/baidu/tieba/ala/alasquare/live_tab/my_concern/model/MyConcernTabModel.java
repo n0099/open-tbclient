@@ -20,19 +20,19 @@ import java.util.List;
 public class MyConcernTabModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f13816f;
+    public TbPageContext f13898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f13817g;
+    public b f13899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.v.d.c.f.c.b f13818h;
+    public d.a.o0.v.d.c.f.c.b f13900h;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13815e = 1;
+    public int f13897e = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f13819i = new a(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
+    public HttpMessageListener f13901i = new a(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -47,17 +47,17 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.f13817g != null) {
-                        MyConcernTabModel.this.f13817g.b(MyConcernTabModel.this.f13815e == 1);
+                    if (MyConcernTabModel.this.f13899g != null) {
+                        MyConcernTabModel.this.f13899g.b(MyConcernTabModel.this.f13897e == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.f13818h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f13815e == 1);
-                if (MyConcernTabModel.this.f13817g != null) {
-                    MyConcernTabModel.this.f13817g.a(MyConcernTabModel.this.f13818h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f13815e == 1);
+                MyConcernTabModel.this.f13900h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f13897e == 1);
+                if (MyConcernTabModel.this.f13899g != null) {
+                    MyConcernTabModel.this.f13899g.a(MyConcernTabModel.this.f13900h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f13897e == 1);
                 }
-                MyConcernTabModel.this.f13815e = alaLiveTabMyConcernResponse.pn + 1;
+                MyConcernTabModel.this.f13897e = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     }
@@ -70,10 +70,10 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
-        this.f13816f = tbPageContext;
-        this.f13818h = new d.a.n0.v.d.c.f.c.b(this.f13816f);
+        this.f13898f = tbPageContext;
+        this.f13900h = new d.a.o0.v.d.c.f.c.b(this.f13898f);
         D();
-        MessageManager.getInstance().registerListener(this.f13819i);
+        MessageManager.getInstance().registerListener(this.f13901i);
     }
 
     public final void A(int i2) {
@@ -83,12 +83,12 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void B() {
-        A(this.f13815e);
+        A(this.f13897e);
     }
 
     public void C() {
-        this.f13815e = 1;
-        this.f13818h.a();
+        this.f13897e = 1;
+        this.f13900h.a();
         A(1);
     }
 
@@ -102,11 +102,11 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void E(Class<? extends BaseCardInfo> cls) {
-        this.f13818h.j(cls);
+        this.f13900h.j(cls);
     }
 
     public void F(b bVar) {
-        this.f13817g = bVar;
+        this.f13899g = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -120,9 +120,9 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f13818h.a();
-        if (this.f13819i != null) {
-            MessageManager.getInstance().unRegisterListener(this.f13819i);
+        this.f13900h.a();
+        if (this.f13901i != null) {
+            MessageManager.getInstance().unRegisterListener(this.f13901i);
         }
     }
 }

@@ -3,9 +3,9 @@ package d.a.c.e.r;
 public class s extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42651a;
+    public c f42754a;
 
     public s(c cVar) {
-        this.f42651a = cVar;
+        this.f42754a = cVar;
     }
 }

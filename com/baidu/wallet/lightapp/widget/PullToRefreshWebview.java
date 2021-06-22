@@ -8,7 +8,7 @@ import com.baidu.wallet.lightapp.base.LightappWebView;
 public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappWebView f25050a;
+    public LightappWebView f25132a;
 
     public PullToRefreshWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -16,7 +16,7 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullDown() {
-        return this.f25050a.getScrollY() == 0;
+        return this.f25132a.getScrollY() == 0;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -32,8 +32,8 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public LightappWebView createRefreshableView(Context context, AttributeSet attributeSet) {
         LightappWebView lightappWebView = new LightappWebView(context);
-        this.f25050a = lightappWebView;
+        this.f25132a = lightappWebView;
         lightappWebView.setVerticalScrollBarEnabled(false);
-        return this.f25050a;
+        return this.f25132a;
     }
 }

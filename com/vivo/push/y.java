@@ -7,32 +7,32 @@ import android.text.TextUtils;
 public abstract class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40437a;
+    public int f40540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40438b;
+    public String f40541b;
 
     public y(int i2) {
-        this.f40437a = -1;
+        this.f40540a = -1;
         if (i2 >= 0) {
-            this.f40437a = i2;
+            this.f40540a = i2;
             return;
         }
         throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
     }
 
     private final void e(a aVar) {
-        aVar.a("command", this.f40437a);
-        aVar.a("client_pkgname", this.f40438b);
+        aVar.a("command", this.f40540a);
+        aVar.a("client_pkgname", this.f40541b);
         c(aVar);
     }
 
     public final String a() {
-        return this.f40438b;
+        return this.f40541b;
     }
 
     public final int b() {
-        return this.f40437a;
+        return this.f40540a;
     }
 
     public abstract void c(a aVar);
@@ -48,7 +48,7 @@ public abstract class y {
     }
 
     public final void a(String str) {
-        this.f40438b = str;
+        this.f40541b = str;
     }
 
     public final void b(Intent intent) {
@@ -57,7 +57,7 @@ public abstract class y {
             com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
             return;
         }
-        a2.a("method", this.f40437a);
+        a2.a("method", this.f40540a);
         e(a2);
         Bundle b2 = a2.b();
         if (b2 != null) {
@@ -79,7 +79,7 @@ public abstract class y {
     }
 
     public final void a(a aVar) {
-        String a2 = z.a(this.f40437a);
+        String a2 = z.a(this.f40540a);
         if (a2 == null) {
             a2 = "";
         }
@@ -90,9 +90,9 @@ public abstract class y {
     public final void b(a aVar) {
         String a2 = aVar.a();
         if (!TextUtils.isEmpty(a2)) {
-            this.f40438b = a2;
+            this.f40541b = a2;
         } else {
-            this.f40438b = aVar.a("client_pkgname");
+            this.f40541b = aVar.a("client_pkgname");
         }
         d(aVar);
     }

@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -11,9 +12,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class SyncSampleBox extends AbstractFullBox {
     public static final String TYPE = "stss";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
     public long[] sampleNumber;
 
     static {
@@ -67,6 +68,6 @@ public class SyncSampleBox extends AbstractFullBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
-        return "SyncSampleBox[entryCount=" + this.sampleNumber.length + "]";
+        return "SyncSampleBox[entryCount=" + this.sampleNumber.length + PreferencesUtil.RIGHT_MOUNT;
     }
 }

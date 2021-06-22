@@ -16,11 +16,11 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import d.a.c.k.e.n;
-import d.a.m0.s.d.b;
-import d.a.n0.g1.b.g;
-import d.a.n0.g1.b.l;
-import d.a.n0.g1.b.m;
-import d.a.n0.g1.b.p.a;
+import d.a.n0.s.d.b;
+import d.a.o0.g1.b.g;
+import d.a.o0.g1.b.l;
+import d.a.o0.g1.b.m;
+import d.a.o0.g1.b.p.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,46 +28,46 @@ import java.util.List;
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<m>, NetModel.k<l, m> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMessageFragment f17667e;
+    public ReplyMessageFragment f17749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f17668f;
+    public l f17750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ReplyMeNetModel f17669g;
+    public ReplyMeNetModel f17751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ReplyMeCacheModel f17670h;
+    public ReplyMeCacheModel f17752h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f17671i;
+    public g f17753i;
     public FeedData j;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.f17667e = replyMessageFragment;
+        this.f17749e = replyMessageFragment;
     }
 
     public boolean A() {
-        if (this.f17669g.Q() || !w()) {
+        if (this.f17751g.Q() || !w()) {
             return false;
         }
-        this.f17668f.c(this.j);
-        this.f17669g.setNeedCache(false);
-        this.f17669g.R();
+        this.f17750f.c(this.j);
+        this.f17751g.setNeedCache(false);
+        this.f17751g.R();
         return true;
     }
 
     public boolean B(l lVar, m mVar, boolean z) {
         boolean z2;
         if (lVar.a() != 4) {
-            this.f17671i.a().clear();
+            this.f17753i.a().clear();
         }
-        this.f17671i.c(mVar);
+        this.f17753i.c(mVar);
         boolean z3 = true;
         if (mVar != null && mVar.a() != null && mVar.a().size() > 0) {
             this.j = mVar.a().get(mVar.a().size() - 1);
-            z2 = this.f17671i.b() == null || this.f17671i.b().b() == 1;
+            z2 = this.f17753i.b() == null || this.f17753i.b().b() == 1;
             if (lVar.a() == 1) {
                 b.g0().e0(0);
             }
@@ -81,7 +81,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         }
         b.g0().p();
         ArrayList<n> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.f17671i.f58759e.iterator();
+        Iterator<FeedData> it = this.f17753i.f58884e.iterator();
         while (it.hasNext()) {
             a aVar = new a();
             aVar.F(it.next());
@@ -90,18 +90,18 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             }
             arrayList.add(aVar);
         }
-        this.f17667e.X0(z2, arrayList);
+        this.f17749e.X0(z2, arrayList);
         return z3;
     }
 
     public boolean C() {
-        if (this.f17669g.Q() || !w()) {
+        if (this.f17751g.Q() || !w()) {
             return false;
         }
         this.j = null;
-        this.f17668f.b();
-        this.f17669g.setNeedCache(true);
-        this.f17669g.R();
+        this.f17750f.b();
+        this.f17751g.setNeedCache(true);
+        this.f17751g.R();
         return true;
     }
 
@@ -137,7 +137,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.f17667e.onServerError(errorData);
+                this.f17749e.onServerError(errorData);
             }
         }
     }
@@ -145,12 +145,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
     public void onCacheDataGet(ReadCacheRespMsg<List<m>> readCacheRespMsg, ReadCacheMessage<m> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            B(this.f17668f, readCacheRespMsg.getData().get(0), true);
+            B(this.f17750f, readCacheRespMsg.getData().get(0), true);
         }
         this.j = null;
-        this.f17668f.b();
-        this.f17669g.setNeedCache(true);
-        this.f17669g.R();
+        this.f17750f.b();
+        this.f17751g.setNeedCache(true);
+        this.f17751g.R();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
@@ -158,11 +158,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     public void onDestroy() {
-        ReplyMeNetModel replyMeNetModel = this.f17669g;
+        ReplyMeNetModel replyMeNetModel = this.f17751g;
         if (replyMeNetModel != null) {
             replyMeNetModel.Z(null);
         }
-        ReplyMeCacheModel replyMeCacheModel = this.f17670h;
+        ReplyMeCacheModel replyMeCacheModel = this.f17752h;
         if (replyMeCacheModel != null) {
             replyMeCacheModel.O(null);
         }
@@ -190,7 +190,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.f17667e.onServerError(errorData);
+                this.f17749e.onServerError(errorData);
             }
         }
     }
@@ -200,41 +200,41 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        g gVar = this.f17671i;
-        if (gVar != null && (arrayList = gVar.f58759e) != null) {
+        g gVar = this.f17753i;
+        if (gVar != null && (arrayList = gVar.f58884e) != null) {
             arrayList.clear();
         }
-        this.f17667e.R0();
-        this.f17667e.X0(false, null);
+        this.f17749e.R0();
+        this.f17749e.X0(false, null);
         return false;
     }
 
     public void x(int i2) {
-        g gVar = this.f17671i;
-        if (gVar == null || gVar.a() == null || i2 >= this.f17671i.a().size()) {
+        g gVar = this.f17753i;
+        if (gVar == null || gVar.a() == null || i2 >= this.f17753i.a().size()) {
             return;
         }
-        this.f17671i.a().remove(i2);
+        this.f17753i.a().remove(i2);
     }
 
     public boolean y() {
         if (w()) {
-            this.f17670h.M(this.f17668f);
+            this.f17752h.M(this.f17750f);
             return true;
         }
         return true;
     }
 
     public void z(Bundle bundle) {
-        this.f17668f = new l();
-        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f17667e.getPageContext(), this.f17668f);
-        this.f17669g = replyMeNetModel;
+        this.f17750f = new l();
+        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f17749e.getPageContext(), this.f17750f);
+        this.f17751g = replyMeNetModel;
         replyMeNetModel.Z(this);
-        this.f17669g.setUniqueId(this.f17667e.getUniqueId());
-        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f17667e.getPageContext());
-        this.f17670h = replyMeCacheModel;
+        this.f17751g.setUniqueId(this.f17749e.getUniqueId());
+        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f17749e.getPageContext());
+        this.f17752h = replyMeCacheModel;
         replyMeCacheModel.O(this);
-        this.f17670h.setUniqueId(this.f17667e.getUniqueId());
-        this.f17671i = new g();
+        this.f17752h.setUniqueId(this.f17749e.getUniqueId());
+        this.f17753i = new g();
     }
 }

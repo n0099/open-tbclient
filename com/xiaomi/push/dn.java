@@ -10,7 +10,7 @@ import com.xiaomi.push.ai;
 public class dn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f41122a;
+    public static volatile dn f41225a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f237a;
@@ -24,14 +24,14 @@ public class dn {
     }
 
     public static dn a(Context context) {
-        if (f41122a == null) {
+        if (f41225a == null) {
             synchronized (dn.class) {
-                if (f41122a == null) {
-                    f41122a = new dn(context);
+                if (f41225a == null) {
+                    f41225a = new dn(context);
                 }
             }
         }
-        return f41122a;
+        return f41225a;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {

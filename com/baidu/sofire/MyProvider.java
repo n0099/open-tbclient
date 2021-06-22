@@ -9,48 +9,56 @@ import android.os.Bundle;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class MyProvider extends ContentProvider {
-    public static boolean a(String str, Bundle bundle) {
-        try {
-            new StringBuilder().append(str);
-            b.a();
-            MyProvider.class.getClassLoader().loadClass("com.baidu.sofire.active.Active").getMethod("touchActive", String.class, Bundle.class).invoke(null, str, bundle);
-        } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
-        }
-        return false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f10153a = false;
+
+    public static boolean a() {
+        return f10153a;
     }
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
+        Bundle a2;
         String callingPackage;
         try {
             if ((Build.VERSION.SDK_INT < 19 || (callingPackage = getCallingPackage()) == null || callingPackage.equals(getContext().getPackageName())) && !TextUtils.isEmpty(str)) {
                 if ("setAgreePolicy".equals(str)) {
                     com.baidu.sofire.core.d.b(getContext(), bundle.getBoolean("_agree_policy", true));
-                    return null;
-                }
-                if (!"joinActive".equals(str) && !"triggerActive".equals(str) && !"triggerBgActive".equals(str)) {
-                    if (str.startsWith("sub_process_")) {
-                        return com.baidu.sofire.mutiprocess.b.a(str, bundle);
+                    a2 = new Bundle();
+                    a2.putBoolean("handle_flag", true);
+                } else if ("CallPreferences".equals(str)) {
+                    a2 = com.baidu.sofire.h.a.a(getContext()).a(bundle);
+                    if (a2 == null) {
+                        a2 = new Bundle();
                     }
-                    if ("getRemoteZid".equals(str)) {
-                        String b2 = com.baidu.sofire.g.f.b(getContext());
-                        Bundle bundle2 = new Bundle();
-                        if (!TextUtils.isEmpty(b2)) {
-                            bundle2.putString("_zid", b2);
-                        }
-                        return bundle2;
+                    a2.putBoolean("handle_flag", true);
+                } else if (str.startsWith("sub_process_")) {
+                    a2 = com.baidu.sofire.mutiprocess.b.a(str, bundle);
+                    if (a2 == null) {
+                        a2 = new Bundle();
                     }
-                    return com.baidu.sofire.core.d.a(getContext().getApplicationContext(), str, bundle);
+                    a2.putBoolean("handle_flag", true);
+                } else if ("getRemoteZid".equals(str)) {
+                    String b2 = com.baidu.sofire.utility.e.b(getContext());
+                    new Bundle();
+                    Bundle bundle2 = new Bundle();
+                    if (!TextUtils.isEmpty(b2)) {
+                        bundle2.putString("_zid", b2);
+                    }
+                    bundle2.putBoolean("handle_flag", true);
+                    a2 = bundle2;
+                } else {
+                    a2 = com.baidu.sofire.core.d.a(getContext().getApplicationContext(), str, bundle);
                 }
-                a(str, bundle);
-                Bundle bundle3 = new Bundle();
-                bundle3.putInt("result_code", 1);
-                return bundle3;
+                if (a2 != null) {
+                    a2.putString("server_version", "3.5.8.6");
+                }
+                return a2;
             }
             return null;
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
             return null;
         }
     }
@@ -72,7 +80,7 @@ public class MyProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        b.a();
+        f10153a = true;
         return false;
     }
 

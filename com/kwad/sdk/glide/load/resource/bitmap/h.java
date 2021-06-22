@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 public class h extends e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f36354b = "com.kwad.sdk.glide.load.resource.bitmap.CenterInside".getBytes(com.kwad.sdk.glide.load.c.f36060a);
+    public static final byte[] f36452b = "com.kwad.sdk.glide.load.resource.bitmap.CenterInside".getBytes(com.kwad.sdk.glide.load.c.f36158a);
 
     @Override // com.kwad.sdk.glide.load.resource.bitmap.e
     public Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i2, int i3) {
@@ -16,7 +16,7 @@ public class h extends e {
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(f36354b);
+        messageDigest.update(f36452b);
     }
 
     @Override // com.kwad.sdk.glide.load.c

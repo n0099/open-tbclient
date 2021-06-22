@@ -8,65 +8,65 @@ import com.win.opensdk.core.Info;
 public class q0 implements e1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40775a;
+    public String f40878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f40776b;
+    public Context f40879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40777c;
+    public boolean f40880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40778d;
+    public boolean f40881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40779e;
+    public boolean f40882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Info f40780f;
+    public Info f40883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public K f40781g;
+    public K f40884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PBInterstitialListener f40782h;
+    public PBInterstitialListener f40885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public K0 f40783i;
+    public K0 f40886i;
     public long j;
     public Handler k = new n0(this);
 
     public q0(Context context, String str) {
-        this.f40776b = context;
-        this.f40775a = str;
+        this.f40879b = context;
+        this.f40878a = str;
     }
 
     public final void a(Info info) {
         boolean z = false;
-        this.f40779e = false;
-        this.f40780f = info;
+        this.f40882e = false;
+        this.f40883f = info;
         this.j = System.currentTimeMillis();
-        if (b() && this.f40780f.getType() == 21) {
+        if (b() && this.f40883f.getType() == 21) {
             z = true;
         }
         if (z) {
             if (a()) {
-                this.f40782h.onLoaded();
+                this.f40885h.onLoaded();
                 return;
             }
-            K k = new K(this.f40776b);
-            this.f40781g = k;
-            k.f40528a = new p0(this);
-            this.f40781g.a(this.f40780f.getLoad(), this.f40780f);
-            this.k.sendEmptyMessageDelayed(11, this.f40780f.getWt() * 1000);
+            K k = new K(this.f40879b);
+            this.f40884g = k;
+            k.f40631a = new p0(this);
+            this.f40884g.a(this.f40883f.getLoad(), this.f40883f);
+            this.k.sendEmptyMessageDelayed(11, this.f40883f.getWt() * 1000);
             return;
         }
-        this.f40782h.onFail(PBError.PID_TYPE_ERROR);
+        this.f40885h.onFail(PBError.PID_TYPE_ERROR);
     }
 
     @Override // com.win.opensdk.e1
     public void a(String str, String str2, Object obj) {
-        if (TextUtils.equals(str, this.f40780f.getId() + this.f40775a)) {
+        if (TextUtils.equals(str, this.f40883f.getId() + this.f40878a)) {
             char c2 = 65535;
             int hashCode = str2.hashCode();
             if (hashCode != -1122984843) {
@@ -81,25 +81,25 @@ public class q0 implements e1 {
                 c2 = 1;
             }
             if (c2 == 0) {
-                this.f40782h.onClicked();
+                this.f40885h.onClicked();
             } else if (c2 == 1) {
-                this.f40782h.onInterstitialDismissed();
+                this.f40885h.onInterstitialDismissed();
             } else if (c2 != 2) {
             } else {
-                this.f40782h.onInterstitialDisplayed();
+                this.f40885h.onInterstitialDisplayed();
             }
         }
     }
 
     public final boolean a() {
-        return this.f40777c && !this.f40779e && b() && !this.f40780f.isShown() && this.f40780f.isEffective();
+        return this.f40880c && !this.f40882e && b() && !this.f40883f.isShown() && this.f40883f.isEffective();
     }
 
     public final boolean b() {
-        return this.f40780f != null;
+        return this.f40883f != null;
     }
 
     public final boolean c() {
-        return b() && this.f40780f.getType() == 21;
+        return b() && this.f40883f.getType() == 21;
     }
 }

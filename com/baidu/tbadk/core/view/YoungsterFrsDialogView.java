@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.a.m0.r.f0.m.c;
+import d.a.n0.r.f0.m.c;
 /* loaded from: classes3.dex */
 public class YoungsterFrsDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f12530e;
+    public RelativeLayout f12612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f12531f;
+    public LinearLayout f12613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f12532g;
+    public ImageView f12614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12533h;
+    public TextView f12615h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12534i;
+    public TextView f12616i;
     public TBSpecificationBtn j;
     public TBSpecificationBtn k;
     public NoTipAgainView l;
@@ -40,11 +40,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-        this.f12530e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-        this.f12532g = (ImageView) findViewById(R.id.img_youngster_top);
-        this.f12533h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
-        this.f12534i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-        this.f12531f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+        this.f12612e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+        this.f12614g = (ImageView) findViewById(R.id.img_youngster_top);
+        this.f12615h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+        this.f12616i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
+        this.f12613f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
         this.j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
         c cVar = new c();
         cVar.q(R.color.CAM_X0105);
@@ -67,11 +67,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     public void c() {
         SkinManager.setBackgroundResource(this, R.drawable.transparent_bg);
-        this.f12532g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f12533h, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f12534i, R.color.CAM_X0107);
+        this.f12614g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f12615h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f12616i, R.color.CAM_X0107);
         this.l.c();
-        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f12530e);
+        d.a.n0.r.u.c d2 = d.a.n0.r.u.c.d(this.f12612e);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
         this.j.k();
@@ -99,17 +99,17 @@ public class YoungsterFrsDialogView extends LinearLayout {
     }
 
     public void setTxtYoungsterDialogContentText(int i2) {
-        this.f12534i.setText(getContext().getString(i2));
+        this.f12616i.setText(getContext().getString(i2));
     }
 
     public void setTxtYoungsterDialogTitleText(int i2) {
-        this.f12533h.setText(getContext().getString(i2));
+        this.f12615h.setText(getContext().getString(i2));
     }
 
     public void setYoungsterDialogGroupMarginTop(int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12531f.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12613f.getLayoutParams();
         layoutParams.topMargin = i2;
-        this.f12531f.setLayoutParams(layoutParams);
+        this.f12613f.setLayoutParams(layoutParams);
     }
 
     public YoungsterFrsDialogView(Context context, @Nullable AttributeSet attributeSet) {

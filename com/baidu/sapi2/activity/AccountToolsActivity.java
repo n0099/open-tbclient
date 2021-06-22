@@ -19,24 +19,24 @@ public class AccountToolsActivity extends Activity {
     public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f9585a = new AccountToolsResult();
+    public AccountToolsResult f9601a = new AccountToolsResult();
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f9586b;
+    public AccountToolsCallback f9602b;
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-        this.f9586b = CoreViewRouter.getInstance().getAccountToolsCallback();
+        this.f9602b = CoreViewRouter.getInstance().getAccountToolsCallback();
         AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
         accountCenterDTO.accountToolsUrl = a(intExtra);
         accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f9585a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f9585a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f9601a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f9601a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -48,7 +48,10 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f9586b.onFinish(this.f9585a);
+        AccountToolsCallback accountToolsCallback = this.f9602b;
+        if (accountToolsCallback != null) {
+            accountToolsCallback.onFinish(this.f9601a);
+        }
         finish();
     }
 

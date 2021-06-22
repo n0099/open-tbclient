@@ -10,23 +10,23 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static Comparator<a> f67808e = new C1839a();
+    public static Comparator<a> f67764e = new C1841a();
 
     /* renamed from: a  reason: collision with root package name */
-    public b f67809a;
+    public b f67765a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1846a f67810b;
+    public a.C1848a f67766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67811c;
+    public final String f67767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67812d;
+    public long f67768d;
 
     /* renamed from: d.a.q.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1839a implements Comparator<a> {
+    public static class C1841a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -40,42 +40,42 @@ public abstract class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f67813a;
+        public Context f67769a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.q.g.d.a f67814b;
+        public d.a.q.g.d.a f67770b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.q.h.b f67815c;
+        public d.a.q.h.b f67771c;
     }
 
     /* loaded from: classes2.dex */
     public static abstract class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1846a f67816a;
+        public a.C1848a f67772a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f67817b;
+        public String f67773b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f67818c = true;
+        public boolean f67774c = true;
 
-        public c(a.C1846a c1846a, String str) {
-            this.f67816a = c1846a;
-            this.f67817b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
+        public c(a.C1848a c1848a, String str) {
+            this.f67772a = c1848a;
+            this.f67773b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
         public void a(boolean z) {
-            this.f67818c = z;
+            this.f67774c = z;
         }
 
         public boolean b() {
-            if (this.f67818c) {
+            if (this.f67774c) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     e(jSONObject);
-                    this.f67816a.i(this.f67817b, jSONObject.toString(), true);
+                    this.f67772a.i(this.f67773b, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception unused) {
@@ -87,7 +87,7 @@ public abstract class a {
         public abstract void c(JSONObject jSONObject);
 
         public boolean d() {
-            String g2 = this.f67816a.g(this.f67817b, true);
+            String g2 = this.f67772a.g(this.f67773b, true);
             if (!TextUtils.isEmpty(g2)) {
                 try {
                     c(new JSONObject(g2));
@@ -136,21 +136,21 @@ public abstract class a {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f67819a;
+        public boolean f67775a;
     }
 
     /* loaded from: classes2.dex */
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67820a;
+        public String f67776a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f67821b;
+        public int f67777b;
 
         public h(int i2, String str, Exception exc) {
-            this.f67821b = i2;
-            this.f67820a = str;
+            this.f67777b = i2;
+            this.f67776a = str;
         }
 
         public static h a(int i2) {
@@ -170,28 +170,28 @@ public abstract class a {
         }
 
         public boolean d() {
-            return this.f67821b == 0;
+            return this.f67777b == 0;
         }
     }
 
     public a(String str, long j) {
-        this.f67811c = str;
-        this.f67812d = j;
+        this.f67767c = str;
+        this.f67768d = j;
     }
 
     public final void a(b bVar) {
-        this.f67809a = bVar;
-        this.f67810b = bVar.f67814b.d().f("cs");
+        this.f67765a = bVar;
+        this.f67766b = bVar.f67770b.d().f("cs");
     }
 
     public abstract h b(String str, g gVar);
 
     public String c() {
-        return this.f67811c;
+        return this.f67767c;
     }
 
     public long d() {
-        return this.f67812d;
+        return this.f67768d;
     }
 
     public abstract void e(d dVar);
@@ -199,6 +199,6 @@ public abstract class a {
     public abstract f f(e eVar);
 
     public void g(long j) {
-        this.f67812d = j;
+        this.f67768d = j;
     }
 }

@@ -3,28 +3,28 @@ package com.kwad.sdk.core.g;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ae;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l extends com.kwad.sdk.core.network.d {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.f f34437a;
+        public com.kwad.sdk.core.g.a.f f34535a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.c f34438b;
+        public com.kwad.sdk.core.g.a.c f34536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34439c;
+        public String f34537c;
     }
 
     public l(a aVar) {
         JSONArray jSONArray = new JSONArray();
-        com.kwad.sdk.utils.o.a(jSONArray, aVar.f34437a.toJson());
+        com.kwad.sdk.utils.o.a(jSONArray, aVar.f34535a.toJson());
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f34438b);
-        b("photoId", aVar.f34439c);
+        a("contentInfo", aVar.f34536b);
+        b("photoId", aVar.f34537c);
         b("appTag", ae.g(KsAdSDKImpl.get().getContext()));
     }
 

@@ -27,16 +27,16 @@ import java.util.List;
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public TrendInfo f33663a = new TrendInfo();
+    public TrendInfo f33761a = new TrendInfo();
 
     /* renamed from: b  reason: collision with root package name */
-    public KsFragment f33664b;
+    public KsFragment f33762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f33665c;
+    public SceneImpl f33763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TrendsParams f33666d;
+    public TrendsParams f33764d;
 
     public static c a(@NonNull KsScene ksScene, @NonNull List<TrendInfo> list, @NonNull TrendInfo trendInfo) {
         c cVar = new c(ksScene);
@@ -55,23 +55,23 @@ public class b extends IFragmentActivityProxy {
         o.a(z, new o.d() { // from class: com.kwad.sdk.contentalliance.trends.b.1
             @Override // com.kwad.sdk.core.g.o.d
             public void a(int i3, String str) {
-                c a2 = b.a(b.this.f33665c, new ArrayList(), b.this.f33663a);
-                b.this.f33664b = a2.a();
+                c a2 = b.a(b.this.f33763c, new ArrayList(), b.this.f33761a);
+                b.this.f33762b = a2.a();
                 if (b.this.getActivity() == null || b.this.getActivity().isFinishing()) {
                     return;
                 }
-                b.this.getSupportFragmentManager().beginTransaction().replace(i2, b.this.f33664b).commitAllowingStateLoss();
+                b.this.getSupportFragmentManager().beginTransaction().replace(i2, b.this.f33762b).commitAllowingStateLoss();
             }
 
             @Override // com.kwad.sdk.core.g.o.d
             public void a(@NonNull List<TrendInfo> list) {
                 Collections.sort(list, TrendInfo.mTrendsComparator);
-                c a2 = b.a(b.this.f33665c, list, b.this.f33663a);
-                b.this.f33664b = a2.a();
+                c a2 = b.a(b.this.f33763c, list, b.this.f33761a);
+                b.this.f33762b = a2.a();
                 if (b.this.getActivity() == null || b.this.getActivity().isFinishing()) {
                     return;
                 }
-                b.this.getSupportFragmentManager().beginTransaction().replace(i2, b.this.f33664b).commitAllowingStateLoss();
+                b.this.getSupportFragmentManager().beginTransaction().replace(i2, b.this.f33762b).commitAllowingStateLoss();
             }
         });
     }
@@ -80,17 +80,17 @@ public class b extends IFragmentActivityProxy {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TREND_PARAMS");
         if (serializableExtra instanceof TrendsParams) {
             TrendsParams trendsParams = (TrendsParams) serializableExtra;
-            this.f33666d = trendsParams;
+            this.f33764d = trendsParams;
             TrendInfo trendInfo = trendsParams.trendInfo;
             if (trendInfo != null) {
-                this.f33663a = trendInfo;
+                this.f33761a = trendInfo;
             }
-            this.f33665c = new SceneImpl(this.f33666d.mEntryScene);
+            this.f33763c = new SceneImpl(this.f33764d.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 2);
-            uRLPackage.putParams(URLPackage.KEY_TREND_ID, this.f33663a.trendId);
-            this.f33665c.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TREND_ID, this.f33761a.trendId);
+            this.f33763c.setUrlPackage(uRLPackage);
         }
-        TrendsParams trendsParams2 = this.f33666d;
+        TrendsParams trendsParams2 = this.f33764d;
         return (trendsParams2 == null || trendsParams2.mEntryScene == 0) ? false : true;
     }
 

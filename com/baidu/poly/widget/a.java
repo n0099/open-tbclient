@@ -18,23 +18,23 @@ import d.a.c0.k.d.b;
 public class a extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9371e;
+    public ImageView f9379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9372f;
+    public TextView f9380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9373g;
+    public TextView f9381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f9374h;
+    public ImageView f9382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0119a f9375i;
+    public InterfaceC0120a f9383i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0119a {
+    public interface InterfaceC0120a {
         void a();
     }
 
@@ -42,59 +42,59 @@ public class a extends RelativeLayout implements View.OnClickListener {
         this(context, null);
     }
 
-    public void a(o oVar, InterfaceC0119a interfaceC0119a) {
+    public void a(o oVar, InterfaceC0120a interfaceC0120a) {
         String displayName = oVar.getDisplayName();
         String S = oVar.S();
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        b.c().b(this.f9371e, icon);
-        this.f9372f.setText(displayName);
+        b.c().b(this.f9379e, icon);
+        this.f9380f.setText(displayName);
         if (P == 1) {
-            this.f9374h.setImageResource(e.channel_checked);
+            this.f9382h.setImageResource(e.channel_checked);
         } else {
-            this.f9374h.setImageResource(e.unchecked);
+            this.f9382h.setImageResource(e.unchecked);
         }
         if (1 == N) {
-            this.f9375i = interfaceC0119a;
+            this.f9383i = interfaceC0120a;
         } else {
-            this.f9371e.setAlpha(0.4f);
-            this.f9372f.setAlpha(0.4f);
-            this.f9373g.setAlpha(0.4f);
-            this.f9374h.setVisibility(8);
+            this.f9379e.setAlpha(0.4f);
+            this.f9380f.setAlpha(0.4f);
+            this.f9381g.setAlpha(0.4f);
+            this.f9382h.setVisibility(8);
         }
         if (!TextUtils.isEmpty(S)) {
             String M = oVar.M();
             if (!TextUtils.isEmpty(M)) {
                 try {
-                    this.f9373g.setTextColor(Color.parseColor(M));
+                    this.f9381g.setTextColor(Color.parseColor(M));
                 } catch (Exception unused) {
                 }
             }
-            this.f9373g.setText(S);
+            this.f9381g.setText(S);
             return;
         }
-        this.f9373g.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9372f.getLayoutParams();
+        this.f9381g.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9380f.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.f9372f.setLayoutParams(layoutParams);
+        this.f9380f.setLayoutParams(layoutParams);
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-        this.f9371e = (ImageView) findViewById(f.channel_icon_view);
-        this.f9372f = (TextView) findViewById(f.channel_name_view);
-        this.f9373g = (TextView) findViewById(f.channel_desc_view);
-        this.f9374h = (ImageView) findViewById(f.channel_select_view);
+        this.f9379e = (ImageView) findViewById(f.channel_icon_view);
+        this.f9380f = (TextView) findViewById(f.channel_name_view);
+        this.f9381g = (TextView) findViewById(f.channel_desc_view);
+        this.f9382h = (ImageView) findViewById(f.channel_select_view);
         setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0119a interfaceC0119a = this.f9375i;
-        if (interfaceC0119a != null) {
-            interfaceC0119a.a();
+        InterfaceC0120a interfaceC0120a = this.f9383i;
+        if (interfaceC0120a != null) {
+            interfaceC0120a.a();
         }
     }
 

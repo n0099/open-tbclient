@@ -7,24 +7,24 @@ import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseBeanActivity f25500a;
+    public PayBaseBeanActivity f25582a;
 
     public f(PayBaseBeanActivity payBaseBeanActivity) {
-        this.f25500a = payBaseBeanActivity;
+        this.f25582a = payBaseBeanActivity;
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        if (this.f25500a == null || bindFastRequest == null) {
+        if (this.f25582a == null || bindFastRequest == null) {
             return;
         }
         PayRequestCache.BindCategory category = BindFastRequest.getCategory(bindFastRequest.getmBindFrom());
         if (PayRequestCache.BindCategory.Initiative != category && PayRequestCache.BindCategory.Pwd != category) {
             if (PayRequestCache.BindCategory.Other == category) {
-                this.f25500a.setFlagPaySdk();
+                this.f25582a.setFlagPaySdk();
                 return;
             }
             return;
         }
-        this.f25500a.setFlagActiveBindCard();
+        this.f25582a.setFlagActiveBindCard();
     }
 }

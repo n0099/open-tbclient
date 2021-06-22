@@ -1,5 +1,6 @@
 package com.baidu.down.common;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DownDetail {
@@ -22,21 +23,21 @@ public class DownDetail {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[retryType=");
         stringBuffer.append(this.retryType);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[retryException=");
         stringBuffer.append(this.retryException);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[retryStrategyInfo=");
         stringBuffer.append(this.retryStrategyInfo);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[extendType=");
         stringBuffer.append(this.extendType);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[extendInfo=");
         stringBuffer.append(this.extendInfo);
         stringBuffer.append("[allInfo=");
         stringBuffer.append(this.allInfo);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         List<UrlDNSInfo> list = this.domainNameAndIpInfo;
         if (list != null && !list.isEmpty()) {
             for (UrlDNSInfo urlDNSInfo : this.domainNameAndIpInfo) {

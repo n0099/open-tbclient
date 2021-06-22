@@ -9,11 +9,11 @@ import java.util.List;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f69681a;
+    public List<a> f69785a;
 
     public c(Handler handler, Context context) {
         ArrayList arrayList = new ArrayList(3);
-        this.f69681a = arrayList;
+        this.f69785a = arrayList;
         arrayList.add(new b(handler, 0L, 15000L));
     }
 
@@ -22,8 +22,8 @@ public final class c {
     }
 
     public void b() {
-        l.k.a("[ScheduleTaskManager] execute, task size=" + this.f69681a.size());
-        for (a aVar : this.f69681a) {
+        l.k.a("[ScheduleTaskManager] execute, task size=" + this.f69785a.size());
+        for (a aVar : this.f69785a) {
             try {
                 aVar.a();
             } catch (Throwable unused) {

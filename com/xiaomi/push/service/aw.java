@@ -6,10 +6,10 @@ import com.xiaomi.push.service.av;
 public class aw implements av.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b f41759a;
+    public final /* synthetic */ av.b f41862a;
 
     public aw(av.b bVar) {
-        this.f41759a = bVar;
+        this.f41862a = bVar;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
@@ -17,13 +17,13 @@ public class aw implements av.b.a {
         XMPushService.b bVar;
         XMPushService.b bVar2;
         if (cVar2 == av.c.binding) {
-            XMPushService xMPushService = this.f41759a.f904a;
-            bVar2 = this.f41759a.f903a;
+            XMPushService xMPushService = this.f41862a.f904a;
+            bVar2 = this.f41862a.f903a;
             xMPushService.a(bVar2, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.f41759a.f904a;
-        bVar = this.f41759a.f903a;
+        XMPushService xMPushService2 = this.f41862a.f904a;
+        bVar = this.f41862a.f903a;
         xMPushService2.b(bVar);
     }
 }

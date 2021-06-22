@@ -6,7 +6,7 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
 /* loaded from: classes4.dex */

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

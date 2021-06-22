@@ -1,16 +1,24 @@
 package d.a.m0.a.d0;
 
-import tbclient.BackUser.DataRes;
-/* loaded from: classes3.dex */
+import android.annotation.SuppressLint;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
+/* loaded from: classes2.dex */
 public class a {
+    @SuppressLint({"BDOfflineUrl"})
+    public static String a() {
+        return "https://gamecenter.baidu.com";
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f52331a = false;
+    public static String b() {
+        return d.a.m0.a.r1.l.b.m() ? "https://minipro.baidu.com" : BaseUrlManager.ONLINE_URL;
+    }
 
-    public void a(DataRes dataRes) {
-        if (dataRes == null) {
-            return;
-        }
-        this.f52331a = dataRes.is_back_user.intValue() == 1;
+    public static String c() {
+        return BaseUrlManager.ONLINE_URL;
+    }
+
+    @Deprecated
+    public static String d() {
+        return "https://minipro.baidu.com";
     }
 }

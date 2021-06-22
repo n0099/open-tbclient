@@ -20,20 +20,20 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f34636a = Executors.newSingleThreadExecutor();
+    public static ExecutorService f34734a = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34646a;
+        public int f34744a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34647b;
+        public String f34745b;
 
         public a(int i2, String str) {
-            this.f34646a = i2;
-            this.f34647b = str;
+            this.f34744a = i2;
+            this.f34745b = str;
         }
     }
 
@@ -43,13 +43,13 @@ public class b {
 
     public static void a(@Nullable AdTemplate adTemplate, int i2) {
         o.a aVar = new o.a();
-        aVar.f34698g = i2;
+        aVar.f34796g = i2;
         a(adTemplate, (int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, aVar, (JSONObject) null);
     }
 
     public static void a(AdTemplate adTemplate, int i2, int i3) {
         o.a aVar = new o.a();
-        aVar.f34695d = 69;
+        aVar.f34793d = 69;
         aVar.o = i2;
         aVar.p = i3;
         a(adTemplate, 141, aVar, (JSONObject) null);
@@ -73,29 +73,29 @@ public class b {
 
     public static void a(AdTemplate adTemplate, int i2, @Nullable s.a aVar) {
         o.a aVar2 = new o.a();
-        aVar2.f34693b = i2;
+        aVar2.f34791b = i2;
         if (aVar != null) {
-            aVar2.f34696e = aVar;
+            aVar2.f34794e = aVar;
         }
         a(adTemplate, 2, aVar2, (JSONObject) null);
     }
 
     public static void a(AdTemplate adTemplate, int i2, s.a aVar, @Nullable JSONObject jSONObject) {
         o.a aVar2 = new o.a();
-        aVar2.f34693b = i2;
-        aVar2.f34696e = aVar;
+        aVar2.f34791b = i2;
+        aVar2.f34794e = aVar;
         a(adTemplate, 2, aVar2, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, int i2, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34694c = i2;
+        aVar.f34792c = i2;
         a(adTemplate, 3, aVar, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, int i2, JSONObject jSONObject, String str) {
         o.a aVar = new o.a();
-        aVar.f34697f = str;
+        aVar.f34795f = str;
         a(adTemplate, i2, aVar, jSONObject);
     }
 
@@ -113,7 +113,7 @@ public class b {
 
     public static void a(AdTemplate adTemplate, s.a aVar) {
         o.a aVar2 = new o.a();
-        aVar2.f34696e = aVar;
+        aVar2.f34794e = aVar;
         a(adTemplate, 2, aVar2, (JSONObject) null);
     }
 
@@ -128,32 +128,32 @@ public class b {
 
     public static void a(AdTemplate adTemplate, @Nullable JSONObject jSONObject, s.a aVar, String str) {
         o.a aVar2 = new o.a();
-        aVar2.f34696e = aVar;
-        aVar2.f34697f = str;
+        aVar2.f34794e = aVar;
+        aVar2.f34795f = str;
         a(adTemplate, 2, aVar2, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, @Nullable JSONObject jSONObject, String str) {
         o.a aVar = new o.a();
-        aVar.f34697f = str;
+        aVar.f34795f = str;
         a(adTemplate, 2, aVar, jSONObject);
     }
 
     public static void b(AdTemplate adTemplate) {
         o.a aVar = new o.a();
-        aVar.f34699h = adTemplate.downloadSource;
+        aVar.f34797h = adTemplate.downloadSource;
         a(adTemplate, 30, aVar, (JSONObject) null);
     }
 
     public static void b(@Nullable AdTemplate adTemplate, int i2) {
         o.a aVar = new o.a();
-        aVar.f34698g = i2;
+        aVar.f34796g = i2;
         a(adTemplate, 321, aVar, (JSONObject) null);
     }
 
     public static void b(AdTemplate adTemplate, int i2, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34692a = i2;
+        aVar.f34790a = i2;
         a(adTemplate, 402, aVar, jSONObject);
     }
 
@@ -167,12 +167,12 @@ public class b {
 
     public static void c(final AdTemplate adTemplate) {
         com.kwad.sdk.core.response.b.c.j(adTemplate);
-        f34636a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.1
+        f34734a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.1
             @Override // java.lang.Runnable
             public void run() {
                 o.a aVar = new o.a();
                 AdTemplate adTemplate2 = AdTemplate.this;
-                aVar.f34699h = adTemplate2.downloadSource;
+                aVar.f34797h = adTemplate2.downloadSource;
                 b.f(adTemplate2, aVar);
                 b.a(AdTemplate.this, 31, aVar, (JSONObject) null);
             }
@@ -187,7 +187,7 @@ public class b {
 
     public static void c(AdTemplate adTemplate, int i2, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34695d = i2;
+        aVar.f34793d = i2;
         a(adTemplate, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE, aVar, jSONObject);
     }
 
@@ -197,19 +197,19 @@ public class b {
 
     public static void c(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34699h = adTemplate.downloadSource;
+        aVar.f34797h = adTemplate.downloadSource;
         a(adTemplate, 33, aVar, jSONObject);
     }
 
     public static void d(final AdTemplate adTemplate) {
-        f34636a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.3
+        f34734a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.3
             @Override // java.lang.Runnable
             public void run() {
                 int b2 = y.b(com.kwad.sdk.core.response.b.a.s(com.kwad.sdk.core.response.b.c.j(AdTemplate.this)));
                 o.a aVar = new o.a();
                 AdTemplate adTemplate2 = AdTemplate.this;
-                aVar.f34699h = adTemplate2.downloadSource;
-                aVar.f34700i = b2;
+                aVar.f34797h = adTemplate2.downloadSource;
+                aVar.f34798i = b2;
                 aVar.j = adTemplate2.installFrom;
                 b.a(adTemplate2, 32, aVar, (JSONObject) null);
             }
@@ -218,14 +218,14 @@ public class b {
 
     public static void d(AdTemplate adTemplate, int i2) {
         o.a aVar = new o.a();
-        aVar.f34695d = i2;
+        aVar.f34793d = i2;
         a(adTemplate, 141, aVar, (JSONObject) null);
     }
 
     public static void d(AdTemplate adTemplate, int i2, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
         f(adTemplate, aVar);
-        aVar.f34695d = i2;
+        aVar.f34793d = i2;
         a(adTemplate, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE, aVar, jSONObject);
     }
 
@@ -235,7 +235,7 @@ public class b {
 
     public static void d(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34699h = adTemplate.downloadSource;
+        aVar.f34797h = adTemplate.downloadSource;
         a(adTemplate, 34, aVar, jSONObject);
     }
 
@@ -253,12 +253,12 @@ public class b {
 
     public static void e(final AdTemplate adTemplate, final JSONObject jSONObject) {
         com.kwad.sdk.core.response.b.c.j(adTemplate);
-        f34636a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.2
+        f34734a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.2
             @Override // java.lang.Runnable
             public void run() {
                 o.a aVar = new o.a();
                 AdTemplate adTemplate2 = AdTemplate.this;
-                aVar.f34699h = adTemplate2.downloadSource;
+                aVar.f34797h = adTemplate2.downloadSource;
                 b.f(adTemplate2, aVar);
                 b.a(AdTemplate.this, 31, aVar, jSONObject);
             }
@@ -287,13 +287,13 @@ public class b {
 
     public static void f(AdTemplate adTemplate, JSONObject jSONObject) {
         o.a aVar = new o.a();
-        aVar.f34699h = adTemplate.downloadSource;
+        aVar.f34797h = adTemplate.downloadSource;
         a(adTemplate, 35, aVar, jSONObject);
     }
 
     public static void g(final AdTemplate adTemplate) {
         e(adTemplate, 37);
-        f34636a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.4
+        f34734a.submit(new Runnable() { // from class: com.kwad.sdk.core.report.b.4
             @Override // java.lang.Runnable
             public void run() {
                 AdInfo j = com.kwad.sdk.core.response.b.c.j(AdTemplate.this);

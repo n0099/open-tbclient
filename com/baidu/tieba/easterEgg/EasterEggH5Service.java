@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkParam;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.google.gson.Gson;
 import d.a.c.e.p.k;
-import d.a.n0.h0.d;
+import d.a.o0.h0.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,24 +28,24 @@ import org.json.JSONObject;
 public class EasterEggH5Service extends Service {
     public static String KEY_URL = "url";
     public EasterEggBridge eggBridge;
-    public d.a.n0.e3.l0.a jsBridge;
-    public d.a.n0.h0.g.a mHttpRule;
-    public d.a.n0.h0.g.b mSocketRule;
+    public d.a.o0.e3.l0.a jsBridge;
+    public d.a.o0.h0.g.a mHttpRule;
+    public d.a.o0.h0.g.b mSocketRule;
     public BaseWebView mWebView;
-    public d.a.n0.h0.d model;
+    public d.a.o0.h0.d model;
     public String mUrl = null;
     public BdUniqueId mTag = BdUniqueId.gen();
     public Gson gson = new Gson();
-    public d.a.n0.h0.c onHitEventListener = new a();
+    public d.a.o0.h0.c onHitEventListener = new a();
     public CustomMessageListener onSearchEventListener = new b(2921345);
     public CustomMessageListener onWriteReadListener = new c(2921344);
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.n0.h0.c {
+    public class a implements d.a.o0.h0.c {
         public a() {
         }
 
-        @Override // d.a.n0.h0.c
+        @Override // d.a.o0.h0.c
         public void a(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
                 EasterEggH5Service easterEggH5Service = EasterEggH5Service.this;
@@ -109,8 +109,8 @@ public class EasterEggH5Service extends Service {
         public d() {
         }
 
-        @Override // d.a.n0.h0.d.b
-        public void a(boolean z, d.a.n0.h0.e.a aVar) {
+        @Override // d.a.o0.h0.d.b
+        public void a(boolean z, d.a.o0.h0.e.a aVar) {
             if (z && aVar != null && !k.isEmpty(aVar.a()) && aVar.c()) {
                 if (EasterEggH5Service.this.mWebView != null) {
                     EasterEggH5Service.this.mWebView.loadUrl(aVar.a());
@@ -141,11 +141,11 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.a.n0.e3.l0.c {
+    public class f implements d.a.o0.e3.l0.c {
         public f() {
         }
 
-        @Override // d.a.n0.e3.l0.c
+        @Override // d.a.o0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.b(EasterEggH5Service.this.mWebView, str, jsPromptResult);
         }
@@ -156,11 +156,11 @@ public class EasterEggH5Service extends Service {
         MessageManager.getInstance().registerListener(this.onSearchEventListener);
         this.onWriteReadListener.setTag(this.mTag);
         MessageManager.getInstance().registerListener(this.onWriteReadListener);
-        d.a.n0.h0.g.a aVar = new d.a.n0.h0.g.a(0);
+        d.a.o0.h0.g.a aVar = new d.a.o0.h0.g.a(0);
         this.mHttpRule = aVar;
         aVar.c(this.onHitEventListener);
         MessageManager.getInstance().addMessageRule(this.mHttpRule);
-        d.a.n0.h0.g.b bVar = new d.a.n0.h0.g.b(0);
+        d.a.o0.h0.g.b bVar = new d.a.o0.h0.g.b(0);
         this.mSocketRule = bVar;
         bVar.c(this.onHitEventListener);
         MessageManager.getInstance().addMessageRule(this.mSocketRule);
@@ -169,7 +169,7 @@ public class EasterEggH5Service extends Service {
     private void initWebView() {
         try {
             this.mWebView = new BaseWebView(this);
-            this.jsBridge = new d.a.n0.e3.l0.a();
+            this.jsBridge = new d.a.o0.e3.l0.a();
             this.mWebView.initCommonJsBridge(this);
             if (Build.VERSION.SDK_INT >= 21) {
                 this.mWebView.getSettings().setMixedContentMode(0);
@@ -180,7 +180,7 @@ public class EasterEggH5Service extends Service {
             this.jsBridge.a(easterEggBridge);
             this.mWebView.setOnJsPromptCallback(new f());
         } catch (Throwable th) {
-            d.a.m0.r.z.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+            d.a.n0.r.z.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
             TbadkCoreApplication.getInst().onLowMemory();
             stopSelf();
         }
@@ -218,7 +218,7 @@ public class EasterEggH5Service extends Service {
         super.onCreate();
         initWebView();
         initListenerAndRule();
-        d.a.n0.h0.d dVar = new d.a.n0.h0.d();
+        d.a.o0.h0.d dVar = new d.a.o0.h0.d();
         this.model = dVar;
         dVar.d(new d());
         this.model.e();
@@ -226,7 +226,7 @@ public class EasterEggH5Service extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        d.a.n0.h0.d dVar = this.model;
+        d.a.o0.h0.d dVar = this.model;
         if (dVar != null) {
             dVar.c();
         }

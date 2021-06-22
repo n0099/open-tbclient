@@ -74,29 +74,29 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         public class a extends AbstractIterator<Map.Entry<K, V>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public int f31069g = -1;
+            public int f31167g = -1;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f31070h;
+            public final int f31168h;
 
             public a() {
-                this.f31070h = ImmutableArrayMap.this.keyToIndex().size();
+                this.f31168h = ImmutableArrayMap.this.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<K, V> a() {
-                int i2 = this.f31069g;
+                int i2 = this.f31167g;
                 while (true) {
-                    this.f31069g = i2 + 1;
-                    int i3 = this.f31069g;
-                    if (i3 < this.f31070h) {
+                    this.f31167g = i2 + 1;
+                    int i3 = this.f31167g;
+                    if (i3 < this.f31168h) {
                         Object value = ImmutableArrayMap.this.getValue(i3);
                         if (value != null) {
-                            return Maps.j(ImmutableArrayMap.this.getKey(this.f31069g), value);
+                            return Maps.j(ImmutableArrayMap.this.getKey(this.f31167g), value);
                         }
-                        i2 = this.f31069g;
+                        i2 = this.f31167g;
                     } else {
                         return b();
                     }

@@ -295,7 +295,7 @@ public class LiveNPSPluginManager {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", com.baidu.pass.biometrics.face.liveness.b.b.g0);
+                    jSONObject.put("value", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);

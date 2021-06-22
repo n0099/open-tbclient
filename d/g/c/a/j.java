@@ -9,28 +9,28 @@ public final class j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f69964a;
+        public final String f70068a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a f69965b;
+        public final a f70069b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f69966c;
+        public a f70070c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f69967d;
+        public boolean f70071d;
 
         /* loaded from: classes6.dex */
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f69968a;
+            public String f70072a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Object f69969b;
+            public Object f70073b;
 
             /* renamed from: c  reason: collision with root package name */
-            public a f69970c;
+            public a f70074c;
 
             public a() {
             }
@@ -58,21 +58,21 @@ public final class j {
 
         public final a e() {
             a aVar = new a();
-            this.f69966c.f69970c = aVar;
-            this.f69966c = aVar;
+            this.f70070c.f70074c = aVar;
+            this.f70070c = aVar;
             return aVar;
         }
 
         public final b f(Object obj) {
-            e().f69969b = obj;
+            e().f70073b = obj;
             return this;
         }
 
         public final b g(String str, Object obj) {
             a e2 = e();
-            e2.f69969b = obj;
+            e2.f70073b = obj;
             n.p(str);
-            e2.f69968a = str;
+            e2.f70072a = str;
             return this;
         }
 
@@ -82,16 +82,16 @@ public final class j {
         }
 
         public String toString() {
-            boolean z = this.f69967d;
+            boolean z = this.f70071d;
             StringBuilder sb = new StringBuilder(32);
-            sb.append(this.f69964a);
+            sb.append(this.f70068a);
             sb.append('{');
             String str = "";
-            for (a aVar = this.f69965b.f69970c; aVar != null; aVar = aVar.f69970c) {
-                Object obj = aVar.f69969b;
+            for (a aVar = this.f70069b.f70074c; aVar != null; aVar = aVar.f70074c) {
+                Object obj = aVar.f70073b;
                 if (!z || obj != null) {
                     sb.append(str);
-                    String str2 = aVar.f69968a;
+                    String str2 = aVar.f70072a;
                     if (str2 != null) {
                         sb.append(str2);
                         sb.append(com.alipay.sdk.encrypt.a.f1886h);
@@ -111,11 +111,11 @@ public final class j {
 
         public b(String str) {
             a aVar = new a();
-            this.f69965b = aVar;
-            this.f69966c = aVar;
-            this.f69967d = false;
+            this.f70069b = aVar;
+            this.f70070c = aVar;
+            this.f70071d = false;
             n.p(str);
-            this.f69964a = str;
+            this.f70068a = str;
         }
     }
 

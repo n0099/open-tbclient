@@ -20,28 +20,28 @@ public class p implements l {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static HashMap<String, Integer> f67895a;
+        public static HashMap<String, Integer> f67851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static a f67896b;
+        public static a f67852b;
 
         /* renamed from: d.a.q.f.a.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C1845a {
+        public static class C1847a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f67897a;
+            public String f67853a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f67898b;
+            public String f67854b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f67899c;
+            public String f67855c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f67900d;
+            public int f67856d;
 
-            public C1845a(Context context) {
+            public C1847a(Context context) {
                 b(context);
             }
 
@@ -49,15 +49,15 @@ public class p implements l {
                 String lowerCase;
                 if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
                     if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                        this.f67897a = lowerCase;
-                        this.f67898b = "10.0.0.172";
+                        this.f67853a = lowerCase;
+                        this.f67854b = "10.0.0.172";
                         return;
                     } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        this.f67897a = lowerCase;
-                        this.f67898b = "10.0.0.200";
+                        this.f67853a = lowerCase;
+                        this.f67854b = "10.0.0.200";
                         return;
                     } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                        this.f67897a = lowerCase;
+                        this.f67853a = lowerCase;
                         return;
                     }
                 }
@@ -66,8 +66,8 @@ public class p implements l {
                 if (defaultHost == null || defaultHost.length() <= 0) {
                     return;
                 }
-                this.f67898b = defaultHost;
-                if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.f67898b.trim())) {
+                this.f67854b = defaultHost;
+                if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.f67854b.trim())) {
                     return;
                 }
                 Integer.toString(defaultPort);
@@ -83,53 +83,53 @@ public class p implements l {
                 }
                 if (networkInfo != null) {
                     if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
-                        this.f67899c = "wifi";
+                        this.f67855c = "wifi";
                     } else {
                         a(context, networkInfo);
-                        this.f67899c = this.f67897a;
+                        this.f67855c = this.f67853a;
                     }
-                    this.f67900d = networkInfo.getSubtype();
+                    this.f67856d = networkInfo.getSubtype();
                     networkInfo.getSubtypeName();
                 }
             }
 
             public int c() {
-                return this.f67900d;
+                return this.f67856d;
             }
 
             public String d() {
-                return this.f67899c;
+                return this.f67855c;
             }
         }
 
         static {
             HashMap<String, Integer> hashMap = new HashMap<>();
-            f67895a = hashMap;
+            f67851a = hashMap;
             hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-            f67895a.put("3GNET", 21);
-            f67895a.put("3GWAP", 22);
-            f67895a.put("CMNET", 31);
-            f67895a.put("UNINET", 32);
-            f67895a.put("CTNET", 33);
-            f67895a.put("CMWAP", 41);
-            f67895a.put("UNIWAP", 42);
-            f67895a.put("CTWAP", 43);
-            f67896b = new a();
+            f67851a.put("3GNET", 21);
+            f67851a.put("3GWAP", 22);
+            f67851a.put("CMNET", 31);
+            f67851a.put("UNINET", 32);
+            f67851a.put("CTNET", 33);
+            f67851a.put("CMWAP", 41);
+            f67851a.put("UNIWAP", 42);
+            f67851a.put("CTWAP", 43);
+            f67852b = new a();
         }
 
         public static a a() {
-            return f67896b;
+            return f67852b;
         }
 
         public String b(Context context) {
             StringBuilder sb;
-            C1845a c1845a = new C1845a(context);
-            String d2 = c1845a.d();
-            int c2 = c1845a.c();
+            C1847a c1847a = new C1847a(context);
+            String d2 = c1847a.d();
+            int c2 = c1847a.c();
             if (TextUtils.isEmpty(d2)) {
                 sb = new StringBuilder();
             } else {
-                Integer num = f67895a.get(d2.toUpperCase());
+                Integer num = f67851a.get(d2.toUpperCase());
                 r3 = num != null ? num : 5;
                 sb = new StringBuilder();
             }
@@ -144,16 +144,16 @@ public class p implements l {
     public static class b {
 
         /* renamed from: c  reason: collision with root package name */
-        public static b f67901c = new b();
+        public static b f67857c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67902a;
+        public String f67858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DisplayMetrics f67903b;
+        public DisplayMetrics f67859b;
 
         public static b a() {
-            return f67901c;
+            return f67857c;
         }
 
         public static String d(Context context) {
@@ -167,11 +167,11 @@ public class p implements l {
 
         public String b(Context context) {
             synchronized (b.class) {
-                if (TextUtils.isEmpty(this.f67902a)) {
-                    this.f67902a = c(context);
+                if (TextUtils.isEmpty(this.f67858a)) {
+                    this.f67858a = c(context);
                 }
             }
-            return this.f67902a;
+            return this.f67858a;
         }
 
         public final String c(Context context) {
@@ -194,7 +194,7 @@ public class p implements l {
 
         public final int e(Context context) {
             h(context);
-            DisplayMetrics displayMetrics = this.f67903b;
+            DisplayMetrics displayMetrics = this.f67859b;
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
             }
@@ -203,7 +203,7 @@ public class p implements l {
 
         public final int f(Context context) {
             h(context);
-            DisplayMetrics displayMetrics = this.f67903b;
+            DisplayMetrics displayMetrics = this.f67859b;
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
             }
@@ -212,7 +212,7 @@ public class p implements l {
 
         public final int g(Context context) {
             h(context);
-            DisplayMetrics displayMetrics = this.f67903b;
+            DisplayMetrics displayMetrics = this.f67859b;
             if (displayMetrics != null) {
                 return displayMetrics.densityDpi;
             }
@@ -220,8 +220,8 @@ public class p implements l {
         }
 
         public final void h(Context context) {
-            if (context != null && this.f67903b == null) {
-                this.f67903b = context.getResources().getDisplayMetrics();
+            if (context != null && this.f67859b == null) {
+                this.f67859b = context.getResources().getDisplayMetrics();
             }
         }
     }
@@ -230,58 +230,58 @@ public class p implements l {
     public static class c {
 
         /* renamed from: e  reason: collision with root package name */
-        public static c f67904e = new c();
+        public static c f67860e = new c();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67905a;
+        public String f67861a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f67906b;
+        public String f67862b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f67907c;
+        public String f67863c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f67908d;
+        public String f67864d;
 
         public c() {
             c();
         }
 
         public static c a() {
-            return f67904e;
+            return f67860e;
         }
 
         public String b() {
-            return this.f67908d;
+            return this.f67864d;
         }
 
         public final void c() {
             String str = Build.MODEL;
-            this.f67905a = str;
+            this.f67861a = str;
             if (TextUtils.isEmpty(str)) {
-                this.f67905a = "NUL";
+                this.f67861a = "NUL";
             } else {
-                this.f67905a = this.f67905a.replace("_", "-");
+                this.f67861a = this.f67861a.replace("_", "-");
             }
             String str2 = Build.MANUFACTURER;
-            this.f67906b = str2;
+            this.f67862b = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.f67906b = "NUL";
+                this.f67862b = "NUL";
             } else {
-                this.f67906b = this.f67906b.replace("_", "-");
+                this.f67862b = this.f67862b.replace("_", "-");
             }
             String str3 = Build.VERSION.RELEASE;
-            this.f67907c = str3;
-            this.f67907c = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : this.f67907c.replace("_", "-");
-            this.f67908d = d();
+            this.f67863c = str3;
+            this.f67863c = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : this.f67863c.replace("_", "-");
+            this.f67864d = d();
         }
 
         public final String d() {
-            String str = this.f67905a;
-            String str2 = this.f67907c;
+            String str = this.f67861a;
+            String str2 = this.f67863c;
             int i2 = Build.VERSION.SDK_INT;
-            String str3 = this.f67906b;
+            String str3 = this.f67862b;
             return str + "_" + str2 + "_" + i2 + "_" + str3;
         }
     }

@@ -1,5 +1,6 @@
 package io.reactivex.internal.schedulers;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
@@ -31,7 +32,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
 
     @Override // java.util.concurrent.atomic.AtomicLong
     public String toString() {
-        return "RxThreadFactory[" + this.prefix + "]";
+        return "RxThreadFactory[" + this.prefix + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public RxThreadFactory(String str, int i2) {

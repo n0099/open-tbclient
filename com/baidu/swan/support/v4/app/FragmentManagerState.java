@@ -7,13 +7,13 @@ public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public FragmentState[] f11923e;
+    public FragmentState[] f12005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f11924f;
+    public int[] f12006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BackStackState[] f11925g;
+    public BackStackState[] f12007g;
 
     /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<FragmentManagerState> {
@@ -42,14 +42,14 @@ public final class FragmentManagerState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeTypedArray(this.f11923e, i2);
-        parcel.writeIntArray(this.f11924f);
-        parcel.writeTypedArray(this.f11925g, i2);
+        parcel.writeTypedArray(this.f12005e, i2);
+        parcel.writeIntArray(this.f12006f);
+        parcel.writeTypedArray(this.f12007g, i2);
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.f11923e = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
-        this.f11924f = parcel.createIntArray();
-        this.f11925g = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.f12005e = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.f12006f = parcel.createIntArray();
+        this.f12007g = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
 }

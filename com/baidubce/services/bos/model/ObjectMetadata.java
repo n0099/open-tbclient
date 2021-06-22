@@ -4,7 +4,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ObjectMetadata {
     public long appendOffset;
     public String bceContentSha256;

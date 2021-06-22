@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import d.a.d.d;
-import d.a.n0.k1.o.l.f;
-import d.a.n0.k1.o.l.h;
-import d.a.n0.k1.o.l.k;
-import d.a.n0.r0.p2.c;
-import d.a.n0.t2.i0.e;
-import d.a.n0.t2.i0.g;
+import d.a.o0.k1.o.l.f;
+import d.a.o0.k1.o.l.h;
+import d.a.o0.k1.o.l.k;
+import d.a.o0.r0.p2.c;
+import d.a.o0.t2.i0.e;
+import d.a.o0.t2.i0.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +22,7 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public d.a.n0.r0.i1.a p;
+    public d.a.o0.r0.i1.a p;
     public c q;
     public k r;
     public List<k> s;
@@ -30,18 +30,18 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: d.a.d.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0572a implements d.a.n0.k1.o.a {
-        public C0572a() {
+    public class C0575a implements d.a.o0.k1.o.a {
+        public C0575a() {
         }
 
-        @Override // d.a.n0.k1.o.a
+        @Override // d.a.o0.k1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             a aVar = a.this;
             aVar.j0(aVar.n, a.this.n.i());
         }
     }
 
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.n0.r0.i1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.o0.r0.i1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.s = new ArrayList();
         this.o = tbPageContext;
@@ -50,7 +50,7 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    @Override // d.a.n0.k1.o.l.f
+    @Override // d.a.o0.k1.o.l.f
     public void h(k kVar) {
         this.r = kVar;
         f fVar = this.t;
@@ -87,21 +87,21 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
             i3 = 102;
         }
         e.b().d(g.b(t, i3, i2));
-        d.a.n0.k1.o.h.c.h(dVar);
+        d.a.o0.k1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: k0 */
     public AdCardViewHolder Q(ViewGroup viewGroup) {
-        d.a.n0.k1.o.l.e a2;
-        if (this.m == null || (a2 = d.a.n0.k1.o.b.h().a(this.o, this.m, 2)) == null) {
+        d.a.o0.k1.o.l.e a2;
+        if (this.m == null || (a2 = d.a.o0.k1.o.b.h().a(this.o, this.m, 2)) == null) {
             return null;
         }
         if (a2 instanceof k) {
             this.s.add((k) a2);
         }
-        a2.setAfterClickSchemeListener(new C0572a());
+        a2.setAfterClickSchemeListener(new C0575a());
         return new AdCardViewHolder(a2);
     }
 

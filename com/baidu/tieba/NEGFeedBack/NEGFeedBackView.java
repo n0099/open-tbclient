@@ -16,26 +16,26 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.v0;
-import d.a.n0.h.c;
+import d.a.n0.r.q.v0;
+import d.a.o0.h.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class NEGFeedBackView extends AppCompatImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13477e;
+    public Context f13559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13478f;
+    public long f13560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13479g;
+    public int f13561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13480h;
+    public int f13562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13481i;
+    public int f13563i;
     public int j;
     public int k;
     public c l;
@@ -53,10 +53,10 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
             NEGFeedBackView.this.o();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - NEGFeedBackView.this.f13478f > 500) {
+            if (currentTimeMillis - NEGFeedBackView.this.f13560f > 500) {
                 NEGFeedBackView.this.r(view);
             }
-            NEGFeedBackView.this.f13478f = currentTimeMillis;
+            NEGFeedBackView.this.f13560f = currentTimeMillis;
         }
     }
 
@@ -71,11 +71,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f13478f = 0L;
+        this.f13560f = 0L;
         this.j = R.drawable.icon_pure_card_more22;
         this.k = R.color.CAM_X0111;
         this.m = new a();
-        this.f13477e = tbPageContext.getPageActivity();
+        this.f13559e = tbPageContext.getPageActivity();
         p(tbPageContext);
     }
 
@@ -94,7 +94,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void n(ViewGroup viewGroup, int i2, int i3) {
-        int g2 = l.g(this.f13477e, R.dimen.tbds24);
+        int g2 = l.g(this.f13559e, R.dimen.tbds24);
         setPadding(i3, 0, i3, 0);
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i2);
@@ -173,18 +173,18 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void setLeftPadding(int i2) {
-        this.f13479g = i2;
-        setPadding(i2, this.f13481i, this.f13480h, 0);
+        this.f13561g = i2;
+        setPadding(i2, this.f13563i, this.f13562h, 0);
     }
 
     public void setRightPadding(int i2) {
-        this.f13480h = i2;
-        setPadding(this.f13479g, this.f13481i, i2, 0);
+        this.f13562h = i2;
+        setPadding(this.f13561g, this.f13563i, i2, 0);
     }
 
     public void setTopPadding(int i2) {
-        this.f13481i = i2;
-        setPadding(this.f13479g, i2, this.f13480h, 0);
+        this.f13563i = i2;
+        setPadding(this.f13561g, i2, this.f13562h, 0);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {

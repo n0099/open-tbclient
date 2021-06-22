@@ -13,13 +13,13 @@ import com.kwad.sdk.utils.ao;
 public class DrawDownloadProgressBar extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35256a;
+    public Context f35354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f35257b;
+    public TextProgressBar f35355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f35258c;
+    public View f35356c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
@@ -37,11 +37,11 @@ public class DrawDownloadProgressBar extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f35256a = context;
+        this.f35354a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-        this.f35257b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f35355b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         View findViewById = findViewById(R.id.ksad_download_progress_cover);
-        this.f35258c = findViewById;
+        this.f35356c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -54,25 +54,25 @@ public class DrawDownloadProgressBar extends FrameLayout {
         View view;
         int i3;
         if (i2 == 0 || i2 == getMax()) {
-            view = this.f35258c;
+            view = this.f35356c;
             i3 = 0;
         } else {
-            view = this.f35258c;
+            view = this.f35356c;
             i3 = 8;
         }
         view.setVisibility(i3);
-        this.f35257b.a(str, i2);
+        this.f35355b.a(str, i2);
     }
 
     public int getMax() {
-        return this.f35257b.getMax();
+        return this.f35355b.getMax();
     }
 
     public void setTextColor(int i2) {
-        this.f35257b.setTextColor(i2);
+        this.f35355b.setTextColor(i2);
     }
 
     public void setTextSize(int i2) {
-        this.f35257b.setTextDimen(ao.a(getContext(), i2));
+        this.f35355b.setTextDimen(ao.a(getContext(), i2));
     }
 }

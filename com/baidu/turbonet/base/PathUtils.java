@@ -13,19 +13,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class PathUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AsyncTask<Void, Void, String[]> f22314a;
+    public static AsyncTask<Void, Void, String[]> f22396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f22315b;
+    public static Context f22397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22316c;
+    public static String f22398c;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f22317a = PathUtils.c();
+        public static final String[] f22399a = PathUtils.c();
     }
 
     static {
@@ -33,19 +33,19 @@ public abstract class PathUtils {
     }
 
     public static String b(int i2) {
-        return a.f22317a[i2];
+        return a.f22399a[i2];
     }
 
     public static String[] c() {
         try {
-            if (f22314a.cancel(false)) {
+            if (f22396a.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 String[] d2 = d();
                 StrictMode.setThreadPolicy(allowThreadDiskReads);
                 return d2;
             }
-            return f22314a.get();
+            return f22396a.get();
         } catch (InterruptedException | ExecutionException unused) {
             return null;
         }
@@ -53,11 +53,11 @@ public abstract class PathUtils {
 
     public static String[] d() {
         String[] strArr = new String[4];
-        strArr[0] = f22315b.getDir(f22316c, 0).getPath();
-        strArr[1] = f22315b.getDir("textures", 0).getPath();
-        strArr[2] = f22315b.getDatabasePath("foo").getParent();
-        if (f22315b.getCacheDir() != null) {
-            strArr[3] = f22315b.getCacheDir().getPath();
+        strArr[0] = f22397b.getDir(f22398c, 0).getPath();
+        strArr[1] = f22397b.getDir("textures", 0).getPath();
+        strArr[2] = f22397b.getDatabasePath("foo").getParent();
+        if (f22397b.getCacheDir() != null) {
+            strArr[3] = f22397b.getCacheDir().getPath();
         }
         return strArr;
     }

@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.e.p.j;
-import d.a.m0.f0.f;
-import d.a.m0.r.d0.b;
-import d.a.m0.r.l.c;
-import d.a.m0.r.l.e;
-import d.a.m0.s.b.a;
+import d.a.n0.f0.f;
+import d.a.n0.r.d0.b;
+import d.a.n0.r.l.c;
+import d.a.n0.r.l.e;
+import d.a.n0.s.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";

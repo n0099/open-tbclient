@@ -6,22 +6,22 @@ import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.a.m0.w.m;
+import d.a.n0.w.m;
 /* loaded from: classes.dex */
 public class b extends m {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.f54527d = R.drawable.icon_pure_post_voice24;
-        this.f54528e = R.drawable.icon_pure_post_voice24_selection;
-        this.f54530g = false;
-        this.f54531h = true;
+        this.f54634d = R.drawable.icon_pure_post_voice24;
+        this.f54635e = R.drawable.icon_pure_post_voice24_selection;
+        this.f54637g = false;
+        this.f54638h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);
         this.n = new int[]{1, 9};
     }
 
-    @Override // d.a.m0.w.m
+    @Override // d.a.n0.w.m
     public boolean a() {
         if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
             String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();

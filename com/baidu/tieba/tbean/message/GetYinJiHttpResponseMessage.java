@@ -2,7 +2,7 @@ package com.baidu.tieba.tbean.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.g3.f.a;
+import d.a.o0.g3.f.a;
 import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.DataRes;
@@ -21,22 +21,22 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
         super(i2);
     }
 
-    @Override // d.a.n0.g3.f.a
+    @Override // d.a.o0.g3.f.a
     public List<Custom> getCustomList() {
         return this.customList;
     }
 
-    @Override // d.a.n0.g3.f.a
+    @Override // d.a.o0.g3.f.a
     public List<IconInfo> getIconInfoList() {
         return this.iconInfoList;
     }
 
-    @Override // d.a.n0.g3.f.a
+    @Override // d.a.o0.g3.f.a
     public Setting getSetting() {
         return this.setting;
     }
 
-    @Override // d.a.n0.g3.f.a
+    @Override // d.a.o0.g3.f.a
     public UserInfo getUserInfo() {
         return this.userInfo;
     }

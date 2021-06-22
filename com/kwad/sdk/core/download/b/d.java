@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static int a(Context context, AdTemplate adTemplate, int i2) {
         if (adTemplate == null || context == null) {

@@ -16,7 +16,7 @@ public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSin
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72289d;
+        public Disposable f72393d;
 
         public FromSingleObserver(MaybeObserver<? super T> maybeObserver) {
             this.actual = maybeObserver;
@@ -24,32 +24,32 @@ public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSin
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72289d.dispose();
-            this.f72289d = DisposableHelper.DISPOSED;
+            this.f72393d.dispose();
+            this.f72393d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72289d.isDisposed();
+            return this.f72393d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            this.f72289d = DisposableHelper.DISPOSED;
+            this.f72393d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72289d, disposable)) {
-                this.f72289d = disposable;
+            if (DisposableHelper.validate(this.f72393d, disposable)) {
+                this.f72393d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.SingleObserver
         public void onSuccess(T t) {
-            this.f72289d = DisposableHelper.DISPOSED;
+            this.f72393d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(t);
         }
     }

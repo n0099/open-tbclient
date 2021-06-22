@@ -102,7 +102,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.m0.r.f0.q.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.n0.r.f0.q.a
     public void setIsLike(boolean z) {
         super.setIsLike(z);
         if (z) {

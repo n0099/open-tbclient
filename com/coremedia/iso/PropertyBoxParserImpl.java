@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.wallet.api.Constants;
 import com.coremedia.iso.boxes.Box;
@@ -103,10 +104,10 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
         if (bArr != null) {
             if ("uuid".equals(str)) {
                 Properties properties = this.mapping;
-                property = properties.getProperty("uuid[" + Hex.encodeHex(bArr).toUpperCase() + "]");
+                property = properties.getProperty("uuid[" + Hex.encodeHex(bArr).toUpperCase() + PreferencesUtil.RIGHT_MOUNT);
                 if (property == null) {
                     Properties properties2 = this.mapping;
-                    property = properties2.getProperty(String.valueOf(str2) + "-uuid[" + Hex.encodeHex(bArr).toUpperCase() + "]");
+                    property = properties2.getProperty(String.valueOf(str2) + "-uuid[" + Hex.encodeHex(bArr).toUpperCase() + PreferencesUtil.RIGHT_MOUNT);
                 }
                 if (property == null) {
                     property = this.mapping.getProperty("uuid");

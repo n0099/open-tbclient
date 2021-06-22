@@ -8,19 +8,19 @@ import java.net.HttpURLConnection;
 public abstract class AbstractResponse implements Response {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpURLConnection f39182a;
+    public final HttpURLConnection f39280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39183b;
+    public int f39281b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
-        this.f39183b = 0;
+        this.f39281b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
-        this.f39182a = httpURLConnection;
+        this.f39280a = httpURLConnection;
         try {
-            this.f39183b = httpURLConnection.getResponseCode();
+            this.f39281b = httpURLConnection.getResponseCode();
         } catch (IOException e2) {
             throw new AssertionError(e2);
         }
@@ -28,7 +28,7 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public void close() throws IllegalStateException, IOException {
-        this.f39182a.disconnect();
+        this.f39280a.disconnect();
     }
 
     @Override // com.qq.e.comm.net.rr.Response
@@ -51,12 +51,12 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public int getStatusCode() {
-        return this.f39183b;
+        return this.f39281b;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public InputStream getStreamContent() throws IllegalStateException, IOException {
-        return this.f39182a.getInputStream();
+        return this.f39280a.getInputStream();
     }
 
     @Override // com.qq.e.comm.net.rr.Response
@@ -75,7 +75,7 @@ public abstract class AbstractResponse implements Response {
             return "";
         }
         try {
-            str2 = this.f39182a.getContentEncoding();
+            str2 = this.f39280a.getContentEncoding();
         } catch (Throwable unused) {
         }
         if (str2 != null) {

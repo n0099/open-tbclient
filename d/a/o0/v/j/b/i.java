@@ -1,0 +1,119 @@
+package d.a.o0.v.j.b;
+
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes4.dex */
+public class i extends d.a.c.k.e.a<d.a.o0.v.j.d.l, CardViewHolder<d.a.o0.v.j.h.a>> {
+    public TbPageContext m;
+    public TextView n;
+    public String o;
+    public String p;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            i.this.h0();
+        }
+    }
+
+    public i(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), d.a.o0.v.j.d.l.f65907f);
+        this.m = tbPageContext;
+    }
+
+    public final void g0(d.a.o0.v.j.d.l lVar, d.a.o0.v.j.h.a aVar) {
+        d.a.o0.v.j.d.c c2 = lVar.c();
+        if (c2 == null || aVar == null) {
+            return;
+        }
+        this.n = aVar.t();
+        this.o = c2.b().user_id;
+        k0(c2, aVar);
+        aVar.y(8);
+        aVar.z(this.f43012e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void h0() {
+        AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+        l0(this.n, this.p, false);
+        StatisticItem statisticItem = new StatisticItem("c13333");
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
+        String p = d.a.n0.r.d0.b.j().p("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        if (p == null) {
+            return;
+        }
+        if (p.endsWith("/")) {
+            p = p.substring(0, p.length() - 1);
+        }
+        String str = this.o;
+        StringBuilder sb = new StringBuilder();
+        sb.append("id=");
+        sb.append(str);
+        if (!p.contains("?")) {
+            sb.insert(0, "?");
+        } else {
+            sb.insert(0, "&");
+        }
+        sb.insert(0, p);
+        d.a.n0.l.a.l(this.m.getPageActivity(), sb.toString());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.o0.v.j.h.a> Q(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new d.a.o0.v.j.h.a(this.m));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.o0.v.j.d.l lVar, CardViewHolder<d.a.o0.v.j.h.a> cardViewHolder) {
+        if (cardViewHolder.b() == null) {
+            return null;
+        }
+        g0(lVar, cardViewHolder.b());
+        cardViewHolder.b().m().setOnClickListener(new a());
+        return cardViewHolder.b().m();
+    }
+
+    public final void k0(d.a.o0.v.j.d.c cVar, d.a.o0.v.j.h.a aVar) {
+        if (cVar == null || aVar == null) {
+        }
+    }
+
+    public final void l0(TextView textView, String str, boolean z) {
+        if (textView == null || this.m == null) {
+            return;
+        }
+        if (z) {
+            textView.setText("");
+            Drawable drawable = this.m.getResources().getDrawable(R.drawable.ala_person_center_red_tip_drawable);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            textView.setCompoundDrawables(null, null, drawable, null);
+            return;
+        }
+        if (str != null) {
+            textView.setText(str);
+        } else {
+            textView.setText("");
+        }
+        textView.setCompoundDrawables(null, null, null, null);
+    }
+}

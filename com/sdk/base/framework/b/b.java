@@ -5,10 +5,10 @@ import com.sdk.base.framework.a.l;
 public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39321a = 1000;
+    public int f39419a = 1000;
 
     public final int a() {
-        int i2 = this.f39321a;
+        int i2 = this.f39419a;
         if (i2 < 200) {
             return 200;
         }

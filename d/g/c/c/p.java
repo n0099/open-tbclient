@@ -13,13 +13,13 @@ import java.util.Set;
 public abstract class p<E> extends x<E> implements v0<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public transient Comparator<? super E> f70028e;
+    public transient Comparator<? super E> f70132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient NavigableSet<E> f70029f;
+    public transient NavigableSet<E> f70133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public transient Set<i0.a<E>> f70030g;
+    public transient Set<i0.a<E>> f70134g;
 
     /* loaded from: classes6.dex */
     public class a extends Multisets.d<E> {
@@ -50,10 +50,10 @@ public abstract class p<E> extends x<E> implements v0<E> {
 
     @Override // d.g.c.c.v0, d.g.c.c.t0
     public Comparator<? super E> comparator() {
-        Comparator<? super E> comparator = this.f70028e;
+        Comparator<? super E> comparator = this.f70132e;
         if (comparator == null) {
             Ordering reverse = Ordering.from(d().comparator()).reverse();
-            this.f70028e = reverse;
+            this.f70132e = reverse;
             return reverse;
         }
         return comparator;
@@ -68,10 +68,10 @@ public abstract class p<E> extends x<E> implements v0<E> {
 
     @Override // d.g.c.c.x, d.g.c.c.i0
     public Set<i0.a<E>> entrySet() {
-        Set<i0.a<E>> set = this.f70030g;
+        Set<i0.a<E>> set = this.f70134g;
         if (set == null) {
             Set<i0.a<E>> b2 = b();
-            this.f70030g = b2;
+            this.f70134g = b2;
             return b2;
         }
         return set;
@@ -125,10 +125,10 @@ public abstract class p<E> extends x<E> implements v0<E> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.g.c.c.x, d.g.c.c.i0
     public NavigableSet<E> elementSet() {
-        NavigableSet<E> navigableSet = this.f70029f;
+        NavigableSet<E> navigableSet = this.f70133f;
         if (navigableSet == null) {
             w0.b bVar = new w0.b(this);
-            this.f70029f = bVar;
+            this.f70133f = bVar;
             return bVar;
         }
         return navigableSet;

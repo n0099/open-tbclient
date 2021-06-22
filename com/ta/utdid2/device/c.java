@@ -16,10 +16,10 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f39838a;
+    public static c f39941a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f39839e = new Object();
+    public static final Object f39942e = new Object();
     public static final String j = ".UTSystemConfig" + File.separator + "Global";
 
     /* renamed from: a  reason: collision with other field name */
@@ -29,17 +29,17 @@ public class c {
     public d f18a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ta.utdid2.b.a.c f39840b;
+    public com.ta.utdid2.b.a.c f39943b;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39842h;
+    public String f39945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f39843i;
+    public String f39946i;
     public Context mContext;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39841g = null;
+    public String f39944g = null;
 
     /* renamed from: b  reason: collision with other field name */
     public Pattern f19b = Pattern.compile("[^0-9a-zA-Z=/+]+");
@@ -47,29 +47,29 @@ public class c {
     public c(Context context) {
         this.mContext = null;
         this.f18a = null;
-        this.f39842h = "xx_utdid_key";
-        this.f39843i = "xx_utdid_domain";
+        this.f39945h = "xx_utdid_key";
+        this.f39946i = "xx_utdid_domain";
         this.f17a = null;
-        this.f39840b = null;
+        this.f39943b = null;
         this.mContext = context;
-        this.f39840b = new com.ta.utdid2.b.a.c(context, j, "Alvin2", false, true);
+        this.f39943b = new com.ta.utdid2.b.a.c(context, j, "Alvin2", false, true);
         this.f17a = new com.ta.utdid2.b.a.c(context, ".DataStorage", "ContextData", false, true);
         this.f18a = new d();
-        this.f39842h = String.format("K_%d", Integer.valueOf(f.hashCode(this.f39842h)));
-        this.f39843i = String.format("D_%d", Integer.valueOf(f.hashCode(this.f39843i)));
+        this.f39945h = String.format("K_%d", Integer.valueOf(f.hashCode(this.f39945h)));
+        this.f39946i = String.format("D_%d", Integer.valueOf(f.hashCode(this.f39946i)));
     }
 
     public static c a(Context context) {
-        if (context != null && f39838a == null) {
-            synchronized (f39839e) {
-                if (f39838a == null) {
+        if (context != null && f39941a == null) {
+            synchronized (f39942e) {
+                if (f39941a == null) {
                     c cVar = new c(context);
-                    f39838a = cVar;
+                    f39941a = cVar;
                     cVar.m52c();
                 }
             }
         }
-        return f39838a;
+        return f39941a;
     }
 
     private byte[] b() throws Exception {
@@ -95,31 +95,31 @@ public class c {
 
     /* renamed from: c  reason: collision with other method in class */
     private void m52c() {
-        com.ta.utdid2.b.a.c cVar = this.f39840b;
+        com.ta.utdid2.b.a.c cVar = this.f39943b;
         if (cVar != null) {
             if (f.isEmpty(cVar.getString("UTDID2"))) {
-                String string = this.f39840b.getString("UTDID");
+                String string = this.f39943b.getString("UTDID");
                 if (!f.isEmpty(string)) {
                     d(string);
                 }
             }
             boolean z = false;
             boolean z2 = true;
-            if (!f.isEmpty(this.f39840b.getString("DID"))) {
-                this.f39840b.remove("DID");
+            if (!f.isEmpty(this.f39943b.getString("DID"))) {
+                this.f39943b.remove("DID");
                 z = true;
             }
-            if (!f.isEmpty(this.f39840b.getString("EI"))) {
-                this.f39840b.remove("EI");
+            if (!f.isEmpty(this.f39943b.getString("EI"))) {
+                this.f39943b.remove("EI");
                 z = true;
             }
-            if (f.isEmpty(this.f39840b.getString("SI"))) {
+            if (f.isEmpty(this.f39943b.getString("SI"))) {
                 z2 = z;
             } else {
-                this.f39840b.remove("SI");
+                this.f39943b.remove("SI");
             }
             if (z2) {
-                this.f39840b.commit();
+                this.f39943b.commit();
             }
         }
     }
@@ -130,20 +130,20 @@ public class c {
             if (str.endsWith("\n")) {
                 str = str.substring(0, str.length() - 1);
             }
-            if (str.length() != 24 || (cVar = this.f39840b) == null) {
+            if (str.length() != 24 || (cVar = this.f39943b) == null) {
                 return;
             }
             cVar.putString("UTDID2", str);
-            this.f39840b.commit();
+            this.f39943b.commit();
         }
     }
 
     private void e(String str) {
         com.ta.utdid2.b.a.c cVar;
-        if (str == null || (cVar = this.f17a) == null || str.equals(cVar.getString(this.f39842h))) {
+        if (str == null || (cVar = this.f17a) == null || str.equals(cVar.getString(this.f39945h))) {
             return;
         }
-        this.f17a.putString(this.f39842h, str);
+        this.f17a.putString(this.f39945h, str);
         this.f17a.commit();
     }
 
@@ -193,8 +193,8 @@ public class c {
     }
 
     public synchronized String getValue() {
-        if (this.f39841g != null) {
-            return this.f39841g;
+        if (this.f39944g != null) {
+            return this.f39944g;
         }
         return d();
     }
@@ -238,11 +238,11 @@ public class c {
             }
             String d3 = this.f18a.d(str);
             if (a(d3)) {
-                this.f39841g = d3;
+                this.f39944g = d3;
                 d(d3);
                 e(str);
-                f(this.f39841g);
-                return this.f39841g;
+                f(this.f39944g);
+                return this.f39944g;
             }
         }
         String c3 = c();
@@ -253,10 +253,10 @@ public class c {
             }
             f(c3);
             e(c4);
-            this.f39841g = c3;
+            this.f39944g = c3;
             return c3;
         }
-        String string2 = this.f17a.getString(this.f39842h);
+        String string2 = this.f17a.getString(this.f39945h);
         if (!f.isEmpty(string2)) {
             String d4 = eVar.d(string2);
             if (!a(d4)) {
@@ -265,12 +265,12 @@ public class c {
             if (a(d4)) {
                 String c5 = this.f18a.c(d4);
                 if (!f.isEmpty(d4)) {
-                    this.f39841g = d4;
+                    this.f39944g = d4;
                     if (z) {
                         h(c5);
                     }
-                    d(this.f39841g);
-                    return this.f39841g;
+                    d(this.f39944g);
+                    return this.f39944g;
                 }
             }
         }
@@ -291,22 +291,22 @@ public class c {
 
     public synchronized String d() {
         String m53e = m53e();
-        this.f39841g = m53e;
+        this.f39944g = m53e;
         if (!TextUtils.isEmpty(m53e)) {
-            return this.f39841g;
+            return this.f39944g;
         }
         try {
             byte[] b2 = b();
             if (b2 != null) {
                 String encodeToString = com.ta.utdid2.a.a.b.encodeToString(b2, 2);
-                this.f39841g = encodeToString;
+                this.f39944g = encodeToString;
                 d(encodeToString);
                 String c2 = this.f18a.c(b2);
                 if (c2 != null) {
                     h(c2);
                     e(c2);
                 }
-                return this.f39841g;
+                return this.f39944g;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -315,7 +315,7 @@ public class c {
     }
 
     private String c() {
-        com.ta.utdid2.b.a.c cVar = this.f39840b;
+        com.ta.utdid2.b.a.c cVar = this.f39943b;
         if (cVar != null) {
             String string = cVar.getString("UTDID2");
             if (f.isEmpty(string) || this.f18a.c(string) == null) {

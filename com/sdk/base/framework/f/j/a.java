@@ -11,10 +11,10 @@ import kotlin.text.Typography;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39392a = "com.sdk.base.framework.f.j.a";
+    public static final String f39490a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f39393b = f.f39341b;
+    public static boolean f39491b = f.f39439b;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0031: INVOKE  (r3v0 java.lang.Object A[REMOVE]) = (r5v4 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
     public static String a(String str, String str2, TreeMap<String, Object> treeMap) {
@@ -40,7 +40,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return e.a(stringBuffer.toString());
         } catch (Exception e2) {
-            c.b(f39392a, e2.getMessage(), Boolean.valueOf(f39393b));
+            c.b(f39490a, e2.getMessage(), Boolean.valueOf(f39491b));
             return null;
         }
     }

@@ -16,21 +16,21 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f28238a;
+    public static volatile d f28320a;
 
     public d() {
         super("ProcessPushHelper");
     }
 
     public static d a() {
-        if (f28238a == null) {
+        if (f28320a == null) {
             synchronized (f.class) {
-                if (f28238a == null) {
-                    f28238a = new d();
+                if (f28320a == null) {
+                    f28320a = new d();
                 }
             }
         }
-        return f28238a;
+        return f28320a;
     }
 
     private JSONObject c() {
@@ -38,8 +38,8 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
         if (a2 != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("latitude", a2.f30284a);
-                jSONObject.put("longitude", a2.f30285b);
+                jSONObject.put("latitude", a2.f30366a);
+                jSONObject.put("longitude", a2.f30367b);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;
@@ -72,11 +72,11 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
                 if (eVar != null) {
                     try {
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (eVar.f28240b != null && eVar.f28241c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28241c, 0L) > eVar.f28242d * 1000) {
-                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28241c, Long.valueOf(currentTimeMillis));
+                        if (eVar.f28322b != null && eVar.f28323c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28323c, 0L) > eVar.f28324d * 1000) {
+                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28323c, Long.valueOf(currentTimeMillis));
                             Intent intent = new Intent();
-                            intent.setAction(eVar.f28239a);
-                            intent.setPackage(eVar.f28241c);
+                            intent.setAction(eVar.f28321a);
+                            intent.setPackage(eVar.f28323c);
                             p.a().startService(intent);
                             a(eVar, 1);
                         }
@@ -102,9 +102,9 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
             jSONObject.put("ua", ak.b());
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put("ad_package_name", eVar.f28241c);
-            jSONObject.put("action", eVar.f28239a);
-            jSONObject.put("service", eVar.f28240b);
+            jSONObject.put("ad_package_name", eVar.f28323c);
+            jSONObject.put("action", eVar.f28321a);
+            jSONObject.put("service", eVar.f28322b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

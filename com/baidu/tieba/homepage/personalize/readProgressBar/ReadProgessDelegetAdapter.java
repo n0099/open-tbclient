@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.k.e.n;
 import d.a.c.k.e.w;
-import d.a.n0.b1.h.l.b;
-import d.a.n0.z.t;
+import d.a.o0.b1.h.l.b;
+import d.a.o0.z.t;
 /* loaded from: classes4.dex */
 public class ReadProgessDelegetAdapter extends d.a.c.k.e.a<b, ViewHolder> {
     public final TbPageContext<?> m;
@@ -22,11 +22,11 @@ public class ReadProgessDelegetAdapter extends d.a.c.k.e.a<b, ViewHolder> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.n0.b1.h.l.a f16529a;
+        public d.a.o0.b1.h.l.a f16611a;
 
-        public ViewHolder(d.a.n0.b1.h.l.a aVar) {
+        public ViewHolder(d.a.o0.b1.h.l.a aVar) {
             super(aVar.m());
-            this.f16529a = aVar;
+            this.f16611a = aVar;
         }
     }
 
@@ -54,7 +54,7 @@ public class ReadProgessDelegetAdapter extends d.a.c.k.e.a<b, ViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: e0 */
     public ViewHolder Q(ViewGroup viewGroup) {
-        return new ViewHolder(new d.a.n0.b1.h.l.a(this.m, viewGroup));
+        return new ViewHolder(new d.a.o0.b1.h.l.a(this.m, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class ReadProgessDelegetAdapter extends d.a.c.k.e.a<b, ViewHolder> {
     /* renamed from: g0 */
     public View X(int i2, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
         t.b().a(new StatisticItem("c11272"));
-        viewHolder.f16529a.n(bVar);
+        viewHolder.f16611a.n(bVar);
         return viewHolder.a();
     }
 }

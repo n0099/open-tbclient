@@ -22,6 +22,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public String extraJson;
     public boolean hideSuccessTip;
     public boolean isAcceptBrowseModeAgreement;
+    public boolean isWithYouthStyle;
     public String preSetUname;
     public String statExtra;
     public String uid;

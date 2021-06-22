@@ -10,7 +10,7 @@ import com.baidu.wallet.base.widget.dialog.model.BaseDialogModel;
 public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseDialogModel f23769a;
+    public BaseDialogModel f23851a;
 
     /* loaded from: classes5.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -23,13 +23,13 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     }
 
     public BaseAdapter(BaseDialogModel baseDialogModel) {
-        this.f23769a = baseDialogModel;
+        this.f23851a = baseDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.wallet.base.widget.dialog.WalletDialog.Adapter
     public void onBindViewHolder(BaseHolder baseHolder) {
-        baseHolder.binding.setViewModel(this.f23769a);
+        baseHolder.binding.setViewModel(this.f23851a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

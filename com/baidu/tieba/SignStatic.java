@@ -129,12 +129,12 @@ public class SignStatic {
     }
 
     public static void a(NetWork netWork) {
-        Address h2;
+        Address g2;
         String locationLng = TbadkCoreApplication.getInst().getLocationLng();
         String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (h2 = d.a.c.e.i.a.l().h(false)) != null) {
-            locationLng = String.valueOf(h2.getLongitude());
-            locationLat = String.valueOf(h2.getLatitude());
+        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (g2 = d.a.c.e.i.a.k().g(false)) != null) {
+            locationLng = String.valueOf(g2.getLongitude());
+            locationLat = String.valueOf(g2.getLatitude());
         }
         if (TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) {
             return;

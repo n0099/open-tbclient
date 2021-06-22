@@ -3,9 +3,9 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30231a = false;
+    public static boolean f30313a = false;
 
     public static boolean a() {
-        return f30231a;
+        return f30313a;
     }
 }

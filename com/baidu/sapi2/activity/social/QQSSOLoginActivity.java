@@ -12,18 +12,18 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
 
     @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.a.a.a
     public void a() {
-        if (((BaseSSOLoginActivity) this).f9789f) {
+        if (((BaseSSOLoginActivity) this).f9810f) {
             b(3001);
             finish();
             return;
         }
-        a(((BaseSSOLoginActivity) this).f9790g);
+        a(((BaseSSOLoginActivity) this).f9811g);
     }
 
     @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
-        if (((BaseSSOLoginActivity) this).f9789f && i2 == 11101 && i3 == 0) {
+        if (((BaseSSOLoginActivity) this).f9810f && i2 == 11101 && i3 == 0) {
             b(3001);
             finish();
         }
@@ -41,7 +41,7 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
 
     @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.a.a.a
     public void a(String str, String str2, String str3) {
-        if (((BaseSSOLoginActivity) this).f9789f) {
+        if (((BaseSSOLoginActivity) this).f9810f) {
             Intent intent = new Intent();
             intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, str);
             intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);

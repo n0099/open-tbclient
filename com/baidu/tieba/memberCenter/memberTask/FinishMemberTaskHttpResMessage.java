@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.FinishMemberTask.DataRes;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FinishMemberTaskHttpResMessage extends TbHttpResponsedMessage {
     public int status;
 

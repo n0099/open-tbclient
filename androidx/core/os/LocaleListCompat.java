@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.Size;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public final class LocaleListCompat {
@@ -51,7 +52,7 @@ public final class LocaleListCompat {
         } else {
             return new Locale(str);
         }
-        throw new IllegalArgumentException("Can not parse language tag: [" + str + "]");
+        throw new IllegalArgumentException("Can not parse language tag: [" + str + PreferencesUtil.RIGHT_MOUNT);
     }
 
     @NonNull

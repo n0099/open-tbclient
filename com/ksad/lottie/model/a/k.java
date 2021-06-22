@@ -6,24 +6,24 @@ public class k {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f31987a;
+    public final a f32085a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f31988b;
+    public final a f32086b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f31989c;
+    public final b f32087c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f31990d;
+    public final b f32088d;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.f31987a = aVar;
-        this.f31988b = aVar2;
-        this.f31989c = bVar;
-        this.f31990d = bVar2;
+        this.f32085a = aVar;
+        this.f32086b = aVar2;
+        this.f32087c = bVar;
+        this.f32088d = bVar2;
     }
 }

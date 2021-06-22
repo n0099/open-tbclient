@@ -15,10 +15,10 @@ import d.a.c.e.p.l;
 public class LineView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f13249e;
+    public Paint f13331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f13250f;
+    public Path f13332f;
 
     public LineView(Context context) {
         super(context);
@@ -27,28 +27,28 @@ public class LineView extends View {
 
     public final void a() {
         Paint paint = new Paint();
-        this.f13249e = paint;
+        this.f13331e = paint;
         paint.setAntiAlias(true);
-        this.f13249e.setColor(SkinManager.getColor(R.color.CAM_X0203));
-        this.f13249e.setStyle(Paint.Style.STROKE);
-        this.f13249e.setStrokeWidth(l.g(getContext(), R.dimen.tbds2));
-        this.f13249e.setPathEffect(new DashPathEffect(new float[]{l.g(getContext(), R.dimen.tbds8), l.g(getContext(), R.dimen.tbds8)}, 0.0f));
-        this.f13250f = new Path();
+        this.f13331e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+        this.f13331e.setStyle(Paint.Style.STROKE);
+        this.f13331e.setStrokeWidth(l.g(getContext(), R.dimen.tbds2));
+        this.f13331e.setPathEffect(new DashPathEffect(new float[]{l.g(getContext(), R.dimen.tbds8), l.g(getContext(), R.dimen.tbds8)}, 0.0f));
+        this.f13332f = new Path();
     }
 
     public void b() {
-        this.f13249e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+        this.f13331e.setColor(SkinManager.getColor(R.color.CAM_X0203));
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f13250f.reset();
+        this.f13332f.reset();
         float height = getHeight() / 2;
-        this.f13250f.moveTo(0.0f, height);
-        this.f13250f.lineTo(getWidth(), height);
-        canvas.drawPath(this.f13250f, this.f13249e);
+        this.f13332f.moveTo(0.0f, height);
+        this.f13332f.lineTo(getWidth(), height);
+        canvas.drawPath(this.f13332f, this.f13331e);
     }
 
     public LineView(Context context, @Nullable AttributeSet attributeSet) {

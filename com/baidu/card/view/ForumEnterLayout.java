@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.b.d;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.u.c;
+import d.a.n0.b.d;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.u.c;
 /* loaded from: classes.dex */
 public class ForumEnterLayout extends RelativeLayout {
 
@@ -40,7 +40,7 @@ public class ForumEnterLayout extends RelativeLayout {
 
     /* renamed from: i  reason: collision with root package name */
     public EMTextView f4401i;
-    public d.a.m0.r.q.a j;
+    public d.a.n0.r.q.a j;
     public Drawable k;
     public final int l;
     public final int m;
@@ -118,7 +118,7 @@ public class ForumEnterLayout extends RelativeLayout {
         if (str == null || i2 <= 0) {
             return;
         }
-        TiebaStatic.log(d.a.n0.d3.a.n(str, a2Var, i2));
+        TiebaStatic.log(d.a.o0.d3.a.n(str, a2Var, i2));
     }
 
     public final void i(Context context) {
@@ -143,11 +143,11 @@ public class ForumEnterLayout extends RelativeLayout {
         return a2Var != null && a2Var.V1 && a2Var.H2();
     }
 
-    public final boolean l(d.a.m0.r.q.a aVar) {
+    public final boolean l(d.a.n0.r.q.a aVar) {
         return (aVar == null || aVar.i() == null || !aVar.i().D2() || aVar.i().x1() == null) ? false : true;
     }
 
-    public final boolean m(d.a.m0.r.q.a aVar) {
+    public final boolean m(d.a.n0.r.q.a aVar) {
         return (aVar == null || aVar.i() == null || aVar.i().P0() == null || aVar.i().P0().getOptions() == null || aVar.i().P0().getOptions().size() <= 0) ? false : true;
     }
 
@@ -160,7 +160,7 @@ public class ForumEnterLayout extends RelativeLayout {
         d2.x(R.string.F_X01);
     }
 
-    public void setData(d.a.m0.r.q.a aVar) {
+    public void setData(d.a.n0.r.q.a aVar) {
         boolean z;
         this.j = aVar;
         g();

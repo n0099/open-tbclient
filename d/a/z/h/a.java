@@ -21,20 +21,20 @@ import java.util.concurrent.CountDownLatch;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BundleInfo f68671a;
+    public BundleInfo f68775a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.z.h.b.a f68672b;
+    public d.a.z.h.b.a f68776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f68673c = false;
+    public boolean f68777c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.z.h.c.a f68674d = null;
+    public d.a.z.h.c.a f68778d = null;
 
     public a(BundleInfo bundleInfo) {
         if (a(bundleInfo)) {
-            this.f68671a = bundleInfo;
+            this.f68775a = bundleInfo;
             return;
         }
         throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
@@ -58,21 +58,21 @@ public class a {
     }
 
     public ClassLoader c() {
-        return this.f68672b;
+        return this.f68776b;
     }
 
     public synchronized Resources d(Resources resources) {
         Application applicationContext = ContextHolder.getApplicationContext();
-        String absolutePath = c.d(applicationContext, this.f68671a.getPackageName() + ".apk").getAbsolutePath();
+        String absolutePath = c.d(applicationContext, this.f68775a.getPackageName() + ".apk").getAbsolutePath();
         AssetManager assets = resources.getAssets();
         if (ResourcesHookUtil.hookAssets(assets, absolutePath)) {
-            if (this.f68674d == null || this.f68674d.getAssets().hashCode() != assets.hashCode()) {
-                this.f68674d = new d.a.z.h.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+            if (this.f68778d == null || this.f68778d.getAssets().hashCode() != assets.hashCode()) {
+                this.f68778d = new d.a.z.h.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
             }
         } else {
             throw new InitException(21, "resources hook error");
         }
-        return this.f68674d;
+        return this.f68778d;
     }
 
     public final void e() {
@@ -87,7 +87,7 @@ public class a {
 
     public final boolean f() {
         Application applicationContext = ContextHolder.getApplicationContext();
-        this.f68672b = new d.a.z.h.b.a(c.d(applicationContext, this.f68671a.getPackageName() + ".apk").getAbsolutePath(), c.f(applicationContext, this.f68671a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.f68671a.getPackageName()).getAbsolutePath(), applicationContext);
+        this.f68776b = new d.a.z.h.b.a(c.d(applicationContext, this.f68775a.getPackageName() + ".apk").getAbsolutePath(), c.f(applicationContext, this.f68775a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.f68775a.getPackageName()).getAbsolutePath(), applicationContext);
         return true;
     }
 
@@ -97,11 +97,11 @@ public class a {
             Resources a2 = d.c().a();
             Resources b2 = d.c().b();
             Resources[] d2 = d.c().d();
-            if (!this.f68673c) {
+            if (!this.f68777c) {
                 h(applicationContext);
-                this.f68673c = true;
+                this.f68777c = true;
             }
-            String absolutePath = c.d(applicationContext, this.f68671a.getPackageName() + ".apk").getAbsolutePath();
+            String absolutePath = c.d(applicationContext, this.f68775a.getPackageName() + ".apk").getAbsolutePath();
             ResourcesHookUtil.hookResources(a2, absolutePath);
             ResourcesHookUtil.hookResources(b2, absolutePath);
             if (d2 != null) {

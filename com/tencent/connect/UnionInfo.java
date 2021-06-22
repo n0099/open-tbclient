@@ -18,6 +18,6 @@ public class UnionInfo extends BaseApi {
     public void getUnionId(IUiListener iUiListener) {
         Bundle a2 = a();
         a2.putString("unionid", "1");
-        HttpUtils.requestAsync(this.f39930b, e.a(), URL_GET_UNION_ID, a2, "GET", new BaseApi.TempRequestListener(iUiListener));
+        HttpUtils.requestAsync(this.f40033b, e.a(), URL_GET_UNION_ID, a2, "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 }

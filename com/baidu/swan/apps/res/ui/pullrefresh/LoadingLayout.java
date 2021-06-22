@@ -6,53 +6,53 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import d.a.l0.a.k;
+import d.a.m0.a.k;
 /* loaded from: classes3.dex */
 public abstract class LoadingLayout extends FrameLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f11213h = k.f46875a;
+    public static final boolean f11295h = k.f46983a;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f11214e;
+    public View f11296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ILoadingLayout$State f11215f;
+    public ILoadingLayout$State f11297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ILoadingLayout$State f11216g;
+    public ILoadingLayout$State f11298g;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11217a;
+        public static final /* synthetic */ int[] f11299a;
 
         static {
             int[] iArr = new int[ILoadingLayout$State.values().length];
-            f11217a = iArr;
+            f11299a = iArr;
             try {
                 iArr[ILoadingLayout$State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11217a[ILoadingLayout$State.RELEASE_TO_REFRESH.ordinal()] = 2;
+                f11299a[ILoadingLayout$State.RELEASE_TO_REFRESH.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11217a[ILoadingLayout$State.PULL_TO_REFRESH.ordinal()] = 3;
+                f11299a[ILoadingLayout$State.PULL_TO_REFRESH.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f11217a[ILoadingLayout$State.REFRESHING.ordinal()] = 4;
+                f11299a[ILoadingLayout$State.REFRESHING.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f11217a[ILoadingLayout$State.NO_MORE_DATA.ordinal()] = 5;
+                f11299a[ILoadingLayout$State.NO_MORE_DATA.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f11217a[ILoadingLayout$State.RELEASE_TO_LONG_REFRESH.ordinal()] = 6;
+                f11299a[ILoadingLayout$State.RELEASE_TO_LONG_REFRESH.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -66,15 +66,15 @@ public abstract class LoadingLayout extends FrameLayout {
 
     public void b(Context context, AttributeSet attributeSet) {
         View a2 = a(context, this, attributeSet);
-        this.f11214e = a2;
+        this.f11296e = a2;
         if (a2 == null) {
-            if (f11213h) {
+            if (f11295h) {
                 throw new NullPointerException("Loading view can not be null.");
             }
             return;
         }
         ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
-        addView(this.f11214e, new FrameLayout.LayoutParams(-1, layoutParams != null ? layoutParams.height : -2));
+        addView(this.f11296e, new FrameLayout.LayoutParams(-1, layoutParams != null ? layoutParams.height : -2));
     }
 
     public void c() {
@@ -100,7 +100,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public abstract int getContentSize();
 
     public ILoadingLayout$State getPreState() {
-        return this.f11216g;
+        return this.f11298g;
     }
 
     public int getRefreshingHeight() {
@@ -108,7 +108,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public ILoadingLayout$State getState() {
-        return this.f11215f;
+        return this.f11297f;
     }
 
     public void h() {
@@ -124,7 +124,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
-        switch (a.f11217a[iLoadingLayout$State.ordinal()]) {
+        switch (a.f11299a[iLoadingLayout$State.ordinal()]) {
             case 1:
                 k();
                 return;
@@ -151,7 +151,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public void m(boolean z) {
         View view;
         ViewGroup.LayoutParams layoutParams;
-        if (z == (getVisibility() == 0) || (view = this.f11214e) == null || (layoutParams = view.getLayoutParams()) == null) {
+        if (z == (getVisibility() == 0) || (view = this.f11296e) == null || (layoutParams = view.getLayoutParams()) == null) {
             return;
         }
         if (z) {
@@ -165,21 +165,21 @@ public abstract class LoadingLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
-        View view = this.f11214e;
+        View view = this.f11296e;
         if (view != null) {
             view.setBackgroundColor(i2);
         }
     }
 
     public void setHeaderBackgroundColor(int i2) {
-        View view = this.f11214e;
+        View view = this.f11296e;
         if (view != null) {
             view.setBackgroundColor(i2);
         }
     }
 
     public void setHeaderBackgroundResource(int i2) {
-        View view = this.f11214e;
+        View view = this.f11296e;
         if (view != null) {
             view.setBackgroundColor(getResources().getColor(i2));
         }
@@ -204,10 +204,10 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public void setState(ILoadingLayout$State iLoadingLayout$State) {
-        ILoadingLayout$State iLoadingLayout$State2 = this.f11215f;
+        ILoadingLayout$State iLoadingLayout$State2 = this.f11297f;
         if (iLoadingLayout$State2 != iLoadingLayout$State) {
-            this.f11216g = iLoadingLayout$State2;
-            this.f11215f = iLoadingLayout$State;
+            this.f11298g = iLoadingLayout$State2;
+            this.f11297f = iLoadingLayout$State;
             l(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }
@@ -219,8 +219,8 @@ public abstract class LoadingLayout extends FrameLayout {
     public LoadingLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.NONE;
-        this.f11215f = iLoadingLayout$State;
-        this.f11216g = iLoadingLayout$State;
+        this.f11297f = iLoadingLayout$State;
+        this.f11298g = iLoadingLayout$State;
         b(context, attributeSet);
     }
 }

@@ -5,18 +5,18 @@ import androidx.annotation.NonNull;
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37907a;
+    public String f38005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37908b;
+    public String f38006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37909c;
+    public boolean f38007c;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull a aVar) {
-        return aVar.f37908b.compareTo(this.f37908b);
+        return aVar.f38006b.compareTo(this.f38006b);
     }
 }

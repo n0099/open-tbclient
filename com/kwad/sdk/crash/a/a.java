@@ -11,13 +11,13 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f35059a;
+    public static Context f35157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35060b;
+    public static String f35158b;
 
     public static File a() {
-        File file = !TextUtils.isEmpty(f35060b) ? new File(f35060b) : new File(a(f35059a), "kwad_ex");
+        File file = !TextUtils.isEmpty(f35158b) ? new File(f35158b) : new File(a(f35157a), "kwad_ex");
         if (!file.exists()) {
             file.mkdir();
         }
@@ -37,8 +37,8 @@ public class a {
     }
 
     public static void a(@NonNull Context context, @Nullable String str) {
-        f35059a = context;
-        f35060b = str;
+        f35157a = context;
+        f35158b = str;
     }
 
     public static File b() {

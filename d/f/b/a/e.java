@@ -6,34 +6,34 @@ import android.os.HandlerThread;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f69876a = new a("loop");
+    public static a f69980a = new a("loop");
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f69877b = new a("writer");
+    public static a f69981b = new a("writer");
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f69878a;
+        public Handler f69982a;
 
         public a(String str) {
-            this.f69878a = null;
+            this.f69982a = null;
             HandlerThread handlerThread = new HandlerThread("BlockCanary-" + str);
             handlerThread.start();
-            this.f69878a = new Handler(handlerThread.getLooper());
+            this.f69982a = new Handler(handlerThread.getLooper());
         }
 
         public Handler a() {
-            return this.f69878a;
+            return this.f69982a;
         }
     }
 
     public static Handler a() {
-        return f69876a.a();
+        return f69980a.a();
     }
 
     public static Handler b() {
-        return f69877b.a();
+        return f69981b.a();
     }
 }

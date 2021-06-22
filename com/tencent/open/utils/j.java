@@ -20,6 +20,7 @@ import android.util.DisplayMetrics;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.pass.main.facesdk.BuildConfig;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -38,43 +39,43 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40167a = "";
+    public static String f40270a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40168b = "";
+    public static String f40271b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40169c = "";
+    public static String f40272c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40170d = "";
+    public static String f40273d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f40171e = -1;
+    public static int f40274e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40172f = null;
+    public static String f40275f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40173g = "0123456789ABCDEF";
+    public static String f40276g = "0123456789ABCDEF";
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40174a;
+        public String f40277a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f40175b;
+        public long f40278b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f40176c;
+        public long f40279c;
 
         public a(String str, int i2) {
-            this.f40174a = str;
-            this.f40175b = i2;
+            this.f40277a = str;
+            this.f40278b = i2;
             if (str != null) {
-                this.f40176c = str.length();
+                this.f40279c = str.length();
             }
         }
     }
@@ -191,7 +192,7 @@ public class j {
             return "";
         }
         String d2 = d(context, str);
-        f40169c = d2;
+        f40272c = d2;
         return d2;
     }
 
@@ -229,7 +230,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f40172f = str;
+            f40275f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -282,7 +283,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f40167a;
+        return f40270a;
     }
 
     public static boolean d(Context context) {
@@ -323,10 +324,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f40168b = str2;
-            f40167a = str2.substring(0, str2.lastIndexOf(46));
-            f40170d = f40168b.substring(f40168b.lastIndexOf(46) + 1, f40168b.length());
-            f40171e = packageInfo.versionCode;
+            f40271b = str2;
+            f40270a = str2.substring(0, str2.lastIndexOf(46));
+            f40273d = f40271b.substring(f40271b.lastIndexOf(46) + 1, f40271b.length());
+            f40274e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -358,7 +359,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f40168b;
+        return f40271b;
     }
 
     public static boolean f(Context context, String str) {
@@ -529,7 +530,7 @@ public class j {
 
     public static boolean a(Context context, boolean z) {
         if (!d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null) {
-            return !z ? h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null : h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
+            return !z ? h.c(context, BuildConfig.VERSION_NAME) >= 0 || h.a(context, Constants.PACKAGE_TIM) != null : h.c(context, BuildConfig.VERSION_NAME) >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
         }
         return true;
     }

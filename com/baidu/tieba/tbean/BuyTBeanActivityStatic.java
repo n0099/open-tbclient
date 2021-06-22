@@ -16,7 +16,7 @@ import com.baidu.tieba.tbean.message.GetBigTbeanWalletH5ResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiHttpResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiResponseMessage;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import d.a.m0.z0.n0;
+import d.a.n0.z0.n0;
 /* loaded from: classes5.dex */
 public class BuyTBeanActivityStatic {
 
@@ -45,7 +45,7 @@ public class BuyTBeanActivityStatic {
 
     static {
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        d.a.n0.e3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
+        d.a.o0.e3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -66,7 +66,7 @@ public class BuyTBeanActivityStatic {
     }
 
     public static void c() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.n0.e3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.o0.e3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

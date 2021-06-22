@@ -13,23 +13,23 @@ import com.baidu.tieba.R$styleable;
 public class FlowLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13199e;
+    public int f13281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13200f;
+    public int f13282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13201g;
+    public int f13283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13202h;
+    public boolean f13284h;
 
     public FlowLayout(Context context) {
         super(context);
-        this.f13199e = 0;
-        this.f13200f = 0;
-        this.f13201g = 0;
-        this.f13202h = false;
+        this.f13281e = 0;
+        this.f13282f = 0;
+        this.f13283g = 0;
+        this.f13284h = false;
         h(context, null);
     }
 
@@ -42,43 +42,43 @@ public class FlowLayout extends ViewGroup {
     }
 
     public final void b(Canvas canvas, View view) {
-        if (this.f13202h) {
+        if (this.f13284h) {
             Paint a2 = a(-256);
             Paint a3 = a(-16711936);
             Paint a4 = a(SupportMenu.CATEGORY_MASK);
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            if (layoutParams.f13206c > 0) {
+            if (layoutParams.f13288c > 0) {
                 float right = view.getRight();
                 float top = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right, top, right + layoutParams.f13206c, top, a2);
-                canvas.drawLine((layoutParams.f13206c + right) - 4.0f, top - 4.0f, right + layoutParams.f13206c, top, a2);
-                canvas.drawLine((layoutParams.f13206c + right) - 4.0f, top + 4.0f, right + layoutParams.f13206c, top, a2);
-            } else if (this.f13199e > 0) {
+                canvas.drawLine(right, top, right + layoutParams.f13288c, top, a2);
+                canvas.drawLine((layoutParams.f13288c + right) - 4.0f, top - 4.0f, right + layoutParams.f13288c, top, a2);
+                canvas.drawLine((layoutParams.f13288c + right) - 4.0f, top + 4.0f, right + layoutParams.f13288c, top, a2);
+            } else if (this.f13281e > 0) {
                 float right2 = view.getRight();
                 float top2 = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right2, top2, right2 + this.f13199e, top2, a3);
-                int i2 = this.f13199e;
+                canvas.drawLine(right2, top2, right2 + this.f13281e, top2, a3);
+                int i2 = this.f13281e;
                 canvas.drawLine((i2 + right2) - 4.0f, top2 - 4.0f, right2 + i2, top2, a3);
-                int i3 = this.f13199e;
+                int i3 = this.f13281e;
                 canvas.drawLine((i3 + right2) - 4.0f, top2 + 4.0f, right2 + i3, top2, a3);
             }
-            if (layoutParams.f13207d > 0) {
+            if (layoutParams.f13289d > 0) {
                 float left = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom = view.getBottom();
-                canvas.drawLine(left, bottom, left, bottom + layoutParams.f13207d, a2);
-                canvas.drawLine(left - 4.0f, (layoutParams.f13207d + bottom) - 4.0f, left, bottom + layoutParams.f13207d, a2);
-                canvas.drawLine(left + 4.0f, (layoutParams.f13207d + bottom) - 4.0f, left, bottom + layoutParams.f13207d, a2);
-            } else if (this.f13200f > 0) {
+                canvas.drawLine(left, bottom, left, bottom + layoutParams.f13289d, a2);
+                canvas.drawLine(left - 4.0f, (layoutParams.f13289d + bottom) - 4.0f, left, bottom + layoutParams.f13289d, a2);
+                canvas.drawLine(left + 4.0f, (layoutParams.f13289d + bottom) - 4.0f, left, bottom + layoutParams.f13289d, a2);
+            } else if (this.f13282f > 0) {
                 float left2 = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom2 = view.getBottom();
-                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f13200f, a3);
-                int i4 = this.f13200f;
+                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f13282f, a3);
+                int i4 = this.f13282f;
                 canvas.drawLine(left2 - 4.0f, (i4 + bottom2) - 4.0f, left2, bottom2 + i4, a3);
-                int i5 = this.f13200f;
+                int i5 = this.f13282f;
                 canvas.drawLine(left2 + 4.0f, (i5 + bottom2) - 4.0f, left2, bottom2 + i5, a3);
             }
-            if (layoutParams.f13208e) {
-                if (this.f13201g == 0) {
+            if (layoutParams.f13290e) {
+                if (this.f13283g == 0) {
                     float left3 = view.getLeft();
                     float top3 = view.getTop() + (view.getHeight() / 2.0f);
                     canvas.drawLine(left3, top3 - 6.0f, left3, top3 + 6.0f, a4);
@@ -126,25 +126,25 @@ public class FlowLayout extends ViewGroup {
 
     public final int f(LayoutParams layoutParams) {
         if (layoutParams.f()) {
-            return layoutParams.f13206c;
+            return layoutParams.f13288c;
         }
-        return this.f13199e;
+        return this.f13281e;
     }
 
     public final int g(LayoutParams layoutParams) {
         if (layoutParams.i()) {
-            return layoutParams.f13207d;
+            return layoutParams.f13289d;
         }
-        return this.f13200f;
+        return this.f13282f;
     }
 
     public final void h(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout);
         try {
-            this.f13199e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_horizontalSpacing, 0);
-            this.f13200f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_verticalSpacing, 0);
-            this.f13201g = obtainStyledAttributes.getInteger(R$styleable.FlowLayout_orientation, 0);
-            this.f13202h = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_debugDraw, false);
+            this.f13281e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_horizontalSpacing, 0);
+            this.f13282f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_verticalSpacing, 0);
+            this.f13283g = obtainStyledAttributes.getInteger(R$styleable.FlowLayout_orientation, 0);
+            this.f13284h = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_debugDraw, false);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -156,7 +156,7 @@ public class FlowLayout extends ViewGroup {
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            childAt.layout(layoutParams.f13204a, layoutParams.f13205b, layoutParams.f13204a + childAt.getMeasuredWidth(), layoutParams.f13205b + childAt.getMeasuredHeight());
+            childAt.layout(layoutParams.f13286a, layoutParams.f13287b, layoutParams.f13286a + childAt.getMeasuredWidth(), layoutParams.f13287b + childAt.getMeasuredHeight());
         }
     }
 
@@ -174,7 +174,7 @@ public class FlowLayout extends ViewGroup {
         int size2 = (View.MeasureSpec.getSize(i3) - getPaddingTop()) - getPaddingBottom();
         int mode = View.MeasureSpec.getMode(i2);
         int mode2 = View.MeasureSpec.getMode(i3);
-        if (this.f13201g != 0) {
+        if (this.f13283g != 0) {
             size = size2;
             mode = mode2;
         }
@@ -199,7 +199,7 @@ public class FlowLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 int i14 = f2;
-                if (this.f13201g == 0) {
+                if (this.f13283g == 0) {
                     i5 = i14;
                     i14 = g2;
                     i6 = measuredHeight;
@@ -210,7 +210,7 @@ public class FlowLayout extends ViewGroup {
                 }
                 int i15 = i10 + measuredWidth;
                 int i16 = i15 + i5;
-                if (layoutParams.f13208e || (mode != 0 && i15 > size)) {
+                if (layoutParams.f13290e || (mode != 0 && i15 > size)) {
                     i13 += i11;
                     i11 = i6 + i14;
                     i16 = i5 + measuredWidth;
@@ -219,7 +219,7 @@ public class FlowLayout extends ViewGroup {
                 }
                 i11 = Math.max(i11, i6 + i14);
                 i12 = Math.max(i12, i6);
-                if (this.f13201g == 0) {
+                if (this.f13283g == 0) {
                     paddingLeft2 = (getPaddingLeft() + i15) - measuredWidth;
                     paddingTop = getPaddingTop() + i13;
                 } else {
@@ -234,7 +234,7 @@ public class FlowLayout extends ViewGroup {
             i7++;
             childCount = i4;
         }
-        if (this.f13201g == 0) {
+        if (this.f13283g == 0) {
             paddingBottom = i8 + getPaddingLeft() + getPaddingRight();
             paddingLeft = getPaddingBottom();
             paddingRight = getPaddingTop();
@@ -244,7 +244,7 @@ public class FlowLayout extends ViewGroup {
             paddingRight = getPaddingRight();
         }
         int i17 = i9 + paddingLeft + paddingRight;
-        if (this.f13201g == 0) {
+        if (this.f13283g == 0) {
             setMeasuredDimension(ViewGroup.resolveSize(paddingBottom, i2), ViewGroup.resolveSize(i17, i3));
         } else {
             setMeasuredDimension(ViewGroup.resolveSize(i17, i2), ViewGroup.resolveSize(paddingBottom, i3));
@@ -252,99 +252,99 @@ public class FlowLayout extends ViewGroup {
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f13199e = i2;
+        this.f13281e = i2;
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f13200f = i2;
+        this.f13282f = i2;
     }
 
     /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f13203f = -1;
+        public static int f13285f = -1;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13204a;
+        public int f13286a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13205b;
+        public int f13287b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13206c;
+        public int f13288c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13207d;
+        public int f13289d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13208e;
+        public boolean f13290e;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            int i2 = f13203f;
-            this.f13206c = i2;
-            this.f13207d = i2;
-            this.f13208e = false;
+            int i2 = f13285f;
+            this.f13288c = i2;
+            this.f13289d = i2;
+            this.f13290e = false;
             g(context, attributeSet);
         }
 
         public boolean f() {
-            return this.f13206c != f13203f;
+            return this.f13288c != f13285f;
         }
 
         public final void g(Context context, AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout_LayoutParams);
             try {
-                this.f13206c = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_horizontalSpacing, f13203f);
-                this.f13207d = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_verticalSpacing, f13203f);
-                this.f13208e = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_LayoutParams_layout_newLine, false);
+                this.f13288c = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_horizontalSpacing, f13285f);
+                this.f13289d = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_verticalSpacing, f13285f);
+                this.f13290e = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_LayoutParams_layout_newLine, false);
             } finally {
                 obtainStyledAttributes.recycle();
             }
         }
 
         public void h(int i2, int i3) {
-            this.f13204a = i2;
-            this.f13205b = i3;
+            this.f13286a = i2;
+            this.f13287b = i3;
         }
 
         public boolean i() {
-            return this.f13207d != f13203f;
+            return this.f13289d != f13285f;
         }
 
         public LayoutParams(int i2, int i3) {
             super(i2, i3);
-            int i4 = f13203f;
-            this.f13206c = i4;
-            this.f13207d = i4;
-            this.f13208e = false;
+            int i4 = f13285f;
+            this.f13288c = i4;
+            this.f13289d = i4;
+            this.f13290e = false;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            int i2 = f13203f;
-            this.f13206c = i2;
-            this.f13207d = i2;
-            this.f13208e = false;
+            int i2 = f13285f;
+            this.f13288c = i2;
+            this.f13289d = i2;
+            this.f13290e = false;
         }
     }
 
     public FlowLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13199e = 0;
-        this.f13200f = 0;
-        this.f13201g = 0;
-        this.f13202h = false;
+        this.f13281e = 0;
+        this.f13282f = 0;
+        this.f13283g = 0;
+        this.f13284h = false;
         h(context, attributeSet);
     }
 
     public FlowLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13199e = 0;
-        this.f13200f = 0;
-        this.f13201g = 0;
-        this.f13202h = false;
+        this.f13281e = 0;
+        this.f13282f = 0;
+        this.f13283g = 0;
+        this.f13284h = false;
         h(context, attributeSet);
     }
 }

@@ -19,7 +19,7 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         public long count;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72307d;
+        public Disposable f72411d;
 
         public CountObserver(SingleObserver<? super Long> singleObserver) {
             this.actual = singleObserver;
@@ -27,24 +27,24 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72307d.dispose();
-            this.f72307d = DisposableHelper.DISPOSED;
+            this.f72411d.dispose();
+            this.f72411d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72307d.isDisposed();
+            return this.f72411d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            this.f72307d = DisposableHelper.DISPOSED;
+            this.f72411d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(Long.valueOf(this.count));
         }
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            this.f72307d = DisposableHelper.DISPOSED;
+            this.f72411d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
@@ -55,8 +55,8 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72307d, disposable)) {
-                this.f72307d = disposable;
+            if (DisposableHelper.validate(this.f72411d, disposable)) {
+                this.f72411d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

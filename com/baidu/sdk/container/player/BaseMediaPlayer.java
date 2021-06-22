@@ -6,26 +6,26 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
-import d.a.f0.a.i.e;
-import d.a.f0.a.k.b;
-import d.a.f0.a.k.f;
+import d.a.g0.a.i.e;
+import d.a.g0.a.k.b;
+import d.a.g0.a.k.f;
 /* loaded from: classes2.dex */
 public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnSeekCompleteListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f10025e;
+    public MediaPlayer f10057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Surface f10026f;
+    public Surface f10058f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceHolder f10027g;
+    public SurfaceHolder f10059g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f10028h;
+    public e f10060h;
 
     /* renamed from: i  reason: collision with root package name */
-    public State f10029i;
+    public State f10061i;
     public b j = b.i();
 
     /* loaded from: classes2.dex */
@@ -48,8 +48,8 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public int a() {
         MediaPlayer mediaPlayer;
-        State state = this.f10029i;
-        if ((state == State.IDLE || state == State.INITIALIZED || state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.f10025e) != null) {
+        State state = this.f10061i;
+        if ((state == State.IDLE || state == State.INITIALIZED || state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.f10057e) != null) {
             return mediaPlayer.getCurrentPosition();
         }
         return 0;
@@ -57,8 +57,8 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public int b() {
         MediaPlayer mediaPlayer;
-        State state = this.f10029i;
-        if ((state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.f10025e) != null) {
+        State state = this.f10061i;
+        if ((state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.f10057e) != null) {
             return mediaPlayer.getDuration();
         }
         return 0;
@@ -66,7 +66,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public int c() {
         MediaPlayer mediaPlayer;
-        if (this.f10029i == State.ERROR || (mediaPlayer = this.f10025e) == null) {
+        if (this.f10061i == State.ERROR || (mediaPlayer = this.f10057e) == null) {
             return 0;
         }
         return mediaPlayer.getVideoHeight();
@@ -74,7 +74,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public int d() {
         MediaPlayer mediaPlayer;
-        if (this.f10029i == State.ERROR || (mediaPlayer = this.f10025e) == null) {
+        if (this.f10061i == State.ERROR || (mediaPlayer = this.f10057e) == null) {
             return 0;
         }
         return mediaPlayer.getVideoWidth();
@@ -82,18 +82,18 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public final void e() {
         MediaPlayer mediaPlayer = new MediaPlayer();
-        this.f10025e = mediaPlayer;
-        this.f10029i = State.IDLE;
+        this.f10057e = mediaPlayer;
+        this.f10061i = State.IDLE;
         mediaPlayer.setAudioStreamType(3);
-        this.f10025e.setOnPreparedListener(this);
-        this.f10025e.setOnCompletionListener(this);
-        this.f10025e.setOnErrorListener(this);
-        this.f10025e.setOnInfoListener(this);
-        this.f10025e.setOnSeekCompleteListener(this);
+        this.f10057e.setOnPreparedListener(this);
+        this.f10057e.setOnCompletionListener(this);
+        this.f10057e.setOnErrorListener(this);
+        this.f10057e.setOnInfoListener(this);
+        this.f10057e.setOnSeekCompleteListener(this);
     }
 
     public final void f(int i2) {
-        e eVar = this.f10028h;
+        e eVar = this.f10060h;
         if (eVar != null) {
             eVar.playStateChanged(i2);
         }
@@ -101,50 +101,50 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void g() {
         b bVar = this.j;
-        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "pause=" + this.f10029i);
-        if (this.f10025e != null) {
-            State state = this.f10029i;
+        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "pause=" + this.f10061i);
+        if (this.f10057e != null) {
+            State state = this.f10061i;
             if (state == State.STARTED || state == State.PLAYBACKCOMPLETED) {
-                this.f10025e.pause();
-                this.f10029i = State.PAUSED;
+                this.f10057e.pause();
+                this.f10061i = State.PAUSED;
             }
         }
     }
 
     public final void h() {
-        this.f10025e.prepareAsync();
-        this.f10029i = State.PREPARING;
+        this.f10057e.prepareAsync();
+        this.f10061i = State.PREPARING;
     }
 
     public void i() {
-        MediaPlayer mediaPlayer = this.f10025e;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             mediaPlayer.release();
-            this.f10029i = State.END;
-            this.f10025e.setOnSeekCompleteListener(null);
-            this.f10025e.setOnInfoListener(null);
-            this.f10025e.setOnErrorListener(null);
-            this.f10025e.setOnPreparedListener(null);
-            this.f10025e.setOnCompletionListener(null);
+            this.f10061i = State.END;
+            this.f10057e.setOnSeekCompleteListener(null);
+            this.f10057e.setOnInfoListener(null);
+            this.f10057e.setOnErrorListener(null);
+            this.f10057e.setOnPreparedListener(null);
+            this.f10057e.setOnCompletionListener(null);
         }
     }
 
     public void j() {
-        MediaPlayer mediaPlayer = this.f10025e;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
-            this.f10029i = State.IDLE;
+            this.f10061i = State.IDLE;
             mediaPlayer.reset();
         }
     }
 
     public void k(int i2) {
-        State state = this.f10029i;
+        State state = this.f10061i;
         if (state != State.PREPARED && state != State.STARTED && state != State.PAUSED && state != State.PLAYBACKCOMPLETED) {
             b bVar = this.j;
-            bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "seekto不合法，mCurState=" + this.f10029i);
+            bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "seekto不合法，mCurState=" + this.f10061i);
             return;
         }
-        MediaPlayer mediaPlayer = this.f10025e;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             try {
                 mediaPlayer.seekTo(i2);
@@ -156,28 +156,28 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public void l(SurfaceHolder surfaceHolder) {
-        this.f10027g = surfaceHolder;
-        MediaPlayer mediaPlayer = this.f10025e;
+        this.f10059g = surfaceHolder;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             mediaPlayer.setDisplay(surfaceHolder);
-            this.f10025e.setScreenOnWhilePlaying(true);
+            this.f10057e.setScreenOnWhilePlaying(true);
         }
     }
 
     public void m(e eVar) {
-        this.f10028h = eVar;
+        this.f10060h = eVar;
     }
 
     public void n(boolean z) {
-        MediaPlayer mediaPlayer = this.f10025e;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             mediaPlayer.setScreenOnWhilePlaying(z);
         }
     }
 
     public void o(Surface surface) {
-        this.f10026f = surface;
-        MediaPlayer mediaPlayer = this.f10025e;
+        this.f10058f = surface;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             mediaPlayer.setSurface(surface);
         }
@@ -186,16 +186,16 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
         b bVar = this.j;
-        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "onCompletion" + this.f10029i);
-        this.f10029i = State.PLAYBACKCOMPLETED;
+        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "onCompletion" + this.f10061i);
+        this.f10061i = State.PLAYBACKCOMPLETED;
         f(256);
     }
 
     @Override // android.media.MediaPlayer.OnErrorListener
     public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
         b bVar = this.j;
-        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "onError" + this.f10029i);
-        this.f10029i = State.ERROR;
+        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "onError" + this.f10061i);
+        this.f10061i = State.ERROR;
         f(257);
         return true;
     }
@@ -218,7 +218,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     @Override // android.media.MediaPlayer.OnPreparedListener
     public void onPrepared(MediaPlayer mediaPlayer) {
-        this.f10029i = State.PREPARED;
+        this.f10061i = State.PREPARED;
         f(258);
     }
 
@@ -229,11 +229,11 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public void p(String str) {
-        MediaPlayer mediaPlayer = this.f10025e;
+        MediaPlayer mediaPlayer = this.f10057e;
         if (mediaPlayer != null) {
             try {
                 mediaPlayer.setDataSource(str);
-                this.f10029i = State.INITIALIZED;
+                this.f10061i = State.INITIALIZED;
                 h();
             } catch (Exception e2) {
                 b bVar = this.j;
@@ -244,37 +244,37 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void q(float f2, float f3) {
         MediaPlayer mediaPlayer;
-        if (this.f10029i == State.ERROR || (mediaPlayer = this.f10025e) == null) {
+        if (this.f10061i == State.ERROR || (mediaPlayer = this.f10057e) == null) {
             return;
         }
         mediaPlayer.setVolume(f2, f3);
     }
 
     public void r(Context context, int i2) {
-        if (this.f10025e == null || context == null || !f.a(context, "android.permission.WAKE_LOCK")) {
+        if (this.f10057e == null || context == null || !f.a(context, "android.permission.WAKE_LOCK")) {
             return;
         }
-        this.f10025e.setWakeMode(context.getApplicationContext(), i2);
+        this.f10057e.setWakeMode(context.getApplicationContext(), i2);
     }
 
     public void s() {
         b bVar = this.j;
-        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "start=" + this.f10029i);
-        if (this.f10025e != null) {
-            State state = this.f10029i;
+        bVar.j(com.baidu.mobads.container.widget.player.BaseMediaPlayer.TAG, "start=" + this.f10061i);
+        if (this.f10057e != null) {
+            State state = this.f10061i;
             if (state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-                this.f10025e.start();
-                this.f10029i = State.STARTED;
+                this.f10057e.start();
+                this.f10061i = State.STARTED;
             }
         }
     }
 
     public void t() {
-        if (this.f10025e != null) {
-            State state = this.f10029i;
+        if (this.f10057e != null) {
+            State state = this.f10061i;
             if (state == State.STARTED || state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-                this.f10025e.stop();
-                this.f10029i = State.STOPPED;
+                this.f10057e.stop();
+                this.f10061i = State.STOPPED;
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidubce.util;
 
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class JoinerUtils {
     public static String cut(String str, String str2) {
         return str2.replace(str, "");

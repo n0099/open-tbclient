@@ -11,11 +11,11 @@ import java.util.List;
 public class ai extends PayBaseBean<VerifyCodeResponseForNoPwd> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.e f25236a;
+    public com.baidu.wallet.paysdk.datamodel.e f25318a;
 
     public ai(Context context) {
         super(context);
-        this.f25236a = (com.baidu.wallet.paysdk.datamodel.e) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE_FOR_NO_PWD);
+        this.f25318a = (com.baidu.wallet.paysdk.datamodel.e) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE_FOR_NO_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean

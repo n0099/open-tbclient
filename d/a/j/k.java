@@ -27,10 +27,10 @@ import java.util.Random;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43913a;
+    public Context f44016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f43914b;
+    public f f44017b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -49,8 +49,8 @@ public class k {
     }
 
     public k(Context context, f fVar) {
-        this.f43913a = context;
-        this.f43914b = fVar;
+        this.f44016a = context;
+        this.f44017b = fVar;
     }
 
     public static void g(String str, String str2) {
@@ -106,7 +106,7 @@ public class k {
     }
 
     public final j a(Context context) {
-        List<e> h2 = this.f43914b.h(context);
+        List<e> h2 = this.f44017b.h(context);
         j jVar = null;
         if (h2 != null) {
             String str = com.baidu.fsg.face.base.b.c.f5540g;
@@ -116,8 +116,8 @@ public class k {
                 str = filesDir.getName();
             }
             for (e eVar : h2) {
-                if (!eVar.f43894d) {
-                    File file = new File(new File(eVar.f43891a.dataDir, str), "libcuid.so");
+                if (!eVar.f43997d) {
+                    File file = new File(new File(eVar.f43994a.dataDir, str), "libcuid.so");
                     if (file.exists() && (jVar = j.e(d.a.j.i.c.a(file))) != null) {
                         break;
                     }
@@ -128,7 +128,7 @@ public class k {
     }
 
     public j b(String str) {
-        j a2 = a(this.f43913a);
+        j a2 = a(this.f44016a);
         if (a2 == null) {
             a2 = j.e(k("com.baidu.deviceid.v2"));
         }
@@ -173,7 +173,7 @@ public class k {
         boolean j;
         j n;
         String str;
-        File file = new File(this.f43913a.getFilesDir(), "libcuid.so");
+        File file = new File(this.f44016a.getFilesDir(), "libcuid.so");
         String h2 = jVar.h();
         if (file.exists()) {
             j e2 = j.e(d.a.j.i.c.a(file));
@@ -219,7 +219,7 @@ public class k {
             if (j || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (n = n(m(""))) == null || !n.k()) {
                 return;
             }
-            g(n.f43910b, n.f43909a);
+            g(n.f44013b, n.f44012a);
             return;
         }
         h(h2);
@@ -241,7 +241,7 @@ public class k {
 
     public final boolean e(String str, String str2) {
         try {
-            return Settings.System.putString(this.f43913a.getContentResolver(), str, str2);
+            return Settings.System.putString(this.f44016a.getContentResolver(), str, str2);
         } catch (Exception e2) {
             d.a.j.i.c.c(e2);
             return false;
@@ -265,7 +265,7 @@ public class k {
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                fileOutputStream = this.f43913a.openFileOutput("libcuid.so", i3);
+                fileOutputStream = this.f44016a.openFileOutput("libcuid.so", i3);
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
                 if (fileOutputStream != null) {
@@ -278,10 +278,10 @@ public class k {
                 if (Build.VERSION.SDK_INT >= 21) {
                     if (i3 == 0 && DeviceId.sDataCuidInfoShable) {
                         i2 = 436;
-                        file = new File(this.f43913a.getFilesDir(), "libcuid.so");
+                        file = new File(this.f44016a.getFilesDir(), "libcuid.so");
                     } else if (!DeviceId.sDataCuidInfoShable) {
                         i2 = 432;
-                        file = new File(this.f43913a.getFilesDir(), "libcuid.so");
+                        file = new File(this.f44016a.getFilesDir(), "libcuid.so");
                     }
                     return a.a(file.getAbsolutePath(), i2);
                 }
@@ -314,12 +314,12 @@ public class k {
     }
 
     public final boolean j(String str) {
-        return this.f43913a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f44016a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     public final String k(String str) {
         try {
-            return Settings.System.getString(this.f43913a.getContentResolver(), str);
+            return Settings.System.getString(this.f44016a.getContentResolver(), str);
         } catch (Exception e2) {
             d.a.j.i.c.c(e2);
             return null;

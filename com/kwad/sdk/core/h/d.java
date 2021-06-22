@@ -6,24 +6,24 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f34478a;
+    public static volatile d f34576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile List<WeakReference<Object>> f34479b = new CopyOnWriteArrayList();
+    public volatile List<WeakReference<Object>> f34577b = new CopyOnWriteArrayList();
 
     public static d a() {
-        if (f34478a == null) {
+        if (f34576a == null) {
             synchronized (d.class) {
-                if (f34478a == null) {
-                    f34478a = c();
+                if (f34576a == null) {
+                    f34576a = c();
                 }
             }
         }
-        return f34478a;
+        return f34576a;
     }
 
     private boolean a(@NonNull Collection<WeakReference<Object>> collection, Object obj) {
@@ -66,15 +66,15 @@ public class d {
     }
 
     public void a(Object obj) {
-        if (a(this.f34479b, obj)) {
+        if (a(this.f34577b, obj)) {
             return;
         }
-        b(this.f34479b, obj);
+        b(this.f34577b, obj);
         d();
     }
 
     public int b() {
-        Iterator<WeakReference<Object>> it = this.f34479b.iterator();
+        Iterator<WeakReference<Object>> it = this.f34577b.iterator();
         int i2 = 0;
         while (it.hasNext()) {
             if (it.next().get() == null) {
@@ -87,7 +87,7 @@ public class d {
     }
 
     public void b(Object obj) {
-        c(this.f34479b, obj);
+        c(this.f34577b, obj);
         d();
     }
 }

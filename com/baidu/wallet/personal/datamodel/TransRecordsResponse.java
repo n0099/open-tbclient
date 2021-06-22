@@ -3,6 +3,7 @@ package com.baidu.wallet.personal.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -67,6 +68,6 @@ public class TransRecordsResponse implements IBeanResponse, Serializable {
     }
 
     public String toString() {
-        return "TransRecordsContent [trans_info=" + Arrays.toString(this.trans_info) + ", current_rows=" + this.count + ", total_rows=" + this.total_count + "]";
+        return "TransRecordsContent [trans_info=" + Arrays.toString(this.trans_info) + ", current_rows=" + this.count + ", total_rows=" + this.total_count + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -11,16 +11,16 @@ import com.kwad.sdk.glide.load.engine.s;
 public abstract class b<T extends Drawable> implements o, s<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f36327a;
+    public final T f36425a;
 
     public b(T t) {
-        this.f36327a = (T) j.a(t);
+        this.f36425a = (T) j.a(t);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.o
     public void b() {
         Bitmap b2;
-        T t = this.f36327a;
+        T t = this.f36425a;
         if (t instanceof BitmapDrawable) {
             b2 = ((BitmapDrawable) t).getBitmap();
         } else if (!(t instanceof com.kwad.sdk.glide.load.resource.d.c)) {
@@ -36,7 +36,7 @@ public abstract class b<T extends Drawable> implements o, s<T> {
     @NonNull
     /* renamed from: f */
     public final T e() {
-        Drawable.ConstantState constantState = this.f36327a.getConstantState();
-        return constantState == null ? this.f36327a : (T) constantState.newDrawable();
+        Drawable.ConstantState constantState = this.f36425a.getConstantState();
+        return constantState == null ? this.f36425a : (T) constantState.newDrawable();
     }
 }

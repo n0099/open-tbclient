@@ -1,77 +1,53 @@
 package d.a.m0.a.d0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserReqMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes3.dex */
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f52332a;
+    public final long f45089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.c.g.a f52333b = new a(CmdConfigHttp.CMD_BACK_USER, 309689);
+    public final long f45090b;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
-            super(i2, i3);
-        }
+    /* renamed from: c  reason: collision with root package name */
+    public final String f45091c;
 
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || b.this.b() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                return;
-            }
-            d.a.m0.a.d0.a aVar = null;
-            if (responsedMessage instanceof BackUserHTTPResMsg) {
-                aVar = ((BackUserHTTPResMsg) responsedMessage).getData();
-            } else if (responsedMessage instanceof BackUserSocketResMsg) {
-                aVar = ((BackUserSocketResMsg) responsedMessage).getData();
-            }
-            if (aVar == null || !aVar.f52331a) {
-                return;
-            }
-            d.a.m0.r.d0.b.j().w(d.a.m0.r.d0.b.n("pref_key_last_request_mission"), System.currentTimeMillis());
-            d.a.m0.r.c0.a.e().i();
-        }
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<String, String> f45092d = new HashMap();
+
+    public b(long j) {
+        this.f45090b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.f45089a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.f45091c = Long.toHexString(a(this.f45089a + "#" + this.f45090b));
+        this.f45092d.put("timestamp", Long.toString(this.f45089a));
+        this.f45092d.put("delta", Long.toString(this.f45090b));
+        this.f45092d.put("rasign", this.f45091c);
     }
 
-    public b(BdUniqueId bdUniqueId) {
-        this.f52332a = bdUniqueId;
-        c();
-        this.f52333b.setTag(this.f52332a);
-        MessageManager.getInstance().registerListener(this.f52333b);
+    public static b b() {
+        return new b(0L);
     }
 
-    public final boolean a() {
-        return !UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l(d.a.m0.r.d0.b.n("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
+    public final long a(String str) {
+        CRC32 crc32 = new CRC32();
+        crc32.reset();
+        crc32.update(str.getBytes());
+        return crc32.getValue();
     }
 
-    public BdUniqueId b() {
-        return this.f52332a;
+    public String c(long j) {
+        return Long.toHexString(a(j + "#smartapp_formid"));
     }
 
-    public final void c() {
-        d.a.n0.e3.d0.a.h(309689, BackUserSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, d.a.n0.e3.d0.a.a(TbConfig.URL_BACK_USER, 309689));
-        tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public String d(long j) {
+        return Long.toHexString(a(j + "#payid"));
     }
 
-    public void d() {
-        if (a()) {
-            BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
-            backUserReqMsg.setTag(this.f52332a);
-            MessageManager.getInstance().sendMessage(backUserReqMsg);
-        }
+    public String toString() {
+        return super.toString() + " serverTime:" + this.f45089a + " delta:" + this.f45090b + " rasign:" + this.f45091c;
     }
 }

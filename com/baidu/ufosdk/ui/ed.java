@@ -5,17 +5,17 @@ import android.widget.Button;
 public final class ed implements ey {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22888a;
+    public final /* synthetic */ FeedbackReportActivity f22970a;
 
     public ed(FeedbackReportActivity feedbackReportActivity) {
-        this.f22888a = feedbackReportActivity;
+        this.f22970a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.ey
     public final void a(String str) {
         Button button;
-        this.f22888a.F = str;
-        button = this.f22888a.m;
+        this.f22970a.F = str;
+        button = this.f22970a.m;
         int i2 = com.baidu.ufosdk.b.v;
         int i3 = com.baidu.ufosdk.b.y;
         int i4 = com.baidu.ufosdk.b.v;

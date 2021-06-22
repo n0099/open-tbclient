@@ -3,6 +3,7 @@ package com.baidu.location.b;
 import android.location.Location;
 import android.net.wifi.ScanResult;
 import com.baidu.location.Jni;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -107,7 +108,7 @@ public class w {
                     }
                     sb.append(str);
                     sb.append(i2);
-                    sb.append("]");
+                    sb.append(PreferencesUtil.RIGHT_MOUNT);
                     map.put(sb.toString(), this.f6633e.get(i2));
                 }
                 this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));

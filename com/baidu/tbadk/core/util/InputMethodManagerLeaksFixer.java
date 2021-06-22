@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import d.a.m0.m.g;
+import d.a.n0.m.g;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class InputMethodManagerLeaksFixer {
@@ -27,7 +27,7 @@ public class InputMethodManagerLeaksFixer {
             }
         }
         application.registerActivityLifecycleCallbacks(new g() { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
-            @Override // d.a.m0.m.g, android.app.Application.ActivityLifecycleCallbacks
+            @Override // d.a.n0.m.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 InputMethodManagerLeaksFixer.fixInputMethodMemoryLeak(activity, fieldArr, inputMethodManager);
             }

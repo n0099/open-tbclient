@@ -43,30 +43,30 @@ public class CloudSettings implements INoProGuard, INetListener {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f26700a;
+        public long f26782a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26701b = -1;
+        public int f26783b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f26702c;
+        public boolean f26784c;
 
         public a() {
         }
 
         public final void a(int i2) {
             Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-            this.f26701b = i2;
+            this.f26783b = i2;
         }
 
         public final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j)));
-            this.f26700a = j;
+            this.f26782a = j;
         }
 
         public final void a(boolean z) {
             Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-            this.f26702c = z;
+            this.f26784c = z;
         }
     }
 

@@ -3,6 +3,7 @@ package com.yy.gslbsdk.flow;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
 import com.yy.gslbsdk.DnsResultInfo;
 import com.yy.gslbsdk.cache.DataCacheMgr;
@@ -274,7 +275,7 @@ public class DnsResolveFlow {
         StatisticInfo statisticInfo3 = StatisticMgr.getInstance().getStatisticInfo(str);
         statisticInfo3.setSrvIp(arrayList2);
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         sb.append(netStatusInfo.getNetStatusID());
         Object obj = "] ";
         sb.append("] ");
@@ -376,7 +377,7 @@ public class DnsResolveFlow {
                                 statisticInfo.httpErrMsg = requestHttpDnsV2[1];
                             } else {
                                 StatisticInfo statisticInfo4 = statisticInfo;
-                                statisticInfo4.httpErrCode = BannerFocusImageViewGroup.f23696f;
+                                statisticInfo4.httpErrCode = BannerFocusImageViewGroup.f23778f;
                                 statisticInfo4.httpErrMsg = "result is null";
                             }
                             if (atomicInteger4.decrementAndGet() == 0) {

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.yy.gslbsdk.db.ResultTB;
-import d.a.m0.r.q.o;
+import d.a.n0.r.q.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class PollData extends o implements Serializable {
         return this.totalPoll;
     }
 
-    @Override // d.a.m0.r.q.o
+    @Override // d.a.n0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

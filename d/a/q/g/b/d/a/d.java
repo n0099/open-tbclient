@@ -17,34 +17,34 @@ import javax.crypto.spec.PSource;
 public final class d {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Map<String, byte[]> f67937h = Collections.synchronizedMap(new HashMap());
+    public static final Map<String, byte[]> f67893h = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f67938a;
+    public final int f67894a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f67939b;
+    public final int f67895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SecureRandom f67940c;
+    public SecureRandom f67896c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f67941d;
+    public final int f67897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageDigest f67942e;
+    public MessageDigest f67898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageDigest f67943f;
+    public MessageDigest f67899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f67944g;
+    public byte[] f67900g;
 
     public d(int i2, int i3, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
         String str;
-        this.f67938a = i2;
-        this.f67939b = i3;
-        this.f67940c = secureRandom;
+        this.f67894a = i2;
+        this.f67895b = i3;
+        this.f67896c = secureRandom;
         if (i3 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
         }
@@ -78,18 +78,18 @@ public final class d {
             } else {
                 str = "SHA-1";
             }
-            this.f67942e = MessageDigest.getInstance(str2);
-            this.f67943f = MessageDigest.getInstance(str);
-            byte[] e3 = e(this.f67942e, bArr);
-            this.f67944g = e3;
+            this.f67898e = MessageDigest.getInstance(str2);
+            this.f67899f = MessageDigest.getInstance(str);
+            byte[] e3 = e(this.f67898e, bArr);
+            this.f67900g = e3;
             int length = (i3 - 2) - (e3.length * 2);
-            this.f67941d = length;
+            this.f67897d = length;
             if (length > 0) {
                 return;
             }
             throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str2 + " and MGF1" + str);
         }
-        this.f67941d = i3;
+        this.f67897d = i3;
     }
 
     public static d b(int i2, int i3, SecureRandom secureRandom) {
@@ -103,10 +103,10 @@ public final class d {
     public static byte[] e(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = f67937h.get(algorithm);
+            byte[] bArr2 = f67893h.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                f67937h.put(algorithm, digest);
+                f67893h.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -115,7 +115,7 @@ public final class d {
     }
 
     public int a() {
-        return this.f67941d;
+        return this.f67897d;
     }
 
     public final void d(byte[] bArr, int i2, int i3, byte[] bArr2, int i4, int i5) {
@@ -123,10 +123,10 @@ public final class d {
         byte[] bArr3 = new byte[4];
         byte[] bArr4 = new byte[20];
         while (i5 > 0) {
-            this.f67943f.update(bArr, i2, i3);
-            this.f67943f.update(bArr3);
+            this.f67899f.update(bArr, i2, i3);
+            this.f67899f.update(bArr3);
             try {
-                this.f67943f.digest(bArr4, 0, 20);
+                this.f67899f.digest(bArr4, 0, 20);
                 for (int i7 = 0; i7 < 20 && i5 > 0; i7++) {
                     bArr2[i4] = (byte) (bArr4[i7] ^ bArr2[i4]);
                     i5--;
@@ -146,10 +146,10 @@ public final class d {
     }
 
     public byte[] f(byte[] bArr) {
-        if (bArr.length > this.f67941d) {
-            throw new BadPaddingException("Data must be shorter than " + (this.f67941d + 1) + " bytes");
+        if (bArr.length > this.f67897d) {
+            throw new BadPaddingException("Data must be shorter than " + (this.f67897d + 1) + " bytes");
         }
-        int i2 = this.f67938a;
+        int i2 = this.f67894a;
         if (i2 == 1 || i2 == 2) {
             return i(bArr);
         }
@@ -167,10 +167,10 @@ public final class d {
     }
 
     public byte[] h(byte[] bArr) {
-        if (bArr.length != this.f67939b) {
-            throw new BadPaddingException("Padded length must be " + this.f67939b);
+        if (bArr.length != this.f67895b) {
+            throw new BadPaddingException("Padded length must be " + this.f67895b);
         }
-        int i2 = this.f67938a;
+        int i2 = this.f67894a;
         if (i2 == 1 || i2 == 2) {
             return j(bArr);
         }
@@ -186,18 +186,18 @@ public final class d {
     public final byte[] i(byte[] bArr) {
         int i2;
         int i3;
-        int i4 = this.f67939b;
+        int i4 = this.f67895b;
         byte[] bArr2 = new byte[i4];
         System.arraycopy(bArr, 0, bArr2, i4 - bArr.length, bArr.length);
-        int length = (this.f67939b - 3) - bArr.length;
+        int length = (this.f67895b - 3) - bArr.length;
         bArr2[0] = 0;
-        int i5 = this.f67938a;
+        int i5 = this.f67894a;
         bArr2[1] = (byte) i5;
         int i6 = -1;
         int i7 = 2;
         if (i5 != 1) {
-            if (this.f67940c == null) {
-                this.f67940c = a.f67927a;
+            if (this.f67896c == null) {
+                this.f67896c = a.f67883a;
             }
             byte[] bArr3 = new byte[64];
             while (true) {
@@ -207,7 +207,7 @@ public final class d {
                 }
                 while (true) {
                     if (i6 < 0) {
-                        this.f67940c.nextBytes(bArr3);
+                        this.f67896c.nextBytes(bArr3);
                         i6 = 63;
                     }
                     i2 = i6 - 1;
@@ -241,7 +241,7 @@ public final class d {
             throw new BadPaddingException("Data must start with zero");
         }
         int i2 = 2;
-        if (bArr[1] != this.f67938a) {
+        if (bArr[1] != this.f67894a) {
             throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
         }
         while (true) {
@@ -249,7 +249,7 @@ public final class d {
             int i4 = bArr[i2] & 255;
             if (i4 == 0) {
                 int length = bArr.length - i3;
-                if (length <= this.f67941d) {
+                if (length <= this.f67897d) {
                     byte[] bArr2 = new byte[length];
                     System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
                     return bArr2;
@@ -258,7 +258,7 @@ public final class d {
             } else if (i3 == bArr.length) {
                 throw new BadPaddingException("Padding string not terminated");
             } else {
-                if (this.f67938a == 1 && i4 != 255) {
+                if (this.f67894a == 1 && i4 != 255) {
                     throw new BadPaddingException("Padding byte not 0xff: " + i4);
                 }
                 i2 = i3;
@@ -267,19 +267,19 @@ public final class d {
     }
 
     public final byte[] k(byte[] bArr) {
-        if (this.f67940c == null) {
-            this.f67940c = a.f67927a;
+        if (this.f67896c == null) {
+            this.f67896c = a.f67883a;
         }
-        int length = this.f67944g.length;
+        int length = this.f67900g.length;
         byte[] bArr2 = new byte[length];
-        this.f67940c.nextBytes(bArr2);
-        int i2 = this.f67939b;
+        this.f67896c.nextBytes(bArr2);
+        int i2 = this.f67895b;
         byte[] bArr3 = new byte[i2];
         System.arraycopy(bArr2, 0, bArr3, 1, length);
         int i3 = length + 1;
         int i4 = i2 - i3;
-        int length2 = this.f67939b - bArr.length;
-        System.arraycopy(this.f67944g, 0, bArr3, i3, length);
+        int length2 = this.f67895b - bArr.length;
+        System.arraycopy(this.f67900g, 0, bArr3, i3, length);
         bArr3[length2 - 1] = 1;
         System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
         d(bArr3, 1, length, bArr3, i3, i4);
@@ -288,14 +288,14 @@ public final class d {
     }
 
     public final byte[] l(byte[] bArr) {
-        int length = this.f67944g.length;
+        int length = this.f67900g.length;
         if (bArr[0] == 0) {
             int i2 = length + 1;
             int length2 = bArr.length - i2;
             d(bArr, i2, length2, bArr, 1, length);
             d(bArr, 1, length, bArr, i2, length2);
             for (int i3 = 0; i3 < length; i3++) {
-                if (this.f67944g[i3] != bArr[i2 + i3]) {
+                if (this.f67900g[i3] != bArr[i2 + i3]) {
                     throw new BadPaddingException("lHash mismatch");
                 }
             }

@@ -1,6 +1,7 @@
 package com.alibaba.fastjson.parser;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes.dex */
@@ -61,9 +62,9 @@ public class JSONToken {
             case 13:
                 return "}";
             case 14:
-                return "[";
+                return PreferencesUtil.LEFT_MOUNT;
             case 15:
-                return "]";
+                return PreferencesUtil.RIGHT_MOUNT;
             case 16:
                 return ",";
             case 17:

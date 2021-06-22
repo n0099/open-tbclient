@@ -1,82 +1,140 @@
 package d.a.n0.s.f;
 
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
-/* loaded from: classes4.dex */
-public class a {
+import com.baidu.tbadk.core.view.TbCheckBox;
+import tbclient.GetAddressList.LbsInfo;
+import tbclient.GetAddressList.friendList;
+/* loaded from: classes3.dex */
+public class a implements TbCheckBox.c {
 
-    /* renamed from: a  reason: collision with root package name */
-    public List<e> f64059a;
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f54440e = false;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<e> f64060b;
+    /* renamed from: f  reason: collision with root package name */
+    public String f54441f;
 
-    public List<e> a() {
-        if (this.f64059a == null) {
-            this.f64059a = new ArrayList();
-        }
-        return this.f64059a;
+    /* renamed from: g  reason: collision with root package name */
+    public long f54442g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f54443h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f54444i;
+    public String j;
+    public String k;
+    public b l;
+    public String m;
+
+    public String a() {
+        return this.k;
     }
 
-    public final boolean b(List<e> list, d.a.m0.s.f.a aVar) {
-        List<d.a.m0.s.f.a> a2;
-        if (list != null && aVar != null) {
-            for (e eVar : list) {
-                if (eVar != null && (a2 = eVar.a()) != null) {
-                    for (d.a.m0.s.f.a aVar2 : a2) {
-                        if (aVar2 != null && aVar2.e() == aVar.e()) {
-                            return true;
-                        }
-                    }
-                    continue;
-                }
-            }
-        }
-        return false;
+    public b b() {
+        return this.l;
     }
 
-    public boolean c(DataRes dataRes) {
-        boolean z;
-        if (dataRes == null || dataRes.robots_list == null) {
-            z = false;
-        } else {
-            this.f64060b = new ArrayList();
-            z = false;
-            for (robotsList robotslist : dataRes.robots_list) {
-                if (TextUtils.isEmpty(robotslist.key)) {
-                    z = true;
-                } else {
-                    e eVar = new e();
-                    eVar.d(robotslist);
-                    this.f64060b.add(eVar);
-                }
-            }
+    public String c() {
+        StringBuilder sb = new StringBuilder(64);
+        String str = this.f54441f;
+        if (str != null) {
+            sb.append(str);
         }
-        if (dataRes != null && dataRes.address_list != null) {
-            this.f64059a = new ArrayList();
-            for (listData listdata : dataRes.address_list) {
-                if (TextUtils.isEmpty(listdata.key)) {
-                    z = true;
-                } else {
-                    e eVar2 = new e();
-                    eVar2.c(listdata);
-                    if (eVar2.a() != null) {
-                        for (d.a.m0.s.f.a aVar : eVar2.a()) {
-                            if (b(this.f64060b, aVar)) {
-                                aVar.r(1);
-                            } else {
-                                aVar.r(0);
-                            }
-                        }
-                    }
-                    this.f64059a.add(eVar2);
-                }
-            }
+        String str2 = this.j;
+        if (str2 != null) {
+            sb.append(str2);
         }
-        return z;
+        return sb.toString();
+    }
+
+    public String d() {
+        return this.j;
+    }
+
+    public long e() {
+        return this.f54442g;
+    }
+
+    public String f() {
+        return this.f54441f;
+    }
+
+    public String g() {
+        return this.m;
+    }
+
+    public String h() {
+        return this.f54444i;
+    }
+
+    public int i() {
+        return this.f54443h;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public boolean isChecked() {
+        return this.f54440e;
+    }
+
+    public void j(friendList friendlist) {
+        if (friendlist != null) {
+            this.f54441f = friendlist.user_name;
+            this.f54442g = friendlist.user_id.longValue();
+            this.f54444i = friendlist.portrait;
+            this.m = friendlist.name_show;
+            this.j = friendlist.quanpin;
+            LbsInfo lbsInfo = friendlist.location;
+            int i2 = -1;
+            long j = 0;
+            if (lbsInfo == null) {
+                this.l = new b("", 0L, -1);
+                return;
+            }
+            Long l = lbsInfo.time;
+            if (l != null && l.longValue() > 0) {
+                j = friendlist.location.time.longValue();
+            }
+            Integer num = friendlist.location.is_hide;
+            if (num != null && num.intValue() >= 0) {
+                i2 = friendlist.location.is_hide.intValue();
+            }
+            this.l = new b(friendlist.location.distance, j, i2);
+        }
+    }
+
+    public void k(String str) {
+        this.k = str;
+    }
+
+    public void l(b bVar) {
+        this.l = bVar;
+    }
+
+    public void m(String str) {
+        this.j = str;
+    }
+
+    public void n(long j) {
+        this.f54442g = j;
+    }
+
+    public void o(String str) {
+        this.f54441f = str;
+    }
+
+    public void p(String str) {
+        this.m = str;
+    }
+
+    public void q(String str) {
+        this.f54444i = str;
+    }
+
+    public void r(int i2) {
+        this.f54443h = i2;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public void setChecked(boolean z) {
+        this.f54440e = z;
     }
 }

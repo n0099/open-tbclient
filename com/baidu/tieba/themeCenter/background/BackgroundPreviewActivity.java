@@ -7,8 +7,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import d.a.m0.k0.d;
-import d.a.n0.k3.e.j;
+import d.a.n0.k0.d;
+import d.a.o0.k3.e.j;
 /* loaded from: classes5.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public BackgroundPreviewModel.b mCallback = new a();
@@ -54,7 +54,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "b009";
     }
@@ -67,8 +67,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53110a = true;
-            pageStayDurationItem.f53118i = String.valueOf(this.mPropId);
+            pageStayDurationItem.f53217a = true;
+            pageStayDurationItem.f53225i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;
     }
@@ -139,7 +139,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (z) {
-            d.a.m0.z.b.a().d();
+            d.a.n0.z.b.a().d();
         }
     }
 }

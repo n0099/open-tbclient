@@ -2,14 +2,14 @@ package com.baidu.tieba.memberCenter.bubble;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SetBubbleResultData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -4612117445868668894L;
     public ResultInfo b_info = new ResultInfo();
     public String error_code;
     public String error_msg;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ResultInfo extends OrmObject implements Serializable {
         public static final long serialVersionUID = 1818506758727291395L;
         public String b_url;

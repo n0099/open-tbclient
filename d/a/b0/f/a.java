@@ -9,7 +9,7 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import d.a.b0.d;
-import d.a.l0.a.v1.c.c;
+import d.a.m0.a.v1.c.c;
 import org.json.JSONObject;
 @Singleton
 @Service
@@ -17,31 +17,31 @@ import org.json.JSONObject;
 public class a implements d.a.b0.g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41947a = SchemeConfig.getSchemeHead() + "://swan/";
+    public static final String f42050a = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // d.a.b0.g.a
     public boolean a(Context context) {
-        return d.a.l0.a.c1.a.N().a(context);
+        return d.a.m0.a.c1.a.N().a(context);
     }
 
     @Override // d.a.b0.g.a
     public void b(Activity activity, String str, d.a.b0.e.a aVar) {
-        d.a.l0.a.c1.a.N().b(activity, str, aVar);
+        d.a.m0.a.c1.a.N().b(activity, str, aVar);
     }
 
     @Override // d.a.b0.g.a
     public void c(Context context, JSONObject jSONObject, d.a.b0.e.a aVar) {
-        d.a.l0.a.c1.a.N().c(context, jSONObject, aVar);
+        d.a.m0.a.c1.a.N().c(context, jSONObject, aVar);
     }
 
     @Override // d.a.b0.g.a
     public void d(Activity activity, String str, d.a.b0.e.a aVar) {
-        d.a.l0.a.c1.a.N().d(activity, str, aVar);
+        d.a.m0.a.c1.a.N().d(activity, str, aVar);
     }
 
     @Override // d.a.b0.g.a
     public String e(Context context) {
-        return d.a.l0.a.c1.a.u0().a(context);
+        return d.a.m0.a.c1.a.u0().a(context);
     }
 
     @Override // d.a.b0.g.a
@@ -53,7 +53,7 @@ public class a implements d.a.b0.g.a {
         String optString = jSONObject.optString("appKey");
         String optString2 = jSONObject.optString("redirectUrl");
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-            SchemeRouter.invoke(context, f41947a + optString + optString2);
+            SchemeRouter.invoke(context, f42050a + optString + optString2);
             return;
         }
         d.a.b0.a.h(3, "支付信息不能为空");
@@ -61,12 +61,12 @@ public class a implements d.a.b0.g.a {
 
     @Override // d.a.b0.g.a
     public void g(Bundle bundle) {
-        String str = d.a.l0.a.q1.a.b().f47842a;
+        String str = d.a.m0.a.q1.a.b().f47950a;
         if (TextUtils.isEmpty(str)) {
             d.a(bundle);
             return;
         }
-        d.a.l0.a.v1.c.a e2 = d.a.l0.a.v1.c.a.e();
+        d.a.m0.a.v1.c.a e2 = d.a.m0.a.v1.c.a.e();
         c cVar = new c(119, bundle);
         cVar.c(str);
         cVar.p(true);
@@ -75,6 +75,6 @@ public class a implements d.a.b0.g.a {
 
     @Override // d.a.b0.g.a
     public void h(String str) {
-        d.a.l0.a.q1.a.b().f47842a = str;
+        d.a.m0.a.q1.a.b().f47950a = str;
     }
 }

@@ -1,7 +1,8 @@
 package com.baidubce;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BceResponseMetadata {
     public String bceContentSha256;
     public String bceRequestId;
@@ -149,6 +150,6 @@ public class BceResponseMetadata {
     }
 
     public String toString() {
-        return "BceResponseMetadata [\n  bceRequestId=" + this.bceRequestId + ", \n  bceContentSha256=" + this.bceContentSha256 + ", \n  contentDisposition=" + this.contentDisposition + ", \n  contentEncoding=" + this.contentEncoding + ", \n  contentLength=" + this.contentLength + ", \n  contentMd5=" + this.contentMd5 + ", \n  contentRange=" + this.contentRange + ", \n  contentType=" + this.contentType + ", \n  date=" + this.date + ", \n  eTag=" + this.eTag + ", \n  expires=" + this.expires + ", \n  lastModified=" + this.lastModified + ", \n  server=" + this.server + ", \n  location=" + this.location + "]";
+        return "BceResponseMetadata [\n  bceRequestId=" + this.bceRequestId + ", \n  bceContentSha256=" + this.bceContentSha256 + ", \n  contentDisposition=" + this.contentDisposition + ", \n  contentEncoding=" + this.contentEncoding + ", \n  contentLength=" + this.contentLength + ", \n  contentMd5=" + this.contentMd5 + ", \n  contentRange=" + this.contentRange + ", \n  contentType=" + this.contentType + ", \n  date=" + this.date + ", \n  eTag=" + this.eTag + ", \n  expires=" + this.expires + ", \n  lastModified=" + this.lastModified + ", \n  server=" + this.server + ", \n  location=" + this.location + PreferencesUtil.RIGHT_MOUNT;
     }
 }

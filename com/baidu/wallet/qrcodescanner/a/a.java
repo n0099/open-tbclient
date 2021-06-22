@@ -33,54 +33,54 @@ import org.json.JSONException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeWhiteListResponse f26513a;
+    public QRCodeWhiteListResponse f26595a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f26514b;
+    public Handler f26596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f26515c;
+    public b f26597c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass2 implements IBeanResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f26521a;
+        public final /* synthetic */ String f26603a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f26522b;
+        public final /* synthetic */ Context f26604b;
 
         public AnonymousClass2(String str, Context context) {
-            this.f26521a = str;
-            this.f26522b = context;
+            this.f26603a = str;
+            this.f26604b = context;
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, final int i3, String str) {
             DXMSdkSAUtils.onEventEnd("@parseQRCodeScannerShortUrl", i3);
             PayStatisticsUtil.onEventEnd("@parseQRCodeScannerShortUrl", i3);
-            if (a.this.f26514b == null) {
-                a.this.f26514b = new Handler(Looper.getMainLooper());
+            if (a.this.f26596b == null) {
+                a.this.f26596b = new Handler(Looper.getMainLooper());
             }
-            a.this.f26514b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
+            a.this.f26596b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (i3 == 5003) {
-                        WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(AnonymousClass2.this.f26522b, new ILoginBackListener() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
+                        WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(AnonymousClass2.this.f26604b, new ILoginBackListener() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
                             @Override // com.baidu.wallet.api.ILoginBackListener
                             public void onFail(int i4, String str2) {
-                                if (a.this.f26515c != null) {
-                                    a.this.f26515c.onResultFail(AnonymousClass2.this.f26521a, str2);
-                                    a.this.f26515c = null;
+                                if (a.this.f26597c != null) {
+                                    a.this.f26597c.onResultFail(AnonymousClass2.this.f26603a, str2);
+                                    a.this.f26597c = null;
                                 }
                             }
 
                             @Override // com.baidu.wallet.api.ILoginBackListener
                             public void onSuccess(int i4, String str2) {
-                                if (a.this.f26515c != null) {
-                                    a.this.f26515c.onResultFail(AnonymousClass2.this.f26521a, "");
-                                    a.this.f26515c = null;
+                                if (a.this.f26597c != null) {
+                                    a.this.f26597c.onResultFail(AnonymousClass2.this.f26603a, "");
+                                    a.this.f26597c = null;
                                 }
                             }
                         }));
@@ -88,7 +88,7 @@ public class a {
                     }
                     AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                     a aVar = a.this;
-                    aVar.a(anonymousClass2.f26522b, anonymousClass2.f26521a, aVar.f26515c, false, false);
+                    aVar.a(anonymousClass2.f26604b, anonymousClass2.f26603a, aVar.f26597c, false, false);
                 }
             });
         }
@@ -101,29 +101,29 @@ public class a {
             if (qRCodeShortUrlResponse == null || !qRCodeShortUrlResponse.checkResponseValidity()) {
                 return;
             }
-            if (a.this.f26514b == null) {
-                a.this.f26514b = new Handler(Looper.getMainLooper());
+            if (a.this.f26596b == null) {
+                a.this.f26596b = new Handler(Looper.getMainLooper());
             }
-            a.this.f26514b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
+            a.this.f26596b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if ("500".equals(qRCodeShortUrlResponse.type) || "3".equals(qRCodeShortUrlResponse.type) || "501".equals(qRCodeShortUrlResponse.type)) {
-                        if (a.this.f26515c != null) {
+                        if (a.this.f26597c != null) {
                             b.a aVar = new b.a();
                             QRCodeShortUrlResponse qRCodeShortUrlResponse2 = qRCodeShortUrlResponse;
-                            aVar.f26530a = qRCodeShortUrlResponse2.type;
-                            aVar.f26531b = qRCodeShortUrlResponse2.link_addr;
-                            aVar.f26532c = qRCodeShortUrlResponse2.params;
-                            aVar.f26533d = qRCodeShortUrlResponse2.err;
-                            a.this.f26515c.onResultSuccessCallBack(AnonymousClass2.this.f26521a, aVar, true);
-                            a.this.f26515c = null;
+                            aVar.f26612a = qRCodeShortUrlResponse2.type;
+                            aVar.f26613b = qRCodeShortUrlResponse2.link_addr;
+                            aVar.f26614c = qRCodeShortUrlResponse2.params;
+                            aVar.f26615d = qRCodeShortUrlResponse2.err;
+                            a.this.f26597c.onResultSuccessCallBack(AnonymousClass2.this.f26603a, aVar, true);
+                            a.this.f26597c = null;
                             return;
                         }
                         return;
                     }
                     AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                     a aVar2 = a.this;
-                    aVar2.a(anonymousClass2.f26522b, qRCodeShortUrlResponse.link_addr, aVar2.f26515c, false, false);
+                    aVar2.a(anonymousClass2.f26604b, qRCodeShortUrlResponse.link_addr, aVar2.f26597c, false, false);
                 }
             });
         }
@@ -131,17 +131,17 @@ public class a {
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0270a {
+    public static class C0273a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f26529a = new a();
+        public static a f26611a = new a();
     }
 
     private boolean d(String str) {
-        if (this.f26513a == null || TextUtils.isEmpty(str)) {
+        if (this.f26595a == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        for (QRCodeWhiteListResponse.Group group : this.f26513a.getDataGroup()) {
+        for (QRCodeWhiteListResponse.Group group : this.f26595a.getDataGroup()) {
             if (a(str, group.blacklist_preg)) {
                 return true;
             }
@@ -150,11 +150,11 @@ public class a {
     }
 
     public a() {
-        this.f26514b = new Handler(Looper.getMainLooper());
+        this.f26596b = new Handler(Looper.getMainLooper());
     }
 
     private boolean c(String str) {
-        for (QRCodeWhiteListResponse.Group group : this.f26513a.getDataGroup()) {
+        for (QRCodeWhiteListResponse.Group group : this.f26595a.getDataGroup()) {
             if (a(str, group.lightapp_outer_open_preg)) {
                 return true;
             }
@@ -163,10 +163,10 @@ public class a {
     }
 
     public boolean b(String str) {
-        if (this.f26513a == null || TextUtils.isEmpty(str)) {
+        if (this.f26595a == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        for (QRCodeWhiteListResponse.Group group : this.f26513a.getDataGroup()) {
+        for (QRCodeWhiteListResponse.Group group : this.f26595a.getDataGroup()) {
             if (a(str, group.url_preg)) {
                 return true;
             }
@@ -175,7 +175,7 @@ public class a {
     }
 
     public static a a() {
-        return C0270a.f26529a;
+        return C0273a.f26611a;
     }
 
     public void b() {
@@ -192,14 +192,14 @@ public class a {
         DXMSdkSAUtils.onEventStart("@getQRCodeScannerWhiteList");
         PayStatisticsUtil.onEventStart("@getQRCodeScannerWhiteList");
         com.baidu.wallet.qrcodescanner.beans.b bVar3 = (com.baidu.wallet.qrcodescanner.beans.b) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, "QRCodeScannerGetWhiteList");
-        if (this.f26513a == null) {
-            this.f26513a = a(context);
+        if (this.f26595a == null) {
+            this.f26595a = a(context);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26513a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26595a;
         if (qRCodeWhiteListResponse != null) {
             a(qRCodeWhiteListResponse, bVar, bVar2);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f26513a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f26595a;
         if (qRCodeWhiteListResponse2 != null && (category = qRCodeWhiteListResponse2.whitelist) != null) {
             bVar3.a(category.fingerprint);
         }
@@ -216,13 +216,13 @@ public class a {
                 PayStatisticsUtil.onEventEnd("@getQRCodeScannerWhiteList", 0);
                 QRCodeWhiteListResponse qRCodeWhiteListResponse3 = obj instanceof QRCodeWhiteListResponse ? (QRCodeWhiteListResponse) obj : null;
                 if (qRCodeWhiteListResponse3 != null && qRCodeWhiteListResponse3.checkResponseValidity() && qRCodeWhiteListResponse3.hasData()) {
-                    a.this.f26513a = qRCodeWhiteListResponse3;
-                    a.this.f26513a.doStoreResponse(context);
-                    a.this.f26514b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
+                    a.this.f26595a = qRCodeWhiteListResponse3;
+                    a.this.f26595a.doStoreResponse(context);
+                    a.this.f26596b.post(new Runnable() { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a aVar = a.this;
-                            QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f26513a;
+                            QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f26595a;
                             AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                             aVar.a(qRCodeWhiteListResponse4, bVar, bVar2);
                         }
@@ -238,7 +238,7 @@ public class a {
         if (qRCodeWhiteListResponse == null || !qRCodeWhiteListResponse.hasData()) {
             return;
         }
-        QRCodeWhiteListResponse.Group group = this.f26513a.whitelist.data[0];
+        QRCodeWhiteListResponse.Group group = this.f26595a.whitelist.data[0];
         if (bVar2 != null) {
             bVar2.onResultSuccessCallBack(group.title_value, null, false);
         }
@@ -246,8 +246,8 @@ public class a {
             return;
         }
         b.a aVar = new b.a();
-        aVar.f26530a = group.title_type;
-        aVar.f26531b = group.title_link_addr;
+        aVar.f26612a = group.title_type;
+        aVar.f26613b = group.title_link_addr;
         String str = group.start_time;
         String str2 = group.end_time;
         try {
@@ -533,13 +533,13 @@ public class a {
 
     public void a(Context context, String str, b bVar, boolean z, boolean z2) {
         QRCodeWhiteListResponse qRCodeWhiteListResponse;
-        this.f26515c = bVar;
-        if (this.f26513a == null) {
-            this.f26513a = a(context);
+        this.f26597c = bVar;
+        if (this.f26595a == null) {
+            this.f26595a = a(context);
         }
-        if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f26513a) == null) {
+        if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f26595a) == null) {
             bVar.onResultFail(str, "");
-            this.f26515c = null;
+            this.f26597c = null;
         } else if (z) {
             a(str, false);
         } else {
@@ -552,50 +552,50 @@ public class a {
                 }
             }
             if (d(str)) {
-                if (this.f26515c != null) {
+                if (this.f26597c != null) {
                     b.a aVar = new b.a();
-                    aVar.f26530a = "600";
-                    aVar.f26531b = str;
-                    this.f26515c.onResultSuccessCallBack(str, aVar, true);
+                    aVar.f26612a = "600";
+                    aVar.f26613b = str;
+                    this.f26597c.onResultSuccessCallBack(str, aVar, true);
                 }
             } else if (b(str)) {
                 if (a(str)) {
                     a(str, true);
-                } else if (this.f26515c != null) {
+                } else if (this.f26597c != null) {
                     b.a aVar2 = new b.a();
-                    aVar2.f26530a = "300";
-                    aVar2.f26531b = str;
-                    this.f26515c.onResultSuccessCallBack(str, aVar2, true);
+                    aVar2.f26612a = "300";
+                    aVar2.f26613b = str;
+                    this.f26597c.onResultSuccessCallBack(str, aVar2, true);
                 }
-            } else if (this.f26515c != null) {
+            } else if (this.f26597c != null) {
                 b.a aVar3 = new b.a();
-                aVar3.f26530a = "100";
-                aVar3.f26531b = str;
-                this.f26515c.onResultSuccessCallBack(str, aVar3, true);
+                aVar3.f26612a = "100";
+                aVar3.f26613b = str;
+                this.f26597c.onResultSuccessCallBack(str, aVar3, true);
             }
-            this.f26515c = null;
+            this.f26597c = null;
         }
     }
 
     public void a(String str, boolean z) {
         if (c(str)) {
-            if (this.f26515c != null) {
+            if (this.f26597c != null) {
                 b.a aVar = new b.a();
-                aVar.f26530a = "2";
-                aVar.f26531b = str;
-                this.f26515c.onResultSuccessCallBack(str, aVar, z);
+                aVar.f26612a = "2";
+                aVar.f26613b = str;
+                this.f26597c.onResultSuccessCallBack(str, aVar, z);
             }
-        } else if (this.f26515c != null) {
+        } else if (this.f26597c != null) {
             b.a aVar2 = new b.a();
-            aVar2.f26530a = "1";
-            aVar2.f26531b = str;
-            this.f26515c.onResultSuccessCallBack(str, aVar2, z);
+            aVar2.f26612a = "1";
+            aVar2.f26613b = str;
+            this.f26597c.onResultSuccessCallBack(str, aVar2, z);
         }
-        this.f26515c = null;
+        this.f26597c = null;
     }
 
     public boolean a(String str) {
-        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26513a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26595a;
         if (qRCodeWhiteListResponse != null) {
             for (QRCodeWhiteListResponse.Item item : qRCodeWhiteListResponse.getWhiteLists()) {
                 if (a(str, item.whitelist_preg)) {
@@ -628,7 +628,7 @@ public class a {
         DXMSdkSAUtils.onEventStart("@parseQRCodeScannerShortUrl");
         PayStatisticsUtil.onEventStart("@parseQRCodeScannerShortUrl");
         com.baidu.wallet.qrcodescanner.beans.a aVar = (com.baidu.wallet.qrcodescanner.beans.a) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_SHORT_URL, "QRCodeScannerParseShortUrl");
-        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26513a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f26595a;
         if (qRCodeWhiteListResponse != null) {
             for (QRCodeWhiteListResponse.Group group : qRCodeWhiteListResponse.getDataGroup()) {
                 if (a(str, group.shorturl_preg_new)) {

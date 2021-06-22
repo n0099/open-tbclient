@@ -1,283 +1,235 @@
 package d.a.n0.d0;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.tieba.view.ShadowLinearLayout;
-import d.a.c.e.p.j;
-import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import tbclient.GetMyPost.DataRes;
-import tbclient.GetMyPost.GetMyPostResIdl;
-/* loaded from: classes4.dex */
-public class h implements View.OnClickListener {
-
-    /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f56139e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f56140f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f56141g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f56142h;
+/* loaded from: classes3.dex */
+public class h extends a {
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f56143i;
-    public d.a.m0.r.f0.a j;
-    public long k;
-    public long l;
-    public a2 m;
-    public Activity n;
-    public TbPageContext o;
-    public boolean p = false;
-    public boolean q = false;
-    public final d.a.c.c.g.a r = new a(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+    public static final int f53071i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
+    public static final int j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
+    public static final int k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
+    public static final int l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
+    public static final int m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
-            super(i2, i3);
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public ImageView f53072a;
 
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            h.this.h();
-            if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-                GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                h.this.f(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
-            } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                h.this.f(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f53073b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f53074c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TBSpecificationBtn f53075d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f53076e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f53077f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f53078g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f53079h;
+
+    public h(Context context, View.OnClickListener onClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
+        this.f53072a = (ImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.f53073b = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.f53074c = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.f53076e = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.f53075d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        d.a.n0.r.f0.m.a aVar = new d.a.n0.r.f0.m.a();
+        this.f53075d.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.f53075d.setTextSize(R.dimen.T_X05);
+        this.f53075d.setConfig(aVar);
+        this.f53077f = R.drawable.new_pic_emotion_08;
+        this.f53078g = R.color.CAM_X0107;
+        this.f53079h = R.color.CAM_X0109;
+        this.f53075d.setOnClickListener(onClickListener);
+        this.attachedView.setOnClickListener(null);
+        k(0);
+    }
+
+    public final void a() {
+        if (this.f53075d.getVisibility() == 0) {
+            ViewGroup.LayoutParams layoutParams = this.f53076e.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = j;
+                this.f53076e.setLayoutParams(marginLayoutParams);
             }
-        }
-    }
-
-    public h(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
-        this.n = tbPageContext.getPageActivity();
-        this.o = tbPageContext;
-        this.f56139e = navigationBarCoverTip;
-        this.r.setTag(tbPageContext.getUniqueId());
-        this.r.getHttpMessageListener().setSelfListener(true);
-        this.r.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.r);
-    }
-
-    public final String c(a2 a2Var) {
-        if (a2Var == null || a2Var.L0() == null) {
-            return null;
-        }
-        ArrayList<MediaData> L0 = a2Var.L0();
-        int size = L0.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            MediaData mediaData = L0.get(i2);
-            if (mediaData != null && mediaData.getType() == 3) {
-                if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
-                    return mediaData.getThumbnails_url();
-                }
-                if (!StringUtils.isNull(mediaData.getPicUrl())) {
-                    return mediaData.getPicUrl();
-                }
+            this.f53073b.setVisibility(8);
+            this.f53078g = R.color.CAM_X0107;
+        } else if (this.f53073b.getVisibility() == 8) {
+            ViewGroup.LayoutParams layoutParams2 = this.f53076e.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
+                marginLayoutParams2.topMargin = j;
+                this.f53076e.setLayoutParams(marginLayoutParams2);
             }
-        }
-        return null;
-    }
-
-    public final int d() {
-        return 15;
-    }
-
-    public final int e(a2 a2Var) {
-        if (a2Var != null) {
-            if (a2Var.r2()) {
-                return 4;
+            this.f53078g = R.color.CAM_X0107;
+        } else if (this.f53074c.getVisibility() == 0) {
+            ViewGroup.LayoutParams layoutParams3 = this.f53076e.getLayoutParams();
+            if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
+                marginLayoutParams3.topMargin = l;
+                this.f53076e.setLayoutParams(marginLayoutParams3);
             }
-            if (a2Var.s0() == 1) {
-                return 3;
+            ViewGroup.LayoutParams layoutParams4 = this.f53074c.getLayoutParams();
+            if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
+                marginLayoutParams4.topMargin = m;
+                this.f53074c.setLayoutParams(marginLayoutParams4);
             }
-            return a2Var.s2() ? 2 : 1;
+            this.f53078g = R.color.CAM_X0107;
+            this.f53079h = R.color.CAM_X0109;
+        } else {
+            ViewGroup.LayoutParams layoutParams5 = this.f53072a.getLayoutParams();
+            int i2 = f53071i;
+            layoutParams5.width = i2;
+            layoutParams5.height = i2;
+            this.f53072a.setLayoutParams(layoutParams5);
+            ViewGroup.LayoutParams layoutParams6 = this.f53076e.getLayoutParams();
+            if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
+                marginLayoutParams5.topMargin = k;
+                this.f53076e.setLayoutParams(marginLayoutParams5);
+            }
+            this.f53079h = R.color.CAM_X0109;
         }
-        return 0;
+        onChangeSkinType();
     }
 
-    public final void f(int i2, GetMyPostResIdl getMyPostResIdl) {
-        DataRes dataRes;
-        if (i2 == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
-            a2 a2Var = new a2();
-            this.m = a2Var;
-            a2Var.V2(getMyPostResIdl.data.thread_info);
-            l();
+    public View b() {
+        return this.attachedView;
+    }
+
+    public View c() {
+        return this.f53075d;
+    }
+
+    public TextView d() {
+        return this.f53074c;
+    }
+
+    public void e() {
+        this.f53075d.setVisibility(8);
+        this.f53074c.setVisibility(8);
+        SkinManager.setViewTextColor(this.f53073b, R.color.CAM_X0109, 1);
+        a();
+    }
+
+    public void f(int i2) {
+        SkinManager.setBackgroundColor(this.attachedView, i2);
+    }
+
+    public void g(String str) {
+        if (str == null) {
             return;
         }
-        this.o.showToast(R.string.neterror);
+        this.f53075d.setText(str);
     }
 
-    public final void h() {
-        d.a.m0.r.f0.a aVar = this.j;
-        if (aVar != null) {
-            aVar.h(false);
+    public void h(int i2) {
+        this.f53077f = i2;
+        SkinManager.setImageResource(this.f53072a, i2);
+    }
+
+    public void i(int i2) {
+        this.f53077f = i2;
+    }
+
+    public void j(int i2) {
+        ViewGroup.LayoutParams layoutParams = this.f53072a.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            marginLayoutParams.topMargin = i2;
+            this.f53072a.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void i() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f56139e;
-        if (navigationBarCoverTip != null) {
-            navigationBarCoverTip.i();
+    public void k(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
+        }
+        int i3 = l.i(TbadkCoreApplication.getInst());
+        int dimensionPixelSize = i3 <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i3 * 0.16d);
+        ViewGroup.LayoutParams layoutParams = this.f53072a.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            marginLayoutParams.topMargin = dimensionPixelSize + i2;
+            this.f53072a.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public final void j() {
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-        statisticItem.param("tid", this.l);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("obj_locate", 7);
-        if (!k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-            statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
+    public void l(String str) {
+        if (str == null) {
+            this.f53073b.setVisibility(8);
+        } else {
+            this.f53073b.setVisibility(0);
+            this.f53073b.setText(str);
         }
-        TiebaStatic.log(statisticItem);
+        a();
     }
 
-    public final void k() {
-        if (this.j == null) {
-            this.j = new d.a.m0.r.f0.a(this.o);
-        }
-        this.j.h(true);
-    }
-
-    public final void l() {
-        a2 a2Var = this.m;
-        if (a2Var == null || this.n == null) {
+    public void m(String str) {
+        if (str == null) {
             return;
         }
-        String valueOf = String.valueOf(a2Var.c0());
-        String i0 = this.m.i0();
-        String A1 = this.m.A1();
-        if (TextUtils.isEmpty(A1)) {
-            A1 = this.m.C();
-        }
-        String z1 = this.m.z1();
-        String str = "http://tieba.baidu.com/p/" + z1 + "?share=9105&fr=share";
-        String c2 = c(this.m);
-        Uri parse = c2 == null ? null : Uri.parse(c2);
-        String C = this.m.C();
-        String format = MessageFormat.format(this.n.getResources().getString(R.string.share_content_tpl), A1, C);
-        ShareItem shareItem = new ShareItem();
-        shareItem.r = A1;
-        shareItem.s = format;
-        shareItem.R = 0L;
-        shareItem.D = C;
-        shareItem.t = str;
-        shareItem.o = 5;
-        shareItem.q = z1;
-        shareItem.F = 3;
-        shareItem.J = valueOf;
-        shareItem.p = i0;
-        shareItem.K = z1;
-        shareItem.f12662f = true;
-        shareItem.E = d();
-        shareItem.M = e(this.m);
-        if (parse != null) {
-            shareItem.v = parse;
-        }
-        shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.m);
-        shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(this.m);
-        TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.e0 = this.m.g1();
-        Bundle bundle = new Bundle();
-        bundle.putInt("obj_param1", shareItem.F);
-        bundle.putInt("obj_type", shareItem.M);
-        bundle.putString("fid", shareItem.J);
-        bundle.putString("tid", shareItem.K);
-        bundle.putInt("obj_source", shareItem.o);
-        shareItem.k(bundle);
-        f.b().k(new ShareDialogConfig((Context) this.n, shareItem, true, true));
+        this.f53074c.setText(str);
     }
 
-    public void m(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || this.f56139e == null) {
+    public void n(String str) {
+        if (str == null) {
             return;
         }
-        this.k = d.a.c.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
-        long f2 = d.a.c.e.m.b.f(postWriteCallBackData.getThreadId(), 0L);
-        this.l = f2;
-        if (this.k == 0 || f2 == 0) {
-            return;
-        }
-        this.q = false;
-        if (this.f56140f == null) {
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f56140f = shadowLinearLayout;
-            this.f56141g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f56142h = (TextView) this.f56140f.findViewById(R.id.tb_top_toast_content);
-            this.f56143i = (TBSpecificationBtn) this.f56140f.findViewById(R.id.tb_top_toast_btn);
-            this.f56141g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f56142h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
-            this.f56143i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
-            this.f56143i.setConfig(new d.a.m0.r.f0.m.a());
-        }
-        SkinManager.setViewTextColor(this.f56141g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f56142h, R.color.CAM_X0302);
-        this.f56143i.k();
-        this.f56140f.b();
-        this.f56143i.setOnClickListener(this);
-        this.f56139e.setBackgroundColor(0);
-        this.f56139e.m(this.n, this.f56140f, 5000);
+        this.f53074c.setText(str);
+        this.f53074c.setVisibility(0);
+        a();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.q) {
-            return;
+    public void o() {
+        this.f53075d.setVisibility(0);
+        this.f53074c.setVisibility(0);
+        SkinManager.setViewTextColor(this.f53073b, R.color.CAM_X0109, 1);
+        a();
+    }
+
+    public void onChangeSkinType() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setImageResource(this.f53072a, this.f53077f);
+        SkinManager.setViewTextColor(this.f53073b, this.f53079h, 1, skinType);
+        SkinManager.setViewTextColor(this.f53074c, this.f53078g, 1, skinType);
+        TBSpecificationBtn tBSpecificationBtn = this.f53075d;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.k();
         }
-        this.q = true;
-        if (!j.z()) {
-            this.o.showToast(R.string.neterror);
-            this.f56139e.e();
-            return;
-        }
-        int k = l.k(TbadkCoreApplication.getInst());
-        int i2 = l.i(TbadkCoreApplication.getInst());
-        float f2 = this.n.getResources().getDisplayMetrics().density;
-        int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setTag(this.o.getUniqueId());
-        requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i2, f2, i3);
-        MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
-        k();
-        this.f56139e.e();
-        j();
+    }
+
+    @Override // d.a.n0.d0.a
+    public void onViewAttached() {
+        super.onViewAttached();
+        onChangeSkinType();
+    }
+
+    @Override // d.a.n0.d0.a
+    public void onViewDettached() {
+        super.onViewDettached();
+        this.f53072a.setImageResource(0);
     }
 }

@@ -18,14 +18,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f68338b;
+    public static volatile a f68420b;
 
     /* renamed from: a  reason: collision with root package name */
-    public ReentrantReadWriteLock f68339a;
+    public ReentrantReadWriteLock f68421a;
 
     public a(Context context) {
         super(context, "blcp_track.db", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f68339a = new ReentrantReadWriteLock(true);
+        this.f68421a = new ReentrantReadWriteLock(true);
     }
 
     public static void c(Cursor cursor) {
@@ -42,18 +42,18 @@ public class a extends SQLiteOpenHelper {
     }
 
     public static a i(Context context) {
-        if (f68338b == null) {
+        if (f68420b == null) {
             synchronized (a.class) {
-                if (f68338b == null) {
-                    f68338b = new a(context);
+                if (f68420b == null) {
+                    f68420b = new a(context);
                 }
             }
         }
-        return f68338b;
+        return f68420b;
     }
 
     public final boolean a(int i2, int i3, SQLiteDatabase sQLiteDatabase) {
-        this.f68339a.writeLock().lock();
+        this.f68421a.writeLock().lock();
         Cursor cursor = null;
         boolean z = false;
         try {
@@ -68,12 +68,12 @@ public class a extends SQLiteOpenHelper {
                 e2.printStackTrace();
             }
             c(cursor);
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             e.a("TrackDBHelper", "flow checkFlowExist:" + z);
             return z;
         } catch (Throwable th) {
             c(cursor);
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             throw th;
         }
     }
@@ -86,7 +86,7 @@ public class a extends SQLiteOpenHelper {
         r1.endTransaction();
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0076, code lost:
-        r8.f68339a.writeLock().unlock();
+        r8.f68421a.writeLock().unlock();
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x007f, code lost:
         return;
@@ -98,7 +98,7 @@ public class a extends SQLiteOpenHelper {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b() {
-        this.f68339a.writeLock().lock();
+        this.f68421a.writeLock().lock();
         SQLiteDatabase sQLiteDatabase = null;
         try {
             try {
@@ -117,7 +117,7 @@ public class a extends SQLiteOpenHelper {
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             throw th;
         }
     }
@@ -133,7 +133,7 @@ public class a extends SQLiteOpenHelper {
         r0.endTransaction();
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x00a7, code lost:
-        r5.f68339a.writeLock().unlock();
+        r5.f68421a.writeLock().unlock();
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x00b0, code lost:
         return;
@@ -145,7 +145,7 @@ public class a extends SQLiteOpenHelper {
         if (TextUtils.isEmpty(str) || list == null || list.size() <= 0) {
             return;
         }
-        this.f68339a.writeLock().lock();
+        this.f68421a.writeLock().lock();
         SQLiteDatabase sQLiteDatabase = null;
         try {
             try {
@@ -168,7 +168,7 @@ public class a extends SQLiteOpenHelper {
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             throw th;
         }
     }
@@ -179,7 +179,7 @@ public class a extends SQLiteOpenHelper {
             e.a("TrackDBHelper", "flowData is null");
             return;
         }
-        this.f68339a.writeLock().lock();
+        this.f68421a.writeLock().lock();
         e.a("TrackDBHelper", "flow insert to db:" + cVar.g());
         SQLiteDatabase sQLiteDatabase = null;
         try {
@@ -193,9 +193,9 @@ public class a extends SQLiteOpenHelper {
         }
         try {
             writableDatabase.beginTransactionNonExclusive();
-            if (a(cVar.f68226a, cVar.f68227b, writableDatabase)) {
+            if (a(cVar.f68308a, cVar.f68309b, writableDatabase)) {
                 ContentValues g2 = g(cVar);
-                String str = "flowid = " + cVar.f68226a + " AND flowhandle = " + cVar.f68227b;
+                String str = "flowid = " + cVar.f68308a + " AND flowhandle = " + cVar.f68309b;
                 e.a("TrackDBHelper", "flow update where:" + str);
                 e.a("TrackDBHelper", "endFlow update count:" + writableDatabase.update("flow", g2, str, null));
             }
@@ -210,17 +210,17 @@ public class a extends SQLiteOpenHelper {
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
         } catch (Throwable th2) {
             th = th2;
             sQLiteDatabase = writableDatabase;
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             throw th;
         }
-        this.f68339a.writeLock().unlock();
+        this.f68421a.writeLock().unlock();
     }
 
     public List<h> f(String str, int i2) {
@@ -231,7 +231,7 @@ public class a extends SQLiteOpenHelper {
         }
         String str2 = "SELECT * FROM flow WHERE flowid=\"" + str + "\" AND state = 1  limit " + i2;
         e.a("TrackDBHelper", "flow getAllData querySql:" + str2);
-        this.f68339a.readLock().lock();
+        this.f68421a.readLock().lock();
         Cursor cursor = null;
         try {
             try {
@@ -249,18 +249,18 @@ public class a extends SQLiteOpenHelper {
                 } while (cursor.moveToNext());
                 e.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
                 c(cursor);
-                this.f68339a.readLock().unlock();
+                this.f68421a.readLock().unlock();
                 e.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
                 return arrayList2;
             }
             e.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
             c(cursor);
-            this.f68339a.readLock().unlock();
+            this.f68421a.readLock().unlock();
             e.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
             return arrayList2;
         } catch (Throwable th) {
             c(cursor);
-            this.f68339a.readLock().unlock();
+            this.f68421a.readLock().unlock();
             throw th;
         }
     }
@@ -268,12 +268,12 @@ public class a extends SQLiteOpenHelper {
     public final ContentValues g(c cVar) {
         ContentValues contentValues = new ContentValues();
         if (cVar != null) {
-            contentValues.put("flowid", Integer.valueOf(cVar.f68226a));
-            contentValues.put("flowhandle", Integer.valueOf(cVar.f68227b));
-            contentValues.put("begintime", Long.valueOf(cVar.f68228c));
-            contentValues.put("endtime", Long.valueOf(cVar.f68229d));
+            contentValues.put("flowid", Integer.valueOf(cVar.f68308a));
+            contentValues.put("flowhandle", Integer.valueOf(cVar.f68309b));
+            contentValues.put("begintime", Long.valueOf(cVar.f68310c));
+            contentValues.put("endtime", Long.valueOf(cVar.f68311d));
             contentValues.put("detail", cVar.f());
-            if (cVar.f68229d == 0) {
+            if (cVar.f68311d == 0) {
                 contentValues.put("state", (Integer) 0);
             } else {
                 contentValues.put("state", (Integer) 1);
@@ -285,7 +285,7 @@ public class a extends SQLiteOpenHelper {
 
     public int h(String str) {
         String str2 = "SELECT COUNT(*) FROM flow WHERE flowid=\"" + str + "\" AND state = 1 ";
-        this.f68339a.readLock().lock();
+        this.f68421a.readLock().lock();
         Cursor cursor = null;
         int i2 = 0;
         try {
@@ -302,7 +302,7 @@ public class a extends SQLiteOpenHelper {
             return i2;
         } finally {
             c(cursor);
-            this.f68339a.readLock().unlock();
+            this.f68421a.readLock().unlock();
         }
     }
 
@@ -313,7 +313,7 @@ public class a extends SQLiteOpenHelper {
             e.a("TrackDBHelper", "flow must not be null");
             return;
         }
-        this.f68339a.writeLock().lock();
+        this.f68421a.writeLock().lock();
         SQLiteDatabase sQLiteDatabase = null;
         SQLiteDatabase sQLiteDatabase2 = null;
         SQLiteDatabase sQLiteDatabase3 = null;
@@ -329,7 +329,7 @@ public class a extends SQLiteOpenHelper {
         }
         try {
             writableDatabase.beginTransactionNonExclusive();
-            if (!a(cVar.f68226a, cVar.f68227b, writableDatabase)) {
+            if (!a(cVar.f68308a, cVar.f68309b, writableDatabase)) {
                 long insert = writableDatabase.insert("flow", null, g2);
                 e.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
                 sQLiteDatabase2 = insert;
@@ -349,17 +349,17 @@ public class a extends SQLiteOpenHelper {
                 sQLiteDatabase3.endTransaction();
                 sQLiteDatabase = sQLiteDatabase3;
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
         } catch (Throwable th2) {
             th = th2;
             sQLiteDatabase = writableDatabase;
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            this.f68339a.writeLock().unlock();
+            this.f68421a.writeLock().unlock();
             throw th;
         }
-        this.f68339a.writeLock().unlock();
+        this.f68421a.writeLock().unlock();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

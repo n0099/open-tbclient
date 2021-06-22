@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
@@ -53,7 +54,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
                     this.currencyAmount = jSONObject.optLong("currencyAmount");
                     this.currencyType = jSONObject.optInt("currencyType");
                     this.amount = jSONObject.optLong(PayUiEventContent.AMOUNT);
-                    this.finish = jSONObject.optBoolean("finish", false);
+                    this.finish = jSONObject.optBoolean(ConstantHelper.LOG_FINISH, false);
                     return;
                 }
                 throw new Exception(this.cmd + " != " + optInt);

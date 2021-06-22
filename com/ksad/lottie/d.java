@@ -16,75 +16,75 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f31875a = new l();
+    public final l f31973a = new l();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashSet<String> f31876b = new HashSet<>();
+    public final HashSet<String> f31974b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<Layer>> f31877c;
+    public Map<String, List<Layer>> f31975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, g> f31878d;
+    public Map<String, g> f31976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, com.ksad.lottie.model.c> f31879e;
+    public Map<String, com.ksad.lottie.model.c> f31977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArrayCompat<com.ksad.lottie.model.d> f31880f;
+    public SparseArrayCompat<com.ksad.lottie.model.d> f31978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<Layer> f31881g;
+    public LongSparseArray<Layer> f31979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Layer> f31882h;
+    public List<Layer> f31980h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f31883i;
+    public Rect f31981i;
     public float j;
     public float k;
     public float l;
 
     public l a() {
-        return this.f31875a;
+        return this.f31973a;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer a(long j) {
-        return this.f31881g.get(j);
+        return this.f31979g.get(j);
     }
 
     public void a(Rect rect, float f2, float f3, float f4, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat, Map<String, com.ksad.lottie.model.c> map3) {
-        this.f31883i = rect;
+        this.f31981i = rect;
         this.j = f2;
         this.k = f3;
         this.l = f4;
-        this.f31882h = list;
-        this.f31881g = longSparseArray;
-        this.f31877c = map;
-        this.f31878d = map2;
-        this.f31880f = sparseArrayCompat;
-        this.f31879e = map3;
+        this.f31980h = list;
+        this.f31979g = longSparseArray;
+        this.f31975c = map;
+        this.f31976d = map2;
+        this.f31978f = sparseArrayCompat;
+        this.f31977e = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
         Log.w(L.TAG, str);
-        this.f31876b.add(str);
+        this.f31974b.add(str);
     }
 
     public void a(boolean z) {
-        this.f31875a.a(z);
+        this.f31973a.a(z);
     }
 
     public Rect b() {
-        return this.f31883i;
+        return this.f31981i;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> b(String str) {
-        return this.f31877c.get(str);
+        return this.f31975c.get(str);
     }
 
     public float c() {
@@ -106,19 +106,19 @@ public class d {
     }
 
     public List<Layer> g() {
-        return this.f31882h;
+        return this.f31980h;
     }
 
     public SparseArrayCompat<com.ksad.lottie.model.d> h() {
-        return this.f31880f;
+        return this.f31978f;
     }
 
     public Map<String, com.ksad.lottie.model.c> i() {
-        return this.f31879e;
+        return this.f31977e;
     }
 
     public Map<String, g> j() {
-        return this.f31878d;
+        return this.f31976d;
     }
 
     public float k() {
@@ -127,7 +127,7 @@ public class d {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.f31882h) {
+        for (Layer layer : this.f31980h) {
             sb.append(layer.a(TrackUI.SEPERATOR));
         }
         return sb.toString();

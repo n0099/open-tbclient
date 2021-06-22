@@ -1,9 +1,10 @@
 package com.baidubce.services.bos.model;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidubce.services.bos.BosObjectInputStream;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BosObject implements Closeable {
     public BosObjectInputStream objectContent;
     public String bucketName = null;
@@ -50,6 +51,6 @@ public class BosObject implements Closeable {
     }
 
     public String toString() {
-        return "BosObject [bucketName=" + this.bucketName + ", key=" + this.key + ", metadata=" + this.objectMetadata + "]";
+        return "BosObject [bucketName=" + this.bucketName + ", key=" + this.key + ", metadata=" + this.objectMetadata + PreferencesUtil.RIGHT_MOUNT;
     }
 }

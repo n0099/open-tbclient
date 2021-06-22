@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.k1;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.k1;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;

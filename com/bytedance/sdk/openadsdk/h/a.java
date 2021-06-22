@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29271a;
+    public static volatile a f29353a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean o(c cVar) {
@@ -163,14 +163,14 @@ public class a {
     }
 
     public static a a() {
-        if (f29271a == null) {
+        if (f29353a == null) {
             synchronized (a.class) {
-                if (f29271a == null) {
-                    f29271a = new a();
+                if (f29353a == null) {
+                    f29353a = new a();
                 }
             }
         }
-        return f29271a;
+        return f29353a;
     }
 
     public void b() {
@@ -250,8 +250,8 @@ public class a {
             com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
             JSONObject jSONObject4 = new JSONObject();
             if (a2 != null) {
-                jSONObject4.put("longitude", a2.f30285b);
-                jSONObject4.put("latitude", a2.f30284a);
+                jSONObject4.put("longitude", a2.f30367b);
+                jSONObject4.put("latitude", a2.f30366a);
             }
             jSONObject3.put("location", jSONObject4);
             JSONArray jSONArray = new JSONArray();

@@ -3,7 +3,7 @@ package com.kwai.video.ksvodplayerkit.a;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37999a;
+    public static a f38097a;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -11,7 +11,7 @@ public class c {
     }
 
     public static void a(a aVar) {
-        f37999a = aVar;
+        f38097a = aVar;
     }
 
     public static void a(String str) {
@@ -19,7 +19,7 @@ public class c {
     }
 
     public static void a(String str, String str2) {
-        a aVar = f37999a;
+        a aVar = f38097a;
         if (aVar != null) {
             aVar.a(str, str2);
         } else {

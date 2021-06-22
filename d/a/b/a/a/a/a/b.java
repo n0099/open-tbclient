@@ -3,13 +3,13 @@ package d.a.b.a.a.a.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f41914a;
+    public byte[] f42017a;
 
     public b(byte[] bArr, int i2) {
-        this.f41914a = bArr;
+        this.f42017a = bArr;
     }
 
     public byte[] a() {
-        return this.f41914a;
+        return this.f42017a;
     }
 }

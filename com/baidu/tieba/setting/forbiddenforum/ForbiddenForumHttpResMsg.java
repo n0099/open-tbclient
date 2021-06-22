@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.n0.w2.a.d;
+import d.a.o0.w2.a.d;
 import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
 /* loaded from: classes5.dex */

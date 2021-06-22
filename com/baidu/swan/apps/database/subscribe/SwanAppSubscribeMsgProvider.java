@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import d.a.l0.a.c1.a;
+import d.a.m0.a.c1.a;
 /* loaded from: classes3.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static final String CONTENT_AUTHORITY = a.b().getPackageName() + ".swan.subscribe_msg";

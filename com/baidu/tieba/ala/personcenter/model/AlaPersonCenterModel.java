@@ -15,13 +15,13 @@ import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
 public class AlaPersonCenterModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.v.j.f.a f14067e;
+    public d.a.o0.v.j.f.a f14149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14068f;
+    public String f14150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f14069g;
+    public final HttpMessageListener f14151g;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -32,38 +32,38 @@ public class AlaPersonCenterModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || AlaPersonCenterModel.this.f14067e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || AlaPersonCenterModel.this.f14149e == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
-                AlaPersonCenterModel.this.f14067e.b(statusCode, null, null);
+                AlaPersonCenterModel.this.f14149e.b(statusCode, null, null);
                 return;
             }
             AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
             if (alaPersonCenterResponseMessage.getError() == 0) {
-                AlaPersonCenterModel.this.f14067e.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
+                AlaPersonCenterModel.this.f14149e.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
             } else {
-                AlaPersonCenterModel.this.f14067e.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
+                AlaPersonCenterModel.this.f14149e.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
             }
         }
     }
 
     public AlaPersonCenterModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f14069g = new a(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
+        this.f14151g = new a(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_USER_CENTER, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_USER_CENTER_URL);
         tbHttpMessageTask.setResponsedClass(AlaPersonCenterResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f14069g.setSelfListener(true);
-        this.f14069g.setTag(getUniqueId());
-        registerListener(this.f14069g);
+        this.f14151g.setSelfListener(true);
+        this.f14151g.setTag(getUniqueId());
+        registerListener(this.f14151g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
-        httpMessage.addParam("user_id", this.f14068f);
+        httpMessage.addParam("user_id", this.f14150f);
         sendMessage(httpMessage);
         return true;
     }
@@ -81,14 +81,14 @@ public class AlaPersonCenterModel extends BdBaseModel {
     }
 
     public void setUid(String str) {
-        this.f14068f = str;
+        this.f14150f = str;
     }
 
     public boolean x() {
         return LoadData();
     }
 
-    public void y(d.a.n0.v.j.f.a aVar) {
-        this.f14067e = aVar;
+    public void y(d.a.o0.v.j.f.a aVar) {
+        this.f14149e = aVar;
     }
 }

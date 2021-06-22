@@ -27,7 +27,7 @@ public final class CompletableUsing<R> extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72273d;
+        public Disposable f72377d;
         public final Consumer<? super R> disposer;
         public final boolean eager;
 
@@ -40,8 +40,8 @@ public final class CompletableUsing<R> extends Completable {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72273d.dispose();
-            this.f72273d = DisposableHelper.DISPOSED;
+            this.f72377d.dispose();
+            this.f72377d = DisposableHelper.DISPOSED;
             disposeResourceAfter();
         }
 
@@ -59,12 +59,12 @@ public final class CompletableUsing<R> extends Completable {
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72273d.isDisposed();
+            return this.f72377d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f72273d = DisposableHelper.DISPOSED;
+            this.f72377d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {
@@ -87,7 +87,7 @@ public final class CompletableUsing<R> extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
-            this.f72273d = DisposableHelper.DISPOSED;
+            this.f72377d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {
@@ -109,8 +109,8 @@ public final class CompletableUsing<R> extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72273d, disposable)) {
-                this.f72273d = disposable;
+            if (DisposableHelper.validate(this.f72377d, disposable)) {
+                this.f72377d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

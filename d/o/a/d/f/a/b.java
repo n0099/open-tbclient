@@ -40,7 +40,7 @@ public class b {
             while (it.hasNext()) {
                 c.b next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f70515b), next.b());
+                    jSONObject.put(String.valueOf(next.f70619b), next.b());
                 }
             }
         } catch (Exception e2) {

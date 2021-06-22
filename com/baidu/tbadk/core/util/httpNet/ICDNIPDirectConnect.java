@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.m0.n.a;
+import d.a.n0.n.a;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes3.dex */
 public abstract class ICDNIPDirectConnect {

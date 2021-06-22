@@ -7,7 +7,7 @@ import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
-import d.a.g0.a.d.c;
+import d.a.h0.a.d.c;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ public class ArBridge {
     public static final boolean DEBUG = false;
     public static final int INVALID_MESSAGE_ID = -1;
     public static final String TAG = "EngineLogger";
-    public d.a.g0.a.c.a mDataStore;
+    public d.a.h0.a.c.a mDataStore;
     public EGLContext mEglContext;
     public FirstFrameListener mFirstFrameListener;
     public long mNativeARBridge;
@@ -71,7 +71,7 @@ public class ArBridge {
         this.mNativeARBridge = 0L;
         this.mNativeARBridge = nativeInitializeAR();
         Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
-        this.mStuckScreenHandler = new d.a.g0.a.b();
+        this.mStuckScreenHandler = new d.a.h0.a.b();
     }
 
     public static void exceptionCallback(String str) {
@@ -107,7 +107,7 @@ public class ArBridge {
     }
 
     public void clearARMemory() {
-        d.a.g0.a.c.a aVar = this.mDataStore;
+        d.a.h0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             aVar.a();
         }
@@ -154,7 +154,7 @@ public class ArBridge {
     }
 
     public String getValue(int i2, String str) {
-        d.a.g0.a.c.a aVar = this.mDataStore;
+        d.a.h0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             return aVar.b(i2, str);
         }
@@ -164,7 +164,7 @@ public class ArBridge {
 
     public void initDataStore(SharedPreferences sharedPreferences) {
         if (this.mDataStore == null) {
-            d.a.g0.a.c.a aVar = new d.a.g0.a.c.a();
+            d.a.h0.a.c.a aVar = new d.a.h0.a.c.a();
             this.mDataStore = aVar;
             aVar.c(sharedPreferences);
         }
@@ -295,7 +295,7 @@ public class ArBridge {
         this.mImuType = i2;
     }
 
-    public void setOnStuckScreenListener(d.a.g0.a.d.a aVar) {
+    public void setOnStuckScreenListener(d.a.h0.a.d.a aVar) {
         this.mStuckScreenHandler.b(aVar);
     }
 
@@ -319,7 +319,7 @@ public class ArBridge {
     }
 
     public void setValue(int i2, String str, String str2) {
-        d.a.g0.a.c.a aVar = this.mDataStore;
+        d.a.h0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             aVar.d(i2, str, str2);
         } else {

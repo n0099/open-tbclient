@@ -19,19 +19,19 @@ import d.a.c.e.p.l;
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f15688e;
+    public TbImageView f15770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15689f;
+    public TextView f15771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15690g;
+    public TextView f15772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f15691h;
+    public View f15773h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f15692i;
+    public View f15774i;
     public String j;
     public TbPageContext k;
 
@@ -56,19 +56,19 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
 
     public void a() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-        this.f15691h = inflate.findViewById(R.id.frs_header_title_container);
-        this.f15688e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
-        this.f15689f = (TextView) inflate.findViewById(R.id.frs_header_title);
-        this.f15690g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-        this.f15692i = inflate.findViewById(R.id.frs_image_header_contianer);
-        this.f15688e.setOnClickListener(this);
-        this.f15691h.setOnClickListener(this);
-        this.f15692i.setOnClickListener(this);
-        this.f15688e.setDefaultResource(0);
-        this.f15688e.setRadius(l.g(getContext(), R.dimen.tbds20));
-        this.f15688e.setConrers(15);
-        this.f15688e.setPlaceHolder(2);
-        this.f15690g.setText(getContext().getString(R.string.frs_header_image_lable));
+        this.f15773h = inflate.findViewById(R.id.frs_header_title_container);
+        this.f15770e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+        this.f15771f = (TextView) inflate.findViewById(R.id.frs_header_title);
+        this.f15772g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+        this.f15774i = inflate.findViewById(R.id.frs_image_header_contianer);
+        this.f15770e.setOnClickListener(this);
+        this.f15773h.setOnClickListener(this);
+        this.f15774i.setOnClickListener(this);
+        this.f15770e.setDefaultResource(0);
+        this.f15770e.setRadius(l.g(getContext(), R.dimen.tbds20));
+        this.f15770e.setConrers(15);
+        this.f15770e.setPlaceHolder(2);
+        this.f15772g.setText(getContext().getString(R.string.frs_header_image_lable));
         this.k = getTbPageContext();
     }
 
@@ -86,17 +86,17 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     }
 
     public void setTitle(String str) {
-        if (this.f15689f == null || this.f15690g == null) {
+        if (this.f15771f == null || this.f15772g == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f15689f.setText(str);
-            this.f15690g.setVisibility(0);
-            this.f15689f.setVisibility(0);
+            this.f15771f.setText(str);
+            this.f15772g.setVisibility(0);
+            this.f15771f.setVisibility(0);
             return;
         }
-        this.f15690g.setVisibility(8);
-        this.f15689f.setVisibility(8);
+        this.f15772g.setVisibility(8);
+        this.f15771f.setVisibility(8);
     }
 
     public FrsHeaderBannerView(Context context, AttributeSet attributeSet) {

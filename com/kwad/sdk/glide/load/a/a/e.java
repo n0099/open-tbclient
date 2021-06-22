@@ -19,43 +19,43 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f35923a = new a();
+    public static final a f36021a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f35924b;
+    public final a f36022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d f35925c;
+    public final d f36023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35926d;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ContentResolver f35927e;
+    public final ContentResolver f36025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<ImageHeaderParser> f35928f;
+    public final List<ImageHeaderParser> f36026f;
 
     public e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this.f35924b = aVar;
-        this.f35925c = dVar;
-        this.f35926d = bVar;
-        this.f35927e = contentResolver;
-        this.f35928f = list;
+        this.f36022b = aVar;
+        this.f36023c = dVar;
+        this.f36024d = bVar;
+        this.f36025e = contentResolver;
+        this.f36026f = list;
     }
 
     public e(List<ImageHeaderParser> list, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this(list, f35923a, dVar, bVar, contentResolver);
+        this(list, f36021a, dVar, bVar, contentResolver);
     }
 
     private boolean a(File file) {
-        return this.f35924b.a(file) && 0 < this.f35924b.b(file);
+        return this.f36022b.a(file) && 0 < this.f36022b.b(file);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Nullable
     private String c(@NonNull Uri uri) {
-        Cursor a2 = this.f35925c.a(uri);
+        Cursor a2 = this.f36023c.a(uri);
         if (a2 != null) {
             try {
                 if (a2.moveToFirst()) {
@@ -77,8 +77,8 @@ public class e {
         InputStream inputStream = null;
         try {
             try {
-                inputStream = this.f35927e.openInputStream(uri);
-                int b2 = com.kwad.sdk.glide.load.b.b(this.f35928f, inputStream, this.f35926d);
+                inputStream = this.f36025e.openInputStream(uri);
+                int b2 = com.kwad.sdk.glide.load.b.b(this.f36026f, inputStream, this.f36024d);
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -116,11 +116,11 @@ public class e {
         if (TextUtils.isEmpty(c2)) {
             return null;
         }
-        File a2 = this.f35924b.a(c2);
+        File a2 = this.f36022b.a(c2);
         if (a(a2)) {
             Uri fromFile = Uri.fromFile(a2);
             try {
-                return this.f35927e.openInputStream(fromFile);
+                return this.f36025e.openInputStream(fromFile);
             } catch (NullPointerException e2) {
                 throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e2));
             }

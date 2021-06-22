@@ -9,7 +9,7 @@ import java.util.concurrent.Executor;
 public class g<T> extends d<List<T>, T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public Executor f30036d;
+    public Executor f30118d;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
@@ -19,7 +19,7 @@ public class g<T> extends d<List<T>, T> {
         final CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
         final CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
         for (final T t : list) {
-            this.f30036d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
+            this.f30118d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -48,13 +48,13 @@ public class g<T> extends d<List<T>, T> {
         if (objArr != null) {
             if (objArr.length == 1) {
                 if (objArr[0] instanceof Executor) {
-                    this.f30036d = (Executor) objArr[0];
+                    this.f30118d = (Executor) objArr[0];
                     return;
                 }
                 throw new IllegalArgumentException("ParallelInterceptor args must be instance of Executor");
             }
             throw new IllegalArgumentException("ParallelInterceptor only need one param");
         }
-        this.f30036d = com.bytedance.sdk.openadsdk.l.e.a();
+        this.f30118d = com.bytedance.sdk.openadsdk.l.e.a();
     }
 }

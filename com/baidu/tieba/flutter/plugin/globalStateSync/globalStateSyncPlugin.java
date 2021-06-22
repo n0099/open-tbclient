@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.globalStateSync.GlobalStateSyncAuto;
 import d.a.c.e.p.k;
-import d.a.m0.b.d;
-import d.a.m0.b.e;
-import d.a.m0.b.f.t;
-import d.a.m0.r.d0.b;
-import d.a.m0.s.b.a;
-import d.a.m0.z0.m0;
-import d.a.n0.n0.a.b.g;
+import d.a.n0.b.d;
+import d.a.n0.b.e;
+import d.a.n0.b.f.t;
+import d.a.n0.r.d0.b;
+import d.a.n0.s.b.a;
+import d.a.n0.z0.m0;
+import d.a.o0.n0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
@@ -118,11 +118,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(t.f52554c);
-        if (b2 == null || k.isEmpty(b2.f52502a)) {
+        e b2 = d.b(t.f52661c);
+        if (b2 == null || k.isEmpty(b2.f52609a)) {
             return "";
         }
-        String str = b2.f52502a;
+        String str = b2.f52609a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {
@@ -191,7 +191,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         hashMap.put(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
         hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
         hashMap.put("model", Build.MODEL);
-        hashMap.put("teenMode", Boolean.valueOf(d.a.m0.c1.b.e.d()));
+        hashMap.put("teenMode", Boolean.valueOf(d.a.n0.c1.b.e.d()));
         hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
         hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
         hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());

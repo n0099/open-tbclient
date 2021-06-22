@@ -28,8 +28,8 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.VoiceButton;
 import d.a.c.a.j;
-import d.a.m0.r.s.a;
-import d.a.m0.w.n;
+import d.a.n0.r.s.a;
+import d.a.n0.w.n;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes.dex */
 public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, d.a.c.e.q.f, VoiceManager.i, n {
@@ -55,38 +55,38 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public TextView T;
     public float U;
     public float V;
-    public d.a.m0.r.s.a W;
+    public d.a.n0.r.s.a W;
     public long a0;
     public long b0;
     public EditorTools c0;
-    public int d0;
 
     /* renamed from: e  reason: collision with root package name */
     public long f4231e;
-    public final int[] e0;
 
     /* renamed from: f  reason: collision with root package name */
     public final int[] f4232f;
-    public final g f0;
 
     /* renamed from: g  reason: collision with root package name */
     public int f4233g;
-    public SweepGradient g0;
 
     /* renamed from: h  reason: collision with root package name */
     public int f4234h;
-    public VoiceData$VoiceModel h0;
 
     /* renamed from: i  reason: collision with root package name */
     public final int f4235i;
     public int i0;
     public final int j;
-    public int j0;
+    public final int[] j0;
     public final int k;
+    public final g k0;
     public final int l;
+    public SweepGradient l0;
     public final int m;
+    public VoiceData$VoiceModel m0;
     public int n;
+    public int n0;
     public int o;
+    public int o0;
     public int p;
     public int q;
     public int r;
@@ -104,8 +104,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public a() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -114,25 +114,25 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.e3.p0.a f4237e;
+        public final /* synthetic */ d.a.o0.e3.p0.a f4237e;
 
-        public b(d.a.n0.e3.p0.a aVar) {
+        public b(d.a.o0.e3.p0.a aVar) {
             this.f4237e = aVar;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             VoiceData$VoiceModel voiceData$VoiceModel;
             aVar.dismiss();
             VoiceRecordButton.this.s();
-            if (VoiceRecordButton.this.getVoiceManager() == null || (voiceData$VoiceModel = VoiceRecordButton.this.h0) == null) {
+            if (VoiceRecordButton.this.getVoiceManager() == null || (voiceData$VoiceModel = VoiceRecordButton.this.m0) == null) {
                 return;
             }
-            d.a.n0.e3.p0.a aVar2 = this.f4237e;
+            d.a.o0.e3.p0.a aVar2 = this.f4237e;
             if (aVar2 != null) {
                 aVar2.a(voiceData$VoiceModel.voiceId);
             }
-            VoiceRecordButton.this.h0 = null;
+            VoiceRecordButton.this.m0 = null;
         }
     }
 
@@ -238,22 +238,22 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     public final void A() {
         VoiceData$VoiceModel voiceData$VoiceModel;
-        d.a.n0.e3.p0.a recorderManager = getRecorderManager();
+        d.a.o0.e3.p0.a recorderManager = getRecorderManager();
         if (this.W == null) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(j.a(getContext()).getPageActivity());
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(j.a(getContext()).getPageActivity());
             this.W = aVar;
             aVar.setMessage(getContext().getString(R.string.voice_restart_tip)).setPositiveButton(getContext().getString(R.string.voice_restart), new b(recorderManager)).setNegativeButton(getContext().getString(R.string.cancel), new a()).create(j.a(getContext()));
         }
         try {
             this.W.show();
         } catch (Exception unused) {
-            if (getVoiceManager() == null || (voiceData$VoiceModel = this.h0) == null) {
+            if (getVoiceManager() == null || (voiceData$VoiceModel = this.m0) == null) {
                 return;
             }
             if (recorderManager != null) {
                 recorderManager.a(voiceData$VoiceModel.voiceId);
             }
-            this.h0 = null;
+            this.m0 = null;
         }
     }
 
@@ -265,10 +265,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         SkinManager.setViewTextColor(this.N, R.color.CAM_X0106, 1);
         SkinManager.setBackgroundResource(this.N, R.drawable.but_posts_record_again_selector);
         this.S.setVisibility(0);
-        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.m0;
         if (voiceData$VoiceModel != null) {
             this.T.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
-            this.S.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(this.h0.duration)));
+            this.S.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(this.m0.duration)));
             SkinManager.setImageResource(this.S, R.drawable.but_posts_record_play_selector);
         }
         SkinManager.setViewTextColor(this.P, R.color.CAM_X0108, 1);
@@ -280,17 +280,17 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.o = 0;
         this.U = 0.0f;
         this.V = 0.0f;
-        this.f0.removeMessages(1);
+        this.k0.removeMessages(1);
         ((ViewGroup) getParent()).invalidate();
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void b() {
         setVisibility(0);
     }
 
-    @Override // d.a.m0.w.n
-    public void d(d.a.m0.w.a aVar) {
+    @Override // d.a.n0.w.n
+    public void d(d.a.n0.w.a aVar) {
         EditorTools editorTools = this.c0;
         if (editorTools != null) {
             editorTools.A(aVar);
@@ -312,7 +312,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return this;
     }
 
-    public d.a.n0.e3.p0.a getRecorderManager() {
+    public d.a.o0.e3.p0.a getRecorderManager() {
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager == null || voiceManager.getRecorderManager() == null) {
             return null;
@@ -320,9 +320,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return voiceManager.getRecorderManager();
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public int getToolId() {
-        return this.d0;
+        return this.i0;
     }
 
     public VoiceManager getVoiceManager() {
@@ -335,40 +335,40 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public VoiceData$VoiceModel getVoiceModel() {
-        return this.h0;
+        return this.m0;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void init() {
     }
 
-    @Override // d.a.m0.w.b
-    public void onAction(d.a.m0.w.a aVar) {
+    @Override // d.a.n0.w.b
+    public void onAction(d.a.n0.w.a aVar) {
         if (aVar == null) {
             return;
         }
-        if (aVar.f54518a == 9) {
+        if (aVar.f54625a == 9) {
             z();
-            d(new d.a.m0.w.a(2, 6, null));
+            d(new d.a.n0.w.a(2, 6, null));
         }
-        if (aVar.f54518a == 52) {
-            if (aVar.f54520c instanceof VoiceData$VoiceModel) {
+        if (aVar.f54625a == 52) {
+            if (aVar.f54627c instanceof VoiceData$VoiceModel) {
                 B();
-                onRefreshByPlayStatus((VoiceData$VoiceModel) aVar.f54520c);
-                this.h0 = (VoiceData$VoiceModel) aVar.f54520c;
+                onRefreshByPlayStatus((VoiceData$VoiceModel) aVar.f54627c);
+                this.m0 = (VoiceData$VoiceModel) aVar.f54627c;
                 return;
             }
             z();
-            d(new d.a.m0.w.a(2, 6, null));
+            d(new d.a.n0.w.a(2, 6, null));
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void onChangeSkinType(int i2) {
     }
 
@@ -383,11 +383,11 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if (id == R.id.restart) {
             voiceManager.stopPlay();
             A();
-        } else if (id != R.id.play_img || (voiceData$VoiceModel = this.h0) == null) {
+        } else if (id != R.id.play_img || (voiceData$VoiceModel = this.m0) == null) {
         } else {
             if (voiceData$VoiceModel.voice_status.intValue() == 3) {
                 voiceManager.stopPlay();
-            } else if (this.h0.voice_status.intValue() == 1) {
+            } else if (this.m0.voice_status.intValue() == 1) {
                 voiceManager.setAllowChangeVoiceMode(false);
                 voiceManager.startPlay(this);
             }
@@ -396,9 +396,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // d.a.c.e.q.f
     public void onDeletedVoice(String str) {
-        this.h0 = null;
-        d(new d.a.m0.w.a(11, -1, str));
-        d(new d.a.m0.w.a(2, 6, null));
+        this.m0 = null;
+        d(new d.a.n0.w.a(11, -1, str));
+        d(new d.a.n0.w.a(2, 6, null));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -450,13 +450,13 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.L.set((i6 - this.J.getIntrinsicWidth()) >> 1, this.S.getTop() - this.k, (i6 + this.J.getIntrinsicHeight()) >> 1, (this.S.getTop() + this.J.getIntrinsicHeight()) - this.k);
         this.J.setBounds(this.L);
         this.M.set(this.S.getLeft() + (this.l >> 1) + this.m, this.S.getTop() + (this.l >> 1) + this.m, (this.S.getRight() - (this.l >> 1)) - this.m, (this.S.getBottom() - (this.l >> 1)) - this.m);
-        if (this.g0 == null) {
-            this.g0 = new SweepGradient(this.M.centerX(), this.M.centerY(), this.e0, new float[]{0.0f, 0.7f});
+        if (this.l0 == null) {
+            this.l0 = new SweepGradient(this.M.centerX(), this.M.centerY(), this.j0, new float[]{0.0f, 0.7f});
             Matrix matrix = new Matrix();
-            this.g0.getLocalMatrix(matrix);
+            this.l0.getLocalMatrix(matrix);
             matrix.postRotate(-90.0f, this.M.centerX(), this.M.centerY());
-            this.g0.setLocalMatrix(matrix);
-            this.K.setShader(this.g0);
+            this.l0.setLocalMatrix(matrix);
+            this.K.setShader(this.l0);
         }
     }
 
@@ -478,15 +478,15 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public void onPlayElapse(int i2) {
         TextView textView;
-        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.m0;
         if (voiceData$VoiceModel == null || (textView = this.T) == null) {
             return;
         }
         int i3 = i2 / 1000;
-        if (this.j0 != i3) {
+        if (this.o0 != i3) {
             textView.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration - i3));
         }
-        this.j0 = i3;
+        this.o0 = i3;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -565,13 +565,13 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // d.a.c.e.q.f
     public void onShowRecording(int i2) {
-        this.i0 = Math.max(i2, this.i0);
+        this.n0 = Math.max(i2, this.n0);
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.f4231e > 200) {
-            this.i0 = 0;
+            this.n0 = 0;
             this.f4231e = uptimeMillis;
         }
-        int i3 = this.i0;
+        int i3 = this.n0;
         if (i3 < 10) {
             this.n = 1;
             invalidate();
@@ -647,14 +647,14 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public void setCallback(d.a.f.a.a.f fVar) {
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setEditorTools(EditorTools editorTools) {
         this.c0 = editorTools;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setToolId(int i2) {
-        this.d0 = i2;
+        this.i0 = i2;
     }
 
     @Override // android.view.View
@@ -671,8 +671,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public void t(Context context) {
         v(context);
         u();
-        this.e0[0] = SkinManager.getColor(R.color.common_color_10151);
-        this.e0[1] = SkinManager.getColor(R.color.common_color_10152);
+        this.j0[0] = SkinManager.getColor(R.color.common_color_10151);
+        this.j0[1] = SkinManager.getColor(R.color.common_color_10152);
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
             voiceManager.setAllowChangeVoiceMode(false);
@@ -723,7 +723,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     }
 
     public final void x() {
-        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.m0;
         if (voiceData$VoiceModel == null) {
             return;
         }
@@ -734,23 +734,23 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.a0 = uptimeMillis;
         long j = uptimeMillis + 200;
         this.b0 = j;
-        this.f0.sendEmptyMessageAtTime(1, j);
+        this.k0.sendEmptyMessageAtTime(1, j);
         invalidate();
     }
 
     public void y(VoiceData$VoiceModel voiceData$VoiceModel) {
-        this.h0 = voiceData$VoiceModel;
+        this.m0 = voiceData$VoiceModel;
         this.O.setText("");
         this.O.setVisibility(4);
         this.n = 0;
         B();
-        d(new d.a.m0.w.a(10, -1, voiceData$VoiceModel));
-        d(new d.a.m0.w.a(2, 6, " "));
+        d(new d.a.n0.w.a(10, -1, voiceData$VoiceModel));
+        d(new d.a.n0.w.a(2, 6, " "));
     }
 
     public void z() {
         s();
-        this.h0 = null;
+        this.m0 = null;
         this.n = 0;
     }
 
@@ -779,11 +779,11 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.K = new Paint(1);
         this.L = new Rect();
         this.M = new RectF();
-        this.d0 = 0;
-        this.e0 = new int[2];
-        this.f0 = new g(this, null);
         this.i0 = 0;
-        this.j0 = 0;
+        this.j0 = new int[2];
+        this.k0 = new g(this, null);
+        this.n0 = 0;
+        this.o0 = 0;
         this.f4232f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
         this.f4232f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
         this.f4232f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);

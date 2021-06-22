@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
-import d.a.m0.r.r.a;
+import d.a.n0.r.r.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.GroupInfo;

@@ -32,26 +32,26 @@ public class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f71308a;
+        public Intent f71412a;
 
         public final int e() {
-            return this.f71308a.getIntExtra("level", 0);
+            return this.f71412a.getIntExtra("level", 0);
         }
 
         public final int f() {
-            return this.f71308a.getIntExtra("scale", 0);
+            return this.f71412a.getIntExtra("scale", 0);
         }
 
         public final int g() {
-            return this.f71308a.getIntExtra("temperature", 0);
+            return this.f71412a.getIntExtra("temperature", 0);
         }
 
         public final int h() {
-            return this.f71308a.getIntExtra("voltage", 0);
+            return this.f71412a.getIntExtra("voltage", 0);
         }
 
         public b(Context context) {
-            this.f71308a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f71412a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 

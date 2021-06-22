@@ -17,7 +17,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72316d;
+        public Disposable f72420d;
 
         public IgnoreObservable(CompletableObserver completableObserver) {
             this.actual = completableObserver;
@@ -25,12 +25,12 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72316d.dispose();
+            this.f72420d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72316d.isDisposed();
+            return this.f72420d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -49,7 +49,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            this.f72316d = disposable;
+            this.f72420d = disposable;
             this.actual.onSubscribe(this);
         }
     }

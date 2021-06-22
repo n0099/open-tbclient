@@ -16,7 +16,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public static final jg f474a = new jg("ClientUploadData");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41410a = new iy("", (byte) 15, 1);
+    public static final iy f41513a = new iy("", (byte) 15, 1);
 
     public int a() {
         List<hj> list = this.f475a;
@@ -64,7 +64,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 jbVar.f();
                 m358a();
@@ -109,7 +109,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
         m358a();
         jbVar.a(f474a);
         if (this.f475a != null) {
-            jbVar.a(f41410a);
+            jbVar.a(f41513a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f475a.size()));
             for (hj hjVar : this.f475a) {
                 hjVar.b(jbVar);

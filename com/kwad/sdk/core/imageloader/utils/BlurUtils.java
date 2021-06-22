@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.IntRange;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BlurUtils {
     public static Bitmap stackBlur(Bitmap bitmap, @IntRange(from = 1, to = 180) int i2, boolean z) {
         Bitmap bitmap2;

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
+import com.baidu.pass.face.platform.utils.DeviceUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.AppLogHelper;
 import com.bytedance.sdk.openadsdk.TTCustomController;
@@ -27,24 +28,24 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30318a = null;
+    public static String f30400a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30319b = false;
+    public static volatile boolean f30401b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30320c = true;
+    public static volatile boolean f30402c = true;
 
     /* loaded from: classes6.dex */
     public static class a extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                boolean unused = i.f30320c = true;
-                u.c("DeviceUtils", "screen_on");
+                boolean unused = i.f30402c = true;
+                u.c(DeviceUtils.TAG, "screen_on");
             } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                boolean unused2 = i.f30320c = false;
-                u.c("DeviceUtils", "screen_off");
+                boolean unused2 = i.f30402c = false;
+                u.c(DeviceUtils.TAG, "screen_off");
             }
         }
     }
@@ -54,13 +55,13 @@ public class i {
             try {
                 PowerManager powerManager = (PowerManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("power");
                 if (powerManager != null) {
-                    f30320c = powerManager.isScreenOn();
+                    f30402c = powerManager.isScreenOn();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        return f30320c;
+        return f30402c;
     }
 
     public static boolean c(Context context) {
@@ -101,7 +102,7 @@ public class i {
             jSONObject.put("screen_width", al.c(context));
             jSONObject.put("screen_height", al.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30322a);
+            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30404a);
             jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
             jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
         } catch (Throwable unused) {
@@ -112,11 +113,11 @@ public class i {
     @NonNull
     public static String b() {
         String str;
-        if (!TextUtils.isEmpty(f30318a)) {
-            return f30318a;
+        if (!TextUtils.isEmpty(f30400a)) {
+            return f30400a;
         }
         String a2 = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", 172800000L);
-        f30318a = a2;
+        f30400a = a2;
         if (TextUtils.isEmpty(a2)) {
             TTCustomController e2 = com.bytedance.sdk.openadsdk.core.i.d().e();
             if (e2 != null && e2.isCanUseWifiState() && e2.isCanUseLocation()) {
@@ -128,20 +129,20 @@ public class i {
                 str = "DU:MM:YA:DD:RE:SS";
             }
             String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
-            f30318a = str2;
+            f30400a = str2;
             com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", str2);
         }
-        return f30318a;
+        return f30400a;
     }
 
     public static void a(Context context) {
-        if (f30319b) {
+        if (f30401b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f30320c = powerManager.isScreenOn();
+                f30402c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -151,7 +152,7 @@ public class i {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(aVar, intentFilter);
-        f30319b = true;
+        f30401b = true;
     }
 
     @SuppressLint({"NewApi"})

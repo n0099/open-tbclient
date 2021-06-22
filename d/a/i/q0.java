@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 import d.a.i.v0.a;
 /* loaded from: classes.dex */
-public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
+public class q0 extends d.a.i.a<d.a.n0.r.q.a> {
     public static final int q = d.a.c.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     public View j;
     public TextView k;
     public TextView l;
     public OriginalThreadCardView m;
-    public d.a.m0.r.q.a n;
+    public d.a.n0.r.q.a n;
     public boolean o;
     public OriginalThreadCardView.b p;
 
@@ -37,9 +37,9 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
                 q0.this.d().a(q0.this.m, q0.this.n);
             }
             String o0 = q0.this.n.i().o0();
-            d.a.n0.z.m.a(o0);
+            d.a.o0.z.m.a(o0);
             q0.this.s(o0);
-            q0.this.f43688e.o(new a.C0600a(1));
+            q0.this.f43781e.o(new a.C0602a(1));
         }
     }
 
@@ -62,7 +62,7 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
+    public void l(d.a.o0.z.b0<d.a.n0.r.q.a> b0Var) {
         super.l(b0Var);
     }
 
@@ -74,7 +74,7 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: r */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         if (aVar == null || aVar.i() == null) {
             return;
         }
@@ -85,9 +85,9 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
     }
 
     public final void s(String str) {
-        d.a.n0.z.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        d.a.n0.z.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        this.m.setReadState(d.a.n0.z.m.k(str));
+        d.a.o0.z.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.o0.z.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+        this.m.setReadState(d.a.o0.z.m.k(str));
     }
 
     public void t(boolean z) {

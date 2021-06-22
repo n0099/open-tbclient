@@ -11,61 +11,61 @@ import java.util.Set;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebView f29181a;
+    public WebView f29263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f29182b;
+    public a f29264b;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f29184d;
+    public h f29266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f29185e;
+    public Context f29267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29186f;
+    public boolean f29268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29187g;
+    public boolean f29269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29188h;
+    public boolean f29270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public m f29189i;
+    public m f29271i;
     public n j;
     public boolean n;
     public boolean o;
     public k.b p;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29183c = "IESJSBridge";
+    public String f29265c = "IESJSBridge";
     public String k = "host";
     public final Set<String> l = new LinkedHashSet();
     public final Set<String> m = new LinkedHashSet();
 
     public j(@NonNull WebView webView) {
-        this.f29181a = webView;
+        this.f29263a = webView;
     }
 
     private void c() {
-        if ((this.f29181a == null && !this.n && this.f29182b == null) || ((TextUtils.isEmpty(this.f29183c) && this.f29181a != null) || this.f29184d == null)) {
+        if ((this.f29263a == null && !this.n && this.f29264b == null) || ((TextUtils.isEmpty(this.f29265c) && this.f29263a != null) || this.f29266d == null)) {
             throw new IllegalArgumentException("Requested arguments aren't set properly when building JsBridge.");
         }
     }
 
     public j a(@NonNull String str) {
-        this.f29183c = str;
+        this.f29265c = str;
         return this;
     }
 
     public j b(boolean z) {
-        this.f29187g = z;
+        this.f29269g = z;
         return this;
     }
 
     public j a(@NonNull l lVar) {
-        this.f29184d = h.a(lVar);
+        this.f29266d = h.a(lVar);
         return this;
     }
 
@@ -75,7 +75,7 @@ public class j {
     }
 
     public j a(boolean z) {
-        this.f29186f = z;
+        this.f29268f = z;
         return this;
     }
 

@@ -14,47 +14,47 @@ import tbclient.ThemeColorInfo;
 public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12927e;
+    public boolean f13009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f12928f;
+    public float f13010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f12929g;
+    public float f13011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12930h;
+    public int f13012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12931i;
+    public int f13013i;
     public ThemeColorInfo j;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f12932a;
+        public View f13014a;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12934c;
+        public int f13016c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12935d;
+        public int f13017d;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f12937f;
+        public TbFragmentTabIndicator f13019f;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f12933b = true;
+        public boolean f13015b = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12936e = R.color.common_color_10225;
+        public int f13018e = R.color.common_color_10225;
 
         public final int a(TextView textView) {
             if (textView == null) {
                 return -1;
             }
-            String charSequence = ((TextView) this.f12932a).getText().toString();
+            String charSequence = ((TextView) this.f13014a).getText().toString();
             if ("   ".equals(charSequence)) {
                 return 100;
             }
@@ -62,26 +62,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         }
 
         public void b(int i2) {
-            int i3 = this.f12935d;
+            int i3 = this.f13017d;
             if (i3 != 0) {
-                SkinManager.setBackgroundResource(this.f12932a, i3);
+                SkinManager.setBackgroundResource(this.f13014a, i3);
             }
-            View view = this.f12932a;
+            View view = this.f13014a;
             if (view instanceof TextView) {
-                int i4 = this.f12936e;
+                int i4 = this.f13018e;
                 if (i4 != 0) {
                     SkinManager.setViewTextColor(view, i4, 1);
                 }
-                int a2 = a((TextView) this.f12932a);
+                int a2 = a((TextView) this.f13014a);
                 if (a2 > 0 && a2 < 10) {
-                    SkinManager.setBackgroundResource(this.f12932a, R.drawable.icon_news_head_prompt_one);
+                    SkinManager.setBackgroundResource(this.f13014a, R.drawable.icon_news_head_prompt_one);
                 } else if (a2 >= 10 && a2 < 100) {
-                    SkinManager.setBackgroundResource(this.f12932a, R.drawable.icon_news_head_prompt_two);
+                    SkinManager.setBackgroundResource(this.f13014a, R.drawable.icon_news_head_prompt_two);
                 } else if (a2 >= 100) {
-                    SkinManager.setBackgroundResource(this.f12932a, R.drawable.icon_news_head_prompt_more);
+                    SkinManager.setBackgroundResource(this.f13014a, R.drawable.icon_news_head_prompt_more);
                 }
             }
-            View view2 = this.f12932a;
+            View view2 = this.f13014a;
             if (view2 instanceof MessageRedDotView) {
                 ((MessageRedDotView) view2).e();
             }
@@ -90,11 +90,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.f12927e = false;
-        this.f12928f = 0.0f;
-        this.f12929g = 0.0f;
-        this.f12930h = 0;
-        this.f12931i = 0;
+        this.f13009e = false;
+        this.f13010f = 0.0f;
+        this.f13011g = 0.0f;
+        this.f13012h = 0;
+        this.f13013i = 0;
     }
 
     public void a(String str, a aVar) {
@@ -133,19 +133,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentDefaultTextColor(int i2) {
-        this.f12931i = i2;
+        this.f13013i = i2;
     }
 
     public void setContentDefaultTextSize(float f2) {
-        this.f12929g = f2;
+        this.f13011g = f2;
     }
 
     public void setContentSelectTextColor(int i2) {
-        this.f12930h = i2;
+        this.f13012h = i2;
     }
 
     public void setContentSelectTextSize(float f2) {
-        this.f12928f = f2;
+        this.f13010f = f2;
     }
 
     public void setContentTvTopMargin(int i2) {
@@ -161,7 +161,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.f12927e = z;
+        this.f13009e = z;
     }
 
     public void setText(int i2) {
@@ -188,19 +188,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12927e = false;
-        this.f12928f = 0.0f;
-        this.f12929g = 0.0f;
-        this.f12930h = 0;
-        this.f12931i = 0;
+        this.f13009e = false;
+        this.f13010f = 0.0f;
+        this.f13011g = 0.0f;
+        this.f13012h = 0;
+        this.f13013i = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f12927e = false;
-        this.f12928f = 0.0f;
-        this.f12929g = 0.0f;
-        this.f12930h = 0;
-        this.f12931i = 0;
+        this.f13009e = false;
+        this.f13010f = 0.0f;
+        this.f13011g = 0.0f;
+        this.f13012h = 0;
+        this.f13013i = 0;
     }
 }

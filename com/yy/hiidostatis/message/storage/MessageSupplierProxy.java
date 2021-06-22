@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.message.storage;
 
 import android.content.Context;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.implementation.TaskData;
 import com.yy.hiidostatis.inner.implementation.TaskDataSqLiteCacheManager;
@@ -117,7 +118,7 @@ public class MessageSupplierProxy implements MessageSupplier {
         try {
             long wallTimeMillis = Util.wallTimeMillis();
             StringBuilder sb = new StringBuilder();
-            sb.append("[");
+            sb.append(PreferencesUtil.LEFT_MOUNT);
             StringBuilder sb2 = new StringBuilder();
             for (TaskData taskData : list) {
                 sb.append("\"");
@@ -145,7 +146,7 @@ public class MessageSupplierProxy implements MessageSupplier {
                 sb2.append(",");
             }
             sb.setLength(sb.length() - 1);
-            sb.append("]");
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
             sb2.setLength(sb2.length() - 1);
             return new Message(sb2.toString(), list.size(), "act=mbsdkdata", sb.toString().getBytes("UTF-8"), sb.length());
         } catch (UnsupportedEncodingException e2) {

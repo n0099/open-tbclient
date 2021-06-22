@@ -10,11 +10,11 @@ public class f {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f69782a = new f();
+        public static final f f69886a = new f();
     }
 
     public static f a() {
-        return b.f69782a;
+        return b.f69886a;
     }
 
     public String b(Context context) {

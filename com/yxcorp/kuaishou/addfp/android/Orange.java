@@ -6,24 +6,24 @@ import d.q.a.a.c.b.b;
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41894a = true;
+    public static boolean f41997a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f41895b;
+    public static volatile Orange f41998b;
 
     public Orange() {
         g();
     }
 
     public static Orange a() {
-        if (f41895b == null) {
+        if (f41998b == null) {
             synchronized (Orange.class) {
-                if (f41895b == null) {
-                    f41895b = new Orange();
+                if (f41998b == null) {
+                    f41998b = new Orange();
                 }
             }
         }
-        return f41895b;
+        return f41998b;
     }
 
     public static native String getClock(Context context, byte[] bArr, int i2);
@@ -76,16 +76,16 @@ public class Orange {
     public final void g() {
         try {
             System.loadLibrary("sgcore");
-            f41894a = false;
+            f41997a = false;
             b.e("so loaded");
         } catch (Throwable th) {
             b.e("so load failed");
-            f41894a = true;
+            f41997a = true;
             b.c(th);
         }
     }
 
     public final boolean h() {
-        return f41894a;
+        return f41997a;
     }
 }

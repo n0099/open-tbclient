@@ -15,22 +15,22 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f33453b;
+    public a f33551b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i<q, ProfileResultData> f33454c;
+    public i<q, ProfileResultData> f33552c;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f33456e;
+    public f f33554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33457f;
+    public long f33555f;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33455d = false;
+    public boolean f33553d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f33452a = new Handler(Looper.getMainLooper());
+    public Handler f33550a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -48,55 +48,55 @@ public class b {
     }
 
     public b(f fVar, long j, a aVar) {
-        this.f33456e = fVar;
-        this.f33457f = j;
-        this.f33453b = aVar;
+        this.f33554e = fVar;
+        this.f33555f = j;
+        this.f33551b = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, String str) {
         com.kwad.sdk.core.d.a.c("DataFetcherProfile", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
         b(i2, str);
-        this.f33455d = false;
+        this.f33553d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ProfileResultData profileResultData) {
         a(profileResultData.userProfile);
         d();
-        this.f33455d = false;
+        this.f33553d = false;
     }
 
     private void a(UserProfile userProfile) {
-        a aVar = this.f33453b;
+        a aVar = this.f33551b;
         if (aVar != null) {
             aVar.a(userProfile);
         }
     }
 
     private void b(int i2, String str) {
-        a aVar = this.f33453b;
+        a aVar = this.f33551b;
         if (aVar != null) {
             aVar.a(i2, str);
         }
     }
 
     private void c() {
-        a aVar = this.f33453b;
+        a aVar = this.f33551b;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     private void d() {
-        a aVar = this.f33453b;
+        a aVar = this.f33551b;
         if (aVar != null) {
             aVar.b();
         }
     }
 
     public void a() {
-        if (this.f33455d) {
+        if (this.f33553d) {
             return;
         }
         c();
@@ -117,15 +117,15 @@ public class b {
             @NonNull
             /* renamed from: c */
             public q b() {
-                return new q(b.this.f33456e, b.this.f33457f);
+                return new q(b.this.f33554e, b.this.f33555f);
             }
         };
-        this.f33454c = iVar;
+        this.f33552c = iVar;
         iVar.a(new j<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull q qVar, final int i2, final String str) {
-                b.this.f33452a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.2
+                b.this.f33550a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         b.this.a(i2, str);
@@ -136,7 +136,7 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull q qVar, @NonNull final ProfileResultData profileResultData) {
-                b.this.f33452a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.1
+                b.this.f33550a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         b.this.a(profileResultData);
@@ -147,11 +147,11 @@ public class b {
     }
 
     public void b() {
-        i<q, ProfileResultData> iVar = this.f33454c;
+        i<q, ProfileResultData> iVar = this.f33552c;
         if (iVar != null) {
             iVar.e();
         }
-        this.f33453b = null;
-        this.f33452a.removeCallbacksAndMessages(null);
+        this.f33551b = null;
+        this.f33550a.removeCallbacksAndMessages(null);
     }
 }

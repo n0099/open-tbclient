@@ -22,22 +22,22 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Paint f37421a = new Paint(6);
+    public static final Paint f37519a = new Paint(6);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Paint f37422b = new Paint(7);
+    public static final Paint f37520b = new Paint(7);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Paint f37423c;
+    public static final Paint f37521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Paint f37424d;
+    public static final Paint f37522d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f37425e;
+    public static final Set<String> f37523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Lock f37426f;
+    public static final Lock f37524f;
 
     /* loaded from: classes7.dex */
     public static final class a implements Lock {
@@ -72,17 +72,17 @@ public final class b {
 
     static {
         Paint paint = new Paint(7);
-        f37424d = paint;
+        f37522d = paint;
         paint.setColor(Color.parseColor("#EAEAEA"));
-        f37424d.setStyle(Paint.Style.STROKE);
-        f37424d.setAntiAlias(true);
-        f37424d.setStrokeWidth(1.0f);
-        f37424d.setDither(true);
+        f37522d.setStyle(Paint.Style.STROKE);
+        f37522d.setAntiAlias(true);
+        f37522d.setStrokeWidth(1.0f);
+        f37522d.setDither(true);
         HashSet hashSet = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
-        f37425e = hashSet;
-        f37426f = hashSet.contains(Build.MODEL) ? new ReentrantLock() : new a();
+        f37523e = hashSet;
+        f37524f = hashSet.contains(Build.MODEL) ? new ReentrantLock() : new a();
         Paint paint2 = new Paint(7);
-        f37423c = paint2;
+        f37521c = paint2;
         paint2.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
@@ -116,20 +116,20 @@ public final class b {
         Bitmap a2 = a(eVar, bitmap);
         Bitmap a3 = eVar.a(min, min, a(bitmap));
         a3.setHasAlpha(true);
-        f37426f.lock();
+        f37524f.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f3, f3, f3, f37422b);
-            canvas.drawBitmap(a2, (Rect) null, rectF, f37423c);
-            canvas.drawCircle(f3, f3, f3 - 0.0f, f37424d);
+            canvas.drawCircle(f3, f3, f3, f37520b);
+            canvas.drawBitmap(a2, (Rect) null, rectF, f37521c);
+            canvas.drawCircle(f3, f3, f3 - 0.0f, f37522d);
             a(canvas);
-            f37426f.unlock();
+            f37524f.unlock();
             if (!a2.equals(bitmap)) {
                 eVar.a(a2);
             }
             return a3;
         } catch (Throwable th) {
-            f37426f.unlock();
+            f37524f.unlock();
             throw th;
         }
     }

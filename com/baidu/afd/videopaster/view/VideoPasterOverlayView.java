@@ -250,7 +250,7 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.u = aVar;
         this.k = z;
         this.l = z2;
-        this.f2548e.setText(aVar.f43248h);
+        this.f2548e.setText(aVar.f43351h);
         this.f2550g.setText(aVar.b());
         if (z && !z2) {
             c();

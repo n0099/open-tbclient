@@ -1,6 +1,7 @@
 package kotlinx.coroutines;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
@@ -33,7 +34,7 @@ public final class NodeList extends LockFreeLinkedListHead implements Incomplete
                     sb.append(jobNode);
                 }
             }
-            sb.append("]");
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
             String sb2 = sb.toString();
             Intrinsics.checkExpressionValueIsNotNull(sb2, "StringBuilder().apply(builderAction).toString()");
             return sb2;

@@ -22,28 +22,28 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import d.a.l0.a.v2.n0;
-import d.a.l0.a.v2.o0;
-import d.a.l0.a.v2.u;
-import d.a.l0.e.d;
+import d.a.m0.a.v2.n0;
+import d.a.m0.a.v2.o0;
+import d.a.m0.a.v2.u;
+import d.a.m0.e.d;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PictureView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11565e;
+    public String f11647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11566f;
+    public String f11648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11567g;
+    public String f11649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ZoomImageView f11568h;
+    public ZoomImageView f11650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f11569i;
+    public View f11651i;
     public View j;
     public View k;
     public boolean l;
@@ -61,7 +61,7 @@ public class PictureView extends FrameLayout {
                     PictureView.this.h();
                 }
             } else if (PictureView.this.getContext() instanceof View.OnClickListener) {
-                ((View.OnClickListener) PictureView.this.getContext()).onClick(PictureView.this.f11568h);
+                ((View.OnClickListener) PictureView.this.getContext()).onClick(PictureView.this.f11650h);
             }
         }
     }
@@ -91,7 +91,7 @@ public class PictureView extends FrameLayout {
                     } else {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
-                    PictureView.this.f11568h.setImageBitmap(copy);
+                    PictureView.this.f11650h.setImageBitmap(copy);
                     PictureView.this.j();
                     if (PictureView.this.m != null) {
                         PictureView.this.m.b();
@@ -121,28 +121,28 @@ public class PictureView extends FrameLayout {
     }
 
     public boolean f() {
-        ZoomImageView zoomImageView = this.f11568h;
+        ZoomImageView zoomImageView = this.f11650h;
         return zoomImageView != null && zoomImageView.M();
     }
 
     public final void g(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.swan_app_picture_view, this);
-        this.f11568h = (ZoomImageView) inflate.findViewById(d.a.l0.e.c.zoom_imageview);
-        this.f11569i = inflate.findViewById(d.a.l0.e.c.picture_load_progressbar);
-        this.j = inflate.findViewById(d.a.l0.e.c.reload_textview);
-        this.k = inflate.findViewById(d.a.l0.e.c.picture_loading_layout);
-        this.f11568h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
-        this.f11568h.setZoomRange(1.0f, 3.0f);
-        this.f11568h.setDoubleTapEnabled(true);
-        this.f11568h.setSingleTapListener(new a());
+        this.f11650h = (ZoomImageView) inflate.findViewById(d.a.m0.e.c.zoom_imageview);
+        this.f11651i = inflate.findViewById(d.a.m0.e.c.picture_load_progressbar);
+        this.j = inflate.findViewById(d.a.m0.e.c.reload_textview);
+        this.k = inflate.findViewById(d.a.m0.e.c.picture_loading_layout);
+        this.f11650h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
+        this.f11650h.setZoomRange(1.0f, 3.0f);
+        this.f11650h.setDoubleTapEnabled(true);
+        this.f11650h.setSingleTapListener(new a());
     }
 
     public View getImageView() {
-        return this.f11568h;
+        return this.f11650h;
     }
 
     public Bitmap getImageViewBitmap() {
-        ZoomImageView zoomImageView = this.f11568h;
+        ZoomImageView zoomImageView = this.f11650h;
         if (zoomImageView != null) {
             Drawable drawable = zoomImageView.getDrawable();
             if (drawable instanceof BitmapDrawable) {
@@ -154,12 +154,12 @@ public class PictureView extends FrameLayout {
     }
 
     public boolean h() {
-        String str = this.f11565e;
-        String str2 = this.f11566f;
-        String str3 = this.f11567g;
+        String str = this.f11647e;
+        String str2 = this.f11648f;
+        String str3 = this.f11649g;
         Uri p = o0.p(str);
         boolean z = p == null;
-        this.f11569i.setVisibility(z ? 4 : 0);
+        this.f11651i.setVisibility(z ? 4 : 0);
         this.j.setVisibility(z ? 0 : 4);
         this.k.setVisibility(0);
         if (!z) {
@@ -172,7 +172,7 @@ public class PictureView extends FrameLayout {
                 hashMap.put("User-Agent", str3);
             }
             ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(n0.o(getContext()), n0.o(getContext())));
-            d.a.l0.a.c1.a.y().e(resizeOptions, hashMap);
+            d.a.m0.a.c1.a.y().e(resizeOptions, hashMap);
             Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(), UiThreadImmediateExecutorService.getInstance());
         }
         return !z;
@@ -180,26 +180,26 @@ public class PictureView extends FrameLayout {
 
     public final void i() {
         this.j.setVisibility(0);
-        this.f11569i.setVisibility(4);
+        this.f11651i.setVisibility(4);
         this.k.setVisibility(0);
         this.l = true;
     }
 
     public final void j() {
         this.j.setVisibility(4);
-        this.f11569i.setVisibility(4);
+        this.f11651i.setVisibility(4);
         this.k.setVisibility(4);
         this.l = false;
     }
 
     public void setData(String str) {
-        this.f11565e = str;
-        this.f11566f = null;
+        this.f11647e = str;
+        this.f11648f = null;
         h();
     }
 
     public void setUA(String str) {
-        this.f11567g = str;
+        this.f11649g = str;
     }
 
     public PictureView(Context context, AttributeSet attributeSet) {
@@ -208,19 +208,19 @@ public class PictureView extends FrameLayout {
 
     public PictureView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11565e = null;
-        this.f11566f = null;
-        this.f11567g = null;
-        this.f11568h = null;
-        this.f11569i = null;
+        this.f11647e = null;
+        this.f11648f = null;
+        this.f11649g = null;
+        this.f11650h = null;
+        this.f11651i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        this.f11565e = null;
-        this.f11566f = null;
-        this.f11567g = null;
-        this.f11568h = null;
-        this.f11569i = null;
+        this.f11647e = null;
+        this.f11648f = null;
+        this.f11649g = null;
+        this.f11650h = null;
+        this.f11651i = null;
         this.j = null;
         this.k = null;
         this.l = false;
@@ -229,8 +229,8 @@ public class PictureView extends FrameLayout {
 
     public void setData(String str, String str2, c cVar) {
         this.m = cVar;
-        this.f11565e = str;
-        this.f11566f = str2;
+        this.f11647e = str;
+        this.f11648f = str2;
         h();
     }
 }

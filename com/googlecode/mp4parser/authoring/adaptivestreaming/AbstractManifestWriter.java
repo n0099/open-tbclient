@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.boxes.OriginalFormatBox;
 import com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
@@ -58,14 +59,14 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
                 for (long j : jArr) {
                     sb2 = String.valueOf(sb2) + String.format("%10d,", Long.valueOf(j));
                 }
-                LOG.warning(String.valueOf(sb2) + "]");
+                LOG.warning(String.valueOf(sb2) + PreferencesUtil.RIGHT_MOUNT);
                 StringBuilder sb3 = new StringBuilder(String.valueOf("" + jArr2.length));
                 sb3.append("Current       :  [");
                 String sb4 = sb3.toString();
                 for (long j2 : jArr2) {
                     sb4 = String.valueOf(sb4) + String.format("%10d,", Long.valueOf(j2));
                 }
-                LOG.warning(String.valueOf(sb4) + "]");
+                LOG.warning(String.valueOf(sb4) + PreferencesUtil.RIGHT_MOUNT);
                 throw new IOException("Track does not have the same fragment borders as its predecessor.");
             }
         }

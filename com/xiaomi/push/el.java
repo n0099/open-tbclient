@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.MiPushMessage;
 public class el {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile el f41201a;
+    public static volatile el f41304a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f318a;
@@ -22,14 +22,14 @@ public class el {
     }
 
     public static el a(Context context) {
-        if (f41201a == null) {
+        if (f41304a == null) {
             synchronized (el.class) {
-                if (f41201a == null) {
-                    f41201a = new el(context);
+                if (f41304a == null) {
+                    f41304a = new el(context);
                 }
             }
         }
-        return f41201a;
+        return f41304a;
     }
 
     private void a(com.xiaomi.clientreport.data.a aVar) {

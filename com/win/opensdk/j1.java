@@ -9,7 +9,7 @@ public final class j1 {
         if (TextUtils.isEmpty(i2)) {
             try {
                 h1 a2 = i1.a(context);
-                String str = a2 == null ? null : a2.f40732a;
+                String str = a2 == null ? null : a2.f40835a;
                 if (TextUtils.isEmpty(str)) {
                     s1.f(context, str);
                 }

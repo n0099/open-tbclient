@@ -29,7 +29,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         public final Strategy strategy;
 
         public SerialForm(BloomFilter<T> bloomFilter) {
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f31430a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f31528a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -178,9 +178,9 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
         dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
         dataOutputStream.writeByte(b.a(this.numHashFunctions));
-        dataOutputStream.writeInt(this.bits.f31430a.length());
-        for (int i2 = 0; i2 < this.bits.f31430a.length(); i2++) {
-            dataOutputStream.writeLong(this.bits.f31430a.get(i2));
+        dataOutputStream.writeInt(this.bits.f31528a.length());
+        for (int i2 = 0; i2 < this.bits.f31528a.length(); i2++) {
+            dataOutputStream.writeLong(this.bits.f31528a.get(i2));
         }
     }
 

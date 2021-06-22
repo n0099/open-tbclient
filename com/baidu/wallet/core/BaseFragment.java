@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import com.alipay.sdk.widget.j;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.FragmentResultReceiver;
@@ -37,14 +38,14 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
             sb.append(str);
             sb.append(": ");
         }
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         sb.append(stackTraceElement.getFileName());
         sb.append(" | ");
         sb.append(stackTraceElement.getLineNumber());
         sb.append(" | ");
         sb.append(stackTraceElement.getMethodName());
         sb.append("()");
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

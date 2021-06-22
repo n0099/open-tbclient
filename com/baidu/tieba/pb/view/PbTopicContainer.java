@@ -18,17 +18,17 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.l.a;
-import d.a.m0.p0.b;
+import d.a.n0.l.a;
+import d.a.n0.p0.b;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19641e;
+    public int f19723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f19642f;
+    public TbPageContext f19724f;
 
     public PbTopicContainer(Context context) {
         this(context, null);
@@ -59,7 +59,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (view.getTag() instanceof RecommendTopicData.RecommendTopicListData) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f19642f;
+            TbPageContext tbPageContext = this.f19724f;
             if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
@@ -74,10 +74,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public void onMeasure(int i2, int i3) {
         int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.f19641e) {
+        if (childCount > this.f19723e) {
             while (true) {
                 childCount--;
-                if (childCount <= this.f19641e) {
+                if (childCount <= this.f19723e) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -117,16 +117,16 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i2) {
-        this.f19641e = i2;
+        this.f19723e = i2;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f19642f = tbPageContext;
+        this.f19724f = tbPageContext;
     }
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19641e = 3;
+        this.f19723e = 3;
         setOrientation(0);
     }
 }

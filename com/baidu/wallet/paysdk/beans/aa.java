@@ -15,15 +15,15 @@ import java.util.List;
 public class aa extends PayBaseBean<QueryBankBinResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25218a;
+    public String f25300a;
 
     public <T> aa(Context context) {
         super(context);
-        this.f25218a = "";
+        this.f25300a = "";
     }
 
     public void a(String str) {
-        this.f25218a = str;
+        this.f25300a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -34,8 +34,8 @@ public class aa extends PayBaseBean<QueryBankBinResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(this.f25218a)) {
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25218a)));
+        if (!TextUtils.isEmpty(this.f25300a)) {
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25300a)));
         }
         BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
         arrayList.add(new RestNameValuePair("source_flag", "3"));

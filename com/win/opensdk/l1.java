@@ -10,8 +10,8 @@ public class l1 implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
-        m1.f40764c.f40765a = location.getLatitude();
-        m1.f40764c.f40766b = location.getLongitude();
+        m1.f40867c.f40868a = location.getLatitude();
+        m1.f40867c.f40869b = location.getLongitude();
     }
 
     @Override // android.location.LocationListener

@@ -7,7 +7,7 @@ import io.flutter.view.AccessibilityBridge;
 public final /* synthetic */ class b implements Predicate {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ b f71533a = new b();
+    public static final /* synthetic */ b f71637a = new b();
 
     private /* synthetic */ b() {
     }

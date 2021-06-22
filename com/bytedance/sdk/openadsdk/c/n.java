@@ -16,13 +16,13 @@ import org.json.JSONObject;
 public class n implements e<c.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d f27386a = com.bytedance.sdk.openadsdk.core.d.a(e());
+    public final com.bytedance.sdk.openadsdk.core.d f27468a = com.bytedance.sdk.openadsdk.core.d.a(e());
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f27387b;
+    public final Context f27469b;
 
     public n(Context context) {
-        this.f27387b = context;
+        this.f27469b = context;
     }
 
     private synchronized void b(int i2, long j) {
@@ -41,7 +41,7 @@ public class n implements e<c.a> {
     }
 
     public Context e() {
-        Context context = this.f27387b;
+        Context context = this.f27469b;
         return context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
     }
 
@@ -82,7 +82,7 @@ public class n implements e<c.a> {
     private synchronized void b(List<c.a> list) {
         LinkedList linkedList = new LinkedList();
         for (c.a aVar : list) {
-            linkedList.add(aVar.f29297a);
+            linkedList.add(aVar.f29379a);
         }
         com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "UPDATE " + c() + " SET " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " = " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + "+1 WHERE " + a("id", linkedList, 1000, true));
     }
@@ -91,8 +91,8 @@ public class n implements e<c.a> {
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(c.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", aVar.f29297a);
-        contentValues.put("value", aVar.f29298b != null ? aVar.f29298b.toString() : "");
+        contentValues.put("id", aVar.f29379a);
+        contentValues.put("value", aVar.f29380b != null ? aVar.f29380b.toString() : "");
         contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
         contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, (Integer) 0);
         com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), c(), contentValues);
@@ -105,14 +105,14 @@ public class n implements e<c.a> {
         }
         LinkedList linkedList = new LinkedList();
         for (c.a aVar : list) {
-            linkedList.add(aVar.f29297a);
+            linkedList.add(aVar.f29379a);
         }
         com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "DELETE FROM " + c() + " WHERE " + a("id", linkedList, 1000, true));
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public int b() {
-        return this.f27386a.b("stats_serverbusy_retrycount", 0);
+        return this.f27468a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
@@ -134,17 +134,17 @@ public class n implements e<c.a> {
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(boolean z) {
-        this.f27386a.a("stats_serverbusy_flag", z);
+        this.f27468a.a("stats_serverbusy_flag", z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public boolean a() {
-        return this.f27386a.b("stats_serverbusy_flag", false);
+        return this.f27468a.b("stats_serverbusy_flag", false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(int i2) {
-        this.f27386a.a("stats_serverbusy_retrycount", i2);
+        this.f27468a.a("stats_serverbusy_retrycount", i2);
     }
 
     public static String a(String str, List<?> list, int i2, boolean z) {

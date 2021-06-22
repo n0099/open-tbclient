@@ -5,9 +5,9 @@ import com.win.opensdk.activitys.H5Activity;
 public class t implements O1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5Activity f40800a;
+    public final /* synthetic */ H5Activity f40903a;
 
     public t(H5Activity h5Activity) {
-        this.f40800a = h5Activity;
+        this.f40903a = h5Activity;
     }
 }

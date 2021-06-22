@@ -10,10 +10,10 @@ import java.lang.ref.WeakReference;
 public class e extends b.a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f37877a;
+    public final g f37975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<FileDownloadServiceProxy> f37878b;
+    public final WeakReference<FileDownloadServiceProxy> f37976b;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -23,8 +23,8 @@ public class e extends b.a implements i {
     }
 
     public e(WeakReference<FileDownloadServiceProxy> weakReference, g gVar) {
-        this.f37878b = weakReference;
-        this.f37877a = gVar;
+        this.f37976b = weakReference;
+        this.f37975a = gVar;
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -34,16 +34,16 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a() {
-        this.f37877a.a();
+        this.f37975a.a();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(int i2, Notification notification) {
-        WeakReference<FileDownloadServiceProxy> weakReference = this.f37878b;
+        WeakReference<FileDownloadServiceProxy> weakReference = this.f37976b;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.f37878b.get().context.startForeground(i2, notification);
+        this.f37976b.get().context.startForeground(i2, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -57,26 +57,26 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
-        this.f37877a.a(str, str2, z, i2, i3, i4, z2, bVar, z3);
+        this.f37975a.a(str, str2, z, i2, i3, i4, z2, bVar, z3);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(boolean z) {
-        WeakReference<FileDownloadServiceProxy> weakReference = this.f37878b;
+        WeakReference<FileDownloadServiceProxy> weakReference = this.f37976b;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.f37878b.get().context.stopForeground(z);
+        this.f37976b.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(int i2) {
-        return this.f37877a.b(i2);
+        return this.f37975a.b(i2);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(String str, String str2) {
-        return this.f37877a.a(str, str2);
+        return this.f37975a.a(str, str2);
     }
 
     @Override // com.kwai.filedownloader.c.b
@@ -85,27 +85,27 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b() {
-        return this.f37877a.b();
+        return this.f37975a.b();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b(int i2) {
-        return this.f37877a.f(i2);
+        return this.f37975a.f(i2);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long c(int i2) {
-        return this.f37877a.c(i2);
+        return this.f37975a.c(i2);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void c() {
-        this.f37877a.c();
+        this.f37975a.c();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long d(int i2) {
-        return this.f37877a.d(i2);
+        return this.f37975a.d(i2);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -115,11 +115,11 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public byte e(int i2) {
-        return this.f37877a.e(i2);
+        return this.f37975a.e(i2);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean f(int i2) {
-        return this.f37877a.g(i2);
+        return this.f37975a.g(i2);
     }
 }

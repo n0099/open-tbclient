@@ -8,57 +8,57 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public h f34506a = null;
+    public h f34604a = null;
 
     @Override // com.kwad.sdk.core.network.a
     public void a(R r, c cVar) {
         if (cVar == null) {
             com.kwad.sdk.core.d.a.d("Networking", "request responseBase is null");
-            h hVar = this.f34506a;
+            h hVar = this.f34604a;
             if (hVar != null) {
-                f fVar = f.f34497a;
+                f fVar = f.f34595a;
                 hVar.a(r, fVar.k, fVar.l);
             }
-        } else if (TextUtils.isEmpty(cVar.f34495b) || cVar.f34494a != 200) {
-            h hVar2 = this.f34506a;
+        } else if (TextUtils.isEmpty(cVar.f34593b) || cVar.f34592a != 200) {
+            h hVar2 = this.f34604a;
             if (hVar2 != null) {
-                hVar2.a(r, cVar.f34494a, "网络错误");
+                hVar2.a(r, cVar.f34592a, "网络错误");
             }
         } else {
             try {
-                T b2 = b(cVar.f34495b);
+                T b2 = b(cVar.f34593b);
                 if (b2 == null) {
-                    h hVar3 = this.f34506a;
+                    h hVar3 = this.f34604a;
                     if (hVar3 != null) {
-                        f fVar2 = f.f34498b;
+                        f fVar2 = f.f34596b;
                         hVar3.a(r, fVar2.k, fVar2.l);
                     }
                 } else if (!b2.isResultOk()) {
-                    h hVar4 = this.f34506a;
+                    h hVar4 = this.f34604a;
                     if (hVar4 != null) {
                         hVar4.a(r, b2.result, b2.errorMsg);
                     }
                 } else if (!b2.isDataEmpty()) {
-                    h hVar5 = this.f34506a;
+                    h hVar5 = this.f34604a;
                     if (hVar5 != null) {
                         hVar5.a(r, b2);
                     }
                 } else {
-                    h hVar6 = this.f34506a;
+                    h hVar6 = this.f34604a;
                     if (hVar6 != null) {
-                        f fVar3 = f.f34499c;
+                        f fVar3 = f.f34597c;
                         hVar6.a(r, fVar3.k, fVar3.l);
                     }
                 }
             } catch (Exception e2) {
-                h hVar7 = this.f34506a;
+                h hVar7 = this.f34604a;
                 if (hVar7 != null) {
-                    f fVar4 = f.f34498b;
+                    f fVar4 = f.f34596b;
                     hVar7.a(r, fVar4.k, fVar4.l);
                 }
                 com.kwad.sdk.core.d.a.a(e2);
@@ -67,7 +67,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     public void a(@NonNull h hVar) {
-        this.f34506a = hVar;
+        this.f34604a = hVar;
         d();
     }
 
@@ -81,7 +81,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Override // com.kwad.sdk.core.network.a
     public void e() {
         super.e();
-        this.f34506a = null;
+        this.f34604a = null;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:18:0x0055 -> B:24:0x0058). Please submit an issue!!! */
@@ -89,14 +89,14 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @WorkerThread
     public void f() {
         R b2 = b();
-        h hVar = this.f34506a;
+        h hVar = this.f34604a;
         if (hVar != null) {
             hVar.a(b2);
         }
         if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            h hVar2 = this.f34506a;
+            h hVar2 = this.f34604a;
             if (hVar2 != null) {
-                f fVar = f.f34497a;
+                f fVar = f.f34595a;
                 hVar2.a(b2, fVar.k, fVar.l);
                 return;
             }

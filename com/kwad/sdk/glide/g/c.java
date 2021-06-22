@@ -8,21 +8,21 @@ import java.io.InputStream;
 public final class c extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f35895a;
+    public final long f35993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35896b;
+    public int f35994b;
 
     public c(@NonNull InputStream inputStream, long j) {
         super(inputStream);
-        this.f35895a = j;
+        this.f35993a = j;
     }
 
     private int a(int i2) {
         if (i2 >= 0) {
-            this.f35896b += i2;
-        } else if (this.f35895a - this.f35896b > 0) {
-            throw new IOException("Failed to read all expected data, expected: " + this.f35895a + ", but read: " + this.f35896b);
+            this.f35994b += i2;
+        } else if (this.f35993a - this.f35994b > 0) {
+            throw new IOException("Failed to read all expected data, expected: " + this.f35993a + ", but read: " + this.f35994b);
         }
         return i2;
     }
@@ -34,7 +34,7 @@ public final class c extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized int available() {
-        return (int) Math.max(this.f35895a - this.f35896b, ((FilterInputStream) this).in.available());
+        return (int) Math.max(this.f35993a - this.f35994b, ((FilterInputStream) this).in.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

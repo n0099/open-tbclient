@@ -6,18 +6,18 @@ import java.io.InputStream;
 public class a extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30115a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30197a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30116b;
+    public long f30198b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f30115a = aVar;
+        this.f30197a = aVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        long b2 = this.f30115a.b() - this.f30115a.c();
+        long b2 = this.f30197a.b() - this.f30197a.c();
         if (b2 > 2147483647L) {
             return Integer.MAX_VALUE;
         }
@@ -30,7 +30,7 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized void mark(int i2) {
-        this.f30116b = i2;
+        this.f30198b = i2;
     }
 
     @Override // java.io.InputStream
@@ -40,26 +40,26 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        return this.f30115a.b(bArr);
+        return this.f30197a.b(bArr);
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        this.f30115a.b(this.f30116b);
+        this.f30197a.b(this.f30198b);
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        return this.f30115a.a(j);
+        return this.f30197a.a(j);
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i2, int i3) throws IOException {
-        return this.f30115a.b(bArr, i2, i3);
+        return this.f30197a.b(bArr, i2, i3);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        return this.f30115a.d();
+        return this.f30197a.d();
     }
 }

@@ -21,28 +21,28 @@ import java.util.LinkedList;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<d> f42031a = new LinkedList<>();
+    public final LinkedList<d> f42134a = new LinkedList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<k> f42032b = new LinkedList<>();
+    public final LinkedList<k> f42135b = new LinkedList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<b> f42033c = new LinkedList<>();
+    public final LinkedList<b> f42136c = new LinkedList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<c> f42034d = new LinkedList<>();
+    public final LinkedList<c> f42137d = new LinkedList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedList<j> f42035e = new LinkedList<>();
+    public final LinkedList<j> f42138e = new LinkedList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinkedList<a> f42036f = new LinkedList<>();
+    public final LinkedList<a> f42139f = new LinkedList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final LinkedList<e> f42037g = new LinkedList<>();
+    public final LinkedList<e> f42140g = new LinkedList<>();
 
     public void a(e eVar) {
-        this.f42037g.add(eVar);
+        this.f42140g.add(eVar);
     }
 
     public void b(f<?, ?> fVar) {
@@ -51,11 +51,11 @@ public class i {
         }
         l.d();
         if (fVar instanceof d) {
-            FrameHelper.f(this.f42031a, (d) fVar);
+            FrameHelper.f(this.f42134a, (d) fVar);
         } else if (fVar instanceof k) {
-            FrameHelper.f(this.f42032b, (k) fVar);
+            FrameHelper.f(this.f42135b, (k) fVar);
         } else if (fVar instanceof b) {
-            FrameHelper.f(this.f42033c, (b) fVar);
+            FrameHelper.f(this.f42136c, (b) fVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -67,18 +67,18 @@ public class i {
         }
         l.d();
         if (gVar instanceof c) {
-            FrameHelper.f(this.f42034d, (c) gVar);
+            FrameHelper.f(this.f42137d, (c) gVar);
         } else if (gVar instanceof j) {
-            FrameHelper.f(this.f42035e, (j) gVar);
+            FrameHelper.f(this.f42138e, (j) gVar);
         } else if (gVar instanceof a) {
-            FrameHelper.f(this.f42036f, (a) gVar);
+            FrameHelper.f(this.f42139f, (a) gVar);
         } else {
             BdLog.e("rule invalid");
         }
     }
 
     public void d(e eVar) {
-        this.f42037g.remove(eVar);
+        this.f42140g.remove(eVar);
     }
 
     public void e(f<?, ?> fVar) {
@@ -87,11 +87,11 @@ public class i {
         }
         l.d();
         if (fVar instanceof d) {
-            this.f42031a.remove(fVar);
+            this.f42134a.remove(fVar);
         } else if (fVar instanceof k) {
-            this.f42032b.remove(fVar);
+            this.f42135b.remove(fVar);
         } else if (fVar instanceof b) {
-            this.f42033c.remove(fVar);
+            this.f42136c.remove(fVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -103,30 +103,30 @@ public class i {
         }
         l.d();
         if (gVar instanceof c) {
-            this.f42034d.remove(gVar);
+            this.f42137d.remove(gVar);
         } else if (gVar instanceof j) {
-            this.f42035e.remove(gVar);
+            this.f42138e.remove(gVar);
         } else if (gVar instanceof a) {
-            this.f42036f.remove(gVar);
+            this.f42139f.remove(gVar);
         } else {
             BdLog.e("rule invalid");
         }
     }
 
     public CustomMessage<?> g(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return (CustomMessage) k(this.f42033c, customMessage, customMessageTask);
+        return (CustomMessage) k(this.f42136c, customMessage, customMessageTask);
     }
 
     public CustomResponsedMessage<?> h(CustomResponsedMessage<?> customResponsedMessage) {
-        return (CustomResponsedMessage) l(this.f42036f, customResponsedMessage);
+        return (CustomResponsedMessage) l(this.f42139f, customResponsedMessage);
     }
 
     public HttpMessage i(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return (HttpMessage) k(this.f42031a, httpMessage, httpMessageTask);
+        return (HttpMessage) k(this.f42134a, httpMessage, httpMessageTask);
     }
 
     public HttpResponsedMessage j(HttpResponsedMessage httpResponsedMessage) {
-        return (HttpResponsedMessage) l(this.f42034d, httpResponsedMessage);
+        return (HttpResponsedMessage) l(this.f42137d, httpResponsedMessage);
     }
 
     public final <M extends Message<?>, T extends MessageTask> M k(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -160,24 +160,24 @@ public class i {
     }
 
     public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return (SocketMessage) k(this.f42032b, socketMessage, socketMessageTask);
+        return (SocketMessage) k(this.f42135b, socketMessage, socketMessageTask);
     }
 
     public SocketResponsedMessage n(SocketResponsedMessage socketResponsedMessage) {
-        return (SocketResponsedMessage) l(this.f42035e, socketResponsedMessage);
+        return (SocketResponsedMessage) l(this.f42138e, socketResponsedMessage);
     }
 
     public void o(int i2, BdUniqueId bdUniqueId) {
-        int size = this.f42037g.size();
+        int size = this.f42140g.size();
         for (int i3 = 0; i3 < size; i3++) {
-            this.f42037g.get(i3).a(i2, bdUniqueId);
+            this.f42140g.get(i3).a(i2, bdUniqueId);
         }
     }
 
     public void p(BdUniqueId bdUniqueId) {
-        int size = this.f42037g.size();
+        int size = this.f42140g.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.f42037g.get(i2).b(bdUniqueId);
+            this.f42140g.get(i2).b(bdUniqueId);
         }
     }
 }

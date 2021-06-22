@@ -10,7 +10,7 @@ import java.util.List;
 public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Writer f29795a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
+    public static final Writer f29877a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             throw new AssertionError();
@@ -28,48 +28,48 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q f29796b = new q("closed");
+    public static final q f29878b = new q("closed");
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f29797c;
+    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f29879c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29798d;
+    public String f29880d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.l f29799e;
+    public com.bytedance.sdk.openadsdk.preload.a.l f29881e;
 
     public f() {
-        super(f29795a);
-        this.f29797c = new ArrayList();
-        this.f29799e = com.bytedance.sdk.openadsdk.preload.a.n.f30020a;
+        super(f29877a);
+        this.f29879c = new ArrayList();
+        this.f29881e = com.bytedance.sdk.openadsdk.preload.a.n.f30102a;
     }
 
     private com.bytedance.sdk.openadsdk.preload.a.l j() {
-        List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29797c;
+        List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
         return list.get(list.size() - 1);
     }
 
     public com.bytedance.sdk.openadsdk.preload.a.l a() {
-        if (this.f29797c.isEmpty()) {
-            return this.f29799e;
+        if (this.f29879c.isEmpty()) {
+            return this.f29881e;
         }
-        throw new IllegalStateException("Expected one JSON element but was " + this.f29797c);
+        throw new IllegalStateException("Expected one JSON element but was " + this.f29879c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c b() throws IOException {
         com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
         a(iVar);
-        this.f29797c.add(iVar);
+        this.f29879c.add(iVar);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c c() throws IOException {
-        if (!this.f29797c.isEmpty() && this.f29798d == null) {
+        if (!this.f29879c.isEmpty() && this.f29880d == null) {
             if (j() instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29797c;
+                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
                 list.remove(list.size() - 1);
                 return this;
             }
@@ -80,8 +80,8 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f29797c.isEmpty()) {
-            this.f29797c.add(f29796b);
+        if (this.f29879c.isEmpty()) {
+            this.f29879c.add(f29878b);
             return;
         }
         throw new IOException("Incomplete document");
@@ -91,15 +91,15 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     public com.bytedance.sdk.openadsdk.preload.a.d.c d() throws IOException {
         o oVar = new o();
         a(oVar);
-        this.f29797c.add(oVar);
+        this.f29879c.add(oVar);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c e() throws IOException {
-        if (!this.f29797c.isEmpty() && this.f29798d == null) {
+        if (!this.f29879c.isEmpty() && this.f29880d == null) {
             if (j() instanceof o) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29797c;
+                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
                 list.remove(list.size() - 1);
                 return this;
             }
@@ -110,7 +110,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c f() throws IOException {
-        a(com.bytedance.sdk.openadsdk.preload.a.n.f30020a);
+        a(com.bytedance.sdk.openadsdk.preload.a.n.f30102a);
         return this;
     }
 
@@ -119,13 +119,13 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     }
 
     private void a(com.bytedance.sdk.openadsdk.preload.a.l lVar) {
-        if (this.f29798d != null) {
+        if (this.f29880d != null) {
             if (!lVar.j() || i()) {
-                ((o) j()).a(this.f29798d, lVar);
+                ((o) j()).a(this.f29880d, lVar);
             }
-            this.f29798d = null;
-        } else if (this.f29797c.isEmpty()) {
-            this.f29799e = lVar;
+            this.f29880d = null;
+        } else if (this.f29879c.isEmpty()) {
+            this.f29881e = lVar;
         } else {
             com.bytedance.sdk.openadsdk.preload.a.l j = j();
             if (j instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
@@ -148,9 +148,9 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(String str) throws IOException {
         if (str != null) {
-            if (!this.f29797c.isEmpty() && this.f29798d == null) {
+            if (!this.f29879c.isEmpty() && this.f29880d == null) {
                 if (j() instanceof o) {
-                    this.f29798d = str;
+                    this.f29880d = str;
                     return this;
                 }
                 throw new IllegalStateException();

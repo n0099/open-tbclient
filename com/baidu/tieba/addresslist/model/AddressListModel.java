@@ -4,18 +4,18 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import d.a.m0.s.f.c;
-import d.a.n0.s.d.a;
+import d.a.n0.s.f.c;
+import d.a.o0.s.d.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13681e;
+    public a f13763e;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.f13681e = a.d();
+        this.f13763e = a.d();
     }
 
     public void A() {
@@ -26,16 +26,16 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void C(a.InterfaceC1642a interfaceC1642a) {
-        this.f13681e.f(interfaceC1642a);
+    public void C(a.InterfaceC1646a interfaceC1646a) {
+        this.f13763e.f(interfaceC1646a);
     }
 
-    public void D(List<d.a.m0.s.f.a> list) {
-        this.f13681e.g(list);
+    public void D(List<d.a.n0.s.f.a> list) {
+        this.f13763e.g(list);
     }
 
-    public void E(a.InterfaceC1642a interfaceC1642a) {
-        this.f13681e.h(interfaceC1642a);
+    public void E(a.InterfaceC1646a interfaceC1646a) {
+        this.f13763e.h(interfaceC1646a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -48,14 +48,14 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public void w(d.a.m0.s.f.a aVar) {
-        this.f13681e.a(aVar);
+    public void w(d.a.n0.s.f.a aVar) {
+        this.f13763e.a(aVar);
     }
 
     public int x(String str) {
-        List<d.a.m0.s.f.a> c2;
-        if (c.a(str) && (c2 = this.f13681e.c()) != null) {
-            for (d.a.m0.s.f.a aVar : c2) {
+        List<d.a.n0.s.f.a> c2;
+        if (c.a(str) && (c2 = this.f13763e.c()) != null) {
+            for (d.a.n0.s.f.a aVar : c2) {
                 if (str.equals(aVar.a())) {
                     return c2.indexOf(aVar);
                 }
@@ -66,10 +66,10 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void y(long j) {
-        this.f13681e.b(j);
+        this.f13763e.b(j);
     }
 
-    public List<d.a.m0.s.f.a> z() {
-        return this.f13681e.c();
+    public List<d.a.n0.s.f.a> z() {
+        return this.f13763e.c();
     }
 }

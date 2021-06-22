@@ -9,7 +9,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 public final class a implements IAppPayServiceListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f72254a = new a();
+    public static final a f72358a = new a();
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
     public void onAccountDelayMessage(AccountDelayMessage accountDelayMessage) {

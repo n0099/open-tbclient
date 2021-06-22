@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.g2.b;
+import d.a.o0.g2.b;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes5.dex */
 public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {

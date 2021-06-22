@@ -29,7 +29,7 @@ public class ShareActivity extends Activity {
                 if (sapiAccount != null) {
                     bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                 }
-                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.3.2.5");
+                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.3.6");
                 bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, ShareActivity.this.getPackageName());
                 if (SapiContext.getInstance().shareLivingunameEnable()) {
                     intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());

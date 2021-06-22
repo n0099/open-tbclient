@@ -19,38 +19,38 @@ import java.util.List;
 public class DownloadReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39503a = DownloadReceiver.class.getSimpleName();
+    public static final String f39606a = DownloadReceiver.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39504b = new Handler(Looper.getMainLooper());
+    public Handler f39607b = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f39505e;
+        public final /* synthetic */ Intent f39608e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f39506f;
+        public final /* synthetic */ Context f39609f;
 
         /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0478a implements Runnable {
+        public class RunnableC0481a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f39508e;
+            public final /* synthetic */ DownloadInfo f39611e;
 
             /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0479a implements Runnable {
-                public RunnableC0479a() {
+            public class RunnableC0482a implements Runnable {
+                public RunnableC0482a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (RunnableC0478a.this.f39508e.O1()) {
-                            e.Z(RunnableC0478a.this.f39508e);
+                        if (RunnableC0481a.this.f39611e.O1()) {
+                            e.Z(RunnableC0481a.this.f39611e);
                         }
                     } catch (Throwable th) {
                         th.printStackTrace();
@@ -58,37 +58,37 @@ public class DownloadReceiver extends BroadcastReceiver {
                 }
             }
 
-            public RunnableC0478a(a aVar, DownloadInfo downloadInfo) {
-                this.f39508e = downloadInfo;
+            public RunnableC0481a(a aVar, DownloadInfo downloadInfo) {
+                this.f39611e = downloadInfo;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.w0().execute(new RunnableC0479a());
+                d.w0().execute(new RunnableC0482a());
             }
         }
 
         public a(Intent intent, Context context) {
-            this.f39505e = intent;
-            this.f39506f = context;
+            this.f39608e = intent;
+            this.f39609f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Uri data = this.f39505e.getData();
+            Uri data = this.f39608e.getData();
             if (data == null) {
                 return;
             }
             String schemeSpecificPart = data.getSchemeSpecificPart();
             d.f t = d.o.a.e.a.e.F().t();
             if (t != null) {
-                t.a(this.f39506f, schemeSpecificPart);
+                t.a(this.f39609f, schemeSpecificPart);
             }
-            List<DownloadInfo> o = d.o.a.e.b.g.a.l(this.f39506f).o("application/vnd.android.package-archive");
+            List<DownloadInfo> o = d.o.a.e.b.g.a.l(this.f39609f).o("application/vnd.android.package-archive");
             if (o != null) {
                 for (DownloadInfo downloadInfo : o) {
                     if (downloadInfo != null && d.o.a.e.a.d.A(downloadInfo, schemeSpecificPart)) {
-                        d.o.a.e.b.f.d i2 = d.o.a.e.b.g.a.l(this.f39506f).i(downloadInfo.c0());
+                        d.o.a.e.b.f.d i2 = d.o.a.e.b.g.a.l(this.f39609f).i(downloadInfo.c0());
                         if (i2 != null && e.I0(i2.a())) {
                             i2.a(9, downloadInfo, schemeSpecificPart, "");
                         }
@@ -99,7 +99,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                         if (d.o.a.e.b.j.a.d(downloadInfo.c0()).b("install_queue_enable", 0) == 1) {
                             k.d().g(downloadInfo, schemeSpecificPart);
                         }
-                        DownloadReceiver.this.f39504b.postDelayed(new RunnableC0478a(this, downloadInfo), 1000L);
+                        DownloadReceiver.this.f39607b.postDelayed(new RunnableC0481a(this, downloadInfo), 1000L);
                         return;
                     }
                 }
@@ -119,12 +119,12 @@ public class DownloadReceiver extends BroadcastReceiver {
         d.e b2 = d.o.a.e.a.e.F().b();
         if (action.equals("android.intent.action.BOOT_COMPLETED") && (b2 == null || b2.a())) {
             if (d.o.a.e.b.c.a.e()) {
-                d.o.a.e.b.c.a.c(f39503a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
+                d.o.a.e.b.c.a.c(f39606a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
             if (d.o.a.e.b.c.a.e()) {
-                d.o.a.e.b.c.a.c(f39503a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
+                d.o.a.e.b.c.a.c(f39606a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
             }
             a(context, action);
         } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL) || action.equals("android.intent.action.PACKAGE_REPLACED")) {

@@ -5,10 +5,10 @@ import com.baidu.ad.magic.flute.a.a.n;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f41921a;
+    public b f42024a;
 
     public f(byte[] bArr) {
-        this.f41921a = a.b(bArr);
+        this.f42024a = a.b(bArr);
     }
 
     public static byte a(int i2) {
@@ -25,6 +25,6 @@ public class f {
     }
 
     public byte[] b() {
-        return this.f41921a.a();
+        return this.f42024a.a();
     }
 }

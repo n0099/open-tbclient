@@ -19,7 +19,7 @@ import com.baidu.tieba.recapp.view.AdCloseView;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.n0.t2.y;
+import d.a.o0.t2.y;
 import tbclient.AdCloseInfo;
 /* loaded from: classes5.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
@@ -47,14 +47,14 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20259e;
+        public AdCard f20341e;
 
         public b(AdCard adCard) {
-            this.f20259e = adCard;
+            this.f20341e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            int d2 = y.d(AdSimpleCardBaseView.this.m.getPageActivity(), this.f20259e.getScheme(), this.f20259e.getDownloadId(), this.f20259e.getExtInfo());
+            int d2 = y.d(AdSimpleCardBaseView.this.m.getPageActivity(), this.f20341e.getScheme(), this.f20341e.getDownloadId(), this.f20341e.getExtInfo());
             if (AdSimpleCardBaseView.this.o != null) {
                 AdSimpleCardBaseView.this.o.a(d2, null);
             }
@@ -66,7 +66,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f20259e;
+            AdCard adCard = this.f20341e;
             if (adCard == null) {
                 return;
             }

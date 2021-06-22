@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
 import com.baidu.swan.apps.IProcessBridge;
-import d.a.l0.a.v1.b.d;
+import d.a.m0.a.v1.b.d;
 /* loaded from: classes3.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public final Handler mHandler;

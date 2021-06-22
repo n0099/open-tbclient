@@ -12,46 +12,46 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f27638a;
+    public TextView f27720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f27639b;
+    public ImageView f27721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f27640c;
+    public TextView f27722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27641d;
+    public View f27723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27642e;
+    public boolean f27724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27643f;
+    public boolean f27725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f27644g;
+    public b f27726g;
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f27638a != null && !TextUtils.isEmpty(charSequence)) {
-            this.f27638a.setText(charSequence);
+        if (this.f27720a != null && !TextUtils.isEmpty(charSequence)) {
+            this.f27720a.setText(charSequence);
         }
-        if (this.f27640c == null || TextUtils.isEmpty(charSequence2)) {
+        if (this.f27722c == null || TextUtils.isEmpty(charSequence2)) {
             return;
         }
-        this.f27640c.setText(charSequence2);
-        if (this.f27642e) {
+        this.f27722c.setText(charSequence2);
+        if (this.f27724e) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.f27640c.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f27722c.getLayoutParams();
         layoutParams.width = (int) (charSequence2.length() <= 2 ? al.a(getContext(), 53.0f) : al.a(getContext(), 96.0f));
-        this.f27640c.setLayoutParams(layoutParams);
+        this.f27722c.setLayoutParams(layoutParams);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        ImageView imageView = this.f27639b;
+        ImageView imageView = this.f27721b;
         if (imageView != null) {
             imageView.performClick();
         }
@@ -63,12 +63,12 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setListener(b bVar) {
-        this.f27644g = bVar;
+        this.f27726g = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowCountDown(boolean z) {
-        TextView textView = this.f27638a;
+        TextView textView = this.f27720a;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 8);
         }
@@ -76,7 +76,7 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        View view = this.f27641d;
+        View view = this.f27723d;
         if (view != null) {
             view.setVisibility(z ? 0 : 8);
         }
@@ -84,7 +84,7 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSkip(boolean z) {
-        TextView textView = this.f27640c;
+        TextView textView = this.f27722c;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 8);
         }
@@ -92,7 +92,7 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        ImageView imageView = this.f27639b;
+        ImageView imageView = this.f27721b;
         if (imageView != null) {
             imageView.setVisibility(z ? 0 : 8);
         }
@@ -100,28 +100,28 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSkipEnable(boolean z) {
-        TextView textView = this.f27640c;
+        TextView textView = this.f27722c;
         if (textView != null) {
             textView.setEnabled(z);
-            this.f27640c.setClickable(z);
+            this.f27722c.setClickable(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
         int d2;
-        this.f27643f = z;
+        this.f27725f = z;
         if (z) {
             d2 = ad.d(getContext(), "tt_mute");
         } else {
             d2 = ad.d(getContext(), "tt_unmute");
         }
-        this.f27639b.setImageResource(d2);
+        this.f27721b.setImageResource(d2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a() {
-        TextView textView = this.f27640c;
+        TextView textView = this.f27722c;
         if (textView != null) {
             textView.performClick();
         }

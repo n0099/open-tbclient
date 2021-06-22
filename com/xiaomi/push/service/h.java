@@ -6,13 +6,13 @@ import java.util.concurrent.RejectedExecutionException;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f41811a;
+    public static long f41914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f41812b;
+    public static long f41915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f41813c;
+    public static long f41916c;
 
     /* renamed from: a  reason: collision with other field name */
     public final a f947a;
@@ -24,17 +24,17 @@ public class h {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final c f41814a;
+        public final c f41917a;
 
         public a(c cVar) {
-            this.f41814a = cVar;
+            this.f41917a = cVar;
         }
 
         public void finalize() {
             try {
-                synchronized (this.f41814a) {
-                    this.f41814a.f41818c = true;
-                    this.f41814a.notify();
+                synchronized (this.f41917a) {
+                    this.f41917a.f41921c = true;
+                    this.f41917a.notify();
                 }
             } finally {
                 super.finalize();
@@ -46,10 +46,10 @@ public class h {
     public static abstract class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41815a;
+        public int f41918a;
 
         public b(int i2) {
-            this.f41815a = i2;
+            this.f41918a = i2;
         }
     }
 
@@ -60,16 +60,16 @@ public class h {
         public boolean f951b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f41818c;
+        public boolean f41921c;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f41816a = 0;
+        public volatile long f41919a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         public volatile boolean f950a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f41817b = 50;
+        public long f41920b = 50;
 
         /* renamed from: a  reason: collision with other field name */
         public a f949a = new a();
@@ -78,22 +78,22 @@ public class h {
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f41819a;
+            public int f41922a;
 
             /* renamed from: a  reason: collision with other field name */
             public d[] f952a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f41820b;
+            public int f41923b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f41821c;
+            public int f41924c;
 
             public a() {
-                this.f41819a = 256;
+                this.f41922a = 256;
                 this.f952a = new d[256];
-                this.f41820b = 0;
-                this.f41821c = 0;
+                this.f41923b = 0;
+                this.f41924c = 0;
             }
 
             /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class h {
             }
 
             private void c() {
-                int i2 = this.f41820b - 1;
+                int i2 = this.f41923b - 1;
                 int i3 = (i2 - 1) / 2;
                 while (true) {
                     d[] dVarArr = this.f952a;
@@ -131,7 +131,7 @@ public class h {
             private void c(int i2) {
                 int i3 = (i2 * 2) + 1;
                 while (true) {
-                    int i4 = this.f41820b;
+                    int i4 = this.f41923b;
                     if (i3 >= i4 || i4 <= 0) {
                         return;
                     }
@@ -161,14 +161,14 @@ public class h {
 
             /* renamed from: a  reason: collision with other method in class */
             public void m612a() {
-                this.f952a = new d[this.f41819a];
-                this.f41820b = 0;
+                this.f952a = new d[this.f41922a];
+                this.f41923b = 0;
             }
 
             public void a(int i2) {
-                for (int i3 = 0; i3 < this.f41820b; i3++) {
+                for (int i3 = 0; i3 < this.f41923b; i3++) {
                     d[] dVarArr = this.f952a;
-                    if (dVarArr[i3].f41822a == i2) {
+                    if (dVarArr[i3].f41925a == i2) {
                         dVarArr[i3].a();
                     }
                 }
@@ -176,7 +176,7 @@ public class h {
             }
 
             public void a(int i2, b bVar) {
-                for (int i3 = 0; i3 < this.f41820b; i3++) {
+                for (int i3 = 0; i3 < this.f41923b; i3++) {
                     d[] dVarArr = this.f952a;
                     if (dVarArr[i3].f954a == bVar) {
                         dVarArr[i3].a();
@@ -189,28 +189,28 @@ public class h {
             public void m613a(d dVar) {
                 d[] dVarArr = this.f952a;
                 int length = dVarArr.length;
-                int i2 = this.f41820b;
+                int i2 = this.f41923b;
                 if (length == i2) {
                     d[] dVarArr2 = new d[i2 * 2];
                     System.arraycopy(dVarArr, 0, dVarArr2, 0, i2);
                     this.f952a = dVarArr2;
                 }
                 d[] dVarArr3 = this.f952a;
-                int i3 = this.f41820b;
-                this.f41820b = i3 + 1;
+                int i3 = this.f41923b;
+                this.f41923b = i3 + 1;
                 dVarArr3[i3] = dVar;
                 c();
             }
 
             /* renamed from: a  reason: collision with other method in class */
             public boolean m614a() {
-                return this.f41820b == 0;
+                return this.f41923b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
             public boolean m615a(int i2) {
-                for (int i3 = 0; i3 < this.f41820b; i3++) {
-                    if (this.f952a[i3].f41822a == i2) {
+                for (int i3 = 0; i3 < this.f41923b; i3++) {
+                    if (this.f952a[i3].f41925a == i2) {
                         return true;
                     }
                 }
@@ -219,9 +219,9 @@ public class h {
 
             public void b() {
                 int i2 = 0;
-                while (i2 < this.f41820b) {
+                while (i2 < this.f41923b) {
                     if (this.f952a[i2].f956a) {
-                        this.f41821c++;
+                        this.f41924c++;
                         b(i2);
                         i2--;
                     }
@@ -231,12 +231,12 @@ public class h {
 
             public void b(int i2) {
                 int i3;
-                if (i2 < 0 || i2 >= (i3 = this.f41820b)) {
+                if (i2 < 0 || i2 >= (i3 = this.f41923b)) {
                     return;
                 }
                 d[] dVarArr = this.f952a;
                 int i4 = i3 - 1;
-                this.f41820b = i4;
+                this.f41923b = i4;
                 dVarArr[i2] = dVarArr[i4];
                 dVarArr[i4] = null;
                 c(i2);
@@ -263,12 +263,12 @@ public class h {
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m611a() {
-            return this.f950a && SystemClock.uptimeMillis() - this.f41816a > 600000;
+            return this.f950a && SystemClock.uptimeMillis() - this.f41919a > 600000;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX WARN: Code restructure failed: missing block: B:50:0x0093, code lost:
-            r10.f41816a = android.os.SystemClock.uptimeMillis();
+            r10.f41919a = android.os.SystemClock.uptimeMillis();
             r10.f950a = true;
             r2.f954a.run();
             r10.f950a = false;
@@ -304,17 +304,17 @@ public class h {
                             } else {
                                 long j = a3.f953a - a2;
                                 if (j > 0) {
-                                    if (j > this.f41817b) {
-                                        j = this.f41817b;
+                                    if (j > this.f41920b) {
+                                        j = this.f41920b;
                                     }
-                                    long j2 = this.f41817b + 50;
-                                    this.f41817b = j2;
+                                    long j2 = this.f41920b + 50;
+                                    this.f41920b = j2;
                                     if (j2 > 500) {
-                                        this.f41817b = 500L;
+                                        this.f41920b = 500L;
                                     }
                                     wait(j);
                                 } else {
-                                    this.f41817b = 50L;
+                                    this.f41920b = 50L;
                                     synchronized (a3.f955a) {
                                         int a4 = this.f949a.a().f953a != a3.f953a ? this.f949a.a(a3) : 0;
                                         if (a3.f956a) {
@@ -328,7 +328,7 @@ public class h {
                                 }
                             }
                         }
-                    } else if (this.f41818c) {
+                    } else if (this.f41921c) {
                         return;
                     } else {
                         try {
@@ -345,7 +345,7 @@ public class h {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41822a;
+        public int f41925a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f953a;
@@ -360,11 +360,11 @@ public class h {
         public boolean f956a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f41823b;
+        public long f41926b;
 
         public void a(long j) {
             synchronized (this.f955a) {
-                this.f41823b = j;
+                this.f41926b = j;
             }
         }
 
@@ -380,8 +380,8 @@ public class h {
 
     static {
         long elapsedRealtime = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
-        f41811a = elapsedRealtime;
-        f41812b = elapsedRealtime;
+        f41914a = elapsedRealtime;
+        f41915b = elapsedRealtime;
     }
 
     public h() {
@@ -409,11 +409,11 @@ public class h {
         long j;
         synchronized (h.class) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (elapsedRealtime > f41812b) {
-                f41811a += elapsedRealtime - f41812b;
+            if (elapsedRealtime > f41915b) {
+                f41914a += elapsedRealtime - f41915b;
             }
-            f41812b = elapsedRealtime;
-            j = f41811a;
+            f41915b = elapsedRealtime;
+            j = f41914a;
         }
         return j;
     }
@@ -421,8 +421,8 @@ public class h {
     public static synchronized long b() {
         long j;
         synchronized (h.class) {
-            j = f41813c;
-            f41813c = 1 + j;
+            j = f41916c;
+            f41916c = 1 + j;
         }
         return j;
     }
@@ -437,7 +437,7 @@ public class h {
                 throw new IllegalArgumentException("Illegal delay to start the TimerTask: " + a2);
             }
             d dVar = new d();
-            dVar.f41822a = bVar.f41815a;
+            dVar.f41925a = bVar.f41918a;
             dVar.f954a = bVar;
             dVar.f953a = a2;
             this.f948a.a(dVar);

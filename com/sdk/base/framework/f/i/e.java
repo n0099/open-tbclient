@@ -8,10 +8,10 @@ import java.security.MessageDigest;
 public class e extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39390a = "com.sdk.base.framework.f.i.e";
+    public static final String f39488a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f39391b = f.f39341b;
+    public static boolean f39489b = f.f39439b;
 
     public static String a(String str) {
         if (com.sdk.base.framework.a.a.c.a(str).booleanValue()) {
@@ -31,7 +31,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e2) {
-            com.sdk.base.framework.f.a.a(f39390a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f39391b);
+            com.sdk.base.framework.f.a.a(f39488a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f39489b);
             return null;
         }
     }

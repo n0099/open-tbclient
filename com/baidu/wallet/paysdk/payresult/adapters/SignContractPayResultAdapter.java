@@ -20,8 +20,8 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPaySuccessContents() {
         this.contents.clear();
-        PayResultContent payResultContent = this.f25413c;
-        if (payResultContent == null || this.f25412b == null) {
+        PayResultContent payResultContent = this.f25495c;
+        if (payResultContent == null || this.f25494b == null) {
             return null;
         }
         if (payResultContent.isPaySuccess) {
@@ -32,7 +32,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
             }
             this.contents.put("statusDrawableName", "wallet_base_result_main_success");
             this.contents.put("okBtnText", "ebpay_result_btn_success");
-            this.contents.put("payDetailInfo", this.f25413c.pay_detail_info);
+            this.contents.put("payDetailInfo", this.f25495c.pay_detail_info);
         }
         return this.contents;
     }
@@ -40,26 +40,26 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPayingContents() {
         this.contents.clear();
-        PayResultContent payResultContent = this.f25413c;
-        if (payResultContent == null || this.f25412b == null) {
+        PayResultContent payResultContent = this.f25495c;
+        if (payResultContent == null || this.f25494b == null) {
             return null;
         }
         if (!payResultContent.isPaySuccess) {
             this.contents.put("statusDrawableName", "wallet_base_result_paying");
             this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-            this.contents.put("errorMsg", this.f25413c.mErrorMsg);
+            this.contents.put("errorMsg", this.f25495c.mErrorMsg);
         }
         return this.contents;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
-        PayCallBackManager.callBackClientSuccess(this.f25411a.get().getActivity(), "");
+        PayCallBackManager.callBackClientSuccess(this.f25493a.get().getActivity(), "");
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         super.onCreateCheckInvalide(bundle);
-        return this.f25413c != null;
+        return this.f25495c != null;
     }
 }

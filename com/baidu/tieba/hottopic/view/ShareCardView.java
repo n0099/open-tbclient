@@ -16,19 +16,19 @@ import d.a.c.e.p.k;
 public class ShareCardView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16962e;
+    public LinearLayout f17044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f16963f;
+    public EditText f17045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16964g;
+    public TbImageView f17046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16965h;
+    public TextView f17047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16966i;
+    public TextView f17048i;
     public ShareFromTopicMsgData j;
 
     public ShareCardView(Context context, AttributeSet attributeSet) {
@@ -37,48 +37,48 @@ public class ShareCardView extends LinearLayout {
     }
 
     public void a() {
-        this.f16962e.setFocusable(true);
-        this.f16962e.setFocusableInTouchMode(true);
-        this.f16962e.requestFocus();
+        this.f17044e.setFocusable(true);
+        this.f17044e.setFocusableInTouchMode(true);
+        this.f17044e.requestFocus();
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.f16962e = (LinearLayout) findViewById(R.id.share_content);
-        this.f16966i = (TextView) findViewById(R.id.share_title_view);
-        this.f16963f = (EditText) findViewById(R.id.chat_msg);
-        this.f16964g = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f16965h = (TextView) findViewById(R.id.chat_group_desc);
-        SkinManager.setViewTextColor(this.f16966i, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f16963f, R.color.CAM_X0105, 2);
-        SkinManager.setViewTextColor(this.f16965h, R.color.CAM_X0106, 1);
-        this.f16963f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f16963f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        this.f17044e = (LinearLayout) findViewById(R.id.share_content);
+        this.f17048i = (TextView) findViewById(R.id.share_title_view);
+        this.f17045f = (EditText) findViewById(R.id.chat_msg);
+        this.f17046g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f17047h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f17048i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f17045f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f17047h, R.color.CAM_X0106, 1);
+        this.f17045f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f17045f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         a();
     }
 
     public void c(String str, boolean z) {
-        TbImageView tbImageView = this.f16964g;
+        TbImageView tbImageView = this.f17046g;
         if (tbImageView != null) {
             tbImageView.U(str, z ? 17 : 18, false);
         }
     }
 
     public final void d() {
-        this.f16966i.setText(this.j.getTitle());
+        this.f17048i.setText(this.j.getTitle());
         BdLog.e("mData.getImageUrl()的图片URL" + this.j.getImageUrl());
-        this.f16964g.setTag(this.j.getImageUrl());
+        this.f17046g.setTag(this.j.getImageUrl());
         BdLog.e("mData.getContent()的Content" + this.j.getContent());
-        this.f16965h.setText(this.j.getContent());
+        this.f17047h.setText(this.j.getContent());
     }
 
     public EditText getChatMsgView() {
-        return this.f16963f;
+        return this.f17045f;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f16963f;
+        EditText editText = this.f17045f;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }

@@ -12,26 +12,26 @@ import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
 public class BaseActivity extends Activity implements NoProguard {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8992c;
+    public String f8994c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8990a = false;
+    public boolean f8992a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8991b = true;
+    public boolean f8993b = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8993d = false;
+    public boolean f8995d = false;
 
     @TargetApi(24)
     private void a() {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f8990a) {
-            PassBioGlobalUtils.toastWithText(getActivity(), this.f8992c, 1);
+        if (this.f8992a) {
+            PassBioGlobalUtils.toastWithText(getActivity(), this.f8994c, 1);
         }
-        if (this.f8991b) {
+        if (this.f8993b) {
             return;
         }
         finish();
@@ -42,7 +42,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public boolean isActivityInForeground() {
-        return this.f8993d;
+        return this.f8995d;
     }
 
     @Override // android.app.Activity
@@ -53,7 +53,7 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f8992c = getResources().getString(R.string.pass_bio_multi_window_tips);
+        this.f8994c = getResources().getString(R.string.pass_bio_multi_window_tips);
     }
 
     @Override // android.app.Activity
@@ -76,10 +76,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.f8990a) {
-                    PassBioGlobalUtils.toastWithText(getActivity(), this.f8992c, 1);
+                if (this.f8992a) {
+                    PassBioGlobalUtils.toastWithText(getActivity(), this.f8994c, 1);
                 }
-                if (this.f8991b) {
+                if (this.f8993b) {
                     return;
                 }
                 finish();
@@ -90,29 +90,29 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f8993d = false;
+        this.f8995d = false;
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f8993d = true;
+        this.f8995d = true;
         a();
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.f8991b) {
-            this.f8991b = z;
+        if (z != this.f8993b) {
+            this.f8993b = z;
         }
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f8990a) {
-            this.f8990a = z;
+        if (z != this.f8992a) {
+            this.f8992a = z;
         }
     }
 
     public void setMultiWindowTipsId(String str) {
-        this.f8992c = str;
+        this.f8994c = str;
     }
 }

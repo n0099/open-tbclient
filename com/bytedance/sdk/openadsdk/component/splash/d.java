@@ -22,17 +22,17 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void a(int i2, int i3) {
-        if (this.f28491b == null || i2 == 308) {
+        if (this.f28573b == null || i2 == 308) {
             return;
         }
-        String str = this.f28497h ? "play_error" : "play_start_error";
-        Map<String, Object> a2 = ak.a(this.f28491b, i2, i3, u());
-        if (this.f28497h) {
+        String str = this.f28579h ? "play_error" : "play_start_error";
+        Map<String, Object> a2 = ak.a(this.f28573b, i2, i3, u());
+        if (this.f28579h) {
             a2.put("duration", Long.valueOf(p()));
             a2.put(SapiOptions.KEY_CACHE_PERCENT, Integer.valueOf(r()));
             a2.put("buffers_time", Long.valueOf(o()));
         }
-        com.bytedance.sdk.openadsdk.c.d.d(this.f28490a.get(), this.f28491b, "splash_ad", str, a2);
+        com.bytedance.sdk.openadsdk.c.d.d(this.f28572a.get(), this.f28573b, "splash_ad", str, a2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
@@ -41,7 +41,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
             return;
         }
         this.j = true;
-        com.bytedance.sdk.openadsdk.c.d.a(this.f28490a.get(), this.f28491b, "splash_ad", "feed_over", this.f28492c, 100, C());
+        com.bytedance.sdk.openadsdk.c.d.a(this.f28572a.get(), this.f28573b, "splash_ad", "feed_over", this.f28574c, 100, C());
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
@@ -54,11 +54,11 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void e() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f28490a.get(), this.f28491b, "splash_ad", "feed_play", B());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f28572a.get(), this.f28573b, "splash_ad", "feed_play", B());
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void f() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f28490a.get(), this.f28491b, "splash_ad", "feed_play", B());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f28572a.get(), this.f28573b, "splash_ad", "feed_play", B());
     }
 }

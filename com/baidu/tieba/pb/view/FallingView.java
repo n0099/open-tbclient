@@ -8,33 +8,33 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.pb.view.FallingView;
 import d.a.c.e.p.l;
-import d.a.n0.e2.p.c;
+import d.a.o0.e2.p.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FallingView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f19598e;
+    public List<c> f19680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19599f;
+    public int f19681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19600g;
+    public int f19682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19601h;
+    public boolean f19683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f19602i;
+    public Runnable f19684i;
     public Handler j;
     public Paint k;
 
     public FallingView(Context context) {
         super(context);
-        this.f19601h = false;
-        this.f19602i = new Runnable() { // from class: d.a.n0.e2.p.b
+        this.f19683h = false;
+        this.f19684i = new Runnable() { // from class: d.a.o0.e2.p.b
             @Override // java.lang.Runnable
             public final void run() {
                 FallingView.this.d();
@@ -45,21 +45,21 @@ public class FallingView extends View {
     }
 
     public void a(c cVar, int i2) {
-        if (this.f19599f == 0) {
-            this.f19599f = l.k(getContext());
+        if (this.f19681f == 0) {
+            this.f19681f = l.k(getContext());
         }
-        if (this.f19600g == 0) {
-            this.f19600g = l.i(getContext());
+        if (this.f19682g == 0) {
+            this.f19682g = l.i(getContext());
         }
         for (int i3 = 0; i3 < i2; i3++) {
-            c cVar2 = new c(cVar.f57595i, this.f19599f, this.f19600g);
-            cVar2.f57591e = (-i3) * 180;
-            this.f19598e.add(cVar2);
+            c cVar2 = new c(cVar.f57720i, this.f19681f, this.f19682g);
+            cVar2.f57716e = (-i3) * 180;
+            this.f19680e.add(cVar2);
         }
     }
 
     public final void b() {
-        this.f19598e = new ArrayList();
+        this.f19680e = new ArrayList();
         Paint paint = new Paint();
         this.k = paint;
         paint.setDither(true);
@@ -67,7 +67,7 @@ public class FallingView extends View {
     }
 
     public boolean c() {
-        return this.f19601h;
+        return this.f19683h;
     }
 
     public /* synthetic */ void d() {
@@ -81,27 +81,27 @@ public class FallingView extends View {
     }
 
     public void f() {
-        this.f19601h = true;
+        this.f19683h = true;
         invalidate();
     }
 
     public void g() {
-        this.f19601h = false;
+        this.f19683h = false;
         if (getHandler() != null) {
-            getHandler().removeCallbacks(this.f19602i);
+            getHandler().removeCallbacks(this.f19684i);
         }
-        this.f19598e.clear();
+        this.f19680e.clear();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         long currentTimeMillis = System.currentTimeMillis();
         super.onDraw(canvas);
-        if (this.f19598e.size() > 0) {
-            for (int i2 = 0; i2 < this.f19598e.size(); i2++) {
-                this.f19598e.get(i2).b(canvas, this.k);
+        if (this.f19680e.size() > 0) {
+            for (int i2 = 0; i2 < this.f19680e.size(); i2++) {
+                this.f19680e.get(i2).b(canvas, this.k);
             }
-            this.j.postDelayed(this.f19602i, (currentTimeMillis + 5) - System.currentTimeMillis());
+            this.j.postDelayed(this.f19684i, (currentTimeMillis + 5) - System.currentTimeMillis());
         }
     }
 
@@ -111,14 +111,14 @@ public class FallingView extends View {
         int e2 = e(1000, i3);
         int e3 = e(600, i2);
         setMeasuredDimension(e3, e2);
-        this.f19599f = e3;
-        this.f19600g = e2;
+        this.f19681f = e3;
+        this.f19682g = e2;
     }
 
     public FallingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19601h = false;
-        this.f19602i = new Runnable() { // from class: d.a.n0.e2.p.b
+        this.f19683h = false;
+        this.f19684i = new Runnable() { // from class: d.a.o0.e2.p.b
             @Override // java.lang.Runnable
             public final void run() {
                 FallingView.this.d();

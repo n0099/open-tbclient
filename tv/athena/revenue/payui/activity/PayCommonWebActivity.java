@@ -122,7 +122,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
             RLog.debug(PayCommonWebActivity.this.TAG, "onSuccess");
-            if (!h.f72168a.a(PayCommonWebActivity.this)) {
+            if (!h.f72272a.a(PayCommonWebActivity.this)) {
                 RLog.info(PayCommonWebActivity.this.TAG, "onSuccess activity not valid");
             } else {
                 PayCommonWebActivity.this.runOnUiThread(new a());
@@ -155,7 +155,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         /* renamed from: a */
         public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
             RLog.debug(PayCommonWebActivity.this.TAG, "onSuccess");
-            if (!h.f72168a.a(PayCommonWebActivity.this)) {
+            if (!h.f72272a.a(PayCommonWebActivity.this)) {
                 RLog.info(PayCommonWebActivity.this.TAG, "onSuccess activity not valid");
             } else {
                 PayCommonWebActivity.this.runOnUiThread(new a());
@@ -276,11 +276,11 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
                 PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
                 MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
                 if (middleRevenueConfig != null) {
-                    bVar.f72921b = new i.a.a.e.l.a(productInfo, middleRevenueConfig.getCurrencyType());
+                    bVar.f73025b = new i.a.a.e.l.a(productInfo, middleRevenueConfig.getCurrencyType());
                 } else {
-                    bVar.f72921b = new i.a.a.e.l.a(productInfo);
+                    bVar.f73025b = new i.a.a.e.l.a(productInfo);
                 }
-                RLog.info(this.TAG, "startPayChannelDialog: payAmount:%s", bVar.f72921b);
+                RLog.info(this.TAG, "startPayChannelDialog: payAmount:%s", bVar.f73025b);
                 uIKit.startPayChannelDialog(this, bVar, new c());
             } catch (Exception e2) {
                 RLog.error(this.TAG, "get productInfo error:", e2.getLocalizedMessage());
@@ -426,28 +426,28 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public void onOpenNewUrl(i.a.a.e.l.e eVar, i.a.a.e.l.d dVar) {
         String str;
         RLog.info(this.TAG, "onOpenNewUrl: urlParams:%s, topUiParams:%s", eVar, dVar);
-        if (eVar == null || (str = eVar.f72165a) == null || str.isEmpty()) {
+        if (eVar == null || (str = eVar.f72269a) == null || str.isEmpty()) {
             return;
         }
         Intent intent = new Intent(this, PayCommonWebActivity.class);
-        String str2 = dVar.f72162a;
+        String str2 = dVar.f72266a;
         if (str2 != null && !str2.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_TITLE, dVar.f72162a);
+            intent.putExtra(H5PayConstant.EXTRA_TITLE, dVar.f72266a);
         }
-        String str3 = dVar.f72163b;
+        String str3 = dVar.f72267b;
         if (str3 != null && !str3.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_RIGHT, dVar.f72163b);
+            intent.putExtra(H5PayConstant.EXTRA_RIGHT, dVar.f72267b);
         }
-        intent.putExtra(H5PayConstant.EXTRA_URL, eVar.f72165a);
-        String str4 = dVar.f72164c;
+        intent.putExtra(H5PayConstant.EXTRA_URL, eVar.f72269a);
+        String str4 = dVar.f72268c;
         if (str4 != null && !str4.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, dVar.f72164c);
+            intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, dVar.f72268c);
         }
         intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.mAppId);
         intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.mUserChannel);
         i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.wallet_secondpage_title);
         RLog.warn(this.TAG, UiEventType.wallet_secondpage_title);
-        if (eVar.f72166b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
+        if (eVar.f72270b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
             i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.walletclickdetail);
             RLog.warn(this.TAG, UiEventType.walletclickClose);
         }
@@ -470,17 +470,17 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public void onUpdateTopUi(i.a.a.e.l.d dVar) {
         RLog.info(this.TAG, "onUpdateTopUi: %s", dVar);
         if (dVar != null) {
-            String str = dVar.f72163b;
+            String str = dVar.f72267b;
             if (str != null && !str.isEmpty()) {
-                this.mRightTitle = dVar.f72163b;
+                this.mRightTitle = dVar.f72267b;
             }
-            String str2 = dVar.f72164c;
+            String str2 = dVar.f72268c;
             if (str2 != null && !str2.isEmpty()) {
-                this.mRightUrl = dVar.f72164c;
+                this.mRightUrl = dVar.f72268c;
             }
-            String str3 = dVar.f72162a;
+            String str3 = dVar.f72266a;
             if (str3 != null && !str3.isEmpty()) {
-                this.mTitle = dVar.f72162a;
+                this.mTitle = dVar.f72266a;
             }
             setTitleAndRight(this.mTitle, this.mRightTitle);
         }

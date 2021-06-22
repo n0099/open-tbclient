@@ -13,6 +13,7 @@ import com.baidu.fsg.face.base.b.c;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.ReqPriority;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.callback.FillUsernameCallback;
@@ -230,7 +231,7 @@ public final class SapiAccountRepository {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getUaInfo() {
-        return "tpl:" + this.configuration.tpl + ";android_sapi_v9.3.2.5";
+        return "tpl:" + this.configuration.tpl + ";android_sapi_v9.3.6";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -782,6 +783,10 @@ public final class SapiAccountRepository {
         return getDomain().getWap() + "/wp/v3/ucenter/realnameverify";
     }
 
+    public String getAuthWidgetUrl() {
+        return getDomain().getWap() + "/v6/authwidget";
+    }
+
     public String getBindWidgetUrl(BindWidgetAction bindWidgetAction) {
         return getDomain().getWap() + bindWidgetAction.getUri();
     }
@@ -886,7 +891,7 @@ public final class SapiAccountRepository {
         httpHashMapWrap.put("clientfrom", "native");
         httpHashMapWrap.put("tpl", str);
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         for (String str3 : list) {
             sb.append("\"");
             sb.append(str3);
@@ -894,7 +899,7 @@ public final class SapiAccountRepository {
             sb.append(",");
         }
         StringBuilder deleteCharAt = sb.deleteCharAt(sb.length() - 1);
-        deleteCharAt.append("]");
+        deleteCharAt.append(PreferencesUtil.RIGHT_MOUNT);
         httpHashMapWrap.put("interflowPkgList", deleteCharAt.toString());
         httpHashMapWrap.put("currentAppPkg", str2);
         String shareV3AppUrl = getShareV3AppUrl();

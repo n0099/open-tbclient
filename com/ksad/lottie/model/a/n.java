@@ -7,21 +7,21 @@ import java.util.List;
 public abstract class n<V, O> implements m<V, O> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.ksad.lottie.e.a<V>> f31998a;
+    public final List<com.ksad.lottie.e.a<V>> f32096a;
 
     public n(V v) {
         this(Collections.singletonList(new com.ksad.lottie.e.a(v)));
     }
 
     public n(List<com.ksad.lottie.e.a<V>> list) {
-        this.f31998a = list;
+        this.f32096a = list;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.f31998a.isEmpty()) {
+        if (!this.f32096a.isEmpty()) {
             sb.append("values=");
-            sb.append(Arrays.toString(this.f31998a.toArray()));
+            sb.append(Arrays.toString(this.f32096a.toArray()));
         }
         return sb.toString();
     }

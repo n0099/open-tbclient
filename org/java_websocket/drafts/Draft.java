@@ -26,10 +26,10 @@ import org.java_websocket.framing.Framedata;
 public abstract class Draft {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocket.Role f72348a = null;
+    public WebSocket.Role f72452a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f72349b = null;
+    public Framedata.Opcode f72453b = null;
 
     /* loaded from: classes8.dex */
     public enum CloseHandshakeType {
@@ -146,10 +146,10 @@ public abstract class Draft {
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
-        if (this.f72349b != null) {
+        if (this.f72453b != null) {
             iVar = new g.c.h.c();
         } else {
-            this.f72349b = opcode;
+            this.f72453b = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
                 iVar = new g.c.h.a();
             } else {
@@ -161,9 +161,9 @@ public abstract class Draft {
         try {
             iVar.h();
             if (z) {
-                this.f72349b = null;
+                this.f72453b = null;
             } else {
-                this.f72349b = opcode;
+                this.f72453b = opcode;
             }
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e2) {
@@ -239,7 +239,7 @@ public abstract class Draft {
     public abstract void s();
 
     public void t(WebSocket.Role role) {
-        this.f72348a = role;
+        this.f72452a = role;
     }
 
     public String toString() {
@@ -249,6 +249,6 @@ public abstract class Draft {
     public abstract List<Framedata> u(ByteBuffer byteBuffer) throws InvalidDataException;
 
     public f v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
-        return w(byteBuffer, this.f72348a);
+        return w(byteBuffer, this.f72452a);
     }
 }

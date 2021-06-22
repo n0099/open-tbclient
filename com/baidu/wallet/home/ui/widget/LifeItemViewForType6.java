@@ -10,13 +10,13 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class LifeItemViewForType6 extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24322a;
+    public NetImageView f24404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24323b;
+    public MaskTextView f24405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24324c;
+    public NetImageView f24406c;
 
     public LifeItemViewForType6(Context context) {
         super(context);
@@ -25,19 +25,19 @@ public class LifeItemViewForType6 extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_item_view_for_type_6"), this);
-        this.f24322a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-        this.f24323b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-        this.f24324c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
+        this.f24404a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
+        this.f24405b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+        this.f24406c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
         if (isShoudShowPoint()) {
-            this.f24324c.setVisibility(0);
-            this.f24324c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
+            this.f24406c.setVisibility(0);
+            this.f24406c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
             return true;
         }
-        this.f24324c.setVisibility(8);
+        this.f24406c.setVisibility(8);
         return false;
     }
 
@@ -45,8 +45,8 @@ public class LifeItemViewForType6 extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        this.f24323b.setMaskText(getData().name);
-        NetImageView netImageView = this.f24322a;
+        this.f24405b.setMaskText(getData().name);
+        NetImageView netImageView = this.f24404a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         handlePoint();
     }

@@ -19,34 +19,34 @@ import com.baidu.swan.game.guide.GamenowRecommendPopViewAdapter;
 import com.baidu.swan.game.guide.download.GamenowDownloadButtomView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.a.l0.a.k;
-import d.a.l0.f.j.h;
-import d.a.l0.f.j.i;
+import d.a.m0.a.k;
+import d.a.m0.f.j.h;
+import d.a.m0.f.j.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GamenowRecommendPopView extends RelativeLayout {
-    public static final boolean t = k.f46875a;
+    public static final boolean t = k.f46983a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11645e;
+    public Context f11727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f11646f;
+    public TextView f11728f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f11647g;
+    public LinearLayout f11729g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f11648h;
+    public View f11730h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f11649i;
+    public RecyclerView f11731i;
     public TextView j;
     public TextView k;
     public SimpleDraweeView l;
     public e m;
-    public d.a.l0.f.i.k.f.a n;
+    public d.a.m0.f.i.k.f.a n;
     public GamenowDownloadButtomView o;
     public GameGuideConfigInfo.CloseInfo p;
     public int q;
@@ -54,20 +54,20 @@ public class GamenowRecommendPopView extends RelativeLayout {
     public boolean s;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.l0.f.i.k.f.a {
+    public class a implements d.a.m0.f.i.k.f.a {
         public a() {
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public void a(int i2) {
-            d.a.l0.f.j.n.c.n().D(i2);
+            d.a.m0.f.j.n.c.n().D(i2);
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public void b() {
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public void c(DownloadState downloadState, int i2) {
             String str;
             if (GamenowRecommendPopView.this.r == downloadState) {
@@ -79,21 +79,21 @@ public class GamenowRecommendPopView extends RelativeLayout {
                 str = GamenowRecommendPopView.this.q == 2 ? "1" : "";
             }
             GamenowRecommendPopView.this.i(downloadState, str);
-            d.a.l0.f.j.n.c.n().E(downloadState);
+            d.a.m0.f.j.n.c.n().E(downloadState);
             GamenowRecommendPopView.this.r = downloadState;
             GamenowRecommendPopView.this.s = true;
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public void d(String str) {
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public String e() {
-            return d.a.l0.f.j.b.o.I();
+            return d.a.m0.f.j.b.o.I();
         }
 
-        @Override // d.a.l0.f.i.k.f.a
+        @Override // d.a.m0.f.i.k.f.a
         public void f(boolean z) {
         }
     }
@@ -107,13 +107,13 @@ public class GamenowRecommendPopView extends RelativeLayout {
         public void onClick(View view) {
             if (GamenowRecommendPopView.this.q != 0 && GamenowRecommendPopView.this.q != 1) {
                 if (GamenowRecommendPopView.this.q == 2) {
-                    d.a.l0.f.j.r.b.n().b("gbADialogClick", "1", "", "");
+                    d.a.m0.f.j.r.b.n().b("gbADialogClick", "1", "", "");
                 }
             } else {
-                d.a.l0.f.j.r.b.n().b("gbBDialogClick", "1", "", "");
+                d.a.m0.f.j.r.b.n().b("gbBDialogClick", "1", "", "");
             }
-            d.a.l0.f.j.n.c.n().w("");
-            d.a.l0.f.j.n.c.n().x("");
+            d.a.m0.f.j.n.c.n().w("");
+            d.a.m0.f.j.n.c.n().x("");
             if (GamenowRecommendPopView.this.m != null) {
                 GamenowRecommendPopView.this.m.a();
             }
@@ -128,9 +128,9 @@ public class GamenowRecommendPopView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (GamenowRecommendPopView.this.q == 2) {
-                d.a.l0.f.j.r.b.n().b("gbADialogClick", "2", "", "");
+                d.a.m0.f.j.r.b.n().b("gbADialogClick", "2", "", "");
             }
-            d.a.l0.f.j.n.c.n().s(true);
+            d.a.m0.f.j.n.c.n().s(true);
         }
     }
 
@@ -138,15 +138,15 @@ public class GamenowRecommendPopView extends RelativeLayout {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f11653e;
+        public final /* synthetic */ List f11735e;
 
         public d(List list) {
-            this.f11653e = list;
+            this.f11735e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            GamenowRecommendPopView.this.f11649i.setAdapter(new GamenowRecommendPopViewAdapter(GamenowRecommendPopView.this.f11645e, this.f11653e));
+            GamenowRecommendPopView.this.f11731i.setAdapter(new GamenowRecommendPopViewAdapter(GamenowRecommendPopView.this.f11727e, this.f11735e));
         }
     }
 
@@ -163,27 +163,27 @@ public class GamenowRecommendPopView extends RelativeLayout {
     public final void i(DownloadState downloadState, String str) {
         String str2;
         String str3;
-        String H = d.a.l0.f.j.b.o.H();
-        if (TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f50548a)) {
-            H = d.a.l0.f.j.n.c.n().o();
+        String H = d.a.m0.f.j.b.o.H();
+        if (TextUtils.equals(d.a.m0.f.j.b.o.I(), d.a.m0.f.j.m.c.f50656a)) {
+            H = d.a.m0.f.j.n.c.n().o();
         }
         String str4 = H;
         if (TextUtils.isEmpty(str) || !str.equals("2")) {
             str2 = "";
             str3 = str2;
         } else {
-            str2 = d.a.l0.f.j.n.c.n().l();
-            str3 = d.a.l0.f.j.n.c.n().m();
+            str2 = d.a.m0.f.j.n.c.n().l();
+            str3 = d.a.m0.f.j.n.c.n().m();
         }
         DownloadState downloadState2 = this.r;
         if (downloadState2 != DownloadState.DOWNLOAD_PAUSED && downloadState2 != DownloadState.DOWNLOAD_FAILED && downloadState == DownloadState.DOWNLOADING) {
-            d.a.l0.f.j.r.b.n().e("statusBeginDownload", "gbview", str, str2, str3, str4);
+            d.a.m0.f.j.r.b.n().e("statusBeginDownload", "gbview", str, str2, str3, str4);
         } else if (downloadState == DownloadState.DOWNLOAD_PAUSED) {
             if (this.s) {
-                d.a.l0.f.j.r.b.n().e("statusDownloadPause", "gbview", str, str2, str3, str4);
+                d.a.m0.f.j.r.b.n().e("statusDownloadPause", "gbview", str, str2, str3, str4);
             }
         } else if (downloadState == DownloadState.DOWNLOADED && this.s) {
-            d.a.l0.f.j.r.b.n().e("statusDownloaded", "gbview", str, str2, str3, str4);
+            d.a.m0.f.j.r.b.n().e("statusDownloaded", "gbview", str, str2, str3, str4);
         }
     }
 
@@ -197,24 +197,24 @@ public class GamenowRecommendPopView extends RelativeLayout {
         SimpleDraweeView simpleDraweeView;
         int i3 = this.q;
         if (i3 == 0 || i3 == 1) {
-            LayoutInflater.from(this.f11645e).inflate(i.aiapps_gamenow_recommend_game_view, this);
-            this.f11649i = (RecyclerView) findViewById(h.rv_guide_game);
-            this.f11649i.setLayoutManager(new GridLayoutManager(this.f11645e, 3));
+            LayoutInflater.from(this.f11727e).inflate(i.aiapps_gamenow_recommend_game_view, this);
+            this.f11731i = (RecyclerView) findViewById(h.rv_guide_game);
+            this.f11731i.setLayoutManager(new GridLayoutManager(this.f11727e, 3));
         } else if (i3 == 2) {
-            LayoutInflater.from(this.f11645e).inflate(i.aiapps_gamenow_recommend_view, this);
+            LayoutInflater.from(this.f11727e).inflate(i.aiapps_gamenow_recommend_view, this);
             this.j = (TextView) findViewById(h.gamenow_recommend_title);
             this.l = (SimpleDraweeView) findViewById(h.active_image_bg);
         }
         this.k = (TextView) findViewById(h.gamenow_recommend_sub_title);
-        this.f11646f = (TextView) findViewById(h.gamenow_guide_exit_game);
+        this.f11728f = (TextView) findViewById(h.gamenow_guide_exit_game);
         int parseColor = Color.parseColor("#333333");
         GradientDrawable gradientDrawable = null;
         try {
             if (!TextUtils.isEmpty(this.p.exitTextColor) && !this.p.exitTextColor.equals(StringUtil.NULL_STRING)) {
                 parseColor = Color.parseColor(this.p.exitTextColor);
             }
-            if (!TextUtils.isEmpty(this.p.exitBackgroundColor) && !this.p.exitBackgroundColor.equals(StringUtil.NULL_STRING) && (this.f11646f.getBackground() instanceof GradientDrawable)) {
-                GradientDrawable gradientDrawable2 = (GradientDrawable) this.f11646f.getBackground();
+            if (!TextUtils.isEmpty(this.p.exitBackgroundColor) && !this.p.exitBackgroundColor.equals(StringUtil.NULL_STRING) && (this.f11728f.getBackground() instanceof GradientDrawable)) {
+                GradientDrawable gradientDrawable2 = (GradientDrawable) this.f11728f.getBackground();
                 try {
                     gradientDrawable2.setColor(Color.parseColor(this.p.exitBackgroundColor));
                     gradientDrawable = gradientDrawable2;
@@ -224,46 +224,46 @@ public class GamenowRecommendPopView extends RelativeLayout {
                     if (t) {
                         e.printStackTrace();
                     }
-                    this.f11646f.setTextColor(parseColor);
-                    this.f11647g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
-                    this.f11648h = findViewById(h.rl_guide_game_bg);
+                    this.f11728f.setTextColor(parseColor);
+                    this.f11729g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
+                    this.f11730h = findViewById(h.rl_guide_game_bg);
                     this.n = new a();
                     i2 = this.q;
                     str = "2";
                     if (i2 != 0) {
                         str = "1";
                     }
-                    GamenowDownloadButtomView i4 = d.a.l0.f.j.n.c.n().i(this.n, "gbview", str);
+                    GamenowDownloadButtomView i4 = d.a.m0.f.j.n.c.n().i(this.n, "gbview", str);
                     this.o = i4;
-                    this.f11647g.addView(i4);
-                    this.f11646f.setOnClickListener(new b());
+                    this.f11729g.addView(i4);
+                    this.f11728f.setOnClickListener(new b());
                     simpleDraweeView = this.l;
                     if (simpleDraweeView != null) {
                     }
-                    d.a.l0.h.o0.g.f.e.b(this.f11646f, gradientDrawable);
+                    d.a.m0.h.o0.g.f.e.b(this.f11728f, gradientDrawable);
                 }
             }
         } catch (IllegalArgumentException e3) {
             e = e3;
         }
-        this.f11646f.setTextColor(parseColor);
-        this.f11647g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
-        this.f11648h = findViewById(h.rl_guide_game_bg);
+        this.f11728f.setTextColor(parseColor);
+        this.f11729g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
+        this.f11730h = findViewById(h.rl_guide_game_bg);
         this.n = new a();
         i2 = this.q;
         str = "2";
         if (i2 != 0 && i2 != 1 && i2 == 2) {
             str = "1";
         }
-        GamenowDownloadButtomView i42 = d.a.l0.f.j.n.c.n().i(this.n, "gbview", str);
+        GamenowDownloadButtomView i42 = d.a.m0.f.j.n.c.n().i(this.n, "gbview", str);
         this.o = i42;
-        this.f11647g.addView(i42);
-        this.f11646f.setOnClickListener(new b());
+        this.f11729g.addView(i42);
+        this.f11728f.setOnClickListener(new b());
         simpleDraweeView = this.l;
         if (simpleDraweeView != null) {
             simpleDraweeView.setOnClickListener(new c());
         }
-        d.a.l0.h.o0.g.f.e.b(this.f11646f, gradientDrawable);
+        d.a.m0.h.o0.g.f.e.b(this.f11728f, gradientDrawable);
     }
 
     public final void k() {
@@ -276,7 +276,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
         if (i2 != 0) {
             if (i2 != 1) {
                 i3 = 0;
-            } else if (d.a.l0.a.a2.e.Q() == null || d.a.l0.a.a2.e.Q().L().d0() != 1) {
+            } else if (d.a.m0.a.a2.e.Q() == null || d.a.m0.a.a2.e.Q().L().d0() != 1) {
                 i3 = 6;
             }
         }
@@ -331,7 +331,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
     public GamenowRecommendPopView(Context context, GameGuideConfigInfo.CloseInfo closeInfo) {
         super(context);
         this.r = DownloadState.NOT_START;
-        this.f11645e = context;
+        this.f11727e = context;
         this.p = closeInfo;
         this.q = closeInfo.type;
         j();

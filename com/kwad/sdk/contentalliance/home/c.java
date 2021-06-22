@@ -9,33 +9,33 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f33313a;
+    public static long f33411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<AdTemplate> f33314b = new ArrayList();
+    public static List<AdTemplate> f33412b = new ArrayList();
 
     @MainThread
     public static void a(List<AdTemplate> list) {
         c();
-        f33313a = System.currentTimeMillis();
-        f33314b.addAll(list);
+        f33411a = System.currentTimeMillis();
+        f33412b.addAll(list);
     }
 
     public static boolean a() {
-        if (System.currentTimeMillis() - f33313a > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+        if (System.currentTimeMillis() - f33411a > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             c();
             return false;
         }
-        return !f33314b.isEmpty();
+        return !f33412b.isEmpty();
     }
 
     @MainThread
     public static List<AdTemplate> b() {
-        return f33314b;
+        return f33412b;
     }
 
     @MainThread
     public static void c() {
-        f33314b.clear();
+        f33412b.clear();
     }
 }

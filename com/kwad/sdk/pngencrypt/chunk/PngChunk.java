@@ -5,28 +5,28 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public abstract class PngChunk {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f36833a;
+    public final String f36931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f36834b;
+    public final boolean f36932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f36835c;
+    public final boolean f36933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f36836d;
+    public final boolean f36934d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f36837e;
+    public final com.kwad.sdk.pngencrypt.k f36935e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f36838f;
+    public d f36936f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36840h = false;
+    public boolean f36938h = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36839g = -1;
+    public int f36937g = -1;
 
     /* loaded from: classes7.dex */
     public enum ChunkOrderingConstraint {
@@ -78,29 +78,29 @@ public abstract class PngChunk {
     }
 
     public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.f36833a = str;
-        this.f36837e = kVar;
-        this.f36834b = b.b(str);
-        this.f36835c = b.c(str);
-        this.f36836d = b.d(str);
+        this.f36931a = str;
+        this.f36935e = kVar;
+        this.f36932b = b.b(str);
+        this.f36933c = b.c(str);
+        this.f36934d = b.d(str);
     }
 
     public int a() {
-        d dVar = this.f36838f;
+        d dVar = this.f36936f;
         if (dVar != null) {
-            return dVar.f36856a;
+            return dVar.f36954a;
         }
         return -1;
     }
 
     public final void a(int i2) {
-        this.f36839g = i2;
+        this.f36937g = i2;
     }
 
     public abstract void a(d dVar);
 
     public long b() {
-        d dVar = this.f36838f;
+        d dVar = this.f36936f;
         if (dVar != null) {
             return dVar.c();
         }
@@ -108,10 +108,10 @@ public abstract class PngChunk {
     }
 
     public void b(d dVar) {
-        this.f36838f = dVar;
+        this.f36936f = dVar;
     }
 
     public String toString() {
-        return "chunk id= " + this.f36833a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+        return "chunk id= " + this.f36931a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

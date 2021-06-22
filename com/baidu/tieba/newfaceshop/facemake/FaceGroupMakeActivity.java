@@ -34,14 +34,14 @@ import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.m0.r.s.a;
-import d.a.m0.z0.i0;
-import d.a.n0.z1.g.d;
+import d.a.n0.r.s.a;
+import d.a.n0.z0.i0;
+import d.a.o0.z1.g.d;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInformationModel.b {
     public static final int NO_FORUM_ID = 0;
     public ImageView ivArrow;
@@ -53,7 +53,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public BazhuInfoData.BaInfo mChoosedData;
     public ArrayList<FaceData> mChoosedImageList;
     public EditText mEditName;
-    public d.a.n0.z1.g.d mEmotionAdapter;
+    public d.a.o0.z1.g.d mEmotionAdapter;
     public GridView mGridView;
     public FaceImageLayout mLayoutImage;
     public LinearLayout mLayoutRoot;
@@ -66,7 +66,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public boolean isFromBazhu = false;
     public boolean isBarEmotion = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -77,7 +77,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -101,7 +101,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                         ArrayList arrayList = new ArrayList();
                         arrayList.addAll(FaceGroupMakeActivity.this.mChoosedImageList);
                         arrayList.remove(FaceGroupMakeActivity.this.mAddIconData);
-                        d.a.n0.z1.g.e.l().A(trim, arrayList, null, FaceGroupMakeActivity.this.mChoosedData != null ? FaceGroupMakeActivity.this.mChoosedData.forum_id : 0);
+                        d.a.o0.z1.g.e.l().A(trim, arrayList, null, FaceGroupMakeActivity.this.mChoosedData != null ? FaceGroupMakeActivity.this.mChoosedData.forum_id : 0);
                         Intent intent = new Intent();
                         intent.putExtra("uploading", true);
                         FaceGroupMakeActivity.this.setResult(-1, intent);
@@ -119,7 +119,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements FaceImageLayout.a {
         public c() {
         }
@@ -130,7 +130,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
         public d() {
         }
@@ -141,43 +141,43 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements a.e {
         public e() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.n0.z1.g.e.l().i();
+            d.a.o0.z1.g.e.l().i();
             FaceGroupMakeActivity.this.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements a.e {
         public f() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18644e;
+        public int f18726e;
 
         public g(int i2) {
-            this.f18644e = i2;
+            this.f18726e = i2;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
-            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i5 - i4)) + i0.b(charSequence.toString()) <= this.f18644e) {
+            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i5 - i4)) + i0.b(charSequence.toString()) <= this.f18726e) {
                 return charSequence;
             }
             FaceGroupMakeActivity.this.showToast(R.string.package_add_name_max);
@@ -234,7 +234,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mTvAddPicTip = (TextView) findViewById(R.id.tv_add_pic_tip);
         updateAddPicTip();
         this.mGridView = (GridView) findViewById(R.id.grid_view);
-        d.a.n0.z1.g.d dVar = new d.a.n0.z1.g.d(this.mChoosedImageList);
+        d.a.o0.z1.g.d dVar = new d.a.o0.z1.g.d(this.mChoosedImageList);
         this.mEmotionAdapter = dVar;
         dVar.f(this);
         this.mGridView.setAdapter((ListAdapter) this.mEmotionAdapter);
@@ -262,7 +262,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     }
 
     private void loadDraft() {
-        FaceGroupDraft k = d.a.n0.z1.g.e.l().k();
+        FaceGroupDraft k = d.a.o0.z1.g.e.l().k();
         if (k != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.mEditName.setText(k.getName());
@@ -280,7 +280,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public void onBack() {
         ArrayList<FaceData> arrayList = this.mChoosedImageList;
         if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.mEditName.getText())) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.mActivity);
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(this.mActivity);
             aVar.setMessage(getResources().getString(R.string.face_group_make_back_tip));
             aVar.setPositiveButton(R.string.confirm, new e());
             aVar.setNegativeButton(R.string.cancel, new f());
@@ -331,7 +331,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    @Override // d.a.n0.z1.g.d.c
+    @Override // d.a.o0.z1.g.d.c
     public void onAdd() {
         ArrayList<FaceData> arrayList = this.mChoosedImageList;
         if (arrayList != null && arrayList.size() - 1 >= 24) {
@@ -394,7 +394,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mAddIconData = faceData;
         faceData.type = 4;
         this.mChoosedImageList.add(faceData);
-        if (this.isFromBazhu && ((k = d.a.n0.z1.g.e.l().k()) == null || k.getForumId() != 0)) {
+        if (this.isFromBazhu && ((k = d.a.o0.z1.g.e.l().k()) == null || k.getForumId() != 0)) {
             this.isBarEmotion = true;
         }
         initView();
@@ -404,7 +404,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    @Override // d.a.n0.z1.g.d.c
+    @Override // d.a.o0.z1.g.d.c
     public void onDel(FaceData faceData) {
         if (faceData == null) {
             return;
@@ -434,7 +434,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mChooseBarTv.setClickable(true);
         this.mChooseBarTv.setText(R.string.face_make_choose_forum);
         SkinManager.setViewTextColor(this.mChooseBarTv, R.color.CAM_X0304);
-        FaceGroupDraft k = d.a.n0.z1.g.e.l().k();
+        FaceGroupDraft k = d.a.o0.z1.g.e.l().k();
         if (k == null || k.getForumId() == 0) {
             return;
         }

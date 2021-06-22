@@ -4,13 +4,13 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.a.l0.a.c1.a;
-import d.a.l0.a.k;
-import d.a.l0.a.m2.b;
+import d.a.m0.a.c1.a;
+import d.a.m0.a.k;
+import d.a.m0.a.m2.b;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanJSVersionUpdateEvent {
-    public static final boolean DEBUG = k.f46875a;
+    public static final boolean DEBUG = k.f46983a;
     public static final String TAG = "SwanJSVersionUpdateEven";
     public final long mVersionCode;
     public final String mVersionName;

@@ -9,7 +9,7 @@ import java.util.List;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Ordering<Constructor<?>> f70087a = Ordering.natural().onResultOf(new a()).reverse();
+    public static final Ordering<Constructor<?>> f70191a = Ordering.natural().onResultOf(new a()).reverse();
 
     /* loaded from: classes6.dex */
     public static class a implements d.g.c.a.g<Constructor<?>, Boolean> {
@@ -73,6 +73,6 @@ public final class h {
     }
 
     public static <X extends Exception> List<Constructor<X>> f(List<Constructor<X>> list) {
-        return (List<Constructor<X>>) f70087a.sortedCopy(list);
+        return (List<Constructor<X>>) f70191a.sortedCopy(list);
     }
 }

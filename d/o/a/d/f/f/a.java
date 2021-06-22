@@ -22,31 +22,31 @@ import d.o.a.d.n.k;
 public class a extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f70574e;
+    public TextView f70678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f70575f;
+    public TextView f70679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f70576g;
+    public TextView f70680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f70577h;
+    public TextView f70681h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f70578i;
+    public TextView f70682i;
     public TextView j;
     public ClipImageView k;
     public LinearLayout l;
     public Activity m;
     public final long n;
     public long o;
-    public final c.C1926c p;
+    public final c.C1929c p;
 
     /* renamed from: d.o.a.d.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class DialogInterface$OnCancelListenerC1928a implements DialogInterface.OnCancelListener {
-        public DialogInterface$OnCancelListenerC1928a() {
+    public class DialogInterface$OnCancelListenerC1931a implements DialogInterface.OnCancelListener {
+        public DialogInterface$OnCancelListenerC1931a() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -129,24 +129,24 @@ public class a extends Dialog {
     }
 
     public final void b() {
-        this.f70574e = (TextView) findViewById(d.o.a.d.b.tv_app_name);
-        this.f70575f = (TextView) findViewById(d.o.a.d.b.tv_app_version);
-        this.f70576g = (TextView) findViewById(d.o.a.d.b.tv_app_developer);
-        this.f70577h = (TextView) findViewById(d.o.a.d.b.tv_app_detail);
-        this.f70578i = (TextView) findViewById(d.o.a.d.b.tv_app_privacy);
+        this.f70678e = (TextView) findViewById(d.o.a.d.b.tv_app_name);
+        this.f70679f = (TextView) findViewById(d.o.a.d.b.tv_app_version);
+        this.f70680g = (TextView) findViewById(d.o.a.d.b.tv_app_developer);
+        this.f70681h = (TextView) findViewById(d.o.a.d.b.tv_app_detail);
+        this.f70682i = (TextView) findViewById(d.o.a.d.b.tv_app_privacy);
         this.j = (TextView) findViewById(d.o.a.d.b.tv_give_up);
         this.k = (ClipImageView) findViewById(d.o.a.d.b.iv_app_icon);
         this.l = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
-        this.f70574e.setText(k.m(this.p.f70525d, "--"));
-        TextView textView = this.f70575f;
-        textView.setText("版本号：" + k.m(this.p.f70526e, "--"));
-        TextView textView2 = this.f70576g;
-        textView2.setText("开发者：" + k.m(this.p.f70527f, "应用信息正在完善中"));
+        this.f70678e.setText(k.m(this.p.f70629d, "--"));
+        TextView textView = this.f70679f;
+        textView.setText("版本号：" + k.m(this.p.f70630e, "--"));
+        TextView textView2 = this.f70680g;
+        textView2.setText("开发者：" + k.m(this.p.f70631f, "应用信息正在完善中"));
         this.k.setRoundRadius(k.b(n.a(), 8.0f));
         this.k.setBackgroundColor(Color.parseColor("#EBEBEB"));
         com.ss.android.downloadlib.addownload.compliance.d.a().a(this.n, new b());
-        this.f70577h.setOnClickListener(new c());
-        this.f70578i.setOnClickListener(new d());
+        this.f70681h.setOnClickListener(new c());
+        this.f70682i.setOnClickListener(new d());
         this.j.setOnClickListener(new e());
         this.l.setOnClickListener(new f());
     }
@@ -172,9 +172,9 @@ public class a extends Dialog {
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        this.o = this.p.f70523b;
+        this.o = this.p.f70627b;
         b();
         d.o.a.d.f.f.c.f("lp_app_dialog_show", this.o);
-        setOnCancelListener(new DialogInterface$OnCancelListenerC1928a());
+        setOnCancelListener(new DialogInterface$OnCancelListenerC1931a());
     }
 }

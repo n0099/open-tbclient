@@ -11,11 +11,11 @@ import java.util.Set;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<Type> f70078a = Sets.c();
+    public final Set<Type> f70182a = Sets.c();
 
     public final void a(Type... typeArr) {
         for (Type type : typeArr) {
-            if (type != null && this.f70078a.add(type)) {
+            if (type != null && this.f70182a.add(type)) {
                 try {
                     if (type instanceof TypeVariable) {
                         e((TypeVariable) type);
@@ -31,7 +31,7 @@ public abstract class g {
                         throw new AssertionError("Unknown type: " + type);
                     }
                 } catch (Throwable th) {
-                    this.f70078a.remove(type);
+                    this.f70182a.remove(type);
                     throw th;
                 }
             }

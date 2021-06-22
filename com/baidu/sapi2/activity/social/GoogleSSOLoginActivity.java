@@ -25,7 +25,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             int statusCode = e2.getStatusCode();
             String message = e2.getMessage();
             Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-            a(((BaseSSOLoginActivity) this).f9790g, statusCode, message);
+            a(((BaseSSOLoginActivity) this).f9811g, statusCode, message);
         }
     }
 

@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.imageloader.cache.disc.naming;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HashCodeFileNameGenerator implements FileNameGenerator {
     @Override // com.kwad.sdk.core.imageloader.cache.disc.naming.FileNameGenerator
     public String generate(String str) {

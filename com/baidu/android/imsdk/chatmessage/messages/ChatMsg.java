@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -839,7 +840,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     }
 
     public String toString() {
-        return " ChatMsg:[ type=" + this.mType + " , category=" + this.mCategory + " , fromid=" + this.mFromUser + " , senduid=" + this.senderUid + " , contacterId=" + this.mContacter + ", json=" + this.mjsonContent + " , msgId=" + this.mMsgId + " , sendmsgid = " + this.sendMsgId + ", isread=" + this.mIsRead + " , time=" + this.mTime + " , triggerReasonn=" + this.mTriggerReasonn + "]";
+        return " ChatMsg:[ type=" + this.mType + " , category=" + this.mCategory + " , fromid=" + this.mFromUser + " , senduid=" + this.senderUid + " , contacterId=" + this.mContacter + ", json=" + this.mjsonContent + " , msgId=" + this.mMsgId + " , sendmsgid = " + this.sendMsgId + ", isread=" + this.mIsRead + " , time=" + this.mTime + " , triggerReasonn=" + this.mTriggerReasonn + PreferencesUtil.RIGHT_MOUNT;
     }
 
     @Override // android.os.Parcelable

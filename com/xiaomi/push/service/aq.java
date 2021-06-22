@@ -11,7 +11,7 @@ import java.util.List;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f41736a;
+    public static volatile aq f41839a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f895a;
@@ -50,14 +50,14 @@ public class aq {
     }
 
     public static aq a(Context context) {
-        if (f41736a == null) {
+        if (f41839a == null) {
             synchronized (aq.class) {
-                if (f41736a == null) {
-                    f41736a = new aq(context);
+                if (f41839a == null) {
+                    f41839a = new aq(context);
                 }
             }
         }
-        return f41736a;
+        return f41839a;
     }
 
     private String a(int i2) {

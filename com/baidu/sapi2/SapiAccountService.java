@@ -217,8 +217,51 @@ public final class SapiAccountService implements ISAccountService {
         return this.sapiAccountRepository.getContactAddressUrl() + "?" + getRequestParams();
     }
 
+    public String getAuthRequestParams(boolean z) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new PassNameValuePair("clientfrom", "native"));
+        if (z) {
+            arrayList.add(new PassNameValuePair("tpl", "tspd_trade"));
+        } else {
+            arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
+        }
+        arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
+        arrayList.add(new PassNameValuePair("client", "android"));
+        if (this.configuration.showBottomBack) {
+            arrayList.add(new PassNameValuePair("adapter", "8"));
+        } else {
+            arrayList.add(new PassNameValuePair("adapter", this.configuration.customActionBarEnabled ? "3" : ""));
+        }
+        arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
+        arrayList.add(new PassNameValuePair("act", this.configuration.socialBindType.getName()));
+        arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.configuration.smsLoginConfig.flagHideExtraEntry.ordinal())));
+        arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowLoginLink.ordinal())));
+        arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
+        arrayList.add(new PassNameValuePair("lPFastRegLink", String.valueOf(this.configuration.smsLoginConfig.flagShowFastRegLink.ordinal())));
+        arrayList.add(new PassNameValuePair("lPlayout", String.valueOf(this.configuration.configurableViewLayout.ordinal())));
+        if (this.configuration.uniteVerify) {
+            arrayList.add(new PassNameValuePair("connect", "1"));
+        }
+        if (this.configuration.language == Language.ENGLISH) {
+            arrayList.add(new PassNameValuePair("lang", "en"));
+        }
+        arrayList.add(new PassNameValuePair("suppcheck", "1"));
+        if (this.configuration.supportFaceLogin) {
+            arrayList.add(new PassNameValuePair("scanface", "1"));
+            arrayList.add(new PassNameValuePair("liveAbility", "1"));
+        }
+        if (this.configuration.disableVoiceVerify) {
+            arrayList.add(new PassNameValuePair("disable_voice_vcode", "1"));
+        }
+        return SapiUtils.createRequestParams(arrayList);
+    }
+
+    public String getAuthWidgetUrl(boolean z) {
+        return this.sapiAccountRepository.getAuthWidgetUrl() + "?" + getAuthRequestParams(z);
+    }
+
     public int getBdussState() {
-        return new OpenBdussService(this.configuration, "9.3.2.5").getBdussState();
+        return new OpenBdussService(this.configuration, "9.3.6").getBdussState();
     }
 
     public String getBindWidgetUrl(BindWidgetAction bindWidgetAction) {
@@ -231,11 +274,11 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void getCaptcha(SapiCallback<GetCaptchaResult> sapiCallback) {
-        EnhancedService.getInstance(this.configuration, "9.3.2.5").getCaptcha(sapiCallback);
+        EnhancedService.getInstance(this.configuration, "9.3.6").getCaptcha(sapiCallback);
     }
 
     public String getCaptchaKey() {
-        return EnhancedService.getInstance(this.configuration, "9.3.2.5").getCaptchaKey();
+        return EnhancedService.getInstance(this.configuration, "9.3.6").getCaptchaKey();
     }
 
     public String getChildVerifyUrl() {
@@ -243,7 +286,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void getContacts(GetContactsCallback getContactsCallback, GetContactsDTO getContactsDTO) {
-        GetContactsService.getInstance(this.configuration, "9.3.2.5").getContacts(getContactsCallback, getContactsDTO);
+        GetContactsService.getInstance(this.configuration, "9.3.6").getContacts(getContactsCallback, getContactsDTO);
     }
 
     @Deprecated
@@ -266,7 +309,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
-        new PortraitService(this.configuration, "9.3.2.5").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
+        new PortraitService(this.configuration, "9.3.6").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
     }
 
     public String getInvoiceBuildUrl() {
@@ -315,7 +358,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void getOpenBduss(GetOpenBdussDTO getOpenBdussDTO, GetOpenBdussCallback getOpenBdussCallback) {
-        new OpenBdussService(this.configuration, "9.3.2.5").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
+        new OpenBdussService(this.configuration, "9.3.6").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
     }
 
     public JSONObject getPhoneNumAndOperatorType() {
@@ -323,11 +366,15 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
-        new PortraitService(this.configuration, "9.3.2.5").getPopularPortraitsInfo(getPopularPortraitsCallback, str, portraitCategory);
+        new PortraitService(this.configuration, "9.3.6").getPopularPortraitsInfo(getPopularPortraitsCallback, str, portraitCategory);
     }
 
     public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
-        QrCodeService.getInstance(this.configuration, "9.3.2.5").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
+        QrCodeService.getInstance(this.configuration, "9.3.6").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
+    }
+
+    public void getQrCodeLoginWithEncuidImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+        QrCodeService.getInstance(this.configuration, "9.3.6").getQrCodeLoginWithEnuidImage(sapiCallback, getQrCodeImageDTO, str, str2);
     }
 
     public String getRealnameAuthenticateUrl() {
@@ -424,24 +471,24 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
-        QrCodeService.getInstance(this.configuration, "9.3.2.5").qrAppLogin(sapiCallback, str, str2);
+        QrCodeService.getInstance(this.configuration, "9.3.6").qrAppLogin(sapiCallback, str, str2);
     }
 
     public void qrJoinLoginStatusCheck(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
         qrLoginStstusCheckDTO.isJoinCodeLogin = true;
-        QrCodeService.getInstance(this.configuration, "9.3.2.5").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
+        QrCodeService.getInstance(this.configuration, "9.3.6").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
     }
 
     public void qrLoginStatusCheck(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
-        QrCodeService.getInstance(this.configuration, "9.3.2.5").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
+        QrCodeService.getInstance(this.configuration, "9.3.6").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
     }
 
     public void relaseContactsSource() {
-        GetContactsService.getInstance(this.configuration, "9.3.2.5").relaseContactsSource();
+        GetContactsService.getInstance(this.configuration, "9.3.6").relaseContactsSource();
     }
 
     public void sendContactsSms(SendSmsDTO sendSmsDTO) {
-        GetContactsService.getInstance(this.configuration, "9.3.2.5").sendSMS(sendSmsDTO);
+        GetContactsService.getInstance(this.configuration, "9.3.6").sendSMS(sendSmsDTO);
     }
 
     public void setCloudShareAccount(int i2, ShareStorage.StorageModel storageModel) {
@@ -449,7 +496,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void setPopularPortrait(SetPopularPortraitCallback setPopularPortraitCallback, SetPopularPortraitDTO setPopularPortraitDTO) {
-        new PortraitService(this.configuration, "9.3.2.5").setPopularPortrait(setPopularPortraitCallback, setPopularPortraitDTO);
+        new PortraitService(this.configuration, "9.3.6").setPopularPortrait(setPopularPortraitCallback, setPopularPortraitDTO);
     }
 
     @Deprecated
@@ -462,7 +509,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void stopQrLoginStatusCheck() {
-        QrCodeService.getInstance(this.configuration, "9.3.2.5").stopLoginStatusCheck();
+        QrCodeService.getInstance(this.configuration, "9.3.6").stopLoginStatusCheck();
     }
 
     public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {
@@ -483,16 +530,16 @@ public final class SapiAccountService implements ISAccountService {
 
     @Deprecated
     public void dynamicPwdLogin(SapiCallback<DynamicPwdLoginResult> sapiCallback, String str, String str2) {
-        EnhancedService.getInstance(this.configuration, "9.3.2.5").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
+        EnhancedService.getInstance(this.configuration, "9.3.6").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
     }
 
     @Deprecated
     public void getDynamicPwd(SapiCallback<GetDynamicPwdResult> sapiCallback, String str) {
-        EnhancedService.getInstance(this.configuration, "9.3.2.5").getDynamicPwd(sapiCallback, str);
+        EnhancedService.getInstance(this.configuration, "9.3.6").getDynamicPwd(sapiCallback, str);
     }
 
     public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str) {
-        new PortraitService(this.configuration, "9.3.2.5").getPopularPortraitsInfo(getPopularPortraitsCallback, str, PortraitCategory.NORMAL);
+        new PortraitService(this.configuration, "9.3.6").getPopularPortraitsInfo(getPopularPortraitsCallback, str, PortraitCategory.NORMAL);
     }
 
     public String getRequestParams(boolean z) {
@@ -522,6 +569,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new PassNameValuePair("suppcheck", "1"));
         if (this.configuration.supportFaceLogin) {
             arrayList.add(new PassNameValuePair("scanface", "1"));
+            arrayList.add(new PassNameValuePair("liveAbility", "1"));
         }
         if (this.configuration.disableVoiceVerify) {
             arrayList.add(new PassNameValuePair("disable_voice_vcode", "1"));
@@ -592,15 +640,15 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map<String, String> map) {
-        EnhancedService.getInstance(this.configuration, "9.3.2.5").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
+        EnhancedService.getInstance(this.configuration, "9.3.6").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
     }
 
     public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map<String, String> map) {
-        EnhancedService.getInstance(this.configuration, "9.3.2.5").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
+        EnhancedService.getInstance(this.configuration, "9.3.6").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
     }
 
     public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
-        new PortraitService(this.configuration, "9.3.2.5").setPortrait(setPortraitDTO, setPortraitCallback);
+        new PortraitService(this.configuration, "9.3.6").setPortrait(setPortraitDTO, setPortraitCallback);
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountService

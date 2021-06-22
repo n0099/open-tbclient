@@ -1,196 +1,77 @@
 package d.a.n0.m0;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.R;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.faceshop.QueryDownloadMessage;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class f {
-
-    /* renamed from: f  reason: collision with root package name */
-    public static f f60926f = new f();
-
-    /* renamed from: a  reason: collision with root package name */
-    public c f60927a;
+/* loaded from: classes3.dex */
+public class f extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f60928b;
+    public long f53310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60929c = 5;
+    public long f53311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f60930d = new a(2001140);
+    public long f53312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f60931e = new b(2001119);
+    public int f53313e;
 
-    /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public a(int i2) {
-            super(i2);
+    /* renamed from: f  reason: collision with root package name */
+    public long f53314f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f53315g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public b f53316h = null;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Handler f53317i = new a(Looper.getMainLooper());
+
+    /* loaded from: classes3.dex */
+    public class a extends Handler {
+        public a(Looper looper) {
+            super(looper);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                f.this.d();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                f.this.f60928b = ((QueryDownloadMessage) customResponsedMessage).getData();
-                f fVar = f.this;
-                fVar.g(fVar.f60928b);
-            }
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            f.this.f53316h = new b();
+            f.this.f53316h.setSelfExecute(true);
+            f.this.f53316h.execute(new String[0]);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
-        public c() {
+    /* loaded from: classes3.dex */
+    public class b extends BdAsyncTask<String, Integer, Boolean> {
+        public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<DownloadData> doInBackground(List<String>... listArr) {
-            LinkedList linkedList = new LinkedList();
-            if (listArr[0] == null) {
-                return linkedList;
-            }
-            for (int i2 = 0; i2 < listArr[0].size(); i2++) {
-                MyEmotionGroupData d2 = d.a.n0.m0.a.c().d(TbadkCoreApplication.getCurrentAccount(), listArr[0].get(i2));
-                if (d2 != null && d.a.n0.m0.b.d(d2.getGroupId())) {
-                    DownloadData downloadData = new DownloadData(d2.getGroupId());
-                    downloadData.setStatus(3);
-                    linkedList.add(downloadData);
-                }
-            }
-            return linkedList;
+        public void onPostExecute(Boolean bool) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<DownloadData> list) {
-            super.onPostExecute(list);
-            if (list == null) {
-                list = new LinkedList<>();
-            }
-            for (DownloadData downloadData : d.a.m0.v.d.j().i()) {
-                for (String str : f.this.f60928b) {
-                    if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
-                        list.add(downloadData);
-                    }
-                }
-            }
-            f.this.h(list);
+        public Boolean doInBackground(String... strArr) {
+            f.this.f53315g = k.d().a();
+            f.this.e();
+            return Boolean.TRUE;
         }
     }
 
-    public f() {
-        MessageManager.getInstance().registerListener(this.f60931e);
-        MessageManager.getInstance().registerListener(this.f60930d);
-    }
-
-    public static f f() {
-        return f60926f;
-    }
-
-    public void d() {
-        d.a.m0.v.d.j().h(11);
-    }
-
-    public void e(String str) {
-        d.a.m0.v.d.j().f(str, 11);
-    }
-
-    public final void g(List<String> list) {
-        c cVar = new c();
-        this.f60927a = cVar;
-        cVar.execute(list);
-    }
-
-    public void h(List<DownloadData> list) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-    }
-
-    public void i(DownloadData downloadData) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(downloadData);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-    }
-
-    public void j(String str, String str2, String str3) {
-        if (d.a.c.e.p.k.isEmpty(str) || d.a.c.e.p.k.isEmpty(str3)) {
-            return;
+    public final void e() {
+        i iVar = (i) k.d().e(this.f53320a);
+        if (iVar != null) {
+            iVar.c(this);
         }
-        DownloadData downloadData = new DownloadData(str, str2, str3, new e());
-        downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-        downloadData.setType(11);
-        String[] split = str3.split("/");
-        if (split.length > 1) {
-            String[] split2 = split[split.length - 1].split("_");
-            if (split2 != null) {
-                if (split2.length == 5) {
-                    downloadData.setDescription(split2[1]);
-                    downloadData.setCheck(split2[2]);
-                    downloadData.setWidth(d.a.c.e.m.b.d(split2[3], 200));
-                    downloadData.setHeight(d.a.c.e.m.b.d(split2[4].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0], 200));
-                } else if (split2.length == 3) {
-                    downloadData.setDescription(split2[1]);
-                    downloadData.setCheck(split2[2].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0]);
-                    downloadData.setWidth(200);
-                    downloadData.setHeight(200);
-                } else {
-                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-                    downloadData.setStatus(2);
-                }
-            } else {
-                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-                downloadData.setStatus(2);
-            }
-        } else {
-            downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-            downloadData.setStatus(2);
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
-        sb.append(FileHelper.getPrefixByType(2));
-        File file = new File(sb.toString());
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        sb.append("/");
-        sb.append(str);
-        downloadData.setPath(sb.toString());
-        BdLog.d("download:path:" + downloadData.getPath());
-        d.a.m0.v.d.j().l(downloadData, this.f60929c);
+    }
+
+    public void f() {
+        this.f53317i.sendEmptyMessage(0);
     }
 }

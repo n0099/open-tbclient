@@ -1,13 +1,31 @@
 package d.a.n0.c1.a;
-
-import java.util.Random;
-/* loaded from: classes4.dex */
-public final class a {
+/* loaded from: classes3.dex */
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Random f56000a = new Random();
+    public String f52999a;
 
-    public static int a(int i2, int i3) {
-        return i2 >= i3 ? i2 : (int) ((f56000a.nextFloat() * (i3 - i2)) + i2);
+    /* renamed from: b  reason: collision with root package name */
+    public String f53000b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f53001c;
+
+    public a(String str, String str2, String str3) {
+        this.f52999a = str;
+        this.f53000b = str2;
+        this.f53001c = str3;
+    }
+
+    public String a() {
+        return this.f53001c;
+    }
+
+    public String b() {
+        return this.f53000b;
+    }
+
+    public String c() {
+        return this.f52999a;
     }
 }

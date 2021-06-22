@@ -43,9 +43,9 @@ import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.l.a;
-import d.a.m0.s.c.i;
-import d.a.m0.z0.n0;
+import d.a.n0.r.l.a;
+import d.a.n0.s.c.i;
+import d.a.n0.z0.n0;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -85,7 +85,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public Timer mTimer;
     public String mUrl;
     public String mUrlTitle;
-    public d.a.m0.l.e mView;
+    public d.a.n0.l.e mView;
     public static final String SHOUBAI_SCHEME = "baiduboxapp";
     public static final String[] ALLOWED_NATIVE_SCHEME = {SHOUBAI_SCHEME, "com.baidu.nani"};
     public final String SHOW_MORE_FORUM_ICON = "1";
@@ -128,9 +128,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (!TextUtils.isEmpty(BaseWebViewActivity.this.getShareInfo())) {
                 BaseWebViewActivity baseWebViewActivity = BaseWebViewActivity.this;
                 ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
-                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f12021e;
+                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f12103e;
                 if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
-                    d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(BaseWebViewActivity.this);
+                    d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(BaseWebViewActivity.this);
                     if (threadAchievementShareDialogView.h(BaseWebViewActivity.this.getPageContext(), aVar)) {
                         aVar.setContentViewSize(2);
                         aVar.setContentView(threadAchievementShareDialogView);
@@ -187,7 +187,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 BaseWebViewActivity.this.showToast(R.string.neterror);
                 return;
             }
-            d.a.m0.l.e eVar = BaseWebViewActivity.this.mView;
+            d.a.n0.l.e eVar = BaseWebViewActivity.this.mView;
             if (eVar != null) {
                 eVar.i();
             }
@@ -300,14 +300,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
 
     private boolean isNeedUpdateCookie() {
         String str;
-        a.b d2 = d.a.m0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
+        a.b d2 = d.a.n0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f53539a;
+            String str3 = d2.f53646a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f53540b;
+            str = d2.f53647b;
             if (str == null) {
                 str = "";
             }
@@ -491,7 +491,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.v = Uri.parse(str4);
         }
-        shareItem.f12663g = true;
+        shareItem.f12745g = true;
         shareItem.q = this.mUrl;
         shareItem.E = 13;
         Bundle bundle = new Bundle();
@@ -511,7 +511,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a012";
     }
@@ -615,7 +615,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (k.isEmpty(shareInfoUrl)) {
                 shareInfoUrl = this.mUrl;
             }
-            d.a.m0.l.a.j(pageActivity, shareInfoUrl);
+            d.a.n0.l.a.j(pageActivity, shareInfoUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
             this.mView.e();
             String shareInfoUrl2 = getShareInfoUrl();
@@ -669,7 +669,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initWebView();
-        this.mView = new d.a.m0.l.e(this);
+        this.mView = new d.a.n0.l.e(this);
         initData();
         this.mView.l();
         this.mView.x(this.mOnRefreshClickListener);
@@ -679,7 +679,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.w(this.mUrlTitle);
         }
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f53131b, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f53238b, R.color.CAM_X0303, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -702,7 +702,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         webViewDestory();
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         stopLoadTimer();
-        d.a.m0.l.e eVar = this.mView;
+        d.a.n0.l.e eVar = this.mView;
         if (eVar != null) {
             eVar.o();
         }
@@ -753,7 +753,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllDialog();
         dismissAllPopupWindow();
         hideListMenu();
-        d.a.m0.l.e eVar = this.mView;
+        d.a.n0.l.e eVar = this.mView;
         if (eVar != null) {
             eVar.e();
         }
@@ -762,7 +762,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        d.a.m0.l.e eVar = this.mView;
+        d.a.n0.l.e eVar = this.mView;
         if (eVar != null) {
             eVar.s(z);
         }
@@ -856,7 +856,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     public void showTipToast(boolean z, String str) {
-        d.a.m0.l.e eVar = this.mView;
+        d.a.n0.l.e eVar = this.mView;
         if (eVar != null) {
             eVar.J(z, str);
         }

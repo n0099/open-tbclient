@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
 import d.a.c.e.p.j;
-import d.a.n0.n1.d;
-import d.a.n0.n1.g;
+import d.a.o0.n1.d;
+import d.a.o0.n1.g;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
@@ -40,7 +40,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, d.a.n0.n1.l.b.a aVar) {
+        public void a(int i2, String str, d.a.o0.n1.l.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
             int i3 = 1;
             if (i2 == 0 && aVar != null) {

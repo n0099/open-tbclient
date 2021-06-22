@@ -3,10 +3,10 @@ package com.kuaishou.aegon.httpdns;
 public final /* synthetic */ class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ResolveFinishedInfo f32164a;
+    public final ResolveFinishedInfo f32262a;
 
     public d(ResolveFinishedInfo resolveFinishedInfo) {
-        this.f32164a = resolveFinishedInfo;
+        this.f32262a = resolveFinishedInfo;
     }
 
     public static Runnable a(ResolveFinishedInfo resolveFinishedInfo) {
@@ -15,6 +15,6 @@ public final /* synthetic */ class d implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.sLogger.onResolveFinish(this.f32164a);
+        HttpDnsResolver.sLogger.onResolveFinish(this.f32262a);
     }
 }

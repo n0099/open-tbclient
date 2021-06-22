@@ -22,5 +22,5 @@ public final class a {
     public static final int f8978f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f8979g = "9.3.2.5";
+    public static final String f8979g = "9.3.6";
 }

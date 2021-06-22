@@ -1,6 +1,7 @@
 package aegon.chrome.net;
 
 import android.content.Context;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public abstract class CronetProvider {
     public final Context mContext;
@@ -19,6 +20,6 @@ public abstract class CronetProvider {
     public abstract boolean isEnabled();
 
     public String toString() {
-        return "[class=" + getClass().getName() + ", name=" + getName() + ", version=" + getVersion() + ", enabled=" + isEnabled() + "]";
+        return "[class=" + getClass().getName() + ", name=" + getName() + ", version=" + getVersion() + ", enabled=" + isEnabled() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

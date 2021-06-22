@@ -10,45 +10,45 @@ import com.baidu.tieba.R;
 public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16875a;
+    public int f16957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16876b;
+    public View f16958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f16877c;
+    public View f16959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f16878d;
+    public TextView f16960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f16879e;
+    public RelativeLayout f16961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16880f;
+    public View f16962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16881g;
+    public TbImageView f16963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16882h;
+    public TextView f16964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16883i;
+    public TextView f16965i;
     public TextView j;
     public TextView k;
     public TextView l;
 
     public QualityThreadItemHolder(View view) {
         super(view);
-        this.f16875a = 3;
-        this.f16876b = null;
-        this.f16877c = null;
-        this.f16878d = null;
-        this.f16879e = null;
-        this.f16880f = null;
-        this.f16881g = null;
-        this.f16876b = view;
+        this.f16957a = 3;
+        this.f16958b = null;
+        this.f16959c = null;
+        this.f16960d = null;
+        this.f16961e = null;
+        this.f16962f = null;
+        this.f16963g = null;
+        this.f16958b = view;
         b(view);
     }
 
@@ -56,13 +56,13 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.f16877c = view.findViewById(R.id.top_divider_line);
-        this.f16878d = (TextView) view.findViewById(R.id.quality_item_theme_title);
-        this.f16880f = view.findViewById(R.id.divider_line);
-        this.f16879e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-        this.f16881g = (TbImageView) view.findViewById(R.id.img);
-        this.f16882h = (TextView) view.findViewById(R.id.title);
-        this.f16883i = (TextView) view.findViewById(R.id.desc);
+        this.f16959c = view.findViewById(R.id.top_divider_line);
+        this.f16960d = (TextView) view.findViewById(R.id.quality_item_theme_title);
+        this.f16962f = view.findViewById(R.id.divider_line);
+        this.f16961e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+        this.f16963g = (TbImageView) view.findViewById(R.id.img);
+        this.f16964h = (TextView) view.findViewById(R.id.title);
+        this.f16965i = (TextView) view.findViewById(R.id.desc);
         this.j = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
         this.k = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
         this.l = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);

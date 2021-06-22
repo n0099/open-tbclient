@@ -15,7 +15,7 @@ import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NTLMEngineImpl {
     public static final int FLAG_DOMAIN_PRESENT = 4096;
     public static final int FLAG_REQUEST_128BIT_KEY_EXCH = 536870912;
@@ -38,7 +38,7 @@ public final class NTLMEngineImpl {
     public static final Charset UNICODE_LITTLE_UNMARKED = Charset.forName("UnicodeLittleUnmarked");
     public static final Charset DEFAULT_CHARSET = Charset.forName("US-ASCII");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class HMACMD5 {
         public byte[] ipad;
         public MessageDigest md5;
@@ -89,7 +89,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class MD4 {
         public int A = 1732584193;
         public int B = -271733879;
@@ -262,7 +262,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class NTLMEngineException extends Exception {
         public NTLMEngineException(String str) {
             super(str);
@@ -273,7 +273,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Type2Message extends NTLMMessage {
         public byte[] challenge;
         public int flags;
@@ -330,7 +330,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Type3Message extends NTLMMessage {
         public byte[] domainBytes;
         public byte[] hostBytes;
@@ -738,7 +738,7 @@ public final class NTLMEngineImpl {
         return getType3Message(str, str2, str4, str3, type2Message.getChallenge(), type2Message.getFlags(), type2Message.getTarget(), type2Message.getTargetInfo());
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class NTLMMessage {
         public int currentOutputPosition;
         public byte[] messageContents;
@@ -857,7 +857,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Type1Message extends NTLMMessage {
         public final byte[] domainBytes;
         public final byte[] hostBytes;
@@ -903,7 +903,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CipherGen {
         public final byte[] challenge;
         public byte[] clientChallenge;

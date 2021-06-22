@@ -15,7 +15,7 @@ import com.kwad.sdk.utils.ao;
 public class WaterMarkView2 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f32977a;
+    public TextView f33075a;
 
     public WaterMarkView2(Context context) {
         this(context, null);
@@ -28,7 +28,7 @@ public class WaterMarkView2 extends a {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_video_water_mark_2, (ViewGroup) this, true);
-        this.f32977a = (TextView) findViewById(R.id.ksad_video_water_mark_text);
+        this.f33075a = (TextView) findViewById(R.id.ksad_video_water_mark_text);
     }
 
     private void setDrawableBounds(@Nullable Drawable drawable) {
@@ -40,24 +40,24 @@ public class WaterMarkView2 extends a {
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.g.a.a
     public void setAlignment(int i2) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f32977a.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f33075a.getLayoutParams();
         layoutParams.gravity = i2 == 1 ? 5 : 3;
-        this.f32977a.setLayoutParams(layoutParams);
+        this.f33075a.setLayoutParams(layoutParams);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.g.a.a
     public void setAuthorId(long j) {
         int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        TextView textView = this.f32977a;
+        TextView textView = this.f33075a;
         if (i2 == 0) {
             textView.setVisibility(4);
         } else {
             textView.setVisibility(0);
         }
-        this.f32977a.setText(String.format("＠%d", Long.valueOf(j)));
+        this.f33075a.setText(String.format("＠%d", Long.valueOf(j)));
         Drawable drawable = getContext().getResources().getDrawable(R.drawable.ksad_water_logo);
         setDrawableBounds(drawable);
-        this.f32977a.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
-        this.f32977a.setCompoundDrawables(drawable, null, null, null);
+        this.f33075a.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
+        this.f33075a.setCompoundDrawables(drawable, null, null, null);
     }
 }

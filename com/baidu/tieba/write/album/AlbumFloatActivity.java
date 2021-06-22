@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import d.a.m0.t0.a;
-import d.a.n0.w3.k.e;
+import d.a.n0.t0.a;
+import d.a.o0.w3.k.e;
 /* loaded from: classes5.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public e albumView;

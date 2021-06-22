@@ -9,22 +9,22 @@ import javax.crypto.spec.SecretKeySpec;
 public class AES {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9030d = "UTF-8";
+    public static final String f9032d = "UTF-8";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9031e = "AES/CBC/NoPadding";
+    public static final String f9033e = "AES/CBC/NoPadding";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f9032f = "AES";
+    public static final String f9034f = "AES";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9033a;
+    public String f9035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9034b;
+    public String f9036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9035c;
+    public String f9037c;
 
     public AES() {
         this("AES", "AES/CBC/NoPadding", "UTF-8");
@@ -42,9 +42,9 @@ public class AES {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9033a));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9035c);
-                Cipher cipher = Cipher.getInstance(this.f9034b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9035a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9037c);
+                Cipher cipher = Cipher.getInstance(this.f9036b);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable unused) {
@@ -57,9 +57,9 @@ public class AES {
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9033a));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9035c);
-                Cipher cipher = Cipher.getInstance(this.f9034b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9035a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9037c);
+                Cipher cipher = Cipher.getInstance(this.f9036b);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(a(str).getBytes());
             } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
@@ -74,11 +74,11 @@ public class AES {
     }
 
     public AES(String str, String str2, String str3) {
-        this.f9033a = "UTF-8";
-        this.f9034b = "AES/CBC/NoPadding";
-        this.f9035c = "AES";
-        this.f9035c = str;
-        this.f9034b = str2;
-        this.f9033a = str3;
+        this.f9035a = "UTF-8";
+        this.f9036b = "AES/CBC/NoPadding";
+        this.f9037c = "AES";
+        this.f9037c = str;
+        this.f9036b = str2;
+        this.f9035a = str3;
     }
 }

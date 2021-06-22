@@ -1,6 +1,7 @@
 package okio;
 
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.EOFException;
 import java.io.IOException;
@@ -355,7 +356,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         int codePointIndexToCharIndex = codePointIndexToCharIndex(utf8, 64);
         if (codePointIndexToCharIndex == -1) {
             if (this.data.length <= 64) {
-                return "[hex=" + hex() + "]";
+                return "[hex=" + hex() + PreferencesUtil.RIGHT_MOUNT;
             }
             return "[size=" + this.data.length + " hex=" + substring(0, 64).hex() + "…]";
         }
@@ -363,7 +364,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (codePointIndexToCharIndex < utf8.length()) {
             return "[size=" + this.data.length + " text=" + replace + "…]";
         }
-        return "[text=" + replace + "]";
+        return "[text=" + replace + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public String utf8() {

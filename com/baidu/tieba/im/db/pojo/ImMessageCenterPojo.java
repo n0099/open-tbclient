@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.n0.f1.w.c;
+import d.a.o0.f1.w.c;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class ImMessageCenterPojo implements Serializable {

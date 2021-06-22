@@ -57,25 +57,25 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public View C;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f23293a;
+    public Activity f23375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23294b;
+    public View f23376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23295c;
+    public View f23377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f23296d;
+    public LinearLayout f23378d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LaserScannerForScan f23297e;
+    public LaserScannerForScan f23379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceViewForScan f23298f;
+    public SurfaceViewForScan f23380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23299g;
+    public TextView f23381g;
     public int j;
     public int k;
     public int l;
@@ -89,10 +89,10 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public String z;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f23300h = -1.0f;
+    public float f23382h = -1.0f;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f23301i = -1.0f;
+    public float f23383i = -1.0f;
     public String p = "";
     public boolean t = false;
     public boolean u = false;
@@ -107,15 +107,15 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IdCardActivity> f23310a;
+        public final WeakReference<IdCardActivity> f23392a;
 
         public a(IdCardActivity idCardActivity) {
-            this.f23310a = new WeakReference<>(idCardActivity);
+            this.f23392a = new WeakReference<>(idCardActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IdCardActivity idCardActivity = this.f23310a.get();
+            IdCardActivity idCardActivity = this.f23392a.get();
             if (idCardActivity == null) {
                 return;
             }
@@ -128,12 +128,12 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 LogUtil.i(IdCardActivity.TAG, "失败" + idCardActivity.y);
                 idCardActivity.v = true;
                 idCardActivity.u = false;
-                idCardActivity.f23298f.autoFocus();
+                idCardActivity.f23380f.autoFocus();
             } else if (i2 == 2) {
                 idCardActivity.t = true;
             } else if (i2 == 3) {
                 if (idCardActivity.A) {
-                    idCardActivity.f23299g.setText(idCardActivity.z);
+                    idCardActivity.f23381g.setText(idCardActivity.z);
                 }
             } else if (i2 == 5) {
                 PayStatisticsUtil.onEvent(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMEOUT);
@@ -208,7 +208,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == ResUtils.id(this.f23293a, "back_btn")) {
+        if (view.getId() == ResUtils.id(this.f23375a, "back_btn")) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
             this.D.sendEmptyMessage(7);
         }
@@ -217,7 +217,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f23293a = getActivity();
+        this.f23375a = getActivity();
         a(getActivity());
         setIsMultiWindowAvailable(false);
         setIsShowMultiWindowTips(true);
@@ -422,25 +422,25 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     private void d() {
-        SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f23293a, "surface_view"));
-        this.f23298f = surfaceViewForScan;
+        SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f23375a, "surface_view"));
+        this.f23380f = surfaceViewForScan;
         surfaceViewForScan.setAttachedActivity(this);
-        LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f23293a, "frame"));
-        this.f23297e = laserScannerForScan;
+        LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f23375a, "frame"));
+        this.f23379e = laserScannerForScan;
         laserScannerForScan.setAttachedActivity(this);
-        this.f23294b = findViewById(ResUtils.id(this.f23293a, "view_top"));
-        this.f23295c = findViewById(ResUtils.id(this.f23293a, "view_left"));
-        this.f23296d = (LinearLayout) findViewById(ResUtils.id(this.f23293a, "title_bar"));
-        this.f23299g = (TextView) findViewById(ResUtils.id(this.f23293a, TrackReferenceTypeBox.TYPE1));
+        this.f23376b = findViewById(ResUtils.id(this.f23375a, "view_top"));
+        this.f23377c = findViewById(ResUtils.id(this.f23375a, "view_left"));
+        this.f23378d = (LinearLayout) findViewById(ResUtils.id(this.f23375a, "title_bar"));
+        this.f23381g = (TextView) findViewById(ResUtils.id(this.f23375a, TrackReferenceTypeBox.TYPE1));
         View findViewById = findViewById(ResUtils.id(getActivity(), "title_bar_margin"));
         this.C = findViewById;
         setTop(findViewById);
     }
 
     private void e() {
-        this.f23297e.startScan();
-        findViewById(ResUtils.id(this.f23293a, "back_btn")).setOnClickListener(this);
-        this.f23298f.setPreviewCallback(new SurfaceViewForScan.a() { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
+        this.f23379e.startScan();
+        findViewById(ResUtils.id(this.f23375a, "back_btn")).setOnClickListener(this);
+        this.f23380f.setPreviewCallback(new SurfaceViewForScan.a() { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
             @Override // com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.a
             public void a(byte[] bArr, int i2, int i3, int i4) {
                 if (IdCardActivity.this.t && IdCardActivity.this.w && IdCardActivity.this.v) {
@@ -459,9 +459,9 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f23297e.stopScan();
-        this.f23298f.setPreviewCallback(null);
-        this.f23298f.releaseSource();
+        this.f23379e.stopScan();
+        this.f23380f.setPreviewCallback(null);
+        this.f23380f.releaseSource();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -474,7 +474,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     private void c() {
         try {
-            setContentView(ResUtils.layout(this.f23293a, "wallet_base_id_detect"));
+            setContentView(ResUtils.layout(this.f23375a, "wallet_base_id_detect"));
             d();
             e();
         } catch (Exception unused) {
@@ -588,7 +588,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Bitmap a3 = a(a2);
         this.s = a3;
         a(a3, this.p, "IdCard");
-        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f23293a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
+        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f23375a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
         aVar.a(com.baidu.wallet.base.iddetect.utils.a.a(this.s));
         aVar.setResponseCallback(this);
         aVar.execBean();
@@ -600,17 +600,17 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     private void a(int i2, int i3) {
-        this.f23300h = (i3 * 1.0f) / this.f23298f.getHeight();
-        float width = (i2 * 1.0f) / this.f23298f.getWidth();
-        this.f23301i = width;
-        this.j = (int) (width * this.f23295c.getWidth());
-        this.k = (int) (this.f23300h * (this.f23294b.getHeight() + this.f23296d.getHeight()));
-        this.l = (int) (this.f23301i * this.f23297e.getWidth());
-        this.m = (int) (this.f23300h * this.f23297e.getHeight());
+        this.f23382h = (i3 * 1.0f) / this.f23380f.getHeight();
+        float width = (i2 * 1.0f) / this.f23380f.getWidth();
+        this.f23383i = width;
+        this.j = (int) (width * this.f23377c.getWidth());
+        this.k = (int) (this.f23382h * (this.f23376b.getHeight() + this.f23378d.getHeight()));
+        this.l = (int) (this.f23383i * this.f23379e.getWidth());
+        this.m = (int) (this.f23382h * this.f23379e.getHeight());
     }
 
     private Bitmap a(Bitmap bitmap) {
-        if (this.f23300h == -1.0f) {
+        if (this.f23382h == -1.0f) {
             a(bitmap.getWidth(), bitmap.getHeight());
         }
         return Bitmap.createBitmap(bitmap, this.j, this.k, this.l, this.m);
@@ -627,7 +627,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
             file.delete();
         }
         System.out.println(str3);
-        com.baidu.wallet.base.iddetect.utils.a.a(this.f23293a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
+        com.baidu.wallet.base.iddetect.utils.a.a(this.f23375a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
         this.q = str3;
     }
 }

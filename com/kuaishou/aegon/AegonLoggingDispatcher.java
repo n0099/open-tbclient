@@ -5,11 +5,11 @@ import androidx.annotation.Keep;
 public class AegonLoggingDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f32149a;
+    public static d f32247a;
 
     @Keep
     public static void Log(int i2, String str, String str2) {
-        d dVar = f32149a;
+        d dVar = f32247a;
         if (dVar != null) {
             dVar.a(i2, str, str2);
         }

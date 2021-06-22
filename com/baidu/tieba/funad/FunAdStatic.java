@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.n0.s0.a;
-import d.a.n0.s0.b;
-import d.a.n0.t0.c;
-import d.a.n0.t0.d;
+import d.a.o0.s0.a;
+import d.a.o0.s0.b;
+import d.a.o0.t0.c;
+import d.a.o0.t0.d;
 /* loaded from: classes4.dex */
 public class FunAdStatic {
 
@@ -25,7 +25,7 @@ public class FunAdStatic {
     }
 
     static {
-        b.f64073a.set(new d());
+        b.f64198a.set(new d());
         a();
     }
 

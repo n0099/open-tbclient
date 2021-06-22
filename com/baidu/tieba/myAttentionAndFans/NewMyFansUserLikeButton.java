@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.R;
 import d.a.c.a.f;
 import d.a.c.e.m.g;
-import d.a.m0.r.s.h;
-import d.a.m0.r.s.j;
-import d.a.m0.r.s.l;
+import d.a.n0.r.s.h;
+import d.a.n0.r.s.j;
+import d.a.n0.r.s.l;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class NewMyFansUserLikeButton extends FollowUserButton {
@@ -30,26 +30,26 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f18454e;
+        public final /* synthetic */ View.OnClickListener f18536e;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0193a implements l.d {
+        public class C0196a implements l.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f18456a;
+            public final /* synthetic */ View f18538a;
 
-            public C0193a(View view) {
-                this.f18456a = view;
+            public C0196a(View view) {
+                this.f18538a = view;
             }
 
-            @Override // d.a.m0.r.s.l.d
+            @Override // d.a.n0.r.s.l.d
             public void onClick() {
-                View.OnClickListener onClickListener = a.this.f18454e;
+                View.OnClickListener onClickListener = a.this.f18536e;
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(this.f18456a);
+                onClickListener.onClick(this.f18538a);
                 if (NewMyFansUserLikeButton.this.A != 1) {
                     if (NewMyFansUserLikeButton.this.A == 2) {
                         TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", NewMyFansUserLikeButton.this.z));
@@ -66,7 +66,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             public b() {
             }
 
-            @Override // d.a.m0.r.s.l.c
+            @Override // d.a.n0.r.s.l.c
             public void onClick() {
                 if (NewMyFansUserLikeButton.this.y == null) {
                     return;
@@ -76,7 +76,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
 
         public a(View.OnClickListener onClickListener) {
-            this.f18454e = onClickListener;
+            this.f18536e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,7 +95,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         lVar.q(NewMyFansUserLikeButton.this.x.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
                         h hVar = new h(NewMyFansUserLikeButton.this.x.getString(R.string.confirm), lVar);
-                        hVar.m(new C0193a(view));
+                        hVar.m(new C0196a(view));
                         arrayList.add(hVar);
                         lVar.m(new b());
                         lVar.k(arrayList);
@@ -105,7 +105,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                     g.j(NewMyFansUserLikeButton.this.y, NewMyFansUserLikeButton.this.x);
                 }
             } else {
-                this.f18454e.onClick(view);
+                this.f18536e.onClick(view);
             }
             if (NewMyFansUserLikeButton.this.C != null) {
                 NewMyFansUserLikeButton.this.C.callback();
@@ -126,12 +126,12 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         this.B = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.m0.r.f0.q.b
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.n0.r.f0.q.b
     public void b(View.OnClickListener onClickListener) {
         setOnClickListener(new a(onClickListener));
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.m0.r.f0.q.b
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.n0.r.f0.q.b
     public void e(boolean z, int i2) {
         super.e(z, i2);
         this.B = z;

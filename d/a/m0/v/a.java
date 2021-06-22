@@ -1,78 +1,39 @@
 package d.a.m0.v;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import d.a.n0.t2.c0.e;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.view.View;
 /* loaded from: classes3.dex */
-public class a implements c {
-    @Override // d.a.m0.v.c
-    public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
-        e n = e.n();
-        if (i2 == 3) {
-            n.v(downloadData);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
-        } else {
-            n.B(downloadData);
-        }
-        e.n().y(downloadData);
+public interface a {
+
+    /* renamed from: d.a.m0.v.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1146a {
+        void a(b bVar);
+
+        void b(b bVar, int i2, int i3);
+
+        void c(b bVar, int i2, int i3, int i4);
     }
 
-    @Override // d.a.m0.v.c
-    public void onFileDownloadSucceed(DownloadData downloadData) {
-        if (downloadData == null) {
-            return;
-        }
-        String[] tag = downloadData.getTag();
-        if (tag != null && tag.length == 3) {
-            String str = tag[0];
-            String str2 = tag[1];
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", PrefetchEvent.STATE_CLICK, 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
-        }
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        e.n().y(downloadData);
-        if (downloadData.isNeedInvokeApk()) {
-            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
-        }
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
+
+        a b();
     }
 
-    @Override // d.a.m0.v.c
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        if (downloadData == null) {
-            return false;
-        }
-        downloadData.setStatusMsg(null);
-        return true;
-    }
+    void a(InterfaceC1146a interfaceC1146a);
 
-    @Override // d.a.m0.v.c
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        if (downloadData == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
-        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putLong(downloadData.getId(), downloadData.getSize());
-            edit.commit();
-        }
-        e.n().C(downloadData);
-        e.n().y(downloadData);
-    }
+    void b(InterfaceC1146a interfaceC1146a);
 
-    @Override // d.a.m0.v.c
-    public boolean onPreDownload(DownloadData downloadData) {
-        if (downloadData == null) {
-            return false;
-        }
-        downloadData.setStatusMsg(null);
-        return true;
-    }
+    Bitmap getBitmap();
+
+    View getView();
+
+    void release();
+
+    void setAspectRatio(int i2);
+
+    void setVideoSize(int i2, int i3);
 }

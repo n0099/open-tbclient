@@ -26,13 +26,13 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
     public static final jg f500a = new jg("NormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41438a = new iy("", (byte) 8, 1);
+    public static final iy f41541a = new iy("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41439b = new iy("", (byte) 15, 2);
+    public static final iy f41542b = new iy("", (byte) 15, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41440c = new iy("", (byte) 8, 3);
+    public static final iy f41543c = new iy("", (byte) 8, 3);
 
     public int a() {
         return this.f501a;
@@ -90,7 +90,7 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 break;
             }
@@ -165,11 +165,11 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         m375a();
         jbVar.a(f500a);
-        jbVar.a(f41438a);
+        jbVar.a(f41541a);
         jbVar.a(this.f501a);
         jbVar.b();
         if (this.f504a != null) {
-            jbVar.a(f41439b);
+            jbVar.a(f41542b);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f504a.size()));
             for (hq hqVar : this.f504a) {
                 hqVar.b(jbVar);
@@ -178,7 +178,7 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         if (this.f502a != null && c()) {
-            jbVar.a(f41440c);
+            jbVar.a(f41543c);
             jbVar.a(this.f502a.a());
             jbVar.b();
         }

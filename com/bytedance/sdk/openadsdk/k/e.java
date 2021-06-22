@@ -10,75 +10,75 @@ import java.util.Set;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.k.a.b f29502a;
+    public static volatile com.bytedance.sdk.openadsdk.k.a.b f29584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.k.a.c f29503b;
+    public static volatile com.bytedance.sdk.openadsdk.k.a.c f29585b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f29505d;
+    public static volatile boolean f29587d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f29507f;
+    public static volatile boolean f29589f;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Integer f29510i;
+    public static volatile Integer f29592i;
     public static volatile com.bytedance.sdk.openadsdk.k.b.c j;
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context k;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f29504c = u.c();
+    public static final boolean f29586c = u.c();
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f29506e = true;
+    public static volatile boolean f29588e = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile int f29508g = 0;
+    public static volatile int f29590g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile int f29509h = 3;
+    public static volatile int f29591h = 3;
 
     public static Context a() {
         return k;
     }
 
     public static void b(boolean z) {
-        f29507f = z;
+        f29589f = z;
     }
 
     public static com.bytedance.sdk.openadsdk.k.a.b c() {
-        return f29502a;
+        return f29584a;
     }
 
     public static void a(boolean z) {
-        f29506e = z;
+        f29588e = z;
     }
 
     public static com.bytedance.sdk.openadsdk.k.a.c b() {
-        return f29503b;
+        return f29585b;
     }
 
     public static void a(int i2) {
-        f29508g = i2;
+        f29590g = i2;
     }
 
     public static void a(com.bytedance.sdk.openadsdk.k.a.c cVar, Context context) {
         if (cVar != null && context != null) {
             k = context.getApplicationContext();
-            if (f29503b != null) {
+            if (f29585b != null) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.k.a.b bVar = f29502a;
-            if (bVar != null && bVar.f29432a.getAbsolutePath().equals(cVar.f29434a.getAbsolutePath())) {
+            com.bytedance.sdk.openadsdk.k.a.b bVar = f29584a;
+            if (bVar != null && bVar.f29514a.getAbsolutePath().equals(cVar.f29516a.getAbsolutePath())) {
                 throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
             }
-            f29503b = cVar;
+            f29585b = cVar;
             j = com.bytedance.sdk.openadsdk.k.b.c.a(context);
-            f29503b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.k.e.1
+            f29585b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.k.e.1
                 @Override // com.bytedance.sdk.openadsdk.k.a.c.a
                 public void a(String str) {
-                    if (e.f29504c) {
+                    if (e.f29586c) {
                         Log.i("TAG_PROXY_DiskLruCache", "new cache created: " + str);
                     }
                 }
@@ -86,7 +86,7 @@ public class e {
                 @Override // com.bytedance.sdk.openadsdk.k.a.c.a
                 public void a(Set<String> set) {
                     e.j.a(set, 0);
-                    if (e.f29504c) {
+                    if (e.f29586c) {
                         Log.i("TAG_PROXY_DiskLruCache", "cache file removed, " + set);
                     }
                 }

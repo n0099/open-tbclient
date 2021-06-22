@@ -10,8 +10,8 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessa
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import d.a.c.a.f;
 import d.a.c.k.e.n;
-import d.a.m0.r.q.a2;
-import d.a.n0.v.e.b.c;
+import d.a.n0.r.q.a2;
+import d.a.o0.v.e.b.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -23,19 +23,19 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public static final int SORT_TYPE_NEW = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13999e;
+    public String f14081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14000f;
+    public int f14082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14001g;
+    public int f14083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14002h;
+    public String f14084h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14003i;
+    public int f14085i;
     public int j;
     public boolean k;
     public int l;
@@ -68,12 +68,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
                     if (AlaFrsLiveModel.this.m == null) {
                         AlaFrsLiveModel.this.m = new ArrayList();
                     }
-                    if (AlaFrsLiveModel.this.f14000f != 1 || ListUtils.getCount(liveList) != 0 || AlaFrsLiveModel.this.j != 2) {
+                    if (AlaFrsLiveModel.this.f14082f != 1 || ListUtils.getCount(liveList) != 0 || AlaFrsLiveModel.this.j != 2) {
                         AlaFrsLiveModel.this.n = false;
                         AlaFrsLiveModel.this.k = alaGameFrsLiveThreadsRespMessage.hasMore();
-                        AlaFrsLiveModel.this.f14000f = alaGameFrsLiveThreadsRequestMessage.getPn();
+                        AlaFrsLiveModel.this.f14082f = alaGameFrsLiveThreadsRequestMessage.getPn();
                         AlaFrsLiveModel.this.l = alaGameFrsLiveThreadsRespMessage.getLiveCount();
-                        if (AlaFrsLiveModel.this.f14000f == 1 || ListUtils.getCount(AlaFrsLiveModel.this.m) == 0) {
+                        if (AlaFrsLiveModel.this.f14082f == 1 || ListUtils.getCount(AlaFrsLiveModel.this.m) == 0) {
                             if (liveList != null) {
                                 AlaFrsLiveModel.this.m.clear();
                                 AlaFrsLiveModel.this.m.addAll(liveList);
@@ -85,7 +85,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                     } else {
                         List<n> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                         AlaFrsLiveModel.this.k = false;
-                        AlaFrsLiveModel.this.f14000f = alaGameFrsLiveThreadsRequestMessage.getPn();
+                        AlaFrsLiveModel.this.f14082f = alaGameFrsLiveThreadsRequestMessage.getPn();
                         AlaFrsLiveModel.this.l = 0;
                         if (recommandList != null) {
                             AlaFrsLiveModel.this.m.clear();
@@ -110,9 +110,9 @@ public class AlaFrsLiveModel extends BdBaseModel {
 
     public AlaFrsLiveModel(f fVar) {
         super(fVar);
-        this.f14000f = 1;
-        this.f14001g = 30;
-        this.f14003i = 1;
+        this.f14082f = 1;
+        this.f14083g = 30;
+        this.f14085i = 1;
         this.j = 1;
         this.n = false;
         a aVar = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true);
@@ -125,7 +125,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public int I() {
-        return this.f14003i;
+        return this.f14085i;
     }
 
     public boolean J() {
@@ -142,7 +142,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         LinkedList linkedList = new LinkedList();
         linkedList.addAll(list);
         for (n nVar : list2) {
-            if (nVar != null && (nVar instanceof c) && (a2Var = ((c) nVar).f65586e) != null && (a2Var.v1() == 49 || a2Var.v1() == 69)) {
+            if (nVar != null && (nVar instanceof c) && (a2Var = ((c) nVar).f65711e) != null && (a2Var.v1() == 49 || a2Var.v1() == 69)) {
                 String z1 = a2Var.z1();
                 if (!TextUtils.isEmpty(z1)) {
                     boolean z = false;
@@ -152,7 +152,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                             break;
                         }
                         n next = it.next();
-                        if (next != null && (next instanceof c) && (a2Var2 = ((c) next).f65586e) != null && z1.equals(a2Var2.z1())) {
+                        if (next != null && (next instanceof c) && (a2Var2 = ((c) next).f65711e) != null && z1.equals(a2Var2.z1())) {
                             z = true;
                             break;
                         }
@@ -174,11 +174,11 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public boolean M() {
         if (this.k) {
             AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();
-            alaGameFrsLiveThreadsRequestMessage.setForumId(this.f13999e);
-            alaGameFrsLiveThreadsRequestMessage.setPn(this.f14000f + 1);
-            alaGameFrsLiveThreadsRequestMessage.setPs(this.f14001g);
-            alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f14002h);
-            alaGameFrsLiveThreadsRequestMessage.setSortType(this.f14003i);
+            alaGameFrsLiveThreadsRequestMessage.setForumId(this.f14081e);
+            alaGameFrsLiveThreadsRequestMessage.setPn(this.f14082f + 1);
+            alaGameFrsLiveThreadsRequestMessage.setPs(this.f14083g);
+            alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f14084h);
+            alaGameFrsLiveThreadsRequestMessage.setSortType(this.f14085i);
             alaGameFrsLiveThreadsRequestMessage.setHttpParams();
             sendMessage(alaGameFrsLiveThreadsRequestMessage);
             return true;
@@ -188,11 +188,11 @@ public class AlaFrsLiveModel extends BdBaseModel {
 
     public void N() {
         AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();
-        alaGameFrsLiveThreadsRequestMessage.setForumId(this.f13999e);
+        alaGameFrsLiveThreadsRequestMessage.setForumId(this.f14081e);
         alaGameFrsLiveThreadsRequestMessage.setPn(1);
-        alaGameFrsLiveThreadsRequestMessage.setPs(this.f14001g);
-        alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f14002h);
-        alaGameFrsLiveThreadsRequestMessage.setSortType(this.f14003i);
+        alaGameFrsLiveThreadsRequestMessage.setPs(this.f14083g);
+        alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f14084h);
+        alaGameFrsLiveThreadsRequestMessage.setSortType(this.f14085i);
         alaGameFrsLiveThreadsRequestMessage.setHttpParams();
         sendMessage(alaGameFrsLiveThreadsRequestMessage);
     }
@@ -222,14 +222,14 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void setForumGameLabel(String str) {
-        this.f14002h = str;
+        this.f14084h = str;
     }
 
     public void setForumId(String str) {
-        this.f13999e = str;
+        this.f14081e = str;
     }
 
     public void setSortType(int i2) {
-        this.f14003i = i2;
+        this.f14085i = i2;
     }
 }

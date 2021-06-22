@@ -5,18 +5,18 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public a resultData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18322a;
+        public int f18404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18323b = null;
+        public String f18405b = null;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
         }
@@ -25,13 +25,13 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.f18322a = jSONObject.optInt("error_code");
+            this.f18404a = jSONObject.optInt("error_code");
             jSONObject.optString("error_msg");
-            this.f18323b = jSONObject.optString("field_text");
+            this.f18405b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
-            if (this.f18322a == 0) {
-                StringUtils.isNull(this.f18323b);
+            if (this.f18404a == 0) {
+                StringUtils.isNull(this.f18405b);
             }
         }
     }

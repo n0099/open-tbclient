@@ -7,7 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.a.n0.o1.e.c;
+import d.a.o0.o1.e.c;
 /* loaded from: classes3.dex */
 public class SelectLocationActivity extends SuspendedActivity {
     public CustomMessageListener closeListener = new a(2002013);
@@ -29,7 +29,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.m0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.n0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         return new c(getPageContext(), linearLayout, navigationBar);
     }
 

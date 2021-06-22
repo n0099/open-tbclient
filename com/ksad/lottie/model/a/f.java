@@ -10,7 +10,7 @@ public class f extends n<PointF, PointF> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<PointF, PointF> a() {
-        return new com.ksad.lottie.a.b.j(this.f31998a);
+        return new com.ksad.lottie.a.b.j(this.f32096a);
     }
 
     @Override // com.ksad.lottie.model.a.n

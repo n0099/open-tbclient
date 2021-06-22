@@ -45,31 +45,31 @@ import java.util.Random;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37463a = "";
+    public static String f37561a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37464b = "";
+    public static String f37562b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37465c = "";
+    public static String f37563c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37466d = "";
+    public static String f37564d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37467e = "";
+    public static String f37565e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37468f = null;
+    public static String f37566f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f37469g = false;
+    public static boolean f37567g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f37470h = false;
+    public static boolean f37568h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f37471i = false;
+    public static boolean f37569i = false;
     public static boolean j = false;
     public static int k = 0;
     public static long l = 0;
@@ -213,25 +213,25 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String d(@Nullable Context context) {
-        if (f37469g) {
+        if (f37567g) {
             return "";
         }
-        if (!TextUtils.isEmpty(f37464b) || context == null) {
-            return f37464b;
+        if (!TextUtils.isEmpty(f37562b) || context == null) {
+            return f37562b;
         }
         try {
             r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
             if (r1) {
-                f37464b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                f37562b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f37464b = null;
+            f37562b = null;
         }
-        if (r1 && f37465c == null) {
-            f37469g = true;
+        if (r1 && f37563c == null) {
+            f37567g = true;
         }
-        return f37464b;
+        return f37562b;
     }
 
     public static String e() {
@@ -241,11 +241,11 @@ public class ah {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String e(Context context) {
         String str;
-        if (f37470h) {
+        if (f37568h) {
             return "";
         }
-        if (!TextUtils.isEmpty(f37465c) || context == null) {
-            return f37465c;
+        if (!TextUtils.isEmpty(f37563c) || context == null) {
+            return f37563c;
         }
         try {
             r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -254,10 +254,10 @@ public class ah {
             str = null;
         }
         if (r2 && str == null) {
-            f37470h = true;
+            f37568h = true;
         }
         String str2 = TextUtils.isEmpty(str) ? "" : str;
-        f37465c = str2;
+        f37563c = str2;
         return str2;
     }
 
@@ -270,10 +270,10 @@ public class ah {
         String str;
         String str2;
         str = "";
-        if (f37471i) {
+        if (f37569i) {
             return "";
         }
-        if (TextUtils.isEmpty(f37466d)) {
+        if (TextUtils.isEmpty(f37564d)) {
             if (context != null && n) {
                 try {
                     r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -283,14 +283,14 @@ public class ah {
                     str2 = null;
                 }
                 if (r2 && str2 == null) {
-                    f37471i = true;
+                    f37569i = true;
                 }
                 str = TextUtils.isEmpty(str2) ? "" : str2;
-                f37466d = str;
+                f37564d = str;
             }
             return str;
         }
-        return f37466d;
+        return f37564d;
     }
 
     public static int g(Context context) {
@@ -330,17 +330,17 @@ public class ah {
         if (j) {
             return "";
         }
-        if (!TextUtils.isEmpty(f37467e) || context == null) {
-            return f37467e;
+        if (!TextUtils.isEmpty(f37565e) || context == null) {
+            return f37565e;
         }
         try {
-            f37467e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            f37565e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception unused) {
         }
-        if (TextUtils.isEmpty(f37467e)) {
+        if (TextUtils.isEmpty(f37565e)) {
             j = true;
         }
-        return f37467e;
+        return f37565e;
     }
 
     public static int j() {
@@ -363,13 +363,13 @@ public class ah {
         if (context == null || !m) {
             return "";
         }
-        if (TextUtils.isEmpty(f37463a)) {
+        if (TextUtils.isEmpty(f37561a)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    f37463a = connectionInfo.getMacAddress();
+                    f37561a = connectionInfo.getMacAddress();
                 }
-                if (TextUtils.isEmpty(f37463a) || f37463a.equals(Config.DEF_MAC_ID)) {
+                if (TextUtils.isEmpty(f37561a) || f37561a.equals(Config.DEF_MAC_ID)) {
                     Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -387,21 +387,21 @@ public class ah {
                                 if (sb.length() > 0) {
                                     sb.deleteCharAt(sb.length() - 1);
                                 }
-                                f37463a = sb.toString();
+                                f37561a = sb.toString();
                             }
                         }
                     }
                 }
-                if (TextUtils.isEmpty(f37463a) || f37463a.equals(Config.DEF_MAC_ID)) {
-                    f37463a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                if (TextUtils.isEmpty(f37561a) || f37561a.equals(Config.DEF_MAC_ID)) {
+                    f37561a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                 }
-                if (!TextUtils.isEmpty(f37463a)) {
-                    f37463a = f37463a.toUpperCase(Locale.US);
+                if (!TextUtils.isEmpty(f37561a)) {
+                    f37561a = f37561a.toUpperCase(Locale.US);
                 }
             } catch (Exception unused) {
             }
         }
-        return f37463a;
+        return f37561a;
     }
 
     public static String l() {
@@ -436,28 +436,28 @@ public class ah {
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        if (TextUtils.isEmpty(f37468f)) {
+        if (TextUtils.isEmpty(f37566f)) {
             String p = p();
             if (!TextUtils.isEmpty(p)) {
                 String str = "ANDROID_" + p;
-                f37468f = str;
+                f37566f = str;
                 return str;
             }
             String i2 = i(KsAdSDKImpl.get().getContext());
             if (!TextUtils.isEmpty(i2) && !a(i2)) {
                 String str2 = "ANDROID_" + i2;
-                f37468f = str2;
+                f37566f = str2;
                 return str2;
             }
             String o2 = o();
             if (!TextUtils.isEmpty(o2)) {
-                f37468f = "ANDROID_" + o2;
+                f37566f = "ANDROID_" + o2;
                 b(o2);
-                return f37468f;
+                return f37566f;
             }
             return "ANDROID_";
         }
-        return f37468f;
+        return f37566f;
     }
 
     public static String m(Context context) {

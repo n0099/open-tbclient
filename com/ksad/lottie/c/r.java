@@ -51,10 +51,10 @@ public class r {
                 break;
             }
             i3++;
-            list.get(i3).f31917e = Float.valueOf(list.get(i3).f31916d);
+            list.get(i3).f32015e = Float.valueOf(list.get(i3).f32014d);
         }
         com.ksad.lottie.e.a<?> aVar = list.get(i2);
-        if (aVar.f31913a == 0) {
+        if (aVar.f32011a == 0) {
             list.remove(aVar);
         }
     }

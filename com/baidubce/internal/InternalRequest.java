@@ -1,5 +1,6 @@
 package com.baidubce.internal;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.auth.SignOptions;
 import com.baidubce.http.HttpMethodName;
@@ -7,7 +8,7 @@ import com.baidubce.model.AbstractBceRequest;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InternalRequest<T extends AbstractBceRequest> {
     public RestartableInputStream content;
     public BceCredentials credentials;
@@ -99,6 +100,6 @@ public class InternalRequest<T extends AbstractBceRequest> {
     }
 
     public String toString() {
-        return "InternalRequest [httpMethod=" + this.httpMethod + ", uri=" + this.uri + ", expectContinueEnabled=" + this.expectContinueEnabled + ", parameters=" + this.parameters + ", headers=" + this.headers + "]";
+        return "InternalRequest [httpMethod=" + this.httpMethod + ", uri=" + this.uri + ", expectContinueEnabled=" + this.expectContinueEnabled + ", parameters=" + this.parameters + ", headers=" + this.headers + PreferencesUtil.RIGHT_MOUNT;
     }
 }

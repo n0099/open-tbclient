@@ -7,10 +7,10 @@ import com.baidu.adp.framework.task.MessageTask;
 public abstract class a<M extends Message<?>, T extends MessageTask> implements d.a.c.c.b<M, T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f41969a;
+    public MessageManager f42072a;
 
     public a(MessageManager messageManager) {
-        this.f41969a = null;
-        this.f41969a = messageManager;
+        this.f42072a = null;
+        this.f42072a = messageManager;
     }
 }

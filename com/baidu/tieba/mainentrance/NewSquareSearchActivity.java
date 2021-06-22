@@ -38,7 +38,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public HotForumModel mHotForumModel;
     public HotSearchInfoData mHotSearchInfo;
     public HotSearchInfoData mTransmitHotSearchInfo;
-    public d.a.n0.p1.i.e mViewController;
+    public d.a.o0.p1.i.e mViewController;
     public boolean hasRemindSearchResultForNet = false;
     public boolean mIsFromEnterForum = false;
     public d.a.c.c.g.a mSearchSuggestListListener = new a(CmdConfigHttp.CMD_SEARCH_LIST, 309438);
@@ -212,7 +212,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             return;
         }
         try {
-            this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.a.m0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+            this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.a.n0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
         } catch (Exception e2) {
             BdLog.e(e2);
         }
@@ -245,13 +245,13 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            d.a.m0.r.a0.b.e(getPageContext().getPageActivity(), 1);
+            d.a.n0.r.a0.b.e(getPageContext().getPageActivity(), 1);
         } else {
-            d.a.m0.r.a0.b.e(getPageContext().getPageActivity(), 2);
+            d.a.n0.r.a0.b.e(getPageContext().getPageActivity(), 2);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a026";
     }
@@ -270,7 +270,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         addGlobalLayoutListener();
         registerListener(this.mSearchSuggestListListener);
         registerListener(this.mCreateBarListener);
-        this.mViewController = new d.a.n0.p1.i.e(this, this.mIsFromEnterForum);
+        this.mViewController = new d.a.o0.p1.i.e(this, this.mIsFromEnterForum);
         this.mHotForumModel = new HotForumModel(getPageContext(), this);
         loadHotSearch();
     }
@@ -278,7 +278,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.a.n0.p1.i.e eVar = this.mViewController;
+        d.a.o0.p1.i.e eVar = this.mViewController;
         if (eVar != null) {
             eVar.t();
         }
@@ -291,7 +291,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<d.a.n0.p1.b> list, List<d.a.n0.p1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<d.a.o0.p1.b> list, List<d.a.o0.p1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         updateHotSearchCache(hotSearchInfoData);
         this.mViewController.z(this.mHotSearchInfo);
     }
@@ -320,7 +320,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.a.n0.p1.i.e eVar = this.mViewController;
+        d.a.o0.p1.i.e eVar = this.mViewController;
         if (eVar != null) {
             eVar.u();
         }

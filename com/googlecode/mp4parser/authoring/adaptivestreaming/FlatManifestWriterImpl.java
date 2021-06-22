@@ -44,42 +44,42 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte f31537a;
+        public byte f31635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f31538b;
+        public byte f31636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EC3SpecificBox.Entry f31539c;
+        public EC3SpecificBox.Entry f31637c;
 
         public a(FlatManifestWriterImpl flatManifestWriterImpl, byte b2, byte b3, EC3SpecificBox.Entry entry) {
-            this.f31537a = b2;
-            this.f31538b = b3;
-            this.f31539c = entry;
+            this.f31635a = b2;
+            this.f31636b = b3;
+            this.f31637c = entry;
         }
 
         public byte a() {
-            return this.f31537a;
+            return this.f31635a;
         }
 
         public byte b() {
-            return this.f31538b;
+            return this.f31636b;
         }
 
         public a c() {
-            int i2 = this.f31539c.chan_loc;
+            int i2 = this.f31637c.chan_loc;
             if (i2 == 0) {
-                this.f31537a = (byte) (this.f31537a | 3);
+                this.f31635a = (byte) (this.f31635a | 3);
             } else if (i2 == 1) {
-                this.f31537a = (byte) (this.f31537a | StandardMessageCodec.LIST);
+                this.f31635a = (byte) (this.f31635a | StandardMessageCodec.LIST);
             } else if (i2 == 2) {
-                this.f31538b = (byte) (this.f31538b | ByteCompanionObject.MIN_VALUE);
+                this.f31636b = (byte) (this.f31636b | ByteCompanionObject.MIN_VALUE);
             } else if (i2 == 3) {
-                this.f31538b = (byte) (this.f31538b | 8);
+                this.f31636b = (byte) (this.f31636b | 8);
             } else if (i2 == 6) {
-                this.f31538b = (byte) (this.f31538b | 5);
+                this.f31636b = (byte) (this.f31636b | 5);
             } else if (i2 == 7) {
-                this.f31538b = (byte) (this.f31538b | 2);
+                this.f31636b = (byte) (this.f31636b | 2);
             }
             return this;
         }
@@ -449,12 +449,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (VisualSampleEntry.TYPE3.equals(getFormat(visualSampleEntry))) {
             AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
             d.h.a.a.a.a aVar = new d.h.a.a.a.a();
-            aVar.f70162a = getBitrate(track);
-            aVar.f70166e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
-            aVar.f70163b = "AVC1";
-            aVar.f70164c = visualSampleEntry.getWidth();
-            aVar.f70165d = visualSampleEntry.getHeight();
-            aVar.f70167f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.f70266a = getBitrate(track);
+            aVar.f70270e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
+            aVar.f70267b = "AVC1";
+            aVar.f70268c = visualSampleEntry.getWidth();
+            aVar.f70269d = visualSampleEntry.getHeight();
+            aVar.f70271f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -535,12 +535,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 d.h.a.a.a.a aVar = (d.h.a.a.a.a) linkedList.get(i2);
                 Element createElement3 = newDocument.createElement("QualityLevel");
                 createElement3.setAttribute("Index", Integer.toString(i2));
-                createElement3.setAttribute(str2, Long.toString(aVar.f70162a));
-                createElement3.setAttribute(str4, aVar.f70163b);
-                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f70164c));
-                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f70165d));
-                createElement3.setAttribute(str, aVar.f70166e);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f70167f));
+                createElement3.setAttribute(str2, Long.toString(aVar.f70266a));
+                createElement3.setAttribute(str4, aVar.f70267b);
+                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f70268c));
+                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f70269d));
+                createElement3.setAttribute(str, aVar.f70270e);
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f70271f));
                 createElement2.appendChild(createElement3);
                 i2++;
                 str13 = str13;

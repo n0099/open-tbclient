@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import d.a.m0.p0.a;
+import d.a.n0.p0.a;
 /* loaded from: classes2.dex */
 public class DownloadProvider extends ContentProvider {
     public boolean isPluginSetted = false;

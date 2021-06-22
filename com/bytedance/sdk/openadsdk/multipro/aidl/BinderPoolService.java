@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class BinderPoolService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public Binder f29675a = new a();
+    public Binder f29757a = new a();
 
     /* loaded from: classes6.dex */
     public static class a extends IBinderPool.Stub {
@@ -47,7 +47,7 @@ public class BinderPoolService extends Service {
     @Nullable
     public IBinder onBind(Intent intent) {
         u.b("MultiProcess", "BinderPoolService onBind ! ");
-        return this.f29675a;
+        return this.f29757a;
     }
 
     @Override // android.app.Service

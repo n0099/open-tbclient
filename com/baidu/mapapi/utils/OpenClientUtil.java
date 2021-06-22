@@ -3,6 +3,7 @@ package com.baidu.mapapi.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes2.dex */
 public class OpenClientUtil {
     public static int getBaiduMapVersion(Context context) {
@@ -26,7 +27,7 @@ public class OpenClientUtil {
         String b2 = b.b(context);
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
-        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b2 + "]"));
+        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b2 + PreferencesUtil.RIGHT_MOUNT));
         context.startActivity(intent);
     }
 }

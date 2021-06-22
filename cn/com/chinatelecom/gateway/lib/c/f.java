@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.idl.util.NetUtil;
+import com.baidu.pass.face.platform.stat.NetUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;

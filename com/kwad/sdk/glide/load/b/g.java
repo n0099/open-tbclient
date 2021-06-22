@@ -12,74 +12,74 @@ import java.util.Map;
 public class g implements com.kwad.sdk.glide.load.c {
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f35989b;
+    public final h f36087b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final URL f35990c;
+    public final URL f36088c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f35991d;
+    public final String f36089d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35992e;
+    public String f36090e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public URL f35993f;
+    public URL f36091f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile byte[] f35994g;
+    public volatile byte[] f36092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35995h;
+    public int f36093h;
 
     public g(String str) {
-        this(str, h.f35997b);
+        this(str, h.f36095b);
     }
 
     public g(String str, h hVar) {
-        this.f35990c = null;
-        this.f35991d = com.kwad.sdk.glide.g.j.a(str);
-        this.f35989b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f36088c = null;
+        this.f36089d = com.kwad.sdk.glide.g.j.a(str);
+        this.f36087b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     public g(URL url) {
-        this(url, h.f35997b);
+        this(url, h.f36095b);
     }
 
     public g(URL url, h hVar) {
-        this.f35990c = (URL) com.kwad.sdk.glide.g.j.a(url);
-        this.f35991d = null;
-        this.f35989b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f36088c = (URL) com.kwad.sdk.glide.g.j.a(url);
+        this.f36089d = null;
+        this.f36087b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     private URL d() {
-        if (this.f35993f == null) {
-            this.f35993f = new URL(e());
+        if (this.f36091f == null) {
+            this.f36091f = new URL(e());
         }
-        return this.f35993f;
+        return this.f36091f;
     }
 
     private String e() {
-        if (TextUtils.isEmpty(this.f35992e)) {
-            String str = this.f35991d;
+        if (TextUtils.isEmpty(this.f36090e)) {
+            String str = this.f36089d;
             if (TextUtils.isEmpty(str)) {
-                str = ((URL) com.kwad.sdk.glide.g.j.a(this.f35990c)).toString();
+                str = ((URL) com.kwad.sdk.glide.g.j.a(this.f36088c)).toString();
             }
-            this.f35992e = Uri.encode(str, GlideUrl.ALLOWED_URI_CHARS);
+            this.f36090e = Uri.encode(str, GlideUrl.ALLOWED_URI_CHARS);
         }
-        return this.f35992e;
+        return this.f36090e;
     }
 
     private byte[] f() {
-        if (this.f35994g == null) {
-            this.f35994g = c().getBytes(com.kwad.sdk.glide.load.c.f36060a);
+        if (this.f36092g == null) {
+            this.f36092g = c().getBytes(com.kwad.sdk.glide.load.c.f36158a);
         }
-        return this.f35994g;
+        return this.f36092g;
     }
 
     public URL a() {
@@ -92,31 +92,31 @@ public class g implements com.kwad.sdk.glide.load.c {
     }
 
     public Map<String, String> b() {
-        return this.f35989b.a();
+        return this.f36087b.a();
     }
 
     public String c() {
-        String str = this.f35991d;
-        return str != null ? str : ((URL) com.kwad.sdk.glide.g.j.a(this.f35990c)).toString();
+        String str = this.f36089d;
+        return str != null ? str : ((URL) com.kwad.sdk.glide.g.j.a(this.f36088c)).toString();
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return c().equals(gVar.c()) && this.f35989b.equals(gVar.f35989b);
+            return c().equals(gVar.c()) && this.f36087b.equals(gVar.f36087b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        if (this.f35995h == 0) {
+        if (this.f36093h == 0) {
             int hashCode = c().hashCode();
-            this.f35995h = hashCode;
-            this.f35995h = (hashCode * 31) + this.f35989b.hashCode();
+            this.f36093h = hashCode;
+            this.f36093h = (hashCode * 31) + this.f36087b.hashCode();
         }
-        return this.f35995h;
+        return this.f36093h;
     }
 
     public String toString() {

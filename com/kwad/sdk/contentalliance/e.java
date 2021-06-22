@@ -9,15 +9,15 @@ import com.kwad.sdk.contentalliance.home.g;
 public class e extends AbstractKsContentAllianceAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsScene f33128a;
+    public KsScene f33226a;
 
     public e(KsScene ksScene) {
-        this.f33128a = ksScene;
+        this.f33226a = ksScene;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsContentAllianceAd
     @NonNull
     public KsFragment getFragment2() {
-        return g.a(this.f33128a);
+        return g.a(this.f33226a);
     }
 }

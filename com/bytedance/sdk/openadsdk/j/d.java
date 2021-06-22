@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.j;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f29409a;
+    public static a f29491a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -13,15 +13,15 @@ public class d {
     }
 
     public static void a(a aVar) {
-        f29409a = aVar;
+        f29491a = aVar;
     }
 
     public static boolean a() {
-        return f29409a != null;
+        return f29491a != null;
     }
 
     public static void a(String str, String str2) {
-        a aVar = f29409a;
+        a aVar = f29491a;
         if (aVar == null) {
             return;
         }
@@ -29,12 +29,12 @@ public class d {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f29409a == null) {
+        if (f29491a == null) {
             return;
         }
         if (th == null) {
             th = new Throwable();
         }
-        f29409a.a(str, str2, th);
+        f29491a.a(str, str2, th);
     }
 }

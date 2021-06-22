@@ -3,6 +3,7 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.base.datamodel.PayData;
 import java.io.Serializable;
 import java.util.Map;
@@ -94,7 +95,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
 
         public String toString() {
-            return "CertificateTypeInfo [type=" + this.type + ", description=" + this.description + "]";
+            return "CertificateTypeInfo [type=" + this.type + ", description=" + this.description + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

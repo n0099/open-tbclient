@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.data;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import d.a.n0.e2.b;
+import d.a.o0.e2.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {

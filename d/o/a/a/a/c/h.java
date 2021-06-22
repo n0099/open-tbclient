@@ -6,31 +6,31 @@ import org.json.JSONObject;
 public class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70316a;
+    public String f70420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f70317b;
+    public boolean f70421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70318c;
+    public String f70422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f70319d;
+    public String f70423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f70320e;
+    public String f70424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f70321f;
+    public String f70425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f70322g;
+    public String f70426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f70323h;
+    public String f70427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f70324i;
+    public Object f70428i;
     public boolean j;
     public String k;
 
@@ -38,31 +38,31 @@ public class h implements c {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f70325a;
+        public String f70429a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f70326b;
+        public boolean f70430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70327c;
+        public String f70431c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f70328d;
+        public String f70432d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f70329e;
+        public String f70433e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f70330f;
+        public String f70434f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f70331g;
+        public String f70435g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f70332h;
+        public String f70436h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f70333i;
+        public String f70437i;
         public String j;
         public String k;
         public Object l;
@@ -92,7 +92,7 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public String b() {
-        return this.f70316a;
+        return this.f70420a;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -102,37 +102,37 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public String d() {
-        return this.f70318c;
+        return this.f70422c;
     }
 
     @Override // d.o.a.a.a.c.c
     public String e() {
-        return this.f70319d;
+        return this.f70423d;
     }
 
     @Override // d.o.a.a.a.c.c
     public String f() {
-        return this.f70320e;
+        return this.f70424e;
     }
 
     @Override // d.o.a.a.a.c.c
     public String g() {
-        return this.f70321f;
+        return this.f70425f;
     }
 
     @Override // d.o.a.a.a.c.c
     public String h() {
-        return this.f70322g;
+        return this.f70426g;
     }
 
     @Override // d.o.a.a.a.c.c
     public String i() {
-        return this.f70323h;
+        return this.f70427h;
     }
 
     @Override // d.o.a.a.a.c.c
     public Object j() {
-        return this.f70324i;
+        return this.f70428i;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -142,7 +142,7 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public boolean l() {
-        return this.f70317b;
+        return this.f70421b;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -164,18 +164,18 @@ public class h implements c {
     }
 
     public h(b bVar) {
-        this.f70316a = bVar.f70325a;
-        this.f70317b = bVar.f70326b;
-        this.f70318c = bVar.f70327c;
-        this.f70319d = bVar.f70328d;
-        this.f70320e = bVar.f70329e;
-        this.f70321f = bVar.f70330f;
-        this.f70322g = bVar.f70331g;
-        String unused = bVar.f70332h;
-        String unused2 = bVar.f70333i;
-        this.f70323h = bVar.j;
+        this.f70420a = bVar.f70429a;
+        this.f70421b = bVar.f70430b;
+        this.f70422c = bVar.f70431c;
+        this.f70423d = bVar.f70432d;
+        this.f70424e = bVar.f70433e;
+        this.f70425f = bVar.f70434f;
+        this.f70426g = bVar.f70435g;
+        String unused = bVar.f70436h;
+        String unused2 = bVar.f70437i;
+        this.f70427h = bVar.j;
         String unused3 = bVar.k;
-        this.f70324i = bVar.l;
+        this.f70428i = bVar.l;
         this.j = bVar.m;
         boolean unused4 = bVar.n;
         boolean unused5 = bVar.o;

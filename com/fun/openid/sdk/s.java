@@ -11,17 +11,17 @@ public interface s extends IInterface {
     public static abstract class a extends Binder implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f30833a = 0;
+        public static final /* synthetic */ int f30915a = 0;
 
         /* renamed from: com.fun.openid.sdk.s$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0333a implements s {
+        public static class C0336a implements s {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f30834a;
+            public IBinder f30916a;
 
-            public C0333a(IBinder iBinder) {
-                this.f30834a = iBinder;
+            public C0336a(IBinder iBinder) {
+                this.f30916a = iBinder;
             }
 
             @Override // com.fun.openid.sdk.s
@@ -30,7 +30,7 @@ public interface s extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f30834a.transact(3, obtain, obtain2, 0);
+                    this.f30916a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -41,7 +41,7 @@ public interface s extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f30834a;
+                return this.f30916a;
             }
 
             @Override // com.fun.openid.sdk.s
@@ -50,7 +50,7 @@ public interface s extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f30834a.transact(1, obtain, obtain2, 0);
+                    this.f30916a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

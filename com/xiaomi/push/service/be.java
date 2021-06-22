@@ -3,27 +3,27 @@ package com.xiaomi.push.service;
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41776a = 8;
+    public static int f41879a = 8;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41779d = -666;
+    public int f41882d = -666;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f922a = new byte[256];
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41778c = 0;
+    public int f41881c = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41777b = 0;
+    public int f41880b = 0;
 
     public static int a(byte b2) {
         return b2 >= 0 ? b2 : b2 + 256;
     }
 
     private void a() {
-        this.f41778c = 0;
-        this.f41777b = 0;
+        this.f41881c = 0;
+        this.f41880b = 0;
     }
 
     private void a(int i2, byte[] bArr, boolean z) {
@@ -31,20 +31,20 @@ public class be {
         for (int i3 = 0; i3 < 256; i3++) {
             this.f922a[i3] = (byte) i3;
         }
-        this.f41778c = 0;
-        this.f41777b = 0;
+        this.f41881c = 0;
+        this.f41880b = 0;
         while (true) {
-            int i4 = this.f41777b;
+            int i4 = this.f41880b;
             if (i4 >= i2) {
                 break;
             }
-            int a2 = ((this.f41778c + a(this.f922a[i4])) + a(bArr[this.f41777b % length])) % 256;
-            this.f41778c = a2;
-            a(this.f922a, this.f41777b, a2);
-            this.f41777b++;
+            int a2 = ((this.f41881c + a(this.f922a[i4])) + a(bArr[this.f41880b % length])) % 256;
+            this.f41881c = a2;
+            a(this.f922a, this.f41880b, a2);
+            this.f41880b++;
         }
         if (i2 != 256) {
-            this.f41779d = ((this.f41778c + a(this.f922a[i2])) + a(bArr[i2 % length])) % 256;
+            this.f41882d = ((this.f41881c + a(this.f922a[i2])) + a(bArr[i2 % length])) % 256;
         }
         if (z) {
             StringBuilder sb = new StringBuilder();
@@ -59,23 +59,23 @@ public class be {
             sb.append("   j_");
             sb.append(i5);
             sb.append("=");
-            sb.append(this.f41778c);
+            sb.append(this.f41881c);
             sb.append("   j_");
             sb.append(i2);
             sb.append("=");
-            sb.append(this.f41779d);
+            sb.append(this.f41882d);
             sb.append("   S_");
             sb.append(i5);
             sb.append("[j_");
             sb.append(i5);
             sb.append("]=");
-            sb.append(a(this.f922a[this.f41778c]));
+            sb.append(a(this.f922a[this.f41881c]));
             sb.append("   S_");
             sb.append(i5);
             sb.append("[j_");
             sb.append(i2);
             sb.append("]=");
-            sb.append(a(this.f922a[this.f41779d]));
+            sb.append(a(this.f922a[this.f41882d]));
             if (this.f922a[1] != 0) {
                 sb.append("   S[1]!=0");
             }
@@ -146,12 +146,12 @@ public class be {
 
     /* renamed from: a  reason: collision with other method in class */
     public byte m596a() {
-        int i2 = (this.f41777b + 1) % 256;
-        this.f41777b = i2;
-        int a2 = (this.f41778c + a(this.f922a[i2])) % 256;
-        this.f41778c = a2;
-        a(this.f922a, this.f41777b, a2);
+        int i2 = (this.f41880b + 1) % 256;
+        this.f41880b = i2;
+        int a2 = (this.f41881c + a(this.f922a[i2])) % 256;
+        this.f41881c = a2;
+        a(this.f922a, this.f41880b, a2);
         byte[] bArr = this.f922a;
-        return bArr[(a(bArr[this.f41777b]) + a(this.f922a[this.f41778c])) % 256];
+        return bArr[(a(bArr[this.f41880b]) + a(this.f922a[this.f41881c])) % 256];
     }
 }

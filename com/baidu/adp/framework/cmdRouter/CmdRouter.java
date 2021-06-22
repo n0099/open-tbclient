@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import com.baidu.pass.biometrics.face.liveness.b.b;
+import com.baidu.pass.biometrics.face.liveness.b.a;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class CmdRouter {
             declaredField.setAccessible(true);
             tiebaCmdClassesArray.cmdClassesArray = (String[]) declaredField.get(newInstance);
         } catch (Exception e2) {
-            Log.e("cmdClassesArray: ", b.g0);
+            Log.e("cmdClassesArray: ", a.g0);
             e2.printStackTrace();
         }
         Log.e("cmdClassesArray: ", "" + tiebaCmdClassesArray.cmdClassesArray.length);

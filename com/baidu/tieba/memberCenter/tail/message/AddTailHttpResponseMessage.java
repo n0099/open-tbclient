@@ -3,8 +3,8 @@ package com.baidu.tieba.memberCenter.tail.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import d.a.n0.s1.h.a.b;
-/* loaded from: classes3.dex */
+import d.a.o0.s1.h.a.b;
+/* loaded from: classes4.dex */
 public class AddTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<b> {
     public b resultData;
 

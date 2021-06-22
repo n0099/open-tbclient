@@ -7,7 +7,7 @@ import tv.athena.revenue.payui.model.ThemeColorConfig;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f72167a = new g();
+    public static final g f72271a = new g();
 
     public final int a(PayUIKitConfig payUIKitConfig) {
         ThemeColorConfig themeColorConfig;

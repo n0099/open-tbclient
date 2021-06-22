@@ -13,10 +13,10 @@ import org.json.JSONObject;
 public final class x0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68861a = x0.class.getSimpleName() + "#";
+    public static final String f68965a = x0.class.getSimpleName() + "#";
 
     /* renamed from: b  reason: collision with root package name */
-    public static t0<f1> f68862b = new a();
+    public static t0<f1> f68966b = new a();
 
     /* loaded from: classes6.dex */
     public static class a extends t0<f1> {
@@ -32,7 +32,7 @@ public final class x0 {
     public static String a(SharedPreferences sharedPreferences) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         String a2 = v0.a(sharedPreferences);
-        y0.e("TrackerDr", f68861a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+        y0.e("TrackerDr", f68965a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
         return a2;
     }
 
@@ -49,14 +49,14 @@ public final class x0 {
     @WorkerThread
     public static Map<String, String> c(@NonNull Context context, @NonNull SharedPreferences sharedPreferences) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Map<String, String> b2 = f68862b.b(context).b(100L);
-        y0.e("TrackerDr", f68861a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+        Map<String, String> b2 = f68966b.b(context).b(100L);
+        y0.e("TrackerDr", f68965a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
         return b2;
     }
 
     @AnyThread
     public static void d(@NonNull Context context) {
-        f68862b.b(context).c();
+        f68966b.b(context).c();
     }
 
     @AnyThread

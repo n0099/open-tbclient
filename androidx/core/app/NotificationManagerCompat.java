@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayDeque;
 import java.util.Collections;
@@ -87,7 +88,7 @@ public final class NotificationManagerCompat {
 
         @NonNull
         public String toString() {
-            return "NotifyTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + "]";
+            return "NotifyTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -537,7 +538,7 @@ public final class NotificationManagerCompat {
 
         @NonNull
         public String toString() {
-            return "CancelTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + ", all:" + this.all + "]";
+            return "CancelTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + ", all:" + this.all + PreferencesUtil.RIGHT_MOUNT;
         }
 
         public CancelTask(String str, int i2, String str2) {

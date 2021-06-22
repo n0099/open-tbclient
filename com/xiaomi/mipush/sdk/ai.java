@@ -5,49 +5,49 @@ import com.xiaomi.push.hf;
 public /* synthetic */ class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40912a;
+    public static final /* synthetic */ int[] f41015a;
 
     static {
         int[] iArr = new int[hf.values().length];
-        f40912a = iArr;
+        f41015a = iArr;
         try {
             iArr[hf.Registration.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40912a[hf.UnRegistration.ordinal()] = 2;
+            f41015a[hf.UnRegistration.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40912a[hf.Subscription.ordinal()] = 3;
+            f41015a[hf.Subscription.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40912a[hf.UnSubscription.ordinal()] = 4;
+            f41015a[hf.UnSubscription.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40912a[hf.SendMessage.ordinal()] = 5;
+            f41015a[hf.SendMessage.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f40912a[hf.AckMessage.ordinal()] = 6;
+            f41015a[hf.AckMessage.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f40912a[hf.SetConfig.ordinal()] = 7;
+            f41015a[hf.SetConfig.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f40912a[hf.ReportFeedback.ordinal()] = 8;
+            f41015a[hf.ReportFeedback.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f40912a[hf.Notification.ordinal()] = 9;
+            f41015a[hf.Notification.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f40912a[hf.Command.ordinal()] = 10;
+            f41015a[hf.Command.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

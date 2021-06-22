@@ -6,7 +6,7 @@ import com.kwad.sdk.utils.n;
 public final class AbiUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Abi f35127a;
+    public static Abi f35225a;
 
     /* loaded from: classes7.dex */
     public enum Abi {
@@ -27,33 +27,33 @@ public final class AbiUtil {
         if (Build.VERSION.SDK_INT < 21) {
             return Abi.ARMEABI_V7A;
         }
-        Abi abi = f35127a;
+        Abi abi = f35225a;
         if (abi != null) {
             return abi;
         }
         try {
             Abi abi2 = ((Boolean) n.a(n.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-            f35127a = abi2;
+            f35225a = abi2;
             return abi2;
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
             try {
                 Abi abi3 = ((Integer) n.a(n.a("sun.misc.Unsafe", "getUnsafe", new Object[0]), "addressSize", new Object[0])).intValue() == 8 ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-                f35127a = abi3;
+                f35225a = abi3;
                 return abi3;
             } catch (Throwable th2) {
                 com.kwad.sdk.core.d.a.b(th2);
                 try {
                     if (com.kwad.sdk.crash.d.a().f().getApplicationInfo().nativeLibraryDir.contains("arm64")) {
                         Abi abi4 = Abi.ARM64_V8A;
-                        f35127a = abi4;
+                        f35225a = abi4;
                         return abi4;
                     }
                 } catch (Throwable th3) {
                     com.kwad.sdk.core.d.a.b(th3);
                 }
                 Abi abi5 = Abi.UNKNOWN;
-                f35127a = abi5;
+                f35225a = abi5;
                 return abi5;
             }
         }

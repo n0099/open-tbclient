@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C1846a f6305a;
+    public a.C1848a f6305a;
 
     /* renamed from: b  reason: collision with root package name */
     public Context f6306b;
@@ -160,7 +160,7 @@ public class TrustSubjectManager {
     }
 
     public final d.a.q.g.b.e.a a() {
-        return d.a.q.g.b.c.a(d.a.q.j.a.a.f68044a, d.a.q.j.a.a.f68045b);
+        return d.a.q.g.b.c.a(d.a.q.j.a.a.f68000a, d.a.q.j.a.a.f68001b);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:87:0x011a A[SYNTHETIC] */
@@ -297,7 +297,7 @@ public class TrustSubjectManager {
 
     public void f(a aVar) {
         this.f6306b = aVar.f6308a;
-        a.C1846a f2 = aVar.f6309b.d().f("tz");
+        a.C1848a f2 = aVar.f6309b.d().f("tz");
         this.f6305a = f2;
         f2.a();
     }

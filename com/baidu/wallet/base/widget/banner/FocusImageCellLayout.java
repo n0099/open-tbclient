@@ -10,7 +10,7 @@ import com.baidu.apollon.base.widget.NetImageView;
 public class FocusImageCellLayout extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f23717a;
+    public NetImageView f23799a;
 
     /* loaded from: classes5.dex */
     public interface FocusImageEvent {
@@ -27,17 +27,17 @@ public class FocusImageCellLayout extends RelativeLayout {
 
     private void b(Context context) {
         NetImageView netImageView = new NetImageView(context);
-        this.f23717a = netImageView;
+        this.f23799a = netImageView;
         netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f23717a, new RelativeLayout.LayoutParams(-1, -1));
+        addView(this.f23799a, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     public NetImageView getFocusView() {
-        return this.f23717a;
+        return this.f23799a;
     }
 
     public void updateImage(int i2) {
-        this.f23717a.setBackgroundResource(i2);
+        this.f23799a.setBackgroundResource(i2);
     }
 
     public FocusImageCellLayout(Context context, AttributeSet attributeSet, int i2) {
@@ -46,6 +46,6 @@ public class FocusImageCellLayout extends RelativeLayout {
     }
 
     public void updateImage(Drawable drawable) {
-        this.f23717a.setImageDrawable(drawable);
+        this.f23799a.setImageDrawable(drawable);
     }
 }

@@ -26,25 +26,25 @@ import java.util.ArrayList;
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29001a;
+    public View f29083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f29002b;
+    public ImageView f29084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f29003c;
+    public EditText f29085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f29004d;
+    public TextView f29086d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29005e;
+    public TextView f29087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f29006f;
+    public l f29088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f29007g;
+    public a f29089g;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -57,14 +57,14 @@ public class c extends Dialog {
 
     public c(@NonNull Context context, l lVar) {
         super(context, ad.g(context, "quick_option_dialog"));
-        this.f29006f = lVar;
+        this.f29088f = lVar;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        InputMethodManager inputMethodManager = (InputMethodManager) this.f29003c.getContext().getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f29085c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f29001a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f29083a.getWindowToken(), 0);
         }
         super.dismiss();
     }
@@ -73,7 +73,7 @@ public class c extends Dialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         View inflate = LayoutInflater.from(getContext()).inflate(ad.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
-        this.f29001a = inflate;
+        this.f29083a = inflate;
         setContentView(inflate);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
@@ -85,11 +85,11 @@ public class c extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) this.f29003c.getContext().getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f29085c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f29001a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f29083a.getWindowToken(), 0);
         }
-        this.f29003c.clearFocus();
+        this.f29085c.clearFocus();
         Window window = getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.gravity = 80;
@@ -98,24 +98,24 @@ public class c extends Dialog {
 
     private void a(Context context) {
         EditText editText = (EditText) findViewById(ad.e(getContext(), "tt_comment_content"));
-        this.f29003c = editText;
+        this.f29085c = editText;
         a(editText);
         TextView textView = (TextView) findViewById(ad.e(getContext(), "tt_comment_commit"));
-        this.f29004d = textView;
+        this.f29086d = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String obj = c.this.f29003c.getText().toString();
+                String obj = c.this.f29085c.getText().toString();
                 if (obj.length() <= 0 || obj.isEmpty()) {
                     return;
                 }
                 FilterWord filterWord = new FilterWord("0:00", obj);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(filterWord);
-                com.bytedance.sdk.openadsdk.c.d.a(c.this.f29006f, arrayList);
-                if (c.this.f29007g != null) {
+                com.bytedance.sdk.openadsdk.c.d.a(c.this.f29088f, arrayList);
+                if (c.this.f29089g != null) {
                     try {
-                        c.this.f29007g.a(0, filterWord);
+                        c.this.f29089g.a(0, filterWord);
                     } catch (Throwable unused) {
                     }
                 }
@@ -123,15 +123,15 @@ public class c extends Dialog {
             }
         });
         ImageView imageView = (ImageView) findViewById(ad.e(getContext(), "tt_comment_close"));
-        this.f29002b = imageView;
+        this.f29084b = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
             }
         });
-        this.f29005e = (TextView) findViewById(ad.e(getContext(), "tt_comment_number"));
-        this.f29003c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
+        this.f29087e = (TextView) findViewById(ad.e(getContext(), "tt_comment_number"));
+        this.f29085c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
@@ -143,14 +143,14 @@ public class c extends Dialog {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 int round = Math.round(charSequence.length());
-                c.this.f29005e.setText(round + "");
+                c.this.f29087e.setText(round + "");
                 if (round > 0) {
-                    c.this.f29004d.setTextColor(-16777216);
-                    c.this.f29004d.setClickable(true);
+                    c.this.f29086d.setTextColor(-16777216);
+                    c.this.f29086d.setClickable(true);
                     return;
                 }
-                c.this.f29004d.setTextColor(-7829368);
-                c.this.f29004d.setClickable(false);
+                c.this.f29086d.setTextColor(-7829368);
+                c.this.f29086d.setClickable(false);
             }
         });
     }
@@ -168,16 +168,16 @@ public class c extends Dialog {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (c.this.f29007g != null) {
-                    c.this.f29007g.a();
+                if (c.this.f29089g != null) {
+                    c.this.f29089g.a();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (c.this.f29007g != null) {
-                    c.this.f29007g.b();
+                if (c.this.f29089g != null) {
+                    c.this.f29089g.b();
                 }
             }
         });
@@ -187,18 +187,18 @@ public class c extends Dialog {
         if (lVar == null) {
             return;
         }
-        this.f29006f = lVar;
+        this.f29088f = lVar;
     }
 
     public void a() {
-        EditText editText = this.f29003c;
+        EditText editText = this.f29085c;
         if (editText != null) {
             editText.setText((CharSequence) null);
         }
     }
 
     public void a(a aVar) {
-        this.f29007g = aVar;
+        this.f29089g = aVar;
     }
 
     public static void a(EditText editText) {

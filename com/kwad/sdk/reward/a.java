@@ -16,33 +16,33 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f36951b;
+    public com.kwad.sdk.reward.a.b f37049b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f36952c;
+    public KsVideoPlayConfig f37050c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f36953d;
+    public JSONObject f37051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36954e;
+    public int f37052e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f36955f;
+    public AdTemplate f37053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f36956g;
+    public Activity f37054g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f36957h;
+    public AdBaseFrameLayout f37055h;
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f36958i;
+    public com.kwad.sdk.reward.c.a f37056i;
     @Nullable
     public com.kwad.sdk.core.download.b.b j;
     @NonNull
@@ -55,15 +55,15 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f36950a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f37048a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.e> n = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> o = new HashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f36950a.clear();
+        this.f37048a.clear();
         this.n.clear();
-        this.f36958i.h();
+        this.f37056i.h();
         com.kwad.sdk.core.download.b.b bVar = this.j;
         if (bVar != null) {
             bVar.f();

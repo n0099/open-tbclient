@@ -7,10 +7,10 @@ import android.net.Uri;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26908a;
+    public Context f26990a;
 
     public a(Context context) {
-        this.f26908a = context;
+        this.f26990a = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x003c  */
@@ -30,7 +30,7 @@ public class a {
                 str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
             } else if (i2 != 2) {
                 parse = null;
-                query = this.f26908a.getContentResolver().query(parse, null, null, null, null);
+                query = this.f26990a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
@@ -49,7 +49,7 @@ public class a {
             str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str2);
-        query = this.f26908a.getContentResolver().query(parse, null, null, null, null);
+        query = this.f26990a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
         return r0;

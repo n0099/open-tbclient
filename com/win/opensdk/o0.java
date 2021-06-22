@@ -5,10 +5,10 @@ import com.win.opensdk.core.Info;
 public class o0 implements L0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q0 f40769a;
+    public final /* synthetic */ q0 f40872a;
 
     public o0(q0 q0Var) {
-        this.f40769a = q0Var;
+        this.f40872a = q0Var;
     }
 
     @Override // com.win.opensdk.L0
@@ -17,11 +17,11 @@ public class o0 implements L0 {
 
     @Override // com.win.opensdk.L0
     public void a(Object obj) {
-        this.f40769a.a((Info) obj);
+        this.f40872a.a((Info) obj);
     }
 
     @Override // com.win.opensdk.L0
     public void onFail(PBError pBError) {
-        this.f40769a.f40782h.onFail(pBError);
+        this.f40872a.f40885h.onFail(pBError);
     }
 }

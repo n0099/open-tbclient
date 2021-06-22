@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import android.text.TextUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.v8engine.net.Uri;
 import java.net.IDN;
 import java.net.InetAddress;
@@ -213,7 +214,7 @@ public class a {
     public static String a(String str) {
         InetAddress a2;
         if (str.contains(":")) {
-            if (str.startsWith("[") && str.endsWith("]")) {
+            if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                 a2 = a(str, 1, str.length() - 1);
             } else {
                 a2 = a(str, 0, str.length());

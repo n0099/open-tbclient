@@ -8,70 +8,70 @@ import java.util.List;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f33055c;
+    public static volatile a f33153c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AdTemplate> f33056a;
+    public List<AdTemplate> f33154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<AdTemplate> f33057b;
+    public List<AdTemplate> f33155b;
 
     public static a a() {
-        if (f33055c == null) {
+        if (f33153c == null) {
             synchronized (a.class) {
-                if (f33055c == null) {
-                    f33055c = new a();
+                if (f33153c == null) {
+                    f33153c = new a();
                 }
             }
         }
-        return f33055c;
+        return f33153c;
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f33056a == null) {
-            this.f33056a = new ArrayList();
+        if (this.f33154a == null) {
+            this.f33154a = new ArrayList();
         }
-        this.f33056a.clear();
-        this.f33056a.addAll(list);
+        this.f33154a.clear();
+        this.f33154a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f33056a;
+        return this.f33154a;
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f33057b == null) {
-            this.f33057b = new ArrayList();
+        if (this.f33155b == null) {
+            this.f33155b = new ArrayList();
         }
-        this.f33057b.clear();
-        this.f33057b.addAll(list);
+        this.f33155b.clear();
+        this.f33155b.addAll(list);
     }
 
     public void c() {
-        List<AdTemplate> list = this.f33056a;
+        List<AdTemplate> list = this.f33154a;
         if (list != null) {
             list.clear();
         }
-        this.f33056a = null;
+        this.f33154a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.f33057b;
+        return this.f33155b;
     }
 
     public void e() {
-        List<AdTemplate> list = this.f33057b;
+        List<AdTemplate> list = this.f33155b;
         if (list != null) {
             list.clear();
         }
-        this.f33057b = null;
+        this.f33155b = null;
     }
 }

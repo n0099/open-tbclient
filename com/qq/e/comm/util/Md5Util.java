@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 public class Md5Util {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39212a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+    public static final String[] f39310a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
     public static String byteArrayToHexString(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -16,7 +16,7 @@ public class Md5Util {
             if (i2 < 0) {
                 i2 += 256;
             }
-            stringBuffer.append(f39212a[i2 / 16] + f39212a[i2 % 16]);
+            stringBuffer.append(f39310a[i2 / 16] + f39310a[i2 % 16]);
         }
         return stringBuffer.toString();
     }

@@ -7,33 +7,33 @@ import java.util.Iterator;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C0396a> f35117a = new ArrayList<>();
+    public ArrayList<C0399a> f35215a = new ArrayList<>();
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0396a {
+    public static class C0399a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ExceptionMessage f35118a;
+        public ExceptionMessage f35216a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35119b;
+        public int f35217b;
 
-        public C0396a(ExceptionMessage exceptionMessage, int i2) {
-            this.f35118a = exceptionMessage;
-            this.f35119b = i2;
+        public C0399a(ExceptionMessage exceptionMessage, int i2) {
+            this.f35216a = exceptionMessage;
+            this.f35217b = i2;
         }
     }
 
     private void a() {
-        if (this.f35117a.isEmpty()) {
+        if (this.f35215a.isEmpty()) {
             return;
         }
         try {
-            Iterator<C0396a> it = this.f35117a.iterator();
+            Iterator<C0399a> it = this.f35215a.iterator();
             while (it.hasNext()) {
-                C0396a next = it.next();
-                b(next.f35118a, next.f35119b);
+                C0399a next = it.next();
+                b(next.f35216a, next.f35217b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -54,7 +54,7 @@ public abstract class a implements c {
             b(exceptionMessage, i2);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.f35117a.add(new C0396a(exceptionMessage, i2));
+            this.f35215a.add(new C0399a(exceptionMessage, i2));
         }
     }
 

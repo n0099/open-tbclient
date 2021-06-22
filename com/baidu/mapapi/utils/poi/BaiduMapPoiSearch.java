@@ -11,6 +11,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.OpenClientUtil;
 import com.baidu.mapapi.utils.route.BaiduMapRoutePlan;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class BaiduMapPoiSearch {
@@ -69,7 +70,7 @@ public class BaiduMapPoiSearch {
         sb.append("&panotype=");
         sb.append("street");
         sb.append("&src=");
-        sb.append("sdk_[" + context.getPackageName() + "]");
+        sb.append("sdk_[" + context.getPackageName() + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         if (intent.resolveActivity(context.getPackageManager()) == null) {

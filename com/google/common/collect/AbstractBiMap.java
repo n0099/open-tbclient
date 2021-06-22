@@ -70,36 +70,36 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
     public class a implements Iterator<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public Map.Entry<K, V> f30970e;
+        public Map.Entry<K, V> f31068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f30971f;
+        public final /* synthetic */ Iterator f31069f;
 
         public a(Iterator it) {
-            this.f30971f = it;
+            this.f31069f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            Map.Entry<K, V> entry = (Map.Entry) this.f30971f.next();
-            this.f30970e = entry;
+            Map.Entry<K, V> entry = (Map.Entry) this.f31069f.next();
+            this.f31068e = entry;
             return new b(entry);
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30971f.hasNext();
+            return this.f31069f.hasNext();
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f30970e != null);
-            V value = this.f30970e.getValue();
-            this.f30971f.remove();
+            m.e(this.f31068e != null);
+            V value = this.f31068e.getValue();
+            this.f31069f.remove();
             AbstractBiMap.this.removeFromInverseMap(value);
-            this.f30970e = null;
+            this.f31068e = null;
         }
     }
 
@@ -107,17 +107,17 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
     public class b extends v<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map.Entry<K, V> f30973e;
+        public final Map.Entry<K, V> f31071e;
 
         public b(Map.Entry<K, V> entry) {
-            this.f30973e = entry;
+            this.f31071e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.y
         /* renamed from: b */
         public Map.Entry<K, V> delegate() {
-            return this.f30973e;
+            return this.f31071e;
         }
 
         @Override // d.g.c.c.v, java.util.Map.Entry
@@ -128,7 +128,7 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
                 return v;
             }
             n.k(!AbstractBiMap.this.containsValue(v), "value already present: %s", v);
-            V value = this.f30973e.setValue(v);
+            V value = this.f31071e.setValue(v);
             n.x(d.g.c.a.k.a(v, AbstractBiMap.this.get(getKey())), "entry no longer in map");
             AbstractBiMap.this.updateInverseMap(getKey(), true, value, v);
             return value;
@@ -139,10 +139,10 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
     public class c extends a0<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<Map.Entry<K, V>> f30975e;
+        public final Set<Map.Entry<K, V>> f31073e;
 
         public c() {
-            this.f30975e = AbstractBiMap.this.delegate.entrySet();
+            this.f31073e = AbstractBiMap.this.delegate.entrySet();
         }
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
@@ -167,10 +167,10 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            if (this.f30975e.contains(obj)) {
+            if (this.f31073e.contains(obj)) {
                 Map.Entry entry = (Map.Entry) obj;
                 AbstractBiMap.this.inverse.delegate.remove(entry.getValue());
-                this.f30975e.remove(entry);
+                this.f31073e.remove(entry);
                 return true;
             }
             return false;
@@ -203,7 +203,7 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public Set<Map.Entry<K, V>> delegate() {
-            return this.f30975e;
+            return this.f31073e;
         }
     }
 
@@ -256,10 +256,10 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
     public class e extends a0<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<V> f30978e;
+        public final Set<V> f31076e;
 
         public e() {
-            this.f30978e = AbstractBiMap.this.inverse.keySet();
+            this.f31076e = AbstractBiMap.this.inverse.keySet();
         }
 
         @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -289,7 +289,7 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public Set<V> delegate() {
-            return this.f30978e;
+            return this.f31076e;
         }
     }
 

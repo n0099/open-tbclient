@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43361a = f.f43350b;
+    public static final boolean f43464a = f.f43453b;
 
     public static String a(int i2) {
         if (i2 != 0) {
@@ -23,26 +23,26 @@ public final class j {
                             if (i2 != 302) {
                                 switch (i2) {
                                     case 401:
-                                        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_action_sec_check_fail);
+                                        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_action_sec_check_fail);
                                     case 402:
-                                        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_action_acl_check_fail);
+                                        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_action_acl_check_fail);
                                     case 403:
-                                        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_action_allow_close);
+                                        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_action_allow_close);
                                     default:
-                                        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_parse_fail);
+                                        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_parse_fail);
                                 }
                             }
-                            return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_action_notfound);
+                            return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_action_notfound);
                         }
-                        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_module_notfound);
+                        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_module_notfound);
                     }
-                    return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_params_parse_fail);
+                    return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_params_parse_fail);
                 }
-                return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_parse_fail);
+                return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_parse_fail);
             }
-            return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_not_support);
+            return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_not_support);
         }
-        return c.a().getString(d.a.i0.d.prologue_united_scheme_err_message_ok);
+        return c.a().getString(d.a.j0.d.prologue_united_scheme_err_message_ok);
     }
 
     public static HashMap<String, String> b(String str) {
@@ -71,7 +71,7 @@ public final class j {
                 try {
                     hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                 } catch (IllegalArgumentException e2) {
-                    if (f43361a) {
+                    if (f43464a) {
                         e2.printStackTrace();
                     }
                 }
@@ -110,7 +110,7 @@ public final class j {
         if (uri == null) {
             return false;
         }
-        return TextUtils.equals(f.f43349a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+        return TextUtils.equals(f.f43452a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
     }
 
     public static boolean g(String str) {

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -154,9 +155,9 @@ public class bi {
             sb.append("/");
             sb.append(this.f8762a);
             if (!z) {
-                sb.append("[");
+                sb.append(PreferencesUtil.LEFT_MOUNT);
                 sb.append(this.f8764c);
-                sb.append("]");
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
             }
             return sb.toString();
         }

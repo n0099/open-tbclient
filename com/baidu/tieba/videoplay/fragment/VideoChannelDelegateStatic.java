@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import d.a.m0.e0.b;
-import d.a.m0.e0.c;
-import d.a.m0.e0.d;
+import d.a.n0.e0.b;
+import d.a.n0.e0.c;
+import d.a.n0.e0.d;
 /* loaded from: classes5.dex */
 public class VideoChannelDelegateStatic extends b {
 
@@ -39,40 +39,40 @@ public class VideoChannelDelegateStatic extends b {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
         Bundle bundle = new Bundle();
         bundle.putString("from", VideoPlayActivityConfig.FROM_VIDEO_ACCOUNT_TAB);
         VideoVerticalPageFragment videoVerticalPageFragment = new VideoVerticalPageFragment();
-        cVar.f53008a = videoVerticalPageFragment;
+        cVar.f53115a = videoVerticalPageFragment;
         videoVerticalPageFragment.setArguments(bundle);
-        cVar.f53012e = 22;
-        cVar.f53009b = R.string.video_channel;
-        cVar.f53016i = c.l;
-        cVar.f53013f = R.raw.lottie_tab_video_channel;
-        cVar.f53015h = d.a.m0.e0.e.c.d().c("channel");
+        cVar.f53119e = 22;
+        cVar.f53116b = R.string.video_channel;
+        cVar.f53123i = c.l;
+        cVar.f53120f = R.raw.lottie_tab_video_channel;
+        cVar.f53122h = d.a.n0.e0.e.c.d().c("channel");
         return cVar;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         return (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.VIDEO_CHANNEL_TAB_AVAILABLE;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public void onAdd() {
         super.onAdd();
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public void onRemove() {
         super.onRemove();
-        ((VideoVerticalPageFragment) getFragmentTabStructure().f53008a).onDestroy();
+        ((VideoVerticalPageFragment) getFragmentTabStructure().f53115a).onDestroy();
     }
 }

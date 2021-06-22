@@ -1,136 +1,112 @@
 package d.a.n0.m0;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-/* loaded from: classes4.dex */
-public class e implements d.a.m0.v.c {
-    @Override // d.a.m0.v.c
-    public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
-        if (i2 != 3) {
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobstat.Config;
+/* loaded from: classes3.dex */
+public class e extends m {
+    @Override // d.a.n0.m0.m
+    public void b(h hVar) {
+        int i2;
+        if (k.d().g()) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("action", "time_t");
+            f(a2, hVar);
+            a2.b("ishttp", hVar.s ? "1" : "0");
+            a2.b("issuccess", hVar.f53321b ? "1" : "0");
+            a2.b("nettype", k.d().f());
+            a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f53324e));
+            a2.b("wt", String.valueOf(hVar.p));
+            a2.b("qt", String.valueOf(hVar.f53325f));
+            a2.b("connt", String.valueOf(hVar.f53326g));
+            a2.b("rwt", String.valueOf(hVar.f53327h));
+            a2.b("dect", String.valueOf(hVar.k));
+            a2.b("parset", String.valueOf(hVar.l));
+            a2.b("rendert", String.valueOf(hVar.o));
+            a2.b("ss", String.valueOf(hVar.q));
+            a2.b("hs", String.valueOf(hVar.r));
+            if (hVar.s && (i2 = hVar.t) != 0) {
+                a2.b("salno", String.valueOf(i2));
+                long j = hVar.u;
+                if (j != 0) {
+                    a2.b("scosttime", String.valueOf(j));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            int i3 = hVar.v;
+            if (i3 != 0) {
+                a2.c("errcode", Integer.valueOf(i3));
+            }
+            if (hVar.s) {
+                a2.b("c_logid", String.valueOf(hVar.A));
+            } else {
+                a2.b("seq_id", String.valueOf(hVar.z & 4294967295L));
+            }
+            BdStatisticsManager.getInstance().performance(this.f53341a, a2);
         }
     }
 
-    @Override // d.a.m0.v.c
-    public void onFileDownloadSucceed(DownloadData downloadData) {
-        MessageManager.getInstance().runTask(2004603, (Class) null);
-        try {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
+    @Override // d.a.n0.m0.m
+    public void c(h hVar, int i2) {
+        if (k.d().g() && hVar.D > 0) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("action", "time_t");
+            f(a2, hVar);
+            a2.b("pct", String.valueOf(hVar.D));
+            if (i2 == 0) {
+                a2.b("pct_type", String.valueOf(100));
+            } else if (i2 != 40) {
+                return;
+            } else {
+                a2.b("pct_type", String.valueOf(101));
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            BdStatisticsManager.getInstance().performance(this.f53341a, a2);
         }
     }
 
-    @Override // d.a.m0.v.c
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        FileInputStream fileInputStream;
-        if (downloadData == null) {
-            return false;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            try {
-                fileInputStream = new FileInputStream(downloadData.getPath());
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-        }
-        try {
-            int g2 = a.c().g(downloadData.getId(), fileInputStream);
-            EmotionGroupData j = g.k().j(downloadData.getId());
-            if (j == null) {
-                if (g2 == 0) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e3) {
-                        BdLog.detailException(e3);
+    @Override // d.a.n0.m0.m
+    public void d(h hVar, boolean z) {
+        int i2;
+        if (k.d().g()) {
+            if (!z || hVar.B > 0) {
+                if (z || hVar.C > 0) {
+                    d.a.c.e.n.a a2 = j.a();
+                    a2.b("action", "time_t");
+                    f(a2, hVar);
+                    if (z) {
+                        a2.b("put", String.valueOf(hVar.B));
+                    } else {
+                        a2.b("pdt", String.valueOf(hVar.C));
                     }
-                    return false;
-                }
-                j = new EmotionGroupData();
-                j.setBytesLength((int) downloadData.getSize());
-                j.setBytesReceived((int) downloadData.getLength());
-                j.setDownloadUrl(downloadData.getUrl());
-                j.setGroupId(downloadData.getId());
-                j.setEmotionsCount(g2);
-                j.setHeight(downloadData.getHeight());
-                j.setWidth(downloadData.getWidth());
-                j.setDownloadTime(System.currentTimeMillis());
-                j.setGroupDesc(downloadData.getDescription());
-                j.setGroupName(downloadData.getName());
-                j.setStatus(1);
-                g.k().e(j);
-            }
-            g.k().f(downloadData.getStatusMsg(), j);
-            downloadData.setStatusMsg(null);
-            try {
-                fileInputStream.close();
-            } catch (IOException e4) {
-                BdLog.detailException(e4);
-            }
-            return true;
-        } catch (Exception e5) {
-            e = e5;
-            fileInputStream2 = fileInputStream;
-            BdLog.detailException(e);
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e6) {
-                    BdLog.detailException(e6);
+                    a2.b("ishttp", hVar.s ? "1" : "0");
+                    a2.b("issuccess", hVar.f53321b ? "1" : "0");
+                    a2.b("nettype", k.d().f());
+                    a2.b("qt", String.valueOf(hVar.f53325f));
+                    a2.b("connt", String.valueOf(hVar.f53326g));
+                    a2.b("rwt", String.valueOf(hVar.f53327h));
+                    a2.b("dect", String.valueOf(hVar.k));
+                    a2.b("parset", String.valueOf(hVar.l));
+                    a2.b("rendert", String.valueOf(hVar.o));
+                    a2.b("ss", String.valueOf(hVar.q));
+                    a2.b("hs", String.valueOf(hVar.r));
+                    if (hVar.s && (i2 = hVar.t) != 0) {
+                        a2.b("salno", String.valueOf(i2));
+                        long j = hVar.u;
+                        if (j != 0) {
+                            a2.b("scosttime", String.valueOf(j));
+                        }
+                    }
+                    int i3 = hVar.v;
+                    if (i3 != 0) {
+                        a2.c("errcode", Integer.valueOf(i3));
+                    }
+                    BdStatisticsManager.getInstance().performance(this.f53341a, a2);
                 }
             }
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream2 = fileInputStream;
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e7) {
-                    BdLog.detailException(e7);
-                }
-            }
-            throw th;
         }
     }
 
-    @Override // d.a.m0.v.c
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        if (downloadData == null) {
-            return;
+    public final void f(d.a.c.e.n.a aVar, h hVar) {
+        if (hVar instanceof d) {
+            aVar.c("ptype", Integer.valueOf(((d) hVar).F));
         }
-        f.f().i(downloadData);
-    }
-
-    @Override // d.a.m0.v.c
-    public boolean onPreDownload(DownloadData downloadData) {
-        if (downloadData == null) {
-            return false;
-        }
-        EmotionGroupData j = g.k().j(downloadData.getId());
-        if (j == null || !b.d(downloadData.getId())) {
-            return true;
-        }
-        g.k().f(downloadData.getStatusMsg(), j);
-        downloadData.setStatusMsg(null);
-        return false;
     }
 }

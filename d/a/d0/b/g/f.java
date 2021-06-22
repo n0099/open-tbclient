@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.URLUtil;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import d.a.d0.a.c.e;
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,62 +27,62 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43329a = d.a.d0.a.a.a.f43269a;
+    public static final boolean f43432a = d.a.d0.a.a.a.f43372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f43330b;
+    public static d f43433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<h> f43331c;
+    public static List<h> f43434c;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f43332e;
+        public final /* synthetic */ File f43435e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43333f;
+        public final /* synthetic */ String f43436f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43334g;
+        public final /* synthetic */ String f43437g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f43335h;
+        public final /* synthetic */ File f43438h;
 
         /* renamed from: d.a.d0.b.g.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0577a implements e.b {
-            public C0577a() {
+        public class C0580a implements e.b {
+            public C0580a() {
             }
 
             @Override // d.a.d0.a.c.e.b
             public void a() {
-                if (!TextUtils.isEmpty(a.this.f43334g) && !TextUtils.equals(d.a.d0.a.c.f.b(a.this.f43332e), a.this.f43334g)) {
-                    if (f.f43329a) {
-                        Log.d("SourceManager", "md5 check fail  url:" + a.this.f43333f);
+                if (!TextUtils.isEmpty(a.this.f43437g) && !TextUtils.equals(d.a.d0.a.c.f.b(a.this.f43435e), a.this.f43437g)) {
+                    if (f.f43432a) {
+                        Log.d("SourceManager", "md5 check fail  url:" + a.this.f43436f);
                     }
-                    a.this.f43332e.delete();
+                    a.this.f43435e.delete();
                     return;
                 }
                 a aVar = a.this;
-                f.v(aVar.f43332e, aVar.f43335h);
+                f.v(aVar.f43435e, aVar.f43438h);
             }
         }
 
         public a(File file, String str, String str2, File file2) {
-            this.f43332e = file;
-            this.f43333f = str;
-            this.f43334g = str2;
-            this.f43335h = file2;
+            this.f43435e = file;
+            this.f43436f = str;
+            this.f43437g = str2;
+            this.f43438h = file2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.a.d0.a.c.e.b(this.f43332e, this.f43333f, new C0577a());
+                d.a.d0.a.c.e.b(this.f43435e, this.f43436f, new C0580a());
             } catch (Exception e2) {
-                if (d.a.d0.a.b.a.f43271a.get().s()) {
+                if (d.a.d0.a.b.a.f43374a.get().s()) {
                     Log.e("SourceManager", e2.toString());
                 }
             }
@@ -92,15 +93,15 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f43337e;
+        public final /* synthetic */ h f43440e;
 
         public b(h hVar) {
-            this.f43337e = hVar;
+            this.f43440e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.x(this.f43337e);
+            f.x(this.f43440e);
         }
     }
 
@@ -108,30 +109,30 @@ public class f {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f43338e;
+        public final /* synthetic */ List f43441e;
 
         public c(List list) {
-            this.f43338e = list;
+            this.f43441e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (f.f43329a) {
+            if (f.f43432a) {
                 Log.d("SourceManager", "SourceManager scheduleDownloadSplashSource");
             }
-            List list = this.f43338e;
+            List list = this.f43441e;
             if (list == null || list.size() == 0) {
                 return;
             }
             ArrayList arrayList = new ArrayList(3);
-            Iterator it = this.f43338e.iterator();
+            Iterator it = this.f43441e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 h hVar = (h) it.next();
                 if (hVar == null) {
-                    if (f.f43329a) {
+                    if (f.f43432a) {
                         Log.d("SourceManager", "SourceManager scheduleDownloadSplashSource() dataItem == null");
                     }
                 } else if (d.a.d0.a.c.h.a(hVar.v)) {
@@ -141,12 +142,12 @@ public class f {
                 }
             }
             if (arrayList.size() > 0) {
-                if (f.f43330b == null) {
-                    d unused = f.f43330b = new d(arrayList, null);
-                    d.a.d0.a.b.a.f43271a.get().o().registerReceiver(f.f43330b, f.f43330b.getIntentFilter());
+                if (f.f43433b == null) {
+                    d unused = f.f43433b = new d(arrayList, null);
+                    d.a.d0.a.b.a.f43374a.get().o().registerReceiver(f.f43433b, f.f43433b.getIntentFilter());
                     return;
                 }
-                f.f43330b.setNeedDownloadList(arrayList);
+                f.f43433b.setNeedDownloadList(arrayList);
             }
         }
     }
@@ -215,14 +216,14 @@ public class f {
         if (currentTimeMillis - a2 < hVar.t * 60000) {
             i2 |= 16;
         }
-        if (hVar.f43339a == 0) {
+        if (hVar.f43442a == 0) {
             i2 |= 32;
         }
-        File o = o(hVar.f43345g);
+        File o = o(hVar.f43448g);
         if (o == null || !o.exists()) {
             i2 |= 4;
         }
-        if (f43329a) {
+        if (f43432a) {
             Log.d("SourceManager", "物料不满足展示条件 reason ：" + i2);
         }
         return i2;
@@ -237,7 +238,7 @@ public class f {
             ArrayList arrayList = new ArrayList(list.size());
             for (h hVar : list) {
                 if (hVar != null) {
-                    arrayList.add(k(hVar.f43345g));
+                    arrayList.add(k(hVar.f43448g));
                     arrayList.add(k(hVar.y));
                 }
             }
@@ -252,8 +253,8 @@ public class f {
     }
 
     public static void h(h hVar) {
-        if (URLUtil.isNetworkUrl(hVar.f43345g)) {
-            i(hVar.f43345g, hVar.j);
+        if (URLUtil.isNetworkUrl(hVar.f43448g)) {
+            i(hVar.f43448g, hVar.j);
             if (TextUtils.isEmpty(hVar.y)) {
                 return;
             }
@@ -273,13 +274,13 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0021, code lost:
-        if (d.a.d0.b.g.f.f43329a == false) goto L11;
+        if (d.a.d0.b.g.f.f43432a == false) goto L11;
      */
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
         r4.printStackTrace();
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x0040, code lost:
-        if (d.a.d0.b.g.f.f43329a == false) goto L11;
+        if (d.a.d0.b.g.f.f43432a == false) goto L11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -305,7 +306,7 @@ public class f {
                     } catch (Exception e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        if (f43329a) {
+                        if (f43432a) {
                             e.printStackTrace();
                         }
                         if (bufferedReader != null) {
@@ -323,7 +324,7 @@ public class f {
                             try {
                                 bufferedReader.close();
                             } catch (Exception e5) {
-                                if (f43329a) {
+                                if (f43432a) {
                                     e5.printStackTrace();
                                 }
                             }
@@ -385,33 +386,33 @@ public class f {
 
     public static List<h> p() {
         String j;
-        if (f43331c != null) {
-            if (f43329a) {
-                Log.d("SourceManager", "from cache splashDataItemList:" + f43331c.size());
+        if (f43434c != null) {
+            if (f43432a) {
+                Log.d("SourceManager", "from cache splashDataItemList:" + f43434c.size());
             }
-            return f43331c;
+            return f43434c;
         }
-        f43331c = Collections.synchronizedList(new ArrayList());
+        f43434c = Collections.synchronizedList(new ArrayList());
         File n = n();
         if (n.exists() && (j = j(n)) != null) {
-            if (f43329a) {
+            if (f43432a) {
                 Log.d("SourceManager", "from local content:" + j);
             }
             try {
                 JSONArray jSONArray = new JSONArray(j);
-                if (f43329a) {
+                if (f43432a) {
                     Log.d("SourceManager", "JSONArray" + jSONArray.length());
                 }
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    f43331c.add(h.b(jSONArray.optJSONObject(i2)));
+                    f43434c.add(h.b(jSONArray.optJSONObject(i2)));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (f43329a) {
-                Log.d("SourceManager", "from local splashDataItemList:" + f43331c.size());
+            if (f43432a) {
+                Log.d("SourceManager", "from local splashDataItemList:" + f43434c.size());
             }
-            return f43331c;
+            return f43434c;
         }
         return null;
     }
@@ -424,7 +425,7 @@ public class f {
                 JSONArray jSONArray = new JSONArray(j(n));
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     h b2 = h.b((JSONObject) jSONArray.get(i2));
-                    hashMap.put(b2.f43340b, b2);
+                    hashMap.put(b2.f43443b, b2);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -459,9 +460,9 @@ public class f {
                 } else {
                     i2 |= f2;
                     try {
-                        jSONObject.put(hVar.f43341c, f2);
+                        jSONObject.put(hVar.f43444c, f2);
                     } catch (JSONException e2) {
-                        if (f43329a) {
+                        if (f43432a) {
                             e2.printStackTrace();
                         }
                     }
@@ -481,7 +482,7 @@ public class f {
         StringBuffer stringBuffer;
         int i2;
         FileWriter fileWriter;
-        if (f43329a) {
+        if (f43432a) {
             Log.d("SourceManager", "persistListToFile size:" + list.size());
         }
         int i3 = 0;
@@ -493,7 +494,7 @@ public class f {
             try {
                 h[] hVarArr = (h[]) list.toArray(new h[list.size() - 1]);
                 stringBuffer = new StringBuffer();
-                stringBuffer.append("[");
+                stringBuffer.append(PreferencesUtil.LEFT_MOUNT);
                 int length = hVarArr.length;
                 while (true) {
                     i2 = length - 1;
@@ -505,8 +506,8 @@ public class f {
                     i3++;
                 }
                 stringBuffer.append(hVarArr[i2].i());
-                stringBuffer.append("]");
-                if (f43329a) {
+                stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
+                if (f43432a) {
                     Log.d("SourceManager", "persistListToFile:" + stringBuffer.toString());
                 }
                 fileWriter = new FileWriter(file);
@@ -521,7 +522,7 @@ public class f {
             try {
                 fileWriter.close();
             } catch (Exception e3) {
-                if (f43329a) {
+                if (f43432a) {
                     Log.d("SourceManager", "persistListToFile() writer.close() Exception e: ");
                     e3.printStackTrace();
                 }
@@ -530,7 +531,7 @@ public class f {
         } catch (IOException e4) {
             fileWriter2 = fileWriter;
             e = e4;
-            if (f43329a) {
+            if (f43432a) {
                 Log.d("SourceManager", "persistListToFile() Exception e: ");
                 e.printStackTrace();
             }
@@ -538,7 +539,7 @@ public class f {
                 try {
                     fileWriter2.close();
                 } catch (Exception e5) {
-                    if (f43329a) {
+                    if (f43432a) {
                         Log.d("SourceManager", "persistListToFile() writer.close() Exception e: ");
                         e5.printStackTrace();
                     }
@@ -552,7 +553,7 @@ public class f {
                 try {
                     fileWriter2.close();
                 } catch (Exception e6) {
-                    if (f43329a) {
+                    if (f43432a) {
                         Log.d("SourceManager", "persistListToFile() writer.close() Exception e: ");
                         e6.printStackTrace();
                     }
@@ -580,12 +581,12 @@ public class f {
         if (p == null || p.size() == 0) {
             return;
         }
-        if (f43329a) {
+        if (f43432a) {
             Log.d("SourceManager", "updateSplashDataItem--->getSplashDataItemList:" + p.size());
         }
         for (int i2 = 0; i2 < p.size(); i2++) {
             h hVar2 = p.get(i2);
-            if (TextUtils.equals(hVar.f43340b, hVar2.f43340b)) {
+            if (TextUtils.equals(hVar.f43443b, hVar2.f43443b)) {
                 h.j(hVar2, hVar);
                 arrayList.add(hVar2);
             } else {
@@ -609,7 +610,7 @@ public class f {
         if (list == null || list.size() == 0) {
             return;
         }
-        f43331c = Collections.synchronizedList(list);
+        f43434c = Collections.synchronizedList(list);
         u(list, n());
     }
 }

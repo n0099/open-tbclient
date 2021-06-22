@@ -7,6 +7,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public abstract class HighPriorityIntentService extends Service {
     public String mName;
@@ -39,7 +40,7 @@ public abstract class HighPriorityIntentService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        HandlerThread handlerThread = new HandlerThread("IntentService[" + this.mName + "]", -8);
+        HandlerThread handlerThread = new HandlerThread("IntentService[" + this.mName + PreferencesUtil.RIGHT_MOUNT, -8);
         handlerThread.start();
         this.mServiceLooper = handlerThread.getLooper();
         this.mServiceHandler = new a(this.mServiceLooper);

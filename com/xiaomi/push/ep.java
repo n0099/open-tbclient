@@ -22,7 +22,7 @@ import java.util.Map;
 public abstract class ep extends en {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41209a;
+    public int f41312a;
 
     /* renamed from: a  reason: collision with other field name */
     public Bitmap f322a;
@@ -43,7 +43,7 @@ public abstract class ep extends en {
     public boolean f327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f41210b;
+    public CharSequence f41313b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f328b;
@@ -51,7 +51,7 @@ public abstract class ep extends en {
     public ep(Context context, int i2, String str) {
         super(context);
         this.f325a = str;
-        this.f41209a = i2;
+        this.f41312a = i2;
         m276c();
     }
 
@@ -91,7 +91,7 @@ public abstract class ep extends en {
     private void d() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.setContentTitle(this.f324a);
-            super.setContentText(this.f41210b);
+            super.setContentText(this.f41313b);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class ep extends en {
         List<StatusBarNotification> m583b;
         if (Build.VERSION.SDK_INT >= 20 && (m583b = com.xiaomi.push.service.ao.a(a(), this.f325a).m583b()) != null && !m583b.isEmpty()) {
             for (StatusBarNotification statusBarNotification : m583b) {
-                if (statusBarNotification.getId() == this.f41209a) {
+                if (statusBarNotification.getId() == this.f41312a) {
                     Notification notification = statusBarNotification.getNotification();
                     if (notification == null) {
                         return false;
@@ -223,7 +223,7 @@ public abstract class ep extends en {
     @Override // android.app.Notification.Builder
     /* renamed from: b */
     public ep setContentText(CharSequence charSequence) {
-        this.f41210b = charSequence;
+        this.f41313b = charSequence;
         return this;
     }
 
@@ -233,7 +233,7 @@ public abstract class ep extends en {
     public final void m280b() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.setContentTitle(this.f324a);
-            super.setContentText(this.f41210b);
+            super.setContentText(this.f41313b);
             Bitmap bitmap = this.f322a;
             if (bitmap != null) {
                 super.setLargeIcon(bitmap);

@@ -29,14 +29,14 @@ public class NoDataViewFactory {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f12318a;
+        public View.OnClickListener f12400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12319b;
+        public String f12401b;
 
         public b(String str, View.OnClickListener onClickListener) {
-            this.f12319b = str;
-            this.f12318a = onClickListener;
+            this.f12401b = str;
+            this.f12400a = onClickListener;
         }
     }
 
@@ -44,28 +44,28 @@ public class NoDataViewFactory {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f12320a;
+        public final b f12402a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f12321b;
+        public final b f12403b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12322c;
+        public final int f12404c;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public b f12323a = null;
+            public b f12405a = null;
 
             /* renamed from: b  reason: collision with root package name */
-            public b f12324b = null;
+            public b f12406b = null;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12325c = -1;
+            public int f12407c = -1;
 
             public a d(int i2) {
-                this.f12325c = i2;
+                this.f12407c = i2;
                 return this;
             }
 
@@ -74,7 +74,7 @@ public class NoDataViewFactory {
             }
 
             public a f(b bVar) {
-                this.f12323a = bVar;
+                this.f12405a = bVar;
                 return this;
             }
         }
@@ -93,9 +93,9 @@ public class NoDataViewFactory {
         }
 
         public c(a aVar) {
-            this.f12320a = aVar.f12323a;
-            this.f12321b = aVar.f12324b;
-            this.f12322c = aVar.f12325c;
+            this.f12402a = aVar.f12405a;
+            this.f12403b = aVar.f12406b;
+            this.f12404c = aVar.f12407c;
         }
     }
 
@@ -103,64 +103,64 @@ public class NoDataViewFactory {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImgType f12326a;
+        public final ImgType f12408a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f12327b;
+        public final int f12409b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12328c;
+        public final int f12410c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12329d;
+        public final int f12411d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12330e;
+        public final int f12412e;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public ImgType f12331a = ImgType.NONE;
+            public ImgType f12413a = ImgType.NONE;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f12332b = -1;
+            public int f12414b = -1;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12333c = -1;
+            public int f12415c = -1;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12334d = -1;
+            public int f12416d = -1;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12335e = -1;
+            public int f12417e = -1;
 
             public d f() {
                 return new d(this);
             }
 
             public a g(int i2) {
-                this.f12334d = i2;
+                this.f12416d = i2;
                 return this;
             }
 
             public a h(int i2) {
-                this.f12333c = i2;
+                this.f12415c = i2;
                 return this;
             }
 
             public a i(ImgType imgType) {
-                this.f12331a = imgType;
+                this.f12413a = imgType;
                 return this;
             }
 
             public a j(int i2) {
-                this.f12332b = i2;
+                this.f12414b = i2;
                 return this;
             }
 
             public a k(int i2) {
-                this.f12335e = i2;
+                this.f12417e = i2;
                 return this;
             }
         }
@@ -189,11 +189,11 @@ public class NoDataViewFactory {
         }
 
         public d(a aVar) {
-            this.f12326a = aVar.f12331a;
-            this.f12327b = aVar.f12332b;
-            this.f12328c = aVar.f12333c;
-            this.f12329d = aVar.f12334d;
-            this.f12330e = aVar.f12335e;
+            this.f12408a = aVar.f12413a;
+            this.f12409b = aVar.f12414b;
+            this.f12410c = aVar.f12415c;
+            this.f12411d = aVar.f12416d;
+            this.f12412e = aVar.f12417e;
         }
     }
 
@@ -201,54 +201,54 @@ public class NoDataViewFactory {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12336a;
+        public final String f12418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12337b;
+        public final String f12419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f12338c;
+        public final String f12420c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12339d;
+        public final int f12421d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12340e;
+        public final int f12422e;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f12341a = null;
+            public String f12423a = null;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f12342b = null;
+            public String f12424b = null;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f12343c = null;
+            public String f12425c = null;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12344d = -1;
+            public int f12426d = -1;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12345e = 0;
+            public int f12427e = 0;
 
             public e f() {
                 return new e(this);
             }
 
             public a g(String str) {
-                this.f12342b = str;
+                this.f12424b = str;
                 return this;
             }
 
             public a h(String str) {
-                this.f12341a = str;
+                this.f12423a = str;
                 return this;
             }
 
             public a i(int i2) {
-                this.f12344d = i2;
+                this.f12426d = i2;
                 return this;
             }
         }
@@ -282,11 +282,11 @@ public class NoDataViewFactory {
         }
 
         public e(a aVar) {
-            this.f12336a = aVar.f12341a;
-            this.f12337b = aVar.f12342b;
-            this.f12338c = aVar.f12343c;
-            this.f12339d = aVar.f12344d;
-            this.f12340e = aVar.f12345e;
+            this.f12418a = aVar.f12423a;
+            this.f12419b = aVar.f12424b;
+            this.f12420c = aVar.f12425c;
+            this.f12421d = aVar.f12426d;
+            this.f12422e = aVar.f12427e;
         }
     }
 

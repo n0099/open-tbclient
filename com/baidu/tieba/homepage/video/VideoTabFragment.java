@@ -12,35 +12,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.m0.z0.b0;
-import d.a.n0.b1.l.a;
-import d.a.n0.r0.o0;
+import d.a.n0.z0.b0;
+import d.a.o0.b1.l.a;
+import d.a.o0.r0.o0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class VideoTabFragment extends BaseFragment implements o0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f16719e;
+    public a f16801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f16720f = false;
+    public boolean f16802f = false;
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void H() {
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void I() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a067";
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -57,7 +57,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.g();
         }
@@ -66,21 +66,21 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f16719e == null) {
-            this.f16719e = new a(getPageContext(), getUniqueId());
+        if (this.f16801e == null) {
+            this.f16801e = new a(getPageContext(), getUniqueId());
         }
-        this.f16719e.k();
+        this.f16801e.k();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null && aVar.j() != null) {
-            if (this.f16719e.j().getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f16719e.j().getParent()).removeView(this.f16719e.j());
+            if (this.f16801e.j().getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f16801e.j().getParent()).removeView(this.f16801e.j());
             }
-            return this.f16719e.j();
+            return this.f16801e.j();
         }
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
@@ -88,7 +88,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.m();
         }
@@ -97,7 +97,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.l();
         }
@@ -106,7 +106,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.n();
         }
@@ -116,35 +116,35 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.f16720f) {
-                this.f16720f = true;
+            if (!this.f16802f) {
+                this.f16802f = true;
                 TiebaStatic.log(new StatisticItem("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
         }
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.p(isPrimary());
         }
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void r() {
-        a aVar = this.f16719e;
+        a aVar = this.f16801e;
         if (aVar != null) {
             aVar.o();
         }
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void t() {
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void v() {
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void z(b0 b0Var) {
     }
 }

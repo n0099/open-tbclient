@@ -26,12 +26,12 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
-    public d.a.n0.e3.l0.c jsCallback;
+    public d.a.o0.e3.l0.c jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public d.a.n0.e3.l0.a mJsBridge;
+    public d.a.o0.e3.l0.a mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -42,14 +42,14 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.n0.e3.l0.c {
+    public class a implements d.a.o0.e3.l0.c {
         public a() {
         }
 
-        @Override // d.a.n0.e3.l0.c
+        @Override // d.a.o0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             BaseWebView baseWebView = BaseWebView.this;
-            d.a.n0.e3.l0.a aVar = baseWebView.mJsBridge;
+            d.a.o0.e3.l0.a aVar = baseWebView.mJsBridge;
             if (aVar != null) {
                 return aVar.b(baseWebView.getWebView(), str, jsPromptResult);
             }
@@ -68,7 +68,7 @@ public class BaseWebView extends WebView {
                 return true;
             }
             try {
-                d.a.m0.l.a.j(BaseWebView.this.mContext, str);
+                d.a.n0.l.a.j(BaseWebView.this.mContext, str);
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -243,10 +243,10 @@ public class BaseWebView extends WebView {
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-        d.a.m0.l.a.a(getSettings());
+        d.a.n0.l.a.a(getSettings());
         this.mWebViewClient = new c();
         this.mWebChromeClient = new j(this, null);
-        this.mJsBridge = new d.a.n0.e3.l0.a();
+        this.mJsBridge = new d.a.o0.e3.l0.a();
         setWebViewClient(this.mWebViewClient);
         setWebChromeClient(this.mWebChromeClient);
         if (Build.VERSION.SDK_INT >= 11) {
@@ -254,7 +254,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        d.a.m0.l.a.f(getContext());
+        d.a.n0.l.a.f(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
             setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);
@@ -308,7 +308,7 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        d.a.n0.e3.l0.a aVar = this.mJsBridge;
+        d.a.o0.e3.l0.a aVar = this.mJsBridge;
         if (aVar != null) {
             aVar.h(getWebView(), str, hashMap);
         }
@@ -340,7 +340,7 @@ public class BaseWebView extends WebView {
         setOnLoadUrlListener(null);
     }
 
-    public void setOnJsPromptCallback(d.a.n0.e3.l0.c cVar) {
+    public void setOnJsPromptCallback(d.a.o0.e3.l0.c cVar) {
         this.jsCallback = cVar;
     }
 

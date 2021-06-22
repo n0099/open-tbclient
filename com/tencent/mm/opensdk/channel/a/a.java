@@ -12,38 +12,38 @@ public final class a {
 
     /* renamed from: com.tencent.mm.opensdk.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0510a {
+    public static class C0513a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39972a;
+        public String f40075a;
         public String action;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39973b;
+        public long f40076b;
         public Bundle bundle;
         public String content;
     }
 
-    public static boolean a(Context context, C0510a c0510a) {
+    public static boolean a(Context context, C0513a c0513a) {
         String str;
         if (context == null) {
             str = "send fail, invalid argument";
-        } else if (!d.b(c0510a.action)) {
+        } else if (!d.b(c0513a.action)) {
             String str2 = null;
-            if (!d.b(c0510a.f39972a)) {
-                str2 = c0510a.f39972a + ".permission.MM_MESSAGE";
+            if (!d.b(c0513a.f40075a)) {
+                str2 = c0513a.f40075a + ".permission.MM_MESSAGE";
             }
-            Intent intent = new Intent(c0510a.action);
-            Bundle bundle = c0510a.bundle;
+            Intent intent = new Intent(c0513a.action);
+            Bundle bundle = c0513a.bundle;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", Build.SDK_INT);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0510a.content);
-            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0510a.f39973b);
-            intent.putExtra("_mmessage_checksum", b.a(c0510a.content, Build.SDK_INT, packageName));
+            intent.putExtra("_mmessage_content", c0513a.content);
+            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0513a.f40076b);
+            intent.putExtra("_mmessage_checksum", b.a(c0513a.content, Build.SDK_INT, packageName));
             context.sendBroadcast(intent, str2);
             Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
             return true;

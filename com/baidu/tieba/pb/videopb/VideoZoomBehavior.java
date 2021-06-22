@@ -16,10 +16,10 @@ import com.google.android.material.appbar.AppBarLayout;
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoContainerLayout f19535a;
+    public VideoContainerLayout f19617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f19536b;
+    public VideoPbViewModel f19618b;
 
     public VideoZoomBehavior() {
     }
@@ -69,26 +69,26 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         VideoContainerLayout videoContainerLayout;
         ViewGroup.LayoutParams layoutParams;
         boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
-        if (topAndBottomOffset && (videoContainerLayout = this.f19535a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-            int maxHeight = this.f19535a.getMaxHeight() + i2;
+        if (topAndBottomOffset && (videoContainerLayout = this.f19617a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
+            int maxHeight = this.f19617a.getMaxHeight() + i2;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.f19535a.setLayoutParams(layoutParams);
+                this.f19617a.setLayoutParams(layoutParams);
             }
-            if (this.f19536b == null && (this.f19535a.getContext() instanceof PbActivity)) {
-                this.f19536b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19535a.getContext()).get(VideoPbViewModel.class);
+            if (this.f19618b == null && (this.f19617a.getContext() instanceof PbActivity)) {
+                this.f19618b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19617a.getContext()).get(VideoPbViewModel.class);
             }
-            VideoPbViewModel videoPbViewModel = this.f19536b;
+            VideoPbViewModel videoPbViewModel = this.f19618b;
             if (videoPbViewModel != null) {
                 if (i2 > -5) {
                     MutableLiveData<Boolean> e2 = videoPbViewModel.e();
                     if (e2 == null || e2.getValue() == null || !e2.getValue().booleanValue()) {
-                        this.f19536b.t(true);
+                        this.f19618b.t(true);
                     }
                 } else {
                     MutableLiveData<Boolean> e3 = videoPbViewModel.e();
                     if (e3 == null || e3.getValue() == null || e3.getValue().booleanValue()) {
-                        this.f19536b.t(false);
+                        this.f19618b.t(false);
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i2) {
-        this.f19535a = a(appBarLayout);
+        this.f19617a = a(appBarLayout);
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
     }
 
@@ -118,7 +118,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i2, int i3) {
         VideoContainerLayout a2 = a(appBarLayout);
-        this.f19535a = a2;
+        this.f19617a = a2;
         return (a2 == null || (i2 & 2) == 0) ? false : true;
     }
 }

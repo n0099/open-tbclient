@@ -14,7 +14,7 @@ import d.a.i.v0.a;
 /* loaded from: classes.dex */
 public class o extends h {
     public NewGridImageLayout l;
-    public d.a.m0.r.q.a m;
+    public d.a.n0.r.q.a m;
     public int n;
     public String o;
     public int p;
@@ -27,9 +27,9 @@ public class o extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar = o.this;
-            a.InterfaceC0598a interfaceC0598a = oVar.f43692i;
-            if (interfaceC0598a != null) {
-                interfaceC0598a.a(oVar.m);
+            a.InterfaceC0600a interfaceC0600a = oVar.f43785i;
+            if (interfaceC0600a != null) {
+                interfaceC0600a.a(oVar.m);
             }
         }
     }
@@ -40,11 +40,11 @@ public class o extends h {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0600a c0600a) {
+        public boolean a(a.C0602a c0602a) {
             if (o.this.m != null && o.this.m.i() != null && !o.this.f().booleanValue()) {
-                d.a.n0.z.m.a(o.this.m.i().o0());
-                d.a.n0.z.m.l(o.this.l.f4499f, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.n0.z.m.l(o.this.l.f4500g, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.o0.z.m.a(o.this.m.i().o0());
+                d.a.o0.z.m.l(o.this.l.f4499f, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.o0.z.m.l(o.this.l.f4500g, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -56,8 +56,8 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC0598a interfaceC0598a) {
-        this.f43692i = interfaceC0598a;
+    public void A(a.InterfaceC0600a interfaceC0600a) {
+        this.f43785i = interfaceC0600a;
     }
 
     public void B(boolean z) {
@@ -101,7 +101,7 @@ public class o extends h {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
+    public void l(d.a.o0.z.b0<d.a.n0.r.q.a> b0Var) {
         this.l.setSubClickListener(b0Var);
     }
 
@@ -120,7 +120,7 @@ public class o extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: u */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         this.m = aVar;
         this.l.setFrom(this.o);
         this.l.setFromForPb(this.p);

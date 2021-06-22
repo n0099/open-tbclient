@@ -63,7 +63,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(IKsAdSDK.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class KsAdSDKImpl implements IKsAdSDK {
     public static final String TAG = "KsAdSDKImpl";
     public static final Map<Class, Class> sModelImpl;
@@ -95,11 +95,11 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static final Map<Class, Class> sComponentProxy = new HashMap();
     public static final Map<Class, Class> sRealComponent = new HashMap();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static KsAdSDKImpl f32182a = new KsAdSDKImpl();
+        public static KsAdSDKImpl f32280a = new KsAdSDKImpl();
     }
 
     static {
@@ -133,7 +133,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     @KsAdSdkDynamicImpl(IKsAdSDK.class)
     @Keep
     public static KsAdSDKImpl get() {
-        return a.f32182a;
+        return a.f32280a;
     }
 
     public static Class<?> getProxyRealClass(Class cls) {
@@ -282,7 +282,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
     public int getSDKType() {
-        return d.f35162a;
+        return d.f35260a;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -334,14 +334,14 @@ public class KsAdSDKImpl implements IKsAdSDK {
         com.kwad.sdk.core.g.d.a(this.mAppContext, new d.a() { // from class: com.kwad.sdk.KsAdSDKImpl.1
 
             /* renamed from: c  reason: collision with root package name */
-            public AtomicBoolean f32181c = new AtomicBoolean(false);
+            public AtomicBoolean f32279c = new AtomicBoolean(false);
 
             @Override // com.kwad.sdk.core.g.d.a
             public void a() {
                 com.kwad.sdk.core.d.a.b(KsAdSDKImpl.TAG, "onCacheLoaded()");
-                if (com.kwad.sdk.core.config.c.p() && !this.f32181c.get()) {
+                if (com.kwad.sdk.core.config.c.p() && !this.f32279c.get()) {
                     com.kwad.sdk.core.video.a.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f32181c.set(true);
+                    this.f32279c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {
@@ -349,7 +349,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 }
                 com.kwad.sdk.core.a.a.a(KsAdSDKImpl.this.mAppContext, sdkConfig);
                 try {
-                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.f32184b.booleanValue()) {
+                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.f32282b.booleanValue()) {
                         DynamicInstallReceiver.registerToApp(KsAdSDKImpl.this.mAppContext);
                     }
                 } catch (Throwable unused) {
@@ -360,9 +360,9 @@ public class KsAdSDKImpl implements IKsAdSDK {
             @Override // com.kwad.sdk.core.g.d.a
             public void a(@NonNull SdkConfigData sdkConfigData) {
                 com.kwad.sdk.core.d.a.b(KsAdSDKImpl.TAG, "onCacheLoaded()");
-                if (com.kwad.sdk.core.config.c.p() && !this.f32181c.get()) {
+                if (com.kwad.sdk.core.config.c.p() && !this.f32279c.get()) {
                     com.kwad.sdk.core.video.a.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f32181c.set(true);
+                    this.f32279c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {

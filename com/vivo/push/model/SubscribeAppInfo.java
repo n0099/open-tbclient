@@ -1,4 +1,6 @@
 package com.vivo.push.model;
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes7.dex */
 public class SubscribeAppInfo {
     public static final int SUBSCIRBE = 1;
@@ -62,6 +64,6 @@ public class SubscribeAppInfo {
     }
 
     public String toString() {
-        return "SubscribeAppInfo [mName=" + this.mName + ", mTargetStatus=" + this.mTargetStatus + ", mActualStatus=" + this.mActualStatus + "]";
+        return "SubscribeAppInfo [mName=" + this.mName + ", mTargetStatus=" + this.mTargetStatus + ", mActualStatus=" + this.mActualStatus + PreferencesUtil.RIGHT_MOUNT;
     }
 }

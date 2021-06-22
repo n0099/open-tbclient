@@ -10,12 +10,12 @@ import d.o.a.e.b.f.s;
 public class a implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70564a;
+    public int f70668a;
 
     @Override // d.o.a.e.b.f.s
     public boolean a(long j, long j2, r rVar) {
         long j3;
-        d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(this.f70564a);
+        d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(this.f70668a);
         if (e(d2)) {
             long currentTimeMillis = System.currentTimeMillis();
             d.a().h();
@@ -56,11 +56,11 @@ public class a implements s {
     }
 
     public void c(int i2) {
-        this.f70564a = i2;
+        this.f70668a = i2;
     }
 
     public final void d(long j, long j2, long j3, long j4, long j5) {
-        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f70564a);
+        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f70668a);
         if (f2 == null) {
             return;
         }

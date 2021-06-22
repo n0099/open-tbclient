@@ -9,27 +9,27 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a.b> f37791a;
+    public final ArrayList<a.b> f37889a;
 
     /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h f37792a = new h();
+        public static final h f37890a = new h();
     }
 
     public h() {
-        this.f37791a = new ArrayList<>();
+        this.f37889a = new ArrayList<>();
     }
 
     public static h a() {
-        return a.f37792a;
+        return a.f37890a;
     }
 
     public int a(int i2) {
         int i3;
-        synchronized (this.f37791a) {
-            Iterator<a.b> it = this.f37791a.iterator();
+        synchronized (this.f37889a) {
+            Iterator<a.b> it = this.f37889a.iterator();
             i3 = 0;
             while (it.hasNext()) {
                 if (it.next().b(i2)) {
@@ -41,30 +41,30 @@ public class h {
     }
 
     public void a(List<a.b> list) {
-        synchronized (this.f37791a) {
-            Iterator<a.b> it = this.f37791a.iterator();
+        synchronized (this.f37889a) {
+            Iterator<a.b> it = this.f37889a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (!list.contains(next)) {
                     list.add(next);
                 }
             }
-            this.f37791a.clear();
+            this.f37889a.clear();
         }
     }
 
     public boolean a(a.b bVar) {
-        return this.f37791a.isEmpty() || !this.f37791a.contains(bVar);
+        return this.f37889a.isEmpty() || !this.f37889a.contains(bVar);
     }
 
     public boolean a(a.b bVar, MessageSnapshot messageSnapshot) {
         boolean remove;
         byte b2 = messageSnapshot.b();
-        synchronized (this.f37791a) {
-            remove = this.f37791a.remove(bVar);
+        synchronized (this.f37889a) {
+            remove = this.f37889a.remove(bVar);
         }
-        if (com.kwai.filedownloader.f.d.f37776a && this.f37791a.size() == 0) {
-            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f37791a.size()));
+        if (com.kwai.filedownloader.f.d.f37874a && this.f37889a.size() == 0) {
+            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f37889a.size()));
         }
         if (remove) {
             s d2 = bVar.G().d();
@@ -84,14 +84,14 @@ public class h {
     }
 
     public int b() {
-        return this.f37791a.size();
+        return this.f37889a.size();
     }
 
     public List<a.b> b(int i2) {
         byte v;
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f37791a) {
-            Iterator<a.b> it = this.f37791a.iterator();
+        synchronized (this.f37889a) {
+            Iterator<a.b> it = this.f37889a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (next.b(i2) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
@@ -113,8 +113,8 @@ public class h {
 
     public List<a.b> c(int i2) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f37791a) {
-            Iterator<a.b> it = this.f37791a.iterator();
+        synchronized (this.f37889a) {
+            Iterator<a.b> it = this.f37889a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (next.b(i2) && !next.H()) {
@@ -129,14 +129,14 @@ public class h {
         if (bVar.K()) {
             return;
         }
-        synchronized (this.f37791a) {
-            if (this.f37791a.contains(bVar)) {
+        synchronized (this.f37889a) {
+            if (this.f37889a.contains(bVar)) {
                 com.kwai.filedownloader.f.d.d(this, "already has %s", bVar);
             } else {
                 bVar.L();
-                this.f37791a.add(bVar);
-                if (com.kwai.filedownloader.f.d.f37776a) {
-                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f37791a.size()));
+                this.f37889a.add(bVar);
+                if (com.kwai.filedownloader.f.d.f37874a) {
+                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f37889a.size()));
                 }
             }
         }

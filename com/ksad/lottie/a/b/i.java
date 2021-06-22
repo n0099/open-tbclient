@@ -8,21 +8,21 @@ import java.util.List;
 public class i extends f<PointF> {
 
     /* renamed from: c  reason: collision with root package name */
-    public final PointF f31827c;
+    public final PointF f31925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float[] f31828d;
+    public final float[] f31926d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f31829e;
+    public h f31927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PathMeasure f31830f;
+    public PathMeasure f31928f;
 
     public i(List<? extends com.ksad.lottie.e.a<PointF>> list) {
         super(list);
-        this.f31827c = new PointF();
-        this.f31828d = new float[2];
+        this.f31925c = new PointF();
+        this.f31926d = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,20 +36,20 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path a2 = hVar.a();
         if (a2 == null) {
-            return aVar.f31913a;
+            return aVar.f32011a;
         }
-        com.ksad.lottie.e.c<A> cVar = this.f31817b;
-        if (cVar == 0 || (pointF = (PointF) cVar.a(hVar.f31916d, hVar.f31917e.floatValue(), hVar.f31913a, hVar.f31914b, c(), f2, f())) == null) {
-            if (this.f31829e != hVar) {
-                this.f31830f = new PathMeasure(a2, false);
-                this.f31829e = hVar;
+        com.ksad.lottie.e.c<A> cVar = this.f31915b;
+        if (cVar == 0 || (pointF = (PointF) cVar.a(hVar.f32014d, hVar.f32015e.floatValue(), hVar.f32011a, hVar.f32012b, c(), f2, f())) == null) {
+            if (this.f31927e != hVar) {
+                this.f31928f = new PathMeasure(a2, false);
+                this.f31927e = hVar;
             }
-            PathMeasure pathMeasure = this.f31830f;
-            pathMeasure.getPosTan(f2 * pathMeasure.getLength(), this.f31828d, null);
-            PointF pointF2 = this.f31827c;
-            float[] fArr = this.f31828d;
+            PathMeasure pathMeasure = this.f31928f;
+            pathMeasure.getPosTan(f2 * pathMeasure.getLength(), this.f31926d, null);
+            PointF pointF2 = this.f31925c;
+            float[] fArr = this.f31926d;
             pointF2.set(fArr[0], fArr[1]);
-            return this.f31827c;
+            return this.f31925c;
         }
         return pointF;
     }

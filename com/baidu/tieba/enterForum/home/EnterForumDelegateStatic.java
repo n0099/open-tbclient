@@ -48,31 +48,31 @@ import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMess
 import com.baidu.tieba.view.bubbleView.BubbleLayout;
 import com.compatible.menukey.MenuKeyUtils;
 import d.a.c.e.g.d;
-import d.a.m0.z0.f0;
-import d.a.m0.z0.h0;
+import d.a.n0.z0.f0;
+import d.a.n0.z0.h0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class EnterForumDelegateStatic extends d.a.m0.e0.b {
+public class EnterForumDelegateStatic extends d.a.n0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.a.c.e.g.c f14459a;
+    public static d.a.c.e.g.c f14541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static EnterForumModel f14460b;
+    public static EnterForumModel f14542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static EnterForumAdModel f14461c;
+    public static EnterForumAdModel f14543c;
 
     /* loaded from: classes4.dex */
     public static class a implements EnterForumModel.f {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
         public void a(EnterForumModel.e eVar) {
-            d.a.n0.j0.d.g e2 = eVar.f14558d.e();
+            d.a.o0.j0.d.g e2 = eVar.f14640d.e();
             ArrayList arrayList = new ArrayList();
-            Iterator<d.a.n0.j0.d.f> it = e2.b().iterator();
+            Iterator<d.a.o0.j0.d.f> it = e2.b().iterator();
             while (it.hasNext()) {
                 arrayList.add(it.next().G());
             }
@@ -84,7 +84,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class b extends d.a.c.a.e {
         @Override // d.a.c.a.e
         public void c(Object obj) {
-            boolean z = obj instanceof d.a.n0.j0.d.b;
+            boolean z = obj instanceof d.a.o0.j0.d.b;
         }
     }
 
@@ -97,12 +97,12 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = responsedMessage instanceof forumRecommendSocketResponseMessage;
-            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.f14460b.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.f14542b.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (z) {
-                    EnterForumDelegateStatic.f14460b.N((forumRecommendSocketResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.f14542b.N((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    EnterForumDelegateStatic.f14460b.M((forumRecommendHttpResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.f14542b.M((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -119,9 +119,9 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                 if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                    EnterForumDelegateStatic.f14460b.G(true);
+                    EnterForumDelegateStatic.f14542b.G(true);
                 } else {
-                    EnterForumDelegateStatic.f14460b.H(true);
+                    EnterForumDelegateStatic.f14542b.H(true);
                 }
             }
         }
@@ -130,8 +130,8 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     /* loaded from: classes4.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.n0.d0.c> run(CustomMessage<Object> customMessage) {
-            return new CustomResponsedMessage<>(2016562, new d.a.n0.j0.h.d());
+        public CustomResponsedMessage<d.a.o0.d0.c> run(CustomMessage<Object> customMessage) {
+            return new CustomResponsedMessage<>(2016562, new d.a.o0.j0.h.d());
         }
     }
 
@@ -159,7 +159,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
             String data = customMessage.getData();
             VisitedForumData visitedForumData = new VisitedForumData();
             visitedForumData.setForumId(data);
-            d.a.n0.j0.g.a.l().i(visitedForumData);
+            d.a.o0.j0.g.a.l().i(visitedForumData);
             TiebaStatic.log(new StatisticItem("c13005").param("fid", data));
             return null;
         }
@@ -174,19 +174,19 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.m0.e0.c fragmentTabStructure;
+            d.a.n0.e0.c fragmentTabStructure;
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                EnterForumDelegateStatic.f14461c.C();
+                EnterForumDelegateStatic.f14543c.C();
             }
-            ((d.a.m0.e0.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((d.a.m0.e0.d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f53008a.isAdded()) {
+            ((d.a.n0.e0.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
+            if (((d.a.n0.e0.d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f53115a.isAdded()) {
                 return;
             }
-            fragmentTabStructure.f53008a.setArguments(new Bundle());
+            fragmentTabStructure.f53115a.setArguments(new Bundle());
         }
     }
 
@@ -197,15 +197,15 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f14462e;
+            public final /* synthetic */ CustomResponsedMessage f14544e;
 
             public a(i iVar, CustomResponsedMessage customResponsedMessage) {
-                this.f14462e = customResponsedMessage;
+                this.f14544e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                EnterForumDelegateStatic.f((Activity) this.f14462e.getData());
+                EnterForumDelegateStatic.f((Activity) this.f14544e.getData());
             }
         }
 
@@ -217,11 +217,11 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.isLogin()) {
-                d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
+                d.a.n0.r.d0.b j = d.a.n0.r.d0.b.j();
                 if (j.g("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), false)) {
                     return;
                 }
-                d.a.m0.r.d0.b j2 = d.a.m0.r.d0.b.j();
+                d.a.n0.r.d0.b j2 = d.a.n0.r.d0.b.j();
                 if (j2.k("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0) <= 5 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Activity)) {
                     d.a.c.e.m.e.a().post(new a(this, customResponsedMessage));
                 }
@@ -233,7 +233,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class j implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-            d.a.n0.j0.g.a.l().n();
+            d.a.o0.j0.g.a.l().n();
             return null;
         }
     }
@@ -242,7 +242,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class k implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-            return new CustomResponsedMessage<>(2921483, d.a.n0.j0.g.a.l().k());
+            return new CustomResponsedMessage<>(2921483, d.a.o0.j0.g.a.l().k());
         }
     }
 
@@ -250,7 +250,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class l extends f0<Boolean> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.m0.z0.f0
+        @Override // d.a.n0.z0.f0
         public Boolean doInBackground() {
             NetWork netWork = new NetWork();
             netWork.setUrl(TbConfig.SERVER_ADDRESS + "/ala/sys/liveBarConcerned");
@@ -268,21 +268,21 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     }
 
     /* loaded from: classes4.dex */
-    public static class m implements d.a.m0.z0.n<Boolean> {
+    public static class m implements d.a.n0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f14463a;
+        public final /* synthetic */ Activity f14545a;
 
         public m(Activity activity) {
-            this.f14463a = activity;
+            this.f14545a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.z0.n
+        @Override // d.a.n0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                EnterForumDelegateStatic.s(this.f14463a);
+                EnterForumDelegateStatic.s(this.f14545a);
             }
         }
     }
@@ -291,8 +291,8 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class n implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (EnterForumDelegateStatic.f14459a != null) {
-                EnterForumDelegateStatic.f14459a.d();
+            if (EnterForumDelegateStatic.f14541a != null) {
+                EnterForumDelegateStatic.f14541a.d();
             }
         }
     }
@@ -301,22 +301,22 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class o implements d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f14464a;
+        public final /* synthetic */ Handler f14546a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Runnable f14465b;
+        public final /* synthetic */ Runnable f14547b;
 
         public o(Handler handler, Runnable runnable) {
-            this.f14464a = handler;
-            this.f14465b = runnable;
+            this.f14546a = handler;
+            this.f14547b = runnable;
         }
 
         @Override // d.a.c.e.g.d.a
         public void onDismiss() {
-            d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
+            d.a.n0.r.d0.b j = d.a.n0.r.d0.b.j();
             j.t("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), true);
-            d.a.c.e.g.c unused = EnterForumDelegateStatic.f14459a = null;
-            this.f14464a.removeCallbacks(this.f14465b);
+            d.a.c.e.g.c unused = EnterForumDelegateStatic.f14541a = null;
+            this.f14546a.removeCallbacks(this.f14547b);
         }
 
         @Override // d.a.c.e.g.d.a
@@ -328,7 +328,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     public static class p implements d.a.c.e.g.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f14466a;
+        public final /* synthetic */ Activity f14548a;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -337,12 +337,12 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EnterForumDelegateStatic.f14459a.d();
+                EnterForumDelegateStatic.f14541a.d();
             }
         }
 
         public p(Activity activity) {
-            this.f14466a = activity;
+            this.f14548a = activity;
         }
 
         @Override // d.a.c.e.g.b
@@ -357,7 +357,7 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
 
         @Override // d.a.c.e.g.b
         public View c(LayoutInflater layoutInflater) {
-            BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.f14466a, R.layout.enter_forum_ufan_tip, null);
+            BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.f14548a, R.layout.enter_forum_ufan_tip, null);
             TextView textView = (TextView) bubbleLayout.findViewById(R.id.enter_forum_ufan_guide_tv);
             textView.setOnClickListener(new a(this));
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
@@ -367,19 +367,19 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
 
         @Override // d.a.c.e.g.b
         public int getXOffset() {
-            if (d.a.c.e.p.l.h(this.f14466a) > 0.0f) {
-                return (int) ((this.f14466a.getResources().getDimensionPixelSize(R.dimen.ds52) * 2) / d.a.c.e.p.l.h(this.f14466a));
+            if (d.a.c.e.p.l.h(this.f14548a) > 0.0f) {
+                return (int) ((this.f14548a.getResources().getDimensionPixelSize(R.dimen.ds52) * 2) / d.a.c.e.p.l.h(this.f14548a));
             }
-            return this.f14466a.getResources().getDimensionPixelSize(R.dimen.ds52);
+            return this.f14548a.getResources().getDimensionPixelSize(R.dimen.ds52);
         }
 
         @Override // d.a.c.e.g.b
         public int getYOffset() {
-            int dimensionPixelSize = this.f14466a.getResources().getDimensionPixelSize(R.dimen.ds46) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            if (UtilHelper.getVirtualBarHeight(this.f14466a) > 0 || MenuKeyUtils.hasSmartBar()) {
-                dimensionPixelSize -= d.a.c.e.p.l.g(this.f14466a, R.dimen.ds20);
+            int dimensionPixelSize = this.f14548a.getResources().getDimensionPixelSize(R.dimen.ds46) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            if (UtilHelper.getVirtualBarHeight(this.f14548a) > 0 || MenuKeyUtils.hasSmartBar()) {
+                dimensionPixelSize -= d.a.c.e.p.l.g(this.f14548a, R.dimen.ds20);
             }
-            return d.a.c.e.p.l.h(this.f14466a) > 0.0f ? (int) ((dimensionPixelSize * 3) / d.a.c.e.p.l.h(this.f14466a)) : dimensionPixelSize;
+            return d.a.c.e.p.l.h(this.f14548a) > 0.0f ? (int) ((dimensionPixelSize * 3) / d.a.c.e.p.l.h(this.f14548a)) : dimensionPixelSize;
         }
     }
 
@@ -407,9 +407,9 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     }
 
     public static void f(Activity activity) {
-        d.a.m0.r.d0.b j2 = d.a.m0.r.d0.b.j();
+        d.a.n0.r.d0.b j2 = d.a.n0.r.d0.b.j();
         int k2 = j2.k("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0);
-        d.a.m0.r.d0.b j3 = d.a.m0.r.d0.b.j();
+        d.a.n0.r.d0.b j3 = d.a.n0.r.d0.b.j();
         j3.k("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), k2 + 1);
         h0.b(new l(), new m(activity));
     }
@@ -428,23 +428,23 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921519, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        d.a.n0.j0.g.a.l();
+        d.a.o0.j0.g.a.l();
     }
 
     public static void j() {
-        d.a.n0.e3.d0.a.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
     }
 
     public static void k() {
-        d.a.n0.e3.j0.c.d();
-        if (f14460b == null) {
+        d.a.o0.e3.j0.c.d();
+        if (f14542b == null) {
             EnterForumModel enterForumModel = new EnterForumModel(null);
-            f14460b = enterForumModel;
+            f14542b = enterForumModel;
             enterForumModel.T(new a());
         }
-        if (f14461c == null) {
+        if (f14543c == null) {
             EnterForumAdModel enterForumAdModel = new EnterForumAdModel();
-            f14461c = enterForumAdModel;
+            f14543c = enterForumAdModel;
             enterForumAdModel.setLoadDataCallBack(new b());
         }
         MessageManager.getInstance().registerListener(new c(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011));
@@ -452,20 +452,20 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     }
 
     public static void l() {
-        d.a.n0.e3.d0.a.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
     }
 
     public static void m() {
-        d.a.n0.e3.d0.a.h(303011, forumRecommendSocketResponseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
+        d.a.o0.e3.d0.a.h(303011, forumRecommendSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
     }
 
     public static void n() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921483, new k());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        d.a.n0.j0.g.a.l();
+        d.a.o0.j0.g.a.l();
     }
 
     public static void o() {
@@ -475,23 +475,23 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
     }
 
     public static void p() {
-        d.a.n0.e3.d0.a.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
-        d.a.n0.e3.d0.a.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
+        d.a.o0.e3.d0.a.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
+        d.a.o0.e3.d0.a.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
     }
 
     public static void q() {
-        d.a.n0.e3.d0.a.h(309630, ResponseSocketRecommendMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309630, CmdConfigHttp.CMD_RECOMMEND_FORUM, TbConfig.URL_ENTER_RECOMMEND_FORUM, ResponseHttpRecommendMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(309630, ResponseSocketRecommendMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309630, CmdConfigHttp.CMD_RECOMMEND_FORUM, TbConfig.URL_ENTER_RECOMMEND_FORUM, ResponseHttpRecommendMessage.class, false, false, true, false);
     }
 
     public static void r() {
-        d.a.n0.e3.d0.a.h(309633, ResponseSocketTestCloseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309633, CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, TbConfig.URL_RECOMMEND_FORUM_TEST_CLOSE, ResponseHttpTestCloseMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(309633, ResponseSocketTestCloseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309633, CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, TbConfig.URL_RECOMMEND_FORUM_TEST_CLOSE, ResponseHttpTestCloseMessage.class, false, false, true, false);
     }
 
     public static void s(Activity activity) {
-        d.a.c.e.g.c cVar = f14459a;
+        d.a.c.e.g.c cVar = f14541a;
         if (cVar != null) {
             cVar.d();
         }
@@ -505,31 +505,31 @@ public class EnterForumDelegateStatic extends d.a.m0.e0.b {
         dVar.i(false);
         dVar.a(new p(activity));
         d.a.c.e.g.c b2 = dVar.b();
-        f14459a = b2;
+        f14541a = b2;
         b2.n(activity);
         handler.postDelayed(nVar, 5000L);
     }
 
-    @Override // d.a.m0.e0.b
-    public d.a.m0.e0.c createFragmentTabStructure() {
-        d.a.m0.e0.c cVar = new d.a.m0.e0.c();
-        cVar.f53008a = new EnterForumTabFragment();
-        cVar.f53012e = 1;
-        cVar.f53009b = R.string.enter_forum;
-        cVar.f53016i = d.a.m0.e0.c.l;
-        cVar.f53013f = R.raw.lottie_tab_forum;
-        cVar.f53015h = d.a.m0.e0.e.c.d().c("enterForum");
+    @Override // d.a.n0.e0.b
+    public d.a.n0.e0.c createFragmentTabStructure() {
+        d.a.n0.e0.c cVar = new d.a.n0.e0.c();
+        cVar.f53115a = new EnterForumTabFragment();
+        cVar.f53119e = 1;
+        cVar.f53116b = R.string.enter_forum;
+        cVar.f53123i = d.a.n0.e0.c.l;
+        cVar.f53120f = R.raw.lottie_tab_forum;
+        cVar.f53122h = d.a.n0.e0.e.c.d().c("enterForum");
         return cVar;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.mIndicator = maintabBottomIndicator;
         return maintabBottomIndicator;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.ENTER_FORUM_DELEGATE_AVAILABLE;
     }

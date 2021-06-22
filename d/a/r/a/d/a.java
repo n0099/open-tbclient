@@ -9,32 +9,32 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f68079a;
+    public JSONArray f68183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68080b = String.valueOf(System.currentTimeMillis());
+    public String f68184b = String.valueOf(System.currentTimeMillis());
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f68081c;
+    public boolean f68185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f68082d;
+    public JSONObject f68186d;
 
     public a(boolean z, JSONArray jSONArray) {
-        this.f68081c = z;
-        this.f68079a = jSONArray;
+        this.f68185c = z;
+        this.f68183a = jSONArray;
     }
 
     public final JSONObject a() {
-        JSONArray jSONArray = this.f68079a;
+        JSONArray jSONArray = this.f68183a;
         if (jSONArray == null || jSONArray.length() < 0) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("metadata", b());
-            jSONObject.put(Constant.IS_REAL, this.f68081c ? "1" : "0");
-            jSONObject.put("data", this.f68079a);
+            jSONObject.put(Constant.IS_REAL, this.f68185c ? "1" : "0");
+            jSONObject.put("data", this.f68183a);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -45,11 +45,11 @@ public final class a {
     public final JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("uploadtime", this.f68080b);
+            jSONObject.put("uploadtime", this.f68184b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f68082d = jSONObject;
+        this.f68186d = jSONObject;
         return jSONObject;
     }
 }

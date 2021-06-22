@@ -97,7 +97,7 @@ public class g extends h {
         this.aq = new View.OnTouchListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.7
 
             /* renamed from: b  reason: collision with root package name */
-            public float f28587b;
+            public float f28669b;
 
             @Override // android.view.View.OnTouchListener
             @SuppressLint({"ClickableViewAccessibility"})
@@ -106,14 +106,14 @@ public class g extends h {
                 int actionMasked = motionEvent.getActionMasked();
                 if (actionMasked != 0) {
                     if (actionMasked == 1) {
-                        g.this.ap = Math.abs(this.f28587b - motionEvent.getX()) < 10.0f;
+                        g.this.ap = Math.abs(this.f28669b - motionEvent.getX()) < 10.0f;
                     } else if (actionMasked == 2) {
                         view2.getParent().requestDisallowInterceptTouchEvent(true);
                     } else if (actionMasked == 3) {
                         view2.getParent().requestDisallowInterceptTouchEvent(false);
                     }
                 } else {
-                    this.f28587b = x;
+                    this.f28669b = x;
                 }
                 return false;
             }
@@ -123,7 +123,7 @@ public class g extends h {
         this.az = new Rect();
         this.z = p.a().getApplicationContext();
         c(z2);
-        this.f28589a = view;
+        this.f28671a = view;
         this.u = z;
         com.bytedance.sdk.openadsdk.core.widget.g gVar = new com.bytedance.sdk.openadsdk.core.widget.g(this);
         this.ao = gVar;
@@ -135,7 +135,7 @@ public class g extends h {
         this.E = cVar;
         this.y = lVar;
         c(8);
-        a(context, this.f28589a);
+        a(context, this.f28671a);
         a();
         n();
     }
@@ -295,15 +295,15 @@ public class g extends h {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void d() {
         l lVar;
-        al.g(this.f28592d);
-        al.g(this.f28593e);
+        al.g(this.f28674d);
+        al.g(this.f28675e);
         al.f(this.Q);
-        if (this.f28594f != null && (lVar = this.y) != null && lVar.X() != null && this.y.X().h() != null) {
-            al.g(this.f28594f);
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.f28594f);
+        if (this.f28676f != null && (lVar = this.y) != null && lVar.X() != null && this.y.X().h() != null) {
+            al.g(this.f28676f);
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.f28676f);
         }
-        if (this.f28591c.getVisibility() == 0) {
-            al.a((View) this.f28591c, 8);
+        if (this.f28673c.getVisibility() == 0) {
+            al.a((View) this.f28673c, 8);
         }
     }
 
@@ -315,7 +315,7 @@ public class g extends h {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void f() {
-        al.f(this.f28592d);
+        al.f(this.f28674d);
         al.f(this.Q);
     }
 
@@ -329,16 +329,16 @@ public class g extends h {
         this.W.setText(ad.b(this.z, "tt_00_00"));
         c(8);
         if (x()) {
-            this.f28590b.setVisibility(8);
+            this.f28672b.setVisibility(8);
         }
-        ImageView imageView = this.f28594f;
+        ImageView imageView = this.f28676f;
         if (imageView != null) {
             imageView.setImageDrawable(null);
         }
         c(8);
         al.a(this.T, 8);
-        al.a(this.f28596h, 8);
-        al.a((View) this.f28597i, 8);
+        al.a(this.f28678h, 8);
+        al.a((View) this.f28679i, 8);
         al.a(this.j, 8);
         al.a((View) this.k, 8);
         al.a((View) this.l, 8);
@@ -384,7 +384,7 @@ public class g extends h {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void c(int i2) {
         this.w = i2;
-        al.a(this.f28589a, i2);
+        al.a(this.f28671a, i2);
         if (i2 != 0) {
             this.aB = false;
         } else if (this.aA) {
@@ -418,23 +418,23 @@ public class g extends h {
         this.W = (TextView) view.findViewById(ad.e(context, "tt_video_time_play"));
         this.T = view.findViewById(ad.e(context, "tt_video_ad_bottom_layout"));
         this.X = (ImageView) view.findViewById(ad.e(context, "tt_video_ad_full_screen"));
-        this.f28595g = (ViewStub) view.findViewById(ad.e(context, "tt_video_ad_cover"));
+        this.f28677g = (ViewStub) view.findViewById(ad.e(context, "tt_video_ad_cover"));
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void b(@Nullable ViewGroup viewGroup) {
         View view;
         u.f("FullScreen", "Detail exitFullScreen.....");
-        if (viewGroup == null || (view = this.f28589a) == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (viewGroup == null || (view = this.f28671a) == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             return;
         }
         this.Z = false;
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28589a.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28671a.getLayoutParams();
         marginLayoutParams.width = this.ad;
         marginLayoutParams.height = this.ae;
         marginLayoutParams.leftMargin = this.ac;
         marginLayoutParams.topMargin = this.ab;
-        this.f28589a.setLayoutParams(marginLayoutParams);
+        this.f28671a.setLayoutParams(marginLayoutParams);
         ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -449,7 +449,7 @@ public class g extends h {
         this.X.setImageDrawable(ad.c(this.z, "tt_enlarge_video"));
         this.U.setThumb(ad.c(this.z, "tt_seek_thumb_normal"));
         this.U.setThumbOffset(0);
-        com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28589a, true);
+        com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28671a, true);
         e(this.Z);
         al.a(this.L, 8);
         if (this.x.contains(b.a.alwayShowBackBtn)) {
@@ -460,7 +460,7 @@ public class g extends h {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void a() {
         super.a();
-        this.ao.a(this.f28589a);
+        this.ao.a(this.f28671a);
         int i2 = 8;
         al.a((View) this.K, (this.u || this.x.contains(b.a.hideCloseBtn)) ? 8 : 0);
         this.K.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.1
@@ -589,7 +589,7 @@ public class g extends h {
             i2 = this.q;
             i3 = this.r;
         }
-        this.f28590b.a(i2, i3);
+        this.f28672b.a(i2, i3);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
@@ -635,13 +635,13 @@ public class g extends h {
         if (lVar == null) {
             return;
         }
-        a(this.f28589a, p.a());
+        a(this.f28671a, p.a());
         a(false, this.u);
-        al.a(this.f28596h, 0);
-        al.a((View) this.f28597i, 0);
+        al.a(this.f28678h, 0);
+        al.a((View) this.f28679i, 0);
         al.a(this.j, 0);
-        if (this.f28597i != null && (lVar2 = this.y) != null && lVar2.X() != null && this.y.X().h() != null) {
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.f28597i);
+        if (this.f28679i != null && (lVar2 = this.y) != null && lVar2.X() != null && this.y.X().h() != null) {
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.f28679i);
         }
         al.a((View) this.n, 0);
         al.a((View) this.k, 8);
@@ -662,9 +662,9 @@ public class g extends h {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void a(@Nullable ViewGroup viewGroup) {
-        if (viewGroup != null && (this.f28589a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (viewGroup != null && (this.f28671a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             this.Z = true;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28589a.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28671a.getLayoutParams();
             this.ac = marginLayoutParams.leftMargin;
             this.ab = marginLayoutParams.topMargin;
             this.ad = marginLayoutParams.width;
@@ -673,7 +673,7 @@ public class g extends h {
             marginLayoutParams.height = -1;
             marginLayoutParams.topMargin = 0;
             marginLayoutParams.leftMargin = 0;
-            this.f28589a.setLayoutParams(marginLayoutParams);
+            this.f28671a.setLayoutParams(marginLayoutParams);
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -691,7 +691,7 @@ public class g extends h {
             this.X.setImageDrawable(ad.c(this.z, "tt_shrink_video"));
             this.U.setThumb(ad.c(this.z, "tt_seek_thumb_fullscreen_selector"));
             this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28589a, false);
+            com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28671a, false);
             e(this.Z);
             al.a(this.L, 8);
             if (!this.u) {
@@ -721,7 +721,7 @@ public class g extends h {
         } else if (z3) {
             al.a(this.L, 8);
         }
-        al.a((View) this.f28591c, (!z || this.f28592d.getVisibility() == 0) ? 8 : 0);
+        al.a((View) this.f28673c, (!z || this.f28674d.getVisibility() == 0) ? 8 : 0);
         if (!this.u && !this.Z) {
             if (!this.x.contains(b.a.hideCloseBtn) && !z3) {
                 al.a((View) this.K, 0);
@@ -738,7 +738,7 @@ public class g extends h {
         al.a(this.T, 8);
         al.a(this.L, 8);
         al.a((View) this.o, z ? 0 : 8);
-        al.a((View) this.f28591c, 8);
+        al.a((View) this.f28673c, 8);
         if (!this.u && !this.Z) {
             al.a((View) this.K, 8);
             if (!this.x.contains(b.a.alwayShowBackBtn)) {
@@ -772,7 +772,7 @@ public class g extends h {
         }
         b(this.u && !this.Z);
         if (r()) {
-            this.B.a(this, view, true, this.f28592d.getVisibility() != 0);
+            this.B.a(this, view, true, this.f28674d.getVisibility() != 0);
         }
     }
 }

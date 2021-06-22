@@ -8,34 +8,34 @@ import java.util.Locale;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f41827a;
+    public final int f41930a;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41828b;
+    public final String f41931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f41829c;
+    public final String f41932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f41830d;
+    public final String f41933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f41831e;
+    public final String f41934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f41832f;
+    public final String f41935f;
 
     public l(String str, String str2, String str3, String str4, String str5, String str6, int i2) {
         this.f959a = str;
-        this.f41828b = str2;
-        this.f41829c = str3;
-        this.f41830d = str4;
-        this.f41831e = str5;
-        this.f41832f = str6;
-        this.f41827a = i2;
+        this.f41931b = str2;
+        this.f41932c = str3;
+        this.f41933d = str4;
+        this.f41934e = str5;
+        this.f41935f = str6;
+        this.f41930a = i2;
     }
 
     public static boolean a() {
@@ -63,15 +63,15 @@ public class l {
     public av.b a(av.b bVar, Context context, e eVar, String str) {
         bVar.f908a = context.getPackageName();
         bVar.f911b = this.f959a;
-        bVar.f41749h = this.f41829c;
-        bVar.f41744c = this.f41828b;
-        bVar.f41748g = "5";
-        bVar.f41745d = "XMPUSH-PASS";
+        bVar.f41852h = this.f41932c;
+        bVar.f41847c = this.f41931b;
+        bVar.f41851g = "5";
+        bVar.f41848d = "XMPUSH-PASS";
         bVar.f910a = false;
-        bVar.f41746e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-        bVar.f41747f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f41830d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
+        bVar.f41849e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
+        bVar.f41850f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f41933d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
         if (a(context)) {
-            bVar.f41747f += String.format(",%1$s:%2$s", "ab", str);
+            bVar.f41850f += String.format(",%1$s:%2$s", "ab", str);
         }
         bVar.f907a = eVar;
         return bVar;

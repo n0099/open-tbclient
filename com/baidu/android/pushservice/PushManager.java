@@ -13,6 +13,7 @@ import com.baidu.android.pushservice.frequency.GetNoDisturbListener;
 import com.baidu.android.pushservice.frequency.UploadDataListener;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwai.video.player.PlayerPostEvent;
 import com.xiaomi.mipush.sdk.Constants;
@@ -51,19 +52,19 @@ public class PushManager {
 
     public static void delTags(Context context, List<String> list) {
         Intent c2;
-        Iterator<String> it;
         if (list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
             return;
         }
-        String str = "[";
-        while (list.iterator().hasNext()) {
+        Iterator<String> it = list.iterator();
+        String str = PreferencesUtil.LEFT_MOUNT;
+        while (it.hasNext()) {
             str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
         }
         c2.putExtra("method", "method_del_tags");
-        c2.putExtra(CommandMessage.TYPE_TAGS, str + "]");
+        c2.putExtra(CommandMessage.TYPE_TAGS, str + PreferencesUtil.RIGHT_MOUNT);
         com.baidu.android.pushservice.g.a.a("PushManager", "a delTags intent send", context.getApplicationContext());
         f.b(context, c2);
     }
@@ -306,19 +307,19 @@ public class PushManager {
 
     public static void setTags(Context context, List<String> list) {
         Intent c2;
-        Iterator<String> it;
         if (list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
             return;
         }
-        String str = "[";
-        while (list.iterator().hasNext()) {
+        Iterator<String> it = list.iterator();
+        String str = PreferencesUtil.LEFT_MOUNT;
+        while (it.hasNext()) {
             str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
         }
         c2.putExtra("method", "method_set_tags");
-        c2.putExtra(CommandMessage.TYPE_TAGS, str + "]");
+        c2.putExtra(CommandMessage.TYPE_TAGS, str + PreferencesUtil.RIGHT_MOUNT);
         com.baidu.android.pushservice.g.a.a("PushManager", "a setTags intent send ", context.getApplicationContext());
         f.b(context, c2);
     }

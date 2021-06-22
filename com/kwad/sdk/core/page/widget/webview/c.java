@@ -3,7 +3,7 @@ package com.kwad.sdk.core.page.widget.webview;
 import android.graphics.Bitmap;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {

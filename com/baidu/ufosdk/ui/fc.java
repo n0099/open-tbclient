@@ -5,18 +5,18 @@ import android.view.View;
 public final class fc implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fa f22950a;
+    public final /* synthetic */ fa f23032a;
 
     public fc(fa faVar) {
-        this.f22950a = faVar;
+        this.f23032a = faVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        fa faVar = this.f22950a;
+        fa faVar = this.f23032a;
         if (faVar == null || !faVar.isShowing()) {
             return;
         }
-        this.f22950a.dismiss();
+        this.f23032a.dismiss();
     }
 }

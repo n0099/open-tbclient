@@ -6,25 +6,25 @@ import org.json.JSONObject;
 public class c implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f34964a;
+    public final com.kwad.sdk.core.webview.a f35062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f34965b;
+    public b f35063b;
 
     /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34966a;
+        public int f35064a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f34967b;
+        public int f35065b;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "width", this.f34966a);
-            com.kwad.sdk.utils.o.a(jSONObject, "height", this.f34967b);
+            com.kwad.sdk.utils.o.a(jSONObject, "width", this.f35064a);
+            com.kwad.sdk.utils.o.a(jSONObject, "height", this.f35065b);
             return jSONObject;
         }
     }
@@ -35,7 +35,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     }
 
     public c(com.kwad.sdk.core.webview.a aVar) {
-        this.f34964a = aVar;
+        this.f35062a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -45,18 +45,18 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     }
 
     public void a(b bVar) {
-        this.f34965b = bVar;
+        this.f35063b = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         a aVar = new a();
-        b bVar = this.f34965b;
+        b bVar = this.f35063b;
         if (bVar != null) {
             bVar.a(aVar);
         } else {
-            aVar.f34966a = this.f34964a.f34932e.getWidth();
-            aVar.f34967b = this.f34964a.f34932e.getHeight();
+            aVar.f35064a = this.f35062a.f35030e.getWidth();
+            aVar.f35065b = this.f35062a.f35030e.getHeight();
         }
         cVar.a(aVar);
     }

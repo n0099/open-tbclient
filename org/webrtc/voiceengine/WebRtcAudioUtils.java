@@ -4,6 +4,7 @@ import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.Arrays;
 import java.util.List;
@@ -93,7 +94,7 @@ public final class WebRtcAudioUtils {
     }
 
     public static String getThreadInfo() {
-        return "@[name=" + Thread.currentThread().getName() + ", id=" + Thread.currentThread().getId() + "]";
+        return "@[name=" + Thread.currentThread().getName() + ", id=" + Thread.currentThread().getId() + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public static boolean hasMicrophone() {

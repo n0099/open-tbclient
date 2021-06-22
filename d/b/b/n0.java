@@ -7,13 +7,13 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 public class n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f68799a;
+    public static volatile String f68903a;
 
     public static String a(Context context, i iVar) {
-        if (TextUtils.isEmpty(f68799a)) {
+        if (TextUtils.isEmpty(f68903a)) {
             synchronized (n0.class) {
-                if (!TextUtils.isEmpty(f68799a)) {
-                    return f68799a;
+                if (!TextUtils.isEmpty(f68903a)) {
+                    return f68903a;
                 }
                 AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
                 String id = advertisingIdInfo != null ? advertisingIdInfo.getId() : null;
@@ -22,10 +22,10 @@ public class n0 {
                 } else if (!TextUtils.equals(iVar.A().getString("google_aid", null), id)) {
                     b(context, id, iVar);
                 }
-                f68799a = id;
+                f68903a = id;
             }
         }
-        return f68799a;
+        return f68903a;
     }
 
     public static void b(Context context, String str, i iVar) {

@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LRULimitedMemoryCache extends LimitedMemoryCache {
     public static final int INITIAL_CAPACITY = 10;
     public static final float LOAD_FACTOR = 1.1f;

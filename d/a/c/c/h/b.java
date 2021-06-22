@@ -11,23 +11,23 @@ import java.util.LinkedList;
 public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponsedMessage> {
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpClient f42041i;
+    public HttpClient f42144i;
 
     public b(MessageManager messageManager) {
         super(messageManager);
-        this.f42041i = null;
-        this.f42041i = new HttpClient(messageManager);
-        this.f42047e = d.a.c.c.j.b.d();
+        this.f42144i = null;
+        this.f42144i = new HttpClient(messageManager);
+        this.f42150e = d.a.c.c.j.b.d();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<HttpMessage> e(int i2, BdUniqueId bdUniqueId) {
-        return this.f42041i.e(i2, bdUniqueId);
+        return this.f42144i.e(i2, bdUniqueId);
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
-        this.f42041i.h(i2, bdUniqueId);
+        this.f42144i.h(i2, bdUniqueId);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
@@ -40,7 +40,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
     }
 
     public LinkedList<HttpMessage> v(BdUniqueId bdUniqueId) {
-        return this.f42041i.i(bdUniqueId);
+        return this.f42144i.i(bdUniqueId);
     }
 
     public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -48,7 +48,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
     }
 
     public void x(BdUniqueId bdUniqueId) {
-        this.f42041i.k(bdUniqueId);
+        this.f42144i.k(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,8 +56,8 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
     /* renamed from: y */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((d.a.c.c.j.b) this.f42047e).c());
+            httpMessageTask.setConnectTimeOut(((d.a.c.c.j.b) this.f42150e).c());
         }
-        this.f42041i.f(httpMessage, httpMessageTask);
+        this.f42144i.f(httpMessage, httpMessageTask);
     }
 }

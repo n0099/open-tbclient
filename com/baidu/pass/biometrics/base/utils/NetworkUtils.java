@@ -28,6 +28,7 @@ public final class NetworkUtils {
     public static final int NETWORK_TYPE_IDEN = 11;
     public static final int NETWORK_TYPE_IWLAN = 18;
     public static final int NETWORK_TYPE_LTE = 13;
+    public static final int NETWORK_TYPE_NR = 20;
     public static final int NETWORK_TYPE_TD_SCDMA = 17;
     public static final int NETWORK_TYPE_UMTS = 3;
     public static final int NETWORK_TYPE_UNKNOWN = 0;
@@ -46,28 +47,32 @@ public final class NetworkUtils {
                 return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
             if (activeNetworkInfo.getType() == 0) {
-                switch (activeNetworkInfo.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return "2G";
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return g.f3985b;
-                    case 13:
-                        return "4G";
-                    default:
-                        return RomUtils.UNKNOWN;
+                int subtype = activeNetworkInfo.getSubtype();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            return "2G";
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return g.f3985b;
+                        case 13:
+                            return "4G";
+                        default:
+                            return RomUtils.UNKNOWN;
+                    }
                 }
+                return "5G";
             }
             return RomUtils.UNKNOWN;
         }

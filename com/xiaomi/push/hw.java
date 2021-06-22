@@ -41,31 +41,31 @@ public class hw implements iq<hw, Object>, Serializable, Cloneable {
     public static final jg f583a = new jg("XmPushActionAckNotification");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41493a = new iy("", (byte) 11, 1);
+    public static final iy f41596a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41494b = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f41597b = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41495c = new iy("", (byte) 11, 3);
+    public static final iy f41598c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41496d = new iy("", (byte) 11, 4);
+    public static final iy f41599d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41497e = new iy("", (byte) 11, 5);
+    public static final iy f41600e = new iy("", (byte) 11, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41498f = new iy("", (byte) 10, 7);
+    public static final iy f41601f = new iy("", (byte) 10, 7);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f41499g = new iy("", (byte) 11, 8);
+    public static final iy f41602g = new iy("", (byte) 11, 8);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f41500h = new iy("", (byte) 13, 9);
+    public static final iy f41603h = new iy("", (byte) 13, 9);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f41501i = new iy("", (byte) 11, 10);
+    public static final iy f41604i = new iy("", (byte) 11, 10);
     public static final iy j = new iy("", (byte) 11, 11);
 
     /* renamed from: a  reason: collision with other field name */
@@ -202,7 +202,7 @@ public class hw implements iq<hw, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 jbVar.f();
                 m409a();
@@ -374,42 +374,42 @@ public class hw implements iq<hw, Object>, Serializable, Cloneable {
         m409a();
         jbVar.a(f583a);
         if (this.f586a != null && m410a()) {
-            jbVar.a(f41493a);
+            jbVar.a(f41596a);
             jbVar.a(this.f586a);
             jbVar.b();
         }
         if (this.f585a != null && m412b()) {
-            jbVar.a(f41494b);
+            jbVar.a(f41597b);
             this.f585a.b(jbVar);
             jbVar.b();
         }
         if (this.f589b != null) {
-            jbVar.a(f41495c);
+            jbVar.a(f41598c);
             jbVar.a(this.f589b);
             jbVar.b();
         }
         if (this.f590c != null && d()) {
-            jbVar.a(f41496d);
+            jbVar.a(f41599d);
             jbVar.a(this.f590c);
             jbVar.b();
         }
         if (this.f591d != null && e()) {
-            jbVar.a(f41497e);
+            jbVar.a(f41600e);
             jbVar.a(this.f591d);
             jbVar.b();
         }
         if (f()) {
-            jbVar.a(f41498f);
+            jbVar.a(f41601f);
             jbVar.a(this.f584a);
             jbVar.b();
         }
         if (this.f592e != null && g()) {
-            jbVar.a(f41499g);
+            jbVar.a(f41602g);
             jbVar.a(this.f592e);
             jbVar.b();
         }
         if (this.f588a != null && h()) {
-            jbVar.a(f41500h);
+            jbVar.a(f41603h);
             jbVar.a(new ja((byte) 11, (byte) 11, this.f588a.size()));
             for (Map.Entry<String, String> entry : this.f588a.entrySet()) {
                 jbVar.a(entry.getKey());
@@ -419,7 +419,7 @@ public class hw implements iq<hw, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         if (this.f593f != null && i()) {
-            jbVar.a(f41501i);
+            jbVar.a(f41604i);
             jbVar.a(this.f593f);
             jbVar.b();
         }

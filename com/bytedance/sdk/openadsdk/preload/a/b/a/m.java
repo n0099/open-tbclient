@@ -9,28 +9,28 @@ import java.lang.reflect.TypeVariable;
 public final class m<T> extends v<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f29842a;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f29924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final v<T> f29843b;
+    public final v<T> f29925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Type f29844c;
+    public final Type f29926c;
 
     public m(com.bytedance.sdk.openadsdk.preload.a.f fVar, v<T> vVar, Type type) {
-        this.f29842a = fVar;
-        this.f29843b = vVar;
-        this.f29844c = type;
+        this.f29924a = fVar;
+        this.f29925b = vVar;
+        this.f29926c = type;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-        v<T> vVar = this.f29843b;
-        Type a2 = a(this.f29844c, t);
-        if (a2 != this.f29844c) {
-            vVar = this.f29842a.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a2));
+        v<T> vVar = this.f29925b;
+        Type a2 = a(this.f29926c, t);
+        if (a2 != this.f29926c) {
+            vVar = this.f29924a.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a2));
             if (vVar instanceof i.a) {
-                v<T> vVar2 = this.f29843b;
+                v<T> vVar2 = this.f29925b;
                 if (!(vVar2 instanceof i.a)) {
                     vVar = vVar2;
                 }
@@ -41,7 +41,7 @@ public final class m<T> extends v<T> {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-        return this.f29843b.b(aVar);
+        return this.f29925b.b(aVar);
     }
 
     private Type a(Type type, Object obj) {

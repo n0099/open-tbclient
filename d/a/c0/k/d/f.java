@@ -6,17 +6,17 @@ import android.widget.ImageView;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f43076a;
+    public ImageView f43179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43077b;
+    public String f43180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f43078c;
+    public Bitmap f43181c;
 
     public f(ImageView imageView, String str, Bitmap bitmap) {
-        this.f43076a = imageView;
-        this.f43077b = str;
-        this.f43078c = bitmap;
+        this.f43179a = imageView;
+        this.f43180b = str;
+        this.f43181c = bitmap;
     }
 }

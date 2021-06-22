@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import d.a.l0.a.h0.u.g;
-import d.a.l0.a.k;
-import d.a.l0.a.n1.m;
-import d.a.l0.a.v2.q0;
+import d.a.m0.a.h0.u.g;
+import d.a.m0.a.k;
+import d.a.m0.a.n1.m;
+import d.a.m0.a.v2.q0;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class SwanAppNetworkUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11035a = k.f46875a;
+    public static final boolean f11117a = k.f46983a;
 
     /* loaded from: classes3.dex */
     public enum NetType {
@@ -41,20 +41,20 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends d.a.l0.a.v1.a.b.c.b {
+    public static class a extends d.a.m0.a.v1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11036c;
+        public final /* synthetic */ b f11118c;
 
         public a(b bVar) {
-            this.f11036c = bVar;
+            this.f11118c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.l0.a.v1.a.b.c.b, d.a.l0.a.v1.a.b.c.c, d.a.l0.a.v1.a.b.c.a
-        public void onEvent(@NonNull d.a.l0.a.v1.a.b.a.b bVar) {
+        @Override // d.a.m0.a.v1.a.b.c.b, d.a.m0.a.v1.a.b.c.c, d.a.m0.a.v1.a.b.c.a
+        public void onEvent(@NonNull d.a.m0.a.v1.a.b.a.b bVar) {
             int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            b bVar2 = this.f11036c;
+            b bVar2 = this.f11118c;
             if (bVar2 != null) {
                 bVar2.onResult(i2);
             }
@@ -86,7 +86,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        d.a.l0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
+        d.a.m0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {
@@ -99,7 +99,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String d(int i2, String str) {
-        if (f11035a) {
+        if (f11117a) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i2 + " subTypeName " + str);
         }
         switch (i2) {
@@ -230,16 +230,16 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f11035a) {
+            if (f11117a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f11035a) {
+            if (f11117a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f11035a) {
+        if (f11117a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
     }

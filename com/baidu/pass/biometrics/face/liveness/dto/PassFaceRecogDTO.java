@@ -3,8 +3,10 @@ package com.baidu.pass.biometrics.face.liveness.dto;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import com.baidu.pass.biometrics.face.liveness.a.a;
+import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
@@ -20,6 +22,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String idCardNum;
     public String passProductId;
     public String phoneNum;
+    public List<HeadPose> poseList;
     public String processid;
     public int quality;
     public String realName;

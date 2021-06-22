@@ -1,5 +1,6 @@
 package com.google.common.net;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.google.android.material.badge.BadgeDrawable;
 import d.g.c.a.k;
 import d.g.c.a.n;
@@ -37,7 +38,7 @@ public final class HostAndPort implements Serializable {
         String str3;
         n.p(str);
         int i2 = -1;
-        if (str.startsWith("[")) {
+        if (str.startsWith(PreferencesUtil.LEFT_MOUNT)) {
             String[] hostAndPortFromBracketedHost = getHostAndPortFromBracketedHost(str);
             str3 = hostAndPortFromBracketedHost[0];
             str2 = hostAndPortFromBracketedHost[1];

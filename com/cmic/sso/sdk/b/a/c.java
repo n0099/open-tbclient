@@ -5,23 +5,23 @@ import android.text.TextUtils;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f30572a;
+    public b f30654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.cmic.sso.sdk.b.d.c f30573b;
+    public com.cmic.sso.sdk.b.d.c f30655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.cmic.sso.sdk.b.a f30574c = new com.cmic.sso.sdk.b.a();
+    public final com.cmic.sso.sdk.b.a f30656c = new com.cmic.sso.sdk.b.a();
 
     public void b(final com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
-        if (this.f30572a != null) {
-            this.f30573b = new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.c.1
+        if (this.f30654a != null) {
+            this.f30655b = new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.c.1
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.b bVar) {
                     if (bVar.d()) {
-                        c.this.b(c.this.f30574c.a(cVar, bVar, aVar), cVar2, aVar);
-                    } else if (!TextUtils.isEmpty(c.this.f30574c.a())) {
-                        c.this.b(c.this.f30574c.b(cVar, bVar, aVar), cVar2, aVar);
+                        c.this.b(c.this.f30656c.a(cVar, bVar, aVar), cVar2, aVar);
+                    } else if (!TextUtils.isEmpty(c.this.f30656c.a())) {
+                        c.this.b(c.this.f30656c.b(cVar, bVar, aVar), cVar2, aVar);
                     } else {
                         cVar2.a(bVar);
                     }
@@ -38,7 +38,7 @@ public class c implements b {
                 }
             };
             if (cVar.g()) {
-                this.f30572a.a(cVar, this.f30573b, aVar);
+                this.f30654a.a(cVar, this.f30655b, aVar);
             } else {
                 cVar2.a(com.cmic.sso.sdk.b.d.a.a(200025));
             }
@@ -51,6 +51,6 @@ public class c implements b {
     }
 
     public void a(b bVar) {
-        this.f30572a = bVar;
+        this.f30654a = bVar;
     }
 }

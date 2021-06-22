@@ -11,35 +11,35 @@ import com.baidu.tieba.R;
 public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f12602a;
+    public RelativeLayout f12684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f12603b;
+    public TextView f12685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12604c;
+    public TextView f12686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IndicatorView f12605d;
+    public IndicatorView f12687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12606e;
+    public View f12688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdBaseViewPager f12607f;
+    public BdBaseViewPager f12689f;
 
     public BdBaseViewPagerContainerHolder(View view, Context context) {
         super(view);
-        this.f12603b = null;
-        this.f12604c = null;
-        this.f12605d = null;
-        this.f12606e = null;
-        this.f12607f = null;
-        this.f12602a = (RelativeLayout) view.findViewById(R.id.top_area);
-        this.f12603b = (TextView) view.findViewById(R.id.theme_title);
-        this.f12604c = (TextView) view.findViewById(R.id.more_textview);
-        this.f12605d = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.f12606e = view.findViewById(R.id.bottom_divider_line);
-        this.f12607f = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.f12685b = null;
+        this.f12686c = null;
+        this.f12687d = null;
+        this.f12688e = null;
+        this.f12689f = null;
+        this.f12684a = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.f12685b = (TextView) view.findViewById(R.id.theme_title);
+        this.f12686c = (TextView) view.findViewById(R.id.more_textview);
+        this.f12687d = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.f12688e = view.findViewById(R.id.bottom_divider_line);
+        this.f12689f = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

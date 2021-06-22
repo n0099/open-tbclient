@@ -6,7 +6,7 @@ import java.io.File;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23345a = "f";
+    public static final String f23427a = "f";
 
     public static File a(Context context) {
         File file = new File(context.getCacheDir(), "idcard_cache");

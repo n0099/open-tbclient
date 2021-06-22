@@ -1,6 +1,7 @@
 package org.apache.commons.codec.binary4util;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import io.flutter.plugin.common.StandardMessageCodec;
@@ -344,7 +345,7 @@ public class Base64 extends BaseNCodec {
         if (bArr != null) {
             if (containsAlphabetOrPad(bArr)) {
                 String newStringUtf8 = org.apache.commons.base.binary4util.CodecStringUtils.newStringUtf8(bArr);
-                throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + newStringUtf8 + "]");
+                throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + newStringUtf8 + PreferencesUtil.RIGHT_MOUNT);
             } else if (i2 > 0) {
                 this.encodeSize = bArr.length + 4;
                 byte[] bArr2 = new byte[bArr.length];

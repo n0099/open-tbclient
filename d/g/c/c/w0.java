@@ -15,17 +15,17 @@ public final class w0 {
     public static class a<E> extends Multisets.c<E> implements SortedSet<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final v0<E> f70037e;
+        public final v0<E> f70141e;
 
         public a(v0<E> v0Var) {
-            this.f70037e = v0Var;
+            this.f70141e = v0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.Multisets.c
         /* renamed from: c */
         public final v0<E> b() {
-            return this.f70037e;
+            return this.f70141e;
         }
 
         @Override // java.util.SortedSet

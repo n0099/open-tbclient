@@ -7,24 +7,24 @@ import java.util.Set;
 public class d implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f42124a;
+    public a f42227a;
 
     public d(Intent intent) {
-        this.f42124a = new a(intent.getExtras());
+        this.f42227a = new a(intent.getExtras());
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f42124a.a();
+        return this.f42227a.a();
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
-        this.f42124a.b(str, obj);
+        this.f42227a.b(str, obj);
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Object c(String str, Type type) {
-        return this.f42124a.c(str, type);
+        return this.f42227a.c(str, type);
     }
 }

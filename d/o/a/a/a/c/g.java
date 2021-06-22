@@ -4,7 +4,7 @@ package d.o.a.a.a.c;
 public class g implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f70315a = true;
+    public boolean f70419a = true;
 
     @Override // d.o.a.a.a.c.b
     public int a() {
@@ -17,7 +17,7 @@ public class g implements b {
 
     @Override // d.o.a.a.a.c.b
     public void a(boolean z) {
-        this.f70315a = z;
+        this.f70419a = z;
     }
 
     @Override // d.o.a.a.a.c.b
@@ -51,6 +51,6 @@ public class g implements b {
 
     @Override // d.o.a.a.a.c.b
     public boolean g() {
-        return this.f70315a;
+        return this.f70419a;
     }
 }

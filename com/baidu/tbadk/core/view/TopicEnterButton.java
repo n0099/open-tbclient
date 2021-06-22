@@ -14,21 +14,21 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.u.c;
+import d.a.n0.r.u.c;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f12481f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+    public static final int f12563f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f12482g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+    public static final int f12564g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f12483h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12481f) - f12482g;
+    public static final int f12565h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12563f) - f12564g;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f12484e;
+    public RecommendTopicData.RecommendTopicListData f12566e;
 
     public TopicEnterButton(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     }
 
     public void d(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
-        this.f12484e = recommendTopicListData;
+        this.f12566e = recommendTopicListData;
         if (recommendTopicListData != null) {
             String topicName = recommendTopicListData.getTopicName();
             if (k.isEmpty(topicName)) {
                 setVisibility(8);
                 return;
             }
-            setText(TextUtils.ellipsize(topicName, getPaint(), f12483h, TextUtils.TruncateAt.END));
+            setText(TextUtils.ellipsize(topicName, getPaint(), f12565h, TextUtils.TruncateAt.END));
             setVisibility(0);
             f();
             return;
@@ -70,9 +70,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
         d2.k(R.dimen.L_X02);
         d2.j(R.color.CAM_X0304);
         Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-        setCompoundDrawablePadding(f12481f);
+        setCompoundDrawablePadding(f12563f);
         if (maskDrawable != null) {
-            int i2 = f12482g;
+            int i2 = f12564g;
             maskDrawable.setBounds(0, 0, i2, i2);
         }
         setCompoundDrawables(maskDrawable, null, null, null);
@@ -80,11 +80,11 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f12484e;
+        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f12566e;
         if (recommendTopicListData == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12484e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12566e.getTopicName(), "2").start();
     }
 
     public TopicEnterButton(Context context, @Nullable AttributeSet attributeSet) {

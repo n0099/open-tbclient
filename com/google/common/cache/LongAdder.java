@@ -36,7 +36,7 @@ public final class LongAdder extends Striped64 implements Serializable, g {
         int[] iArr = Striped64.threadHashCode.get();
         boolean z = true;
         if (iArr != null && bVarArr != null && (length = bVarArr.length) >= 1 && (bVar = bVarArr[(length - 1) & iArr[0]]) != null) {
-            long j3 = bVar.f30969a;
+            long j3 = bVar.f31067a;
             z = bVar.a(j3, j3 + j);
             if (z) {
                 return;
@@ -90,7 +90,7 @@ public final class LongAdder extends Striped64 implements Serializable, g {
         if (bVarArr != null) {
             for (Striped64.b bVar : bVarArr) {
                 if (bVar != null) {
-                    j += bVar.f30969a;
+                    j += bVar.f31067a;
                 }
             }
         }
@@ -104,8 +104,8 @@ public final class LongAdder extends Striped64 implements Serializable, g {
         if (bVarArr != null) {
             for (Striped64.b bVar : bVarArr) {
                 if (bVar != null) {
-                    j += bVar.f30969a;
-                    bVar.f30969a = 0L;
+                    j += bVar.f31067a;
+                    bVar.f31067a = 0L;
                 }
             }
         }

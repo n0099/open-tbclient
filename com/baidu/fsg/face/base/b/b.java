@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.fsg.face.base.d.h;
 import com.baidu.fsg.face.base.d.i;
-import com.baidu.idl.license.License;
+import com.baidu.pass.main.facesdk.FaceAuth;
 import com.baidu.sapi2.share.ShareStorage;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +35,7 @@ public class b {
     public static final String f5526g = "FaceSDKLibs";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f5527h = {License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
+    public static final String[] f5527h = {"idl_license", FaceAuth.TAG};
 
     /* renamed from: i  reason: collision with root package name */
     public static b f5528i;

@@ -20,21 +20,21 @@ import java.util.Map;
 public abstract class a<T extends a<T>> implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36461a;
+    public int f36559a;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f36465e;
+    public Drawable f36563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36466f;
+    public int f36564f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f36467g;
+    public Drawable f36565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36468h;
+    public int f36566h;
     public boolean m;
     @Nullable
     public Drawable o;
@@ -48,18 +48,18 @@ public abstract class a<T extends a<T>> implements Cloneable {
     public boolean z;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36462b = 1.0f;
+    public float f36560b = 1.0f;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.glide.load.engine.h f36463c = com.kwad.sdk.glide.load.engine.h.f36228e;
+    public com.kwad.sdk.glide.load.engine.h f36561c = com.kwad.sdk.glide.load.engine.h.f36326e;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public Priority f36464d = Priority.NORMAL;
+    public Priority f36562d = Priority.NORMAL;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36469i = true;
+    public boolean f36567i = true;
     public int j = -1;
     public int k = -1;
     @NonNull
@@ -89,7 +89,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
     }
 
     private boolean a(int i2) {
-        return a(this.f36461a, i2);
+        return a(this.f36559a, i2);
     }
 
     public static boolean a(int i2, int i3) {
@@ -118,7 +118,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
     }
 
     public final float D() {
-        return this.f36462b;
+        return this.f36560b;
     }
 
     public boolean E() {
@@ -146,8 +146,8 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (f2 < 0.0f || f2 > 1.0f) {
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
         }
-        this.f36462b = f2;
-        this.f36461a |= 2;
+        this.f36560b = f2;
+        this.f36559a |= 2;
         return a();
     }
 
@@ -157,11 +157,11 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().a(drawable);
         }
-        this.f36467g = drawable;
-        int i2 = this.f36461a | 64;
-        this.f36461a = i2;
-        this.f36468h = 0;
-        this.f36461a = i2 & (-129);
+        this.f36565g = drawable;
+        int i2 = this.f36559a | 64;
+        this.f36559a = i2;
+        this.f36566h = 0;
+        this.f36559a = i2 & (-129);
         return a();
     }
 
@@ -171,8 +171,8 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().a(priority);
         }
-        this.f36464d = (Priority) j.a(priority);
-        this.f36461a |= 8;
+        this.f36562d = (Priority) j.a(priority);
+        this.f36559a |= 8;
         return a();
     }
 
@@ -183,7 +183,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
             return (T) clone().a(cVar);
         }
         this.l = (com.kwad.sdk.glide.load.c) j.a(cVar);
-        this.f36461a |= 1024;
+        this.f36559a |= 1024;
         return a();
     }
 
@@ -205,8 +205,8 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().a(hVar);
         }
-        this.f36463c = (com.kwad.sdk.glide.load.engine.h) j.a(hVar);
-        this.f36461a |= 4;
+        this.f36561c = (com.kwad.sdk.glide.load.engine.h) j.a(hVar);
+        this.f36559a |= 4;
         return a();
     }
 
@@ -236,7 +236,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
     @NonNull
     @CheckResult
     public T a(@NonNull DownsampleStrategy downsampleStrategy) {
-        return a((com.kwad.sdk.glide.load.d<com.kwad.sdk.glide.load.d>) DownsampleStrategy.f36336h, (com.kwad.sdk.glide.load.d) j.a(downsampleStrategy));
+        return a((com.kwad.sdk.glide.load.d<com.kwad.sdk.glide.load.d>) DownsampleStrategy.f36434h, (com.kwad.sdk.glide.load.d) j.a(downsampleStrategy));
     }
 
     @NonNull
@@ -255,7 +255,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
             return (T) clone().a(cls);
         }
         this.s = (Class) j.a(cls);
-        this.f36461a |= 4096;
+        this.f36559a |= 4096;
         return a();
     }
 
@@ -273,14 +273,14 @@ public abstract class a<T extends a<T>> implements Cloneable {
         j.a(cls);
         j.a(hVar);
         this.r.put(cls, hVar);
-        int i2 = this.f36461a | 2048;
-        this.f36461a = i2;
+        int i2 = this.f36559a | 2048;
+        this.f36559a = i2;
         this.n = true;
         int i3 = i2 | 65536;
-        this.f36461a = i3;
+        this.f36559a = i3;
         this.y = false;
         if (z) {
-            this.f36461a = i3 | 131072;
+            this.f36559a = i3 | 131072;
             this.m = true;
         }
         return a();
@@ -293,7 +293,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
             return (T) clone().a(z);
         }
         this.z = z;
-        this.f36461a |= 1048576;
+        this.f36559a |= 1048576;
         return a();
     }
 
@@ -305,7 +305,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
         }
         this.k = i2;
         this.j = i3;
-        this.f36461a |= 512;
+        this.f36559a |= 512;
         return a();
     }
 
@@ -316,10 +316,10 @@ public abstract class a<T extends a<T>> implements Cloneable {
             return (T) clone().b(drawable);
         }
         this.o = drawable;
-        int i2 = this.f36461a | 8192;
-        this.f36461a = i2;
+        int i2 = this.f36559a | 8192;
+        this.f36559a = i2;
         this.p = 0;
-        this.f36461a = i2 & (-16385);
+        this.f36559a = i2 & (-16385);
         return a();
     }
 
@@ -345,89 +345,89 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().b(aVar);
         }
-        if (a(aVar.f36461a, 2)) {
-            this.f36462b = aVar.f36462b;
+        if (a(aVar.f36559a, 2)) {
+            this.f36560b = aVar.f36560b;
         }
-        if (a(aVar.f36461a, 262144)) {
+        if (a(aVar.f36559a, 262144)) {
             this.w = aVar.w;
         }
-        if (a(aVar.f36461a, 1048576)) {
+        if (a(aVar.f36559a, 1048576)) {
             this.z = aVar.z;
         }
-        if (a(aVar.f36461a, 4)) {
-            this.f36463c = aVar.f36463c;
+        if (a(aVar.f36559a, 4)) {
+            this.f36561c = aVar.f36561c;
         }
-        if (a(aVar.f36461a, 8)) {
-            this.f36464d = aVar.f36464d;
+        if (a(aVar.f36559a, 8)) {
+            this.f36562d = aVar.f36562d;
         }
-        if (a(aVar.f36461a, 16)) {
-            this.f36465e = aVar.f36465e;
-            this.f36466f = 0;
-            this.f36461a &= -33;
+        if (a(aVar.f36559a, 16)) {
+            this.f36563e = aVar.f36563e;
+            this.f36564f = 0;
+            this.f36559a &= -33;
         }
-        if (a(aVar.f36461a, 32)) {
-            this.f36466f = aVar.f36466f;
-            this.f36465e = null;
-            this.f36461a &= -17;
+        if (a(aVar.f36559a, 32)) {
+            this.f36564f = aVar.f36564f;
+            this.f36563e = null;
+            this.f36559a &= -17;
         }
-        if (a(aVar.f36461a, 64)) {
-            this.f36467g = aVar.f36467g;
-            this.f36468h = 0;
-            this.f36461a &= -129;
+        if (a(aVar.f36559a, 64)) {
+            this.f36565g = aVar.f36565g;
+            this.f36566h = 0;
+            this.f36559a &= -129;
         }
-        if (a(aVar.f36461a, 128)) {
-            this.f36468h = aVar.f36468h;
-            this.f36467g = null;
-            this.f36461a &= -65;
+        if (a(aVar.f36559a, 128)) {
+            this.f36566h = aVar.f36566h;
+            this.f36565g = null;
+            this.f36559a &= -65;
         }
-        if (a(aVar.f36461a, 256)) {
-            this.f36469i = aVar.f36469i;
+        if (a(aVar.f36559a, 256)) {
+            this.f36567i = aVar.f36567i;
         }
-        if (a(aVar.f36461a, 512)) {
+        if (a(aVar.f36559a, 512)) {
             this.k = aVar.k;
             this.j = aVar.j;
         }
-        if (a(aVar.f36461a, 1024)) {
+        if (a(aVar.f36559a, 1024)) {
             this.l = aVar.l;
         }
-        if (a(aVar.f36461a, 4096)) {
+        if (a(aVar.f36559a, 4096)) {
             this.s = aVar.s;
         }
-        if (a(aVar.f36461a, 8192)) {
+        if (a(aVar.f36559a, 8192)) {
             this.o = aVar.o;
             this.p = 0;
-            this.f36461a &= -16385;
+            this.f36559a &= -16385;
         }
-        if (a(aVar.f36461a, 16384)) {
+        if (a(aVar.f36559a, 16384)) {
             this.p = aVar.p;
             this.o = null;
-            this.f36461a &= -8193;
+            this.f36559a &= -8193;
         }
-        if (a(aVar.f36461a, 32768)) {
+        if (a(aVar.f36559a, 32768)) {
             this.u = aVar.u;
         }
-        if (a(aVar.f36461a, 65536)) {
+        if (a(aVar.f36559a, 65536)) {
             this.n = aVar.n;
         }
-        if (a(aVar.f36461a, 131072)) {
+        if (a(aVar.f36559a, 131072)) {
             this.m = aVar.m;
         }
-        if (a(aVar.f36461a, 2048)) {
+        if (a(aVar.f36559a, 2048)) {
             this.r.putAll(aVar.r);
             this.y = aVar.y;
         }
-        if (a(aVar.f36461a, 524288)) {
+        if (a(aVar.f36559a, 524288)) {
             this.x = aVar.x;
         }
         if (!this.n) {
             this.r.clear();
-            int i2 = this.f36461a & (-2049);
-            this.f36461a = i2;
+            int i2 = this.f36559a & (-2049);
+            this.f36559a = i2;
             this.m = false;
-            this.f36461a = i2 & (-131073);
+            this.f36559a = i2 & (-131073);
             this.y = true;
         }
-        this.f36461a |= aVar.f36461a;
+        this.f36559a |= aVar.f36559a;
         this.q.a(aVar.q);
         return a();
     }
@@ -438,8 +438,8 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().b(true);
         }
-        this.f36469i = !z;
-        this.f36461a |= 256;
+        this.f36567i = !z;
+        this.f36559a |= 256;
         return a();
     }
 
@@ -470,11 +470,11 @@ public abstract class a<T extends a<T>> implements Cloneable {
         if (this.v) {
             return (T) clone().c(drawable);
         }
-        this.f36465e = drawable;
-        int i2 = this.f36461a | 16;
-        this.f36461a = i2;
-        this.f36466f = 0;
-        this.f36461a = i2 & (-33);
+        this.f36563e = drawable;
+        int i2 = this.f36559a | 16;
+        this.f36559a = i2;
+        this.f36564f = 0;
+        this.f36559a = i2 & (-33);
         return a();
     }
 
@@ -489,7 +489,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return Float.compare(aVar.f36462b, this.f36462b) == 0 && this.f36466f == aVar.f36466f && k.a(this.f36465e, aVar.f36465e) && this.f36468h == aVar.f36468h && k.a(this.f36467g, aVar.f36467g) && this.p == aVar.p && k.a(this.o, aVar.o) && this.f36469i == aVar.f36469i && this.j == aVar.j && this.k == aVar.k && this.m == aVar.m && this.n == aVar.n && this.w == aVar.w && this.x == aVar.x && this.f36463c.equals(aVar.f36463c) && this.f36464d == aVar.f36464d && this.q.equals(aVar.q) && this.r.equals(aVar.r) && this.s.equals(aVar.s) && k.a(this.l, aVar.l) && k.a(this.u, aVar.u);
+            return Float.compare(aVar.f36560b, this.f36560b) == 0 && this.f36564f == aVar.f36564f && k.a(this.f36563e, aVar.f36563e) && this.f36566h == aVar.f36566h && k.a(this.f36565g, aVar.f36565g) && this.p == aVar.p && k.a(this.o, aVar.o) && this.f36567i == aVar.f36567i && this.j == aVar.j && this.k == aVar.k && this.m == aVar.m && this.n == aVar.n && this.w == aVar.w && this.x == aVar.x && this.f36561c.equals(aVar.f36561c) && this.f36562d == aVar.f36562d && this.q.equals(aVar.q) && this.r.equals(aVar.r) && this.s.equals(aVar.s) && k.a(this.l, aVar.l) && k.a(this.u, aVar.u);
         }
         return false;
     }
@@ -497,23 +497,23 @@ public abstract class a<T extends a<T>> implements Cloneable {
     @NonNull
     @CheckResult
     public T f() {
-        return a(DownsampleStrategy.f36330b, new com.kwad.sdk.glide.load.resource.bitmap.g());
+        return a(DownsampleStrategy.f36428b, new com.kwad.sdk.glide.load.resource.bitmap.g());
     }
 
     @NonNull
     @CheckResult
     public T g() {
-        return c(DownsampleStrategy.f36329a, new o());
+        return c(DownsampleStrategy.f36427a, new o());
     }
 
     @NonNull
     @CheckResult
     public T h() {
-        return c(DownsampleStrategy.f36333e, new com.kwad.sdk.glide.load.resource.bitmap.h());
+        return c(DownsampleStrategy.f36431e, new com.kwad.sdk.glide.load.resource.bitmap.h());
     }
 
     public int hashCode() {
-        return k.a(this.u, k.a(this.l, k.a(this.s, k.a(this.r, k.a(this.q, k.a(this.f36464d, k.a(this.f36463c, k.a(this.x, k.a(this.w, k.a(this.n, k.a(this.m, k.b(this.k, k.b(this.j, k.a(this.f36469i, k.a(this.o, k.b(this.p, k.a(this.f36467g, k.b(this.f36468h, k.a(this.f36465e, k.b(this.f36466f, k.a(this.f36462b)))))))))))))))))))));
+        return k.a(this.u, k.a(this.l, k.a(this.s, k.a(this.r, k.a(this.q, k.a(this.f36562d, k.a(this.f36561c, k.a(this.x, k.a(this.w, k.a(this.n, k.a(this.m, k.b(this.k, k.b(this.j, k.a(this.f36567i, k.a(this.o, k.b(this.p, k.a(this.f36565g, k.b(this.f36566h, k.a(this.f36563e, k.b(this.f36564f, k.a(this.f36560b)))))))))))))))))))));
     }
 
     @NonNull
@@ -552,25 +552,25 @@ public abstract class a<T extends a<T>> implements Cloneable {
 
     @NonNull
     public final com.kwad.sdk.glide.load.engine.h o() {
-        return this.f36463c;
+        return this.f36561c;
     }
 
     @Nullable
     public final Drawable p() {
-        return this.f36465e;
+        return this.f36563e;
     }
 
     public final int q() {
-        return this.f36466f;
+        return this.f36564f;
     }
 
     public final int r() {
-        return this.f36468h;
+        return this.f36566h;
     }
 
     @Nullable
     public final Drawable s() {
-        return this.f36467g;
+        return this.f36565g;
     }
 
     public final int t() {
@@ -588,7 +588,7 @@ public abstract class a<T extends a<T>> implements Cloneable {
     }
 
     public final boolean w() {
-        return this.f36469i;
+        return this.f36567i;
     }
 
     @NonNull
@@ -602,6 +602,6 @@ public abstract class a<T extends a<T>> implements Cloneable {
 
     @NonNull
     public final Priority z() {
-        return this.f36464d;
+        return this.f36562d;
     }
 }

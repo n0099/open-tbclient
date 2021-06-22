@@ -53,7 +53,7 @@ import java.util.TimeZone;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f40914a;
+    public static al f41017a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Object f60a = new Object();
@@ -100,13 +100,13 @@ public class al {
             } catch (NumberFormatException e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("Cause by intent_flag: " + e2.getMessage());
             }
-            if (az.f41762a.equals(str3)) {
+            if (az.f41865a.equals(str3)) {
                 try {
                     launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 } catch (Exception e3) {
                     com.xiaomi.channel.commonutils.logger.b.d("Cause: " + e3.getMessage());
                 }
-            } else if (az.f41763b.equals(str3)) {
+            } else if (az.f41866b.equals(str3)) {
                 if (map.containsKey("intent_uri")) {
                     String str5 = map.get("intent_uri");
                     if (str5 != null) {
@@ -139,7 +139,7 @@ public class al {
                 }
                 launchIntentForPackage = null;
             } else {
-                if (az.f41764c.equals(str3) && (str2 = map.get("web_uri")) != null) {
+                if (az.f41867c.equals(str3) && (str2 = map.get("web_uri")) != null) {
                     String trim = str2.trim();
                     if (!trim.startsWith("http://") && !trim.startsWith("https://")) {
                         trim = "http://" + trim;
@@ -239,7 +239,7 @@ public class al {
             }
             hf a4 = ibVar.a();
             com.xiaomi.channel.commonutils.logger.b.m56a("processing a message, action=" + a4);
-            switch (am.f40915a[a4.ordinal()]) {
+            switch (am.f41018a[a4.ordinal()]) {
                 case 1:
                     if (!ibVar.m444b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receiving an un-encrypt message(SendMessage).");
@@ -311,7 +311,7 @@ public class al {
                                     Context context = this.f62a;
                                     Intent a7 = a(context, context.getPackageName(), extra, intExtra);
                                     if (a7 != null) {
-                                        if (!str5.equals(az.f41764c)) {
+                                        if (!str5.equals(az.f41867c)) {
                                             a7.putExtra(PushMessageHelper.KEY_MESSAGE, generateMessage);
                                             a7.putExtra("eventMessageType", i2);
                                             a7.putExtra(MiPushMessage.KEY_MESSAGE_ID, str);
@@ -320,7 +320,7 @@ public class al {
                                         this.f62a.startActivity(a7);
                                         com.xiaomi.channel.commonutils.logger.b.m56a("start activity succ");
                                         el.a(this.f62a).a(this.f62a.getPackageName(), ek.m272a(i2), str, 1006, str5);
-                                        if (str5.equals(az.f41764c)) {
+                                        if (str5.equals(az.f41867c)) {
                                             el.a(this.f62a).a(this.f62a.getPackageName(), ek.m272a(i2), str, "13");
                                         }
                                     }
@@ -639,7 +639,7 @@ public class al {
         }
         hf a3 = ibVar.a();
         com.xiaomi.channel.commonutils.logger.b.m56a("message arrived: processing an arrived message, action=" + a3);
-        if (am.f40915a[a3.ordinal()] != 1) {
+        if (am.f41018a[a3.ordinal()] != 1) {
             return null;
         }
         if (ibVar.m444b()) {
@@ -664,10 +664,10 @@ public class al {
     }
 
     public static al a(Context context) {
-        if (f40914a == null) {
-            f40914a = new al(context);
+        if (f41017a == null) {
+            f41017a = new al(context);
         }
-        return f40914a;
+        return f41017a;
     }
 
     private void a() {

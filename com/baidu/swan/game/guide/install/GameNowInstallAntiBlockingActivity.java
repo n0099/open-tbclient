@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import d.a.l0.a.v2.f0;
-import d.a.l0.a.v2.q0;
-import d.a.l0.a.v2.w;
-import d.a.l0.f.b;
-import d.a.l0.f.c;
-import d.a.l0.f.d;
-import d.a.l0.f.e;
-import d.a.l0.f.f;
+import d.a.m0.a.v2.f0;
+import d.a.m0.a.v2.q0;
+import d.a.m0.a.v2.w;
+import d.a.m0.f.b;
+import d.a.m0.f.c;
+import d.a.m0.f.d;
+import d.a.m0.f.e;
+import d.a.m0.f.f;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
         int Z = q0.Z(this);
         super.onCreate(bundle);
         q0.g(this, Z);
-        d.a.l0.f.j.o.a.q();
+        d.a.m0.f.j.o.a.q();
         setContentView(f.aiapps_install_guide_layout);
         Intent intent = getIntent();
         if (intent != null) {
@@ -62,7 +62,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
             findViewById(e.install_guide_image_mask).setVisibility(0);
             imageView.setImageResource(d.aiapps_install_guide_request);
             findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_install_guide_mask);
-            d.a.l0.f.j.o.a.n();
+            d.a.m0.f.j.o.a.n();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(c.aiapps_install_guide_image_height));
             layoutParams2.gravity = 80;
@@ -78,7 +78,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                 imageView.setImageResource(d.aiapps_install_guide_default);
             }
             findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_anti_block_mask);
-            d.a.l0.f.j.o.a.o();
+            d.a.m0.f.j.o.a.o();
         }
         findViewById.setOnClickListener(new a());
     }

@@ -32,19 +32,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements d.a.n0.t0.a, ViewPager.OnPageChangeListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinearLayout f22229f;
+    public final LinearLayout f22311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final NavigationBar f22230g;
+    public final NavigationBar f22312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RelevanceItemSearchActivity f22231h;
+    public final RelevanceItemSearchActivity f22313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbTabLayout f22232i;
+    public TbTabLayout f22314i;
     public CustomViewPager j;
     public FragmentAdapter k;
     public View l;
@@ -52,7 +52,7 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     public ImageView n;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f22228e = {"游戏", "数码"};
+    public String[] f22310e = {"游戏", "数码"};
     public List<c> o = new ArrayList();
     public CustomMessageListener p = new a(2921522);
 
@@ -60,49 +60,49 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     public static class FragmentAdapter extends FragmentPagerAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<c> f22233a;
+        public List<c> f22315a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Long f22234b;
+        public Long f22316b;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.f22233a = new ArrayList();
+            this.f22315a = new ArrayList();
         }
 
         public void c(List<c> list) {
-            this.f22234b = Long.valueOf(System.currentTimeMillis());
-            this.f22233a.clear();
+            this.f22316b = Long.valueOf(System.currentTimeMillis());
+            this.f22315a.clear();
             if (!ListUtils.isEmpty(list)) {
-                this.f22233a.addAll(list);
+                this.f22315a.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.f22233a.size();
+            return this.f22315a.size();
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public Fragment getItem(int i2) {
-            c cVar = this.f22233a.get(i2);
+            c cVar = this.f22315a.get(i2);
             if (cVar != null) {
-                return cVar.f22237a;
+                return cVar.f22319a;
             }
             return null;
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public long getItemId(int i2) {
-            return super.getItemId(i2) + this.f22234b.longValue();
+            return super.getItemId(i2) + this.f22316b.longValue();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i2) {
-            c cVar = this.f22233a.get(i2);
-            return cVar != null ? cVar.f22238b : "";
+            c cVar = this.f22315a.get(i2);
+            return cVar != null ? cVar.f22320b : "";
         }
     }
 
@@ -119,15 +119,15 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
                 return;
             }
             EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
-            RelevanceItemSearchView.this.f22231h.hideLoadingView(RelevanceItemSearchView.this.f22229f);
+            RelevanceItemSearchView.this.f22313h.hideLoadingView(RelevanceItemSearchView.this.f22311f);
             if (ListUtils.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
                 return;
             }
             String[] strArr = (String[]) evaluateRelevanceItemUpdatedMessage.tabs.toArray(new String[0]);
-            if (Arrays.equals(RelevanceItemSearchView.this.f22228e, strArr)) {
+            if (Arrays.equals(RelevanceItemSearchView.this.f22310e, strArr)) {
                 return;
             }
-            RelevanceItemSearchView.this.f22228e = strArr;
+            RelevanceItemSearchView.this.f22310e = strArr;
             RelevanceItemSearchView.this.i();
         }
     }
@@ -155,19 +155,19 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public RelevanceItemListFragment f22237a;
+        public RelevanceItemListFragment f22319a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f22238b;
+        public String f22320b;
 
         public c(RelevanceItemSearchView relevanceItemSearchView) {
         }
     }
 
     public RelevanceItemSearchView(RelevanceItemSearchActivity relevanceItemSearchActivity, LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.f22229f = linearLayout;
-        this.f22230g = navigationBar;
-        this.f22231h = relevanceItemSearchActivity;
+        this.f22311f = linearLayout;
+        this.f22312g = navigationBar;
+        this.f22313h = relevanceItemSearchActivity;
         n();
         j();
         i();
@@ -177,7 +177,7 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
         MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.m.getText().toString()));
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public Intent getResultIntent() {
         return null;
     }
@@ -189,25 +189,25 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     public final void i() {
         String[] strArr;
         this.o.clear();
-        this.f22232i.B();
-        for (String str : this.f22228e) {
-            this.f22232i.d(this.f22232i.z());
+        this.f22314i.B();
+        for (String str : this.f22310e) {
+            this.f22314i.d(this.f22314i.z());
             c cVar = new c(this);
             RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
-            cVar.f22237a = relevanceItemListFragment;
+            cVar.f22319a = relevanceItemListFragment;
             relevanceItemListFragment.L0(str);
-            cVar.f22238b = str;
+            cVar.f22320b = str;
             this.o.add(cVar);
         }
         this.k.c(this.o);
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public boolean isOnViewCancel() {
         return true;
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public boolean isOnViewTop() {
         return false;
     }
@@ -217,31 +217,31 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     }
 
     public final void k() {
-        this.f22230g.setCenterTextTitle(this.f22229f.getResources().getString(R.string.releavance_item_category));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f22230g.getLayoutParams();
-        layoutParams.height = l.g(this.f22229f.getContext(), R.dimen.tbds60);
-        layoutParams.topMargin = l.g(this.f22229f.getContext(), R.dimen.tbds15);
+        this.f22312g.setCenterTextTitle(this.f22311f.getResources().getString(R.string.releavance_item_category));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f22312g.getLayoutParams();
+        layoutParams.height = l.g(this.f22311f.getContext(), R.dimen.tbds60);
+        layoutParams.topMargin = l.g(this.f22311f.getContext(), R.dimen.tbds15);
     }
 
     public final void l() {
-        this.l = this.f22229f.findViewById(R.id.search_container);
-        this.n = (ImageView) this.f22229f.findViewById(R.id.search_icon);
-        EditText editText = (EditText) this.f22229f.findViewById(R.id.search_text);
+        this.l = this.f22311f.findViewById(R.id.search_container);
+        this.n = (ImageView) this.f22311f.findViewById(R.id.search_icon);
+        EditText editText = (EditText) this.f22311f.findViewById(R.id.search_text);
         this.m = editText;
         editText.addTextChangedListener(new b());
     }
 
     public final void m() {
-        TbTabLayout tbTabLayout = (TbTabLayout) this.f22229f.findViewById(R.id.tablayout);
-        this.f22232i = tbTabLayout;
-        tbTabLayout.setTabTextSize(l.g(this.f22231h, R.dimen.tbds46));
-        this.f22232i.setSelectedTabTextSize(l.g(this.f22231h, R.dimen.tbds52));
-        this.f22232i.setSelectedIndicatorBottomMargin(l.g(this.f22231h, R.dimen.tbds11));
+        TbTabLayout tbTabLayout = (TbTabLayout) this.f22311f.findViewById(R.id.tablayout);
+        this.f22314i = tbTabLayout;
+        tbTabLayout.setTabTextSize(l.g(this.f22313h, R.dimen.tbds46));
+        this.f22314i.setSelectedTabTextSize(l.g(this.f22313h, R.dimen.tbds52));
+        this.f22314i.setSelectedIndicatorBottomMargin(l.g(this.f22313h, R.dimen.tbds11));
     }
 
     public final void n() {
-        LayoutInflater.from(this.f22229f.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.f22229f, true);
-        this.f22231h.showLoadingView(this.f22229f);
+        LayoutInflater.from(this.f22311f.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.f22311f, true);
+        this.f22313h.showLoadingView(this.f22311f);
         l();
         k();
         m();
@@ -249,14 +249,14 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     }
 
     public final void o() {
-        CustomViewPager customViewPager = (CustomViewPager) this.f22229f.findViewById(R.id.viewpager);
+        CustomViewPager customViewPager = (CustomViewPager) this.f22311f.findViewById(R.id.viewpager);
         this.j = customViewPager;
         customViewPager.addOnPageChangeListener(this);
         this.j.setViewPagerScroll(0);
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f22231h.getSupportFragmentManager());
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f22313h.getSupportFragmentManager());
         this.k = fragmentAdapter;
         this.j.setAdapter(fragmentAdapter);
-        this.f22232i.setupWithViewPager(this.j);
+        this.f22314i.setupWithViewPager(this.j);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -271,7 +271,7 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
     public void onPageSelected(int i2) {
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public void onViewChangeSkinType(int i2) {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
@@ -283,9 +283,9 @@ public class RelevanceItemSearchView implements d.a.m0.t0.a, ViewPager.OnPageCha
             this.m.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         }
         SkinManager.setNavbarTitleColor(this.m, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.f22232i.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-        this.f22232i.setSelectedTabTextBlod(true);
-        this.f22232i.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+        this.f22314i.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+        this.f22314i.setSelectedTabTextBlod(true);
+        this.f22314i.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
     }
 
     public void p() {

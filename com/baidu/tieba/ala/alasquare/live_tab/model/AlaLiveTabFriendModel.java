@@ -15,29 +15,29 @@ import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage
 import com.baidu.webkit.internal.ETAG;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
-import d.a.n0.v.d.c.e.j;
+import d.a.o0.v.d.c.e.j;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveTabFriendModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f13787e;
+    public TbPageContext f13869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13788f;
+    public int f13870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13789g;
+    public boolean f13871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13790h;
-    public d.a.n0.v.d.c.g.a j;
+    public boolean f13872h;
+    public d.a.o0.v.d.c.g.a j;
     public long k;
     public b l;
     public HttpMessageListener m = new a(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f13791i = BdUniqueId.gen();
+    public BdUniqueId f13873i = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -48,15 +48,15 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabFriendModel.this.f13791i) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabFriendModel.this.f13873i) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (AlaLiveTabFriendModel.this.l != null) {
-                        AlaLiveTabFriendModel.this.l.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabFriendModel.this.f13790h);
+                        AlaLiveTabFriendModel.this.l.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabFriendModel.this.f13872h);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveTabFriendModel.this.f13790h) {
+                    if (AlaLiveTabFriendModel.this.f13872h) {
                         AlaLiveTabFriendModel.this.j.a(jVar);
                         AlaLiveTabFriendModel.C(AlaLiveTabFriendModel.this);
                     } else {
@@ -64,15 +64,15 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                         if (AlaLiveTabFriendModel.this.j != null) {
                             AlaLiveTabFriendModel.this.j.b();
                         }
-                        AlaLiveTabFriendModel.this.j = new d.a.n0.v.d.c.g.a(alaTabLiveResponsedMessage);
+                        AlaLiveTabFriendModel.this.j = new d.a.o0.v.d.c.g.a(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabFriendModel alaLiveTabFriendModel = AlaLiveTabFriendModel.this;
-                    alaLiveTabFriendModel.f13789g = alaLiveTabFriendModel.j.f();
+                    alaLiveTabFriendModel.f13871g = alaLiveTabFriendModel.j.f();
                     if (AlaLiveTabFriendModel.this.l != null) {
-                        AlaLiveTabFriendModel.this.l.a(AlaLiveTabFriendModel.this.f13789g, AlaLiveTabFriendModel.this.j.d());
+                        AlaLiveTabFriendModel.this.l.a(AlaLiveTabFriendModel.this.f13871g, AlaLiveTabFriendModel.this.j.d());
                     }
                 }
-                AlaLiveTabFriendModel.this.f13790h = false;
+                AlaLiveTabFriendModel.this.f13872h = false;
             }
         }
     }
@@ -85,13 +85,13 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     }
 
     public AlaLiveTabFriendModel(TbPageContext tbPageContext, b bVar) {
-        this.f13787e = tbPageContext;
+        this.f13869e = tbPageContext;
         this.l = bVar;
     }
 
     public static /* synthetic */ int C(AlaLiveTabFriendModel alaLiveTabFriendModel) {
-        int i2 = alaLiveTabFriendModel.f13788f;
-        alaLiveTabFriendModel.f13788f = i2 + 1;
+        int i2 = alaLiveTabFriendModel.f13870f;
+        alaLiveTabFriendModel.f13870f = i2 + 1;
         return i2;
     }
 
@@ -111,11 +111,11 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
             }
         }
         httpMessage.addParam("network", str);
-        httpMessage.addParam("ua_str", l.k(this.f13787e.getPageActivity()) + "_" + l.i(this.f13787e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+        httpMessage.addParam("ua_str", l.k(this.f13869e.getPageActivity()) + "_" + l.i(this.f13869e.getPageActivity()) + "_android_" + TbConfig.getVersion());
         httpMessage.addParam(ETAG.KEY_STATISTICS_SEESIONID, this.k);
         httpMessage.addParam("refresh_type", i3);
         httpMessage.addParam("big_refresh_count", i4);
-        httpMessage.setTag(this.f13791i);
+        httpMessage.setTag(this.f13873i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -125,7 +125,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     }
 
     public boolean b() {
-        d.a.n0.v.d.c.g.a aVar = this.j;
+        d.a.o0.v.d.c.g.a aVar = this.j;
         return (aVar == null || ListUtils.isEmpty(aVar.d())) ? false : true;
     }
 
@@ -139,15 +139,15 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     }
 
     public void loadMore() {
-        if (!this.f13789g || this.f13790h) {
+        if (!this.f13871g || this.f13872h) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.k >= 1800000) {
             this.k = currentTimeMillis;
         }
-        this.f13790h = true;
-        F(this.f13788f + 1, 1, AlaLiveTabFragment.o - 1);
+        this.f13872h = true;
+        F(this.f13870f + 1, 1, AlaLiveTabFragment.o - 1);
     }
 
     public void onDestroy() {
@@ -156,8 +156,8 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
 
     public void refresh() {
         this.k = System.currentTimeMillis();
-        this.f13790h = false;
-        this.f13788f = 1;
+        this.f13872h = false;
+        this.f13870f = 1;
         F(1, 0, AlaLiveTabFragment.o);
     }
 }

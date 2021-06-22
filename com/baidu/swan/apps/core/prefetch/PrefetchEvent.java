@@ -8,19 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import d.a.l0.a.a1.e;
-import d.a.l0.a.a2.d;
-import d.a.l0.a.a2.e;
-import d.a.l0.a.c2.f.p0.j;
-import d.a.l0.a.f1.e.b;
-import d.a.l0.a.g1.f;
-import d.a.l0.a.h0.u.g;
-import d.a.l0.a.k;
+import d.a.m0.a.a1.e;
+import d.a.m0.a.a2.d;
+import d.a.m0.a.a2.e;
+import d.a.m0.a.c2.f.p0.j;
+import d.a.m0.a.f1.e.b;
+import d.a.m0.a.g1.f;
+import d.a.m0.a.h0.u.g;
+import d.a.m0.a.k;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static final boolean COMBINE_PREFETCH_ON = true;
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new a();
@@ -57,7 +57,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     public String state;
     public String version;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<PrefetchEvent> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -74,59 +74,59 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public PrefetchEvent f10799a = new PrefetchEvent();
+        public PrefetchEvent f10881a = new PrefetchEvent();
 
         public b a(@NonNull String str) {
-            this.f10799a.appId = str;
+            this.f10881a.appId = str;
             return this;
         }
 
         public PrefetchEvent b() {
-            return this.f10799a;
+            return this.f10881a;
         }
 
         public b c(@NonNull String str) {
-            this.f10799a.scene = str;
+            this.f10881a.scene = str;
             return this;
         }
 
         public b d(@NonNull String str) {
-            this.f10799a.schema = str;
+            this.f10881a.schema = str;
             return this;
         }
 
         public b e(String str) {
-            this.f10799a.state = str;
+            this.f10881a.state = str;
             return this;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class c extends d.a.l0.a.o0.d.b {
+    /* loaded from: classes3.dex */
+    public static class c extends d.a.m0.a.o0.d.b {
         public c(@Nullable Map<String, String> map, String str) {
             super(str, map);
         }
 
         public Map<String, String> h() {
-            return this.f47588c;
+            return this.f47696c;
         }
 
         public boolean i() {
-            return TextUtils.equals(this.f47581a, PrefetchEvent.MODULE);
+            return TextUtils.equals(this.f47689a, PrefetchEvent.MODULE);
         }
 
         @NonNull
         public String toString() {
-            Map<String, String> map = this.f47588c;
+            Map<String, String> map = this.f47696c;
             if (map == null || map.size() <= 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            Set<Map.Entry<String, String>> entrySet = this.f47588c.entrySet();
+            Set<Map.Entry<String, String>> entrySet = this.f47696c.entrySet();
             int size = entrySet.size();
             int i2 = 0;
             for (Map.Entry<String, String> entry : entrySet) {
@@ -151,7 +151,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             return null;
         }
         b.a L = d.g().r().L();
-        if (d.a.l0.a.h0.o.e.a.k(L.f0()) && d.a.l0.a.h0.o.e.a.a()) {
+        if (d.a.m0.a.h0.o.e.a.k(L.f0()) && d.a.m0.a.h0.o.e.a.a()) {
             HashMap hashMap = new HashMap(map);
             hashMap.put("appKey", L.H());
             hashMap.put("schema", L.W());
@@ -169,17 +169,17 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     public static c b(String str) {
         e Q;
-        if (TextUtils.equals(str, "relaunch") && (Q = e.Q()) != null && d.a.l0.a.h0.o.e.a.k(Q.L().f0()) && d.a.l0.a.h0.o.e.a.a()) {
+        if (TextUtils.equals(str, "relaunch") && (Q = e.Q()) != null && d.a.m0.a.h0.o.e.a.k(Q.L().f0()) && d.a.m0.a.h0.o.e.a.a()) {
             PrefetchEvent prefetchEvent = new PrefetchEvent();
             prefetchEvent.appId = Q.getAppId();
             prefetchEvent.state = STATE_CLICK;
             prefetchEvent.scene = str;
             prefetchEvent.schema = Q.L().W();
-            prefetchEvent.pageUrl = d.a.l0.a.c2.f.p0.c.c(f.V(), Q.L(), Q.F());
+            prefetchEvent.pageUrl = d.a.m0.a.c2.f.p0.c.c(f.V(), Q.L(), Q.F());
             prefetchEvent.appConfig = Q.F().m;
-            prefetchEvent.appPath = e.C0617e.i(Q.getAppId(), Q.Z()).getPath() + File.separator;
+            prefetchEvent.appPath = e.C0620e.i(Q.getAppId(), Q.Z()).getPath() + File.separator;
             prefetchEvent.pageType = Q.F().g(prefetchEvent.pageUrl);
-            prefetchEvent.rootPath = d.a.l0.a.h0.u.a.c(Q, prefetchEvent.pageUrl);
+            prefetchEvent.rootPath = d.a.m0.a.h0.u.a.c(Q, prefetchEvent.pageUrl);
             prefetchEvent.isT7Available = g.N().f0();
             prefetchEvent.sConsole = String.valueOf(Q.L().l0());
             return d(prefetchEvent, MODULE);
@@ -188,7 +188,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     public static c c(@NonNull PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo) {
-        return d(prefetchEvent, d.a.l0.a.h0.o.e.a.k(pMSAppInfo) ? MODULE : "preload");
+        return d(prefetchEvent, d.a.m0.a.h0.o.e.a.k(pMSAppInfo) ? MODULE : "preload");
     }
 
     public static c d(@NonNull PrefetchEvent prefetchEvent, String str) {
@@ -216,11 +216,11 @@ public class PrefetchEvent extends SwanAppIPCData {
             hashMap.put(EVENT_DATA_DEBUG_SCONSOLE, prefetchEvent.sConsole);
         }
         hashMap.put(EVENT_DATA_T7_AVAILABLE, String.valueOf(prefetchEvent.isT7Available));
-        d.a.l0.a.t1.g.b.a(hashMap, "prefetch event");
+        d.a.m0.a.t1.g.b.a(hashMap, "prefetch event");
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put("pageUrl", prefetchEvent.pageUrl);
             j.a(prefetchEvent.pageUrl, hashMap);
-        } else if (k.f46875a) {
+        } else if (k.f46983a) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
         return new c(hashMap, str);

@@ -7,6 +7,7 @@ import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.down.loopj.android.http.BinaryHttpResponseHandler;
 import com.baidu.down.retry.HttpRetryStrategyHandler;
 import com.baidu.down.statistic.TaskSpeedStat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
@@ -123,7 +124,7 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public abstract void stop(boolean z);
 
     public String toString() {
-        return "[mUri=" + this.mUri + "][mDownloadId=" + this.mDownloadId + "][status=" + this.mStatus + "]";
+        return "[mUri=" + this.mUri + "][mDownloadId=" + this.mDownloadId + "][status=" + this.mStatus + PreferencesUtil.RIGHT_MOUNT;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

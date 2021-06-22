@@ -7,31 +7,27 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.YuvImage;
+import android.util.Base64;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    public static Bitmap a(byte[] bArr, int i2, int i3) {
-        YuvImage yuvImage = new YuvImage(bArr, 17, i2, i3, null);
+    public String a(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, i2, i3), 80, byteArrayOutputStream);
-        Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
-        if (decodeByteArray == null) {
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
+    }
+
+    public static Bitmap a(String str) {
+        if (str == null) {
             return null;
         }
-        Matrix matrix = new Matrix();
-        matrix.reset();
-        matrix.setRotate(-90.0f);
-        matrix.postScale(-1.0f, 1.0f);
-        Bitmap copy = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true).copy(Bitmap.Config.RGB_565, true);
         try {
-            byteArrayOutputStream.close();
-        } catch (IOException e2) {
-            e2.printStackTrace();
+            byte[] decode = Base64.decode(str, 0);
+            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
+        } catch (Exception e2) {
+            e2.getMessage();
+            return null;
         }
-        return copy;
     }
 
     public static byte[] a(Bitmap bitmap, int i2) {

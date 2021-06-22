@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25464a;
+    public String f25546a;
 
     public PrecashierDefaultPayTypeBean(Context context) {
         super(context);
@@ -54,11 +54,11 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
     @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (this.f25464a == null) {
+        if (this.f25546a == null) {
             return arrayList;
         }
         try {
-            a(arrayList, new JSONObject(this.f25464a));
+            a(arrayList, new JSONObject(this.f25546a));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -84,6 +84,6 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25464a = str;
+        this.f25546a = str;
     }
 }

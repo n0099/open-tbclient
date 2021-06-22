@@ -24,7 +24,7 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 public class b implements i.a.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, MiddleRevenueConfig> f72255a = new HashMap();
+    public static Map<String, MiddleRevenueConfig> f72359a = new HashMap();
 
     public static String a(int i2, int i3) {
         return i2 + "-" + i3;
@@ -44,12 +44,12 @@ public class b implements i.a.a.b.a {
         }
         RLog.info("RevenueService", "addRevenueConfig -> versionName:4.2.20-bdpay config:" + middleRevenueConfig.toString());
         String a2 = a(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
-        if (f72255a.get(a2) != null) {
+        if (f72359a.get(a2) != null) {
             RLog.error("RevenueService", "addRevenueConfig fail! duplicate init revenue  appId:" + middleRevenueConfig.getAppId() + " usechanel:" + middleRevenueConfig.getUseChannel(), new Object[0]);
             return;
         }
-        f72255a.put(a2, middleRevenueConfig);
-        RLog.info("RevenueService", "addRevenueConfig mapKey=" + a2 + " mapSize=" + f72255a.size());
+        f72359a.put(a2, middleRevenueConfig);
+        RLog.info("RevenueService", "addRevenueConfig mapKey=" + a2 + " mapSize=" + f72359a.size());
         Env.instance().init(middleRevenueConfig.isTestEnv());
         c(middleRevenueConfig.getAppId(), middleRevenueConfig.getAppContext(), middleRevenueConfig.getUid(), middleRevenueConfig.getUseChannel(), middleRevenueConfig.getCurrencyType(), middleRevenueConfig.getCountry(), middleRevenueConfig.getLanguage(), middleRevenueConfig.getPackageName(), middleRevenueConfig.getVersion(), middleRevenueConfig.isOpenRisk(), middleRevenueConfig.getAuthType(), middleRevenueConfig.getProtoType(), b(middleRevenueConfig), middleRevenueConfig.getReportConfig());
     }
@@ -75,7 +75,7 @@ public class b implements i.a.a.b.a {
         RLog.info("RevenueService", "initRevenue: appId = %d, uid = %d, usedChannel = %d, currencyType = %d, authType = %s", Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
         IRevenue addRevenueConfig = RevenueSdk.addRevenueConfig(i2, i3, RevenueConfig.RevenueConfigBuilder.aRevenueConfig().setUid(j).setAppId(i2).setUsedChannel(i3).setCurrencyType(i4).setCountryCode(str).setLanguage(str2).setDataSender(iRevenueDataSender).setContext(context).setIsOpenRisk(z).setProtoType(protocolType).setPakageName(str3).setClientVersion(str4).setReportConfig(middleReportConfig).setAuthType(i5).build());
         if (addRevenueConfig != null && (appPayService = addRevenueConfig.getAppPayService()) != null) {
-            appPayService.addPayListener(a.f72254a);
+            appPayService.addPayListener(a.f72358a);
         }
         return addRevenueConfig;
     }
@@ -87,7 +87,7 @@ public class b implements i.a.a.b.a {
 
     @Override // i.a.a.b.a
     public synchronized IMiddleRevenue getMiddleRevenue(int i2, int i3) {
-        MiddleRevenueConfig middleRevenueConfig = f72255a.get(a(i2, i3));
+        MiddleRevenueConfig middleRevenueConfig = f72359a.get(a(i2, i3));
         if (middleRevenueConfig == null) {
             RLog.info("RevenueService", "getMiddleRevenue fail,not yet config appId:" + i2 + " usechanel:" + i3);
             return null;
@@ -103,8 +103,8 @@ public class b implements i.a.a.b.a {
     @Override // i.a.a.b.a
     public synchronized void removeRevenueConfig(int i2, int i3) {
         String a2 = a(i2, i3);
-        f72255a.remove(a2);
-        RLog.info("RevenueService", "removeRevenueConfig mapKey=" + a2 + " mapSize:" + f72255a.size());
+        f72359a.remove(a2);
+        RLog.info("RevenueService", "removeRevenueConfig mapKey=" + a2 + " mapSize:" + f72359a.size());
         RevenueSdk.removeRevenueConfig(i2, i3);
     }
 

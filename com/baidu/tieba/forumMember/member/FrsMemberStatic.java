@@ -6,18 +6,18 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import d.a.n0.p0.b.c;
-import d.a.n0.p0.b.d;
-import d.a.n0.p0.c.f;
-import d.a.n0.p0.c.g;
-import d.a.n0.p0.c.h;
-import d.a.n0.p0.c.i;
-import d.a.n0.p0.c.j;
-import d.a.n0.p0.c.k;
-import d.a.n0.p0.c.l;
-import d.a.n0.r0.f0;
-import d.a.n0.r0.g0;
-import d.a.n0.r0.n;
+import d.a.o0.p0.b.c;
+import d.a.o0.p0.b.d;
+import d.a.o0.p0.c.f;
+import d.a.o0.p0.c.g;
+import d.a.o0.p0.c.h;
+import d.a.o0.p0.c.i;
+import d.a.o0.p0.c.j;
+import d.a.o0.p0.c.k;
+import d.a.o0.p0.c.l;
+import d.a.o0.r0.f0;
+import d.a.o0.r0.g0;
+import d.a.o0.r0.n;
 /* loaded from: classes4.dex */
 public class FrsMemberStatic {
 
@@ -32,12 +32,12 @@ public class FrsMemberStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f61690h));
-                absDelegateAdapterList.add(new i(null, j.f61695g));
-                absDelegateAdapterList.add(new f(null, n.f62677g));
-                absDelegateAdapterList.add(new d.a.n0.p0.b.a(null, d.a.n0.p0.b.b.f61666f));
+                absDelegateAdapterList.add(new g(null, h.f61815h));
+                absDelegateAdapterList.add(new i(null, j.f61820g));
+                absDelegateAdapterList.add(new f(null, n.f62802g));
+                absDelegateAdapterList.add(new d.a.o0.p0.b.a(null, d.a.o0.p0.b.b.f61791f));
                 absDelegateAdapterList.add(new c(null, d.k));
-                absDelegateAdapterList.add(new k(null, l.f61699i));
+                absDelegateAdapterList.add(new k(null, l.f61824i));
             }
         }
     }
@@ -53,8 +53,8 @@ public class FrsMemberStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                d.a.n0.p0.c.d dVar = new d.a.n0.p0.c.d();
-                dVar.E(f0Var.f62245e);
+                d.a.o0.p0.c.d dVar = new d.a.o0.p0.c.d();
+                dVar.E(f0Var.f62370e);
                 f0Var.a(3, dVar);
             }
         }

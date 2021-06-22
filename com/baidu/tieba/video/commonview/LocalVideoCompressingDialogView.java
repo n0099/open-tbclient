@@ -10,10 +10,10 @@ import com.baidu.tieba.R;
 public class LocalVideoCompressingDialogView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CompressProgressView f21303e;
+    public CompressProgressView f21385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21304f;
+    public TextView f21386f;
 
     public LocalVideoCompressingDialogView(Context context) {
         super(context);
@@ -22,16 +22,16 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-        this.f21303e = (CompressProgressView) findViewById(R.id.compress_progress_view);
-        this.f21304f = (TextView) findViewById(R.id.compress_progress_text);
+        this.f21385e = (CompressProgressView) findViewById(R.id.compress_progress_view);
+        this.f21386f = (TextView) findViewById(R.id.compress_progress_text);
     }
 
     public void setPercent(int i2) {
         if (i2 < 0 || i2 > 100) {
             return;
         }
-        this.f21303e.setProgress(i2);
-        TextView textView = this.f21304f;
+        this.f21385e.setProgress(i2);
+        TextView textView = this.f21386f;
         textView.setText(i2 + "%");
     }
 

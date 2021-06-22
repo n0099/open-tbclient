@@ -34,41 +34,41 @@ import tv.athena.revenue.payui.view.YYPayWayView;
 public class g implements i.a.a.e.k.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public i.a.a.e.k.a f72142a;
+    public i.a.a.e.k.a f72246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f72143b;
+    public e f72247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f72144c;
+    public PayUIKitConfig f72248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i.a.a.e.k.c f72145d;
+    public i.a.a.e.k.c f72249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public H5PayFlowModel f72146e;
+    public H5PayFlowModel f72250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72147f;
+    public int f72251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72148g;
+    public int f72252g;
 
     /* loaded from: classes8.dex */
     public class a implements IResult<ProductListResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72149a;
+        public final /* synthetic */ IResult f72253a;
 
         public a(g gVar, IResult iResult) {
-            this.f72149a = iResult;
+            this.f72253a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
         public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72149a;
+            IResult iResult = this.f72253a;
             if (iResult != null) {
                 iResult.onSuccess(productListResult, payCallBackBean);
             }
@@ -76,7 +76,7 @@ public class g implements i.a.a.e.k.b {
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72149a;
+            IResult iResult = this.f72253a;
             if (iResult != null) {
                 iResult.onFail(i2, str, payCallBackBean);
             }
@@ -87,17 +87,17 @@ public class g implements i.a.a.e.k.b {
     public class b implements IResult<MyBalanceResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72150a;
+        public final /* synthetic */ IResult f72254a;
 
         public b(g gVar, IResult iResult) {
-            this.f72150a = iResult;
+            this.f72254a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
         public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72150a;
+            IResult iResult = this.f72254a;
             if (iResult != null) {
                 iResult.onSuccess(myBalanceResult, payCallBackBean);
             }
@@ -105,7 +105,7 @@ public class g implements i.a.a.e.k.b {
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72150a;
+            IResult iResult = this.f72254a;
             if (iResult != null) {
                 iResult.onFail(i2, str, payCallBackBean);
             }
@@ -116,17 +116,17 @@ public class g implements i.a.a.e.k.b {
     public class c implements IResult<BannerConfigResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72151a;
+        public final /* synthetic */ IResult f72255a;
 
         public c(g gVar, IResult iResult) {
-            this.f72151a = iResult;
+            this.f72255a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
         public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72151a;
+            IResult iResult = this.f72255a;
             if (iResult != null) {
                 iResult.onSuccess(bannerConfigResult, payCallBackBean);
             }
@@ -134,7 +134,7 @@ public class g implements i.a.a.e.k.b {
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult = this.f72151a;
+            IResult iResult = this.f72255a;
             if (iResult != null) {
                 iResult.onFail(i2, str, payCallBackBean);
             }
@@ -142,17 +142,17 @@ public class g implements i.a.a.e.k.b {
     }
 
     public g(int i2, int i3, i.a.a.e.k.a aVar, i.a.a.e.k.c cVar) {
-        this.f72147f = i2;
-        this.f72142a = aVar;
-        this.f72148g = i3;
-        this.f72145d = cVar;
-        this.f72144c = cVar != null ? cVar.getPayUIKitConfig() : null;
+        this.f72251f = i2;
+        this.f72246a = aVar;
+        this.f72252g = i3;
+        this.f72249d = cVar;
+        this.f72248c = cVar != null ? cVar.getPayUIKitConfig() : null;
         RLog.info("YYPayController", "new YYPayController mAppId:" + i2 + " mUserChannel:" + i3);
     }
 
     @Override // i.a.a.e.k.b
     public void a(Activity activity, i.a.a.e.l.c cVar, i.a.a.e.l.a aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
-        i.a.a.e.k.a aVar2 = this.f72142a;
+        i.a.a.e.k.a aVar2 = this.f72246a;
         if (aVar2 == null) {
             RLog.error("YYPayController", "payRequest error modelProvider null", new Object[0]);
             return;
@@ -160,14 +160,14 @@ public class g implements i.a.a.e.k.b {
         i.a.a.b.b.a.a d2 = aVar2.d();
         d2.r(iPayCallback);
         d2.p(activity);
-        d2.u(aVar.f72152a);
-        d2.v(cVar.f72159a);
+        d2.u(aVar.f72256a);
+        d2.v(cVar.f72263a);
         d2.q(appCustomExpand);
         d2.z(str);
-        if (cVar.f72159a == PayType.DXM_PAY_KJ) {
-            d2.w(i.a.a.e.l.b.b(this.f72144c));
+        if (cVar.f72263a == PayType.DXM_PAY_KJ) {
+            d2.w(i.a.a.e.l.b.b(this.f72248c));
         }
-        IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f72147f, this.f72148g);
+        IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f72251f, this.f72252g);
         if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
             middleRevenue.getMiddlePayService().a(d2);
         } else {
@@ -177,43 +177,43 @@ public class g implements i.a.a.e.k.b {
 
     @Override // i.a.a.e.k.b
     public IYYPayWayView b(Activity activity, IYYPayWayView.b bVar) {
-        return new YYPayWayView(activity, this.f72147f, this.f72148g, bVar, this.f72142a, this);
+        return new YYPayWayView(activity, this.f72251f, this.f72252g, bVar, this.f72246a, this);
     }
 
     @Override // i.a.a.e.k.b
     public IYYPayResultView c(Activity activity, IYYPayResultView.c cVar) {
-        return new YYPayResultView(activity, this, this.f72142a, this.f72147f, this.f72148g, cVar);
+        return new YYPayResultView(activity, this, this.f72246a, this.f72251f, this.f72252g, cVar);
     }
 
     @Override // i.a.a.e.k.b
     public void clear() {
-        this.f72143b = null;
-        this.f72146e = null;
+        this.f72247b = null;
+        this.f72250e = null;
         RLog.info("YYPayController", "clear() destory H5PayFlowModel");
     }
 
     @Override // i.a.a.e.k.b
     public void d(Activity activity) {
         clear();
-        String c2 = i.a.a.e.l.b.c(this.f72144c);
+        String c2 = i.a.a.e.l.b.c(this.f72248c);
         RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
         j(activity, c2, "我的钱包");
     }
 
     @Override // i.a.a.e.k.b
     public void e(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        if (this.f72146e != null) {
+        if (this.f72250e != null) {
             if (bVar == null) {
                 bVar = new IYYPayWayView.b();
             }
-            H5PayFlowModel h5PayFlowModel = this.f72146e;
-            bVar.f72922c = h5PayFlowModel.appCustomExpand;
-            bVar.f72924e = h5PayFlowModel.viewEventListener;
-            bVar.f72925f = PaySource.WALLET;
+            H5PayFlowModel h5PayFlowModel = this.f72250e;
+            bVar.f73026c = h5PayFlowModel.appCustomExpand;
+            bVar.f73028e = h5PayFlowModel.viewEventListener;
+            bVar.f73029f = PaySource.WALLET;
             RLog.info("YYPayController", "startPayChannelDialog use H5PayFlowModel");
         }
-        e eVar = new e(this.f72147f, this.f72148g, this.f72145d, this);
-        this.f72143b = eVar;
+        e eVar = new e(this.f72251f, this.f72252g, this.f72249d, this);
+        this.f72247b = eVar;
         eVar.A(activity, bVar, iPayCallback);
     }
 
@@ -221,10 +221,10 @@ public class g implements i.a.a.e.k.b {
     public void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
         clear();
         l(viewParams);
-        e eVar = new e(this.f72147f, this.f72148g, this.f72145d, this);
-        this.f72143b = eVar;
+        e eVar = new e(this.f72251f, this.f72252g, this.f72249d, this);
+        this.f72247b = eVar;
         eVar.w(activity, iPayCallback, viewParams);
-        i.a.a.e.m.a.b(this.f72147f, this.f72148g, UiEventType.purchaseshow);
+        i.a.a.e.m.a.b(this.f72251f, this.f72252g, UiEventType.purchaseshow);
         RLog.warn("YYPayController", UiEventType.purchaseshow);
     }
 
@@ -232,14 +232,14 @@ public class g implements i.a.a.e.k.b {
     public void g(Activity activity, IYYPayAmountView.ViewParams viewParams) {
         clear();
         l(viewParams);
-        String c2 = i.a.a.e.l.b.c(this.f72144c);
+        String c2 = i.a.a.e.l.b.c(this.f72248c);
         RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
         j(activity, c2, "我的钱包");
     }
 
     @Override // i.a.a.e.k.b
     public PayUIKitConfig getPayUIKitConfig() {
-        return this.f72144c;
+        return this.f72248c;
     }
 
     @Override // i.a.a.e.k.b
@@ -254,12 +254,12 @@ public class g implements i.a.a.e.k.b {
 
     @Override // i.a.a.e.k.b
     public IYYPayAmountView i(Activity activity, IYYPayAmountView.ViewParams viewParams) {
-        return new YYPayAmountView(activity, this.f72147f, this.f72148g, this, viewParams, this.f72142a);
+        return new YYPayAmountView(activity, this.f72251f, this.f72252g, this, viewParams, this.f72246a);
     }
 
     @Override // i.a.a.e.k.b
     public void j(Activity activity, String str, String str2) {
-        PayUIKitConfig payUIKitConfig = this.f72144c;
+        PayUIKitConfig payUIKitConfig = this.f72248c;
         if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
             if (TextUtils.isEmpty(str)) {
                 RLog.error("YYPayController", "startActivity error url null", new Object[0]);
@@ -269,27 +269,27 @@ public class g implements i.a.a.e.k.b {
             Intent intent = new Intent(activity, PayCommonWebActivity.class);
             intent.putExtra(H5PayConstant.EXTRA_TITLE, str2);
             intent.putExtra(H5PayConstant.EXTRA_URL, str);
-            intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f72147f);
-            intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f72148g);
-            if (str.equals(i.a.a.e.l.b.c(this.f72144c))) {
+            intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f72251f);
+            intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f72252g);
+            if (str.equals(i.a.a.e.l.b.c(this.f72248c))) {
                 RLog.debug("YYPayController", "startPayWebActivity is wallet");
                 intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
             }
             activity.startActivity(intent);
         }
-        i.a.a.e.m.a.b(this.f72147f, this.f72148g, UiEventType.walletshow);
+        i.a.a.e.m.a.b(this.f72251f, this.f72252g, UiEventType.walletshow);
         RLog.info("YYPayController", UiEventType.walletshow);
     }
 
     @Override // i.a.a.e.k.b
     public H5PayFlowModel k() {
-        return this.f72146e;
+        return this.f72250e;
     }
 
     public final void l(IYYPayAmountView.ViewParams viewParams) {
         if (viewParams != null) {
             H5PayFlowModel h5PayFlowModel = new H5PayFlowModel();
-            this.f72146e = h5PayFlowModel;
+            this.f72250e = h5PayFlowModel;
             h5PayFlowModel.appCustomExpand = viewParams.appCustomExpand;
             h5PayFlowModel.viewEventListener = viewParams.viewEventListener;
             RLog.info("YYPayController", "createH5PayFlowModel  H5PayFlowModel");

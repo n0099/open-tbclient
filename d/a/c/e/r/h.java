@@ -12,28 +12,28 @@ import org.apache.http.message.BasicNameValuePair;
 public class h {
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f42617h;
+    public static h f42720h;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f42620c;
+    public String[] f42723c;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f42624g;
+    public g f42727g;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42618a = null;
+    public String f42721a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BasicNameValuePair> f42619b = null;
+    public List<BasicNameValuePair> f42722b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42621d = null;
+    public String f42724d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f42622e = null;
+    public i f42725e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<g> f42623f = new ArrayList<>();
+    public ArrayList<g> f42726f = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public class a implements g {
@@ -42,7 +42,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void a(String str) {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).a(str);
             }
@@ -50,8 +50,8 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void b(int i2, String str) {
-            h.this.f42622e = null;
-            Iterator it = h.this.f42623f.iterator();
+            h.this.f42725e = null;
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).b(i2, str);
             }
@@ -59,7 +59,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void c(c cVar) {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).c(cVar);
             }
@@ -67,7 +67,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void d(byte[] bArr) {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).d(bArr);
             }
@@ -75,7 +75,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void e() {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).e();
             }
@@ -83,7 +83,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void f(k kVar) {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).f(kVar);
             }
@@ -112,7 +112,7 @@ public class h {
 
         @Override // d.a.c.e.r.g
         public void onOpen(Map<String, String> map) {
-            Iterator it = h.this.f42623f.iterator();
+            Iterator it = h.this.f42726f.iterator();
             while (it.hasNext()) {
                 ((g) it.next()).onOpen(map);
             }
@@ -120,61 +120,61 @@ public class h {
     }
 
     public h() {
-        this.f42624g = null;
-        this.f42624g = new a();
+        this.f42727g = null;
+        this.f42727g = new a();
     }
 
     public static h j() {
-        if (f42617h == null) {
+        if (f42720h == null) {
             synchronized (h.class) {
-                if (f42617h == null) {
-                    f42617h = new h();
+                if (f42720h == null) {
+                    f42720h = new h();
                 }
             }
         }
-        return f42617h;
+        return f42720h;
     }
 
     public boolean c(g gVar) {
         if (gVar != null) {
             synchronized (h.class) {
-                if (this.f42623f.contains(gVar)) {
+                if (this.f42726f.contains(gVar)) {
                     return false;
                 }
-                return this.f42623f.add(gVar);
+                return this.f42726f.add(gVar);
             }
         }
         return false;
     }
 
     public void d() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             iVar.o();
         }
     }
 
     public void e() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             iVar.p();
         }
     }
 
     public void f(int i2, String str) {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
-            this.f42622e = null;
+            this.f42725e = null;
             iVar.q(i2, str);
-            if (this.f42622e != null) {
+            if (this.f42725e != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.f42622e = null;
+                this.f42725e = null;
             }
         }
     }
 
     public long g() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.z();
         }
@@ -182,7 +182,7 @@ public class h {
     }
 
     public long h() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.A();
         }
@@ -190,7 +190,7 @@ public class h {
     }
 
     public long i() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.v();
         }
@@ -201,20 +201,20 @@ public class h {
         if (t()) {
             d.a.c.e.p.l.d();
         }
-        i iVar = this.f42622e;
-        return (iVar == null || !iVar.E() || this.f42622e.F()) ? false : true;
+        i iVar = this.f42725e;
+        return (iVar == null || !iVar.E() || this.f42725e.F()) ? false : true;
     }
 
     public boolean l() {
         if (t()) {
             d.a.c.e.p.l.d();
         }
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         return iVar != null && iVar.E();
     }
 
     public String m() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.w();
         }
@@ -222,7 +222,7 @@ public class h {
     }
 
     public String n() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.x();
         }
@@ -230,7 +230,7 @@ public class h {
     }
 
     public String o() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.B();
         }
@@ -238,7 +238,7 @@ public class h {
     }
 
     public long p() {
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
             return iVar.y();
         }
@@ -246,14 +246,14 @@ public class h {
     }
 
     public String q() {
-        return this.f42618a;
+        return this.f42721a;
     }
 
     public void r(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.f42618a = str;
-        this.f42621d = str2;
-        this.f42620c = strArr;
-        this.f42619b = list;
+        this.f42721a = str;
+        this.f42724d = str2;
+        this.f42723c = strArr;
+        this.f42722b = list;
         t();
     }
 
@@ -261,7 +261,7 @@ public class h {
         if (t()) {
             d.a.c.e.p.l.d();
         }
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         return iVar != null && iVar.C();
     }
 
@@ -273,24 +273,24 @@ public class h {
         if (t()) {
             d.a.c.e.p.l.d();
         }
-        i iVar = this.f42622e;
+        i iVar = this.f42725e;
         if (iVar != null) {
-            if (!iVar.C() && !this.f42622e.E()) {
-                this.f42622e.q(1, null);
-                this.f42622e = null;
+            if (!iVar.C() && !this.f42725e.E()) {
+                this.f42725e.q(1, null);
+                this.f42725e = null;
             } else {
                 t();
                 return true;
             }
         }
-        this.f42622e = new i();
+        this.f42725e = new i();
         try {
             d0 d0Var = new d0();
-            d0Var.j(this.f42621d);
-            this.f42622e.r(this.f42618a, this.f42620c, this.f42624g, d0Var, this.f42619b);
+            d0Var.j(this.f42724d);
+            this.f42725e.r(this.f42721a, this.f42723c, this.f42727g, d0Var, this.f42722b);
             return true;
         } catch (WebSocketException unused) {
-            this.f42622e = null;
+            this.f42725e = null;
             return false;
         }
     }
@@ -300,8 +300,8 @@ public class h {
             return false;
         }
         d.a.c.e.p.l.d();
-        if (this.f42622e != null) {
-            return this.f42622e.I(cVar);
+        if (this.f42725e != null) {
+            return this.f42725e.I(cVar);
         }
         if (cVar != null) {
             cVar.a(1);

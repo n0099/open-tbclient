@@ -17,15 +17,15 @@ public class u0 extends h {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.q.a f43761e;
+        public final /* synthetic */ d.a.n0.r.q.a f43854e;
 
-        public a(d.a.m0.r.q.a aVar) {
-            this.f43761e = aVar;
+        public a(d.a.n0.r.q.a aVar) {
+            this.f43854e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ThreadCardUtils.jumpToPB(this.f43761e, (Context) u0.this.l.getPageActivity(), u0.this.m, false);
+            ThreadCardUtils.jumpToPB(this.f43854e, (Context) u0.this.l.getPageActivity(), u0.this.m, false);
         }
     }
 
@@ -45,14 +45,14 @@ public class u0 extends h {
         this.n.C(i2);
     }
 
-    public final boolean u(d.a.m0.r.q.a aVar) {
+    public final boolean u(d.a.n0.r.q.a aVar) {
         return (aVar == null || aVar.i() == null || aVar.i().P0() == null || aVar.i().P0().getOptions() == null || aVar.i().P0().getOptions().size() <= 0 || aVar.i().D2()) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: v */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         if (u(aVar)) {
             this.n.setVisibility(0);
             this.n.setData(aVar.i().P0(), aVar.i().z1(), aVar.i().c0());

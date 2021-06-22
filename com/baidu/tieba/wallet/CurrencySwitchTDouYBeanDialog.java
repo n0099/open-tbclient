@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.wallet.CurrencySwitchModel;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.s.a;
+import d.a.n0.r.s.a;
 /* loaded from: classes5.dex */
 public class CurrencySwitchTDouYBeanDialog {
     public static final int MAX_RETRY_TIME = 3;
@@ -90,7 +90,7 @@ public class CurrencySwitchTDouYBeanDialog {
         this.dialog.setMessageShowCenter(true);
         this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.wallet_t_dou_switch_to_y_bean_tip));
         this.dialog.setPositiveButton(R.string.wallet_t_dou_switch_to_y_bean_i_know, new a.e() { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
-            @Override // d.a.m0.r.s.a.e
+            @Override // d.a.n0.r.s.a.e
             public void onClick(a aVar3) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 if (CurrencySwitchTDouYBeanDialog.this.mCurrencySwitchModel != null) {

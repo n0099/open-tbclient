@@ -16,31 +16,31 @@ public abstract class a {
     public static final PorterDuffColorFilter p = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0547a f42659a;
+    public InterfaceC0550a f42762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f42660b = new Paint(6);
+    public Paint f42763b = new Paint(6);
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f42661c = new Paint();
+    public Paint f42764c = new Paint();
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f42662d = new Paint();
+    public Paint f42765d = new Paint();
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f42663e = new Matrix();
+    public Matrix f42766e = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f42664f = new RectF();
+    public RectF f42767f = new RectF();
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f42665g = new RectF();
+    public RectF f42768g = new RectF();
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f42666h = new RectF();
+    public RectF f42769h = new RectF();
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f42667i = new RectF();
+    public RectF f42770i = new RectF();
     public RectF j = new RectF();
     public e k = new e();
     public float[] l = new float[9];
@@ -49,16 +49,16 @@ public abstract class a {
 
     /* renamed from: d.a.c.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0547a {
+    public interface InterfaceC0550a {
         boolean a(Canvas canvas, Drawable drawable);
     }
 
     public a() {
-        this.f42661c.setStyle(Paint.Style.STROKE);
-        this.f42661c.setAntiAlias(true);
-        this.f42660b.setAntiAlias(true);
-        this.f42662d.setAntiAlias(true);
-        this.f42662d.setStyle(Paint.Style.FILL);
+        this.f42764c.setStyle(Paint.Style.STROKE);
+        this.f42764c.setAntiAlias(true);
+        this.f42763b.setAntiAlias(true);
+        this.f42765d.setAntiAlias(true);
+        this.f42765d.setStyle(Paint.Style.FILL);
     }
 
     public static Matrix.ScaleToFit m(ImageView.ScaleType scaleType) {
@@ -98,18 +98,18 @@ public abstract class a {
         int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
         int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
         if (scaleType == ImageView.ScaleType.MATRIX) {
-            this.f42664f.set(0.0f, 0.0f, b2, a2);
+            this.f42767f.set(0.0f, 0.0f, b2, a2);
             a(dVar, imageView);
             return;
         }
         boolean z = (b2 <= 0 || width == b2) && (a2 <= 0 || height == a2);
-        this.f42663e.reset();
+        this.f42766e.reset();
         if (ImageView.ScaleType.FIT_XY != scaleType && !z) {
             float f5 = b2;
             float f6 = a2;
-            this.f42664f.set(0.0f, 0.0f, f5, f6);
+            this.f42767f.set(0.0f, 0.0f, f5, f6);
             if (ImageView.ScaleType.CENTER == scaleType) {
-                this.f42663e.setTranslate((width - b2) * 0.5f, (height - a2) * 0.5f);
+                this.f42766e.setTranslate((width - b2) * 0.5f, (height - a2) * 0.5f);
             } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
                 if (b2 * height > a2 * width) {
                     f2 = height / f6;
@@ -120,25 +120,25 @@ public abstract class a {
                     f3 = (height - (f6 * f2)) * 0.5f;
                     f4 = 0.0f;
                 }
-                this.f42663e.setScale(f2, f2);
-                this.f42663e.postTranslate(f4, f3);
+                this.f42766e.setScale(f2, f2);
+                this.f42766e.postTranslate(f4, f3);
             } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
                 float min = (b2 > width || a2 > height) ? Math.min(width / f5, height / f6) : 1.0f;
-                this.f42663e.setScale(min, min);
-                this.f42663e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
+                this.f42766e.setScale(min, min);
+                this.f42766e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
             } else {
-                this.f42666h.set(0.0f, 0.0f, f5, f6);
-                this.f42667i.set(0.0f, 0.0f, width, height);
-                this.f42663e.setRectToRect(this.f42666h, this.f42667i, m(scaleType));
+                this.f42769h.set(0.0f, 0.0f, f5, f6);
+                this.f42770i.set(0.0f, 0.0f, width, height);
+                this.f42766e.setRectToRect(this.f42769h, this.f42770i, m(scaleType));
             }
         } else {
-            this.f42664f.set(0.0f, 0.0f, width, height);
+            this.f42767f.set(0.0f, 0.0f, width, height);
         }
-        int length = this.k.f42674a.length;
+        int length = this.k.f42777a.length;
         for (int i2 = 0; i2 < length; i2++) {
-            float[] fArr = this.k.f42674a;
+            float[] fArr = this.k.f42777a;
             if (fArr[i2] > 0.0f && fArr[i2] < 1.0f) {
-                fArr[i2] = fArr[i2] * this.f42664f.height();
+                fArr[i2] = fArr[i2] * this.f42767f.height();
             }
         }
         a(dVar, imageView);
@@ -160,8 +160,8 @@ public abstract class a {
     }
 
     public void e(Canvas canvas, Drawable drawable) {
-        InterfaceC0547a interfaceC0547a = this.f42659a;
-        if (interfaceC0547a == null || !interfaceC0547a.a(canvas, drawable)) {
+        InterfaceC0550a interfaceC0550a = this.f42762a;
+        if (interfaceC0550a == null || !interfaceC0550a.a(canvas, drawable)) {
             drawable.draw(canvas);
         }
     }
@@ -185,13 +185,13 @@ public abstract class a {
         if (matrix2 != null) {
             canvas.concat(matrix2);
         }
-        d.a.c.k.d.a aVar = dVar.f42672b;
+        d.a.c.k.d.a aVar = dVar.f42775b;
         if (aVar != null && aVar.v()) {
-            if ((dVar.f42672b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f42672b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f42663e) != null) {
+            if ((dVar.f42775b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f42775b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f42766e) != null) {
                 canvas.concat(matrix);
             }
             this.j.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.f42672b.i(canvas, this.j);
+            dVar.f42775b.i(canvas, this.j);
         } else {
             h(canvas, dVar, imageView);
         }
@@ -210,11 +210,11 @@ public abstract class a {
     public abstract void i(Canvas canvas, ImageView imageView);
 
     public RectF j() {
-        return this.f42664f;
+        return this.f42767f;
     }
 
     public Matrix k() {
-        return this.f42663e;
+        return this.f42766e;
     }
 
     public Path l(RectF rectF, float[] fArr) {
@@ -224,11 +224,11 @@ public abstract class a {
     }
 
     public void n(Matrix matrix) {
-        this.f42663e = matrix;
+        this.f42766e = matrix;
     }
 
-    public void o(InterfaceC0547a interfaceC0547a) {
-        this.f42659a = interfaceC0547a;
+    public void o(InterfaceC0550a interfaceC0550a) {
+        this.f42762a = interfaceC0550a;
     }
 
     public void p(e eVar) {
@@ -236,13 +236,13 @@ public abstract class a {
     }
 
     public void q() {
-        this.f42660b.setAlpha((int) (this.k.k * 255.0f));
-        if (this.k.f42679f) {
-            this.f42660b.setColorFilter(p);
+        this.f42763b.setAlpha((int) (this.k.k * 255.0f));
+        if (this.k.f42782f) {
+            this.f42763b.setColorFilter(p);
         } else {
-            this.f42660b.setColorFilter(null);
+            this.f42763b.setColorFilter(null);
         }
-        this.f42661c.setColor(this.k.f42678e);
-        this.f42661c.setStrokeWidth(this.k.f42677d);
+        this.f42764c.setColor(this.k.f42781e);
+        this.f42764c.setStrokeWidth(this.k.f42780d);
     }
 }

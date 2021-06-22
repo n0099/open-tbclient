@@ -1,7 +1,7 @@
 package com.baidubce.util;
 
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CheckUtils {
     public static void checkArgument(boolean z, Object obj) {
         if (!z) {

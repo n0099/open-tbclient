@@ -8,20 +8,20 @@ import com.win.opensdk.activitys.H5OpenActivity;
 public class v extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5OpenActivity f40810a;
+    public final /* synthetic */ H5OpenActivity f40913a;
 
     public v(H5OpenActivity h5OpenActivity) {
-        this.f40810a = h5OpenActivity;
+        this.f40913a = h5OpenActivity;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
-        ProgressBar progressBar = this.f40810a.f40683b;
+        ProgressBar progressBar = this.f40913a.f40786b;
         if (progressBar != null) {
             progressBar.setVisibility(0);
-            this.f40810a.f40683b.setProgress(i2);
+            this.f40913a.f40786b.setProgress(i2);
             if (i2 == 100) {
-                this.f40810a.f40683b.setVisibility(8);
+                this.f40913a.f40786b.setVisibility(8);
             }
         }
         super.onProgressChanged(webView, i2);

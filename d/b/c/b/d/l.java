@@ -24,24 +24,24 @@ import org.apache.http.client.methods.HttpTrace;
 public class l implements d.b.c.b.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final y f69529a;
+    public final y f69633a;
 
     /* loaded from: classes6.dex */
     public static class a extends FilterInputStream {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.b.c.a.b.d f69530e;
+        public final d.b.c.a.b.d f69634e;
 
         public a(d.b.c.a.b.d dVar) {
             super(l.g(dVar));
-            this.f69530e = dVar;
+            this.f69634e = dVar;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
             try {
-                this.f69530e.close();
+                this.f69634e.close();
             } catch (Throwable unused) {
             }
         }
@@ -52,7 +52,7 @@ public class l implements d.b.c.b.f.a {
         bVar.a(10000L, TimeUnit.MILLISECONDS);
         bVar.d(10000L, TimeUnit.MILLISECONDS);
         bVar.f(10000L, TimeUnit.MILLISECONDS);
-        this.f69529a = bVar.c();
+        this.f69633a = bVar.c();
     }
 
     public static List<d.b.c.b.d.a> c(v vVar) {
@@ -134,7 +134,7 @@ public class l implements d.b.c.b.f.a {
     @Override // d.b.c.b.f.a
     public b a(Request<?> request, Map<String, String> map) throws IOException, VAdError {
         int timeoutMs = request.getTimeoutMs();
-        y.b B = this.f69529a.B();
+        y.b B = this.f69633a.B();
         long j = timeoutMs;
         B.a(j, TimeUnit.MILLISECONDS);
         B.d(j, TimeUnit.MILLISECONDS);
@@ -167,7 +167,7 @@ public class l implements d.b.c.b.f.a {
             e.m a3 = e.m.a(a2);
             d.b.c.a.b.d x = a2.x();
             try {
-                int i3 = a3.f69020b;
+                int i3 = a3.f69124b;
                 if (i3 != -1) {
                     if (!f(request.getMethod(), i3)) {
                         b bVar = new b(i3, c(a2.w()));
@@ -220,7 +220,7 @@ public class l implements d.b.c.b.f.a {
         a0.a aVar = new a0.a();
         URL url = new URL(request.getUrl());
         String host = url.getHost();
-        p pVar = d.b.c.b.a.f69374b;
+        p pVar = d.b.c.b.a.f69478b;
         String a2 = pVar != null ? pVar.a(host) : null;
         boolean z = false;
         if (!TextUtils.isEmpty(a2)) {

@@ -3,18 +3,18 @@ package d.o.a.e.b.i;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f71039a;
+    public final byte[] f71143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f71040b;
+    public e f71144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71041c;
+    public int f71145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f71042d;
+    public a f71146d;
 
     public a(int i2) {
-        this.f71039a = new byte[i2];
+        this.f71143a = new byte[i2];
     }
 }

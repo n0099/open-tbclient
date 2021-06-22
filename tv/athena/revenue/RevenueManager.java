@@ -17,11 +17,11 @@ public class RevenueManager implements i.a.a.b.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f72902a = new RevenueManager();
+        public static final RevenueManager f73006a = new RevenueManager();
     }
 
     public static RevenueManager instance() {
-        return b.f72902a;
+        return b.f73006a;
     }
 
     @Override // i.a.a.b.a

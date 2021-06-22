@@ -19,7 +19,6 @@ import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import com.baidu.idl.authority.AuthorityState;
 import com.baidu.location.e.k;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -605,7 +604,7 @@ public class b {
                 return;
             }
             try {
-                this.f6654d.listen(this.f6658h, AuthorityState.STATE_INIT_ING);
+                this.f6654d.listen(this.f6658h, 272);
             } catch (Exception unused) {
             }
             this.f6659i = true;

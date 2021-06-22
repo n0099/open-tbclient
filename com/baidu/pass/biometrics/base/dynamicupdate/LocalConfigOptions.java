@@ -16,43 +16,43 @@ public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_VALUE = 8;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f8997d = "pass_face_sdk";
+    public static final String f8999d = "pass_face_sdk";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f8998e = "illum_gray";
+    public static final String f9000e = "illum_gray";
 
     /* renamed from: f  reason: collision with root package name */
-    public static LocalConfigOptions f8999f;
+    public static LocalConfigOptions f9001f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9000a;
+    public String f9002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f9001b;
+    public SharedPreferences f9003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f9002c;
+    public Context f9004c;
 
     public LocalConfigOptions(Context context) {
-        this.f9002c = context.getApplicationContext();
-        this.f9001b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
+        this.f9004c = context.getApplicationContext();
+        this.f9003b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
     }
 
     private String a(String str) {
-        return this.f9001b.getString(str, "");
+        return this.f9003b.getString(str, "");
     }
 
     public static LocalConfigOptions getInstance(Context context) {
-        if (f8999f == null) {
-            f8999f = new LocalConfigOptions(context);
+        if (f9001f == null) {
+            f9001f = new LocalConfigOptions(context);
         }
-        return f8999f;
+        return f9001f;
     }
 
     public SdkConfigOptions getBioOptions() {
-        String a2 = a(f8997d);
+        String a2 = a(f8999d);
         if (!TextUtils.isEmpty(a2)) {
-            String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a2, a(this.f9002c));
+            String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a2, a(this.f9004c));
             if (!TextUtils.isEmpty(decryptAccountInfo)) {
                 try {
                     return SdkConfigOptions.fromLocalJson(new JSONObject(decryptAccountInfo));
@@ -65,40 +65,40 @@ public class LocalConfigOptions {
     }
 
     public int getIllumVlaueGray() {
-        return getInt(f8998e, -1);
+        return getInt(f9000e, -1);
     }
 
     public int getInt(String str, int i2) {
-        return this.f9001b.getInt(str, i2);
+        return this.f9003b.getInt(str, i2);
     }
 
     public void put(String str, int i2) {
-        this.f9001b.edit().putInt(str, i2).apply();
+        this.f9003b.edit().putInt(str, i2).apply();
     }
 
     public void setBioOptions(SdkConfigOptions sdkConfigOptions) {
         if (sdkConfigOptions != null) {
             Log.e("actions-setBioOptions", sdkConfigOptions);
-            a(f8997d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f9002c)));
+            a(f8999d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f9004c)));
         }
     }
 
     public void setIllumValueGray(int i2) {
-        put(f8998e, i2);
+        put(f9000e, i2);
     }
 
     private void a(String str, String str2) {
-        this.f9001b.edit().putString(str, str2).apply();
+        this.f9003b.edit().putString(str, str2).apply();
     }
 
     private String a(Context context) {
-        if (TextUtils.isEmpty(this.f9000a)) {
+        if (TextUtils.isEmpty(this.f9002a)) {
             try {
-                this.f9000a = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                this.f9002a = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
         }
-        return this.f9000a;
+        return this.f9002a;
     }
 }

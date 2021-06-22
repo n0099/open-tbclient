@@ -3,23 +3,23 @@ package com.baidu.wallet.fastpay.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f24066a = "mobileRechargeClickMenu";
+    public static String f24148a = "mobileRechargeClickMenu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f24067b = "mobileRechargeAddressbookClick";
+    public static String f24149b = "mobileRechargeAddressbookClick";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f24068c = "mobileRechargeClickService";
+    public static String f24150c = "mobileRechargeClickService";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f24069d = "mobileRechargeClickHistoryRecord";
+    public static String f24151d = "mobileRechargeClickHistoryRecord";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f24070e = "mobileRechargeBackBtnClick";
+    public static String f24152e = "mobileRechargeBackBtnClick";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f24071f = "mobileRechargeChooseDenomination";
+    public static String f24153f = "mobileRechargeChooseDenomination";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f24072g = "mobileRechargeClickPrompt";
+    public static String f24154g = "mobileRechargeClickPrompt";
 }

@@ -14,24 +14,24 @@ import java.io.IOException;
 public abstract class l<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f35953a;
+    public final Uri f36051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentResolver f35954b;
+    public final ContentResolver f36052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f35955c;
+    public T f36053c;
 
     public l(ContentResolver contentResolver, Uri uri) {
-        this.f35954b = contentResolver;
-        this.f35953a = uri;
+        this.f36052b = contentResolver;
+        this.f36051a = uri;
     }
 
     @Override // com.kwad.sdk.glide.load.a.d
     public final void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            T b2 = b(this.f35953a, this.f35954b);
-            this.f35955c = b2;
+            T b2 = b(this.f36051a, this.f36052b);
+            this.f36053c = b2;
             aVar.a((d.a<? super T>) b2);
         } catch (FileNotFoundException e2) {
             if (Log.isLoggable(LocalUriFetcher.TAG, 3)) {
@@ -47,7 +47,7 @@ public abstract class l<T> implements d<T> {
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        T t = this.f35955c;
+        T t = this.f36053c;
         if (t != null) {
             try {
                 a(t);

@@ -6,7 +6,7 @@ import rx.internal.util.RxThreadFactory;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f72004a = new g();
+    public static final g f72108a = new g();
 
     public static h.g a() {
         return b(new RxThreadFactory("RxComputationScheduler-"));
@@ -42,7 +42,7 @@ public class g {
     }
 
     public static g h() {
-        return f72004a;
+        return f72108a;
     }
 
     public h.g g() {

@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 public class VideoRecordButton extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21485e;
+    public View f21567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21486f;
+    public View f21568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21487g;
+    public View f21569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21488h;
+    public TextView f21570h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f21489i;
+    public ObjectAnimator f21571i;
     public ObjectAnimator j;
     public ObjectAnimator k;
     public ObjectAnimator l;
@@ -36,12 +36,12 @@ public class VideoRecordButton extends FrameLayout {
 
     public final void a() {
         FrameLayout.inflate(getContext(), R.layout.layout_record_button, this);
-        this.f21485e = findViewById(R.id.record_layer1);
-        this.f21486f = findViewById(R.id.record_layer2);
-        this.f21487g = findViewById(R.id.record_layer3);
-        this.f21488h = (TextView) findViewById(R.id.tv_tip);
-        this.f21487g.setScaleX(0.766f);
-        this.f21487g.setScaleY(0.766f);
+        this.f21567e = findViewById(R.id.record_layer1);
+        this.f21568f = findViewById(R.id.record_layer2);
+        this.f21569g = findViewById(R.id.record_layer3);
+        this.f21570h = (TextView) findViewById(R.id.tv_tip);
+        this.f21569g.setScaleX(0.766f);
+        this.f21569g.setScaleY(0.766f);
     }
 
     public void b(boolean z) {
@@ -49,21 +49,21 @@ public class VideoRecordButton extends FrameLayout {
         if (objectAnimator != null && objectAnimator.isRunning()) {
             this.j.cancel();
         }
-        if (this.f21489i == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21487g, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.f21489i = ofPropertyValuesHolder;
+        if (this.f21571i == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21569g, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.f21571i = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setRepeatCount(-1);
-            this.f21489i.setRepeatMode(2);
-            this.f21489i.setDuration(1000L);
+            this.f21571i.setRepeatMode(2);
+            this.f21571i.setDuration(1000L);
         }
-        this.f21487g.setVisibility(0);
+        this.f21569g.setVisibility(0);
         if (z) {
-            this.f21485e.setVisibility(8);
+            this.f21567e.setVisibility(8);
         } else {
-            this.f21485e.setBackgroundResource(R.drawable.red_square_bg);
+            this.f21567e.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.f21488h.setVisibility(8);
-        this.f21489i.start();
+        this.f21570h.setVisibility(8);
+        this.f21571i.start();
     }
 
     public void c() {
@@ -72,7 +72,7 @@ public class VideoRecordButton extends FrameLayout {
             this.k.cancel();
         }
         if (this.k == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21486f, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21568f, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
             this.k = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(200L);
         }
@@ -80,17 +80,17 @@ public class VideoRecordButton extends FrameLayout {
     }
 
     public void d() {
-        ObjectAnimator objectAnimator = this.f21489i;
+        ObjectAnimator objectAnimator = this.f21571i;
         if (objectAnimator != null && objectAnimator.isRunning()) {
-            this.f21489i.cancel();
+            this.f21571i.cancel();
         }
         if (this.j == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21487g, PropertyValuesHolder.ofFloat("scaleX", this.f21487g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.f21487g.getScaleY(), 0.766f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21569g, PropertyValuesHolder.ofFloat("scaleX", this.f21569g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.f21569g.getScaleY(), 0.766f));
             this.j = ofPropertyValuesHolder;
-            ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f21487g.getScaleX()) * 500.0f) / 0.3f);
+            ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f21569g.getScaleX()) * 500.0f) / 0.3f);
         }
-        this.f21485e.setVisibility(0);
-        this.f21485e.setBackgroundResource(R.drawable.red_circle_bg);
+        this.f21567e.setVisibility(0);
+        this.f21567e.setBackgroundResource(R.drawable.red_circle_bg);
         this.j.start();
     }
 
@@ -99,11 +99,11 @@ public class VideoRecordButton extends FrameLayout {
         if (objectAnimator != null && objectAnimator.isRunning()) {
             this.k.cancel();
         }
-        if (this.f21486f.getScaleX() == 1.0f) {
+        if (this.f21568f.getScaleX() == 1.0f) {
             return;
         }
         if (this.l == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21486f, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21568f, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
             this.l = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(200L);
         }
@@ -111,19 +111,19 @@ public class VideoRecordButton extends FrameLayout {
     }
 
     public View getLayer1() {
-        return this.f21485e;
+        return this.f21567e;
     }
 
     public View getLayer2() {
-        return this.f21486f;
+        return this.f21568f;
     }
 
     public View getLayer3() {
-        return this.f21487g;
+        return this.f21569g;
     }
 
     public TextView getTvTip() {
-        return this.f21488h;
+        return this.f21570h;
     }
 
     public VideoRecordButton(Context context, AttributeSet attributeSet) {

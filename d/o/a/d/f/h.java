@@ -15,46 +15,46 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f70612a;
+    public Handler f70716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f f70613b;
+    public c.f f70717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f70614c = new AtomicBoolean(false);
+    public AtomicBoolean f70718c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f70615d = new AtomicBoolean(false);
+    public AtomicBoolean f70719d = new AtomicBoolean(false);
 
     /* loaded from: classes7.dex */
     public class a implements i.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f70616a;
+        public final /* synthetic */ int f70720a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f70617b;
+        public final /* synthetic */ String f70721b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f70618c;
+        public final /* synthetic */ d.o.a.b.a.c.b f70722c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f70619d;
+        public final /* synthetic */ long f70723d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.f f70620e;
+        public final /* synthetic */ i.f f70724e;
 
         public a(int i2, String str, d.o.a.b.a.c.b bVar, long j, i.f fVar) {
-            this.f70616a = i2;
-            this.f70617b = str;
-            this.f70618c = bVar;
-            this.f70619d = j;
-            this.f70620e = fVar;
+            this.f70720a = i2;
+            this.f70721b = str;
+            this.f70722c = bVar;
+            this.f70723d = j;
+            this.f70724e = fVar;
         }
 
         @Override // d.o.a.d.f.i.g
         public void a(long j) {
-            h.this.g(this.f70616a, this.f70617b, j, this.f70618c, this.f70619d, this.f70620e);
+            h.this.g(this.f70720a, this.f70721b, j, this.f70722c, this.f70723d, this.f70724e);
         }
     }
 
@@ -62,19 +62,19 @@ public class h {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.f f70622e;
+        public final /* synthetic */ i.f f70726e;
 
         public b(i.f fVar) {
-            this.f70622e = fVar;
+            this.f70726e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.f70614c.get()) {
+            if (h.this.f70718c.get()) {
                 return;
             }
-            h.this.f70614c.set(true);
-            this.f70622e.a();
+            h.this.f70718c.set(true);
+            this.f70726e.a();
         }
     }
 
@@ -82,18 +82,18 @@ public class h {
     public class c implements d.o.a.e.b.o.l {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.g f70624a;
+        public final /* synthetic */ i.g f70728a;
 
         public c(i.g gVar) {
-            this.f70624a = gVar;
+            this.f70728a = gVar;
         }
 
         @Override // d.o.a.e.b.o.l
         public void a(Map<String, String> map) {
-            if (h.this.f70614c.get()) {
+            if (h.this.f70718c.get()) {
                 return;
             }
-            h.this.f70614c.set(true);
+            h.this.f70718c.set(true);
             long b2 = h.this.b(map);
             if (b2 > 0) {
                 JSONObject jSONObject = new JSONObject();
@@ -104,7 +104,7 @@ public class h {
                     e2.printStackTrace();
                 }
             }
-            this.f70624a.a(b2);
+            this.f70728a.a(b2);
         }
     }
 
@@ -118,15 +118,15 @@ public class h {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.f f70626e;
+        public final /* synthetic */ i.f f70730e;
 
         public e(h hVar, i.f fVar) {
-            this.f70626e = fVar;
+            this.f70730e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f70626e.a();
+            this.f70730e.a();
         }
     }
 
@@ -143,7 +143,7 @@ public class h {
     }
 
     public h(Handler handler) {
-        this.f70612a = handler;
+        this.f70716a = handler;
     }
 
     public static JSONObject d(String str) {
@@ -222,18 +222,18 @@ public class h {
     }
 
     public void f(int i2, long j, long j2, i.f fVar) {
-        this.f70615d.set(false);
+        this.f70719d.set(false);
         if (fVar == null) {
             return;
         }
         if (d.o.a.d.n.e.n(i2) && d.o.a.d.n.e.m(i2)) {
             long k = d.o.a.d.n.e.k(i2);
-            this.f70614c.set(false);
-            String a2 = this.f70613b.f70545b.a();
+            this.f70718c.set(false);
+            String a2 = this.f70717b.f70649b.a();
             d.o.a.b.a.c.b o = c.g.e().o(a2);
             if (o == null) {
-                c.f fVar2 = this.f70613b;
-                o = new d.o.a.b.a.c.b(fVar2.f70545b, fVar2.f70546c, fVar2.f70547d, 0);
+                c.f fVar2 = this.f70717b;
+                o = new d.o.a.b.a.c.b(fVar2.f70649b, fVar2.f70650c, fVar2.f70651d, 0);
                 c.g.e().j(o);
             }
             d.o.a.b.a.c.b bVar = o;
@@ -250,14 +250,14 @@ public class h {
             } else {
                 k = 0;
             }
-            this.f70612a.postDelayed(new b(fVar), k);
+            this.f70716a.postDelayed(new b(fVar), k);
             return;
         }
         fVar.a();
     }
 
     public final void g(int i2, String str, long j, d.o.a.b.a.c.b bVar, long j2, i.f fVar) {
-        this.f70614c.set(true);
+        this.f70718c.set(true);
         boolean z = false;
         if (j > 0) {
             JSONObject jSONObject = new JSONObject();
@@ -288,7 +288,7 @@ public class h {
         if (z) {
             return;
         }
-        this.f70612a.post(new e(this, fVar));
+        this.f70716a.post(new e(this, fVar));
     }
 
     public final void i(d.o.a.b.a.c.b bVar, JSONObject jSONObject, long j, long j2) {
@@ -302,7 +302,7 @@ public class h {
     }
 
     public void j(c.f fVar) {
-        this.f70613b = fVar;
+        this.f70717b = fVar;
     }
 
     public final void l(String str, d.o.a.b.a.c.b bVar, i.g gVar) {
@@ -313,11 +313,11 @@ public class h {
     }
 
     public void m(boolean z) {
-        this.f70615d.set(z);
+        this.f70719d.set(z);
     }
 
     public boolean n() {
-        return this.f70615d.get();
+        return this.f70719d.get();
     }
 
     public final boolean o(int i2, @NonNull d.o.a.b.a.c.b bVar, String str, long j) {

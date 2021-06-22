@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
 import com.baidu.sdk.container.player.BaseMediaPlayer;
-import d.a.f0.a.i.a;
-import d.a.f0.a.k.h;
+import d.a.g0.a.i.a;
+import d.a.g0.a.k.h;
 import java.lang.ref.SoftReference;
 /* loaded from: classes2.dex */
 public class AdVideoView extends RelativeLayout {
@@ -25,31 +25,31 @@ public class AdVideoView extends RelativeLayout {
     public int B;
     public boolean C;
     public Surface D;
-    public d.a.f0.a.i.d E;
+    public d.a.g0.a.i.d E;
     public SurfaceHolder F;
-    public d.a.f0.a.i.b G;
+    public d.a.g0.a.i.b G;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseMediaPlayer f10015e;
+    public BaseMediaPlayer f10047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.f0.a.i.a f10016f;
+    public d.a.g0.a.i.a f10048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.InterfaceC0591a f10017g;
+    public a.InterfaceC0594a f10049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.b f10018h;
+    public a.b f10050h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f10019i;
+    public Context f10051i;
     public AdVideoProgressBar j;
     public int k;
     public int l;
     public boolean m;
     public int n;
     public e o;
-    public d.a.f0.a.i.c p;
+    public d.a.g0.a.i.c p;
     public View q;
     public boolean r;
     public String s;
@@ -62,32 +62,32 @@ public class AdVideoView extends RelativeLayout {
     public int z;
 
     /* loaded from: classes2.dex */
-    public class a implements d.a.f0.a.i.e {
+    public class a implements d.a.g0.a.i.e {
         public a() {
         }
 
-        @Override // d.a.f0.a.i.e
+        @Override // d.a.g0.a.i.e
         public void playStateChanged(int i2) {
             AdVideoView.this.k(i2);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements d.a.f0.a.i.d {
+    public class b implements d.a.g0.a.i.d {
         public b() {
         }
 
-        @Override // d.a.f0.a.i.d
+        @Override // d.a.g0.a.i.d
         public void surfaceCreated(Surface surface) {
             AdVideoView.this.D = surface;
             AdVideoView.this.v = true;
             AdVideoView.this.w();
         }
 
-        @Override // d.a.f0.a.i.d
+        @Override // d.a.g0.a.i.d
         public void surfaceDestroy() {
-            if (AdVideoView.this.f10017g != null) {
-                AdVideoView.this.f10017g.onDestroyed();
+            if (AdVideoView.this.f10049g != null) {
+                AdVideoView.this.f10049g.onDestroyed();
             }
             AdVideoView.this.u = false;
             AdVideoView.this.v = false;
@@ -96,21 +96,21 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements d.a.f0.a.i.b {
+    public class c implements d.a.g0.a.i.b {
         public c() {
         }
 
-        @Override // d.a.f0.a.i.b
+        @Override // d.a.g0.a.i.b
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             AdVideoView.this.F = surfaceHolder;
             AdVideoView.this.v = true;
             AdVideoView.this.w();
         }
 
-        @Override // d.a.f0.a.i.b
+        @Override // d.a.g0.a.i.b
         public void surfaceDestroy() {
-            if (AdVideoView.this.f10017g != null) {
-                AdVideoView.this.f10017g.onDestroyed();
+            if (AdVideoView.this.f10049g != null) {
+                AdVideoView.this.f10049g.onDestroyed();
             }
             AdVideoView.this.u = false;
             AdVideoView.this.v = false;
@@ -127,8 +127,8 @@ public class AdVideoView extends RelativeLayout {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if ("android.intent.action.SCREEN_OFF".equals(action)) {
-                Context context2 = AdVideoView.this.f10019i;
-                if (d.a.f0.a.k.c.a(context2, context2.getPackageName())) {
+                Context context2 = AdVideoView.this.f10051i;
+                if (d.a.g0.a.k.c.a(context2, context2.getPackageName())) {
                     return;
                 }
                 AdVideoView.this.w = true;
@@ -148,23 +148,23 @@ public class AdVideoView extends RelativeLayout {
     public static class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public SoftReference<AdVideoView> f10023e;
+        public SoftReference<AdVideoView> f10055e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f10024f = false;
+        public boolean f10056f = false;
 
         public e(AdVideoView adVideoView) {
-            this.f10023e = new SoftReference<>(adVideoView);
+            this.f10055e = new SoftReference<>(adVideoView);
         }
 
         public void a(boolean z) {
-            this.f10024f = z;
+            this.f10056f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             AdVideoView adVideoView;
-            SoftReference<AdVideoView> softReference = this.f10023e;
+            SoftReference<AdVideoView> softReference = this.f10055e;
             if (softReference == null || (adVideoView = softReference.get()) == null) {
                 return;
             }
@@ -173,7 +173,7 @@ public class AdVideoView extends RelativeLayout {
             if (adVideoView.j != null && duration > 0) {
                 adVideoView.j.setProgress(currentPosition / duration);
             }
-            if (this.f10024f) {
+            if (this.f10056f) {
                 adVideoView.postDelayed(this, 200L);
             }
         }
@@ -194,7 +194,7 @@ public class AdVideoView extends RelativeLayout {
         this.C = false;
         this.E = new b();
         this.G = new c();
-        this.f10019i = context;
+        this.f10051i = context;
         m();
     }
 
@@ -207,15 +207,15 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public void B() {
-        if (this.f10015e != null) {
+        if (this.f10047e != null) {
             x();
             this.y = true;
             this.x = false;
-            this.f10015e.m(null);
-            this.f10015e.t();
-            this.f10015e.j();
-            this.f10015e.i();
-            this.f10015e = null;
+            this.f10047e.m(null);
+            this.f10047e.t();
+            this.f10047e.j();
+            this.f10047e.i();
+            this.f10047e = null;
             e eVar = this.o;
             if (eVar != null) {
                 eVar.a(false);
@@ -225,7 +225,7 @@ public class AdVideoView extends RelativeLayout {
 
     public final void C() {
         d dVar;
-        Context context = this.f10019i;
+        Context context = this.f10051i;
         if (context == null || (dVar = this.t) == null) {
             return;
         }
@@ -238,7 +238,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public int getCurrentPosition() {
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer != null) {
             return baseMediaPlayer.a();
         }
@@ -246,7 +246,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public int getDuration() {
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer != null) {
             return baseMediaPlayer.b();
         }
@@ -272,7 +272,7 @@ public class AdVideoView extends RelativeLayout {
                 this.z = 0;
                 this.A = false;
                 l();
-                d.a.f0.a.i.a aVar = this.f10016f;
+                d.a.g0.a.i.a aVar = this.f10048f;
                 if (aVar != null) {
                     aVar.playCompletion();
                     return;
@@ -284,18 +284,18 @@ public class AdVideoView extends RelativeLayout {
                 u();
                 return;
             case 258:
-                a.b bVar = this.f10018h;
+                a.b bVar = this.f10050h;
                 if (bVar != null) {
                     bVar.onPrepared();
                 }
                 int i3 = this.z;
                 if (i3 > 0) {
-                    this.f10015e.k(i3);
+                    this.f10047e.k(i3);
                 }
                 setVideoMute(this.r);
-                d.a.f0.a.i.c cVar = this.p;
+                d.a.g0.a.i.c cVar = this.p;
                 if (cVar != null) {
-                    cVar.onVideoSizeChanged(this.f10015e.d(), this.f10015e.c());
+                    cVar.onVideoSizeChanged(this.f10047e.d(), this.f10047e.c());
                 }
                 AdVideoProgressBar adVideoProgressBar = this.j;
                 if (adVideoProgressBar != null) {
@@ -318,7 +318,7 @@ public class AdVideoView extends RelativeLayout {
             case 260:
                 this.A = true;
                 l();
-                d.a.f0.a.i.a aVar2 = this.f10016f;
+                d.a.g0.a.i.a aVar2 = this.f10048f;
                 if (aVar2 != null) {
                     aVar2.renderingStart();
                     return;
@@ -351,10 +351,10 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public final void o() {
-        if (this.f10015e == null) {
+        if (this.f10047e == null) {
             this.y = false;
-            BaseMediaPlayer baseMediaPlayer = new BaseMediaPlayer(this.f10019i);
-            this.f10015e = baseMediaPlayer;
+            BaseMediaPlayer baseMediaPlayer = new BaseMediaPlayer(this.f10051i);
+            this.f10047e = baseMediaPlayer;
             baseMediaPlayer.m(new a());
         }
     }
@@ -378,7 +378,7 @@ public class AdVideoView extends RelativeLayout {
 
     public final void p() {
         if (this.m) {
-            AdVideoProgressBar adVideoProgressBar = new AdVideoProgressBar(this.f10019i);
+            AdVideoProgressBar adVideoProgressBar = new AdVideoProgressBar(this.f10051i);
             this.j = adVideoProgressBar;
             adVideoProgressBar.setProgressColor(this.k);
             this.j.setProgressBackgroundColor(this.l);
@@ -400,25 +400,25 @@ public class AdVideoView extends RelativeLayout {
     public final void q(boolean z) {
         if (z) {
             this.C = true;
-            this.p = new BaseSurfaceView(this.f10019i, this.G);
+            this.p = new BaseSurfaceView(this.f10051i, this.G);
         } else if (Build.VERSION.SDK_INT >= 14) {
             this.C = false;
-            this.p = new BaseTextureView(this.f10019i, this.E);
+            this.p = new BaseTextureView(this.f10051i, this.E);
         } else {
             this.C = true;
-            this.p = new BaseSurfaceView(this.f10019i, this.G);
+            this.p = new BaseSurfaceView(this.f10051i, this.G);
         }
         this.p.setDisplayMode(this.B);
     }
 
     public void r() {
         this.u = false;
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
-        if (baseMediaPlayer == null || baseMediaPlayer.f10029i == BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
+        if (baseMediaPlayer == null || baseMediaPlayer.f10061i == BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
             return;
         }
         baseMediaPlayer.g();
-        d.a.f0.a.i.a aVar = this.f10016f;
+        d.a.g0.a.i.a aVar = this.f10048f;
         if (aVar != null) {
             aVar.playPause();
         }
@@ -430,12 +430,12 @@ public class AdVideoView extends RelativeLayout {
         w();
     }
 
-    public void setAdVideoViewListener(d.a.f0.a.i.a aVar) {
-        this.f10016f = aVar;
+    public void setAdVideoViewListener(d.a.g0.a.i.a aVar) {
+        this.f10048f = aVar;
     }
 
-    public void setDestroyedListener(a.InterfaceC0591a interfaceC0591a) {
-        this.f10017g = interfaceC0591a;
+    public void setDestroyedListener(a.InterfaceC0594a interfaceC0594a) {
+        this.f10049g = interfaceC0594a;
     }
 
     public void setDisplayMode(int i2) {
@@ -443,7 +443,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public void setPreparedListener(a.b bVar) {
-        this.f10018h = bVar;
+        this.f10050h = bVar;
     }
 
     public void setProgressBar(boolean z, int i2, int i3, int i4) {
@@ -474,28 +474,28 @@ public class AdVideoView extends RelativeLayout {
             u();
             return;
         }
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer != null) {
             baseMediaPlayer.p(str);
         }
     }
 
     public final void t() {
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer != null) {
             if (this.C) {
                 baseMediaPlayer.l(this.F);
-                this.f10015e.n(true);
+                this.f10047e.n(true);
             } else {
                 baseMediaPlayer.o(this.D);
-                this.f10015e.r(this.f10019i, 10);
+                this.f10047e.r(this.f10051i, 10);
             }
-            this.f10015e.s();
+            this.f10047e.s();
         }
     }
 
     public final void u() {
-        d.a.f0.a.i.a aVar = this.f10016f;
+        d.a.g0.a.i.a aVar = this.f10048f;
         if (aVar != null) {
             aVar.playFailure();
         }
@@ -507,19 +507,19 @@ public class AdVideoView extends RelativeLayout {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");
-        if (this.f10019i == null || this.t != null) {
+        if (this.f10051i == null || this.t != null) {
             return;
         }
         d dVar = new d(this, null);
         this.t = dVar;
-        this.f10019i.registerReceiver(dVar, intentFilter);
+        this.f10051i.registerReceiver(dVar, intentFilter);
     }
 
     public final void w() {
         if (!TextUtils.isEmpty(this.s) && this.u && this.v) {
-            Context context = this.f10019i;
-            if ((d.a.f0.a.k.c.a(context, context.getPackageName()) || !this.w) && this.A) {
-                d.a.f0.a.i.a aVar = this.f10016f;
+            Context context = this.f10051i;
+            if ((d.a.g0.a.k.c.a(context, context.getPackageName()) || !this.w) && this.A) {
+                d.a.g0.a.i.a aVar = this.f10048f;
                 if (aVar != null) {
                     aVar.playResume();
                 }
@@ -538,7 +538,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public final void x() {
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer == null) {
             return;
         }
@@ -546,7 +546,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public final void y(float f2, float f3) {
-        BaseMediaPlayer baseMediaPlayer = this.f10015e;
+        BaseMediaPlayer baseMediaPlayer = this.f10047e;
         if (baseMediaPlayer != null) {
             baseMediaPlayer.q(f2, f3);
         }
@@ -555,7 +555,7 @@ public class AdVideoView extends RelativeLayout {
     public final void z() {
         View view = this.q;
         if (view == null) {
-            this.q = new ProgressBar(this.f10019i);
+            this.q = new ProgressBar(this.f10051i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.q.setLayoutParams(layoutParams);
@@ -580,7 +580,7 @@ public class AdVideoView extends RelativeLayout {
         this.C = false;
         this.E = new b();
         this.G = new c();
-        this.f10019i = context;
+        this.f10051i = context;
         m();
     }
 
@@ -599,7 +599,7 @@ public class AdVideoView extends RelativeLayout {
         this.C = false;
         this.E = new b();
         this.G = new c();
-        this.f10019i = context;
+        this.f10051i = context;
         m();
     }
 }

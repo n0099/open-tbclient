@@ -30,16 +30,16 @@ import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.m0.r.s.h;
-import d.a.m0.r.s.j;
-import d.a.m0.r.s.l;
-import d.a.m0.z0.q;
+import d.a.n0.r.s.h;
+import d.a.n0.r.s.j;
+import d.a.n0.r.s.l;
+import d.a.n0.z0.q;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
+public class ForumTestActivity extends BaseActivity implements d.a.o0.j0.e.a.b {
     public j mMoreDialog;
     public List<h> mMoreDialogDataList;
     public l mMoreDialogView;
@@ -67,15 +67,15 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14446e;
+        public final /* synthetic */ ShareItem f14528e;
 
         public b(ShareItem shareItem) {
-            this.f14446e = shareItem;
+            this.f14528e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f14446e.t);
+            d.a.c.e.p.a.a(this.f14528e.t);
             d.a.c.e.p.l.M(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -85,7 +85,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
         public c() {
         }
 
-        @Override // d.a.m0.r.s.l.c
+        @Override // d.a.n0.r.s.l.c
         public void onClick() {
             ForumTestActivity.this.hideMoreDialog();
         }
@@ -96,7 +96,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
         public d() {
         }
 
-        @Override // d.a.m0.r.s.l.d
+        @Override // d.a.n0.r.s.l.d
         public void onClick() {
             ForumTestActivity forumTestActivity = ForumTestActivity.this;
             forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
@@ -109,12 +109,12 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
         public e() {
         }
 
-        @Override // d.a.m0.z0.q.a
+        @Override // d.a.n0.z0.q.a
         public void onError(int i2, String str) {
             d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
         }
 
-        @Override // d.a.m0.z0.q.a
+        @Override // d.a.n0.z0.q.a
         public void onSuccess(String str) {
             d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_success);
         }
@@ -204,7 +204,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
         this.mMoreDialog.l();
     }
 
-    @Override // d.a.n0.j0.e.a.b
+    @Override // d.a.o0.j0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("share".equals(str2)) {

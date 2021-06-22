@@ -12,26 +12,26 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.x;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f34168a;
+    public static b f34266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f34169b;
+    public a f34267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f34170c;
+    public AdTemplate f34268c;
 
     public b(Activity activity, @NonNull AdTemplate adTemplate) {
         super(Wrapper.wrapContextIfNeed(activity));
         setOwnerActivity(activity);
-        this.f34170c = adTemplate;
+        this.f34268c = adTemplate;
     }
 
     public static boolean a() {
-        b bVar = f34168a;
+        b bVar = f34266a;
         if (bVar != null) {
             return bVar.isShowing();
         }
@@ -41,15 +41,15 @@ public class b extends AlertDialog {
     public static boolean a(@NonNull Context context, @NonNull AdTemplate adTemplate) {
         if (context instanceof Activity) {
             try {
-                if (f34168a == null) {
+                if (f34266a == null) {
                     b bVar = new b((Activity) context, adTemplate);
-                    f34168a = bVar;
+                    f34266a = bVar;
                     bVar.getWindow().addFlags(1024);
                 }
-                if (f34168a.isShowing()) {
+                if (f34266a.isShowing()) {
                     return true;
                 }
-                f34168a.show();
+                f34266a.show();
                 com.kwad.sdk.core.report.b.c(adTemplate, 86, null);
                 return true;
             } catch (Throwable th) {
@@ -72,7 +72,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        f34168a = null;
+        f34266a = null;
     }
 
     @Override // android.app.Dialog
@@ -83,24 +83,24 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.b.o(this.f34170c);
+        com.kwad.sdk.core.report.b.o(this.f34268c);
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f34169b == null) {
-            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f34170c, !x.e(getOwnerActivity()) ? 1 : 0);
-            this.f34169b = aVar;
+        if (this.f34267b == null) {
+            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f34268c, !x.e(getOwnerActivity()) ? 1 : 0);
+            this.f34267b = aVar;
             aVar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.kwad.sdk.core.report.b.o(b.this.f34170c);
+                    com.kwad.sdk.core.report.b.o(b.this.f34268c);
                     b.this.dismiss();
                 }
             });
         }
-        setContentView(this.f34169b);
+        setContentView(this.f34267b);
         setCanceledOnTouchOutside(true);
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -110,7 +110,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a aVar = this.f34169b;
+        a aVar = this.f34267b;
         if (aVar != null) {
             aVar.c();
         }
@@ -119,7 +119,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onStart() {
         super.onStart();
-        b bVar = f34168a;
+        b bVar = f34266a;
         if (bVar != null) {
             bVar.setTitle((CharSequence) null);
         }

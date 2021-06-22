@@ -8,29 +8,24 @@ import java.util.Map;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, d> f10156a = new HashMap();
+    public static Map<String, d> f10212a = new HashMap();
 
     public static void a(Context context, int i2, File file, File file2) {
         if (file != null) {
             try {
-                if (com.baidu.sofire.g.d.a(file)) {
-                    if (!com.baidu.sofire.g.d.a(file2)) {
-                        com.baidu.sofire.g.d.a(file, file2);
+                if (com.baidu.sofire.utility.c.a(file)) {
+                    if (!com.baidu.sofire.utility.c.a(file2)) {
+                        com.baidu.sofire.utility.c.a(file, file2);
                     }
-                    StringBuilder sb = new StringBuilder("f=");
-                    sb.append(file);
-                    sb.append(", b=");
-                    sb.append(file2);
-                    b.a();
-                    if (f10156a.containsKey(file.getAbsolutePath())) {
+                    if (f10212a.containsKey(file.getAbsolutePath())) {
                         return;
                     }
                     d dVar = new d(context, i2, file.getAbsolutePath(), file2.getAbsolutePath());
                     dVar.startWatching();
-                    f10156a.put(file.getAbsolutePath(), dVar);
+                    f10212a.put(file.getAbsolutePath(), dVar);
                 }
             } catch (Throwable unused) {
-                com.baidu.sofire.g.d.a();
+                com.baidu.sofire.utility.c.a();
             }
         }
     }
@@ -40,16 +35,14 @@ public final class c {
             return;
         }
         try {
-            new StringBuilder("f=").append(file.getAbsolutePath());
-            b.a();
-            d dVar = f10156a.get(file.getAbsolutePath());
+            d dVar = f10212a.get(file.getAbsolutePath());
             if (dVar != null) {
                 dVar.stopWatching();
-                f10156a.remove(file.getAbsolutePath());
+                f10212a.remove(file.getAbsolutePath());
                 dVar.a();
             }
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
     }
 }

@@ -1,5 +1,6 @@
 package org.json.alipay;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,10 +8,10 @@ import java.util.Collection;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f72350a;
+    public ArrayList f72454a;
 
     public a() {
-        this.f72350a = new ArrayList();
+        this.f72454a = new ArrayList();
     }
 
     public a(Object obj) {
@@ -20,7 +21,7 @@ public class a {
         }
         int length = Array.getLength(obj);
         for (int i2 = 0; i2 < length; i2++) {
-            this.f72350a.add(Array.get(obj, i2));
+            this.f72454a.add(Array.get(obj, i2));
         }
     }
 
@@ -29,7 +30,7 @@ public class a {
     }
 
     public a(Collection collection) {
-        this.f72350a = collection == null ? new ArrayList() : new ArrayList(collection);
+        this.f72454a = collection == null ? new ArrayList() : new ArrayList(collection);
     }
 
     public a(c cVar) {
@@ -53,10 +54,10 @@ public class a {
             char c4 = cVar.c();
             cVar.a();
             if (c4 == ',') {
-                arrayList = this.f72350a;
+                arrayList = this.f72454a;
                 d2 = null;
             } else {
-                arrayList = this.f72350a;
+                arrayList = this.f72454a;
                 d2 = cVar.d();
             }
             arrayList.add(d2);
@@ -76,23 +77,23 @@ public class a {
     }
 
     private String a(String str) {
-        int size = this.f72350a.size();
+        int size = this.f72454a.size();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i2 = 0; i2 < size; i2++) {
             if (i2 > 0) {
                 stringBuffer.append(str);
             }
-            stringBuffer.append(b.a(this.f72350a.get(i2)));
+            stringBuffer.append(b.a(this.f72454a.get(i2)));
         }
         return stringBuffer.toString();
     }
 
     public final int a() {
-        return this.f72350a.size();
+        return this.f72454a.size();
     }
 
     public final Object a(int i2) {
-        Object obj = (i2 < 0 || i2 >= this.f72350a.size()) ? null : this.f72350a.get(i2);
+        Object obj = (i2 < 0 || i2 >= this.f72454a.size()) ? null : this.f72454a.get(i2);
         if (obj != null) {
             return obj;
         }
@@ -101,7 +102,7 @@ public class a {
 
     public String toString() {
         try {
-            return "[" + a(",") + ']';
+            return PreferencesUtil.LEFT_MOUNT + a(",") + ']';
         } catch (Exception unused) {
             return null;
         }

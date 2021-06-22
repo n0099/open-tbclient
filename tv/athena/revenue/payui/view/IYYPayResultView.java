@@ -21,14 +21,14 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Result f72916a;
+        public Result f73020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f72917b;
+        public CurrencyChargeMessage f73021b;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
-            this.f72916a = result;
-            this.f72917b = currencyChargeMessage;
+            this.f73020a = result;
+            this.f73021b = currencyChargeMessage;
         }
     }
 
@@ -36,10 +36,10 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f72918a;
+        public b f73022a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f72919b;
+        public AbsViewEventHandler f73023b;
 
         public c() {
             PaySource paySource = PaySource.UNKNOW;

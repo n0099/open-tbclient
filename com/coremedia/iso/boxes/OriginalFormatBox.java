@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.googlecode.mp4parser.AbstractBox;
@@ -11,9 +12,9 @@ import java.nio.ByteBuffer;
 public class OriginalFormatBox extends AbstractBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "frma";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
     public String dataFormat;
 
     static {
@@ -59,6 +60,6 @@ public class OriginalFormatBox extends AbstractBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return "OriginalFormatBox[dataFormat=" + getDataFormat() + "]";
+        return "OriginalFormatBox[dataFormat=" + getDataFormat() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

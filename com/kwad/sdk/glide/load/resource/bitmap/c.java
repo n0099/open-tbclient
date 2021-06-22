@@ -13,26 +13,26 @@ import java.io.IOException;
 public class c implements com.kwad.sdk.glide.load.g<Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f36347a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.BitmapEncoder.CompressionQuality", 90);
+    public static final com.kwad.sdk.glide.load.d<Integer> f36445a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.BitmapEncoder.CompressionQuality", 90);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Bitmap.CompressFormat> f36348b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.BitmapEncoder.CompressionFormat");
+    public static final com.kwad.sdk.glide.load.d<Bitmap.CompressFormat> f36446b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.BitmapEncoder.CompressionFormat");
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36349c;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36447c;
 
     @Deprecated
     public c() {
-        this.f36349c = null;
+        this.f36447c = null;
     }
 
     public c(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f36349c = bVar;
+        this.f36447c = bVar;
     }
 
     private Bitmap.CompressFormat a(Bitmap bitmap, com.kwad.sdk.glide.load.e eVar) {
-        Bitmap.CompressFormat compressFormat = (Bitmap.CompressFormat) eVar.a(f36348b);
+        Bitmap.CompressFormat compressFormat = (Bitmap.CompressFormat) eVar.a(f36446b);
         return compressFormat != null ? compressFormat : bitmap.hasAlpha() ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG;
     }
 
@@ -57,7 +57,7 @@ public class c implements com.kwad.sdk.glide.load.g<Bitmap> {
         com.kwad.sdk.glide.g.a.b.a("encode: [%dx%d] %s", Integer.valueOf(e2.getWidth()), Integer.valueOf(e2.getHeight()), a2);
         try {
             long a3 = com.kwad.sdk.glide.g.f.a();
-            int intValue = ((Integer) eVar.a(f36347a)).intValue();
+            int intValue = ((Integer) eVar.a(f36445a)).intValue();
             boolean z = false;
             com.kwad.sdk.glide.load.a.c cVar = null;
             try {
@@ -70,7 +70,7 @@ public class c implements com.kwad.sdk.glide.load.g<Bitmap> {
                 th = th;
             }
             try {
-                cVar = this.f36349c != null ? new com.kwad.sdk.glide.load.a.c(fileOutputStream, this.f36349c) : fileOutputStream;
+                cVar = this.f36447c != null ? new com.kwad.sdk.glide.load.a.c(fileOutputStream, this.f36447c) : fileOutputStream;
                 e2.compress(a2, intValue, cVar);
                 cVar.close();
                 z = true;
@@ -95,7 +95,7 @@ public class c implements com.kwad.sdk.glide.load.g<Bitmap> {
                 cVar.close();
             } catch (IOException unused2) {
                 if (Log.isLoggable(BitmapEncoder.TAG, 2)) {
-                    Log.v(BitmapEncoder.TAG, "Compressed with type: " + a2 + " of size " + com.kwad.sdk.glide.g.k.a(e2) + " in " + com.kwad.sdk.glide.g.f.a(a3) + ", options format: " + eVar.a(f36348b) + ", hasAlpha: " + e2.hasAlpha());
+                    Log.v(BitmapEncoder.TAG, "Compressed with type: " + a2 + " of size " + com.kwad.sdk.glide.g.k.a(e2) + " in " + com.kwad.sdk.glide.g.f.a(a3) + ", options format: " + eVar.a(f36446b) + ", hasAlpha: " + e2.hasAlpha());
                 }
                 return z;
             }

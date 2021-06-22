@@ -9,15 +9,15 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.ubc.OpenStatisticIPCManager;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.a.e0.b.a.e;
-import d.a.l0.a.a2.d;
-import d.a.l0.a.h0.m.i;
-import d.a.l0.a.h0.s.b;
-import d.a.l0.a.k;
-import d.a.l0.a.n0.f;
-import d.a.l0.a.v2.q;
-import d.a.l0.n.i.m.h;
-import d.a.l0.r.p;
+import d.a.f0.b.a.e;
+import d.a.m0.a.a2.d;
+import d.a.m0.a.h0.m.i;
+import d.a.m0.a.h0.s.b;
+import d.a.m0.a.k;
+import d.a.m0.a.n0.f;
+import d.a.m0.a.v2.q;
+import d.a.m0.n.i.m.h;
+import d.a.m0.r.p;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAppInitHelper {
@@ -30,16 +30,16 @@ public class SwanAppInitHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11528e;
+        public final /* synthetic */ boolean f11610e;
 
         public a(boolean z) {
-            this.f11528e = z;
+            this.f11610e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f11528e) {
-                d.a.l0.n.b.k(new h(0), new i(null), d.a.l0.a.c1.b.i().p(null));
+            if (this.f11610e) {
+                d.a.m0.n.b.k(new h(0), new i(null), d.a.m0.a.c1.b.i().p(null));
             }
         }
     }
@@ -58,14 +58,14 @@ public class SwanAppInitHelper {
             }
         }
 
-        @Override // d.a.l0.a.h0.s.b.c
+        @Override // d.a.m0.a.h0.s.b.c
         public void a() {
             d.i().post(new a(this));
         }
     }
 
     public static void asyncUpdateSwanAppCore() {
-        boolean c2 = d.a.l0.n.n.a.c(0);
+        boolean c2 = d.a.m0.n.n.a.c(0);
         if (c2) {
             q.j(new a(c2), "asyncUpdateSwanAppCore by PMS");
         }
@@ -77,20 +77,20 @@ public class SwanAppInitHelper {
 
     public static void doWebViewInit(Context context, b.c... cVarArr) {
         if (ProcessUtils.isMainProcess()) {
-            d.a.l0.a.h0.s.b.g(context).e(new b());
+            d.a.m0.a.h0.s.b.g(context).e(new b());
         }
         if (cVarArr != null && cVarArr.length > 0) {
             for (b.c cVar : cVarArr) {
                 if (cVar != null) {
-                    d.a.l0.a.h0.s.b.g(context).e(cVar);
+                    d.a.m0.a.h0.s.b.g(context).e(cVar);
                 }
             }
         }
-        d.a.l0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
+        d.a.m0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
     }
 
     public static boolean entranceOK() {
-        return !sOnlyInitForLollipopAndAbove || d.a.l0.a.v2.d.f();
+        return !sOnlyInitForLollipopAndAbove || d.a.m0.a.v2.d.f();
     }
 
     public static void initConfig() {
@@ -111,7 +111,7 @@ public class SwanAppInitHelper {
     }
 
     public static void initStatisticsModule(Application application) {
-        if (d.a.e0.b.a.a.g()) {
+        if (d.a.f0.b.a.a.g()) {
             OpenStatisticIPCManager.a();
             initConfig();
         }
@@ -122,19 +122,19 @@ public class SwanAppInitHelper {
             Fresco.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {
-            d.a.l0.e.k.b.d(application).i();
+            d.a.m0.e.k.b.d(application).i();
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
             asyncUpdateSwanAppCore();
-            if (k.f46875a) {
-                d.a.l0.a.t2.a.d(0, 1);
+            if (k.f46983a) {
+                d.a.m0.a.t2.a.d(0, 1);
             }
         }
     }
 
     public static void initWebView(Context context) {
-        boolean d2 = d.a.l0.a.c1.a.n0().d();
+        boolean d2 = d.a.m0.a.c1.a.n0().d();
         WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
         WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d2, false);
         doWebViewInit(context, new b.c[0]);
@@ -149,7 +149,7 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        d.a.l0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
+        d.a.m0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
     }
 
     public static void onlyInitForLollipopAndAbove(boolean z) {
@@ -172,8 +172,8 @@ public class SwanAppInitHelper {
         if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
             initStatisticsModule(application);
             initSwanAppModule(application);
-            d.a.l0.e.f.a().a(application);
-            d.a.l0.e.f.b().a(application, z, z2);
+            d.a.m0.e.f.a().a(application);
+            d.a.m0.e.f.b().a(application, z, z2);
         }
     }
 }

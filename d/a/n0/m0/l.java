@@ -1,105 +1,295 @@
 package d.a.n0.m0;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.faceshop.FacePurchaseRecordsActivity;
-import com.baidu.tieba.faceshop.FacePurchaseRecordsData;
-import d.a.m0.r.f0.f;
-/* loaded from: classes4.dex */
-public class l {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<FacePurchaseRecordsActivity> f60964a;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
+/* loaded from: classes3.dex */
+public class l extends j {
+    public static l E;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f60965b;
+    public boolean f53348b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f60966c;
+    public boolean f53349c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NoNetworkView f60967d;
+    public boolean f53350d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdListView f60968e;
+    public boolean f53351e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.m0.r.f0.g f60969f;
+    public long f53352f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f60970g;
+    public long f53353g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f60971h;
+    public long f53354h = -1;
 
-    public l(TbPageContext<FacePurchaseRecordsActivity> tbPageContext) {
-        this.f60964a = tbPageContext;
-        tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
-        View findViewById = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.f60965b = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f60966c = navigationBar;
-        navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.f60966c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f60967d = (NoNetworkView) this.f60965b.findViewById(R.id.view_no_network);
-        this.f60968e = (BdListView) this.f60965b.findViewById(R.id.purchase_record_list);
-        d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(tbPageContext);
-        this.f60969f = gVar;
-        this.f60968e.setPullRefresh(gVar);
-        this.f60970g = BdListViewHelper.d(this.f60964a.getPageActivity(), this.f60968e, BdListViewHelper.HeadType.DEFAULT);
-    }
+    /* renamed from: i  reason: collision with root package name */
+    public long f53355i = -1;
+    public long j = -1;
+    public long k = -1;
+    public long l = -1;
+    public long m = -1;
+    public long n = -1;
+    public long o = -1;
+    public long p = -1;
+    public long q = -1;
+    public long r = -1;
+    public long s = -1;
+    public long t = -1;
+    public long u = -1;
+    public long v = -1;
+    public long w = -1;
+    public long x = -1;
+    public long y = -1;
+    public long z = -1;
+    public long A = -1;
+    public long B = -1;
+    public long C = -1;
+    public long D = -1;
 
-    public void a(NoNetworkView.b bVar) {
-        this.f60967d.a(bVar);
-    }
-
-    public void b(boolean z) {
-        BdListViewHelper.c(this.f60970g, BdListViewHelper.HeadType.DEFAULT, z);
-    }
-
-    public void c() {
-        this.f60968e.A(0L);
-    }
-
-    public k d() {
-        return this.f60971h;
-    }
-
-    public void e(int i2) {
-        d.a.m0.r.c layoutMode = this.f60964a.getLayoutMode();
-        layoutMode.k(i2 == 1);
-        layoutMode.j(this.f60965b);
-        this.f60966c.onChangeSkinType(this.f60964a, i2);
-        this.f60967d.c(this.f60964a, i2);
-        this.f60969f.I(i2);
-    }
-
-    public void f(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.f60971h == null) {
-            k kVar = new k(this.f60964a.getOrignalPage());
-            this.f60971h = kVar;
-            this.f60968e.setAdapter((ListAdapter) kVar);
+    public static l b() {
+        if (E == null) {
+            synchronized (l.class) {
+                if (E == null) {
+                    E = new l();
+                }
+            }
         }
-        this.f60971h.e(facePurchaseRecordsData);
-        c();
+        return E;
     }
 
-    public void g(NoNetworkView.b bVar) {
-        this.f60967d.d(bVar);
+    public void A(boolean z) {
+        this.f53348b = z;
     }
 
-    public void h(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f60968e.setOnItemClickListener(onItemClickListener);
+    public void B(long j) {
+        this.j = j;
     }
 
-    public void i(f.g gVar) {
-        this.f60969f.a(gVar);
+    public void C(long j) {
+    }
+
+    public void D(boolean z) {
+        this.f53351e = z;
+    }
+
+    public void E(long j) {
+        this.f53355i = j;
+    }
+
+    public void F(long j) {
+    }
+
+    public void G(long j) {
+        this.y = j;
+    }
+
+    public void H(long j) {
+        if (this.z > 0) {
+            return;
+        }
+        this.z = j;
+    }
+
+    public void I(long j) {
+        this.A = j;
+    }
+
+    public void J(long j) {
+        this.f53353g = j;
+    }
+
+    public void K(long j) {
+        this.o = j;
+    }
+
+    public void L(long j) {
+        this.n = j;
+    }
+
+    public void M(long j) {
+        this.x = j;
+    }
+
+    public long c() {
+        return this.f53352f;
+    }
+
+    public long d() {
+        return this.w;
+    }
+
+    public boolean e() {
+        return this.f53349c;
+    }
+
+    public void f() {
+        long j = 0;
+        if (this.D - this.f53352f <= 0 || this.f53350d || this.v <= 0 || !k.d().g()) {
+            return;
+        }
+        long j2 = this.f53353g - this.f53352f;
+        long j3 = this.t;
+        long j4 = j3 > 0 ? this.u - j3 : -1L;
+        this.f53350d = true;
+        long j5 = this.D - this.C;
+        d.a.c.e.n.a a2 = j.a();
+        a2.b("procname", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+        a2.b("appc", String.valueOf(j2));
+        a2.b("loadclass", String.valueOf(this.f53354h));
+        a2.b("sapiinit", String.valueOf(this.f53355i));
+        a2.b("acctinit", String.valueOf(this.A));
+        a2.b("iminit", String.valueOf(this.y));
+        a2.b("plugininit", String.valueOf(this.z));
+        a2.b("patchloaded", String.valueOf(this.j));
+        a2.b("naslibinit", String.valueOf(this.k));
+        a2.b("websocketinit", String.valueOf(this.l));
+        a2.b("settinginit", String.valueOf(this.m));
+        a2.b("toastinit", String.valueOf(this.n));
+        a2.b("tiebastaticinit", String.valueOf(this.o));
+        a2.b("cdninit", String.valueOf(this.p));
+        a2.b("messagesetinit", String.valueOf(this.q));
+        a2.b("logores", String.valueOf(this.B));
+        a2.b("opttest", String.valueOf(d.a.n0.r.x.d.f54131b ? 1 : 0));
+        long j6 = this.r;
+        if (j6 > 0 && this.t > 0 && j4 > 0) {
+            a2.b("adc", String.valueOf(j6 + this.s));
+            a2.b("adshow", String.valueOf(j4));
+            a2.b("adrequest", String.valueOf(this.s));
+            j = this.r + this.s + j4;
+            a2.b("hasad", "1");
+        } else {
+            a2.b("hasad", "0");
+            long j7 = this.s;
+            if (j7 > 0) {
+                j = j7;
+            }
+        }
+        a2.b("tabc", String.valueOf(j5));
+        a2.b("costt", String.valueOf(this.w - j));
+        a2.b("newinst", this.f53348b ? "1" : "0");
+        a2.c("pluginloadsync", Boolean.valueOf(this.f53351e));
+        a2.b("hptotal", String.valueOf(this.v));
+        a2.b("locationinit", String.valueOf(j2 + this.B + this.r + j4 + this.s + j5 + this.v));
+        a2.b("userperceptiont", String.valueOf(this.x - j));
+        BdStatisticsManager.getInstance().performance("startt", a2);
+        h();
+    }
+
+    public void g(long j) {
+        if (k.d().g() && j > 0) {
+            d.a.c.e.n.a a2 = j.a();
+            a2.b("procname", "remote");
+            a2.b("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", a2);
+        }
+    }
+
+    public final void h() {
+        this.f53348b = false;
+        this.f53349c = false;
+        this.f53352f = -1L;
+        this.f53353g = -1L;
+        this.w = -1L;
+        this.f53354h = -1L;
+        this.f53355i = -1L;
+        this.j = -1L;
+        this.B = -1L;
+        this.t = -1L;
+        this.u = -1L;
+        this.r = -1L;
+        this.C = -1L;
+        this.D = -1L;
+        this.k = -1L;
+        this.l = -1L;
+        this.m = -1L;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = -1L;
+        this.q = -1L;
+        this.s = -1L;
+        this.v = -1L;
+        this.x = -1L;
+        this.y = -1L;
+        this.z = -1L;
+        this.A = -1L;
+    }
+
+    public void i(long j) {
+    }
+
+    public void j(long j) {
+        this.r = j;
+    }
+
+    public void k(long j) {
+        this.s = j;
+    }
+
+    public void l(long j) {
+        this.u = j;
+    }
+
+    public void m(long j) {
+        this.t = j;
+    }
+
+    public void n(long j) {
+        this.p = j;
+    }
+
+    public void o(long j) {
+        if (this.v > 0) {
+            return;
+        }
+        this.v = j;
+        this.w = System.currentTimeMillis() - this.f53352f;
+    }
+
+    public void p(long j) {
+    }
+
+    public void q(long j) {
+        this.k = j;
+    }
+
+    public void r(long j) {
+        this.m = j;
+    }
+
+    public void s(long j) {
+        this.l = j;
+    }
+
+    public void t(long j) {
+        this.f53352f = j;
+    }
+
+    public void u(long j) {
+        this.f53354h = j;
+    }
+
+    public void v(long j) {
+    }
+
+    public void w(long j) {
+        this.B = j;
+    }
+
+    public void x(long j) {
+        this.C = j;
+    }
+
+    public void y(long j) {
+        this.D = j;
+        this.f53349c = true;
+    }
+
+    public void z(long j) {
+        this.q = j;
     }
 }

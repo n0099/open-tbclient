@@ -19,16 +19,16 @@ public class ForumEmotionModel extends BdBaseModel {
     public static final int PAGE_START = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14955e;
+    public int f15037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14956f;
+    public boolean f15038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.n0.m0.z.b.b f14957g;
+    public final d.a.o0.m0.z.b.b f15039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f14958h;
+    public final HttpMessageListener f15040h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -48,11 +48,11 @@ public class ForumEmotionModel extends BdBaseModel {
                 ForumEmotionCenterResponseMessage forumEmotionCenterResponseMessage = (ForumEmotionCenterResponseMessage) httpResponsedMessage;
                 ForumEmotionModel forumEmotionModel = ForumEmotionModel.this;
                 ForumEmotionData forumEmotionData = forumEmotionCenterResponseMessage.data;
-                forumEmotionModel.f14956f = forumEmotionData != null && forumEmotionData.has_more == 1;
+                forumEmotionModel.f15038f = forumEmotionData != null && forumEmotionData.has_more == 1;
                 if (bVar != null) {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
-                            if (ForumEmotionModel.this.f14955e == 1) {
+                            if (ForumEmotionModel.this.f15037e == 1) {
                                 bVar.y0(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
@@ -80,33 +80,33 @@ public class ForumEmotionModel extends BdBaseModel {
 
     public ForumEmotionModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f14955e = 1;
-        this.f14956f = true;
-        this.f14957g = new d.a.n0.m0.z.b.b();
-        this.f14958h = new a(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+        this.f15037e = 1;
+        this.f15038f = true;
+        this.f15039g = new d.a.o0.m0.z.b.b();
+        this.f15040h = new a(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
-        this.f14958h.setTag(getUniqueId());
-        this.f14958h.setSelfListener(true);
-        registerListener(this.f14958h);
+        this.f15040h.setTag(getUniqueId());
+        this.f15040h.setSelfListener(true);
+        registerListener(this.f15040h);
     }
 
     public void A(b bVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-        int i2 = this.f14955e + 1;
-        this.f14955e = i2;
+        int i2 = this.f15037e + 1;
+        this.f15037e = i2;
         httpMessage.addParam(Config.PACKAGE_NAME, i2);
         httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.f14957g.a() == 1 ? "like_forum" : "all_forum");
+        httpMessage.addParam("forum_type", this.f15039g.a() == 1 ? "like_forum" : "all_forum");
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
     }
 
     public void B(b bVar) {
-        this.f14955e = 1;
+        this.f15037e = 1;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14955e);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f15037e);
         httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.f14957g.a() == 1 ? "like_forum" : "all_forum");
+        httpMessage.addParam("forum_type", this.f15039g.a() == 1 ? "like_forum" : "all_forum");
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
     }
@@ -128,11 +128,11 @@ public class ForumEmotionModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public d.a.n0.m0.z.b.b y() {
-        return this.f14957g;
+    public d.a.o0.m0.z.b.b y() {
+        return this.f15039g;
     }
 
     public boolean z() {
-        return this.f14956f;
+        return this.f15038f;
     }
 }

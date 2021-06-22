@@ -9,18 +9,18 @@ import d.q.a.a.c.b.e;
 public final class c implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f71318e;
+    public /* synthetic */ a f71422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public /* synthetic */ Context f71319f;
+    public /* synthetic */ Context f71423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public /* synthetic */ b f71320g;
+    public /* synthetic */ b f71424g;
 
     public c(b bVar, a aVar, Context context) {
-        this.f71320g = bVar;
-        this.f71318e = aVar;
-        this.f71319f = context;
+        this.f71424g = bVar;
+        this.f71422e = aVar;
+        this.f71423f = context;
     }
 
     @Override // java.lang.Runnable
@@ -34,8 +34,8 @@ public final class c implements Runnable {
         d.q.a.a.a.b.b bVar7;
         d.q.a.a.a.b.b bVar8;
         try {
-            this.f71320g.f71315a = this.f71318e;
-            String e2 = b.e(this.f71320g);
+            this.f71424g.f71419a = this.f71422e;
+            String e2 = b.e(this.f71424g);
             char c2 = 65535;
             switch (e2.hashCode()) {
                 case -1619859642:
@@ -132,78 +132,78 @@ public final class c implements Runnable {
             switch (c2) {
                 case 0:
                 case 1:
-                    bVar = this.f71320g;
-                    bVar2 = new d.q.a.a.a.b.j.b(this.f71319f);
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new d.q.a.a.a.b.j.b(this.f71423f);
+                    bVar.f71421c = bVar2;
                     break;
                 case 2:
-                    bVar = this.f71320g;
-                    bVar2 = new e(this.f71319f);
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new e(this.f71423f);
+                    bVar.f71421c = bVar2;
                     break;
                 case 3:
-                    this.f71320g.f71317c = new d.q.a.a.a.b.i.b(this.f71319f);
-                    bVar3 = this.f71320g.f71317c;
+                    this.f71424g.f71421c = new d.q.a.a.a.b.i.b(this.f71423f);
+                    bVar3 = this.f71424g.f71421c;
                     ((d.q.a.a.a.b.i.b) bVar3).b("100215079");
                     break;
                 case 4:
-                    bVar = this.f71320g;
-                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
                 case 5:
                 case 6:
-                    bVar = this.f71320g;
-                    bVar2 = new g(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new g(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
                 case 7:
                 case '\b':
-                    bVar = this.f71320g;
-                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
                 case '\t':
-                    bVar = this.f71320g;
-                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
                 case '\n':
-                    bVar = this.f71320g;
-                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
                 case 11:
-                    bVar = this.f71320g;
-                    bVar2 = new d.q.a.a.a.b.f.b(this.f71319f);
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new d.q.a.a.a.b.f.b(this.f71423f);
+                    bVar.f71421c = bVar2;
                     break;
                 case '\f':
                 case '\r':
                 case 14:
-                    bVar = this.f71320g;
-                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f71319f, b.c());
-                    bVar.f71317c = bVar2;
+                    bVar = this.f71424g;
+                    bVar2 = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f71423f, b.c());
+                    bVar.f71421c = bVar2;
                     break;
             }
-            bVar4 = this.f71320g.f71317c;
+            bVar4 = this.f71424g.f71421c;
             if (bVar4 == null) {
-                this.f71320g.a(false, null);
+                this.f71424g.a(false, null);
                 return;
             }
-            bVar5 = this.f71320g.f71317c;
+            bVar5 = this.f71424g.f71421c;
             if (!bVar5.a()) {
-                bVar8 = this.f71320g.f71317c;
+                bVar8 = this.f71424g.f71421c;
                 bVar8.a(b.c());
                 return;
             }
-            bVar6 = this.f71320g.f71317c;
+            bVar6 = this.f71424g.f71421c;
             if (!bVar6.c()) {
-                this.f71320g.a(false, null);
+                this.f71424g.a(false, null);
                 return;
             }
-            b bVar9 = this.f71320g;
-            bVar7 = this.f71320g.f71317c;
+            b bVar9 = this.f71424g;
+            bVar7 = this.f71424g.f71421c;
             bVar9.a(true, bVar7);
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

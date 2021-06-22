@@ -9,28 +9,28 @@ import java.io.IOException;
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f71082a;
+    public final i f71186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.o.a.e.b.n.c f71083b;
+    public final d.o.a.e.b.n.c f71187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f71084c;
+    public final e f71188c;
 
     public k(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
-        this.f71082a = iVar;
-        this.f71083b = c(downloadInfo, iVar);
-        this.f71084c = new h(bVar, this);
+        this.f71186a = iVar;
+        this.f71187b = c(downloadInfo, iVar);
+        this.f71188c = new h(bVar, this);
     }
 
     public e a() {
-        return this.f71084c;
+        return this.f71188c;
     }
 
     @Override // d.o.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
-        this.f71083b.a(aVar.f71039a, 0, aVar.f71041c);
-        this.f71082a.f(aVar.f71041c);
+        this.f71187b.a(aVar.f71143a, 0, aVar.f71145c);
+        this.f71186a.f(aVar.f71145c);
     }
 
     public final d.o.a.e.b.n.c c(DownloadInfo downloadInfo, i iVar) throws BaseException {
@@ -44,18 +44,18 @@ public class k implements e {
     }
 
     public void d() throws IOException {
-        this.f71083b.o();
+        this.f71187b.o();
     }
 
     public void e() throws IOException {
-        this.f71083b.q();
+        this.f71187b.q();
     }
 
     public void f() {
-        d.o.a.e.b.l.e.C(this.f71083b);
+        d.o.a.e.b.l.e.C(this.f71187b);
     }
 
     public i g() {
-        return this.f71082a;
+        return this.f71186a;
     }
 }

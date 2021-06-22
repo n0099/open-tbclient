@@ -11,10 +11,10 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public final transient k0<E> contents;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient int f31326e;
+    public final transient int f31424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient ImmutableSet<E> f31327f;
+    public transient ImmutableSet<E> f31425f;
 
     /* loaded from: classes6.dex */
     public final class ElementSet extends IndexedImmutableSet<E> {
@@ -83,7 +83,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         for (int i2 = 0; i2 < k0Var.C(); i2++) {
             j += k0Var.k(i2);
         }
-        this.f31326e = Ints.j(j);
+        this.f31424e = Ints.j(j);
     }
 
     @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
@@ -103,7 +103,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public int size() {
-        return this.f31326e;
+        return this.f31424e;
     }
 
     @Override // com.google.common.collect.ImmutableMultiset, com.google.common.collect.ImmutableCollection
@@ -114,10 +114,10 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
     public ImmutableSet<E> elementSet() {
-        ImmutableSet<E> immutableSet = this.f31327f;
+        ImmutableSet<E> immutableSet = this.f31425f;
         if (immutableSet == null) {
             ElementSet elementSet = new ElementSet();
-            this.f31327f = elementSet;
+            this.f31425f = elementSet;
             return elementSet;
         }
         return immutableSet;

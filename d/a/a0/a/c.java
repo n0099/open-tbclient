@@ -49,6 +49,9 @@ public final class c {
     public static final int abc_edit_text_inset_horizontal_material = 2131165289;
     public static final int abc_edit_text_inset_top_material = 2131165290;
     public static final int abc_floating_window_z = 2131165291;
+    public static final int abc_list_item_height_large_material = 2131165292;
+    public static final int abc_list_item_height_material = 2131165293;
+    public static final int abc_list_item_height_small_material = 2131165294;
     public static final int abc_list_item_padding_horizontal_material = 2131165295;
     public static final int abc_panel_menu_list_width = 2131165296;
     public static final int abc_progress_bar_height_material = 2131165297;
@@ -130,12 +133,13 @@ public final class c {
     public static final int sapi_sdk_title_right_btn_text_size = 2131166619;
     public static final int sapi_sdk_title_text_size = 2131166620;
     public static final int sapi_sdk_webview_radius = 2131166621;
-    public static final int tooltip_corner_radius = 2131167382;
-    public static final int tooltip_horizontal_padding = 2131167383;
-    public static final int tooltip_margin = 2131167384;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167385;
-    public static final int tooltip_precise_anchor_threshold = 2131167386;
-    public static final int tooltip_vertical_padding = 2131167387;
-    public static final int tooltip_y_offset_non_touch = 2131167388;
-    public static final int tooltip_y_offset_touch = 2131167389;
+    public static final int sapi_sdk_youth_style_webview_radius = 2131166622;
+    public static final int tooltip_corner_radius = 2131167383;
+    public static final int tooltip_horizontal_padding = 2131167384;
+    public static final int tooltip_margin = 2131167385;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167386;
+    public static final int tooltip_precise_anchor_threshold = 2131167387;
+    public static final int tooltip_vertical_padding = 2131167388;
+    public static final int tooltip_y_offset_non_touch = 2131167389;
+    public static final int tooltip_y_offset_touch = 2131167390;
 }

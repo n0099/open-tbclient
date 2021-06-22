@@ -23,7 +23,7 @@ import android.view.View;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.a.n0.q2.b.a.a;
+import d.a.o0.q2.b.a.a;
 /* loaded from: classes5.dex */
 public class ScanBoxView extends View {
     public Drawable A;
@@ -52,36 +52,36 @@ public class ScanBoxView extends View {
     public float a0;
     public Bitmap b0;
     public Bitmap c0;
-    public Bitmap d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20193e;
-    public Bitmap e0;
+    public Bitmap f20275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20194f;
-    public float f0;
+    public Bitmap f20276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20195g;
-    public StaticLayout g0;
+    public Bitmap f20277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20196h;
-    public int h0;
+    public Bitmap f20278h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20197i;
-    public boolean i0;
+    public int f20279i;
+    public Bitmap i0;
     public int j;
-    public Context j0;
+    public Bitmap j0;
     public Rect k;
-    public ColorMatrixColorFilter k0;
+    public float k0;
     public float l;
+    public StaticLayout l0;
     public float m;
+    public int m0;
     public Paint n;
+    public boolean n0;
     public TextPaint o;
+    public Context o0;
     public int p;
+    public ColorMatrixColorFilter p0;
     public int q;
     public int r;
     public int s;
@@ -95,7 +95,7 @@ public class ScanBoxView extends View {
 
     public ScanBoxView(Context context) {
         super(context);
-        this.j0 = context;
+        this.o0 = context;
         Paint paint = new Paint();
         this.n = paint;
         paint.setAntiAlias(true);
@@ -117,7 +117,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f20197i = a.b(context, 2.0f);
+        this.f20279i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -131,13 +131,13 @@ public class ScanBoxView extends View {
         TextPaint textPaint = new TextPaint();
         this.o = textPaint;
         textPaint.setAntiAlias(true);
-        this.h0 = a.b(context, 4.0f);
-        this.i0 = false;
+        this.m0 = a.b(context, 4.0f);
+        this.n0 = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
         ColorMatrix colorMatrix2 = new ColorMatrix();
         colorMatrix2.postConcat(colorMatrix);
-        this.k0 = new ColorMatrixColorFilter(colorMatrix2);
+        this.p0 = new ColorMatrixColorFilter(colorMatrix2);
     }
 
     private int getBitmapOffset() {
@@ -163,18 +163,18 @@ public class ScanBoxView extends View {
     public final void a() {
         Drawable drawable = this.U;
         if (drawable != null) {
-            this.d0 = ((BitmapDrawable) drawable).getBitmap();
+            this.i0 = ((BitmapDrawable) drawable).getBitmap();
         }
-        if (this.d0 == null) {
+        if (this.i0 == null) {
             Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.d0 = decodeResource;
-            this.d0 = a.e(decodeResource, this.x);
+            this.i0 = decodeResource;
+            this.i0 = a.e(decodeResource, this.x);
         }
-        Bitmap a2 = a.a(this.d0, 90);
-        this.e0 = a2;
+        Bitmap a2 = a.a(this.i0, 90);
+        this.j0 = a2;
         Bitmap a3 = a.a(a2, 90);
-        this.e0 = a3;
-        this.e0 = a.a(a3, 90);
+        this.j0 = a3;
+        this.j0 = a.a(a3, 90);
         Drawable drawable2 = this.A;
         if (drawable2 != null) {
             this.b0 = ((BitmapDrawable) drawable2).getBitmap();
@@ -185,7 +185,7 @@ public class ScanBoxView extends View {
             this.b0 = a.e(decodeResource2, this.x);
         }
         this.c0 = a.a(this.b0, 90);
-        this.f0 = (this.r * 1.0f) / 2.0f;
+        this.k0 = (this.r * 1.0f) / 2.0f;
         this.o.setTextSize(this.L);
         this.o.setColor(this.M);
         setIsBarcode(this.H);
@@ -202,12 +202,12 @@ public class ScanBoxView extends View {
         Rect rect = new Rect(width, i2, this.s + width, this.t + i2);
         this.k = rect;
         if (this.H) {
-            float f2 = rect.left + this.f0 + 0.5f;
+            float f2 = rect.left + this.k0 + 0.5f;
             this.m = f2;
             this.a0 = f2;
             return;
         }
-        float f3 = rect.top + this.f0 + 0.5f;
+        float f3 = rect.top + this.k0 + 0.5f;
         this.l = f3;
         this.W = f3;
     }
@@ -225,10 +225,10 @@ public class ScanBoxView extends View {
     public final void d(Canvas canvas) {
         this.n.reset();
         this.n.setAntiAlias(false);
-        canvas.drawBitmap(this.f20193e, getMainFrameLeft(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20194f, getMainFrameRight() - this.f20193e.getWidth(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20195g, getMainFrameLeft(), getMainFrameBottom() - this.f20193e.getHeight(), this.n);
-        canvas.drawBitmap(this.f20196h, getMainFrameRight() - this.f20193e.getWidth(), getMainFrameBottom() - this.f20193e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20275e, getMainFrameLeft(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20276f, getMainFrameRight() - this.f20275e.getWidth(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20277g, getMainFrameLeft(), getMainFrameBottom() - this.f20275e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20278h, getMainFrameRight() - this.f20275e.getWidth(), getMainFrameBottom() - this.f20275e.getHeight(), this.n);
     }
 
     public final void e(Canvas canvas) {
@@ -251,7 +251,7 @@ public class ScanBoxView extends View {
         if (this.H) {
             if (this.V != null) {
                 Rect rect = this.k;
-                float f2 = this.f0;
+                float f2 = this.k0;
                 int i2 = this.y;
                 RectF rectF = new RectF(rect.left + f2 + 0.5f, rect.top + f2 + i2, this.a0, (rect.bottom - f2) - i2);
                 Rect rect2 = new Rect((int) (this.V.getWidth() - rectF.width()), 0, this.V.getWidth(), this.V.getHeight());
@@ -262,19 +262,19 @@ public class ScanBoxView extends View {
                 canvas.drawBitmap(this.V, rect2, rectF, this.n);
             } else if (this.B != null) {
                 float f3 = this.m;
-                canvas.drawBitmap(this.B, (Rect) null, new RectF(f3, this.k.top + this.f0 + this.y, this.B.getWidth() + f3, (this.k.bottom - this.f0) - this.y), this.n);
+                canvas.drawBitmap(this.B, (Rect) null, new RectF(f3, this.k.top + this.k0 + this.y, this.B.getWidth() + f3, (this.k.bottom - this.k0) - this.y), this.n);
             } else {
                 this.n.setStyle(Paint.Style.FILL);
                 this.n.setColor(this.x);
                 float f4 = this.m;
                 Rect rect3 = this.k;
-                float f5 = this.f0;
+                float f5 = this.k0;
                 int i3 = this.y;
                 canvas.drawRect(f4, rect3.top + f5 + i3, this.w + f4, (rect3.bottom - f5) - i3, this.n);
             }
         } else if (this.V != null) {
             Rect rect4 = this.k;
-            float f6 = this.f0;
+            float f6 = this.k0;
             int i4 = this.y;
             RectF rectF2 = new RectF(rect4.left + f6 + i4, rect4.top + f6 + 0.5f, (rect4.right - f6) - i4, this.W);
             Rect rect5 = new Rect(0, (int) (this.V.getHeight() - rectF2.height()), this.V.getWidth(), this.V.getHeight());
@@ -282,11 +282,11 @@ public class ScanBoxView extends View {
                 rect5.top = 0;
                 rectF2.top = rectF2.bottom - rect5.height();
             }
-            this.n.setColorFilter(this.k0);
+            this.n.setColorFilter(this.p0);
             canvas.drawBitmap(this.V, rect5, rectF2, this.n);
         } else if (this.B != null) {
             Rect rect6 = this.k;
-            float f7 = this.f0;
+            float f7 = this.k0;
             int i5 = this.y;
             float f8 = rect6.left + f7 + i5;
             float f9 = this.l;
@@ -295,7 +295,7 @@ public class ScanBoxView extends View {
             this.n.setStyle(Paint.Style.FILL);
             this.n.setColor(this.x);
             Rect rect7 = this.k;
-            float f10 = this.f0;
+            float f10 = this.k0;
             int i6 = this.y;
             float f11 = this.l;
             canvas.drawRect(rect7.left + f10 + i6, f11, (rect7.right - f10) - i6, f11 + this.w, this.n);
@@ -305,7 +305,7 @@ public class ScanBoxView extends View {
     public final void g(Canvas canvas) {
         Rect rect;
         Rect rect2;
-        if (TextUtils.isEmpty(this.K) || this.g0 == null) {
+        if (TextUtils.isEmpty(this.K) || this.l0 == null) {
             return;
         }
         if (this.N) {
@@ -317,15 +317,15 @@ public class ScanBoxView extends View {
                     TextPaint textPaint = this.o;
                     String str = this.K;
                     textPaint.getTextBounds(str, 0, str.length(), rect3);
-                    float width = ((canvas.getWidth() - rect3.width()) / 2) - this.h0;
-                    RectF rectF = new RectF(width, (this.k.bottom + this.O) - this.h0, rect3.width() + width + (this.h0 * 2), this.k.bottom + this.O + this.g0.getHeight() + this.h0);
-                    int i2 = this.h0;
+                    float width = ((canvas.getWidth() - rect3.width()) / 2) - this.m0;
+                    RectF rectF = new RectF(width, (this.k.bottom + this.O) - this.m0, rect3.width() + width + (this.m0 * 2), this.k.bottom + this.O + this.l0.getHeight() + this.m0);
+                    int i2 = this.m0;
                     canvas.drawRoundRect(rectF, i2, i2, this.n);
                 } else {
                     int i3 = this.k.bottom;
                     int i4 = this.O;
-                    RectF rectF2 = new RectF(rect2.left, (i3 + i4) - this.h0, rect2.right, i3 + i4 + this.g0.getHeight() + this.h0);
-                    int i5 = this.h0;
+                    RectF rectF2 = new RectF(rect2.left, (i3 + i4) - this.m0, rect2.right, i3 + i4 + this.l0.getHeight() + this.m0);
+                    int i5 = this.m0;
                     canvas.drawRoundRect(rectF2, i5, i5, this.n);
                 }
             }
@@ -334,9 +334,9 @@ public class ScanBoxView extends View {
                 canvas.translate(0.0f, this.k.bottom + this.O);
             } else {
                 Rect rect4 = this.k;
-                canvas.translate(rect4.left + this.h0, rect4.bottom + this.O);
+                canvas.translate(rect4.left + this.m0, rect4.bottom + this.O);
             }
-            this.g0.draw(canvas);
+            this.l0.draw(canvas);
             canvas.restore();
             return;
         }
@@ -348,28 +348,28 @@ public class ScanBoxView extends View {
                 TextPaint textPaint2 = this.o;
                 String str2 = this.K;
                 textPaint2.getTextBounds(str2, 0, str2.length(), rect5);
-                float width2 = ((canvas.getWidth() - rect5.width()) / 2) - this.h0;
-                int i6 = this.h0;
-                RectF rectF3 = new RectF(width2, ((this.k.top - this.O) - this.g0.getHeight()) - this.h0, rect5.width() + width2 + (i6 * 2), (this.k.top - this.O) + i6);
-                int i7 = this.h0;
+                float width2 = ((canvas.getWidth() - rect5.width()) / 2) - this.m0;
+                int i6 = this.m0;
+                RectF rectF3 = new RectF(width2, ((this.k.top - this.O) - this.l0.getHeight()) - this.m0, rect5.width() + width2 + (i6 * 2), (this.k.top - this.O) + i6);
+                int i7 = this.m0;
                 canvas.drawRoundRect(rectF3, i7, i7, this.n);
             } else {
-                int height = (this.k.top - this.O) - this.g0.getHeight();
-                int i8 = this.h0;
+                int height = (this.k.top - this.O) - this.l0.getHeight();
+                int i8 = this.m0;
                 Rect rect6 = this.k;
                 RectF rectF4 = new RectF(rect.left, height - i8, rect6.right, (rect6.top - this.O) + i8);
-                int i9 = this.h0;
+                int i9 = this.m0;
                 canvas.drawRoundRect(rectF4, i9, i9, this.n);
             }
         }
         canvas.save();
         if (this.P) {
-            canvas.translate(0.0f, (this.k.top - this.O) - this.g0.getHeight());
+            canvas.translate(0.0f, (this.k.top - this.O) - this.l0.getHeight());
         } else {
             Rect rect7 = this.k;
-            canvas.translate(rect7.left + this.h0, (rect7.top - this.O) - this.g0.getHeight());
+            canvas.translate(rect7.left + this.m0, (rect7.top - this.O) - this.l0.getHeight());
         }
-        this.g0.draw(canvas);
+        this.l0.draw(canvas);
         canvas.restore();
     }
 
@@ -406,7 +406,7 @@ public class ScanBoxView extends View {
     }
 
     public float getHalfCornerSize() {
-        return this.f0;
+        return this.k0;
     }
 
     public boolean getIsBarcode() {
@@ -450,7 +450,7 @@ public class ScanBoxView extends View {
     }
 
     public int getTipBackgroundRadius() {
-        return this.h0;
+        return this.m0;
     }
 
     public String getTipText() {
@@ -470,7 +470,7 @@ public class ScanBoxView extends View {
     }
 
     public StaticLayout getTipTextSl() {
-        return this.g0;
+        return this.l0;
     }
 
     public int getToolbarHeight() {
@@ -482,7 +482,7 @@ public class ScanBoxView extends View {
     }
 
     public Rect h(int i2) {
-        if (this.i0) {
+        if (this.n0) {
             Rect rect = new Rect(this.k);
             float measuredHeight = (i2 * 1.0f) / getMeasuredHeight();
             rect.left = (int) (rect.left * measuredHeight);
@@ -499,17 +499,17 @@ public class ScanBoxView extends View {
         int i2 = this.q;
         options.outWidth = i2;
         options.outHeight = i2;
-        this.f20193e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
+        this.f20275e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        Bitmap bitmap = this.f20193e;
-        this.f20194f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20193e.getHeight(), matrix, false);
+        Bitmap bitmap = this.f20275e;
+        this.f20276f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20275e.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        Bitmap bitmap2 = this.f20193e;
-        this.f20195g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20193e.getHeight(), matrix, false);
+        Bitmap bitmap2 = this.f20275e;
+        this.f20277g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20275e.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        Bitmap bitmap3 = this.f20193e;
-        this.f20196h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20193e.getHeight(), matrix, false);
+        Bitmap bitmap3 = this.f20275e;
+        this.f20278h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20275e.getHeight(), matrix, false);
     }
 
     public final void j(int i2, TypedArray typedArray) {
@@ -572,7 +572,7 @@ public class ScanBoxView extends View {
         } else if (i2 == R$styleable.QRCodeView_qrcv_customGridScanLineDrawable) {
             this.U = typedArray.getDrawable(i2);
         } else if (i2 == R$styleable.QRCodeView_qrcv_isOnlyDecodeScanBoxArea) {
-            this.i0 = typedArray.getBoolean(i2, this.i0);
+            this.n0 = typedArray.getBoolean(i2, this.n0);
         }
     }
 
@@ -590,7 +590,7 @@ public class ScanBoxView extends View {
     public final void l() {
         if (this.H) {
             if (this.V == null) {
-                this.m += this.f20197i;
+                this.m += this.f20279i;
                 int i2 = this.w;
                 Bitmap bitmap = this.B;
                 if (bitmap != null) {
@@ -599,29 +599,29 @@ public class ScanBoxView extends View {
                 if (this.S) {
                     float f2 = this.m;
                     Rect rect = this.k;
-                    float f3 = this.f0;
+                    float f3 = this.k0;
                     if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                        this.f20197i = -this.f20197i;
+                        this.f20279i = -this.f20279i;
                     }
                 } else {
                     float f4 = this.m + i2;
                     Rect rect2 = this.k;
-                    float f5 = this.f0;
+                    float f5 = this.k0;
                     if (f4 > rect2.right - f5) {
                         this.m = rect2.left + f5 + 0.5f;
                     }
                 }
             } else {
-                float f6 = this.a0 + this.f20197i;
+                float f6 = this.a0 + this.f20279i;
                 this.a0 = f6;
                 Rect rect3 = this.k;
-                float f7 = this.f0;
+                float f7 = this.k0;
                 if (f6 > rect3.right - f7) {
                     this.a0 = rect3.left + f7 + 0.5f;
                 }
             }
         } else if (this.V == null) {
-            this.l += this.f20197i;
+            this.l += this.f20279i;
             int i3 = this.w;
             Bitmap bitmap2 = this.B;
             if (bitmap2 != null) {
@@ -630,23 +630,23 @@ public class ScanBoxView extends View {
             if (this.S) {
                 float f8 = this.l;
                 Rect rect4 = this.k;
-                float f9 = this.f0;
+                float f9 = this.k0;
                 if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                    this.f20197i = -this.f20197i;
+                    this.f20279i = -this.f20279i;
                 }
             } else {
                 float f10 = this.l + i3;
                 Rect rect5 = this.k;
-                float f11 = this.f0;
+                float f11 = this.k0;
                 if (f10 > rect5.bottom - f11) {
                     this.l = rect5.top + f11 + 0.5f;
                 }
             }
         } else {
-            float f12 = this.W + this.f20197i;
+            float f12 = this.W + this.f20279i;
             this.W = f12;
             Rect rect6 = this.k;
-            float f13 = this.f0;
+            float f13 = this.k0;
             if (f12 > rect6.bottom - f13) {
                 this.W = rect6.top + f13 + 0.5f;
             }
@@ -718,7 +718,7 @@ public class ScanBoxView extends View {
     }
 
     public void setHalfCornerSize(float f2) {
-        this.f0 = f2;
+        this.k0 = f2;
     }
 
     public void setIsBarcode(boolean z) {
@@ -732,25 +732,25 @@ public class ScanBoxView extends View {
                 }
             }
         } else if (this.H) {
-            this.V = this.e0;
+            this.V = this.j0;
         } else {
-            this.V = this.d0;
+            this.V = this.i0;
         }
         if (this.H) {
             this.K = this.J;
             this.t = this.u;
-            this.j = (int) (((this.E * 1.0f) * this.f20197i) / this.s);
+            this.j = (int) (((this.E * 1.0f) * this.f20279i) / this.s);
         } else {
             this.K = this.I;
             int i2 = this.s;
             this.t = i2;
-            this.j = (int) (((this.E * 1.0f) * this.f20197i) / i2);
+            this.j = (int) (((this.E * 1.0f) * this.f20279i) / i2);
         }
         if (!TextUtils.isEmpty(this.K)) {
             if (this.P) {
-                this.g0 = new StaticLayout(this.K, this.o, a.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                this.l0 = new StaticLayout(this.K, this.o, a.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             } else {
-                this.g0 = new StaticLayout(this.K, this.o, this.s - (this.h0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                this.l0 = new StaticLayout(this.K, this.o, this.s - (this.m0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             }
         }
         if (this.F) {
@@ -773,7 +773,7 @@ public class ScanBoxView extends View {
     }
 
     public void setOnlyDecodeScanBoxArea(boolean z) {
-        this.i0 = z;
+        this.n0 = z;
     }
 
     public void setQRCodeTipText(String str) {
@@ -829,7 +829,7 @@ public class ScanBoxView extends View {
     }
 
     public void setTipBackgroundRadius(int i2) {
-        this.h0 = i2;
+        this.m0 = i2;
     }
 
     public void setTipText(String str) {
@@ -853,7 +853,7 @@ public class ScanBoxView extends View {
     }
 
     public void setTipTextSl(StaticLayout staticLayout) {
-        this.g0 = staticLayout;
+        this.l0 = staticLayout;
     }
 
     public void setToolbarHeight(int i2) {

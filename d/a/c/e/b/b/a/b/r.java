@@ -3,30 +3,30 @@ package d.a.c.e.b.b.a.b;
 public class r implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42119a;
+    public String f42222a;
 
     public r(String str) {
-        this.f42119a = str;
+        this.f42222a = str;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42119a;
+        return this.f42222a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42119a;
+        return this.f42222a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42119a;
+        return this.f42222a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42119a;
+        return this.f42222a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -36,6 +36,6 @@ public class r implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f42119a;
+        return this.f42222a;
     }
 }

@@ -9,50 +9,50 @@ import android.widget.TextView;
 public final class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22881a;
+    public boolean f22963a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22882b;
+    public ImageView f22964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22883c;
+    public TextView f22965c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f22884d;
+    public Context f22966d;
 
     public e(Context context) {
         super(context);
-        this.f22881a = false;
-        this.f22884d = context;
+        this.f22963a = false;
+        this.f22966d = context;
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f22882b = new ImageView(context);
-        this.f22883c = new TextView(context);
-        this.f22882b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
-        addView(this.f22882b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
+        this.f22964b = new ImageView(context);
+        this.f22965c = new TextView(context);
+        this.f22964b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
+        addView(this.f22964b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(context, 10.0f), 0, 0, 0);
-        addView(this.f22883c, layoutParams);
+        addView(this.f22965c, layoutParams);
     }
 
     public final void a() {
-        this.f22883c.setTextColor(-13421773);
+        this.f22965c.setTextColor(-13421773);
     }
 
     public final void a(float f2) {
-        this.f22883c.setTextSize(f2);
+        this.f22965c.setTextSize(f2);
     }
 
     public final void a(String str) {
-        this.f22883c.setText(str);
+        this.f22965c.setText(str);
     }
 
     public final void a(boolean z) {
-        this.f22882b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22884d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22884d, "ufo_checkbox_default.png")));
+        this.f22964b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22966d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22966d, "ufo_checkbox_default.png")));
     }
 
     public final String b() {
-        return this.f22883c.getText().toString();
+        return this.f22965c.getText().toString();
     }
 }

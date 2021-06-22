@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
@@ -179,7 +180,7 @@ public class CardData implements NoProguard {
         }
 
         public String toString() {
-            return "BondCard Info [\nbank_code = " + this.bank_code + "\naccount_no = " + this.account_no + "\ncard_type = " + this.card_type + "\nmobile = " + this.mobile + "\naccount_no_head_tail = " + this.account_no_head_tail + "\nbank_name = " + this.bank_name + "\nbank_url = " + this.bank_url + "\nbankground_url = " + this.background_url + "\nbind_time = " + this.bind_time + "\npay_need_sms_code = " + this.pay_need_sms_code + "\nbank_card_msg = " + this.bank_card_msg + "\n]";
+            return "BondCard Info [\nbank_code = " + this.bank_code + "\naccount_no = " + this.account_no + "\ncard_type = " + this.card_type + "\nmobile = " + this.mobile + "\naccount_no_head_tail = " + this.account_no_head_tail + "\nbank_name = " + this.bank_name + "\nbank_url = " + this.bank_url + "\nbankground_url = " + this.background_url + "\nbind_time = " + this.bind_time + "\npay_need_sms_code = " + this.pay_need_sms_code + "\nbank_card_msg = " + this.bank_card_msg + "\n" + PreferencesUtil.RIGHT_MOUNT;
         }
 
         public static String getCardDesc(String str, String str2, String str3, boolean z) {

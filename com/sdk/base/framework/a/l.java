@@ -3,29 +3,29 @@ package com.sdk.base.framework.a;
 public final class l<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39318a;
+    public int f39416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f39319b;
+    public T f39417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f39320c;
+    public final boolean f39418c;
 
     public l(int i2, T t, boolean z) {
-        this.f39318a = i2;
-        this.f39319b = t;
-        this.f39320c = z;
+        this.f39416a = i2;
+        this.f39417b = t;
+        this.f39418c = z;
     }
 
     public final int a() {
-        return this.f39318a;
+        return this.f39416a;
     }
 
     public final T b() {
-        return this.f39319b;
+        return this.f39417b;
     }
 
     public final String toString() {
-        return "{code:" + this.f39318a + ", response:" + this.f39319b + ", resultFormCache:" + this.f39320c + "}";
+        return "{code:" + this.f39416a + ", response:" + this.f39417b + ", resultFormCache:" + this.f39418c + "}";
     }
 }

@@ -10,32 +10,32 @@ import java.util.List;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f70282c;
+    public static a f70386c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70283a;
+    public Context f70387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f70284b = new ArrayList();
+    public List<String> f70388b = new ArrayList();
 
     public a(Context context) {
-        this.f70283a = null;
-        this.f70283a = context;
+        this.f70387a = null;
+        this.f70387a = context;
     }
 
     public static a b(Context context) {
-        if (f70282c == null) {
+        if (f70386c == null) {
             synchronized (a.class) {
-                if (f70282c == null) {
-                    f70282c = new a(context);
+                if (f70386c == null) {
+                    f70386c = new a(context);
                 }
             }
         }
-        return f70282c;
+        return f70386c;
     }
 
     public int a() {
-        Intent registerReceiver = this.f70283a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        Intent registerReceiver = this.f70387a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver == null) {
             return -1;
         }
@@ -43,7 +43,7 @@ public class a {
     }
 
     public int c() {
-        Intent registerReceiver = this.f70283a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        Intent registerReceiver = this.f70387a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver == null) {
             return -1;
         }
@@ -112,13 +112,13 @@ public class a {
         if (d2 == null) {
             return;
         }
-        this.f70284b.add(d2);
+        this.f70388b.add(d2);
         try {
-            int size = this.f70284b.size();
+            int size = this.f70388b.size();
             if (size > 20) {
-                ArrayList arrayList = new ArrayList(this.f70284b.subList(size - 10, size));
-                this.f70284b.clear();
-                this.f70284b = arrayList;
+                ArrayList arrayList = new ArrayList(this.f70388b.subList(size - 10, size));
+                this.f70388b.clear();
+                this.f70388b = arrayList;
             }
         } catch (Throwable unused) {
         }
@@ -126,15 +126,15 @@ public class a {
 
     public synchronized String f() {
         String str = "";
-        int size = this.f70284b.size();
+        int size = this.f70388b.size();
         if (size <= 0) {
             return "";
         }
         if (size == 1) {
-            return this.f70284b.get(0);
+            return this.f70388b.get(0);
         }
         try {
-            List<String> list = this.f70284b;
+            List<String> list = this.f70388b;
             int i2 = size - 10;
             if (i2 <= 0) {
                 i2 = 0;

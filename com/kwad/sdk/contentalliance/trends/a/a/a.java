@@ -25,29 +25,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f33597b;
+    public ViewGroup f33695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f33598c;
+    public ViewGroup f33696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f33599d;
+    public TextView f33697d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f33600e;
+    public TextView f33698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f33601f;
+    public ImageView f33699f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f33602g;
+    public View f33700g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f33603h;
+    public View f33701h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewStub f33604i;
+    public ViewStub f33702i;
     @Nullable
     public View j;
     @Nullable
@@ -67,7 +67,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             if (a.this.r.getAndSet(true)) {
                 return;
             }
-            if (a.this.a(com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.j)))) {
+            if (a.this.a(com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.j)))) {
                 e.j(a.this.p);
             }
         }
@@ -80,20 +80,20 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     };
 
     private void a(long j) {
-        this.f33600e.setText(String.format(o().getString(this.q == 2 ? R.string.ksad_photo_hot_enter_watch_extra_button_format_v2 : R.string.ksad_photo_hot_enter_watch_count_format), ag.b(j)));
+        this.f33698e.setText(String.format(o().getString(this.q == 2 ? R.string.ksad_photo_hot_enter_watch_extra_button_format_v2 : R.string.ksad_photo_hot_enter_watch_count_format), ag.b(j)));
     }
 
     private void a(String str) {
-        this.f33599d.setText(str);
+        this.f33697d.setText(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, TrendInfo trendInfo) {
         SceneImpl sceneImpl;
         if (o() != null) {
-            e.c(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j, z ? 2 : 1);
+            e.c(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j, z ? 2 : 1);
             TrendsParams trendsParams = new TrendsParams();
-            AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j;
+            AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j;
             if (adTemplate != null && (sceneImpl = adTemplate.mAdScene) != null) {
                 trendsParams.mEntryScene = sceneImpl.entryScene;
             }
@@ -106,12 +106,12 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public boolean a(TrendInfo trendInfo) {
         boolean z;
         boolean z2 = true;
-        boolean z3 = com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j)) && !((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j.mIsTubeEpisodeList;
+        boolean z3 = com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j)) && !((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j.mIsTubeEpisodeList;
         if (trendInfo != null) {
             long j = trendInfo.offlineTime;
             if (j > 0 && j < System.currentTimeMillis()) {
                 z = true;
-                z2 = (trendInfo != null || TextUtils.isEmpty(trendInfo.name) || com.kwad.sdk.core.response.b.c.B(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j) || z3 || z) ? false : false;
+                z2 = (trendInfo != null || TextUtils.isEmpty(trendInfo.name) || com.kwad.sdk.core.response.b.c.B(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j) || z3 || z) ? false : false;
                 com.kwad.sdk.core.d.a.a("PhotoTrendEnterPresenter", ">> isShowTrendEnterView() showTrendEnter=" + z2);
                 return z2;
             }
@@ -154,15 +154,15 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     }
 
     private void c(final TrendInfo trendInfo) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33598c.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33696c.getLayoutParams();
         marginLayoutParams.rightMargin = ao.a(o(), 0.0f);
         marginLayoutParams.width = -1;
         marginLayoutParams.height = ao.a(o(), R.dimen.ksad_content_trend_bottom_layout_height);
-        this.f33598c.setLayoutParams(marginLayoutParams);
-        this.f33602g.setVisibility(8);
-        this.f33603h.setVisibility(8);
-        this.f33600e.setVisibility(8);
-        this.f33601f.setVisibility(8);
+        this.f33696c.setLayoutParams(marginLayoutParams);
+        this.f33700g.setVisibility(8);
+        this.f33701h.setVisibility(8);
+        this.f33698e.setVisibility(8);
+        this.f33699f.setVisibility(8);
         e();
         if (this.j == null) {
             return;
@@ -183,16 +183,16 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     }
 
     private void d(final TrendInfo trendInfo) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33598c.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33696c.getLayoutParams();
         marginLayoutParams.rightMargin = ao.a(o(), 57.0f);
         marginLayoutParams.width = -2;
         marginLayoutParams.height = ao.a(o(), R.dimen.ksad_content_trend_bottom_layout_height);
-        this.f33598c.setLayoutParams(marginLayoutParams);
+        this.f33696c.setLayoutParams(marginLayoutParams);
         a(trendInfo.viewCount);
-        this.f33602g.setVisibility(8);
-        this.f33603h.setVisibility(0);
-        this.f33600e.setVisibility(0);
-        this.f33601f.setVisibility(8);
+        this.f33700g.setVisibility(8);
+        this.f33701h.setVisibility(0);
+        this.f33698e.setVisibility(0);
+        this.f33699f.setVisibility(8);
         e();
         if (this.j == null) {
             return;
@@ -212,28 +212,28 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     }
 
     private void e() {
-        ViewStub viewStub = this.f33604i;
+        ViewStub viewStub = this.f33702i;
         if (viewStub == null || viewStub.getParent() == null || this.j != null) {
             return;
         }
-        this.j = this.f33604i.inflate();
+        this.j = this.f33702i.inflate();
         this.k = b(R.id.ksad_photo_hot_extra_button);
         this.l = (TextView) b(R.id.ksad_photo_hot_extra_button_text);
         this.m = (ImageView) b(R.id.ksad_photo_hot_extra_button_arrow);
     }
 
     private void e(TrendInfo trendInfo) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33598c.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33696c.getLayoutParams();
         marginLayoutParams.rightMargin = ao.a(o(), 43.0f);
         marginLayoutParams.width = -2;
         marginLayoutParams.height = ao.a(o(), R.dimen.ksad_content_trend_bottom_layout_height);
-        this.f33598c.setLayoutParams(marginLayoutParams);
-        this.f33602g.setVisibility(0);
-        this.f33603h.setVisibility(8);
-        this.f33600e.setVisibility(0);
-        this.f33601f.setVisibility(0);
+        this.f33696c.setLayoutParams(marginLayoutParams);
+        this.f33700g.setVisibility(0);
+        this.f33701h.setVisibility(8);
+        this.f33698e.setVisibility(0);
+        this.f33699f.setVisibility(0);
         a(trendInfo.viewCount);
-        b(this.f33601f);
+        b(this.f33699f);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
@@ -241,7 +241,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         ViewGroup viewGroup;
         int i2;
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j;
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j;
         this.p = adTemplate;
         final TrendInfo K = com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(adTemplate));
         if (a(K)) {
@@ -252,21 +252,21 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
                 KSImageLoader.loadImage(this.n, K.iconUrl, null);
             }
             b(K);
-            this.f33597b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.a.a.3
+            this.f33695b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.a.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.a(false, K);
                 }
             });
-            viewGroup = this.f33597b;
+            viewGroup = this.f33695b;
             i2 = 0;
         } else {
-            viewGroup = this.f33597b;
+            viewGroup = this.f33695b;
             i2 = 8;
         }
         viewGroup.setVisibility(i2);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.add(this.t);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.m;
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(this.t);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
         if (bVar != null) {
             bVar.a(this.s);
         }
@@ -279,11 +279,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         if (animation != null) {
             animation.cancel();
         }
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.m;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
         if (bVar != null) {
             bVar.b(this.s);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.remove(this.t);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.remove(this.t);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -291,13 +291,13 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         int i2;
         super.c();
         this.q = com.kwad.sdk.core.config.c.x();
-        this.f33597b = (ViewGroup) b(R.id.ksad_photo_hot_enter_container);
-        this.f33601f = (ImageView) b(R.id.ksad_trend_enter_arrow);
-        this.f33599d = (TextView) b(R.id.ksad_photo_hot_enter_trend_name);
-        this.f33600e = (TextView) b(R.id.ksad_photo_hot_enter_watch_count);
-        this.f33598c = (ViewGroup) b(R.id.ksad_photo_hot_bottom_enter);
-        this.f33602g = b(R.id.ksad_photo_hot_divider);
-        this.f33603h = b(R.id.ksad_photo_hot_divider_v2);
+        this.f33695b = (ViewGroup) b(R.id.ksad_photo_hot_enter_container);
+        this.f33699f = (ImageView) b(R.id.ksad_trend_enter_arrow);
+        this.f33697d = (TextView) b(R.id.ksad_photo_hot_enter_trend_name);
+        this.f33698e = (TextView) b(R.id.ksad_photo_hot_enter_watch_count);
+        this.f33696c = (ViewGroup) b(R.id.ksad_photo_hot_bottom_enter);
+        this.f33700g = b(R.id.ksad_photo_hot_divider);
+        this.f33701h = b(R.id.ksad_photo_hot_divider_v2);
         int i3 = this.q;
         if (i3 != 1) {
             if (i3 == 2) {
@@ -306,7 +306,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             this.n = (ImageView) b(R.id.ksad_photo_hot_enter_label);
         }
         i2 = R.id.ksad_trend_enter_extra_button_vs;
-        this.f33604i = (ViewStub) b(i2);
+        this.f33702i = (ViewStub) b(i2);
         this.n = (ImageView) b(R.id.ksad_photo_hot_enter_label);
     }
 }

@@ -7,20 +7,20 @@ import java.io.InterruptedIOException;
 public class PipedInputStreamAndroid25 extends InputStream {
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f22465h;
+    public Thread f22547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Thread f22466i;
+    public Thread f22548i;
     public byte[] j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22462e = false;
+    public boolean f22544e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f22463f = false;
+    public volatile boolean f22545f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22464g = false;
+    public boolean f22546g = false;
     public int k = -1;
     public int l = 0;
 
@@ -45,7 +45,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f22463f = true;
+        this.f22545f = true;
         synchronized (this) {
             this.k = -1;
         }
@@ -65,9 +65,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     public final void o() throws IOException {
-        if (this.f22464g) {
-            if (!this.f22462e && !this.f22463f) {
-                Thread thread = this.f22465h;
+        if (this.f22546g) {
+            if (!this.f22544e && !this.f22545f) {
+                Thread thread = this.f22547h;
                 if (thread != null && !thread.isAlive()) {
                     throw new IOException("Read end dead");
                 }
@@ -92,7 +92,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     public synchronized void r(int i2) throws IOException {
         o();
-        this.f22466i = Thread.currentThread();
+        this.f22548i = Thread.currentThread();
         if (this.k == this.l) {
             n();
         }
@@ -112,18 +112,18 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized int read() throws IOException {
-        if (this.f22464g) {
-            if (!this.f22463f) {
-                if (this.f22466i != null && !this.f22466i.isAlive() && !this.f22462e && this.k < 0) {
+        if (this.f22546g) {
+            if (!this.f22545f) {
+                if (this.f22548i != null && !this.f22548i.isAlive() && !this.f22544e && this.k < 0) {
                     throw new IOException("Write end dead");
                 }
-                this.f22465h = Thread.currentThread();
+                this.f22547h = Thread.currentThread();
                 int i2 = 2;
                 while (this.k < 0) {
-                    if (this.f22462e) {
+                    if (this.f22544e) {
                         return -1;
                     }
-                    if (this.f22466i != null && !this.f22466i.isAlive() && i2 - 1 < 0) {
+                    if (this.f22548i != null && !this.f22548i.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     }
                     notifyAll();
@@ -164,7 +164,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         int i6;
         int i7;
         o();
-        this.f22466i = Thread.currentThread();
+        this.f22548i = Thread.currentThread();
         while (i3 > 0) {
             if (this.k == this.l) {
                 n();
@@ -209,7 +209,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     public synchronized void t() {
-        this.f22462e = true;
+        this.f22544e = true;
         notifyAll();
     }
 

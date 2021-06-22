@@ -18,7 +18,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
     public static final class DelayMaybeObserver<T, U> implements MaybeObserver<T>, Disposable {
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72277d;
+        public Disposable f72381d;
         public final OtherSubscriber<T> other;
         public final Publisher<U> otherSource;
 
@@ -29,8 +29,8 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72277d.dispose();
-            this.f72277d = DisposableHelper.DISPOSED;
+            this.f72381d.dispose();
+            this.f72381d = DisposableHelper.DISPOSED;
             SubscriptionHelper.cancel(this.other);
         }
 
@@ -41,28 +41,28 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f72277d = DisposableHelper.DISPOSED;
+            this.f72381d = DisposableHelper.DISPOSED;
             subscribeNext();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f72277d = DisposableHelper.DISPOSED;
+            this.f72381d = DisposableHelper.DISPOSED;
             this.other.error = th;
             subscribeNext();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72277d, disposable)) {
-                this.f72277d = disposable;
+            if (DisposableHelper.validate(this.f72381d, disposable)) {
+                this.f72381d = disposable;
                 this.other.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
-            this.f72277d = DisposableHelper.DISPOSED;
+            this.f72381d = DisposableHelper.DISPOSED;
             this.other.value = t;
             subscribeNext();
         }

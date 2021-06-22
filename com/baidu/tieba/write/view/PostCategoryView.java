@@ -16,26 +16,26 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import d.a.c.e.p.l;
-import d.a.n0.r0.c0;
-import d.a.n0.r0.e1;
+import d.a.o0.r0.c0;
+import d.a.o0.r0.e1;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PostCategoryView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22025e;
+    public Context f22107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22026f;
+    public boolean f22108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MorePopupWindow f22027g;
+    public MorePopupWindow f22109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f22028h;
+    public LinearLayout f22110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f22029i;
+    public LinearLayout f22111i;
     public TabMenuPopView j;
     public View k;
     public Drawable l;
@@ -63,8 +63,8 @@ public class PostCategoryView extends TextView {
 
         @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
         public void b() {
-            if (PostCategoryView.this.f22027g != null) {
-                PostCategoryView.this.f22027g.dismiss();
+            if (PostCategoryView.this.f22109g != null) {
+                PostCategoryView.this.f22109g.dismiss();
             }
         }
     }
@@ -73,15 +73,15 @@ public class PostCategoryView extends TextView {
     public class c implements PopupWindow.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostCategoryView f22032e;
+        public final /* synthetic */ PostCategoryView f22114e;
 
         public c(PostCategoryView postCategoryView) {
-            this.f22032e = postCategoryView;
+            this.f22114e = postCategoryView;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            PostCategoryView postCategoryView = this.f22032e;
+            PostCategoryView postCategoryView = this.f22114e;
             if (postCategoryView != null) {
                 postCategoryView.e();
             }
@@ -90,8 +90,8 @@ public class PostCategoryView extends TextView {
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22025e = context;
-        this.f22026f = false;
+        this.f22107e = context;
+        this.f22108f = false;
         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_title_down);
         this.l = drawable;
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.l.getIntrinsicHeight());
@@ -100,12 +100,12 @@ public class PostCategoryView extends TextView {
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.l.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.l, null);
         setPadding(0, 0, l.g(getContext(), R.dimen.ds50), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22025e).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.f22028h = linearLayout;
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22107e).inflate(R.layout.pop_category, (ViewGroup) null);
+        this.f22110h = linearLayout;
         LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.pop_category_layout);
-        this.f22029i = linearLayout2;
+        this.f22111i = linearLayout2;
         this.j = (TabMenuPopView) linearLayout2.findViewById(R.id.pop_category_view);
-        View findViewById = this.f22028h.findViewById(R.id.pop_category_grav);
+        View findViewById = this.f22110h.findViewById(R.id.pop_category_grav);
         this.k = findViewById;
         findViewById.setOnClickListener(new a());
     }
@@ -113,7 +113,7 @@ public class PostCategoryView extends TextView {
     public void b() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
-        LinearLayout linearLayout = this.f22029i;
+        LinearLayout linearLayout = this.f22111i;
         if (linearLayout != null) {
             SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0201);
         }
@@ -124,34 +124,34 @@ public class PostCategoryView extends TextView {
     }
 
     public void c() {
-        MorePopupWindow morePopupWindow = this.f22027g;
+        MorePopupWindow morePopupWindow = this.f22109g;
         if (morePopupWindow != null) {
             morePopupWindow.dismiss();
         }
     }
 
     public final void d(PostCategoryView postCategoryView) {
-        if (this.f22027g == null) {
-            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f22025e, this.f22028h, this, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
-            this.f22027g = morePopupWindow;
+        if (this.f22109g == null) {
+            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f22107e, this.f22110h, this, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
+            this.f22109g = morePopupWindow;
             morePopupWindow.setOnDismissListener(new c(postCategoryView));
         }
     }
 
     public void e() {
-        if (this.f22026f) {
+        if (this.f22108f) {
             setCompoundDrawables(null, null, this.l, null);
-            this.f22026f = false;
+            this.f22108f = false;
         } else {
             d(this);
-            MorePopupWindow morePopupWindow = this.f22027g;
+            MorePopupWindow morePopupWindow = this.f22109g;
             if (morePopupWindow != null) {
                 morePopupWindow.refresh();
-                this.f22027g.setWidthAsWidthOfDeviceScreen((Activity) this.f22025e);
-                this.f22027g.setHeight(-1);
-                this.f22027g.showWindowInCustomPosition(0, 0);
+                this.f22109g.setWidthAsWidthOfDeviceScreen((Activity) this.f22107e);
+                this.f22109g.setHeight(-1);
+                this.f22109g.showWindowInCustomPosition(0, 0);
                 setCompoundDrawables(null, null, this.m, null);
-                this.f22026f = true;
+                this.f22108f = true;
             }
         }
         invalidate();

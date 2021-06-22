@@ -6,35 +6,35 @@ import org.json.JSONObject;
 public class LoadAdParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39079a;
+    public int f39177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoginType f39080b;
+    public LoginType f39178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39081c;
+    public String f39179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39082d;
+    public String f39180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39083e;
+    public String f39181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39084f;
+    public int f39182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39085g;
+    public String f39183g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map f39086h;
+    public Map f39184h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39087i;
+    public boolean f39185i;
     public JSONObject j;
 
     public int getBlockEffectValue() {
-        return this.f39084f;
+        return this.f39182f;
     }
 
     public JSONObject getExtraInfo() {
@@ -42,31 +42,31 @@ public class LoadAdParams {
     }
 
     public int getFlowSourceId() {
-        return this.f39079a;
+        return this.f39177a;
     }
 
     public String getLoginAppId() {
-        return this.f39081c;
+        return this.f39179c;
     }
 
     public String getLoginOpenid() {
-        return this.f39082d;
+        return this.f39180d;
     }
 
     public LoginType getLoginType() {
-        return this.f39080b;
+        return this.f39178b;
     }
 
     public Map getPassThroughInfo() {
-        return this.f39086h;
+        return this.f39184h;
     }
 
     public String getPassThroughInfoJsonString() {
         try {
-            if (this.f39086h == null || this.f39086h.size() <= 0) {
+            if (this.f39184h == null || this.f39184h.size() <= 0) {
                 return null;
             }
-            return new JSONObject(this.f39086h).toString();
+            return new JSONObject(this.f39184h).toString();
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -74,19 +74,19 @@ public class LoadAdParams {
     }
 
     public String getUin() {
-        return this.f39083e;
+        return this.f39181e;
     }
 
     public String getWXAppId() {
-        return this.f39085g;
+        return this.f39183g;
     }
 
     public boolean isHotStart() {
-        return this.f39087i;
+        return this.f39185i;
     }
 
     public void setBlockEffectValue(int i2) {
-        this.f39084f = i2;
+        this.f39182f = i2;
     }
 
     public void setExtraInfo(JSONObject jSONObject) {
@@ -94,38 +94,38 @@ public class LoadAdParams {
     }
 
     public void setFlowSourceId(int i2) {
-        this.f39079a = i2;
+        this.f39177a = i2;
     }
 
     public void setHotStart(boolean z) {
-        this.f39087i = z;
+        this.f39185i = z;
     }
 
     public void setLoginAppId(String str) {
-        this.f39081c = str;
+        this.f39179c = str;
     }
 
     public void setLoginOpenid(String str) {
-        this.f39082d = str;
+        this.f39180d = str;
     }
 
     public void setLoginType(LoginType loginType) {
-        this.f39080b = loginType;
+        this.f39178b = loginType;
     }
 
     public void setPassThroughInfo(Map map) {
-        this.f39086h = map;
+        this.f39184h = map;
     }
 
     public void setUin(String str) {
-        this.f39083e = str;
+        this.f39181e = str;
     }
 
     public void setWXAppId(String str) {
-        this.f39085g = str;
+        this.f39183g = str;
     }
 
     public String toString() {
-        return "LoadAdParams{flowSourceId=" + this.f39079a + ", loginType=" + this.f39080b + ", loginAppId=" + this.f39081c + ", loginOpenid=" + this.f39082d + ", uin=" + this.f39083e + ", blockEffect=" + this.f39084f + ", passThroughInfo=" + this.f39086h + ", extraInfo=" + this.j + '}';
+        return "LoadAdParams{flowSourceId=" + this.f39177a + ", loginType=" + this.f39178b + ", loginAppId=" + this.f39179c + ", loginOpenid=" + this.f39180d + ", uin=" + this.f39181e + ", blockEffect=" + this.f39182f + ", passThroughInfo=" + this.f39184h + ", extraInfo=" + this.j + '}';
     }
 }

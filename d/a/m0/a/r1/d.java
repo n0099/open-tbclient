@@ -1,0 +1,29 @@
+package d.a.m0.a.r1;
+
+import android.util.Log;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import d.a.m0.a.k;
+/* loaded from: classes3.dex */
+public class d implements d.a.m0.a.v2.e1.b<HybridUbcFlow> {
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final boolean f48216e = k.f46983a;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.m0.a.v2.e1.b
+    /* renamed from: a */
+    public void onCallback(HybridUbcFlow hybridUbcFlow) {
+        PMSAppInfo s;
+        if (f48216e) {
+            Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
+        }
+        if (hybridUbcFlow == null || (s = d.a.m0.n.g.a.h().s(d.a.m0.a.a2.d.g().getAppId())) == null) {
+            return;
+        }
+        UbcFlowEvent f2 = hybridUbcFlow.f("naStart");
+        s.e(f2 == null ? System.currentTimeMillis() : f2.g());
+        d.a.m0.n.g.a.h().w(s);
+    }
+}

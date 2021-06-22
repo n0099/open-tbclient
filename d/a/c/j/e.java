@@ -13,6 +13,7 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.ConnectManager;
 import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
@@ -25,36 +26,36 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public final class e {
-    public static final boolean q = a.f42853a;
+    public static final boolean q = a.f42956a;
     public static e r;
     public static HashMap<String, Integer> s;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42856a;
+    public String f42959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42857b;
+    public String f42960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42858c;
+    public String f42961c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42859d;
+    public String f42962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42860e;
+    public String f42963e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42861f;
+    public String f42964f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42862g;
+    public String f42965g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42863h;
+    public String f42966h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42864i;
+    public String f42967i;
     public String j;
     public String k;
     public SharedPreferences l;
@@ -204,7 +205,7 @@ public final class e {
     }
 
     public final String n() {
-        String str = this.f42862g + "_" + this.f42864i + "_" + Build.VERSION.SDK_INT + "_" + this.f42863h;
+        String str = this.f42965g + "_" + this.f42967i + "_" + Build.VERSION.SDK_INT + "_" + this.f42966h;
         if (q) {
             Log.d(TitanDownloadService.TAG, "device info : " + str);
         }
@@ -221,10 +222,10 @@ public final class e {
     }
 
     public final String q() {
-        if (this.f42861f == null) {
-            this.f42861f = r(this.n);
+        if (this.f42964f == null) {
+            this.f42964f = r(this.n);
         }
-        return this.f42861f;
+        return this.f42964f;
     }
 
     public final String r(Context context) {
@@ -248,10 +249,10 @@ public final class e {
     }
 
     public String s() {
-        if (this.f42860e == null) {
-            this.f42860e = t(this.n);
+        if (this.f42963e == null) {
+            this.f42963e = t(this.n);
         }
-        return this.f42860e;
+        return this.f42963e;
     }
 
     public final String t(Context context) {
@@ -269,7 +270,7 @@ public final class e {
     }
 
     public String toString() {
-        return "BaiduIdentityManager [mUid=" + this.f42856a + ", mEnUid=" + this.f42857b + ", mUa=" + this.f42858c + ", mEnUa=" + this.f42859d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.f42862g + ", mManufacturer=" + this.f42863h + ", mOSVersion=" + this.f42864i + ", mDeviceInfo=" + this.j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=]";
+        return "BaiduIdentityManager [mUid=" + this.f42959a + ", mEnUid=" + this.f42960b + ", mUa=" + this.f42961c + ", mEnUa=" + this.f42962d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.f42965g + ", mManufacturer=" + this.f42966h + ", mOSVersion=" + this.f42967i + ", mDeviceInfo=" + this.j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public final String u(Context context) {
@@ -309,30 +310,30 @@ public final class e {
     public final void x() {
         this.l = this.n.getSharedPreferences("identity", 0);
         String v = v(this.n);
-        this.f42856a = v;
+        this.f42959a = v;
         if (!TextUtils.isEmpty(v)) {
-            this.f42857b = new String(Base64Encoder.B64Encode(this.f42856a.getBytes()));
+            this.f42960b = new String(Base64Encoder.B64Encode(this.f42959a.getBytes()));
         }
         String str = Build.MODEL;
-        this.f42862g = str;
+        this.f42965g = str;
         if (TextUtils.isEmpty(str)) {
-            this.f42862g = "NUL";
+            this.f42965g = "NUL";
         } else {
-            this.f42862g = this.f42862g.replace("_", "-");
+            this.f42965g = this.f42965g.replace("_", "-");
         }
         String str2 = Build.MANUFACTURER;
-        this.f42863h = str2;
+        this.f42966h = str2;
         if (TextUtils.isEmpty(str2)) {
-            this.f42863h = "NUL";
+            this.f42966h = "NUL";
         } else {
-            this.f42863h = this.f42863h.replace("_", "-");
+            this.f42966h = this.f42966h.replace("_", "-");
         }
         String str3 = Build.VERSION.RELEASE;
-        this.f42864i = str3;
+        this.f42967i = str3;
         if (TextUtils.isEmpty(str3)) {
-            this.f42864i = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+            this.f42967i = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
         } else {
-            this.f42864i = this.f42864i.replace("_", "-");
+            this.f42967i = this.f42967i.replace("_", "-");
         }
         this.j = n();
         this.k = new String(Base64Encoder.B64Encode(this.j.getBytes()));
@@ -348,8 +349,8 @@ public final class e {
     }
 
     public final synchronized void y() {
-        this.f42858c = u(this.n);
-        this.f42859d = new String(Base64Encoder.B64Encode(this.f42858c.getBytes()));
+        this.f42961c = u(this.n);
+        this.f42962d = new String(Base64Encoder.B64Encode(this.f42961c.getBytes()));
     }
 
     public String z(String str) {
@@ -358,8 +359,8 @@ public final class e {
                 x();
             }
             String o = o(this.j);
-            String o2 = o(this.f42857b);
-            return g(a(e(f(g(g(c(g(str, "uid", o2)), "ua", o(this.f42858c)), "ut", o)), false)), SocialConstants.PARAM_TYPE_ID, "0");
+            String o2 = o(this.f42960b);
+            return g(a(e(f(g(g(c(g(str, "uid", o2)), "ua", o(this.f42961c)), "ut", o)), false)), SocialConstants.PARAM_TYPE_ID, "0");
         } catch (Throwable unused) {
             return b(str);
         }

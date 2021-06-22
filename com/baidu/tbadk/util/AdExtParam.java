@@ -2,7 +2,7 @@ package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
 import com.google.gson.Gson;
-import d.a.m0.z0.d;
+import d.a.n0.z0.d;
 import java.util.HashMap;
 @Keep
 /* loaded from: classes3.dex */
@@ -19,51 +19,51 @@ public class AdExtParam {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public HashMap f13012a;
+        public HashMap f13094a;
 
         public static a b() {
             a aVar = new a();
             HashMap hashMap = new HashMap();
-            aVar.f13012a = hashMap;
+            aVar.f13094a = hashMap;
             hashMap.put("iadex", d.e());
             return aVar;
         }
 
         public String a() {
             try {
-                return new Gson().toJson(this.f13012a);
+                return new Gson().toJson(this.f13094a);
             } catch (Exception unused) {
                 return "";
             }
         }
 
         public a c(String str) {
-            this.f13012a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+            this.f13094a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
         public a d(String str) {
-            this.f13012a.put("shoubai_cuid", str);
+            this.f13094a.put("shoubai_cuid", str);
             return this;
         }
 
         public a e(String str) {
-            this.f13012a.put(AdExtParam.KEY_FLOOR_INFO, str);
+            this.f13094a.put(AdExtParam.KEY_FLOOR_INFO, str);
             return this;
         }
 
         public a f(String str) {
-            this.f13012a.put("forum_name", str);
+            this.f13094a.put("forum_name", str);
             return this;
         }
 
         public a g(int i2) {
-            this.f13012a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i2));
+            this.f13094a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i2));
             return this;
         }
 
         public a h(int i2) {
-            this.f13012a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i2));
+            this.f13094a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i2));
             return this;
         }
     }

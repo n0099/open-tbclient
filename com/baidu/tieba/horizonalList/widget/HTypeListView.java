@@ -12,44 +12,44 @@ import java.util.List;
 public class HTypeListView extends HListView {
 
     /* renamed from: e  reason: collision with root package name */
-    public TypeAdapter f16804e;
+    public TypeAdapter f16886e;
 
     public HTypeListView(Context context) {
         super(context);
-        this.f16804e = null;
+        this.f16886e = null;
         b();
     }
 
     public void a(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.f16804e.c(it.next());
+            this.f16886e.c(it.next());
         }
-        setAdapter((ListAdapter) this.f16804e);
+        setAdapter((ListAdapter) this.f16886e);
     }
 
     public final void b() {
-        if (this.f16804e == null) {
-            this.f16804e = new TypeAdapter();
+        if (this.f16886e == null) {
+            this.f16886e = new TypeAdapter();
         }
     }
 
     public List<n> getData() {
-        return this.f16804e.d();
+        return this.f16886e.d();
     }
 
     public void setData(List<? extends n> list) {
-        this.f16804e.h(list);
+        this.f16886e.h(list);
     }
 
     public HTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16804e = null;
+        this.f16886e = null;
         b();
     }
 
     public HTypeListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16804e = null;
+        this.f16886e = null;
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39385a = false;
+    public static boolean f39483a = false;
 
     public static boolean a(Context context) {
         Long c2 = com.sdk.base.framework.f.b.a.c(context, "access_limit_time");

@@ -9,10 +9,10 @@ import d.b.b.n1;
 public abstract class u0<SERVICE> implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f68840a;
+    public final String f68944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t0<Boolean> f68841b = new a();
+    public t0<Boolean> f68945b = new a();
 
     /* loaded from: classes6.dex */
     public class a extends t0<Boolean> {
@@ -23,12 +23,12 @@ public abstract class u0<SERVICE> implements g1 {
         @Override // d.b.b.t0
         /* renamed from: c */
         public Boolean a(Object... objArr) {
-            return Boolean.valueOf(z0.b((Context) objArr[0], u0.this.f68840a));
+            return Boolean.valueOf(z0.b((Context) objArr[0], u0.this.f68944a));
         }
     }
 
     public u0(String str) {
-        this.f68840a = str;
+        this.f68944a = str;
     }
 
     @Override // d.b.b.g1
@@ -36,7 +36,7 @@ public abstract class u0<SERVICE> implements g1 {
         if (context == null) {
             return false;
         }
-        return this.f68841b.b(context).booleanValue();
+        return this.f68945b.b(context).booleanValue();
     }
 
     @Override // d.b.b.g1
@@ -53,7 +53,7 @@ public abstract class u0<SERVICE> implements g1 {
             return null;
         }
         g1.a aVar = new g1.a();
-        aVar.f68754a = str;
+        aVar.f68858a = str;
         return aVar;
     }
 }

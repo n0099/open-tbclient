@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
@@ -498,7 +499,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         sb.append(" ,");
         sb.append(" mSessionFrom=");
         sb.append(this.mSessionFrom);
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

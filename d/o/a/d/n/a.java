@@ -18,7 +18,7 @@ public class a {
 
     /* renamed from: d.o.a.d.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1938a implements Runnable {
+    public static class RunnableC1941a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
             d.o.a.e.a.h.c.i();
@@ -30,9 +30,9 @@ public class a {
     public static class b implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f70774e;
+        public Object f70878e;
 
-        public /* synthetic */ b(Object obj, RunnableC1938a runnableC1938a) {
+        public /* synthetic */ b(Object obj, RunnableC1941a runnableC1941a) {
             this(obj);
         }
 
@@ -44,11 +44,11 @@ public class a {
                 }
             } catch (Throwable unused) {
             }
-            return method.invoke(this.f70774e, objArr);
+            return method.invoke(this.f70878e, objArr);
         }
 
         public b(Object obj) {
-            this.f70774e = obj;
+            this.f70878e = obj;
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
         if (n.s().optInt("hook", 0) != 1) {
             return;
         }
-        d.o.a.d.i.a().c(new RunnableC1938a(), 10000L);
+        d.o.a.d.i.a().c(new RunnableC1941a(), 10000L);
     }
 
     public static void d(Object[] objArr) {
         if (n.s().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
             Intent intent = (Intent) objArr[2];
-            if ("android.intent.action.VIEW".equals(intent.getAction()) && d.o.a.e.b.d.c.f70964a.equals(intent.getType())) {
+            if ("android.intent.action.VIEW".equals(intent.getAction()) && d.o.a.e.b.d.c.f71068a.equals(intent.getType())) {
                 if (d.o.a.e.a.h.c.e()) {
                     String optString = n.s().optString("hook_vivo_arg", "com.android.settings");
                     if (StringUtil.NULL_STRING.equals(optString)) {
@@ -85,21 +85,21 @@ public class a {
                     objArr[1] = optString;
                 } else if (d.o.a.e.a.h.c.f()) {
                     JSONObject s = n.s();
-                    String optString2 = s.optString("hook_kllk_arg1", "com." + d.o.a.e.b.d.c.f70966c + ".market");
+                    String optString2 = s.optString("hook_kllk_arg1", "com." + d.o.a.e.b.d.c.f71070c + ".market");
                     if (!StringUtil.NULL_STRING.equals(optString2)) {
                         objArr[1] = optString2;
                     }
                     String optString3 = n.s().optString("hook_kllk_arg2", "com.android.browser");
                     JSONObject s2 = n.s();
-                    String optString4 = s2.optString("hook_kllk_arg3", "m.store." + d.o.a.e.b.d.c.f70966c + "mobile.com");
+                    String optString4 = s2.optString("hook_kllk_arg3", "m.store." + d.o.a.e.b.d.c.f71070c + "mobile.com");
                     StringBuilder sb = new StringBuilder();
-                    sb.append(d.o.a.e.b.d.c.f70966c);
+                    sb.append(d.o.a.e.b.d.c.f71070c);
                     sb.append("_extra_pkg_name");
                     intent.putExtra(sb.toString(), optString3);
                     intent.putExtra("refererHost", optString4);
                     if (n.s().optInt("hook_kllk_arg4", 0) == 1) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(d.o.a.e.b.d.c.f70966c + "_extra_pkg_name", optString3);
+                        intent2.putExtra(d.o.a.e.b.d.c.f71070c + "_extra_pkg_name", optString3);
                         intent2.putExtra("refererHost", optString4);
                         intent.putExtra("android.intent.extra.INTENT", intent2);
                     }

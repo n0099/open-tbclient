@@ -1,209 +1,105 @@
 package d.a.j0;
-
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import d.a.j0.l.k;
 /* loaded from: classes2.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f43929a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43930b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43931c;
-
-    /* renamed from: d.a.j0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0605a {
-        void onFinish(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public class b implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43932e;
-
-        public b(Context context) {
-            this.f43932e = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                a.this.e(this.f43932e);
-                d.a.j0.e.c.j().d(this.f43932e);
-            } catch (Throwable th) {
-                d.a.j0.l.c.d(th);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class c implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43934e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f43935f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0605a f43936g;
-
-        public c(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
-            this.f43934e = context;
-            this.f43935f = j;
-            this.f43936g = interfaceC0605a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                d.a.j0.e.c.j().e(this.f43934e, 0, null, this.f43935f, this.f43936g);
-            } catch (Throwable th) {
-                d.a.j0.l.c.d(th);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class d implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43937e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f43938f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0605a f43939g;
-
-        public d(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
-            this.f43937e = context;
-            this.f43938f = j;
-            this.f43939g = interfaceC0605a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                d.a.j0.e.c.j().f(this.f43937e, this.f43938f, this.f43939g);
-            } catch (Throwable th) {
-                d.a.j0.l.c.d(th);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class e implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43940e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f43941f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0605a f43942g;
-
-        public e(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
-            this.f43940e = context;
-            this.f43941f = j;
-            this.f43942g = interfaceC0605a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                d.a.j0.e.c.j().l(this.f43940e, this.f43941f, this.f43942g);
-            } catch (Throwable th) {
-                d.a.j0.l.c.d(th);
-            }
-        }
-    }
-
-    public static a c() {
-        if (f43929a == null) {
-            synchronized (a.class) {
-                if (f43929a == null) {
-                    f43929a = new a();
-                }
-            }
-        }
-        return f43929a;
-    }
-
-    public String b(Context context) {
-        int intValue = ((Integer) k.d(context).second).intValue();
-        if (intValue == 1) {
-            return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
-        }
-        if (intValue == 3) {
-            return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
-        }
-        if (intValue == 2) {
-            return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
-        }
-        return null;
-    }
-
-    public synchronized void d(Context context, String str, String str2) {
-        try {
-            f43930b = str;
-            f43931c = str2;
-            d.a.j0.k.b.a().post(new b(context));
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-    }
-
-    public final void e(Context context) {
-        String l0 = d.a.j0.b.a.h(context).l0();
-        if (TextUtils.isEmpty(l0)) {
-            return;
-        }
-        String[] split = l0.split("_");
-        if (split.length != 2) {
-            d.a.j0.b.a.h(context).j();
-        }
-        f43930b = split[0];
-        f43931c = split[1];
-    }
-
-    public void f(Context context, long j, InterfaceC0605a interfaceC0605a) {
-        try {
-            d.a.j0.k.b.a().post(new d(this, context, j, interfaceC0605a));
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-    }
-
-    public void g(Context context, long j, InterfaceC0605a interfaceC0605a) {
-        try {
-            d.a.j0.k.b.a().post(new c(this, context, j, interfaceC0605a));
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-    }
-
-    public void h(Context context, boolean z) {
-        try {
-            d.a.j0.b.a.h(context).R(z);
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-    }
-
-    public void i(Context context, long j, InterfaceC0605a interfaceC0605a) {
-        try {
-            d.a.j0.k.b.a().post(new e(this, context, j, interfaceC0605a));
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-    }
+public final class a {
+    public static final int abc_ab_share_pack_mtrl_alpha = 2131230856;
+    public static final int abc_action_bar_item_background_material = 2131230857;
+    public static final int abc_btn_borderless_material = 2131230858;
+    public static final int abc_btn_check_material = 2131230859;
+    public static final int abc_btn_check_to_on_mtrl_000 = 2131230861;
+    public static final int abc_btn_check_to_on_mtrl_015 = 2131230862;
+    public static final int abc_btn_colored_material = 2131230863;
+    public static final int abc_btn_default_mtrl_shape = 2131230864;
+    public static final int abc_btn_radio_material = 2131230865;
+    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230867;
+    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230868;
+    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230869;
+    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230870;
+    public static final int abc_cab_background_internal_bg = 2131230871;
+    public static final int abc_cab_background_top_material = 2131230872;
+    public static final int abc_cab_background_top_mtrl_alpha = 2131230873;
+    public static final int abc_control_background_material = 2131230874;
+    public static final int abc_dialog_material_background = 2131230875;
+    public static final int abc_edit_text_material = 2131230876;
+    public static final int abc_ic_ab_back_material = 2131230877;
+    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230878;
+    public static final int abc_ic_clear_material = 2131230879;
+    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230880;
+    public static final int abc_ic_go_search_api_material = 2131230881;
+    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230882;
+    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230883;
+    public static final int abc_ic_menu_overflow_material = 2131230884;
+    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230885;
+    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230886;
+    public static final int abc_ic_menu_share_mtrl_alpha = 2131230887;
+    public static final int abc_ic_search_api_material = 2131230888;
+    public static final int abc_ic_star_black_16dp = 2131230889;
+    public static final int abc_ic_star_black_36dp = 2131230890;
+    public static final int abc_ic_star_black_48dp = 2131230891;
+    public static final int abc_ic_star_half_black_16dp = 2131230892;
+    public static final int abc_ic_star_half_black_36dp = 2131230893;
+    public static final int abc_ic_star_half_black_48dp = 2131230894;
+    public static final int abc_ic_voice_search_api_material = 2131230895;
+    public static final int abc_item_background_holo_dark = 2131230896;
+    public static final int abc_item_background_holo_light = 2131230897;
+    public static final int abc_list_divider_material = 2131230898;
+    public static final int abc_list_divider_mtrl_alpha = 2131230899;
+    public static final int abc_list_focused_holo = 2131230900;
+    public static final int abc_list_longpressed_holo = 2131230901;
+    public static final int abc_list_pressed_holo_dark = 2131230902;
+    public static final int abc_list_pressed_holo_light = 2131230903;
+    public static final int abc_list_selector_background_transition_holo_dark = 2131230904;
+    public static final int abc_list_selector_background_transition_holo_light = 2131230905;
+    public static final int abc_list_selector_disabled_holo_dark = 2131230906;
+    public static final int abc_list_selector_disabled_holo_light = 2131230907;
+    public static final int abc_list_selector_holo_dark = 2131230908;
+    public static final int abc_list_selector_holo_light = 2131230909;
+    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230910;
+    public static final int abc_popup_background_mtrl_mult = 2131230911;
+    public static final int abc_ratingbar_indicator_material = 2131230912;
+    public static final int abc_ratingbar_material = 2131230913;
+    public static final int abc_ratingbar_small_material = 2131230914;
+    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230915;
+    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230916;
+    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230917;
+    public static final int abc_scrubber_primary_mtrl_alpha = 2131230918;
+    public static final int abc_scrubber_track_mtrl_alpha = 2131230919;
+    public static final int abc_seekbar_thumb_material = 2131230920;
+    public static final int abc_seekbar_tick_mark_material = 2131230921;
+    public static final int abc_seekbar_track_material = 2131230922;
+    public static final int abc_spinner_mtrl_am_alpha = 2131230923;
+    public static final int abc_spinner_textfield_background_material = 2131230924;
+    public static final int abc_switch_thumb_material = 2131230925;
+    public static final int abc_switch_track_mtrl_alpha = 2131230926;
+    public static final int abc_tab_indicator_material = 2131230927;
+    public static final int abc_tab_indicator_mtrl_alpha = 2131230928;
+    public static final int abc_text_cursor_material = 2131230929;
+    public static final int abc_text_select_handle_left_mtrl_dark = 2131230930;
+    public static final int abc_text_select_handle_left_mtrl_light = 2131230931;
+    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230932;
+    public static final int abc_text_select_handle_middle_mtrl_light = 2131230933;
+    public static final int abc_text_select_handle_right_mtrl_dark = 2131230934;
+    public static final int abc_text_select_handle_right_mtrl_light = 2131230935;
+    public static final int abc_textfield_activated_mtrl_alpha = 2131230936;
+    public static final int abc_textfield_default_mtrl_alpha = 2131230937;
+    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230938;
+    public static final int abc_textfield_search_default_mtrl_alpha = 2131230939;
+    public static final int abc_textfield_search_material = 2131230940;
+    public static final int abc_vector_test = 2131230941;
+    public static final int bd_bg_square_round_corner_blue = 2131231334;
+    public static final int bd_progress_bar_horizontal_blue = 2131231349;
+    public static final int ic_stat_bd_notif_download = 2131233347;
+    public static final int notification_action_background = 2131235938;
+    public static final int notification_bg = 2131235939;
+    public static final int notification_bg_low = 2131235940;
+    public static final int notification_bg_low_normal = 2131235941;
+    public static final int notification_bg_low_pressed = 2131235942;
+    public static final int notification_bg_normal = 2131235943;
+    public static final int notification_bg_normal_pressed = 2131235944;
+    public static final int notification_icon_background = 2131235945;
+    public static final int notification_template_icon_bg = 2131235946;
+    public static final int notification_template_icon_low_bg = 2131235947;
+    public static final int notification_tile_bg = 2131235948;
+    public static final int notify_panel_notification_icon_bg = 2131235950;
+    public static final int tooltip_frame_dark = 2131237340;
+    public static final int tooltip_frame_light = 2131237341;
 }

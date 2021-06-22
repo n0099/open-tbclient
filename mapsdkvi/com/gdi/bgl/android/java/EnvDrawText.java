@@ -14,7 +14,7 @@ import java.nio.IntBuffer;
 public class EnvDrawText {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f72345a = "EnvDrawText";
+    public static final String f72449a = "EnvDrawText";
     public static boolean bBmpChange = false;
     public static Bitmap bmp;
     public static int[] buffer;
@@ -81,7 +81,7 @@ public class EnvDrawText {
             textPaint3.setSubpixelText(true);
             textPaint3.setAntiAlias(true);
             if (i22 != 0 && fontCache != null && (aVar = fontCache.get(i22)) != null) {
-                textPaint3.setTypeface(aVar.f72346a);
+                textPaint3.setTypeface(aVar.f72450a);
             }
             textPaint3.setTextSize(f2);
             int indexOf2 = str.indexOf(92, 0);
@@ -679,11 +679,11 @@ public class EnvDrawText {
             a aVar = fontCache.get(i2);
             if (aVar == null) {
                 a aVar2 = new a();
-                aVar2.f72346a = typeface;
-                aVar2.f72347b++;
+                aVar2.f72450a = typeface;
+                aVar2.f72451b++;
                 fontCache.put(i2, aVar2);
             } else {
-                aVar.f72347b++;
+                aVar.f72451b++;
             }
         }
     }
@@ -694,8 +694,8 @@ public class EnvDrawText {
             if (aVar == null) {
                 return;
             }
-            int i3 = aVar.f72347b - 1;
-            aVar.f72347b = i3;
+            int i3 = aVar.f72451b - 1;
+            aVar.f72451b = i3;
             if (i3 == 0) {
                 fontCache.remove(i2);
             }

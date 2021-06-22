@@ -4,14 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34242a;
+    public Context f34340a;
 
     public h(Context context) {
-        this.f34242a = context;
+        this.f34340a = context;
     }
 
     public String a() {
@@ -19,7 +19,7 @@ public class h {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f34242a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                cursor = this.f34340a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
                 if (cursor != null && cursor.moveToNext()) {
                     str = cursor.getString(cursor.getColumnIndex("value"));
                     com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID oaid:" + str);

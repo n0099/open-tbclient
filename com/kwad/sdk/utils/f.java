@@ -6,9 +6,9 @@ import java.util.concurrent.Executors;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Executor f37527a = Executors.newCachedThreadPool();
+    public static volatile Executor f37625a = Executors.newCachedThreadPool();
 
     public static void a(Runnable runnable) {
-        f37527a.execute(runnable);
+        f37625a.execute(runnable);
     }
 }

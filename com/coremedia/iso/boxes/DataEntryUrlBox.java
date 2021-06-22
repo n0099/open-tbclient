@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class DataEntryUrlBox extends AbstractFullBox {
     public static final String TYPE = "url ";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

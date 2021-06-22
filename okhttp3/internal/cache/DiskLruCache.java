@@ -2,6 +2,7 @@ package okhttp3.internal.cache;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.File;
@@ -383,7 +384,7 @@ public final class DiskLruCache implements Closeable, Flushable {
             String readUtf8LineStrict4 = buffer.readUtf8LineStrict();
             String readUtf8LineStrict5 = buffer.readUtf8LineStrict();
             if (!"libcore.io.DiskLruCache".equals(readUtf8LineStrict) || !"1".equals(readUtf8LineStrict2) || !Integer.toString(this.appVersion).equals(readUtf8LineStrict3) || !Integer.toString(this.valueCount).equals(readUtf8LineStrict4) || !"".equals(readUtf8LineStrict5)) {
-                throw new IOException("unexpected journal header: [" + readUtf8LineStrict + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict5 + "]");
+                throw new IOException("unexpected journal header: [" + readUtf8LineStrict + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict5 + PreferencesUtil.RIGHT_MOUNT);
             }
             int i2 = 0;
             while (true) {

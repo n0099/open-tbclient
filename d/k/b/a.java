@@ -8,37 +8,37 @@ public class a {
 
     /* renamed from: d.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1916a {
+    public static class C1919a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Object f70194a;
+        public static Object f70298a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static Class<?> f70195b;
+        public static Class<?> f70299b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Method f70196c;
+        public static Method f70300c;
 
         static {
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                f70195b = cls;
-                f70194a = cls.newInstance();
-                f70195b.getMethod("getUDID", Context.class);
-                f70196c = f70195b.getMethod("getOAID", Context.class);
-                f70195b.getMethod("getVAID", Context.class);
-                f70195b.getMethod("getAAID", Context.class);
+                f70299b = cls;
+                f70298a = cls.newInstance();
+                f70299b.getMethod("getUDID", Context.class);
+                f70300c = f70299b.getMethod("getOAID", Context.class);
+                f70299b.getMethod("getVAID", Context.class);
+                f70299b.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static String a(Context context) {
-            return b(context, f70196c);
+            return b(context, f70300c);
         }
 
         public static String b(Context context, Method method) {
-            Object obj = f70194a;
+            Object obj = f70298a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -55,15 +55,15 @@ public class a {
         }
 
         public static boolean c() {
-            return (f70195b == null || f70194a == null) ? false : true;
+            return (f70299b == null || f70298a == null) ? false : true;
         }
     }
 
     public static String a(Context context) {
-        return C1916a.a(context.getApplicationContext());
+        return C1919a.a(context.getApplicationContext());
     }
 
     public static boolean b() {
-        return C1916a.c();
+        return C1919a.c();
     }
 }

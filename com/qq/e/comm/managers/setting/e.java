@@ -15,20 +15,20 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f39142a;
+    public JSONObject f39240a;
 
     /* loaded from: classes7.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f39143a;
+        public final String f39241a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f39144b;
+        public final T f39242b;
 
         public a(String str, T t) {
-            this.f39143a = str;
-            this.f39144b = t;
+            this.f39241a = str;
+            this.f39242b = t;
         }
 
         public /* synthetic */ a(String str, Object obj, byte b2) {
@@ -36,11 +36,11 @@ public class e {
         }
 
         public final String a() {
-            return this.f39143a;
+            return this.f39241a;
         }
 
         public final T b() {
-            return this.f39144b;
+            return this.f39242b;
         }
     }
 
@@ -53,13 +53,13 @@ public class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f39142a = new JSONObject(str);
+                this.f39240a = new JSONObject(str);
             } catch (JSONException e2) {
                 GDTLogger.e("JsonException While build" + simpleName + " Instance from JSON", e2);
             }
         }
-        if (this.f39142a == null) {
-            this.f39142a = new JSONObject();
+        if (this.f39240a == null) {
+            this.f39240a = new JSONObject();
         }
     }
 

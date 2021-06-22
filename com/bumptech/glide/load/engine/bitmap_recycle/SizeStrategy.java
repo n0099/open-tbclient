@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 @RequiresApi(19)
@@ -131,6 +132,6 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     public static String getBitmapString(int i2) {
-        return "[" + i2 + "]";
+        return PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT;
     }
 }

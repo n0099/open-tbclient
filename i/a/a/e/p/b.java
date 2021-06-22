@@ -11,36 +11,36 @@ import tv.athena.revenue.payui.webview.UrlPageParams;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Gson f72240c = new Gson();
+    public static Gson f72344c = new Gson();
 
     /* renamed from: a  reason: collision with root package name */
-    public f f72241a;
+    public f f72345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f72242b = new Handler(Looper.getMainLooper());
+    public Handler f72346b = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f72243e;
+        public final /* synthetic */ int f72347e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UrlPageParams f72244f;
+        public final /* synthetic */ UrlPageParams f72348f;
 
         public a(int i2, UrlPageParams urlPageParams) {
-            this.f72243e = i2;
-            this.f72244f = urlPageParams;
+            this.f72347e = i2;
+            this.f72348f = urlPageParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f72241a != null) {
-                if (this.f72243e == 1) {
-                    b.this.f72241a.b(this.f72244f);
+            if (b.this.f72345a != null) {
+                if (this.f72347e == 1) {
+                    b.this.f72345a.b(this.f72348f);
                 }
-                if (this.f72243e == 3) {
-                    b.this.f72241a.a(this.f72244f);
+                if (this.f72347e == 3) {
+                    b.this.f72345a.a(this.f72348f);
                 }
             }
         }
@@ -48,14 +48,14 @@ public class b {
 
     /* renamed from: i.a.a.e.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC1997b implements Runnable {
-        public RunnableC1997b() {
+    public class RunnableC2000b implements Runnable {
+        public RunnableC2000b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f72241a != null) {
-                b.this.f72241a.onNativeOperation(new NativeOperationParams(2));
+            if (b.this.f72345a != null) {
+                b.this.f72345a.onNativeOperation(new NativeOperationParams(2));
             }
         }
     }
@@ -64,16 +64,16 @@ public class b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f72247e;
+        public final /* synthetic */ String f72351e;
 
         public c(String str) {
-            this.f72247e = str;
+            this.f72351e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f72241a != null) {
-                b.this.f72241a.onNativeOperation(new NativeOperationParams(5, this.f72247e));
+            if (b.this.f72345a != null) {
+                b.this.f72345a.onNativeOperation(new NativeOperationParams(5, this.f72351e));
             }
         }
     }
@@ -82,16 +82,16 @@ public class b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f72249e;
+        public final /* synthetic */ String f72353e;
 
         public d(String str) {
-            this.f72249e = str;
+            this.f72353e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f72241a != null) {
-                b.this.f72241a.onNativeOperation(new NativeOperationParams(4, this.f72249e));
+            if (b.this.f72345a != null) {
+                b.this.f72345a.onNativeOperation(new NativeOperationParams(4, this.f72353e));
             }
         }
     }
@@ -100,16 +100,16 @@ public class b {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f72251e;
+        public final /* synthetic */ String f72355e;
 
         public e(String str) {
-            this.f72251e = str;
+            this.f72355e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f72241a != null) {
-                b.this.f72241a.onNativeOperation(new NativeOperationParams(6, this.f72251e));
+            if (b.this.f72345a != null) {
+                b.this.f72345a.onNativeOperation(new NativeOperationParams(6, this.f72355e));
             }
         }
     }
@@ -126,14 +126,14 @@ public class b {
     }
 
     public b(f fVar) {
-        this.f72241a = fVar;
+        this.f72345a = fVar;
     }
 
     public final void b(Runnable runnable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             runnable.run();
         } else {
-            this.f72242b.post(runnable);
+            this.f72346b.post(runnable);
         }
     }
 
@@ -152,7 +152,7 @@ public class b {
                 String str2 = i2 == 1 ? "CODE_OPEN_URL_PAGE" : "CODE_UPFATE_TOP_INFO";
                 UrlPageParams urlPageParams2 = null;
                 try {
-                    urlPageParams = (UrlPageParams) f72240c.fromJson(str, (Class<Object>) UrlPageParams.class);
+                    urlPageParams = (UrlPageParams) f72344c.fromJson(str, (Class<Object>) UrlPageParams.class);
                     try {
                         RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
                     } catch (Throwable th) {
@@ -160,37 +160,37 @@ public class b {
                         urlPageParams2 = urlPageParams;
                         RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
                         urlPageParams = urlPageParams2;
-                        if (this.f72241a == null) {
+                        if (this.f72345a == null) {
                         }
                     }
                 } catch (Throwable th2) {
                     th = th2;
                 }
-                if (this.f72241a == null) {
+                if (this.f72345a == null) {
                     b(new a(i2, urlPageParams));
                     return;
                 }
                 return;
             case 2:
-                if (this.f72241a != null) {
-                    b(new RunnableC1997b());
+                if (this.f72345a != null) {
+                    b(new RunnableC2000b());
                     return;
                 }
                 return;
             case 4:
-                if (this.f72241a != null) {
+                if (this.f72345a != null) {
                     b(new d(str));
                     return;
                 }
                 return;
             case 5:
-                if (this.f72241a != null) {
+                if (this.f72345a != null) {
                     b(new c(str));
                     return;
                 }
                 return;
             case 6:
-                if (this.f72241a != null) {
+                if (this.f72345a != null) {
                     b(new e(str));
                     return;
                 }
@@ -202,7 +202,7 @@ public class b {
 
     @JavascriptInterface
     public String getToken() {
-        f fVar = this.f72241a;
+        f fVar = this.f72345a;
         if (fVar != null) {
             return fVar.getToken();
         }

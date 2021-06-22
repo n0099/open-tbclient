@@ -47,39 +47,39 @@ import org.json.JSONObject;
 public class BaiduPayServiceController {
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f22996a;
+    public ILightappInvokerCallback f23078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoginBackListenerProxy f22997b;
+    public LoginBackListenerProxy f23079b;
 
     /* renamed from: com.baidu.wallet.BaiduPayServiceController$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass2 implements IBeanResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Handler f23001a;
+        public final Handler f23083a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f23002b;
+        public final /* synthetic */ Context f23084b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f23003c;
+        public final /* synthetic */ boolean f23085c;
 
         public AnonymousClass2(Context context, boolean z) {
-            this.f23002b = context;
-            this.f23003c = z;
-            this.f23001a = new Handler(this.f23002b.getMainLooper());
+            this.f23084b = context;
+            this.f23085c = z;
+            this.f23083a = new Handler(this.f23084b.getMainLooper());
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             WalletGlobalUtils.DismissLoadingDialog();
             if (i3 == 100035 || i3 == 100036) {
-                PassUtil.passNormalized(this.f23002b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.BaiduPayServiceController.2.2
+                PassUtil.passNormalized(this.f23084b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.BaiduPayServiceController.2.2
                     @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
                     public boolean onNormalize(final Context context, int i4, Map<String, String> map) {
                         if (super.onNormalize(context, i4, map)) {
-                            AnonymousClass2.this.f23001a.post(new Runnable() { // from class: com.baidu.wallet.BaiduPayServiceController.2.2.1
+                            AnonymousClass2.this.f23083a.post(new Runnable() { // from class: com.baidu.wallet.BaiduPayServiceController.2.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     BaiduPayServiceController.this.a(context);
@@ -99,15 +99,15 @@ public class BaiduPayServiceController {
             WalletGlobalUtils.DismissLoadingDialog();
             DirectPayContentResponse directPayContentResponse = (DirectPayContentResponse) obj;
             if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null && userModel.hasMobilePwd()) {
-                Intent intent = new Intent(this.f23002b, PwdManagerActivity.class);
-                if (!(this.f23002b instanceof Activity)) {
+                Intent intent = new Intent(this.f23084b, PwdManagerActivity.class);
+                if (!(this.f23084b instanceof Activity)) {
                     intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
-                intent.putExtra("with_anim", this.f23003c);
-                this.f23002b.startActivity(intent);
-                Context context = this.f23002b;
+                intent.putExtra("with_anim", this.f23085c);
+                this.f23084b.startActivity(intent);
+                Context context = this.f23084b;
                 if (context instanceof Activity) {
-                    if (this.f23003c) {
+                    if (this.f23085c) {
                         BaiduWalletUtils.startActivityAnim(context);
                         return;
                     } else {
@@ -117,18 +117,18 @@ public class BaiduPayServiceController {
                 }
                 return;
             }
-            PasswordController.getPassWordInstance().setPasswdByUser(this.f23002b, new BaiduPay.IBindCardCallback() { // from class: com.baidu.wallet.BaiduPayServiceController.2.1
+            PasswordController.getPassWordInstance().setPasswdByUser(this.f23084b, new BaiduPay.IBindCardCallback() { // from class: com.baidu.wallet.BaiduPayServiceController.2.1
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
                 public void onChangeFailed(String str2) {
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
                 public void onChangeSucceed(String str2) {
-                    AnonymousClass2.this.f23001a.post(new Runnable() { // from class: com.baidu.wallet.BaiduPayServiceController.2.1.1
+                    AnonymousClass2.this.f23083a.post(new Runnable() { // from class: com.baidu.wallet.BaiduPayServiceController.2.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
-                            BaiduPayServiceController.this.a(anonymousClass2.f23002b);
+                            BaiduPayServiceController.this.a(anonymousClass2.f23084b);
                         }
                     });
                 }
@@ -140,7 +140,7 @@ public class BaiduPayServiceController {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduPayServiceController f23014a = new BaiduPayServiceController();
+        public static BaiduPayServiceController f23096a = new BaiduPayServiceController();
     }
 
     private void c(final Context context, final boolean z) {
@@ -148,11 +148,11 @@ public class BaiduPayServiceController {
             if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                 return;
             }
-            this.f22997b = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduPayServiceController.1
+            this.f23079b = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduPayServiceController.1
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     if (i2 == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(BaiduPayServiceController.this.f22997b);
+                        WalletLoginHelper.getInstance().onlyLogin(BaiduPayServiceController.this.f23079b);
                     }
                 }
 
@@ -161,7 +161,7 @@ public class BaiduPayServiceController {
                     BaiduPayServiceController.this.d(context, z);
                 }
             });
-            WalletLoginHelper.getInstance().login(this.f22997b);
+            WalletLoginHelper.getInstance().login(this.f23079b);
         }
     }
 
@@ -178,11 +178,11 @@ public class BaiduPayServiceController {
     }
 
     private void f(final Context context, final boolean z) {
-        this.f22997b = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduPayServiceController.3
+        this.f23079b = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduPayServiceController.3
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayServiceController.this.f22997b);
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayServiceController.this.f23079b);
                 } else {
                     BaiduPayServiceController.this.g(context, z);
                 }
@@ -193,7 +193,7 @@ public class BaiduPayServiceController {
                 BaiduPayServiceController.this.g(context, z);
             }
         });
-        WalletLoginHelper.getInstance().verifyPassLogin(this.f22997b);
+        WalletLoginHelper.getInstance().verifyPassLogin(this.f23079b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -217,7 +217,7 @@ public class BaiduPayServiceController {
     }
 
     public static BaiduPayServiceController getInstance() {
-        return a.f23014a;
+        return a.f23096a;
     }
 
     public void doScanCode(Context context) {
@@ -229,7 +229,7 @@ public class BaiduPayServiceController {
     }
 
     public BaiduPayServiceController() {
-        this.f22996a = null;
+        this.f23078a = null;
     }
 
     public void doScanCode(Context context, boolean z, String str) {
@@ -270,7 +270,7 @@ public class BaiduPayServiceController {
 
     public void gotoWalletService(Context context, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
-            this.f22996a = iLightappInvokerCallback;
+            this.f23078a = iLightappInvokerCallback;
             gotoWalletService(context, str, str2, true);
         }
     }
@@ -362,7 +362,7 @@ public class BaiduPayServiceController {
         BaiduPayDelegate.getInstance().checkPwdFromH5(context, str, new CheckCallBack() { // from class: com.baidu.wallet.BaiduPayServiceController.4
             @Override // com.baidu.wallet.api.CheckCallBack
             public void onCheckResult(int i2, String str2) {
-                if (BaiduPayServiceController.this.f22996a != null) {
+                if (BaiduPayServiceController.this.f23078a != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("{\"result\":");
                     sb.append(i2 == 0 ? 0 : 1);
@@ -381,8 +381,8 @@ public class BaiduPayServiceController {
                         sb.append(str2);
                         sb.append("\"}}");
                     }
-                    BaiduPayServiceController.this.f22996a.onResult(i2 != 0 ? 1 : 0, sb.toString());
-                    BaiduPayServiceController.this.f22996a = null;
+                    BaiduPayServiceController.this.f23078a.onResult(i2 != 0 ? 1 : 0, sb.toString());
+                    BaiduPayServiceController.this.f23078a = null;
                 }
             }
         });

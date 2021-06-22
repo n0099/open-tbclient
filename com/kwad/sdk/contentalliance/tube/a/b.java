@@ -7,42 +7,42 @@ import com.kwad.sdk.R;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f33741b;
+    public ViewGroup f33839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f33742c;
+    public TextView f33840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f33743d;
+    public TextView f33841d;
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         ViewGroup viewGroup;
         int i2;
         super.a();
-        if (((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j.mIsTubeEpisodeList) {
-            viewGroup = this.f33741b;
+        if (((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j.mIsTubeEpisodeList) {
+            viewGroup = this.f33839b;
             i2 = 0;
         } else {
-            viewGroup = this.f33741b;
+            viewGroup = this.f33839b;
             i2 = 8;
         }
         viewGroup.setVisibility(i2);
-        this.f33742c.setText(com.kwad.sdk.core.response.b.d.A(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j)));
-        this.f33743d.setText(com.kwad.sdk.core.response.b.d.B(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j)));
+        this.f33840c.setText(com.kwad.sdk.core.response.b.d.A(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j)));
+        this.f33841d.setText(com.kwad.sdk.core.response.b.d.B(com.kwad.sdk.core.response.b.c.k(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j)));
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f33741b.setVisibility(8);
+        this.f33839b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33741b = (ViewGroup) b(R.id.ksad_photo_tube_title_container);
-        this.f33742c = (TextView) b(R.id.ksad_content_alliance_tube_title);
-        this.f33743d = (TextView) b(R.id.ksad_content_alliance_tube_episode_name);
+        this.f33839b = (ViewGroup) b(R.id.ksad_photo_tube_title_container);
+        this.f33840c = (TextView) b(R.id.ksad_content_alliance_tube_title);
+        this.f33841d = (TextView) b(R.id.ksad_content_alliance_tube_episode_name);
     }
 }

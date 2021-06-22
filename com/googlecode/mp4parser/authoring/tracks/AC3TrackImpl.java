@@ -35,24 +35,24 @@ public class AC3TrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f31557a;
+        public final long f31655a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f31558b;
+        public final long f31656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final DataSource f31559c;
+        public final DataSource f31657c;
 
         public a(AC3TrackImpl aC3TrackImpl, long j, long j2, DataSource dataSource) {
-            this.f31557a = j;
-            this.f31558b = j2;
-            this.f31559c = dataSource;
+            this.f31655a = j;
+            this.f31656b = j2;
+            this.f31657c = dataSource;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return this.f31559c.map(this.f31557a, this.f31558b);
+                return this.f31657c.map(this.f31655a, this.f31656b);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -60,12 +60,12 @@ public class AC3TrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public long getSize() {
-            return this.f31558b;
+            return this.f31656b;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            this.f31559c.transferTo(this.f31557a, this.f31558b, writableByteChannel);
+            this.f31657c.transferTo(this.f31655a, this.f31656b, writableByteChannel);
         }
     }
 

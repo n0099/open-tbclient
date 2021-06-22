@@ -8,15 +8,15 @@ import androidx.annotation.Nullable;
 public class PercentSizeView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20050e;
+    public float f20132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20051f;
+    public float f20133f;
 
     public PercentSizeView(Context context) {
         super(context);
-        this.f20050e = 1.0f;
-        this.f20051f = 1.0f;
+        this.f20132e = 1.0f;
+        this.f20133f = 1.0f;
     }
 
     @Override // android.view.View
@@ -27,37 +27,37 @@ public class PercentSizeView extends View {
         if (View.MeasureSpec.getMode(i2) == 1073741824) {
             measuredWidth = View.MeasureSpec.getSize(i2);
         } else {
-            measuredWidth = (int) (getMeasuredWidth() * this.f20051f);
+            measuredWidth = (int) (getMeasuredWidth() * this.f20133f);
         }
         if (View.MeasureSpec.getMode(i3) == 1073741824) {
             measuredHeight = View.MeasureSpec.getSize(i3);
         } else {
-            measuredHeight = (int) (getMeasuredHeight() * this.f20050e);
+            measuredHeight = (int) (getMeasuredHeight() * this.f20132e);
         }
         setMeasuredDimension(measuredWidth, measuredHeight);
     }
 
     public void setHeightPercent(float f2) {
         if (f2 > 0.0f) {
-            this.f20050e = f2;
+            this.f20132e = f2;
         }
     }
 
     public void setWidthPercent(float f2) {
         if (f2 > 0.0f) {
-            this.f20051f = f2;
+            this.f20133f = f2;
         }
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20050e = 1.0f;
-        this.f20051f = 1.0f;
+        this.f20132e = 1.0f;
+        this.f20133f = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20050e = 1.0f;
-        this.f20051f = 1.0f;
+        this.f20132e = 1.0f;
+        this.f20133f = 1.0f;
     }
 }

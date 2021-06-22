@@ -5,10 +5,10 @@ import android.view.View;
 public final class cw implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f22817a;
+    public final /* synthetic */ cg f22899a;
 
     public cw(cg cgVar) {
-        this.f22817a = cgVar;
+        this.f22899a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener

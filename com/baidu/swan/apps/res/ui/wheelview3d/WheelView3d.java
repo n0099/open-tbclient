@@ -17,10 +17,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.a.l0.a.a2.e;
-import d.a.l0.a.j;
-import d.a.l0.a.z1.a.e.a.c;
-import d.a.l0.a.z1.a.e.c.b;
+import d.a.m0.a.a2.e;
+import d.a.m0.a.j;
+import d.a.m0.a.z1.a.e.a.c;
+import d.a.m0.a.z1.a.e.c.b;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -28,7 +28,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class WheelView3d extends View {
-    public static final int[] e0 = {-1, 452984831};
+    public static final int[] j0 = {-1, 452984831};
     public int A;
     public float B;
     public boolean C;
@@ -55,22 +55,22 @@ public class WheelView3d extends View {
     public Drawable a0;
     public Drawable b0;
     public Paint c0;
-    public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f11279e;
+    public DividerType f11361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f11280f;
+    public Context f11362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f11281g;
+    public Handler f11363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f11282h;
+    public GestureDetector f11364h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f11283i;
+    public b f11365i;
+    public int i0;
     public boolean j;
     public boolean k;
     public ScheduledExecutorService l;
@@ -109,7 +109,7 @@ public class WheelView3d extends View {
 
         @Override // java.lang.Runnable
         public void run() {
-            b bVar = WheelView3d.this.f11283i;
+            b bVar = WheelView3d.this.f11365i;
             WheelView3d wheelView3d = WheelView3d.this;
             bVar.a(wheelView3d, wheelView3d.getCurrentItem());
         }
@@ -137,8 +137,8 @@ public class WheelView3d extends View {
         if (obj == null) {
             return "";
         }
-        if (obj instanceof d.a.l0.a.z1.a.e.b.a) {
-            return ((d.a.l0.a.z1.a.e.b.a) obj).a();
+        if (obj instanceof d.a.m0.a.z1.a.e.b.a) {
+            return ((d.a.m0.a.z1.a.e.b.a) obj).a();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
@@ -165,16 +165,16 @@ public class WheelView3d extends View {
     }
 
     public final void g(Context context) {
-        this.f11280f = context;
-        this.f11281g = new d.a.l0.a.z1.a.e.d.b(this);
-        GestureDetector gestureDetector = new GestureDetector(context, new d.a.l0.a.z1.a.e.c.a(this));
-        this.f11282h = gestureDetector;
+        this.f11362f = context;
+        this.f11363g = new d.a.m0.a.z1.a.e.d.b(this);
+        GestureDetector gestureDetector = new GestureDetector(context, new d.a.m0.a.z1.a.e.c.a(this));
+        this.f11364h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
         this.H = -1;
-        this.a0 = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, e0);
-        this.b0 = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, e0);
+        this.a0 = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, j0);
+        this.b0 = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, j0);
         h();
     }
 
@@ -200,7 +200,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f11281g;
+        return this.f11363g;
     }
 
     public int getInitPosition() {
@@ -281,15 +281,15 @@ public class WheelView3d extends View {
         this.o.getTextBounds(str, 0, str.length(), rect);
         int i2 = this.T;
         if (i2 == 3) {
-            this.U = this.d0;
+            this.U = this.i0;
         } else if (i2 == 5) {
-            this.U = ((this.N - rect.width()) - ((int) this.W)) - this.d0;
+            this.U = ((this.N - rect.width()) - ((int) this.W)) - this.i0;
         } else if (i2 != 17) {
         } else {
             if (!this.j && (str2 = this.r) != null && !str2.equals("") && this.k) {
-                this.U = (int) (((this.N - rect.width()) - this.d0) * 0.25d);
+                this.U = (int) (((this.N - rect.width()) - this.i0) * 0.25d);
             } else {
-                this.U = (int) (((this.N - rect.width()) - this.d0) * 0.5d);
+                this.U = (int) (((this.N - rect.width()) - this.i0) * 0.5d);
             }
         }
     }
@@ -300,21 +300,21 @@ public class WheelView3d extends View {
         this.n.getTextBounds(str, 0, str.length(), rect);
         int i2 = this.T;
         if (i2 == 3) {
-            this.V = this.d0;
+            this.V = this.i0;
         } else if (i2 == 5) {
-            this.V = ((this.N - rect.width()) - ((int) this.W)) - this.d0;
+            this.V = ((this.N - rect.width()) - ((int) this.W)) - this.i0;
         } else if (i2 != 17) {
         } else {
             if (!this.j && (str2 = this.r) != null && !str2.equals("") && this.k) {
-                this.V = (int) (((this.N - rect.width()) - this.d0) * 0.25d);
+                this.V = (int) (((this.N - rect.width()) - this.i0) * 0.25d);
             } else {
-                this.V = (int) (((this.N - rect.width()) - this.d0) * 0.5d);
+                this.V = (int) (((this.N - rect.width()) - this.i0) * 0.5d);
             }
         }
     }
 
     public final void n() {
-        if (this.f11283i != null) {
+        if (this.f11365i != null) {
             postDelayed(new a(), 200L);
         }
     }
@@ -382,7 +382,7 @@ public class WheelView3d extends View {
             }
             i4++;
         }
-        if (this.f11279e == DividerType.WRAP) {
+        if (this.f11361e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i2 = (this.N - this.t) / 2;
             } else {
@@ -478,7 +478,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f11282h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f11364h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -540,7 +540,7 @@ public class WheelView3d extends View {
 
     public final void q(float f2) {
         b();
-        this.m = this.l.scheduleWithFixedDelay(new d.a.l0.a.z1.a.e.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.a.m0.a.z1.a.e.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
     public void r(ACTION action) {
@@ -556,7 +556,7 @@ public class WheelView3d extends View {
                 this.P = -i2;
             }
         }
-        this.m = this.l.scheduleWithFixedDelay(new d.a.l0.a.z1.a.e.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.a.m0.a.z1.a.e.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
     public final void setAdapter(c cVar) {
@@ -590,7 +590,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f11279e = dividerType;
+        this.f11361e = dividerType;
     }
 
     public void setGravity(int i2) {
@@ -598,7 +598,7 @@ public class WheelView3d extends View {
     }
 
     public void setGravityOffset(int i2) {
-        this.d0 = i2;
+        this.i0 = i2;
     }
 
     public void setIsOptions(boolean z) {
@@ -617,7 +617,7 @@ public class WheelView3d extends View {
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.f11283i = bVar;
+        this.f11365i = bVar;
     }
 
     public final void setOuterTextSize(int i2) {
@@ -672,7 +672,7 @@ public class WheelView3d extends View {
         this.T = 17;
         this.U = 0;
         this.V = 0;
-        this.d0 = 0;
+        this.i0 = 0;
         this.s = 20;
         float f2 = getResources().getDisplayMetrics().density;
         if (f2 < 1.0f) {

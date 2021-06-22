@@ -15,10 +15,10 @@ import java.util.Set;
 public class b implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f35963a = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
+    public static final Set<String> f36061a = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
 
     /* renamed from: b  reason: collision with root package name */
-    public final n<g, InputStream> f35964b;
+    public final n<g, InputStream> f36062b;
 
     /* loaded from: classes7.dex */
     public static class a implements o<Uri, InputStream> {
@@ -30,18 +30,18 @@ public class b implements n<Uri, InputStream> {
     }
 
     public b(n<g, InputStream> nVar) {
-        this.f35964b = nVar;
+        this.f36062b = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull Uri uri, int i2, int i3, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f35964b.a(new g(uri.toString()), i2, i3, eVar);
+        return this.f36062b.a(new g(uri.toString()), i2, i3, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Uri uri) {
-        return f35963a.contains(uri.getScheme());
+        return f36061a.contains(uri.getScheme());
     }
 }

@@ -27,7 +27,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72331d;
+        public Disposable f72435d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -41,8 +41,8 @@ public final class SingleFlatMapIterableFlowable<T, R> extends Flowable<R> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             this.cancelled = true;
-            this.f72331d.dispose();
-            this.f72331d = DisposableHelper.DISPOSED;
+            this.f72435d.dispose();
+            this.f72435d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -117,14 +117,14 @@ public final class SingleFlatMapIterableFlowable<T, R> extends Flowable<R> {
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            this.f72331d = DisposableHelper.DISPOSED;
+            this.f72435d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72331d, disposable)) {
-                this.f72331d = disposable;
+            if (DisposableHelper.validate(this.f72435d, disposable)) {
+                this.f72435d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

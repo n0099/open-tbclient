@@ -65,16 +65,16 @@ public class DTSTrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31561b;
+        public final /* synthetic */ int f31659b;
 
         public a(int i2) {
-            this.f31561b = i2;
+            this.f31659b = i2;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return DTSTrackImpl.this.dataSource.map(this.f31561b, DTSTrackImpl.this.frameSize);
+                return DTSTrackImpl.this.dataSource.map(this.f31659b, DTSTrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -87,7 +87,7 @@ public class DTSTrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            DTSTrackImpl.this.dataSource.transferTo(this.f31561b, DTSTrackImpl.this.frameSize, writableByteChannel);
+            DTSTrackImpl.this.dataSource.transferTo(this.f31659b, DTSTrackImpl.this.frameSize, writableByteChannel);
         }
     }
 
@@ -765,7 +765,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 512;
      */
     /* JADX WARN: Code restructure failed: missing block: B:264:0x037e, code lost:
-        r22.bitrate = 448;
+        r22.bitrate = com.baidu.pass.face.platform.utils.FileUtils.S_IRWXU;
      */
     /* JADX WARN: Code restructure failed: missing block: B:265:0x0383, code lost:
         r22.bitrate = 384;

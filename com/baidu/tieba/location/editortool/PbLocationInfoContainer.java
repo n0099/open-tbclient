@@ -12,39 +12,39 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.r.f0.m.b;
-import d.a.m0.w.a;
-import d.a.m0.w.n;
+import d.a.n0.r.f0.m.b;
+import d.a.n0.w.a;
+import d.a.n0.w.n;
 /* loaded from: classes3.dex */
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, n {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f18121e;
+    public TBSpecificationBtn f18203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditorTools f18122f;
+    public EditorTools f18204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18123g;
+    public int f18205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18124h;
+    public boolean f18206h;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.f18123g = 0;
-        this.f18124h = true;
+        this.f18205g = 0;
+        this.f18206h = true;
         c();
     }
 
     public void a(int i2) {
-        this.f18121e.l(i2);
+        this.f18203e.l(i2);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void b() {
-        if (this.f18124h) {
-            this.f18124h = false;
+        if (this.f18206h) {
+            this.f18206h = false;
             d(new a(18, -1, Config.TRACE_VISIT_FIRST));
         }
     }
@@ -64,42 +64,42 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         bVar.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-        this.f18121e = tBSpecificationBtn;
+        this.f18203e = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f18121e.setTextSize(R.dimen.tbds32);
-        this.f18121e.setOnClickListener(this);
-        this.f18121e.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.f18121e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds63)));
+        this.f18203e.setTextSize(R.dimen.tbds32);
+        this.f18203e.setOnClickListener(this);
+        this.f18203e.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.f18203e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds63)));
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void d(a aVar) {
-        EditorTools editorTools = this.f18122f;
+        EditorTools editorTools = this.f18204f;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public int getToolId() {
-        return this.f18123g;
+        return this.f18205g;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void hide() {
-        this.f18121e.setText(getContext().getString(R.string.location_where_are_you));
+        this.f18203e.setText(getContext().getString(R.string.location_where_are_you));
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void init() {
     }
 
-    @Override // d.a.m0.w.b
+    @Override // d.a.n0.w.b
     public void onAction(a aVar) {
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f54518a;
+        int i2 = aVar.f54625a;
         if (i2 != 19) {
             if (i2 == 20) {
                 hide();
@@ -107,40 +107,40 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             }
             return;
         }
-        Object obj = aVar.f54520c;
+        Object obj = aVar.f54627c;
         if (obj == null) {
             hide();
             return;
         }
-        d.a.m0.w.u.a aVar2 = (d.a.m0.w.u.a) obj;
-        if (aVar2.f54544a == 1) {
-            this.f18121e.setText(getContext().getString(R.string.location_loading));
-        } else if (!TextUtils.isEmpty(aVar2.f54545b)) {
-            this.f18121e.setText(aVar2.f54545b);
+        d.a.n0.w.u.a aVar2 = (d.a.n0.w.u.a) obj;
+        if (aVar2.f54651a == 1) {
+            this.f18203e.setText(getContext().getString(R.string.location_loading));
+        } else if (!TextUtils.isEmpty(aVar2.f54652b)) {
+            this.f18203e.setText(aVar2.f54652b);
         } else {
-            this.f18121e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f18203e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void onChangeSkinType(int i2) {
         a(i2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f18121e) {
+        if (view == this.f18203e) {
             d(new a(18, -1, null));
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f18122f = editorTools;
+        this.f18204f = editorTools;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setToolId(int i2) {
-        this.f18123g = i2;
+        this.f18205g = i2;
     }
 }

@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
@@ -8,9 +9,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class FreeSpaceBox extends AbstractBox {
     public static final String TYPE = "skip";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
     public byte[] data;
 
     static {
@@ -57,6 +58,6 @@ public class FreeSpaceBox extends AbstractBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return "FreeSpaceBox[size=" + this.data.length + ";type=" + getType() + "]";
+        return "FreeSpaceBox[size=" + this.data.length + ";type=" + getType() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

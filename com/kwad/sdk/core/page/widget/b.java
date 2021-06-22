@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.TextureView;
 import androidx.annotation.RequiresApi;
 @RequiresApi(api = 14)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends TextureView {
     public b(Context context) {
         super(context);

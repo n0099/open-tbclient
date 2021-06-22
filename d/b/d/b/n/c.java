@@ -8,10 +8,10 @@ import d.b.d.b.m;
 public final class c implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f69710e;
+    public Context f69814e;
 
     public c(Context context) {
-        this.f69710e = context;
+        this.f69814e = context;
     }
 
     public static void a(Context context) {
@@ -31,7 +31,7 @@ public final class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            new d.b.d.b.h.e(this.f69710e).c(l.j.c(this.f69710e));
+            new d.b.d.b.h.e(this.f69814e).c(l.j.c(this.f69814e));
         } finally {
             try {
             } finally {

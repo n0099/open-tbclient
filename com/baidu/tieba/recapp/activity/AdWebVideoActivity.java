@@ -18,7 +18,7 @@ import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
 import d.a.c.e.p.l;
-import d.a.n0.t2.f0.b.f;
+import d.a.o0.t2.f0.b.f;
 import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
@@ -61,13 +61,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f20214a;
+        public AdvertAppInfo f20296a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20215b;
+        public int f20297b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20216c;
+        public String f20298c;
     }
 
     private void configWebviewParams(int i2) {
@@ -90,9 +90,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static void setStaticInfo(AdvertAppInfo advertAppInfo, int i2, String str) {
         b bVar = new b();
         STATISTIC_DATA = bVar;
-        bVar.f20214a = advertAppInfo;
-        bVar.f20216c = str;
-        bVar.f20215b = i2;
+        bVar.f20296a = advertAppInfo;
+        bVar.f20298c = str;
+        bVar.f20297b = i2;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -110,7 +110,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             if (this.mGoodsStyle == 14) {
                 Integer valueOf = Integer.valueOf(l.k(getActivity()));
                 builder.video_height = valueOf;
-                builder.video_width = Integer.valueOf(d.a.n0.t2.f0.c.a.c(valueOf.intValue()));
+                builder.video_width = Integer.valueOf(d.a.o0.t2.f0.c.a.c(valueOf.intValue()));
             } else {
                 Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
                 builder.video_width = valueOf2;
@@ -139,10 +139,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
             b bVar = STATISTIC_DATA;
             if (bVar != null) {
-                this.mVideoView.updateTailFrameView(bVar.f20214a);
+                this.mVideoView.updateTailFrameView(bVar.f20296a);
                 DistributeVideoView distributeVideoView = this.mVideoView;
                 b bVar2 = STATISTIC_DATA;
-                distributeVideoView.setStatisticInfo(bVar2.f20214a, bVar2.f20215b, bVar2.f20216c);
+                distributeVideoView.setStatisticInfo(bVar2.f20296a, bVar2.f20297b, bVar2.f20298c);
             } else {
                 this.mVideoView.updateTailFrameView(null);
             }

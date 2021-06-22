@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
-    public AgreeView.d k0;
+    public AgreeView.d p0;
 
     /* loaded from: classes3.dex */
     public class a implements AgreeView.d {
@@ -25,30 +25,30 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context) {
         super(context);
-        this.k0 = new a();
+        this.p0 = new a();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void I() {
-        this.f12412h.setVisibilityListener(this.k0);
-        this.f12412h.j(true);
+        this.f12494h.setVisibilityListener(this.p0);
+        this.f12494h.j(true);
     }
 
     public final void Q(boolean z) {
         if (R()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12412h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12494h.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f2;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f12412h.setLayoutParams(layoutParams);
+            this.f12494h.setLayoutParams(layoutParams);
         }
     }
 
     public final boolean R() {
-        boolean q = this.f12412h.q();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12412h.getLayoutParams();
+        boolean q = this.f12494h.q();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12494h.getLayoutParams();
         return (layoutParams.weight == (q ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
     }
 
@@ -60,11 +60,11 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(View view) {
         super.p(view);
-        this.f12412h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+        this.f12494h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.k0 = new a();
+        this.p0 = new a();
     }
 }

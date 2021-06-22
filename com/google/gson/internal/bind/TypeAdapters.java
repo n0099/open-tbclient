@@ -1,6 +1,7 @@
 package com.google.gson.internal.bind;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -1003,7 +1004,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + cls.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls2.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + cls.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls2.getName() + ",adapter=" + typeAdapter + PreferencesUtil.RIGHT_MOUNT;
             }
         };
     }
@@ -1037,7 +1038,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[typeHierarchy=" + cls.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[typeHierarchy=" + cls.getName() + ",adapter=" + typeAdapter + PreferencesUtil.RIGHT_MOUNT;
             }
         };
     }
@@ -1053,7 +1054,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + cls.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + cls.getName() + ",adapter=" + typeAdapter + PreferencesUtil.RIGHT_MOUNT;
             }
         };
     }
@@ -1070,7 +1071,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + cls2.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + cls2.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls.getName() + ",adapter=" + typeAdapter + PreferencesUtil.RIGHT_MOUNT;
             }
         };
     }

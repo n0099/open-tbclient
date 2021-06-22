@@ -8,7 +8,7 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, d.a.q.h.a> f67979a = new HashMap();
+    public Map<String, d.a.q.h.a> f67935a = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -17,15 +17,15 @@ public class b {
 
     public b(a aVar) {
         for (d.a.q.h.a aVar2 : aVar.a()) {
-            this.f67979a.put(aVar2.e(), aVar2);
+            this.f67935a.put(aVar2.e(), aVar2);
         }
     }
 
     public d.a.q.h.a a(String str) {
-        return this.f67979a.get(str);
+        return this.f67935a.get(str);
     }
 
     public List<d.a.q.h.a> b() {
-        return new ArrayList(this.f67979a.values());
+        return new ArrayList(this.f67935a.values());
     }
 }

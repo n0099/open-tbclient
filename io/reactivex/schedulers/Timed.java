@@ -1,5 +1,6 @@
 package io.reactivex.schedulers;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.TimeUnit;
@@ -35,7 +36,7 @@ public final class Timed<T> {
     }
 
     public String toString() {
-        return "Timed[time=" + this.time + ", unit=" + this.unit + ", value=" + this.value + "]";
+        return "Timed[time=" + this.time + ", unit=" + this.unit + ", value=" + this.value + PreferencesUtil.RIGHT_MOUNT;
     }
 
     @NonNull

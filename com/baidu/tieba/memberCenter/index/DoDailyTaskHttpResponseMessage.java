@@ -9,7 +9,7 @@ import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
 import tbclient.DoDailyTask.RetDataList;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DoDailyTaskHttpResponseMessage extends TbHttpResponsedMessage {
     public List<ButtonItem> buttonItems;
     public String content;

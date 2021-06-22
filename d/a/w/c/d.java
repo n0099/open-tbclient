@@ -21,17 +21,17 @@ public class d {
     public static volatile d x;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f68505b;
+    public Context f68609b;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f68507d;
+    public HandlerThread f68611d;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.w.c.g.d f68511h;
+    public d.a.w.c.g.d f68615h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f68512i;
-    public HandlerC1873d j;
+    public e f68616i;
+    public HandlerC1876d j;
     public d.a.w.c.g.e k;
     public f l;
     public d.a.w.c.f.a m;
@@ -42,19 +42,19 @@ public class d {
     public int t;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68504a = 0;
+    public int f68608a = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f68506c = false;
+    public boolean f68610c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f68508e = false;
+    public volatile boolean f68612e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68509f = false;
+    public boolean f68613f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68510g = 0;
+    public long f68614g = 0;
     public volatile boolean o = false;
     public volatile boolean r = false;
 
@@ -144,8 +144,8 @@ public class d {
 
     /* renamed from: d.a.w.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC1873d extends Handler {
-        public HandlerC1873d(Looper looper) {
+    public class HandlerC1876d extends Handler {
+        public HandlerC1876d(Looper looper) {
             super(looper);
         }
 
@@ -153,26 +153,26 @@ public class d {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 7001:
-                    if (d.this.f68512i != null) {
-                        d.this.f68512i.a(((Boolean) message.obj).booleanValue());
+                    if (d.this.f68616i != null) {
+                        d.this.f68616i.a(((Boolean) message.obj).booleanValue());
                     }
-                    d.this.f68508e = false;
+                    d.this.f68612e = false;
                     break;
                 case 7002:
-                    if (d.this.f68512i != null) {
-                        d.this.f68512i.d(((Integer) message.obj).intValue());
+                    if (d.this.f68616i != null) {
+                        d.this.f68616i.d(((Integer) message.obj).intValue());
                         break;
                     }
                     break;
                 case 7003:
-                    if (d.this.f68512i != null) {
-                        d.this.f68512i.c(((Boolean) message.obj).booleanValue(), d.this.f68511h != null ? d.this.f68511h.f() : null);
+                    if (d.this.f68616i != null) {
+                        d.this.f68616i.c(((Boolean) message.obj).booleanValue(), d.this.f68615h != null ? d.this.f68615h.f() : null);
                         break;
                     }
                     break;
                 case 7004:
-                    if (d.this.f68512i != null) {
-                        d.this.f68512i.b(((Integer) message.obj).intValue());
+                    if (d.this.f68616i != null) {
+                        d.this.f68616i.b(((Integer) message.obj).intValue());
                         break;
                     }
                     break;
@@ -180,7 +180,7 @@ public class d {
                     d.this.R();
                     break;
                 case 7006:
-                    d.this.f68508e = false;
+                    d.this.f68612e = false;
                     d.this.U();
                     break;
             }
@@ -215,29 +215,29 @@ public class d {
         if (Build.VERSION.SDK_INT >= 18) {
             this.k = new d.a.w.c.g.e();
         }
-        if (this.f68511h.o()) {
+        if (this.f68615h.o()) {
             this.m = new d.a.w.c.f.a();
         } else {
             w = true;
         }
         this.p = new d.a.w.c.f.b();
-        this.f68504a = 0;
-        if (!this.f68506c && this.f68507d == null) {
+        this.f68608a = 0;
+        if (!this.f68610c && this.f68611d == null) {
             HandlerThread handlerThread = new HandlerThread(u);
-            this.f68507d = handlerThread;
+            this.f68611d = handlerThread;
             handlerThread.start();
         }
-        HandlerC1873d handlerC1873d = this.j;
-        if (handlerC1873d == null) {
-            if (this.f68507d != null) {
-                this.j = new HandlerC1873d(this.f68507d.getLooper());
+        HandlerC1876d handlerC1876d = this.j;
+        if (handlerC1876d == null) {
+            if (this.f68611d != null) {
+                this.j = new HandlerC1876d(this.f68611d.getLooper());
             } else {
-                this.j = new HandlerC1873d(this.f68505b.getMainLooper());
+                this.j = new HandlerC1876d(this.f68609b.getMainLooper());
             }
         } else {
-            handlerC1873d.removeCallbacksAndMessages(null);
+            handlerC1876d.removeCallbacksAndMessages(null);
         }
-        this.f68511h.h();
+        this.f68615h.h();
     }
 
     public final synchronized boolean B() {
@@ -245,8 +245,8 @@ public class d {
         String str = u;
         Log.i(str, "isMovieRecordStarted sMovieRecordState = " + v);
         i2 = (v ^ 1) ^ 2;
-        if (this.f68511h != null) {
-            if (this.f68511h.o()) {
+        if (this.f68615h != null) {
+            if (this.f68615h.o()) {
                 i2 ^= 4;
             }
         }
@@ -258,22 +258,22 @@ public class d {
     }
 
     public final boolean D() {
-        d.a.w.c.g.d dVar = this.f68511h;
+        d.a.w.c.g.d dVar = this.f68615h;
         if (dVar == null) {
             return false;
         }
         if (dVar.o()) {
-            if (this.f68504a == 3) {
+            if (this.f68608a == 3) {
                 return true;
             }
-        } else if (this.f68504a == 2) {
+        } else if (this.f68608a == 2) {
             return true;
         }
         return false;
     }
 
     public final boolean E() {
-        return this.f68504a == 0;
+        return this.f68608a == 0;
     }
 
     public void F(ByteBuffer byteBuffer, int i2, long j) {
@@ -289,19 +289,19 @@ public class d {
             arrayList.clear();
             this.s = null;
         }
-        this.f68505b = null;
-        this.f68511h = null;
+        this.f68609b = null;
+        this.f68615h = null;
         N(0);
         K();
-        HandlerC1873d handlerC1873d = this.j;
-        if (handlerC1873d != null) {
-            handlerC1873d.removeCallbacksAndMessages(null);
+        HandlerC1876d handlerC1876d = this.j;
+        if (handlerC1876d != null) {
+            handlerC1876d.removeCallbacksAndMessages(null);
             this.j = null;
         }
-        HandlerThread handlerThread = this.f68507d;
+        HandlerThread handlerThread = this.f68611d;
         if (handlerThread != null) {
             handlerThread.quit();
-            this.f68507d = null;
+            this.f68611d = null;
         }
     }
 
@@ -337,8 +337,8 @@ public class d {
             this.p.v();
             z = false;
         }
-        d.a.w.c.g.d dVar = this.f68511h;
-        if (dVar == null || this.k.b(dVar.f(), this.f68511h.g(), this.l)) {
+        d.a.w.c.g.d dVar = this.f68615h;
+        if (dVar == null || this.k.b(dVar.f(), this.f68615h.g(), this.l)) {
             return z;
         }
         Log.e(u, "prepareMovieRecorder movieMuxerInit error!!!");
@@ -347,11 +347,11 @@ public class d {
 
     public final void L() {
         String str = u;
-        Log.i(str, "restartRecorder mRestartTried = " + this.f68509f);
-        HandlerC1873d handlerC1873d = this.j;
-        if (handlerC1873d != null) {
-            this.f68509f = true;
-            handlerC1873d.sendMessageDelayed(handlerC1873d.obtainMessage(7005), 500L);
+        Log.i(str, "restartRecorder mRestartTried = " + this.f68613f);
+        HandlerC1876d handlerC1876d = this.j;
+        if (handlerC1876d != null) {
+            this.f68613f = true;
+            handlerC1876d.sendMessageDelayed(handlerC1876d.obtainMessage(7005), 500L);
         }
     }
 
@@ -359,20 +359,20 @@ public class d {
         if (z) {
             v = i2 | v;
         }
-        this.f68504a++;
+        this.f68608a++;
     }
 
     public final void P() {
         d.a.w.c.f.a aVar = this.m;
         if (aVar != null) {
-            aVar.q(this.f68511h, this.k, this.n);
+            aVar.q(this.f68615h, this.k, this.n);
         }
     }
 
     public final void Q() {
-        HandlerC1873d handlerC1873d = this.j;
-        if (handlerC1873d != null) {
-            handlerC1873d.sendMessageDelayed(handlerC1873d.obtainMessage(7001, Boolean.FALSE), 500L);
+        HandlerC1876d handlerC1876d = this.j;
+        if (handlerC1876d != null) {
+            handlerC1876d.sendMessageDelayed(handlerC1876d.obtainMessage(7001, Boolean.FALSE), 500L);
         }
     }
 
@@ -382,7 +382,7 @@ public class d {
         if (J()) {
             P();
             T();
-        } else if (!this.f68509f) {
+        } else if (!this.f68613f) {
             L();
         } else {
             Q();
@@ -391,42 +391,42 @@ public class d {
 
     public void S(Context context, d.a.w.c.g.d dVar, e eVar) {
         String str = u;
-        Log.i(str, "startRecorder mStarting = " + this.f68508e);
-        if (this.f68508e) {
+        Log.i(str, "startRecorder mStarting = " + this.f68612e);
+        if (this.f68612e) {
             Q();
             return;
         }
-        this.f68508e = true;
-        this.f68505b = context;
-        this.f68511h = dVar;
-        this.f68512i = eVar;
+        this.f68612e = true;
+        this.f68609b = context;
+        this.f68615h = dVar;
+        this.f68616i = eVar;
         R();
     }
 
     public final void T() {
         Y();
-        this.p.w(this.s, this.f68511h, this.k, this.q);
+        this.p.w(this.s, this.f68615h, this.k, this.q);
     }
 
     public void U() {
-        HandlerC1873d handlerC1873d;
+        HandlerC1876d handlerC1876d;
         String str = u;
-        Log.i(str, "stopRecorder mStarting = " + this.f68508e);
-        if (this.f68508e) {
-            if (!B() && (handlerC1873d = this.j) != null) {
-                handlerC1873d.sendMessage(handlerC1873d.obtainMessage(7004, 4002));
+        Log.i(str, "stopRecorder mStarting = " + this.f68612e);
+        if (this.f68612e) {
+            if (!B() && (handlerC1876d = this.j) != null) {
+                handlerC1876d.sendMessage(handlerC1876d.obtainMessage(7004, 4002));
             }
             Log.d(u, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
-            HandlerC1873d handlerC1873d2 = this.j;
-            if (handlerC1873d2 != null) {
-                handlerC1873d2.sendMessageDelayed(handlerC1873d2.obtainMessage(7006), 500L);
+            HandlerC1876d handlerC1876d2 = this.j;
+            if (handlerC1876d2 != null) {
+                handlerC1876d2.sendMessageDelayed(handlerC1876d2.obtainMessage(7006), 500L);
                 return;
             }
             return;
         }
         this.o = false;
         this.r = false;
-        this.f68510g = 0L;
+        this.f68614g = 0L;
         d.a.w.c.f.a aVar = this.m;
         if (aVar != null && aVar.o()) {
             this.m.s();
@@ -439,8 +439,8 @@ public class d {
     }
 
     public void V(long j) {
-        this.f68510g *= 1000000;
-        e eVar = this.f68512i;
+        this.f68614g *= 1000000;
+        e eVar = this.f68616i;
         if (eVar != null) {
             eVar.d(j);
         }
@@ -534,7 +534,7 @@ public class d {
         if (z) {
             v = i2 ^ v;
         }
-        this.f68504a--;
+        this.f68608a--;
     }
 
     public long y() {

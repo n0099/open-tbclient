@@ -1,6 +1,7 @@
 package com.sdk.base.framework.a.a;
 
 import android.content.Context;
+import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.manager.SDKManager;
@@ -9,15 +10,15 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39224a = "a";
+    public static final String f39322a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f39225b = Boolean.valueOf(f.f39341b);
+    public static Boolean f39323b = Boolean.valueOf(f.f39439b);
 
     public static String a(int i2, String str) {
         String a2 = com.sdk.base.framework.f.d.a.a();
         if (c.b(a2).booleanValue()) {
-            return "accessCode" + i2 + str + a2;
+            return YYInnerSSOLoginActivity.o + i2 + str + a2;
         }
         return null;
     }
@@ -31,7 +32,7 @@ public class a {
                     String b3 = b(b2);
                     String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                     if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                        c.a(f39224a, "can use cache", f39225b);
+                        c.a(f39322a, "can use cache", f39323b);
                         JSONObject jSONObject = new JSONObject(a3);
                         if (i2 == 1) {
                             jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
@@ -42,7 +43,7 @@ public class a {
                         sb.append(b3);
                         return sb.toString();
                     }
-                    c.a(f39224a, "OutDate cache invalid", f39225b);
+                    c.a(f39322a, "OutDate cache invalid", f39323b);
                 }
             }
             return null;
@@ -59,8 +60,8 @@ public class a {
     }
 
     public static void a(Context context) {
-        c.a(f39224a, "cache clear", f39225b);
-        com.sdk.base.framework.f.b.a.d(context, "accessCode");
+        c.a(f39322a, "cache clear", f39323b);
+        com.sdk.base.framework.f.b.a.d(context, YYInnerSSOLoginActivity.o);
     }
 
     public static void a(Context context, int i2, String str, String str2) {
@@ -77,7 +78,7 @@ public class a {
     }
 
     public static void b(Context context) {
-        c.a(f39224a, "oauth cache clear", f39225b);
+        c.a(f39322a, "oauth cache clear", f39323b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode1");
     }
 }

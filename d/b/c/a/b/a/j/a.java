@@ -16,31 +16,31 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public final class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f69204e = {42};
+    public static final byte[] f69308e = {42};
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f69205f = new String[0];
+    public static final String[] f69309f = new String[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f69206g = {"*"};
+    public static final String[] f69310g = {"*"};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f69207h = new a();
+    public static final a f69311h = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f69208a = new AtomicBoolean(false);
+    public final AtomicBoolean f69312a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f69209b = new CountDownLatch(1);
+    public final CountDownLatch f69313b = new CountDownLatch(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f69210c;
+    public byte[] f69314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f69211d;
+    public byte[] f69315d;
 
     public static a a() {
-        return f69207h;
+        return f69311h;
     }
 
     public static String c(byte[] bArr, byte[][] bArr2, int i2) {
@@ -153,16 +153,16 @@ public final class a {
         String str2;
         String str3;
         int i2 = 0;
-        if (!this.f69208a.get() && this.f69208a.compareAndSet(false, true)) {
+        if (!this.f69312a.get() && this.f69312a.compareAndSet(false, true)) {
             e();
         } else {
             try {
-                this.f69209b.await();
+                this.f69313b.await();
             } catch (InterruptedException unused) {
             }
         }
         synchronized (this) {
-            if (this.f69210c == null) {
+            if (this.f69314c == null) {
                 throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
             }
         }
@@ -178,7 +178,7 @@ public final class a {
                 str2 = null;
                 break;
             }
-            str2 = c(this.f69210c, bArr, i4);
+            str2 = c(this.f69314c, bArr, i4);
             if (str2 != null) {
                 break;
             }
@@ -187,8 +187,8 @@ public final class a {
         if (length > 1) {
             byte[][] bArr2 = (byte[][]) bArr.clone();
             for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                bArr2[i5] = f69204e;
-                str3 = c(this.f69210c, bArr2, i5);
+                bArr2[i5] = f69308e;
+                str3 = c(this.f69314c, bArr2, i5);
                 if (str3 != null) {
                     break;
                 }
@@ -200,7 +200,7 @@ public final class a {
                 if (i2 >= length - 1) {
                     break;
                 }
-                String c2 = c(this.f69211d, bArr, i2);
+                String c2 = c(this.f69315d, bArr, i2);
                 if (c2 != null) {
                     str = c2;
                     break;
@@ -211,10 +211,10 @@ public final class a {
         if (str != null) {
             return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         } else if (str2 == null && str3 == null) {
-            return f69206g;
+            return f69310g;
         } else {
-            String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f69205f;
-            String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f69205f;
+            String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f69309f;
+            String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f69309f;
             return split.length > split2.length ? split : split2;
         }
     }
@@ -260,10 +260,10 @@ public final class a {
             byte[] bArr2 = new byte[b2.j()];
             b2.a(bArr2);
             synchronized (this) {
-                this.f69210c = bArr;
-                this.f69211d = bArr2;
+                this.f69314c = bArr;
+                this.f69315d = bArr2;
             }
-            this.f69209b.countDown();
+            this.f69313b.countDown();
         } finally {
             e.q(b2);
         }

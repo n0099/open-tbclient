@@ -12,7 +12,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractBceClient {
     public static final String DEFAULT_CONTENT_TYPE = "application/json; charset=utf-8";
     public static final String DEFAULT_SERVICE_DOMAIN = "baidubce.com";

@@ -9,16 +9,16 @@ import java.util.List;
 public class o implements d.o.a.e.b.g.m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f71195a;
+    public final a f71299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.o.a.e.b.g.j f71196b;
+    public final d.o.a.e.b.g.j f71300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.o.a.e.b.g.o f71197c;
+    public final d.o.a.e.b.g.o f71301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f71198d;
+    public final boolean f71302d;
 
     public o() {
         this(false);
@@ -26,7 +26,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.G(i2);
         }
@@ -34,7 +34,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean b(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.P(i2);
         }
@@ -43,7 +43,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void c(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.H(i2);
         }
@@ -55,7 +55,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void d(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.I(i2);
         }
@@ -64,7 +64,7 @@ public class o implements d.o.a.e.b.g.m {
     @Override // d.o.a.e.b.g.m
     public long e(int i2) {
         DownloadInfo b2;
-        d.o.a.e.b.g.j jVar = this.f71196b;
+        d.o.a.e.b.g.j jVar = this.f71300b;
         if (jVar == null || (b2 = jVar.b(i2)) == null) {
             return 0L;
         }
@@ -72,7 +72,7 @@ public class o implements d.o.a.e.b.g.m {
         if (B <= 1) {
             return b2.E();
         }
-        List<com.ss.android.socialbase.downloader.model.b> c2 = this.f71196b.c(i2);
+        List<com.ss.android.socialbase.downloader.model.b> c2 = this.f71300b.c(i2);
         if (c2 == null || c2.size() != B) {
             return 0L;
         }
@@ -82,7 +82,7 @@ public class o implements d.o.a.e.b.g.m {
     @Override // d.o.a.e.b.g.m
     public int f(int i2) {
         DownloadInfo D;
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar == null || (D = aVar.D(i2)) == null) {
             return 0;
         }
@@ -91,7 +91,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean g(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.p(i2);
         }
@@ -100,7 +100,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public DownloadInfo h(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.D(i2);
         }
@@ -109,12 +109,12 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<com.ss.android.socialbase.downloader.model.b> i(int i2) {
-        return this.f71196b.c(i2);
+        return this.f71300b.c(i2);
     }
 
     @Override // d.o.a.e.b.g.m
     public void j(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.O(i2);
         }
@@ -127,7 +127,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean l(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.M(i2);
         }
@@ -141,22 +141,22 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean n(int i2) {
-        return this.f71196b.e(i2);
+        return this.f71300b.e(i2);
     }
 
     @Override // d.o.a.e.b.g.m
     public void o(int i2) {
-        this.f71196b.d(i2);
+        this.f71300b.d(i2);
     }
 
     @Override // d.o.a.e.b.g.m
     public boolean p(int i2) {
-        return this.f71196b.f(i2);
+        return this.f71300b.f(i2);
     }
 
     @Override // d.o.a.e.b.g.m
     public d.o.a.e.b.f.d q(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.K(i2);
         }
@@ -165,14 +165,14 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public d.o.a.e.b.f.i r(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         d.o.a.e.b.f.i J = aVar != null ? aVar.J(i2) : null;
         return J == null ? d.o.a.e.b.g.d.i() : J;
     }
 
     @Override // d.o.a.e.b.g.m
     public u s(int i2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.L(i2);
         }
@@ -180,19 +180,19 @@ public class o implements d.o.a.e.b.g.m {
     }
 
     public o(boolean z) {
-        this.f71195a = d.o.a.e.b.g.d.c();
-        this.f71196b = d.o.a.e.b.g.d.I0();
+        this.f71299a = d.o.a.e.b.g.d.c();
+        this.f71300b = d.o.a.e.b.g.d.I0();
         if (!z) {
-            this.f71197c = d.o.a.e.b.g.d.J0();
+            this.f71301c = d.o.a.e.b.g.d.J0();
         } else {
-            this.f71197c = d.o.a.e.b.g.d.K0();
+            this.f71301c = d.o.a.e.b.g.d.K0();
         }
-        this.f71198d = d.o.a.e.b.j.a.r().q("service_alive", false);
+        this.f71302d = d.o.a.e.b.j.a.r().q("service_alive", false);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, boolean z) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.q(i2, z);
         }
@@ -200,7 +200,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> b(String str) {
-        d.o.a.e.b.g.j jVar = this.f71196b;
+        d.o.a.e.b.g.j jVar = this.f71300b;
         if (jVar != null) {
             return jVar.b(str);
         }
@@ -209,7 +209,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> c(String str) {
-        d.o.a.e.b.g.j jVar = this.f71196b;
+        d.o.a.e.b.g.j jVar = this.f71300b;
         if (jVar != null) {
             return jVar.c(str);
         }
@@ -218,7 +218,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void d(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.e(i2, i3, bVar, gVar, z, z2);
         }
@@ -226,14 +226,14 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void g(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.d(i2, i3, bVar, gVar, z);
         }
     }
 
     public void h(int i2, boolean z) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.C(i2, z);
         }
@@ -241,7 +241,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void f(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.u(i2, i3, bVar, gVar, z);
         }
@@ -249,7 +249,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a() {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.s();
         }
@@ -257,7 +257,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void b(List<String> list) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.z(list);
         }
@@ -270,7 +270,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> d(String str) {
-        d.o.a.e.b.g.j jVar = this.f71196b;
+        d.o.a.e.b.g.j jVar = this.f71300b;
         if (jVar != null) {
             return jVar.d(str);
         }
@@ -280,7 +280,7 @@ public class o implements d.o.a.e.b.g.m {
     @Override // d.o.a.e.b.g.m
     public boolean g() {
         d.o.a.e.b.g.o oVar;
-        return this.f71198d && (oVar = this.f71197c) != null && oVar.a();
+        return this.f71302d && (oVar = this.f71301c) != null && oVar.a();
     }
 
     @Override // d.o.a.e.b.g.m
@@ -290,12 +290,12 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void f() {
-        this.f71196b.b();
+        this.f71300b.b();
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(List<String> list) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.o(list);
         }
@@ -308,12 +308,12 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean c(DownloadInfo downloadInfo) {
-        return this.f71196b.a(downloadInfo);
+        return this.f71300b.a(downloadInfo);
     }
 
     @Override // d.o.a.e.b.g.m
     public void c(int i2, d.o.a.e.b.f.d dVar) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.g(i2, dVar);
         }
@@ -321,7 +321,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> e(String str) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.r(str);
         }
@@ -330,7 +330,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> a(String str) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             return aVar.b(str);
         }
@@ -339,7 +339,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void b(int i2, boolean z) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.w(i2, z);
         }
@@ -347,7 +347,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean e() {
-        return this.f71196b.c();
+        return this.f71300b.c();
     }
 
     @Override // d.o.a.e.b.g.m
@@ -357,7 +357,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public boolean b() {
-        d.o.a.e.b.g.o oVar = this.f71197c;
+        d.o.a.e.b.g.o oVar = this.f71301c;
         if (oVar != null) {
             return oVar.b();
         }
@@ -387,7 +387,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void b(d.o.a.e.b.n.a aVar) {
-        d.o.a.e.b.g.o oVar = this.f71197c;
+        d.o.a.e.b.g.o oVar = this.f71301c;
         if (oVar != null) {
             oVar.a(aVar);
         } else if (aVar != null) {
@@ -397,7 +397,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, Notification notification) {
-        d.o.a.e.b.g.o oVar = this.f71197c;
+        d.o.a.e.b.g.o oVar = this.f71301c;
         if (oVar != null) {
             oVar.a(i2, notification);
         }
@@ -405,17 +405,17 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void b(DownloadInfo downloadInfo) {
-        this.f71196b.b(downloadInfo);
+        this.f71300b.b(downloadInfo);
     }
 
     @Override // d.o.a.e.b.g.m
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        this.f71196b.b(i2, list);
+        this.f71300b.b(i2, list);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(boolean z, boolean z2) {
-        d.o.a.e.b.g.o oVar = this.f71197c;
+        d.o.a.e.b.g.o oVar = this.f71301c;
         if (oVar != null) {
             oVar.a(z2);
         }
@@ -423,7 +423,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a(d.o.a.e.b.n.a aVar) {
-        d.o.a.e.b.g.o oVar = this.f71197c;
+        d.o.a.e.b.g.o oVar = this.f71301c;
         if (oVar != null) {
             oVar.b(aVar);
         }
@@ -431,27 +431,27 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        this.f71196b.a(i2, list);
+        this.f71300b.a(i2, list);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
-        this.f71196b.a(bVar);
+        this.f71300b.a(bVar);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, long j) {
-        this.f71196b.a(i2, i3, j);
+        this.f71300b.a(i2, i3, j);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, int i4, long j) {
-        this.f71196b.a(i2, i3, i4, j);
+        this.f71300b.a(i2, i3, i4, j);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, int i4, int i5) {
-        this.f71196b.a(i2, i3, i4, i5);
+        this.f71300b.a(i2, i3, i4, i5);
     }
 
     @Override // d.o.a.e.b.g.m
@@ -467,7 +467,7 @@ public class o implements d.o.a.e.b.g.m {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, long j) {
-        a aVar = this.f71195a;
+        a aVar = this.f71299a;
         if (aVar != null) {
             aVar.v(i2, j);
         }

@@ -17,19 +17,19 @@ import d.a.c.e.p.l;
 public class FunAdButton extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16013e;
+    public int f16095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16014f;
+    public int f16096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16015g;
+    public int f16097g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16016h;
+    public int f16098h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f16017i;
+    public final int f16099i;
     public int j;
     public int k;
     public int l;
@@ -51,10 +51,10 @@ public class FunAdButton extends View {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16018e;
+        public final /* synthetic */ String f16100e;
 
         public a(String str) {
-            this.f16018e = str;
+            this.f16100e = str;
         }
 
         @Override // java.lang.Runnable
@@ -62,7 +62,7 @@ public class FunAdButton extends View {
             if (FunAdButton.this.y) {
                 return;
             }
-            FunAdButton.this.setText(this.f16018e);
+            FunAdButton.this.setText(this.f16100e);
         }
     }
 
@@ -131,7 +131,7 @@ public class FunAdButton extends View {
     }
 
     public final int g(int i2) {
-        return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f16017i * 2) + ((int) this.o.measureText(this.r)), this.j) : View.MeasureSpec.getSize(i2);
+        return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f16099i * 2) + ((int) this.o.measureText(this.r)), this.j) : View.MeasureSpec.getSize(i2);
     }
 
     public int getMax() {
@@ -143,10 +143,10 @@ public class FunAdButton extends View {
     }
 
     public void h() {
-        SkinManager.setBackgroundResource(this, this.f16016h);
-        this.l = SkinManager.getColor(this.f16013e);
-        this.m = SkinManager.getColor(this.f16014f);
-        this.q = SkinManager.getColor(this.f16015g);
+        SkinManager.setBackgroundResource(this, this.f16098h);
+        this.l = SkinManager.getColor(this.f16095e);
+        this.m = SkinManager.getColor(this.f16096f);
+        this.q = SkinManager.getColor(this.f16097g);
     }
 
     public void i() {
@@ -179,7 +179,7 @@ public class FunAdButton extends View {
     }
 
     public void setBackgroundSkin(int i2) {
-        this.f16016h = i2;
+        this.f16098h = i2;
     }
 
     public void setButtonTextColor(int i2) {
@@ -220,7 +220,7 @@ public class FunAdButton extends View {
     }
 
     public void setTextColorInitSkin(int i2) {
-        this.f16014f = i2;
+        this.f16096f = i2;
     }
 
     public void setTextDelay(String str, long j) {
@@ -240,17 +240,17 @@ public class FunAdButton extends View {
 
     public FunAdButton(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16013e = R.color.CAM_X0101;
-        this.f16014f = R.color.CAM_X0304;
-        this.f16015g = R.color.CAM_X0302;
-        this.f16016h = R.drawable.ad_download_progress_button_bg;
-        this.f16017i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.f16095e = R.color.CAM_X0101;
+        this.f16096f = R.color.CAM_X0304;
+        this.f16097g = R.color.CAM_X0302;
+        this.f16098h = R.drawable.ad_download_progress_button_bg;
+        this.f16099i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f16013e);
-        this.m = SkinManager.getColor(this.f16014f);
+        this.l = SkinManager.getColor(this.f16095e);
+        this.m = SkinManager.getColor(this.f16096f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f16015g);
+        this.q = SkinManager.getColor(this.f16097g);
         this.s = 100;
         this.t = 0;
         this.w = 0;

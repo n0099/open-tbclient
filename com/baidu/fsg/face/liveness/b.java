@@ -147,34 +147,31 @@ public class b {
             this.f5867e += "2";
         } else if (errCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
             this.f5867e += "3";
-        } else {
-            FaceTracker.ErrCode errCode2 = FaceTracker.ErrCode.NO_FACE_DETECTED;
-            if (errCode == errCode2) {
-                FaceTracker.ErrCode errCode3 = this.r;
-                if (errCode3 == null) {
+        } else if (errCode == FaceTracker.ErrCode.NO_FACE_DETECTED) {
+            FaceTracker.ErrCode errCode2 = this.r;
+            if (errCode2 == null) {
+                this.f5867e += "4";
+                this.s = 0;
+            } else if (errCode2 == FaceTracker.ErrCode.NO_FACE_DETECTED) {
+                int i2 = this.s;
+                if (i2 == 3) {
                     this.f5867e += "4";
                     this.s = 0;
-                } else if (errCode3 == errCode2) {
-                    int i2 = this.s;
-                    if (i2 == 3) {
-                        this.f5867e += "4";
-                        this.s = 0;
-                    } else {
-                        this.s = i2 + 1;
-                    }
                 } else {
-                    this.f5867e += "4";
-                    this.s = 0;
+                    this.s = i2 + 1;
                 }
-            } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
-                this.f5867e += "5";
-            } else if (errCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
-                this.f5867e += "6";
-            } else if (errCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
-                this.f5867e += "7";
-            } else if (errCode == FaceTracker.ErrCode.UNKNOW_TYPE) {
-                this.f5867e += "8";
+            } else {
+                this.f5867e += "4";
+                this.s = 0;
             }
+        } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
+            this.f5867e += "5";
+        } else if (errCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
+            this.f5867e += "6";
+        } else if (errCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
+            this.f5867e += "7";
+        } else if (errCode == FaceTracker.ErrCode.UNKNOW_TYPE) {
+            this.f5867e += "8";
         }
         this.r = errCode;
     }

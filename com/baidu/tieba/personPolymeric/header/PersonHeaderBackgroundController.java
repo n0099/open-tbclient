@@ -29,25 +29,25 @@ import org.apache.http.client.utils.URLEncodedUtils;
 public class PersonHeaderBackgroundController {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f19917a;
+    public TbPageContext f19999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbImageView f19918b;
+    public TbImageView f20000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f19919c;
+    public View f20001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public UserData f19920d;
+    public UserData f20002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19921e;
+    public boolean f20003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19922f;
+    public int f20004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f19923g = new b();
+    public View.OnClickListener f20005g = new b();
 
     /* loaded from: classes5.dex */
     public class a extends c<d.a.c.k.d.a> {
@@ -69,7 +69,7 @@ public class PersonHeaderBackgroundController {
         public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((a) aVar, str, i2);
             if (aVar != null) {
-                aVar.h(PersonHeaderBackgroundController.this.f19918b);
+                aVar.h(PersonHeaderBackgroundController.this.f20000b);
             }
         }
     }
@@ -82,11 +82,11 @@ public class PersonHeaderBackgroundController {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i2;
-            if (PersonHeaderBackgroundController.this.f19921e) {
-                if (PersonHeaderBackgroundController.this.f19920d == null || !PersonHeaderBackgroundController.this.f19920d.isBaijiahaoUser()) {
+            if (PersonHeaderBackgroundController.this.f20003e) {
+                if (PersonHeaderBackgroundController.this.f20002d == null || !PersonHeaderBackgroundController.this.f20002d.isBaijiahaoUser()) {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    String userId = PersonHeaderBackgroundController.this.f19920d.getUserId();
-                    String bg_pic = PersonHeaderBackgroundController.this.f19920d.getBg_pic();
+                    String userId = PersonHeaderBackgroundController.this.f20002d.getUserId();
+                    String bg_pic = PersonHeaderBackgroundController.this.f20002d.getBg_pic();
                     try {
                         i2 = d.a.c.e.m.b.d((String) PersonHeaderBackgroundController.this.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
@@ -98,34 +98,34 @@ public class PersonHeaderBackgroundController {
                         if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i3 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f19918b.getContext(), i2, i3)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f20000b.getContext(), i2, i3)));
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f19918b.getContext())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f20000b.getContext())));
                 }
             }
         }
     }
 
     public PersonHeaderBackgroundController(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
-        this.f19917a = tbPageContext;
-        this.f19918b = tbImageView;
-        this.f19921e = z;
+        this.f19999a = tbPageContext;
+        this.f20000b = tbImageView;
+        this.f20003e = z;
         tbImageView.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.f19919c = view;
-        view.setOnClickListener(this.f19923g);
+        this.f20001c = view;
+        view.setOnClickListener(this.f20005g);
     }
 
     public void e(UserData userData) {
         if (userData == null) {
             return;
         }
-        this.f19920d = userData;
+        this.f20002d = userData;
         String bg_pic = userData.getBg_pic();
         if (k.isEmpty(bg_pic)) {
             return;
         }
-        d.h().k(bg_pic, 10, new a(), 0, 0, this.f19917a.getUniqueId(), new Object[0]);
+        d.h().k(bg_pic, 10, new a(), 0, 0, this.f19999a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(final String str) throws URISyntaxException {
@@ -139,7 +139,7 @@ public class PersonHeaderBackgroundController {
     }
 
     public int g() {
-        ViewGroup.LayoutParams layoutParams = this.f19918b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f20000b.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }
@@ -147,28 +147,28 @@ public class PersonHeaderBackgroundController {
     }
 
     public void h(double d2) {
-        int i2 = (int) (this.f19922f + (PullRefreshFrameLayout.D * d2));
-        ViewGroup.LayoutParams layoutParams = this.f19918b.getLayoutParams();
+        int i2 = (int) (this.f20004f + (PullRefreshFrameLayout.D * d2));
+        ViewGroup.LayoutParams layoutParams = this.f20000b.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i2;
-            this.f19918b.setLayoutParams(layoutParams);
+            this.f20000b.setLayoutParams(layoutParams);
         }
     }
 
     public void i(int i2) {
-        this.f19922f = i2;
-        ViewGroup.LayoutParams layoutParams = this.f19918b.getLayoutParams();
+        this.f20004f = i2;
+        ViewGroup.LayoutParams layoutParams = this.f20000b.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.f19922f;
-            this.f19918b.setLayoutParams(layoutParams);
+            layoutParams.height = this.f20004f;
+            this.f20000b.setLayoutParams(layoutParams);
         }
     }
 
     public void j(int i2) {
-        ViewGroup.LayoutParams layoutParams = this.f19918b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f20000b.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i2;
-            this.f19918b.setLayoutParams(layoutParams);
+            this.f20000b.setLayoutParams(layoutParams);
         }
     }
 }
