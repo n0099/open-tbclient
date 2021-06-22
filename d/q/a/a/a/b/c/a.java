@@ -10,31 +10,31 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f71328a;
+    public com.yxcorp.kuaishou.addfp.a.b.b f71432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f71329b;
+    public Context f71433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f71330c = null;
+    public d f71434c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f71331d = new CountDownLatch(1);
+    public CountDownLatch f71435d = new CountDownLatch(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public long f71332e = 0;
+    public long f71436e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f71333f = new b(this);
+    public ServiceConnection f71437f = new b(this);
 
     public a(Context context) {
-        this.f71329b = context;
+        this.f71433b = context;
     }
 
     public final void c() {
         Context context;
-        ServiceConnection serviceConnection = this.f71333f;
-        if (serviceConnection == null || (context = this.f71329b) == null) {
+        ServiceConnection serviceConnection = this.f71437f;
+        if (serviceConnection == null || (context = this.f71433b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -43,18 +43,18 @@ public final class a {
     public final void d(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f71328a = bVar;
-            this.f71329b.getPackageManager().getPackageInfo("com.huawei.hwid", 0);
+            this.f71432a = bVar;
+            this.f71433b.getPackageManager().getPackageInfo("com.huawei.hwid", 0);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            this.f71332e = System.currentTimeMillis();
-            d.q.a.a.c.b.b.e("hua wei lala  : " + this.f71332e);
-            if (!this.f71329b.bindService(intent, this.f71333f, 1)) {
+            this.f71436e = System.currentTimeMillis();
+            d.q.a.a.c.b.b.e("hua wei lala  : " + this.f71436e);
+            if (!this.f71433b.bindService(intent, this.f71437f, 1)) {
                 e(false);
                 return;
             }
-            this.f71331d.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.f71330c == null) {
+            this.f71435d.await(2000L, TimeUnit.MILLISECONDS);
+            if (this.f71434c == null) {
                 e(false);
                 return;
             }
@@ -69,9 +69,9 @@ public final class a {
     public final void e(boolean z) {
         try {
             if (z) {
-                this.f71328a.a(this.f71330c);
+                this.f71432a.a(this.f71434c);
             } else {
-                this.f71328a.e();
+                this.f71432a.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

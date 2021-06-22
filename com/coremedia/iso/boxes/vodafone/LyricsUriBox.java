@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.vodafone;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,9 +11,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class LyricsUriBox extends AbstractFullBox {
     public static final String TYPE = "lrcu";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
     public String lyricsUri;
 
     static {
@@ -60,6 +61,6 @@ public class LyricsUriBox extends AbstractFullBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return "LyricsUriBox[lyricsUri=" + getLyricsUri() + "]";
+        return "LyricsUriBox[lyricsUri=" + getLyricsUri() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

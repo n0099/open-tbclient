@@ -13,11 +13,11 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static WalletHomeBeanFactory f24252a = new WalletHomeBeanFactory();
+        public static WalletHomeBeanFactory f24334a = new WalletHomeBeanFactory();
     }
 
     public static WalletHomeBeanFactory getInstance() {
-        return a.f24252a;
+        return a.f24334a;
     }
 
     public WalletHomeBeanFactory() {

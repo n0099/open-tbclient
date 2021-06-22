@@ -13,24 +13,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.e.m.e;
 import d.a.c.e.p.j;
-import d.a.n0.r3.f;
+import d.a.o0.r3.f;
 /* loaded from: classes5.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21503e;
+    public int f21585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21504f;
+    public TextView f21586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21505g;
+    public TextView f21587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21506h;
+    public TextView f21588h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f21507i;
+    public Runnable f21589i;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -50,14 +50,14 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.l.a.u(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            d.a.n0.l.a.u(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         }
     }
 
     public VideoNetworkStateTipView(Context context) {
         super(context);
-        this.f21503e = 3;
-        this.f21507i = new a();
+        this.f21585e = 3;
+        this.f21589i = new a();
         c();
     }
 
@@ -71,11 +71,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     public final void c() {
         RelativeLayout.inflate(getContext(), R.layout.video_network_state_tip, this);
-        this.f21504f = (TextView) findViewById(R.id.play);
+        this.f21586f = (TextView) findViewById(R.id.play);
         TextView textView = (TextView) findViewById(R.id.free_flow);
-        this.f21505g = textView;
+        this.f21587g = textView;
         textView.setOnClickListener(new b());
-        this.f21506h = (TextView) findViewById(R.id.play_tips);
+        this.f21588h = (TextView) findViewById(R.id.play_tips);
         e(TbadkApplication.getInst().getSkinType());
     }
 
@@ -84,31 +84,31 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void e(int i2) {
-        if (this.f21503e != i2) {
-            this.f21503e = i2;
-            SkinManager.setViewTextColor(this.f21504f, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f21504f, R.drawable.rectangle_background_alpha80);
-            SkinManager.setViewTextColor(this.f21505g, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f21505g, R.drawable.blue_rectangle_background);
-            SkinManager.setViewTextColor(this.f21506h, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f21506h, R.drawable.rectangle_background_alpha80);
+        if (this.f21585e != i2) {
+            this.f21585e = i2;
+            SkinManager.setViewTextColor(this.f21586f, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f21586f, R.drawable.rectangle_background_alpha80);
+            SkinManager.setViewTextColor(this.f21587g, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f21587g, R.drawable.blue_rectangle_background);
+            SkinManager.setViewTextColor(this.f21588h, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f21588h, R.drawable.rectangle_background_alpha80);
         }
     }
 
     public void f() {
         setVisibility(0);
-        this.f21504f.setVisibility(0);
-        this.f21505g.setVisibility(0);
-        this.f21506h.setVisibility(8);
+        this.f21586f.setVisibility(0);
+        this.f21587g.setVisibility(0);
+        this.f21588h.setVisibility(8);
     }
 
     public void g() {
         setVisibility(0);
-        this.f21504f.setVisibility(8);
-        this.f21505g.setVisibility(8);
-        this.f21506h.setVisibility(0);
-        e.a().removeCallbacks(this.f21507i);
-        e.a().postDelayed(this.f21507i, 3000L);
+        this.f21586f.setVisibility(8);
+        this.f21587g.setVisibility(8);
+        this.f21588h.setVisibility(0);
+        e.a().removeCallbacks(this.f21589i);
+        e.a().postDelayed(this.f21589i, 3000L);
     }
 
     public void setHasAgreeToPlay(boolean z) {
@@ -116,20 +116,20 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.f21504f.setOnClickListener(onClickListener);
+        this.f21586f.setOnClickListener(onClickListener);
     }
 
     public VideoNetworkStateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21503e = 3;
-        this.f21507i = new a();
+        this.f21585e = 3;
+        this.f21589i = new a();
         c();
     }
 
     public VideoNetworkStateTipView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21503e = 3;
-        this.f21507i = new a();
+        this.f21585e = 3;
+        this.f21589i = new a();
         c();
     }
 }

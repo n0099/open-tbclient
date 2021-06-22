@@ -5,7 +5,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 /* loaded from: classes3.dex */
 public class TbClipImageView extends TbImageView {
-    public boolean w0;
+    public boolean B0;
 
     public TbClipImageView(Context context) {
         this(context, null, 0);
@@ -47,9 +47,9 @@ public class TbClipImageView extends TbImageView {
             z2 = false;
         }
         if (!z2 && !z) {
-            this.w0 = true;
+            this.B0 = true;
         } else {
-            this.w0 = false;
+            this.B0 = false;
         }
     }
 
@@ -58,7 +58,7 @@ public class TbClipImageView extends TbImageView {
         if (i2 == 0) {
             super.setDrawerType(i2);
         } else if (i2 == 1) {
-            super.setDrawerType(this.w0 ? 4 : 5);
+            super.setDrawerType(this.B0 ? 4 : 5);
         } else {
             super.setDrawerType(i2);
         }
@@ -66,7 +66,7 @@ public class TbClipImageView extends TbImageView {
 
     public TbClipImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.w0 = false;
+        this.B0 = false;
         b0(context, attributeSet, i2);
     }
 

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import d.a.m0.r.q.a;
-import d.a.m0.r.u.c;
+import d.a.n0.r.q.a;
+import d.a.n0.r.u.c;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RecommendInfoLayout extends RelativeLayout {

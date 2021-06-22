@@ -46,7 +46,7 @@ import com.baidu.tieba.im.widget.Game2GroupShareDialogView;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.s.a;
+import d.a.n0.r.s.a;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -88,25 +88,25 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f17379e;
+        public final /* synthetic */ long f17461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromGameCenterMsgData f17380f;
+        public final /* synthetic */ ShareFromGameCenterMsgData f17462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f17381g;
+        public final /* synthetic */ Game2GroupShareDialogView f17463g;
 
         public a(long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f17379e = j;
-            this.f17380f = shareFromGameCenterMsgData;
-            this.f17381g = game2GroupShareDialogView;
+            this.f17461e = j;
+            this.f17462f = shareFromGameCenterMsgData;
+            this.f17463g = game2GroupShareDialogView;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
-            long t = d.a.n0.f1.k.b.o().t(String.valueOf(this.f17379e), 1);
-            MessageUtils.createGroupChatMessage(t, 9, this.f17380f.toChatMessageContent(), this.f17379e);
-            MessageUtils.createGroupChatMessage(t + 1, 1, this.f17381g.getLeaveMsg(), this.f17379e);
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
+            long t = d.a.o0.f1.k.b.o().t(String.valueOf(this.f17461e), 1);
+            MessageUtils.createGroupChatMessage(t, 9, this.f17462f.toChatMessageContent(), this.f17461e);
+            MessageUtils.createGroupChatMessage(t + 1, 1, this.f17463g.getLeaveMsg(), this.f17461e);
             aVar.dismiss();
             PersonGroupActivity.this.setResult(-1);
             if (!j.z()) {
@@ -121,16 +121,16 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f17383e;
+        public final /* synthetic */ Game2GroupShareDialogView f17465e;
 
         public b(Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f17383e = game2GroupShareDialogView;
+            this.f17465e = game2GroupShareDialogView;
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
-            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17383e.getWindowToken(), 2);
+            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17465e.getWindowToken(), 2);
         }
     }
 
@@ -145,11 +145,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage.isSuccess()) {
                 if (httpResponsedMessage.getError() == 0) {
-                    d.a.m0.r.l.f.c(3, PersonGroupActivity.PRIVATESTATE[PersonGroupActivity.this.wantPrivcay]);
+                    d.a.n0.r.l.f.c(3, PersonGroupActivity.PRIVATESTATE[PersonGroupActivity.this.wantPrivcay]);
                     SkinManager.setNavbarIconSrc(PersonGroupActivity.this.mPrivacyButton, PersonGroupActivity.PRIVACY_IMAGE_LIST_DEEP[PersonGroupActivity.this.wantPrivcay], PersonGroupActivity.PRIVACY_IMAGE_LIST[PersonGroupActivity.this.wantPrivcay]);
                     PersonGroupActivity personGroupActivity = PersonGroupActivity.this;
                     personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[PersonGroupActivity.this.wantPrivcay]), R.drawable.icon_toast_info);
-                    PersonGroupActivity.this.mPrivacyButton.setContentDescription(PersonGroupActivity.this.getPageContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[d.a.m0.r.l.f.a(3) % 3]));
+                    PersonGroupActivity.this.mPrivacyButton.setContentDescription(PersonGroupActivity.this.getPageContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[d.a.n0.r.l.f.a(3) % 3]));
                     return;
                 }
                 PersonGroupActivity.this.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? PersonGroupActivity.this.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
@@ -236,7 +236,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PersonGroupActivity.this.wantPrivcay = d.a.m0.r.l.f.a(3) % 3;
+            PersonGroupActivity.this.wantPrivcay = d.a.n0.r.l.f.a(3) % 3;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
             httpMessage.addParam("opt", "group");
             httpMessage.addParam("val", String.valueOf(PersonGroupActivity.this.wantPrivcay + 1));
@@ -250,12 +250,12 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12213c = fragment;
-        bVar.f12211a = i2;
+        bVar.f12295c = fragment;
+        bVar.f12293a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12212b = fragmentTabIndicator;
+        bVar.f12294b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -304,8 +304,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         } else if (this.isHost && this.requestCode != 23003) {
             ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
             this.mPrivacyButton = imageView;
-            SkinManager.setNavbarIconSrc(imageView, PRIVACY_IMAGE_LIST_DEEP[d.a.m0.r.l.f.a(3) - 1], PRIVACY_IMAGE_LIST[d.a.m0.r.l.f.a(3) - 1]);
-            this.wantPrivcay = d.a.m0.r.l.f.a(3) % 3;
+            SkinManager.setNavbarIconSrc(imageView, PRIVACY_IMAGE_LIST_DEEP[d.a.n0.r.l.f.a(3) - 1], PRIVACY_IMAGE_LIST[d.a.n0.r.l.f.a(3) - 1]);
+            this.wantPrivcay = d.a.n0.r.l.f.a(3) % 3;
             this.mPrivacyButton.setContentDescription(getPageContext().getString(PRIVACY_INFO_TEXT_LIST[this.wantPrivcay]));
             this.mPrivacyButton.setOnClickListener(new h());
         }
@@ -335,7 +335,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     private void showConfirmShareToGroupDialog(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str) {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
         aVar.setContentViewSize(1);
         Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
         game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
@@ -475,7 +475,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             return false;
         }
         if (2 == this.fromWhere) {
-            showConfirmShareToGroupDialog(d.a.m0.y.a.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
+            showConfirmShareToGroupDialog(d.a.n0.y.a.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
             return true;
         }
         Intent intent = new Intent();
@@ -539,13 +539,13 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (this.isHost || this.mPersonGroupAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12212b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12294b;
         if (i2 <= 0) {
             fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.person_group_no_personal_title));
         } else {
             fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.person_group_personal), Integer.valueOf(i2)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12212b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12294b;
         if (i3 <= 0) {
             fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.commongroup));
         } else {

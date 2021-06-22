@@ -70,31 +70,31 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
     public static final jg f516a = new jg("PushMessage");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41457a = new iy("", StandardMessageCodec.LIST, 1);
+    public static final iy f41560a = new iy("", StandardMessageCodec.LIST, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41458b = new iy("", (byte) 11, 2);
+    public static final iy f41561b = new iy("", (byte) 11, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41459c = new iy("", (byte) 11, 3);
+    public static final iy f41562c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41460d = new iy("", (byte) 11, 4);
+    public static final iy f41563d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41461e = new iy("", (byte) 10, 5);
+    public static final iy f41564e = new iy("", (byte) 10, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41462f = new iy("", (byte) 10, 6);
+    public static final iy f41565f = new iy("", (byte) 10, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f41463g = new iy("", (byte) 11, 7);
+    public static final iy f41566g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f41464h = new iy("", (byte) 11, 8);
+    public static final iy f41567h = new iy("", (byte) 11, 8);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f41465i = new iy("", (byte) 11, 9);
+    public static final iy f41568i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 11, 10);
     public static final iy k = new iy("", (byte) 11, 11);
     public static final iy l = new iy("", StandardMessageCodec.LIST, 12);
@@ -286,7 +286,7 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 jbVar.f();
                 m386a();
@@ -554,47 +554,47 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
         m386a();
         jbVar.a(f516a);
         if (this.f519a != null && m387a()) {
-            jbVar.a(f41457a);
+            jbVar.a(f41560a);
             this.f519a.b(jbVar);
             jbVar.b();
         }
         if (this.f520a != null) {
-            jbVar.a(f41458b);
+            jbVar.a(f41561b);
             jbVar.a(this.f520a);
             jbVar.b();
         }
         if (this.f524b != null) {
-            jbVar.a(f41459c);
+            jbVar.a(f41562c);
             jbVar.a(this.f524b);
             jbVar.b();
         }
         if (this.f526c != null) {
-            jbVar.a(f41460d);
+            jbVar.a(f41563d);
             jbVar.a(this.f526c);
             jbVar.b();
         }
         if (e()) {
-            jbVar.a(f41461e);
+            jbVar.a(f41564e);
             jbVar.a(this.f517a);
             jbVar.b();
         }
         if (f()) {
-            jbVar.a(f41462f);
+            jbVar.a(f41565f);
             jbVar.a(this.f523b);
             jbVar.b();
         }
         if (this.f527d != null && g()) {
-            jbVar.a(f41463g);
+            jbVar.a(f41566g);
             jbVar.a(this.f527d);
             jbVar.b();
         }
         if (this.f528e != null && h()) {
-            jbVar.a(f41464h);
+            jbVar.a(f41567h);
             jbVar.a(this.f528e);
             jbVar.b();
         }
         if (this.f529f != null && i()) {
-            jbVar.a(f41465i);
+            jbVar.a(f41568i);
             jbVar.a(this.f529f);
             jbVar.b();
         }

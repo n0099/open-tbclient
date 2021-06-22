@@ -28,7 +28,7 @@ public class b extends d.a.c.k.e.a<d, FacadeEmptyViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public View X(int i2, View view, ViewGroup viewGroup, d dVar, FacadeEmptyViewHolder facadeEmptyViewHolder) {
-        d.a.m0.r.q.d.h(dVar);
+        d.a.n0.r.q.d.h(dVar);
         return facadeEmptyViewHolder.a();
     }
 }

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.system.Os;
 import android.text.TextUtils;
+import com.baidu.pass.face.platform.utils.FileUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -141,7 +142,7 @@ public abstract class PathUtils {
         String str = strArr[0];
         if (Build.VERSION.SDK_INT >= 21) {
             try {
-                Os.chmod(str, 448);
+                Os.chmod(str, FileUtils.S_IRWXU);
             } catch (Exception unused) {
                 Log.e(com.baidu.android.util.io.PathUtils.TAG, "Failed to set permissions for path \"" + str + "\"", new Object[0]);
             }

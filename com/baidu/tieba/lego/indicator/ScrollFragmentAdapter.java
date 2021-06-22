@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.lego.LegoHotPageView;
 import com.baidu.tieba.lego.LegoListView;
-import d.a.n0.e3.p0.b;
-import d.a.n0.k1.d;
-import d.a.n0.k1.g;
-import d.a.n0.k1.p.c;
-import d.a.n0.k1.p.e;
+import d.a.o0.e3.p0.b;
+import d.a.o0.k1.d;
+import d.a.o0.k1.g;
+import d.a.o0.k1.p.c;
+import d.a.o0.k1.p.e;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,38 +23,38 @@ import tbclient.Lego.DataRes;
 public class ScrollFragmentAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f18043a;
+    public Context f18125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f18044b;
+    public BdUniqueId f18126b;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<LegoListView> f18048f;
+    public ArrayList<LegoListView> f18130f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LegoHotPageView f18049g;
+    public LegoHotPageView f18131g;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18045c = -1;
+    public int f18127c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18046d = -1;
+    public int f18128d = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f18050h = new a();
+    public g f18132h = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c> f18047e = new ArrayList<>();
+    public ArrayList<c> f18129e = new ArrayList<>();
 
     /* loaded from: classes4.dex */
     public class a implements g {
         public a() {
         }
 
-        @Override // d.a.n0.k1.g
+        @Override // d.a.o0.k1.g
         public void a(e eVar, int i2) {
-            if (i2 >= 0 && ScrollFragmentAdapter.this.f18047e != null && ScrollFragmentAdapter.this.f18047e.size() > 0) {
-                Iterator it = ScrollFragmentAdapter.this.f18047e.iterator();
+            if (i2 >= 0 && ScrollFragmentAdapter.this.f18129e != null && ScrollFragmentAdapter.this.f18129e.size() > 0) {
+                Iterator it = ScrollFragmentAdapter.this.f18129e.iterator();
                 while (it.hasNext()) {
                     c cVar = (c) it.next();
                     if (cVar != null && cVar.i() != null && eVar == cVar.i()) {
@@ -66,18 +66,18 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         }
     }
 
-    public ScrollFragmentAdapter(Context context, d dVar, d.a.n0.k1.c cVar, BdUniqueId bdUniqueId) {
-        this.f18043a = context;
-        this.f18044b = bdUniqueId;
+    public ScrollFragmentAdapter(Context context, d dVar, d.a.o0.k1.c cVar, BdUniqueId bdUniqueId) {
+        this.f18125a = context;
+        this.f18126b = bdUniqueId;
         ArrayList<LegoListView> arrayList = new ArrayList<>();
-        this.f18048f = arrayList;
+        this.f18130f = arrayList;
         arrayList.add(f(dVar));
-        this.f18048f.add(f(dVar));
-        this.f18048f.add(f(dVar));
+        this.f18130f.add(f(dVar));
+        this.f18130f.add(f(dVar));
         LegoHotPageView legoHotPageView = new LegoHotPageView(context);
-        this.f18049g = legoHotPageView;
+        this.f18131g = legoHotPageView;
         legoHotPageView.setPageUniqueId(bdUniqueId);
-        this.f18049g.setCallback(cVar);
+        this.f18131g.setCallback(cVar);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -85,24 +85,24 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public final View e() {
-        int i2 = this.f18045c;
-        if (i2 == this.f18046d) {
-            return this.f18049g;
+        int i2 = this.f18127c;
+        if (i2 == this.f18128d) {
+            return this.f18131g;
         }
-        return (View) ListUtils.getItem(this.f18048f, i2 % 3);
+        return (View) ListUtils.getItem(this.f18130f, i2 % 3);
     }
 
     public final LegoListView f(d dVar) {
-        LegoListView legoListView = new LegoListView(this.f18043a);
-        legoListView.v(this.f18044b);
+        LegoListView legoListView = new LegoListView(this.f18125a);
+        legoListView.v(this.f18126b);
         legoListView.setCallback(dVar);
-        legoListView.setScrollCallback(this.f18050h);
+        legoListView.setScrollCallback(this.f18132h);
         return legoListView;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        ArrayList<c> arrayList = this.f18047e;
+        ArrayList<c> arrayList = this.f18129e;
         if (arrayList == null) {
             return 0;
         }
@@ -113,21 +113,21 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     public CharSequence getPageTitle(int i2) {
         ArrayList<c> arrayList;
         int count = getCount();
-        if (i2 < 0 || i2 >= count || (arrayList = this.f18047e) == null || arrayList.get(i2) == null || this.f18047e.get(i2).i() == null) {
+        if (i2 < 0 || i2 >= count || (arrayList = this.f18129e) == null || arrayList.get(i2) == null || this.f18129e.get(i2).i() == null) {
             return null;
         }
-        return this.f18047e.get(i2).i().f60449c;
+        return this.f18129e.get(i2).i().f60574c;
     }
 
     public void i(int i2) {
-        if (this.f18048f == null) {
+        if (this.f18130f == null) {
             return;
         }
-        LegoHotPageView legoHotPageView = this.f18049g;
+        LegoHotPageView legoHotPageView = this.f18131g;
         if (legoHotPageView != null) {
             legoHotPageView.w(i2);
         }
-        Iterator<LegoListView> it = this.f18048f.iterator();
+        Iterator<LegoListView> it = this.f18130f.iterator();
         while (it.hasNext()) {
             LegoListView next = it.next();
             if (next != null) {
@@ -138,22 +138,22 @@ public class ScrollFragmentAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        if (i2 == this.f18046d) {
-            if (this.f18049g.getParent() != null) {
-                viewGroup.removeView(this.f18049g);
+        if (i2 == this.f18128d) {
+            if (this.f18131g.getParent() != null) {
+                viewGroup.removeView(this.f18131g);
             }
-            c cVar = (c) ListUtils.getItem(this.f18047e, i2);
+            c cVar = (c) ListUtils.getItem(this.f18129e, i2);
             if (cVar != null) {
-                this.f18049g.setTagInfo(cVar.i());
+                this.f18131g.setTagInfo(cVar.i());
             }
-            viewGroup.addView(this.f18049g);
-            return this.f18049g;
+            viewGroup.addView(this.f18131g);
+            return this.f18131g;
         }
-        LegoListView legoListView = this.f18048f.get(i2 % 3);
+        LegoListView legoListView = this.f18130f.get(i2 % 3);
         if (legoListView.getParent() != null) {
             viewGroup.removeView(legoListView);
         }
-        legoListView.u(this.f18047e.get(i2), true);
+        legoListView.u(this.f18129e.get(i2), true);
         viewGroup.addView(legoListView);
         return legoListView;
     }
@@ -173,22 +173,22 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void k(int i2) {
-        this.f18046d = i2;
+        this.f18128d = i2;
     }
 
     public void l(long j, String str) {
-        LegoHotPageView legoHotPageView = this.f18049g;
+        LegoHotPageView legoHotPageView = this.f18131g;
         if (legoHotPageView != null) {
             legoHotPageView.z(j, str);
         }
     }
 
     public void m(long j, String str, String str2, int i2) {
-        if (j == this.f18049g.getTagCode()) {
-            this.f18049g.B(str2, i2);
+        if (j == this.f18131g.getTagCode()) {
+            this.f18131g.B(str2, i2);
             return;
         }
-        ArrayList<LegoListView> arrayList = this.f18048f;
+        ArrayList<LegoListView> arrayList = this.f18130f;
         if (arrayList == null) {
             return;
         }
@@ -203,19 +203,19 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void n(long j, String str, DataRes dataRes, boolean z) {
-        if (ListUtils.getCount(this.f18047e) <= 0) {
-            LegoHotPageView legoHotPageView = this.f18049g;
+        if (ListUtils.getCount(this.f18129e) <= 0) {
+            LegoHotPageView legoHotPageView = this.f18131g;
             if (legoHotPageView != null) {
                 legoHotPageView.A(dataRes, z);
             }
-        } else if (j == 0 && ((c) ListUtils.getItem(this.f18047e, this.f18046d)) != null) {
-            this.f18049g.A(dataRes, z);
+        } else if (j == 0 && ((c) ListUtils.getItem(this.f18129e, this.f18128d)) != null) {
+            this.f18131g.A(dataRes, z);
         } else {
-            Iterator<c> it = this.f18047e.iterator();
+            Iterator<c> it = this.f18129e.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next != null && next.i() != null && j == next.i().f60447a && TextUtils.equals(str, next.i().f60448b)) {
-                    this.f18049g.A(dataRes, z);
+                if (next != null && next.i() != null && j == next.i().f60572a && TextUtils.equals(str, next.i().f60573b)) {
+                    this.f18131g.A(dataRes, z);
                     return;
                 }
             }
@@ -223,14 +223,14 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void o(boolean z, long j, String str, DataRes dataRes, boolean z2, int i2) {
-        ArrayList<c> arrayList = this.f18047e;
+        ArrayList<c> arrayList = this.f18129e;
         if (arrayList == null || arrayList.isEmpty()) {
             return;
         }
-        Iterator<c> it = this.f18047e.iterator();
+        Iterator<c> it = this.f18129e.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (next != null && next.i() != null && j == next.i().f60447a && TextUtils.equals(str, next.i().f60448b)) {
+            if (next != null && next.i() != null && j == next.i().f60572a && TextUtils.equals(str, next.i().f60573b)) {
                 next.d(z, dataRes, z2, i2);
                 notifyDataSetChanged();
                 q(j, str, next);
@@ -240,18 +240,18 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void p(List<c> list) {
-        if (this.f18047e == null) {
-            this.f18047e = new ArrayList<>();
+        if (this.f18129e == null) {
+            this.f18129e = new ArrayList<>();
         }
-        this.f18047e.clear();
+        this.f18129e.clear();
         if (list != null && list.size() > 0) {
-            this.f18047e.addAll(list);
+            this.f18129e.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     public final void q(long j, String str, c cVar) {
-        ArrayList<LegoListView> arrayList = this.f18048f;
+        ArrayList<LegoListView> arrayList = this.f18130f;
         if (arrayList == null) {
             return;
         }
@@ -268,10 +268,10 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
         super.setPrimaryItem(viewGroup, i2, obj);
-        if (this.f18045c != i2) {
+        if (this.f18127c != i2) {
             j();
-            this.f18045c = i2;
-            VoiceManager a2 = b.a(this.f18043a);
+            this.f18127c = i2;
+            VoiceManager a2 = b.a(this.f18125a);
             if (a2 != null) {
                 a2.stopPlay();
             }

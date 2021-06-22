@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.n0.v.d.f.c.a;
-import d.a.n0.v.d.f.c.h;
-import d.a.n0.v.d.f.c.i;
+import d.a.o0.v.d.f.c.a;
+import d.a.o0.v.d.f.c.h;
+import d.a.o0.v.d.f.c.i;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         if (optJSONObject != null) {
             a aVar = new a();
             aVar.a(optJSONObject);
-            this.mData.f65446a = aVar;
+            this.mData.f65571a = aVar;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -42,20 +42,20 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                     arrayList.add(specialLiveTabInfo);
                 }
             }
-            this.mData.f65447b = arrayList;
+            this.mData.f65572b = arrayList;
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
         if (optJSONObject2 != null) {
             AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
             alaUserInfoData.parserJson(optJSONObject2);
-            this.mData.f65449d = alaUserInfoData;
+            this.mData.f65574d = alaUserInfoData;
         }
-        this.mData.f65448c = jSONObject.optInt("is_like") == 1;
+        this.mData.f65573c = jSONObject.optInt("is_like") == 1;
         JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
         if (optJSONObject2 != null) {
             i iVar = new i();
             iVar.a(optJSONObject3);
-            this.mData.f65450e = iVar;
+            this.mData.f65575e = iVar;
         }
     }
 

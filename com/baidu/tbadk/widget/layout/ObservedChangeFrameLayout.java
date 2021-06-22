@@ -3,32 +3,32 @@ package com.baidu.tbadk.widget.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import d.a.m0.b1.j.e;
+import d.a.n0.b1.j.e;
 /* loaded from: classes3.dex */
 public class ObservedChangeFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f13233e;
+    public e f13315e;
 
     public ObservedChangeFrameLayout(Context context) {
         super(context);
     }
 
     public e getOnSizeChangeListener() {
-        return this.f13233e;
+        return this.f13315e;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        e eVar = this.f13233e;
+        e eVar = this.f13315e;
         if (eVar != null) {
             eVar.a(this, i2, i3, i4, i5);
         }
     }
 
     public void setOnSizeChangeListener(e eVar) {
-        this.f13233e = eVar;
+        this.f13315e = eVar;
     }
 
     public ObservedChangeFrameLayout(Context context, AttributeSet attributeSet) {

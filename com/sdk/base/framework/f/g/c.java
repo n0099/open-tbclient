@@ -7,7 +7,7 @@ import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f39373a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
+    public static final c f39471a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
         @Override // com.sdk.base.framework.f.g.c
         public final int a() {
             return 0;
@@ -15,7 +15,7 @@ public abstract class c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f39374b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+    public static final c f39472b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
         @Override // com.sdk.base.framework.f.g.c
         public final int a() {
             return 1;
@@ -23,7 +23,7 @@ public abstract class c {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f39375c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+    public static final c f39473c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
         @Override // com.sdk.base.framework.f.g.c
         public final int a() {
             return -1;

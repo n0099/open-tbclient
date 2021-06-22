@@ -11,23 +11,23 @@ public class i extends f {
     @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController
     public Dialog doOnCreateDialog(int i2) {
         if (i2 == 23) {
-            return new IdentifyCodeGetFailDialog(this.f25566c, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
+            return new IdentifyCodeGetFailDialog(this.f25648c, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
         }
         return super.doOnCreateDialog(i2);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void initSmsActivityView() {
-        String string = ResUtils.getString(this.f25566c, "ebpay_submit_pay");
-        PayRequest payRequest = this.f25565b;
+        String string = ResUtils.getString(this.f25648c, "ebpay_submit_pay");
+        PayRequest payRequest = this.f25647b;
         if (payRequest != null) {
             if (payRequest.mMktSolution != null) {
-                string = String.format(ResUtils.getString(this.f25566c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25565b.mMktSolution.easypay_amount));
+                string = String.format(ResUtils.getString(this.f25648c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25647b.mMktSolution.easypay_amount));
             } else {
-                string = String.format(ResUtils.getString(this.f25566c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25565b.getFinalPayAmount()));
+                string = String.format(ResUtils.getString(this.f25648c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25647b.getFinalPayAmount()));
             }
         }
-        this.f25567d.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f25569f)), true);
+        this.f25649d.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f25651f)), true);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController

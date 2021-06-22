@@ -6,21 +6,21 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a implements k {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h.n.a f72013f = new C1989a();
+    public static final h.n.a f72117f = new C1992a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<h.n.a> f72014e;
+    public final AtomicReference<h.n.a> f72118e;
 
     /* renamed from: h.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1989a implements h.n.a {
+    public static class C1992a implements h.n.a {
         @Override // h.n.a
         public void call() {
         }
     }
 
     public a() {
-        this.f72014e = new AtomicReference<>();
+        this.f72118e = new AtomicReference<>();
     }
 
     public static a a() {
@@ -33,21 +33,21 @@ public final class a implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f72014e.get() == f72013f;
+        return this.f72118e.get() == f72117f;
     }
 
     @Override // h.k
     public void unsubscribe() {
         h.n.a andSet;
-        h.n.a aVar = this.f72014e.get();
-        h.n.a aVar2 = f72013f;
-        if (aVar == aVar2 || (andSet = this.f72014e.getAndSet(aVar2)) == null || andSet == f72013f) {
+        h.n.a aVar = this.f72118e.get();
+        h.n.a aVar2 = f72117f;
+        if (aVar == aVar2 || (andSet = this.f72118e.getAndSet(aVar2)) == null || andSet == f72117f) {
             return;
         }
         andSet.call();
     }
 
     public a(h.n.a aVar) {
-        this.f72014e = new AtomicReference<>(aVar);
+        this.f72118e = new AtomicReference<>(aVar);
     }
 }

@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f69560a;
+    public static String f69664a;
 
     public static String a() {
         BufferedReader bufferedReader;
@@ -57,14 +57,14 @@ public class f {
     }
 
     public static String d(Context context) {
-        String str = f69560a;
+        String str = f69664a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                     if (runningAppProcessInfo.pid == myPid) {
                         String str2 = runningAppProcessInfo.processName;
-                        f69560a = str2;
+                        f69664a = str2;
                         return str2;
                     }
                 }
@@ -72,7 +72,7 @@ public class f {
                 e2.printStackTrace();
             }
             String a2 = a();
-            f69560a = a2;
+            f69664a = a2;
             return a2;
         }
         return str;

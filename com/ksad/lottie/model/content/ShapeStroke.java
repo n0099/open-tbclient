@@ -8,70 +8,70 @@ import java.util.List;
 public class ShapeStroke implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32026a;
+    public final String f32124a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f32027b;
+    public final com.ksad.lottie.model.a.b f32125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.ksad.lottie.model.a.b> f32028c;
+    public final List<com.ksad.lottie.model.a.b> f32126c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.a f32029d;
+    public final com.ksad.lottie.model.a.a f32127d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.d f32030e;
+    public final com.ksad.lottie.model.a.d f32128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f32031f;
+    public final com.ksad.lottie.model.a.b f32129f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LineCapType f32032g;
+    public final LineCapType f32130g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LineJoinType f32033h;
+    public final LineJoinType f32131h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final float f32034i;
+    public final float f32132i;
 
     /* renamed from: com.ksad.lottie.model.content.ShapeStroke$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32035a;
+        public static final /* synthetic */ int[] f32133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32036b;
+        public static final /* synthetic */ int[] f32134b;
 
         static {
             int[] iArr = new int[LineJoinType.values().length];
-            f32036b = iArr;
+            f32134b = iArr;
             try {
                 iArr[LineJoinType.Bevel.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32036b[LineJoinType.Miter.ordinal()] = 2;
+                f32134b[LineJoinType.Miter.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f32036b[LineJoinType.Round.ordinal()] = 3;
+                f32134b[LineJoinType.Round.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[LineCapType.values().length];
-            f32035a = iArr2;
+            f32133a = iArr2;
             try {
                 iArr2[LineCapType.Butt.ordinal()] = 1;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f32035a[LineCapType.Round.ordinal()] = 2;
+                f32133a[LineCapType.Round.ordinal()] = 2;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f32035a[LineCapType.Unknown.ordinal()] = 3;
+                f32133a[LineCapType.Unknown.ordinal()] = 3;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -84,7 +84,7 @@ public class ShapeStroke implements b {
         Unknown;
 
         public Paint.Cap toPaintCap() {
-            int i2 = AnonymousClass1.f32035a[ordinal()];
+            int i2 = AnonymousClass1.f32133a[ordinal()];
             return i2 != 1 ? i2 != 2 ? Paint.Cap.SQUARE : Paint.Cap.ROUND : Paint.Cap.BUTT;
         }
     }
@@ -96,7 +96,7 @@ public class ShapeStroke implements b {
         Bevel;
 
         public Paint.Join toPaintJoin() {
-            int i2 = AnonymousClass1.f32036b[ordinal()];
+            int i2 = AnonymousClass1.f32134b[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -111,15 +111,15 @@ public class ShapeStroke implements b {
     }
 
     public ShapeStroke(String str, @Nullable com.ksad.lottie.model.a.b bVar, List<com.ksad.lottie.model.a.b> list, com.ksad.lottie.model.a.a aVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f2) {
-        this.f32026a = str;
-        this.f32027b = bVar;
-        this.f32028c = list;
-        this.f32029d = aVar;
-        this.f32030e = dVar;
-        this.f32031f = bVar2;
-        this.f32032g = lineCapType;
-        this.f32033h = lineJoinType;
-        this.f32034i = f2;
+        this.f32124a = str;
+        this.f32125b = bVar;
+        this.f32126c = list;
+        this.f32127d = aVar;
+        this.f32128e = dVar;
+        this.f32129f = bVar2;
+        this.f32130g = lineCapType;
+        this.f32131h = lineJoinType;
+        this.f32132i = f2;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -128,38 +128,38 @@ public class ShapeStroke implements b {
     }
 
     public String a() {
-        return this.f32026a;
+        return this.f32124a;
     }
 
     public com.ksad.lottie.model.a.a b() {
-        return this.f32029d;
+        return this.f32127d;
     }
 
     public com.ksad.lottie.model.a.d c() {
-        return this.f32030e;
+        return this.f32128e;
     }
 
     public com.ksad.lottie.model.a.b d() {
-        return this.f32031f;
+        return this.f32129f;
     }
 
     public List<com.ksad.lottie.model.a.b> e() {
-        return this.f32028c;
+        return this.f32126c;
     }
 
     public com.ksad.lottie.model.a.b f() {
-        return this.f32027b;
+        return this.f32125b;
     }
 
     public LineCapType g() {
-        return this.f32032g;
+        return this.f32130g;
     }
 
     public LineJoinType h() {
-        return this.f32033h;
+        return this.f32131h;
     }
 
     public float i() {
-        return this.f32034i;
+        return this.f32132i;
     }
 }

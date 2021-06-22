@@ -12,7 +12,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkApplication;
-import d.a.n0.b3.a;
+import d.a.o0.b3.a;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -76,7 +76,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
             this.mSquareDelegate = aVar;
             aVar.e();
             this.mSquareDelegate.m();
-            this.mainView = this.mSquareDelegate.f55767d.d();
+            this.mainView = this.mSquareDelegate.f55892d.d();
         }
     }
 

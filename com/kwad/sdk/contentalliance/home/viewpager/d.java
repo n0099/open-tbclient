@@ -8,15 +8,15 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f33447a;
+    public i f33545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsFragment f33448b;
+    public KsFragment f33546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f33449c;
+    public SlidePlayViewPager f33547c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public e f33450d;
+    public e f33548d;
 }

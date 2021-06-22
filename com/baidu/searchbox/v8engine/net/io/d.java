@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -8,22 +9,22 @@ import java.util.Arrays;
 public class d implements Serializable, Comparable<d> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f10094a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f10126a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f10095b = a(new byte[0]);
+    public static final d f10127b = a(new byte[0]);
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f10096c;
+    public final byte[] f10128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f10097d;
+    public transient int f10129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f10098e;
+    public transient String f10130e;
 
     public d(byte[] bArr) {
-        this.f10096c = bArr;
+        this.f10128c = bArr;
     }
 
     public static d a(byte... bArr) {
@@ -34,12 +35,12 @@ public class d implements Serializable, Comparable<d> {
     }
 
     public String b() {
-        byte[] bArr = this.f10096c;
+        byte[] bArr = this.f10128c;
         char[] cArr = new char[bArr.length * 2];
         int i2 = 0;
         for (byte b2 : bArr) {
             int i3 = i2 + 1;
-            char[] cArr2 = f10094a;
+            char[] cArr2 = f10126a;
             cArr[i2] = cArr2[(b2 >> 4) & 15];
             i2 = i3 + 1;
             cArr[i3] = cArr2[b2 & 15];
@@ -48,11 +49,11 @@ public class d implements Serializable, Comparable<d> {
     }
 
     public int c() {
-        return this.f10096c.length;
+        return this.f10128c.length;
     }
 
     public byte[] d() {
-        return (byte[]) this.f10096c.clone();
+        return (byte[]) this.f10128c.clone();
     }
 
     public boolean equals(Object obj) {
@@ -62,7 +63,7 @@ public class d implements Serializable, Comparable<d> {
         if (obj instanceof d) {
             d dVar = (d) obj;
             int c2 = dVar.c();
-            byte[] bArr = this.f10096c;
+            byte[] bArr = this.f10128c;
             if (c2 == bArr.length && dVar.a(0, bArr, 0, bArr.length)) {
                 return true;
             }
@@ -71,33 +72,33 @@ public class d implements Serializable, Comparable<d> {
     }
 
     public int hashCode() {
-        int i2 = this.f10097d;
+        int i2 = this.f10129d;
         if (i2 != 0) {
             return i2;
         }
-        int hashCode = Arrays.hashCode(this.f10096c);
-        this.f10097d = hashCode;
+        int hashCode = Arrays.hashCode(this.f10128c);
+        this.f10129d = hashCode;
         return hashCode;
     }
 
     public String toString() {
         StringBuilder sb;
-        if (this.f10096c.length == 0) {
+        if (this.f10128c.length == 0) {
             return "[size=0]";
         }
         String a2 = a();
         int a3 = a(a2, 64);
         if (a3 == -1) {
-            if (this.f10096c.length <= 64) {
-                return "[hex=" + b() + "]";
+            if (this.f10128c.length <= 64) {
+                return "[hex=" + b() + PreferencesUtil.RIGHT_MOUNT;
             }
-            return "[size=" + this.f10096c.length + " hex=" + a(0, 64).b() + "…]";
+            return "[size=" + this.f10128c.length + " hex=" + a(0, 64).b() + "…]";
         }
         String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
         if (a3 < a2.length()) {
             sb = new StringBuilder();
             sb.append("[size=");
-            sb.append(this.f10096c.length);
+            sb.append(this.f10128c.length);
             sb.append(" text=");
             sb.append(replace);
             sb.append("…]");
@@ -105,26 +106,26 @@ public class d implements Serializable, Comparable<d> {
             sb = new StringBuilder();
             sb.append("[text=");
             sb.append(replace);
-            sb.append("]");
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
         }
         return sb.toString();
     }
 
     public String a() {
-        String str = this.f10098e;
+        String str = this.f10130e;
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.f10096c, com.baidu.searchbox.v8engine.net.b.f10090a);
-        this.f10098e = str2;
+        String str2 = new String(this.f10128c, com.baidu.searchbox.v8engine.net.b.f10122a);
+        this.f10130e = str2;
         return str2;
     }
 
     public d a(int i2, int i3) {
         if (i2 >= 0) {
-            byte[] bArr = this.f10096c;
+            byte[] bArr = this.f10128c;
             if (i3 > bArr.length) {
-                throw new IllegalArgumentException("endIndex > length(" + this.f10096c.length + SmallTailInfo.EMOTION_SUFFIX);
+                throw new IllegalArgumentException("endIndex > length(" + this.f10128c.length + SmallTailInfo.EMOTION_SUFFIX);
             }
             int i4 = i3 - i2;
             if (i4 >= 0) {
@@ -132,7 +133,7 @@ public class d implements Serializable, Comparable<d> {
                     return this;
                 }
                 byte[] bArr2 = new byte[i4];
-                System.arraycopy(this.f10096c, i2, bArr2, 0, i4);
+                System.arraycopy(this.f10128c, i2, bArr2, 0, i4);
                 return new d(bArr2);
             }
             throw new IllegalArgumentException("endIndex < beginIndex");
@@ -141,16 +142,16 @@ public class d implements Serializable, Comparable<d> {
     }
 
     public byte a(int i2) {
-        return this.f10096c[i2];
+        return this.f10128c[i2];
     }
 
     public boolean a(int i2, d dVar, int i3, int i4) {
-        return dVar.a(i3, this.f10096c, i2, i4);
+        return dVar.a(i3, this.f10128c, i2, i4);
     }
 
     public boolean a(int i2, byte[] bArr, int i3, int i4) {
         if (i2 >= 0) {
-            byte[] bArr2 = this.f10096c;
+            byte[] bArr2 = this.f10128c;
             if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && j.a(bArr2, i2, bArr, i3, i4)) {
                 return true;
             }

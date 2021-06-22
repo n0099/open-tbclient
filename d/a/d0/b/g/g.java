@@ -55,7 +55,7 @@ public class g {
             i(jSONObject.optInt("query_time_out_advance", 100));
             h((float) jSONObject.optDouble("hot_update_split_time", 5.0d));
         } catch (JSONException e2) {
-            if (d.a.d0.a.a.a.f43269a) {
+            if (d.a.d0.a.a.a.f43372a) {
                 e2.printStackTrace();
             }
         }

@@ -18,31 +18,31 @@ import com.baidu.wallet.home.ui.widget.b;
 public class UMHBigCreditCardRepayTipView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24513a;
+    public MaskTextView f24595a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24514b;
+    public MaskTextView f24596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24515c;
+    public MaskTextView f24597c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24516d;
+    public MaskTextView f24598d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f24517e;
+    public NetImageView f24599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f24518f;
+    public Button f24600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f24519g;
+    public TextView f24601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HomeCfgResponse.DataItem f24520h;
+    public HomeCfgResponse.DataItem f24602h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f24521i;
+    public b f24603i;
     public boolean j;
 
     public UMHBigCreditCardRepayTipView(Context context) {
@@ -50,7 +50,7 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     }
 
     private boolean a() {
-        HomeCfgResponse.DataItem dataItem = this.f24520h;
+        HomeCfgResponse.DataItem dataItem = this.f24602h;
         return (dataItem == null || dataItem.repay == null) ? false : true;
     }
 
@@ -61,82 +61,82 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_tip_item_layout"), this);
-        this.f24513a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_text"));
-        this.f24514b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_money"));
-        this.f24517e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_img"));
-        this.f24515c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_tip"));
-        this.f24516d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_sub_tip"));
-        this.f24518f = (Button) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button"));
-        this.f24519g = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button1"));
+        this.f24595a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_text"));
+        this.f24596b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_money"));
+        this.f24599e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_img"));
+        this.f24597c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_tip"));
+        this.f24598d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_sub_tip"));
+        this.f24600f = (Button) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button"));
+        this.f24601g = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button1"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView, android.view.View.OnClickListener
     public void onClick(View view) {
         HomeCfgResponse.DataButton[] dataButtonArr;
-        if (CheckUtils.isFastDoubleClick() || this.f24520h == null || getWalletInterface() == null || (dataButtonArr = this.f24520h.repay.buttons) == null || dataButtonArr.length <= 0 || dataButtonArr[0] == null) {
+        if (CheckUtils.isFastDoubleClick() || this.f24602h == null || getWalletInterface() == null || (dataButtonArr = this.f24602h.repay.buttons) == null || dataButtonArr.length <= 0 || dataButtonArr[0] == null) {
             return;
         }
-        b bVar = this.f24521i;
+        b bVar = this.f24603i;
         String name = dataButtonArr[0].stat != null ? dataButtonArr[0].stat.getName() : dataButtonArr[0].name;
-        HomeCfgResponse.DataButton[] dataButtonArr2 = this.f24520h.repay.buttons;
+        HomeCfgResponse.DataButton[] dataButtonArr2 = this.f24602h.repay.buttons;
         bVar.jump(name, dataButtonArr2[0].type, dataButtonArr2[0].link_addr, "1".equalsIgnoreCase(dataButtonArr2[0].prevlogin));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
-        this.f24516d.resetMaskText();
-        this.f24515c.resetMaskText();
-        this.f24514b.resetMaskText();
-        this.f24513a.resetMaskText();
+        this.f24598d.resetMaskText();
+        this.f24597c.resetMaskText();
+        this.f24596b.resetMaskText();
+        this.f24595a.resetMaskText();
     }
 
     public void refresh() {
         boolean z;
-        HomeCfgResponse.DataRepay dataRepay = this.f24520h.repay;
+        HomeCfgResponse.DataRepay dataRepay = this.f24602h.repay;
         if (!TextUtils.isEmpty(dataRepay.name)) {
-            this.f24513a.setVisibility(0);
-            this.f24513a.setMaskText(dataRepay.name);
+            this.f24595a.setVisibility(0);
+            this.f24595a.setMaskText(dataRepay.name);
         } else {
-            this.f24513a.setVisibility(8);
+            this.f24595a.setVisibility(8);
         }
         if (!TextUtils.isEmpty(dataRepay.label)) {
-            this.f24514b.setVisibility(0);
-            this.f24514b.setMaskText(dataRepay.label);
+            this.f24596b.setVisibility(0);
+            this.f24596b.setMaskText(dataRepay.label);
         } else {
-            this.f24514b.setVisibility(8);
+            this.f24596b.setVisibility(8);
         }
         HomeCfgResponse.DataButton[] dataButtonArr = dataRepay.buttons;
         if (dataButtonArr != null && dataButtonArr.length > 0 && dataButtonArr[0] != null && !TextUtils.isEmpty(dataButtonArr[0].name)) {
-            this.f24518f.setText(dataRepay.buttons[0].name);
-            this.f24519g.setText(dataRepay.buttons[0].name);
-            this.f24518f.setOnClickListener(this);
-            this.f24519g.setOnClickListener(this);
+            this.f24600f.setText(dataRepay.buttons[0].name);
+            this.f24601g.setText(dataRepay.buttons[0].name);
+            this.f24600f.setOnClickListener(this);
+            this.f24601g.setOnClickListener(this);
             z = true;
         } else {
-            this.f24518f.setVisibility(8);
-            this.f24519g.setVisibility(8);
+            this.f24600f.setVisibility(8);
+            this.f24601g.setVisibility(8);
             z = false;
         }
         if (!TextUtils.isEmpty(dataRepay.value)) {
-            this.f24515c.setVisibility(0);
-            this.f24515c.setMaskText(dataRepay.value);
+            this.f24597c.setVisibility(0);
+            this.f24597c.setMaskText(dataRepay.value);
             if (z) {
-                this.f24518f.setVisibility(0);
-                this.f24519g.setVisibility(8);
+                this.f24600f.setVisibility(0);
+                this.f24601g.setVisibility(8);
             }
             if (!TextUtils.isEmpty(dataRepay.desc)) {
-                this.f24516d.setVisibility(0);
-                this.f24516d.setMaskText(dataRepay.desc);
+                this.f24598d.setVisibility(0);
+                this.f24598d.setMaskText(dataRepay.desc);
             } else {
-                this.f24516d.setVisibility(8);
+                this.f24598d.setVisibility(8);
             }
             if (!TextUtils.isEmpty(dataRepay.type) && TextUtils.equals("2", dataRepay.type)) {
                 setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_fff6f6"));
                 int color = ResUtils.getColor(getContext(), "wallet_home_umh_text_fa5050");
                 a(color, color, ResUtils.getColor(getContext(), "wallet_home_umh_text_aafa5050"), color, color);
-                this.f24518f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_red"));
-                this.f24517e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_jin_tan_hao"));
+                this.f24600f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_red"));
+                this.f24599e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_jin_tan_hao"));
                 return;
             }
             setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_f7f9fc"));
@@ -146,21 +146,21 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
             int color5 = ResUtils.getColor(getContext(), "wallet_home_umh_text_cba14e");
             if (this.j) {
                 a(color2, color2, color3, color2, color4);
-                this.f24518f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_wathet"));
+                this.f24600f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_wathet"));
             } else {
                 a(color2, color2, color3, color2, color5);
-                this.f24518f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_yellow"));
+                this.f24600f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_yellow"));
             }
-            this.f24517e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_ri_li"));
+            this.f24599e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_ri_li"));
             return;
         }
-        this.f24517e.setVisibility(8);
-        this.f24515c.setVisibility(8);
-        this.f24516d.setVisibility(8);
-        this.f24518f.setVisibility(8);
+        this.f24599e.setVisibility(8);
+        this.f24597c.setVisibility(8);
+        this.f24598d.setVisibility(8);
+        this.f24600f.setVisibility(8);
         if (z) {
-            this.f24518f.setVisibility(8);
-            this.f24519g.setVisibility(0);
+            this.f24600f.setVisibility(8);
+            this.f24601g.setVisibility(0);
         }
         setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_f7f9fc"));
     }
@@ -168,8 +168,8 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
         super.setData(dataItem, bVar);
-        this.f24520h = getData();
-        this.f24521i = bVar;
+        this.f24602h = getData();
+        this.f24603i = bVar;
         if (a()) {
             initView();
             refresh();
@@ -185,10 +185,10 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     }
 
     private void a(int i2, int i3, int i4, int i5, int i6) {
-        this.f24513a.setTextColor(i2);
-        this.f24514b.setTextColor(i3);
-        this.f24515c.setTextColor(i4);
-        this.f24516d.setTextColor(i5);
-        this.f24518f.setTextColor(i6);
+        this.f24595a.setTextColor(i2);
+        this.f24596b.setTextColor(i3);
+        this.f24597c.setTextColor(i4);
+        this.f24598d.setTextColor(i5);
+        this.f24600f.setTextColor(i6);
     }
 }

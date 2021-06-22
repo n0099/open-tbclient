@@ -24,25 +24,25 @@ import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.view.LegoBottomView;
-import d.a.m0.z0.m0;
-import d.a.n0.e3.v;
-import d.a.n0.k1.j;
-import d.a.n0.k1.o.l.n;
-import d.a.n0.k1.p.e;
-import d.a.n0.t2.x;
+import d.a.n0.z0.m0;
+import d.a.o0.e3.v;
+import d.a.o0.k1.j;
+import d.a.o0.k1.o.l.n;
+import d.a.o0.k1.p.e;
+import d.a.o0.t2.x;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
 /* loaded from: classes4.dex */
-public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, d.a.n0.k1.b {
+public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, d.a.o0.k1.b {
     public String animationInfo;
     public TbImageView floatBtn;
     public String isFrom;
     public long lastResumeTime;
     public LegoListFragment legoListFragment;
     public LegoTabFragment legoTabFragment;
-    public d.a.n0.k1.o.l.c mFloatVideoContainer;
+    public d.a.o0.k1.o.l.c mFloatVideoContainer;
     public VoiceManager mVoiceManager;
     public RelativeLayout navi_landingpage;
     public j navigationBarViewHolder;
@@ -93,18 +93,18 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17900e;
+        public final /* synthetic */ String f17982e;
 
         public b(String str) {
-            this.f17900e = str;
+            this.f17982e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f17900e)) {
+            if (TextUtils.isEmpty(this.f17982e)) {
                 return;
             }
-            v.c(LegoListActivity.this.getPageContext(), this.f17900e);
+            v.c(LegoListActivity.this.getPageContext(), this.f17982e);
         }
     }
 
@@ -116,7 +116,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             LegoListActivity legoListActivity = LegoListActivity.this;
-            if (view == legoListActivity.navigationBarViewHolder.f60296e) {
+            if (view == legoListActivity.navigationBarViewHolder.f60421e) {
                 legoListActivity.finish();
             }
         }
@@ -129,10 +129,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (optJSONObject == null) {
                 return;
             }
-            d.a.n0.k1.o.b.h();
-            ICardInfo j = d.a.n0.k1.o.b.j(optJSONObject);
+            d.a.o0.k1.o.b.h();
+            ICardInfo j = d.a.o0.k1.o.b.j(optJSONObject);
             if (j != null && j.isValid()) {
-                this.mBottomView.b((BaseCardView) d.a.n0.k1.o.b.h().a(getPageContext(), j, 5), j);
+                this.mBottomView.b((BaseCardView) d.a.o0.k1.o.b.h().a(getPageContext(), j, 5), j);
                 this.mBottomView.setVisibility(0);
                 this.mBottomView.setIsShow(true);
                 if (this.legoListFragment != null) {
@@ -185,17 +185,17 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         return null;
     }
 
-    @Override // d.a.n0.k1.b
-    public d.a.n0.k1.o.l.c getFloatVideoContainer() {
+    @Override // d.a.o0.k1.b
+    public d.a.o0.k1.o.l.c getFloatVideoContainer() {
         return this.mFloatVideoContainer;
     }
 
-    @Override // d.a.n0.k1.b
+    @Override // d.a.o0.k1.b
     public LegoListFragment getLegoListFragment() {
         return this.legoListFragment;
     }
 
-    @Override // d.a.n0.k1.b
+    @Override // d.a.o0.k1.b
     public n getPlaySwitchController() {
         LegoListFragment legoListFragment = this.legoListFragment;
         if (legoListFragment != null) {
@@ -233,7 +233,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
-        this.navigationBarViewHolder.f60292a.onChangeSkinType(getPageContext(), i2);
+        this.navigationBarViewHolder.f60417a.onChangeSkinType(getPageContext(), i2);
         if (this.pageType == 1) {
             LegoTabFragment legoTabFragment = this.legoTabFragment;
             if (legoTabFragment != null) {
@@ -311,10 +311,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         setContentView(R.layout.lego_list_activity);
         registerListener(this.mShowComponentViewListener);
         e eVar = new e();
-        eVar.f60447a = this.pageId;
-        eVar.f60448b = this.itemId;
-        eVar.f60450d = this.rn;
-        eVar.f60451e = this.params;
+        eVar.f60572a = this.pageId;
+        eVar.f60573b = this.itemId;
+        eVar.f60575d = this.rn;
+        eVar.f60576e = this.params;
         eVar.b();
         VoiceManager voiceManager = getVoiceManager();
         this.mVoiceManager = voiceManager;
@@ -323,7 +323,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         this.floatBtn = (TbImageView) findViewById(R.id.float_btn);
         this.mBottomView = (LegoBottomView) findViewById(R.id.lego_bottom_view);
         this.navi_landingpage = (RelativeLayout) findViewById(R.id.navi_landingpage);
-        d.a.n0.k1.o.l.c cVar = new d.a.n0.k1.o.l.c(getPageContext(), findViewById(R.id.layout_float_video));
+        d.a.o0.k1.o.l.c cVar = new d.a.o0.k1.o.l.c(getPageContext(), findViewById(R.id.layout_float_video));
         this.mFloatVideoContainer = cVar;
         cVar.E0(this);
         this.mFloatVideoContainer.j0();
@@ -362,7 +362,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        d.a.n0.k1.o.l.c cVar = this.mFloatVideoContainer;
+        d.a.o0.k1.o.l.c cVar = this.mFloatVideoContainer;
         if (cVar != null) {
             cVar.V();
         }
@@ -380,7 +380,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        d.a.n0.k1.o.l.c cVar;
+        d.a.o0.k1.o.l.c cVar;
         if (i2 == 4 && (cVar = this.mFloatVideoContainer) != null && cVar.m0() && !this.mFloatVideoContainer.e0()) {
             this.mFloatVideoContainer.Q0();
             return true;

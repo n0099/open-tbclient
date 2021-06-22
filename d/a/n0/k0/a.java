@@ -1,12 +1,13 @@
 package d.a.n0.k0;
 
-import android.os.Bundle;
-/* loaded from: classes4.dex */
-public class a {
+import java.util.List;
+/* loaded from: classes3.dex */
+public interface a {
+    String getCurrentPageKey();
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f60275a;
+    List<String> getCurrentPageSourceKeyList();
 
-    /* renamed from: b  reason: collision with root package name */
-    public Bundle f60276b;
+    List<String> getNextPageSourceKeyList();
+
+    b getPageStayFilter();
 }

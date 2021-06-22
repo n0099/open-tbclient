@@ -9,14 +9,14 @@ import com.baidu.mobads.container.components.downloader.OAdSqlLiteHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.a.m0.r.k;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.c;
-import d.a.m0.r.q.d;
-import d.a.m0.r.q.m0;
-import d.a.n0.k1.o.b;
-import d.a.n0.k1.o.k.a;
-import d.a.n0.t2.y;
+import d.a.n0.r.k;
+import d.a.n0.r.q.a2;
+import d.a.n0.r.q.c;
+import d.a.n0.r.q.d;
+import d.a.n0.r.q.m0;
+import d.a.o0.k1.o.b;
+import d.a.o0.k1.o.k.a;
+import d.a.o0.t2.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -280,7 +280,7 @@ public class AdvertAppInfo extends a2 implements m0 {
         E4(jSONObject);
     }
 
-    @Override // d.a.m0.r.q.m0
+    @Override // d.a.n0.r.q.m0
     public boolean d() {
         return this.N3;
     }
@@ -293,7 +293,7 @@ public class AdvertAppInfo extends a2 implements m0 {
         return false;
     }
 
-    @Override // d.a.m0.r.q.m0
+    @Override // d.a.n0.r.q.m0
     public int f() {
         return this.position;
     }
@@ -303,7 +303,7 @@ public class AdvertAppInfo extends a2 implements m0 {
         return F4() ? this.R3.getDownloadId() : "";
     }
 
-    @Override // d.a.m0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    @Override // d.a.n0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         ILegoAdvert iLegoAdvert;
         int i2 = this.L3;
@@ -349,12 +349,12 @@ public class AdvertAppInfo extends a2 implements m0 {
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
-    @Override // d.a.m0.r.q.m0
+    @Override // d.a.n0.r.q.m0
     public AdvertAppInfo m() {
         return this;
     }
 
-    @Override // d.a.m0.r.q.m0
+    @Override // d.a.n0.r.q.m0
     public void setPosition(int i2) {
         this.position = i2;
         this.N3 = true;

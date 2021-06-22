@@ -16,26 +16,26 @@ public abstract class z implements Cloneable {
     public static final SimpleDateFormat l = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* renamed from: e  reason: collision with root package name */
-    public long f68873e = System.currentTimeMillis();
+    public long f68977e = System.currentTimeMillis();
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68874f;
+    public long f68978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68875g;
+    public String f68979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f68876h;
+    public String f68980h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68877i;
+    public String f68981i;
     public String j;
     public String k;
 
     public static z b(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return a0.f68700e.get(jSONObject.optString("k_cls", "")).clone().h(jSONObject);
+            return a0.f68804e.get(jSONObject.optString("k_cls", "")).clone().h(jSONObject);
         } catch (Throwable th) {
             r0.b(th);
             return null;
@@ -107,7 +107,7 @@ public abstract class z implements Cloneable {
     @NonNull
     public final JSONObject m() {
         try {
-            this.k = c(this.f68873e);
+            this.k = c(this.f68977e);
             return i();
         } catch (JSONException e2) {
             r0.b(e2);
@@ -127,17 +127,17 @@ public abstract class z implements Cloneable {
     }
 
     public String o() {
-        return "sid:" + this.f68875g;
+        return "sid:" + this.f68979g;
     }
 
     @NonNull
     public String toString() {
-        if (r0.f68823b) {
+        if (r0.f68927b) {
             String k = k();
             if (!getClass().getSimpleName().equalsIgnoreCase(k)) {
                 k = k + StringUtil.ARRAY_ELEMENT_SEPARATOR + getClass().getSimpleName();
             }
-            String str = this.f68875g;
+            String str = this.f68979g;
             String str2 = "-";
             if (str != null) {
                 int indexOf = str.indexOf("-");
@@ -146,7 +146,7 @@ public abstract class z implements Cloneable {
                 }
                 str2 = str;
             }
-            return StringUtil.ARRAY_START + k + StringUtil.ARRAY_ELEMENT_SEPARATOR + o() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f68873e + "}";
+            return StringUtil.ARRAY_START + k + StringUtil.ARRAY_ELEMENT_SEPARATOR + o() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f68977e + "}";
         }
         return super.toString();
     }

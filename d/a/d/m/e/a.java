@@ -3,22 +3,22 @@ package d.a.d.m.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.a.n0.k1.o.h.b;
+import d.a.o0.k1.o.h.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements d.a.n0.k1.o.h.b {
+public class a implements d.a.o0.k1.o.h.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43246f;
+    public String f43349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43247g;
+    public String f43350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43248h;
+    public String f43351h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f43249i;
+    public String f43352i;
     public int j;
     public String k;
     public String l;
@@ -33,12 +33,12 @@ public class a implements d.a.n0.k1.o.h.b {
     public b.a w;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43245e = 3;
+    public int f43348e = 3;
     public ArrayList<String> u = new ArrayList<>();
     public ArrayList<String> v = new ArrayList<>();
 
     public int a() {
-        return this.f43245e;
+        return this.f43348e;
     }
 
     public String b() {
@@ -49,7 +49,7 @@ public class a implements d.a.n0.k1.o.h.b {
     }
 
     public boolean c() {
-        return this.f43245e == 2;
+        return this.f43348e == 2;
     }
 
     public boolean d() {
@@ -62,16 +62,16 @@ public class a implements d.a.n0.k1.o.h.b {
     }
 
     public void e(int i2) {
-        this.f43245e = i2;
+        this.f43348e = i2;
     }
 
-    @Override // d.a.n0.k1.o.h.b
+    @Override // d.a.o0.k1.o.h.b
     public b.a getParallelCharge() {
         if (this.w == null) {
             b.a aVar = new b.a();
             this.w = aVar;
-            aVar.f60335c = this.u;
-            aVar.f60336d = this.v;
+            aVar.f60460c = this.u;
+            aVar.f60461d = this.v;
         }
         return this.w;
     }

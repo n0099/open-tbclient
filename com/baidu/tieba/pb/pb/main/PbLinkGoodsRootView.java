@@ -36,27 +36,27 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
-import d.a.n0.e2.h.e;
+import d.a.n0.r.q.a2;
+import d.a.o0.e2.h.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PbLinkGoodsRootView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f19145e;
+    public c f19227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19146f;
+    public TextView f19228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19147g;
+    public ImageView f19229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f19148h;
+    public RelativeLayout f19230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f19149i;
+    public ThreadForumEnterGoodsButton f19231i;
     public Context j;
     public BdRecyclerView k;
     public LinearLayout l;
@@ -64,7 +64,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public int n;
     public int o;
     public int p;
-    public List<d.a.n0.z.e0.c> q;
+    public List<d.a.o0.z.e0.c> q;
     public int r;
     public int s;
     public boolean t;
@@ -87,15 +87,15 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public class b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public SingleLinkCardView f19151a;
+        public SingleLinkCardView f19233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f19152b;
+        public View f19234b;
 
         public b(View view) {
             super(view);
-            this.f19152b = view.findViewById(R.id.mask_view);
-            this.f19151a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
+            this.f19234b = view.findViewById(R.id.mask_view);
+            this.f19233a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
         }
     }
 
@@ -126,19 +126,19 @@ public class PbLinkGoodsRootView extends RelativeLayout {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0207c implements View.OnClickListener {
+        public class View$OnClickListenerC0210c implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f19157e;
+            public final /* synthetic */ int f19239e;
 
-            public View$OnClickListenerC0207c(int i2) {
-                this.f19157e = i2;
+            public View$OnClickListenerC0210c(int i2) {
+                this.f19239e = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PbLinkGoodsRootView pbLinkGoodsRootView = PbLinkGoodsRootView.this;
-                pbLinkGoodsRootView.p((d.a.n0.z.e0.c) pbLinkGoodsRootView.q.get(this.f19157e));
+                pbLinkGoodsRootView.p((d.a.o0.z.e0.c) pbLinkGoodsRootView.q.get(this.f19239e));
             }
         }
 
@@ -159,19 +159,19 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 }
                 if (PbLinkGoodsRootView.this.u == null || PbLinkGoodsRootView.this.u.E4() || i2 != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
                     if (PbLinkGoodsRootView.this.v == null || PbLinkGoodsRootView.this.v.Y2() || i2 != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
-                        bVar.f19152b.setVisibility(8);
+                        bVar.f19234b.setVisibility(8);
                     } else {
-                        bVar.f19152b.setOnClickListener(new b());
-                        bVar.f19152b.setVisibility(0);
-                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19152b);
+                        bVar.f19234b.setOnClickListener(new b());
+                        bVar.f19234b.setVisibility(0);
+                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19234b);
                     }
                 } else {
-                    bVar.f19152b.setOnClickListener(new a());
-                    bVar.f19152b.setVisibility(0);
-                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19152b);
+                    bVar.f19234b.setOnClickListener(new a());
+                    bVar.f19234b.setVisibility(0);
+                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19234b);
                 }
-                bVar.f19151a.a((d.a.n0.z.e0.c) PbLinkGoodsRootView.this.q.get(i2));
-                bVar.f19151a.setOnClickListener(new View$OnClickListenerC0207c(i2));
+                bVar.f19233a.a((d.a.o0.z.e0.c) PbLinkGoodsRootView.this.q.get(i2));
+                bVar.f19233a.setOnClickListener(new View$OnClickListenerC0210c(i2));
                 if (!(PbLinkGoodsRootView.this.q.get(i2) instanceof PbLinkData) || PbLinkGoodsRootView.this.q.get(i2) == null) {
                     if (PbLinkGoodsRootView.this.q.get(i2) instanceof PbGoodsData) {
                         PbLinkGoodsRootView.this.o("c13961", 2);
@@ -193,7 +193,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this(context, null);
     }
 
-    public void i(e eVar, List<d.a.n0.z.e0.c> list, String str, PbFragment pbFragment, boolean z) {
+    public void i(e eVar, List<d.a.o0.z.e0.c> list, String str, PbFragment pbFragment, boolean z) {
         this.u = pbFragment;
         k(eVar, list, str, z);
         PbFragment pbFragment2 = this.u;
@@ -202,7 +202,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void j(e eVar, List<d.a.n0.z.e0.c> list, String str, VideoPbFragment videoPbFragment, boolean z) {
+    public void j(e eVar, List<d.a.o0.z.e0.c> list, String str, VideoPbFragment videoPbFragment, boolean z) {
         this.v = videoPbFragment;
         k(eVar, list, str, z);
         VideoPbFragment videoPbFragment2 = this.v;
@@ -211,7 +211,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void k(e eVar, List<d.a.n0.z.e0.c> list, String str, boolean z) {
+    public void k(e eVar, List<d.a.o0.z.e0.c> list, String str, boolean z) {
         this.q = list;
         a2 L = eVar.L();
         this.w = L;
@@ -226,12 +226,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
         if (this.t) {
             this.t = z;
-            this.f19149i.setFrom(1);
-            this.f19149i.a(this.w);
-            this.f19149i.setVisibility(0);
+            this.f19231i.setFrom(1);
+            this.f19231i.a(this.w);
+            this.f19231i.setVisibility(0);
             return;
         }
-        this.f19149i.setVisibility(8);
+        this.f19231i.setVisibility(8);
     }
 
     public final void l(boolean z) {
@@ -241,7 +241,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         int i3;
         if (z) {
             this.r = this.q.size();
-            TextView textView = this.f19146f;
+            TextView textView = this.f19228f;
             if (this.t) {
                 resources2 = getResources();
                 i3 = R.string.pb_first_goods_more_close;
@@ -255,7 +255,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             if (this.r > 3) {
                 this.r = 3;
             }
-            TextView textView2 = this.f19146f;
+            TextView textView2 = this.f19228f;
             if (this.t) {
                 resources = getResources();
                 i2 = R.string.pb_first_goods_more_open;
@@ -266,10 +266,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             textView2.setText(resources.getString(i2));
             this.s = R.drawable.icon_pure_unfold12_svg;
         }
-        this.f19145e.notifyDataSetChanged();
+        this.f19227e.notifyDataSetChanged();
         setMarginTop(z);
-        SkinManager.setViewTextColor(this.f19146f, R.color.CAM_X0107);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19147g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setViewTextColor(this.f19228f, R.color.CAM_X0107);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19229g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public final void m() {
@@ -311,7 +311,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public final void p(d.a.n0.z.e0.c cVar) {
+    public final void p(d.a.o0.z.e0.c cVar) {
         if (cVar instanceof PbLinkData) {
             PbLinkData pbLinkData = (PbLinkData) cVar;
             if (pbLinkData == null) {
@@ -380,17 +380,17 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.k = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
         this.l = (LinearLayout) findViewById(R.id.pb_more_post_rl);
-        this.f19146f = (TextView) findViewById(R.id.tv_post);
-        this.f19148h = (RelativeLayout) findViewById(R.id.rl_more_post);
-        this.f19147g = (ImageView) findViewById(R.id.iv_arrow);
-        this.f19149i = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
+        this.f19228f = (TextView) findViewById(R.id.tv_post);
+        this.f19230h = (RelativeLayout) findViewById(R.id.rl_more_post);
+        this.f19229g = (ImageView) findViewById(R.id.iv_arrow);
+        this.f19231i = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
         this.m = l.g(this.j, R.dimen.tbds14);
         this.n = l.g(this.j, R.dimen.tbds44);
         this.o = l.g(this.j, R.dimen.tbds36);
         this.p = l.g(this.j, R.dimen.tbds22);
-        this.f19145e = new c();
+        this.f19227e = new c();
         this.k.setLayoutManager(new LinearLayoutManager(this.j));
-        this.k.setAdapter(this.f19145e);
-        this.f19148h.setOnClickListener(new a());
+        this.k.setAdapter(this.f19227e);
+        this.f19230h.setOnClickListener(new a());
     }
 }

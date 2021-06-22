@@ -21,7 +21,7 @@ import rx.schedulers.Schedulers;
 public class d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f71681e;
+    public final a<T> f71785e;
 
     /* loaded from: classes8.dex */
     public interface a<T> extends h.n.b<j<? super T>> {
@@ -32,18 +32,18 @@ public class d<T> {
     }
 
     public d(a<T> aVar) {
-        this.f71681e = aVar;
+        this.f71785e = aVar;
     }
 
     public static <T> k A(j<? super T> jVar, d<T> dVar) {
         if (jVar != null) {
-            if (dVar.f71681e != null) {
+            if (dVar.f71785e != null) {
                 jVar.onStart();
                 if (!(jVar instanceof h.q.c)) {
                     jVar = new h.q.c(jVar);
                 }
                 try {
-                    h.r.c.p(dVar, dVar.f71681e).call(jVar);
+                    h.r.c.p(dVar, dVar.f71785e).call(jVar);
                     return h.r.c.o(jVar);
                 } catch (Throwable th) {
                     h.m.a.e(th);
@@ -141,7 +141,7 @@ public class d<T> {
     public final k I(j<? super T> jVar) {
         try {
             jVar.onStart();
-            h.r.c.p(this, this.f71681e).call(jVar);
+            h.r.c.p(this, this.f71785e).call(jVar);
             return h.r.c.o(jVar);
         } catch (Throwable th) {
             h.m.a.e(th);
@@ -183,7 +183,7 @@ public class d<T> {
     }
 
     public final <R> d<R> j(b<? extends R, ? super T> bVar) {
-        return b(new h.o.a.g(this.f71681e, bVar));
+        return b(new h.o.a.g(this.f71785e, bVar));
     }
 
     public final <R> d<R> k(h.n.f<? super T, ? extends R> fVar) {
@@ -191,7 +191,7 @@ public class d<T> {
     }
 
     public final d<T> o(g gVar) {
-        return p(gVar, h.o.d.f.f71929g);
+        return p(gVar, h.o.d.f.f72033g);
     }
 
     public final d<T> p(g gVar, int i2) {

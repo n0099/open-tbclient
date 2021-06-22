@@ -8,5 +8,8 @@ public abstract class AccountCenterCallback {
 
     public abstract void onFinish(AccountCenterResult accountCenterResult);
 
+    public void onJumpTo(String str) {
+    }
+
     public abstract void onSocialBind(String str);
 }

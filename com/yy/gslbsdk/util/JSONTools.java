@@ -2,6 +2,7 @@ package com.yy.gslbsdk.util;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class JSONTools {
@@ -56,9 +57,9 @@ public class JSONTools {
                 i6--;
                 doFill(sb, i6, str2);
                 sb.append(str3);
-            } else if (str3.equals("[")) {
+            } else if (str3.equals(PreferencesUtil.LEFT_MOUNT)) {
                 i2 = i3 + 1;
-                if (((String) arrayList.get(i2)).equals("]")) {
+                if (((String) arrayList.get(i2)).equals(PreferencesUtil.RIGHT_MOUNT)) {
                     sb.append("[ ]");
                     i3 = i2;
                 } else {
@@ -66,7 +67,7 @@ public class JSONTools {
                     sb.append(str3);
                     doFill(sb, i6, str2);
                 }
-            } else if (str3.equals("]")) {
+            } else if (str3.equals(PreferencesUtil.RIGHT_MOUNT)) {
                 i6--;
                 doFill(sb, i6, str2);
                 sb.append(str3);
@@ -84,7 +85,7 @@ public class JSONTools {
         while (str.length() > 0) {
             String substring = str.substring(0, 1);
             str = str.substring(1);
-            if (!z && (substring.equals(":") || substring.equals(StringUtil.ARRAY_START) || substring.equals("}") || substring.equals("[") || substring.equals("]") || substring.equals(","))) {
+            if (!z && (substring.equals(":") || substring.equals(StringUtil.ARRAY_START) || substring.equals("}") || substring.equals(PreferencesUtil.LEFT_MOUNT) || substring.equals(PreferencesUtil.RIGHT_MOUNT) || substring.equals(","))) {
                 if (sb.toString().trim().length() == 0) {
                     sb.append(substring);
                 }

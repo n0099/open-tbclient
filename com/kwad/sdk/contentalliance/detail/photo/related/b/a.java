@@ -9,21 +9,21 @@ import com.kwad.sdk.utils.ao;
 /* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.photo.related.a.a implements View.OnClickListener {
     private void e() {
-        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a).f36712i).mAdScene;
+        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a).f36810i).mAdScene;
         if (sceneImpl == null) {
             return;
         }
-        com.kwad.sdk.contentalliance.detail.photo.related.a.a().a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a).f36709f.g());
+        com.kwad.sdk.contentalliance.detail.photo.related.a.a().a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a).f36807f.g());
         RelatedVideoDetailParam relatedVideoDetailParam = new RelatedVideoDetailParam();
         relatedVideoDetailParam.mEntryScene = sceneImpl.entryScene;
-        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a;
-        relatedVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f36711h;
-        relatedVideoDetailParam.mSourcePhotoId = String.valueOf(com.kwad.sdk.core.response.b.c.z(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f33058a));
-        com.kwad.sdk.contentalliance.related.a.a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a).f36707d, 1000, relatedVideoDetailParam);
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a;
+        relatedVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f36809h;
+        relatedVideoDetailParam.mSourcePhotoId = String.valueOf(com.kwad.sdk.core.response.b.c.z(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f33156a));
+        com.kwad.sdk.contentalliance.related.a.a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a).f36805d, 1000, relatedVideoDetailParam);
     }
 
     private void f() {
-        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36713a).f36712i, 1, "related_video_list");
+        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36811a).f36810i, 1, "related_video_list");
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter

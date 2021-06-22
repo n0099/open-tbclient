@@ -11,14 +11,14 @@ import java.util.Set;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, af> f30260a = new HashMap();
+    public static Map<String, af> f30342a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f30261b;
+    public SharedPreferences f30343b;
 
     public af(String str, Context context) {
         if (context != null) {
-            this.f30261b = context.getApplicationContext().getSharedPreferences(str, 0);
+            this.f30343b = context.getApplicationContext().getSharedPreferences(str, 0);
         }
     }
 
@@ -26,10 +26,10 @@ public class af {
         if (TextUtils.isEmpty(str)) {
             str = "tt_ad_sdk_sp";
         }
-        af afVar = f30260a.get(str);
+        af afVar = f30342a.get(str);
         if (afVar == null) {
             af afVar2 = new af(str, context);
-            f30260a.put(str, afVar2);
+            f30342a.put(str, afVar2);
             return afVar2;
         }
         return afVar;
@@ -37,7 +37,7 @@ public class af {
 
     public String b(@NonNull String str, @NonNull String str2) {
         try {
-            return this.f30261b.getString(str, str2);
+            return this.f30343b.getString(str, str2);
         } catch (Throwable unused) {
             return str2;
         }
@@ -45,7 +45,7 @@ public class af {
 
     public int b(@NonNull String str, int i2) {
         try {
-            return this.f30261b.getInt(str, i2);
+            return this.f30343b.getInt(str, i2);
         } catch (Throwable unused) {
             return i2;
         }
@@ -53,7 +53,7 @@ public class af {
 
     public long b(@NonNull String str, long j) {
         try {
-            return this.f30261b.getLong(str, j);
+            return this.f30343b.getLong(str, j);
         } catch (Throwable unused) {
             return j;
         }
@@ -61,7 +61,7 @@ public class af {
 
     public boolean b(@NonNull String str, boolean z) {
         try {
-            return this.f30261b.getBoolean(str, z);
+            return this.f30343b.getBoolean(str, z);
         } catch (Throwable unused) {
             return z;
         }
@@ -69,14 +69,14 @@ public class af {
 
     public void a(@NonNull String str, @NonNull String str2) {
         try {
-            this.f30261b.edit().putString(str, str2).apply();
+            this.f30343b.edit().putString(str, str2).apply();
         } catch (Throwable unused) {
         }
     }
 
     public Set<String> b(@NonNull String str, @NonNull Set<String> set) {
         try {
-            return this.f30261b.getStringSet(str, set);
+            return this.f30343b.getStringSet(str, set);
         } catch (Throwable unused) {
             return set;
         }
@@ -92,35 +92,35 @@ public class af {
 
     public void b(@NonNull String str) {
         try {
-            this.f30261b.edit().remove(str).apply();
+            this.f30343b.edit().remove(str).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, int i2) {
         try {
-            this.f30261b.edit().putInt(str, i2).apply();
+            this.f30343b.edit().putInt(str, i2).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, long j) {
         try {
-            this.f30261b.edit().putLong(str, j).apply();
+            this.f30343b.edit().putLong(str, j).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, boolean z) {
         try {
-            this.f30261b.edit().putBoolean(str, z).apply();
+            this.f30343b.edit().putBoolean(str, z).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, @NonNull Set<String> set) {
         try {
-            this.f30261b.edit().putStringSet(str, set).apply();
+            this.f30343b.edit().putStringSet(str, set).apply();
         } catch (Throwable unused) {
         }
     }

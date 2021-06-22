@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
-import d.a.m0.k0.d;
+import d.a.n0.k0.d;
 /* loaded from: classes5.dex */
 public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailActivity> {
-    public d.a.n0.k3.a cardData;
+    public d.a.o0.k3.a cardData;
     public long mCardId;
     public PersonalCardDetailModel mModel;
     public SetPersonalCardModel mSetCardModel;
-    public d.a.n0.k3.g.b.a mView;
+    public d.a.o0.k3.g.b.a mView;
     public PersonalCardDetailModel.b mCallback = new a();
     public SetPersonalCardModel.b mSetCardCallback = new b();
     public View.OnClickListener mClickListener = new c();
@@ -28,7 +28,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
 
         @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.b
-        public void a(int i2, String str, d.a.n0.k3.a aVar) {
+        public void a(int i2, String str, d.a.o0.k3.a aVar) {
             PersonalCardDetailActivity personalCardDetailActivity = PersonalCardDetailActivity.this;
             personalCardDetailActivity.hideLoadingView(personalCardDetailActivity.mView.c());
             if (i2 != 0) {
@@ -93,7 +93,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "b013";
     }
@@ -102,8 +102,8 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53110a = true;
-            pageStayDurationItem.f53118i = String.valueOf(this.mCardId);
+            pageStayDurationItem.f53217a = true;
+            pageStayDurationItem.f53225i = String.valueOf(this.mCardId);
         }
         return pageStayDurationItem;
     }
@@ -111,7 +111,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.n0.k3.g.b.a aVar = this.mView;
+        d.a.o0.k3.g.b.a aVar = this.mView;
         if (aVar != null) {
             aVar.a();
         }
@@ -121,7 +121,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mCardId = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
-        this.mView = new d.a.n0.k3.g.b.a(this, this.mClickListener);
+        this.mView = new d.a.o0.k3.g.b.a(this, this.mClickListener);
         PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
         this.mModel = personalCardDetailModel;
         personalCardDetailModel.A(this.mCallback);
@@ -147,7 +147,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.a.n0.k3.g.b.a aVar;
+        d.a.o0.k3.g.b.a aVar;
         if (this.mModel == null || (aVar = this.mView) == null) {
             return;
         }
@@ -159,13 +159,13 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (z) {
-            d.a.m0.z.b.a().d();
+            d.a.n0.z.b.a().d();
             showLoadingView(this.mView.c(), false);
             this.mModel.z(this.mCardId);
         }
     }
 
-    public void showErrorDialog(int i2, String str, d.a.n0.k3.a aVar) {
+    public void showErrorDialog(int i2, String str, d.a.o0.k3.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -173,10 +173,10 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == d.a.n0.k3.c.f60646a) {
-            d.a.n0.k3.b.d(getPageContext(), 6, str, i3, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i2 == d.a.n0.k3.c.f60647b) {
-            d.a.n0.k3.b.c(getPageContext(), 6, str, i3);
+        if (i2 == d.a.o0.k3.c.f60771a) {
+            d.a.o0.k3.b.d(getPageContext(), 6, str, i3, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+        } else if (i2 == d.a.o0.k3.c.f60772b) {
+            d.a.o0.k3.b.c(getPageContext(), 6, str, i3);
         }
     }
 }

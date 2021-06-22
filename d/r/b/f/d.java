@@ -14,13 +14,13 @@ import java.util.Locale;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f71466a = {new String[]{"com.duowan.mobile", "7.10.0"}};
+    public static final String[][] f71570a = {new String[]{"com.duowan.mobile", "7.10.0"}};
 
     public static int a(Context context) {
         String[][] strArr;
         try {
             boolean z = false;
-            for (String[] strArr2 : f71466a) {
+            for (String[] strArr2 : f71570a) {
                 if (strArr2.length > 1) {
                     String str = strArr2[0];
                     try {
@@ -111,7 +111,7 @@ public class d {
     }
 
     public static Intent e(Context context) {
-        for (String[] strArr : f71466a) {
+        for (String[] strArr : f71570a) {
             String str = strArr[0];
             Intent intent = new Intent();
             intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");

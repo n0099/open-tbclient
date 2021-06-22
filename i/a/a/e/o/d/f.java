@@ -7,16 +7,16 @@ import i.a.a.e.n.h;
 public class f extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72239e;
+    public Context f72343e;
 
     public f(Context context, int i2) {
         super(context, i2);
-        this.f72239e = context;
+        this.f72343e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (h.f72168a.a(this.f72239e)) {
+        if (h.f72272a.a(this.f72343e)) {
             super.dismiss();
         }
     }

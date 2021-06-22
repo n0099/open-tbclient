@@ -3,13 +3,13 @@ package d.a.z.i;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f68682a = false;
+    public static boolean f68786a = false;
 
     public static boolean a() {
-        return f68682a;
+        return f68786a;
     }
 
     public static void b(boolean z) {
-        f68682a = z;
+        f68786a = z;
     }
 }

@@ -1,83 +1,145 @@
 package d.a.n0.m0;
 
-import android.app.Dialog;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
-public class h extends Dialog {
+import com.baidu.adp.framework.message.ResponsedMessage;
+import java.util.HashMap;
+/* loaded from: classes3.dex */
+public class h extends g {
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f53321b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f53322c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f53323d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f60936e;
+    public long f53324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60937f;
+    public long f53325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SpannableString f60938g;
+    public long f53326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60939h;
+    public long f53327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f60940i;
-    public int j;
+    public long f53328i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public a() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            h hVar = h.this;
-            d.a.c.e.m.g.b(hVar, hVar.f60936e);
-        }
+    public h() {
+        this.f53328i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
     }
 
-    public h(TbPageContext tbPageContext, int i2) {
-        super(tbPageContext.getContext(), i2);
-        this.f60936e = tbPageContext;
-    }
-
-    public final void b() {
-        TbPageContext tbPageContext = this.f60936e;
-        if (tbPageContext != null) {
-            tbPageContext.getLayoutMode().k(this.j == 1);
-            this.f60936e.getLayoutMode().j(this.f60937f);
+    public void b(String str, String str2) {
+        if (d.a.c.e.p.k.isEmpty(str) || d.a.c.e.p.k.isEmpty(str2)) {
+            return;
         }
+        this.E.put(str, str2);
     }
 
     public void c() {
-        this.f60937f = LayoutInflater.from(this.f60936e.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
-        this.j = TbadkApplication.getInst().getSkinType();
-        String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
-        this.f60938g = new SpannableString(string);
-        this.f60938g.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
-        setContentView(this.f60937f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
-        TextView textView = (TextView) findViewById(R.id.telphone);
-        this.f60939h = textView;
-        textView.setText(this.f60938g);
-        TextView textView2 = (TextView) findViewById(R.id.confirm);
-        this.f60940i = textView2;
-        textView2.setOnClickListener(new a());
-        setCancelable(true);
-        b();
+        m mVar = (m) k.d().e(this.f53320a);
+        if (mVar != null) {
+            mVar.b(this);
+        }
     }
 
-    public void d() {
-        this.f60937f = LayoutInflater.from(this.f60936e.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
-        this.j = TbadkApplication.getInst().getSkinType();
-        setContentView(this.f60937f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
-        setCancelable(false);
-        b();
+    public void d(int i2) {
+        m mVar = (m) k.d().e(this.f53320a);
+        if (mVar != null) {
+            mVar.c(this, i2);
+        }
+    }
+
+    public void e(boolean z) {
+        m mVar = (m) k.d().e(this.f53320a);
+        if (mVar != null) {
+            mVar.d(this, z);
+        }
+    }
+
+    public h(int i2, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
+        this.f53328i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
+            return;
+        }
+        this.f53320a = i2;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            d.a.c.c.i.a aVar = responsedMessage.performanceData;
+            this.w = aVar.k;
+            this.x = aVar.l;
+            this.t = aVar.f42162i;
+            this.u = aVar.j;
+        } else {
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+        }
+        this.f53322c = j;
+        this.f53323d = j4;
+        this.f53324e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.f53321b = !responsedMessage.hasError();
+        d.a.c.c.i.a aVar2 = responsedMessage.performanceData;
+        this.f53325f = aVar2.f42154a;
+        this.f53326g = aVar2.f42155b;
+        this.f53327h = aVar2.f42156c;
+        this.f53328i = aVar2.f42157d;
+        this.j = aVar2.f42158e;
+        this.k = aVar2.f42159f;
+        this.l = aVar2.f42160g;
+        long j7 = aVar2.f42161h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
     }
 }

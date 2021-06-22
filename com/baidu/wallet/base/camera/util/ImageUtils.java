@@ -249,7 +249,7 @@ public abstract class ImageUtils implements NoProguard {
             File file = new File(externalStoragePublicDirectory, str);
             return bitmap.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(file)) ? file.getAbsolutePath() : "";
         } catch (Throwable th) {
-            LogUtil.e(TAG, "FileNotFoundException", th);
+            LogUtil.e("ImageUtils", "FileNotFoundException", th);
             return "";
         }
     }
@@ -288,7 +288,7 @@ public abstract class ImageUtils implements NoProguard {
             th = th2;
             fileOutputStream2 = fileOutputStream;
             try {
-                LogUtil.e(TAG, "FileNotFoundException", th);
+                LogUtil.e("ImageUtils", "FileNotFoundException", th);
                 if (fileOutputStream2 != null) {
                     fileOutputStream2.close();
                 }

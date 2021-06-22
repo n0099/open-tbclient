@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.officialAccountPush;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.GetOfficialSwitch.DataReq;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchReqIdl;
 /* loaded from: classes5.dex */

@@ -13,13 +13,13 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
     public static class TBCdnMobileListData {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17757a = null;
+        public String f17839a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17758b = null;
+        public String f17840b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f17759c = new ArrayList<>();
+        public ArrayList<String> f17841c = new ArrayList<>();
     }
 
     public TbMobileCdnGetIPListHttpResponseMsg(int i2) {
@@ -42,15 +42,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f17759c.size() <= 5; i3++) {
+                for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f17841c.size() <= 5; i3++) {
                     String string = optJSONArray.getString(i3);
                     if (string != null) {
-                        this.mobileCdnData.f17759c.add(string);
+                        this.mobileCdnData.f17841c.add(string);
                     }
                 }
             }
-            this.mobileCdnData.f17757a = optJSONObject.optString("testimg_url");
-            this.mobileCdnData.f17758b = optJSONObject.optString("testimg_md5");
+            this.mobileCdnData.f17839a = optJSONObject.optString("testimg_url");
+            this.mobileCdnData.f17840b = optJSONObject.optString("testimg_md5");
         } catch (Exception e2) {
             BdLog.e(e2);
         }

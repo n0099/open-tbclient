@@ -10,18 +10,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f26859a = new HashMap();
+    public Map<String, String> f26941a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f26859a.isEmpty()) {
-            this.f26859a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-            this.f26859a.put("sv", sysParamters.a().c());
-            this.f26859a.put("md", sysParamters.a().d());
-            this.f26859a.put("mf", sysParamters.a().e());
-            this.f26859a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f26941a.isEmpty()) {
+            this.f26941a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+            this.f26941a.put("sv", sysParamters.a().c());
+            this.f26941a.put("md", sysParamters.a().d());
+            this.f26941a.put("mf", sysParamters.a().e());
+            this.f26941a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f26859a.put("tm", String.valueOf(System.currentTimeMillis()));
-        return this.f26859a;
+        this.f26941a.put("tm", String.valueOf(System.currentTimeMillis()));
+        return this.f26941a;
     }
 
     public boolean a(boolean z, String str, String str2, String str3, String str4) {

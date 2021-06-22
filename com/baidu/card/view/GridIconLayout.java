@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import d.a.c.a.j;
 import d.a.i.p;
 import d.a.i.q;
-import d.a.m0.m.c;
-import d.a.m0.m.e;
-import d.a.m0.m.f;
-import d.a.m0.r.q.k0;
-import d.a.m0.r.q.l;
+import d.a.n0.m.c;
+import d.a.n0.m.e;
+import d.a.n0.m.f;
+import d.a.n0.r.q.k0;
+import d.a.n0.r.q.l;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GridIconLayout extends FrameLayout implements q, p<k0> {
@@ -40,7 +40,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     public e<l> f4410h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.b1.f.a.a f4411i;
+    public d.a.n0.b1.f.a.a f4411i;
 
     /* loaded from: classes.dex */
     public class a implements e<l> {
@@ -48,7 +48,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.m.e
+        @Override // d.a.n0.m.e
         /* renamed from: b */
         public void a(View view, l lVar, int i2, long j) {
             if (lVar != null) {
@@ -61,15 +61,15 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     }
 
     /* loaded from: classes.dex */
-    public class b extends d.a.m0.b1.f.a.a<l> {
+    public class b extends d.a.n0.b1.f.a.a<l> {
         public b(Context context, int i2) {
             super(context, i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.b1.f.a.a
+        @Override // d.a.n0.b1.f.a.a
         /* renamed from: i */
-        public void f(d.a.m0.b1.f.a.c cVar, l lVar, int i2) {
+        public void f(d.a.n0.b1.f.a.c cVar, l lVar, int i2) {
             TbImageView tbImageView = (TbImageView) cVar.b(R.id.iv_icon);
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             tbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -110,9 +110,9 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     @Override // d.a.i.p
     /* renamed from: e */
     public void a(k0 k0Var) {
-        if (k0Var != null && !ListUtils.isEmpty(k0Var.f53738e)) {
+        if (k0Var != null && !ListUtils.isEmpty(k0Var.f53845e)) {
             setVisibility(0);
-            List<l> list = k0Var.f53738e;
+            List<l> list = k0Var.f53845e;
             int size = list != null ? list.size() : 0;
             if (size != 5 && size >= 4 && size < 9) {
                 this.f4407e.setAutoGridSpan(list, 4);
@@ -129,7 +129,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this);
+        d.a.n0.r.u.c d2 = d.a.n0.r.u.c.d(this);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
         XGridLayout xGridLayout = this.f4407e;

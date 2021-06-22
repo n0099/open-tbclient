@@ -39,14 +39,14 @@ import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
 import d.a.c.e.p.l;
-import d.a.m0.r.s.a;
+import d.a.n0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public List<Long> closeLives;
-    public List<d.a.n0.x1.h.a> datas;
-    public d.a.m0.g0.f.d<d.a.n0.x1.h.a, d.a.m0.g0.d.b, d.a.n0.x1.i.a> mAdapter;
+    public List<d.a.o0.x1.h.a> datas;
+    public d.a.n0.g0.f.d<d.a.o0.x1.h.a, d.a.n0.g0.d.b, d.a.o0.x1.i.a> mAdapter;
     public TextView mEditBtn;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -54,23 +54,23 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView mShadowView;
     public PbHistoryCacheModel model;
     public boolean hasLoadStatus = false;
-    public final CacheModel.c<d.a.n0.x1.h.a> callback = new a();
+    public final CacheModel.c<d.a.o0.x1.h.a> callback = new a();
     public final HttpMessageListener listener = new b(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
     public AbsListView.OnScrollListener mOnScrollListener = new c();
 
-    /* loaded from: classes4.dex */
-    public class a implements CacheModel.c<d.a.n0.x1.h.a> {
+    /* loaded from: classes2.dex */
+    public class a implements CacheModel.c<d.a.o0.x1.h.a> {
         public a() {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<d.a.n0.x1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.n0.x1.h.a> readCacheMessage) {
+        public void onCacheDataGet(ReadCacheRespMsg<List<d.a.o0.x1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.o0.x1.h.a> readCacheMessage) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                 return;
             }
             PbHistoryActivity.this.datas = readCacheRespMsg.getData();
             ArrayList arrayList = new ArrayList();
-            for (d.a.n0.x1.h.a aVar : readCacheRespMsg.getData()) {
+            for (d.a.o0.x1.h.a aVar : readCacheRespMsg.getData()) {
                 if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
                     arrayList.add(Long.valueOf(aVar.f()));
                 }
@@ -86,7 +86,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.n0.x1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.n0.x1.h.a> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.o0.x1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.o0.x1.h.a> writeCacheMessage) {
             if (writeCacheRespMsg == null || !writeCacheRespMsg.isSuccess()) {
                 return;
             }
@@ -98,7 +98,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends HttpMessageListener {
         public b(int i2) {
             super(i2);
@@ -119,7 +119,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements AbsListView.OnScrollListener {
         public c() {
         }
@@ -140,28 +140,28 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d implements View.OnClickListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class a implements a.e {
             public a() {
             }
 
-            @Override // d.a.m0.r.s.a.e
-            public void onClick(d.a.m0.r.s.a aVar) {
+            @Override // d.a.n0.r.s.a.e
+            public void onClick(d.a.n0.r.s.a aVar) {
                 PbHistoryActivity.this.model.F();
                 aVar.dismiss();
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class b implements a.e {
             public b(d dVar) {
             }
 
-            @Override // d.a.m0.r.s.a.e
-            public void onClick(d.a.m0.r.s.a aVar) {
+            @Override // d.a.n0.r.s.a.e
+            public void onClick(d.a.n0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }
@@ -171,7 +171,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(PbHistoryActivity.this.getPageContext().getPageActivity());
+            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(PbHistoryActivity.this.getPageContext().getPageActivity());
             aVar.setMessageId(R.string.pb_history_clear_tip);
             aVar.setPositiveButton(R.string.confirm, new a());
             aVar.setNegativeButton(R.string.cancel, new b(this));
@@ -179,14 +179,14 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class e implements AdapterView.OnItemClickListener {
         public e() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            d.a.n0.x1.h.a aVar = (d.a.n0.x1.h.a) PbHistoryActivity.this.mAdapter.getItem(i2);
+            d.a.o0.x1.h.a aVar = (d.a.o0.x1.h.a) PbHistoryActivity.this.mAdapter.getItem(i2);
             if (aVar != null) {
                 if (aVar.k() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -218,7 +218,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         if (ListUtils.isEmpty(this.closeLives) || ListUtils.isEmpty(this.datas)) {
             return;
         }
-        for (d.a.n0.x1.h.a aVar : this.datas) {
+        for (d.a.o0.x1.h.a aVar : this.datas) {
             if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
                 if (this.closeLives.contains(Long.valueOf(aVar.f()))) {
                     aVar.E(false);
@@ -241,8 +241,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateUIByData(List<d.a.n0.x1.h.a> list) {
-        d.a.m0.g0.f.d<d.a.n0.x1.h.a, d.a.m0.g0.d.b, d.a.n0.x1.i.a> dVar = this.mAdapter;
+    public void updateUIByData(List<d.a.o0.x1.h.a> list) {
+        d.a.n0.g0.f.d<d.a.o0.x1.h.a, d.a.n0.g0.d.b, d.a.o0.x1.i.a> dVar = this.mAdapter;
         if (dVar != null) {
             dVar.k(list);
         }
@@ -253,7 +253,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a082";
     }
@@ -290,7 +290,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds88)));
         this.mListView.x(textView, 0);
-        this.mAdapter = new d.a.m0.g0.f.d<>(getPageContext(), d.a.n0.x1.i.a.class, R.layout.pb_history_list_item, null);
+        this.mAdapter = new d.a.n0.g0.f.d<>(getPageContext(), d.a.o0.x1.i.a.class, R.layout.pb_history_list_item, null);
         this.mAdapter.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.e.d(null, getResources().getString(R.string.pb_history_no_data_tip_2)), null, null);
         this.mListView.setAdapter((ListAdapter) this.mAdapter);
         this.mListView.setOnItemClickListener(new e());

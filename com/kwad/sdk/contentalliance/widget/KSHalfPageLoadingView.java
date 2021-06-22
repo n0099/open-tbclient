@@ -19,13 +19,13 @@ import java.util.Arrays;
 public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f33977a;
+    public TextView f34075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LottieAnimationView f33978b;
+    public LottieAnimationView f34076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSPageLoadingView.a f33979c;
+    public KSPageLoadingView.a f34077c;
 
     public KSHalfPageLoadingView(@NonNull Context context) {
         this(context, null);
@@ -49,31 +49,31 @@ public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickLi
         boolean z = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), false);
         obtainStyledAttributes.recycle();
         TextView textView = (TextView) findViewById(R.id.ksad_error_tip);
-        this.f33977a = textView;
+        this.f34075a = textView;
         textView.setTextColor(getContext().getResources().getColor(z ? R.color.ksad_hale_page_loading_error_title_light_color : R.color.ksad_hale_page_loading_error_title_dark_color));
-        this.f33977a.setOnClickListener(this);
+        this.f34075a.setOnClickListener(this);
         int i3 = z ? R.raw.ksad_page_loading_light_anim : R.raw.ksad_detail_loading_amin_new;
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
-        this.f33978b = lottieAnimationView;
+        this.f34076b = lottieAnimationView;
         lottieAnimationView.setRepeatMode(1);
-        this.f33978b.setRepeatCount(-1);
-        this.f33978b.setAnimation(i3);
+        this.f34076b.setRepeatCount(-1);
+        this.f34076b.setAnimation(i3);
         setOnClickListener(this);
     }
 
     private void a(String str) {
         g();
-        this.f33977a.setText(str);
-        this.f33977a.setVisibility(0);
-        this.f33977a.setOnClickListener(null);
+        this.f34075a.setText(str);
+        this.f34075a.setVisibility(0);
+        this.f34075a.setOnClickListener(null);
         setVisibility(0);
     }
 
     private void g() {
-        if (!this.f33978b.c()) {
-            this.f33978b.d();
+        if (!this.f34076b.c()) {
+            this.f34076b.d();
         }
-        this.f33978b.setVisibility(8);
+        this.f34076b.setVisibility(8);
     }
 
     public void a() {
@@ -81,28 +81,28 @@ public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickLi
     }
 
     public void b() {
-        this.f33977a.setVisibility(8);
-        this.f33978b.setVisibility(0);
-        if (!this.f33978b.c()) {
-            this.f33978b.b();
+        this.f34075a.setVisibility(8);
+        this.f34076b.setVisibility(0);
+        if (!this.f34076b.c()) {
+            this.f34076b.b();
         }
         setVisibility(0);
     }
 
     public void c() {
         g();
-        this.f33977a.setText(q.j(getContext()));
-        this.f33977a.setVisibility(0);
-        this.f33977a.setOnClickListener(this);
+        this.f34075a.setText(q.j(getContext()));
+        this.f34075a.setVisibility(0);
+        this.f34075a.setOnClickListener(this);
         p.a(getContext());
         setVisibility(0);
     }
 
     public void d() {
         g();
-        this.f33977a.setText(q.j(getContext()));
-        this.f33977a.setVisibility(0);
-        this.f33977a.setOnClickListener(this);
+        this.f34075a.setText(q.j(getContext()));
+        this.f34075a.setVisibility(0);
+        this.f34075a.setOnClickListener(this);
         p.b(getContext());
         setVisibility(0);
     }
@@ -121,13 +121,13 @@ public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickLi
             p.a(getContext());
             return;
         }
-        KSPageLoadingView.a aVar = this.f33979c;
+        KSPageLoadingView.a aVar = this.f34077c;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setRetryClickListener(KSPageLoadingView.a aVar) {
-        this.f33979c = aVar;
+        this.f34077c = aVar;
     }
 }

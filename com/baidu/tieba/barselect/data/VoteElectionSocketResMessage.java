@@ -2,9 +2,9 @@ package com.baidu.tieba.barselect.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.x.b.d;
-import d.a.n0.x.b.e;
-import d.a.n0.x.b.f;
+import d.a.o0.x.b.d;
+import d.a.o0.x.b.e;
+import d.a.o0.x.b.f;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.ElectionInfoResIdl;

@@ -8,9 +8,9 @@ import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import d.a.l0.a.j2.n;
-import d.a.l0.a.k;
-import d.a.l0.a.v2.q;
+import d.a.m0.a.j2.n;
+import d.a.m0.a.k;
+import d.a.m0.a.v2.q;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,36 +23,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class HybridUbcFlow {
-    public static final boolean r = k.f46875a;
+    public static final boolean r = k.f46983a;
     public static final SubmitStrategy s = SubmitStrategy.HYBRID;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11037a;
+    public String f11119a;
     public final String p;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f11038b = new JSONObject();
+    public final JSONObject f11120b = new JSONObject();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f11039c = new HashMap();
+    public final Map<String, String> f11121c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<String> f11040d = new ArrayList();
+    public final List<String> f11122d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, UbcFlowEvent> f11041e = new HashMap();
+    public final Map<String, UbcFlowEvent> f11123e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<UbcFlowEvent> f11042f = new ArrayList();
+    public final List<UbcFlowEvent> f11124f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11043g = false;
+    public boolean f11125g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11044h = false;
+    public boolean f11126h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11045i = false;
+    public boolean f11127i = false;
     public boolean j = false;
     public boolean k = false;
     public volatile boolean l = false;
@@ -166,25 +166,25 @@ public final class HybridUbcFlow {
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11047a;
+        public static final /* synthetic */ int[] f11129a;
 
         static {
             int[] iArr = new int[UbcFlowEvent.RecordType.values().length];
-            f11047a = iArr;
+            f11129a = iArr;
             try {
                 iArr[UbcFlowEvent.RecordType.UPDATE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11047a[UbcFlowEvent.RecordType.UPDATE_RECENT.ordinal()] = 2;
+                f11129a[UbcFlowEvent.RecordType.UPDATE_RECENT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11047a[UbcFlowEvent.RecordType.UPDATE_EARLIER.ordinal()] = 3;
+                f11129a[UbcFlowEvent.RecordType.UPDATE_EARLIER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f11047a[UbcFlowEvent.RecordType.KEEP.ordinal()] = 4;
+                f11129a[UbcFlowEvent.RecordType.KEEP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -194,22 +194,22 @@ public final class HybridUbcFlow {
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f11048a;
+        public final String f11130a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d.a.l0.a.v2.e1.b<HybridUbcFlow> f11049b;
+        public final d.a.m0.a.v2.e1.b<HybridUbcFlow> f11131b;
 
-        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, d.a.l0.a.v2.e1.b bVar, a aVar) {
+        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, d.a.m0.a.v2.e1.b bVar, a aVar) {
             this(hybridUbcFlow, str, bVar);
         }
 
         public boolean a() {
-            return (this.f11049b == null || TextUtils.isEmpty(this.f11048a)) ? false : true;
+            return (this.f11131b == null || TextUtils.isEmpty(this.f11130a)) ? false : true;
         }
 
-        public e(HybridUbcFlow hybridUbcFlow, String str, d.a.l0.a.v2.e1.b<HybridUbcFlow> bVar) {
-            this.f11048a = str;
-            this.f11049b = bVar;
+        public e(HybridUbcFlow hybridUbcFlow, String str, d.a.m0.a.v2.e1.b<HybridUbcFlow> bVar) {
+            this.f11130a = str;
+            this.f11131b = bVar;
         }
     }
 
@@ -218,7 +218,7 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow A(String str, String str2) {
-        this.f11039c.put(str, str2);
+        this.f11121c.put(str, str2);
         return this;
     }
 
@@ -227,7 +227,7 @@ public final class HybridUbcFlow {
             return this;
         }
         try {
-            this.f11038b.put(str, obj);
+            this.f11120b.put(str, obj);
         } catch (JSONException e2) {
             if (r) {
                 e2.printStackTrace();
@@ -241,8 +241,8 @@ public final class HybridUbcFlow {
             Log.i("HybridUbcFlow", "record " + ubcFlowEvent);
         }
         if (s(ubcFlowEvent)) {
-            synchronized (this.f11040d) {
-                int i2 = d.f11047a[ubcFlowEvent.c().ordinal()];
+            synchronized (this.f11122d) {
+                int i2 = d.f11129a[ubcFlowEvent.c().ordinal()];
                 if (i2 == 1) {
                     L(ubcFlowEvent);
                 } else if (i2 == 2) {
@@ -262,7 +262,7 @@ public final class HybridUbcFlow {
         if (r) {
             Log.i("HybridUbcFlow", "record events size = " + list.size());
         }
-        synchronized (this.f11040d) {
+        synchronized (this.f11122d) {
             for (UbcFlowEvent ubcFlowEvent : list) {
                 C(ubcFlowEvent);
             }
@@ -270,7 +270,7 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public HybridUbcFlow E(String str, d.a.l0.a.v2.e1.b<HybridUbcFlow> bVar) {
+    public HybridUbcFlow E(String str, d.a.m0.a.v2.e1.b<HybridUbcFlow> bVar) {
         e eVar = new e(this, str, bVar, null);
         if (eVar.a()) {
             synchronized (this.n) {
@@ -293,12 +293,12 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow G(String str) {
-        this.f11037a = str;
+        this.f11119a = str;
         return this;
     }
 
     public final void H() {
-        Collections.sort(this.f11042f, new a(this));
+        Collections.sort(this.f11124f, new a(this));
     }
 
     public final synchronized void I() {
@@ -308,7 +308,7 @@ public final class HybridUbcFlow {
         this.l = true;
         b("callback_on_submit");
         q.i(new b(), "HybridUbcFlow");
-        d.a.l0.a.r1.l.c.b();
+        d.a.m0.a.r1.l.c.b();
     }
 
     public final boolean J() {
@@ -332,13 +332,13 @@ public final class HybridUbcFlow {
     }
 
     public final void L(UbcFlowEvent ubcFlowEvent) {
-        this.f11040d.remove(ubcFlowEvent.f11051a);
-        this.f11040d.add(ubcFlowEvent.f11051a);
-        this.f11041e.put(ubcFlowEvent.f11051a, ubcFlowEvent);
+        this.f11122d.remove(ubcFlowEvent.f11133a);
+        this.f11122d.add(ubcFlowEvent.f11133a);
+        this.f11123e.put(ubcFlowEvent.f11133a, ubcFlowEvent);
     }
 
     public final void M(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.f11041e.get(ubcFlowEvent.f11051a);
+        UbcFlowEvent ubcFlowEvent2 = this.f11123e.get(ubcFlowEvent.f11133a);
         if (!s(ubcFlowEvent2) || ubcFlowEvent.g() < ubcFlowEvent2.g()) {
             L(ubcFlowEvent);
         }
@@ -346,11 +346,11 @@ public final class HybridUbcFlow {
 
     public void N() {
         UbcFlowEvent ubcFlowEvent;
-        synchronized (this.f11040d) {
-            this.f11042f.clear();
-            for (String str : this.f11040d) {
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f11041e.get(str)) != null && ubcFlowEvent.g() > 0) {
-                    this.f11042f.add(ubcFlowEvent);
+        synchronized (this.f11122d) {
+            this.f11124f.clear();
+            for (String str : this.f11122d) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f11123e.get(str)) != null && ubcFlowEvent.g() > 0) {
+                    this.f11124f.add(ubcFlowEvent);
                 }
             }
             H();
@@ -358,7 +358,7 @@ public final class HybridUbcFlow {
     }
 
     public final void O(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.f11041e.get(ubcFlowEvent.f11051a);
+        UbcFlowEvent ubcFlowEvent2 = this.f11123e.get(ubcFlowEvent.f11133a);
         if (!s(ubcFlowEvent2) || ubcFlowEvent.g() > ubcFlowEvent2.g()) {
             L(ubcFlowEvent);
         }
@@ -383,13 +383,13 @@ public final class HybridUbcFlow {
     }
 
     public final void b(String str) {
-        d.a.l0.a.v2.e1.b<HybridUbcFlow> bVar;
+        d.a.m0.a.v2.e1.b<HybridUbcFlow> bVar;
         List<e> list = this.n.get(str);
         if (list == null || list.isEmpty()) {
             return;
         }
         for (e eVar : list) {
-            if (eVar != null && (bVar = eVar.f11049b) != null) {
+            if (eVar != null && (bVar = eVar.f11131b) != null) {
                 bVar.onCallback(this);
             }
         }
@@ -406,13 +406,13 @@ public final class HybridUbcFlow {
         UbcFlowEvent ubcFlowEvent;
         jSONObject = new JSONObject();
         try {
-            int size = this.f11040d.size();
+            int size = this.f11122d.size();
             String[] strArr = new String[size];
-            this.f11040d.toArray(strArr);
+            this.f11122d.toArray(strArr);
             ArrayList<UbcFlowEvent> arrayList = new ArrayList(size);
             for (int i2 = 0; i2 < size; i2++) {
                 String str = strArr[i2];
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f11041e.get(str)) != null && ubcFlowEvent.g() > 0) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f11123e.get(str)) != null && ubcFlowEvent.g() > 0) {
                     arrayList.add(ubcFlowEvent);
                 }
             }
@@ -425,7 +425,7 @@ public final class HybridUbcFlow {
                 jSONObject.put("events", jSONArray);
             }
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, String> entry : this.f11039c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f11121c.entrySet()) {
                 String key = entry.getKey();
                 if (!TextUtils.isEmpty(key)) {
                     String value = entry.getValue();
@@ -438,8 +438,8 @@ public final class HybridUbcFlow {
             if (jSONObject2.length() != 0) {
                 jSONObject.put("ext", jSONObject2);
             }
-            if (this.f11038b != null && this.f11038b.length() > 0) {
-                jSONObject.put(SavedStateHandle.VALUES, this.f11038b);
+            if (this.f11120b != null && this.f11120b.length() > 0) {
+                jSONObject.put(SavedStateHandle.VALUES, this.f11120b);
             }
         } catch (Exception unused) {
         }
@@ -476,7 +476,7 @@ public final class HybridUbcFlow {
             if (i2 >= length) {
                 break;
             }
-            UbcFlowEvent ubcFlowEvent3 = this.f11041e.get(strArr[i2]);
+            UbcFlowEvent ubcFlowEvent3 = this.f11123e.get(strArr[i2]);
             if (ubcFlowEvent2 == null) {
                 if (ubcFlowEvent3 == null || ubcFlowEvent3.g() < 1) {
                     break;
@@ -492,11 +492,11 @@ public final class HybridUbcFlow {
     }
 
     public UbcFlowEvent f(String str) {
-        return this.f11041e.get(str);
+        return this.f11123e.get(str);
     }
 
     public String g(String str) {
-        return this.f11039c.get(str);
+        return this.f11121c.get(str);
     }
 
     public SubmitStrategy h() {
@@ -508,38 +508,38 @@ public final class HybridUbcFlow {
     }
 
     public String j() {
-        return this.f11037a;
+        return this.f11119a;
     }
 
     public JSONObject k() {
-        return this.f11038b;
+        return this.f11120b;
     }
 
     public HybridUbcFlow l() {
         if (r) {
             Log.i("HybridUbcFlow", "h5FlowDone");
         }
-        this.f11044h = true;
+        this.f11126h = true;
         c();
         return this;
     }
 
     public final void m() {
-        if (TextUtils.equals("670", this.f11037a)) {
-            d.a.l0.a.e0.d.h("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
-            this.f11039c.put("sys_total_mem", d.a.l0.a.e0.g.d.b().d());
-            this.f11039c.put("launch_end_mem", d.a.l0.a.e0.g.d.b().c(d.a.l0.a.a2.d.g().r().L().j("main_pid", -1)));
+        if (TextUtils.equals("670", this.f11119a)) {
+            d.a.m0.a.e0.d.h("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
+            this.f11121c.put("sys_total_mem", d.a.m0.a.e0.g.d.b().d());
+            this.f11121c.put("launch_end_mem", d.a.m0.a.e0.g.d.b().c(d.a.m0.a.a2.d.g().r().L().j("main_pid", -1)));
         }
         N();
         n.c(this);
         b("component_reporter");
-        if (TextUtils.isEmpty(this.f11037a)) {
+        if (TextUtils.isEmpty(this.f11119a)) {
             return;
         }
-        d.a.l0.a.j2.a c2 = d.a.l0.a.j2.k.c(this.f11037a);
-        for (UbcFlowEvent ubcFlowEvent : this.f11042f) {
+        d.a.m0.a.j2.a c2 = d.a.m0.a.j2.k.c(this.f11119a);
+        for (UbcFlowEvent ubcFlowEvent : this.f11124f) {
             if (!ubcFlowEvent.b()) {
-                d.a.l0.a.j2.b.e(c2, ubcFlowEvent.f11051a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                d.a.m0.a.j2.b.e(c2, ubcFlowEvent.f11133a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
         }
         if (o()) {
@@ -547,7 +547,7 @@ public final class HybridUbcFlow {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : this.f11039c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f11121c.entrySet()) {
                 String key = entry.getKey();
                 if (!TextUtils.isEmpty(key)) {
                     String value = entry.getValue();
@@ -563,40 +563,40 @@ public final class HybridUbcFlow {
                 e2.printStackTrace();
             }
         }
-        d.a.l0.a.j2.b.f(c2, this.f11038b.toString());
-        d.a.l0.a.j2.b.c(c2);
-        if (TextUtils.equals("670", this.f11037a)) {
-            d.a.l0.a.r1.l.a.d(this.f11042f, this.f11038b);
-            d.a.l0.a.e0.d.h("HybridUbcFlow", "670: " + d().toString());
+        d.a.m0.a.j2.b.f(c2, this.f11120b.toString());
+        d.a.m0.a.j2.b.c(c2);
+        if (TextUtils.equals("670", this.f11119a)) {
+            d.a.m0.a.r1.l.a.d(this.f11124f, this.f11120b);
+            d.a.m0.a.e0.d.h("HybridUbcFlow", "670: " + d().toString());
         }
     }
 
     public boolean n(String str) {
-        return this.f11041e.get(str) != null;
+        return this.f11123e.get(str) != null;
     }
 
     public final boolean o() {
         boolean isEmpty;
-        synchronized (this.f11040d) {
-            isEmpty = this.f11040d.isEmpty();
+        synchronized (this.f11122d) {
+            isEmpty = this.f11122d.isEmpty();
         }
         return isEmpty;
     }
 
     public boolean p() {
-        return this.f11044h;
+        return this.f11126h;
     }
 
     public boolean q() {
-        return this.f11043g;
+        return this.f11125g;
     }
 
     public boolean r() {
-        return this.f11045i;
+        return this.f11127i;
     }
 
     public final boolean s(UbcFlowEvent ubcFlowEvent) {
-        return (ubcFlowEvent == null || TextUtils.isEmpty(ubcFlowEvent.f11051a)) ? false : true;
+        return (ubcFlowEvent == null || TextUtils.isEmpty(ubcFlowEvent.f11133a)) ? false : true;
     }
 
     public boolean t() {
@@ -608,7 +608,7 @@ public final class HybridUbcFlow {
     }
 
     public final void v(UbcFlowEvent ubcFlowEvent) {
-        if (s(this.f11041e.get(ubcFlowEvent.f11051a))) {
+        if (s(this.f11123e.get(ubcFlowEvent.f11133a))) {
             return;
         }
         L(ubcFlowEvent);
@@ -619,8 +619,8 @@ public final class HybridUbcFlow {
             return this;
         }
         hybridUbcFlow.N();
-        D(hybridUbcFlow.f11042f);
-        this.f11039c.putAll(hybridUbcFlow.f11039c);
+        D(hybridUbcFlow.f11124f);
+        this.f11121c.putAll(hybridUbcFlow.f11121c);
         return this;
     }
 
@@ -628,7 +628,7 @@ public final class HybridUbcFlow {
         if (r) {
             Log.i("HybridUbcFlow", "naFlowDone");
         }
-        this.f11043g = true;
+        this.f11125g = true;
         c();
         return this;
     }
@@ -637,13 +637,13 @@ public final class HybridUbcFlow {
         if (r) {
             Log.i("HybridUbcFlow", "naPaintFlowDone");
         }
-        this.f11045i = true;
+        this.f11127i = true;
         b("fmp_callback");
         c();
         return this;
     }
 
-    public HybridUbcFlow z(@Nullable d.a.l0.a.p.e.b bVar) {
+    public HybridUbcFlow z(@Nullable d.a.m0.a.p.e.b bVar) {
         String str;
         if (r) {
             StringBuilder sb = new StringBuilder();
@@ -671,7 +671,7 @@ public final class HybridUbcFlow {
             }
         }
         b("fmp_callback");
-        this.f11045i = true;
+        this.f11127i = true;
         c();
         return this;
     }

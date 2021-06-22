@@ -1,7 +1,8 @@
 package com.baidubce.services.bos.model;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Grant {
     public List<Grantee> grantee;
     public List<Permission> permission;
@@ -64,7 +65,7 @@ public class Grant {
     }
 
     public String toString() {
-        return "Grant [grantee=" + this.grantee + ", permission=" + this.permission + "]";
+        return "Grant [grantee=" + this.grantee + ", permission=" + this.permission + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public Grant withGrantee(List<Grantee> list) {

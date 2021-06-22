@@ -2,8 +2,8 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.a.e;
-import d.a.m0.z0.w;
+import d.a.n0.a.e;
+import d.a.n0.z0.w;
 import tbclient.GetUserByTiebaUid.DataReq;
 import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
 /* loaded from: classes3.dex */

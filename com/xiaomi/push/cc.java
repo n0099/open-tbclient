@@ -5,12 +5,12 @@ import com.xiaomi.push.cg;
 public class cc extends cg.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41059a;
+    public String f41162a;
 
     public cc(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr);
-        this.f41059a = "MessageDeleteJob";
-        this.f41059a = str3;
+        this.f41162a = "MessageDeleteJob";
+        this.f41162a = str3;
     }
 
     public static cc a(String str) {

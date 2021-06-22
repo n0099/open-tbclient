@@ -5,11 +5,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import d.a.n0.p0.a.e;
-import d.a.n0.p0.a.f;
-import d.a.n0.p0.a.g;
-import d.a.n0.p0.a.i;
-import d.a.n0.p0.c.l;
+import d.a.o0.p0.a.e;
+import d.a.o0.p0.a.f;
+import d.a.o0.p0.a.g;
+import d.a.o0.p0.a.i;
+import d.a.o0.p0.c.l;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
@@ -24,7 +24,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public a() {
         }
 
-        @Override // d.a.n0.p0.a.e.c
+        @Override // d.a.o0.p0.a.e.c
         public void a(ArrayList<i> arrayList, l lVar, boolean z, int i2, String str) {
             if (!z) {
                 if (arrayList != null && arrayList.size() > 0) {
@@ -118,8 +118,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     public void registerTask() {
-        d.a.n0.e3.d0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-        d.a.n0.e3.d0.a.b(2003005, f.class);
+        d.a.o0.e3.d0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+        d.a.o0.e3.d0.a.b(2003005, f.class);
     }
 }

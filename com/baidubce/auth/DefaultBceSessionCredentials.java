@@ -1,7 +1,7 @@
 package com.baidubce.auth;
 
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultBceSessionCredentials extends DefaultBceCredentials implements BceSessionCredentials {
     public final String sessionToken;
 

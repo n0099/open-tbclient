@@ -3,6 +3,7 @@ package com.baidu.searchbox.appframework;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -53,7 +54,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
             Activity activity = this.mActivityStack.get(size).get();
             if (activity != null) {

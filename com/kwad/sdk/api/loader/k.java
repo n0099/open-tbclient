@@ -19,38 +19,38 @@ public class k {
     public static abstract class a<T> implements c<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f32354a;
+        public c f32452a;
 
         public a(c cVar) {
-            this.f32354a = cVar;
+            this.f32452a = cVar;
         }
 
         @Override // com.kwad.sdk.api.loader.k.c
         public void a(Throwable th) {
-            this.f32354a.a(th);
+            this.f32452a.a(th);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements f<a.C0355a> {
+    public static class b implements f<a.C0358a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32355a;
+        public String f32453a;
 
         public b(String str) {
-            this.f32355a = str;
+            this.f32453a = str;
         }
 
         @Override // com.kwad.sdk.api.loader.k.f
-        public void a(final c<a.C0355a> cVar) {
+        public void a(final c<a.C0358a> cVar) {
             try {
-                new com.kwad.sdk.api.loader.e(this.f32355a).a(new e.a() { // from class: com.kwad.sdk.api.loader.k.b.1
+                new com.kwad.sdk.api.loader.e(this.f32453a).a(new e.a() { // from class: com.kwad.sdk.api.loader.k.b.1
                     @Override // com.kwad.sdk.api.loader.e.a
                     public void a(a.b bVar) {
                         if (bVar == null || !bVar.a()) {
                             cVar.a((Throwable) new RuntimeException("UpdateData is illegal"));
                         } else {
-                            cVar.a((c) bVar.f32326c);
+                            cVar.a((c) bVar.f32424c);
                         }
                     }
 
@@ -73,32 +73,32 @@ public class k {
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements f<a.C0355a> {
+    public static class d implements f<a.C0358a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f<a.C0355a> f32358a;
+        public f<a.C0358a> f32456a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f32359b;
+        public Context f32457b;
 
-        public d(f<a.C0355a> fVar, Context context) {
-            this.f32358a = fVar;
-            this.f32359b = context;
+        public d(f<a.C0358a> fVar, Context context) {
+            this.f32456a = fVar;
+            this.f32457b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.k.f
-        public void a(final c<a.C0355a> cVar) {
-            this.f32358a.a(new a<a.C0355a>(cVar) { // from class: com.kwad.sdk.api.loader.k.d.1
+        public void a(final c<a.C0358a> cVar) {
+            this.f32456a.a(new a<a.C0358a>(cVar) { // from class: com.kwad.sdk.api.loader.k.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.api.loader.k.c
-                public void a(final a.C0355a c0355a) {
-                    final File a2 = com.kwad.sdk.api.loader.g.a(d.this.f32359b, c0355a.f32322e);
+                public void a(final a.C0358a c0358a) {
+                    final File a2 = com.kwad.sdk.api.loader.g.a(d.this.f32457b, c0358a.f32420e);
                     final IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
                     if (ksAdSDKImpl != null) {
                         ksAdSDKImpl.reportBatchEvent(60, null);
                     }
                     final long currentTimeMillis = System.currentTimeMillis();
-                    com.kwad.sdk.api.loader.h.a(c0355a.f32319b, a2.getPath(), new h.a() { // from class: com.kwad.sdk.api.loader.k.d.1.1
+                    com.kwad.sdk.api.loader.h.a(c0358a.f32417b, a2.getPath(), new h.a() { // from class: com.kwad.sdk.api.loader.k.d.1.1
                         @Override // com.kwad.sdk.api.loader.h.a
                         public void a() {
                             try {
@@ -116,9 +116,9 @@ public class k {
 
                         @Override // com.kwad.sdk.api.loader.h.a
                         public void a(File file) {
-                            a.C0355a c0355a2 = c0355a;
-                            c0355a2.f32323f = file;
-                            cVar.a((c) c0355a2);
+                            a.C0358a c0358a2 = c0358a;
+                            c0358a2.f32421f = file;
+                            cVar.a((c) c0358a2);
                             if (ksAdSDKImpl != null) {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(ReportAction.KEY_DOWNLOAD_DURATION, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
@@ -135,14 +135,14 @@ public class k {
     public static class e implements f<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f<a.C0355a> f32367a;
+        public f<a.C0358a> f32465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f32368b;
+        public Context f32466b;
 
-        public e(f<a.C0355a> fVar, Context context) {
-            this.f32367a = fVar;
-            this.f32368b = context;
+        public e(f<a.C0358a> fVar, Context context) {
+            this.f32465a = fVar;
+            this.f32466b = context;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -163,12 +163,12 @@ public class k {
 
         @Override // com.kwad.sdk.api.loader.k.f
         public void a(final c<Boolean> cVar) {
-            this.f32367a.a(new c<a.C0355a>() { // from class: com.kwad.sdk.api.loader.k.e.1
+            this.f32465a.a(new c<a.C0358a>() { // from class: com.kwad.sdk.api.loader.k.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.api.loader.k.c
-                public void a(a.C0355a c0355a) {
+                public void a(a.C0358a c0358a) {
                     try {
-                        if (!e.this.a(e.this.f32368b)) {
+                        if (!e.this.a(e.this.f32466b)) {
                             cVar.a((Throwable) new RuntimeException("not main process"));
                             return;
                         }
@@ -176,12 +176,12 @@ public class k {
                         if (ksAdSDKImpl != null) {
                             ksAdSDKImpl.reportBatchEvent(63, null);
                         }
-                        if (!com.kwad.sdk.api.loader.b.a(e.this.f32368b, c0355a.f32323f.getPath(), c0355a.f32322e)) {
+                        if (!com.kwad.sdk.api.loader.b.a(e.this.f32466b, c0358a.f32421f.getPath(), c0358a.f32420e)) {
                             throw new RuntimeException("Apk pre install failed");
                         }
-                        com.kwad.sdk.api.loader.f.a(e.this.f32368b, com.kwad.sdk.api.loader.f.f32334a, c0355a.f32322e);
+                        com.kwad.sdk.api.loader.f.a(e.this.f32466b, com.kwad.sdk.api.loader.f.f32432a, c0358a.f32420e);
                         cVar.a((c) Boolean.TRUE);
-                        com.kwad.sdk.api.loader.g.a(c0355a.f32323f);
+                        com.kwad.sdk.api.loader.g.a(c0358a.f32421f);
                         if (ksAdSDKImpl != null) {
                             ksAdSDKImpl.reportBatchEvent(64, null);
                         }
@@ -204,30 +204,30 @@ public class k {
     }
 
     /* loaded from: classes6.dex */
-    public static class g implements f<a.C0355a> {
+    public static class g implements f<a.C0358a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f<a.C0355a> f32371a;
+        public f<a.C0358a> f32469a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f32372b;
+        public Context f32470b;
 
-        public g(f<a.C0355a> fVar, Context context) {
-            this.f32371a = fVar;
-            this.f32372b = context;
+        public g(f<a.C0358a> fVar, Context context) {
+            this.f32469a = fVar;
+            this.f32470b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.k.f
-        public void a(final c<a.C0355a> cVar) {
-            this.f32371a.a(new a<a.C0355a>(cVar) { // from class: com.kwad.sdk.api.loader.k.g.1
+        public void a(final c<a.C0358a> cVar) {
+            this.f32469a.a(new a<a.C0358a>(cVar) { // from class: com.kwad.sdk.api.loader.k.g.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.api.loader.k.c
-                public void a(final a.C0355a c0355a) {
+                public void a(final a.C0358a c0358a) {
                     File file;
-                    if (c0355a == null || (file = c0355a.f32323f) == null) {
+                    if (c0358a == null || (file = c0358a.f32421f) == null) {
                         return;
                     }
-                    SecurityChecker.a(file, c0355a, new SecurityChecker.a() { // from class: com.kwad.sdk.api.loader.k.g.1.1
+                    SecurityChecker.a(file, c0358a, new SecurityChecker.a() { // from class: com.kwad.sdk.api.loader.k.g.1.1
                         @Override // com.kwad.sdk.api.loader.SecurityChecker.a
                         public void a(Exception exc) {
                             cVar.a((Throwable) exc);
@@ -236,10 +236,10 @@ public class k {
                         @Override // com.kwad.sdk.api.loader.SecurityChecker.a
                         public void a(boolean z, SecurityChecker.State state) {
                             if (z) {
-                                cVar.a((c) c0355a);
+                                cVar.a((c) c0358a);
                                 return;
                             }
-                            com.kwad.sdk.api.loader.g.a(c0355a.f32323f);
+                            com.kwad.sdk.api.loader.g.a(c0358a.f32421f);
                             c cVar2 = cVar;
                             cVar2.a((Throwable) new RuntimeException("Security check failed. state = " + state));
                         }
@@ -250,44 +250,44 @@ public class k {
     }
 
     /* loaded from: classes6.dex */
-    public static class h implements f<a.C0355a> {
+    public static class h implements f<a.C0358a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f<a.C0355a> f32377a;
+        public f<a.C0358a> f32475a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f32378b;
+        public Context f32476b;
 
-        public h(f<a.C0355a> fVar, Context context) {
-            this.f32377a = fVar;
-            this.f32378b = context;
+        public h(f<a.C0358a> fVar, Context context) {
+            this.f32475a = fVar;
+            this.f32476b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.k.f
-        public void a(final c<a.C0355a> cVar) {
-            this.f32377a.a(new c<a.C0355a>() { // from class: com.kwad.sdk.api.loader.k.h.1
+        public void a(final c<a.C0358a> cVar) {
+            this.f32475a.a(new c<a.C0358a>() { // from class: com.kwad.sdk.api.loader.k.h.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.api.loader.k.c
-                public void a(a.C0355a c0355a) {
+                public void a(a.C0358a c0358a) {
                     c cVar2;
                     RuntimeException runtimeException;
-                    if (c0355a == null) {
+                    if (c0358a == null) {
                         return;
                     }
-                    q.a(h.this.f32378b, "interval", c0355a.f32321d);
-                    q.a(h.this.f32378b, "lastUpdateTime", System.currentTimeMillis());
-                    if (c0355a.b()) {
-                        String a2 = Loader.get().a(h.this.f32378b);
-                        com.kwad.sdk.api.loader.f.a(h.this.f32378b, com.kwad.sdk.api.loader.f.f32335b, "");
+                    q.a(h.this.f32476b, "interval", c0358a.f32419d);
+                    q.a(h.this.f32476b, "lastUpdateTime", System.currentTimeMillis());
+                    if (c0358a.b()) {
+                        String a2 = Loader.get().a(h.this.f32476b);
+                        com.kwad.sdk.api.loader.f.a(h.this.f32476b, com.kwad.sdk.api.loader.f.f32433b, "");
                         cVar2 = cVar;
                         runtimeException = new RuntimeException("DynamicType == -1, curVersion: " + a2);
-                    } else if (com.kwad.sdk.api.loader.f.a(c0355a.f32322e, Loader.get().a(h.this.f32378b)) && c0355a.a()) {
-                        cVar.a((c) c0355a);
-                        Log.w("maple", "new Verson: " + c0355a.f32322e);
+                    } else if (com.kwad.sdk.api.loader.f.a(c0358a.f32420e, Loader.get().a(h.this.f32476b)) && c0358a.a()) {
+                        cVar.a((c) c0358a);
+                        Log.w("maple", "new Verson: " + c0358a.f32420e);
                         return;
                     } else {
                         cVar2 = cVar;
-                        runtimeException = new RuntimeException("No new sdkVersion. remote sdkVersion:" + c0355a.f32322e + " currentDynamicVersion:" + Loader.get().a(h.this.f32378b) + " dynamicType:" + c0355a.f32318a);
+                        runtimeException = new RuntimeException("No new sdkVersion. remote sdkVersion:" + c0358a.f32420e + " currentDynamicVersion:" + Loader.get().a(h.this.f32476b) + " dynamicType:" + c0358a.f32416a);
                     }
                     cVar2.a((Throwable) runtimeException);
                 }

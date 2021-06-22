@@ -24,10 +24,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import d.a.c.e.p.k;
-import d.a.n0.s1.g.a;
-import d.a.n0.s1.g.d;
+import d.a.o0.s1.g.a;
+import d.a.o0.s1.g.d;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
     public d mMemberPrivilegeView;
     public String SCENE_ID = "4001001000";
@@ -35,7 +35,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public final CustomMessageListener mMemListener = new b(2001194);
     public final CustomMessageListener mBuyTdouListener = new c(2001227);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i2) {
             super(i2);
@@ -53,7 +53,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                     return;
                 }
-                d.a.n0.s1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                d.a.o0.s1.g.a aVar = responseMemberPrivilegeMessage.mData;
                 if (aVar != null) {
                     MemberPrivilegeActivity.this.mMemberPrivilegeView.e().h(aVar);
                 } else {
@@ -63,7 +63,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i2) {
             super(i2);
@@ -79,7 +79,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i2) {
             super(i2);
@@ -143,15 +143,15 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1652a) this.mMemberPrivilegeView.e().getItem(i2)).f64271d;
-        String str2 = ((a.C1652a) this.mMemberPrivilegeView.e().getItem(i2)).f64269b;
+        String str = ((a.C1656a) this.mMemberPrivilegeView.e().getItem(i2)).f64396d;
+        String str2 = ((a.C1656a) this.mMemberPrivilegeView.e().getItem(i2)).f64394b;
         if (k.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            d.a.m0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
+            d.a.n0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 

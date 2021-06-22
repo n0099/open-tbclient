@@ -18,35 +18,35 @@ import com.ksad.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class g implements d, j, a.InterfaceC0352a {
+public class g implements d, j, a.InterfaceC0355a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31748a;
+    public final String f31846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.model.layer.a f31749b;
+    public final com.ksad.lottie.model.layer.a f31847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LongSparseArray<LinearGradient> f31750c = new LongSparseArray<>();
+    public final LongSparseArray<LinearGradient> f31848c = new LongSparseArray<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final LongSparseArray<RadialGradient> f31751d = new LongSparseArray<>();
+    public final LongSparseArray<RadialGradient> f31849d = new LongSparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Matrix f31752e = new Matrix();
+    public final Matrix f31850e = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Path f31753f = new Path();
+    public final Path f31851f = new Path();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f31754g = new Paint(1);
+    public final Paint f31852g = new Paint(1);
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f31755h = new RectF();
+    public final RectF f31853h = new RectF();
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<l> f31756i = new ArrayList();
+    public final List<l> f31854i = new ArrayList();
     public final GradientType j;
     public final com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> k;
     public final com.ksad.lottie.a.b.a<Integer, Integer> l;
@@ -58,11 +58,11 @@ public class g implements d, j, a.InterfaceC0352a {
     public final int q;
 
     public g(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.d dVar) {
-        this.f31749b = aVar;
-        this.f31748a = dVar.a();
+        this.f31847b = aVar;
+        this.f31846a = dVar.a();
         this.p = fVar;
         this.j = dVar.b();
-        this.f31753f.setFillType(dVar.c());
+        this.f31851f.setFillType(dVar.c());
         this.q = (int) (fVar.r().c() / 32.0f);
         com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> a2 = dVar.d().a();
         this.k = a2;
@@ -84,7 +84,7 @@ public class g implements d, j, a.InterfaceC0352a {
 
     private LinearGradient b() {
         long d2 = d();
-        LinearGradient linearGradient = this.f31750c.get(d2);
+        LinearGradient linearGradient = this.f31848c.get(d2);
         if (linearGradient != null) {
             return linearGradient;
         }
@@ -92,7 +92,7 @@ public class g implements d, j, a.InterfaceC0352a {
         PointF e3 = this.n.e();
         com.ksad.lottie.model.content.c e4 = this.k.e();
         LinearGradient linearGradient2 = new LinearGradient(e2.x, e2.y, e3.x, e3.y, e4.b(), e4.a(), Shader.TileMode.CLAMP);
-        this.f31750c.put(d2, linearGradient2);
+        this.f31848c.put(d2, linearGradient2);
         return linearGradient2;
     }
 
@@ -100,7 +100,7 @@ public class g implements d, j, a.InterfaceC0352a {
         float f2;
         float f3;
         long d2 = d();
-        RadialGradient radialGradient = this.f31751d.get(d2);
+        RadialGradient radialGradient = this.f31849d.get(d2);
         if (radialGradient != null) {
             return radialGradient;
         }
@@ -110,7 +110,7 @@ public class g implements d, j, a.InterfaceC0352a {
         int[] b2 = e4.b();
         float[] a2 = e4.a();
         RadialGradient radialGradient2 = new RadialGradient(e2.x, e2.y, (float) Math.hypot(e3.x - f2, e3.y - f3), b2, a2, Shader.TileMode.CLAMP);
-        this.f31751d.put(d2, radialGradient2);
+        this.f31849d.put(d2, radialGradient2);
         return radialGradient2;
     }
 
@@ -125,7 +125,7 @@ public class g implements d, j, a.InterfaceC0352a {
         return round3 != 0 ? i2 * 31 * round3 : i2;
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC0352a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0355a
     public void a() {
         this.p.invalidateSelf();
     }
@@ -133,31 +133,31 @@ public class g implements d, j, a.InterfaceC0352a {
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i2) {
         com.ksad.lottie.c.c("GradientFillContent#draw");
-        this.f31753f.reset();
-        for (int i3 = 0; i3 < this.f31756i.size(); i3++) {
-            this.f31753f.addPath(this.f31756i.get(i3).d(), matrix);
+        this.f31851f.reset();
+        for (int i3 = 0; i3 < this.f31854i.size(); i3++) {
+            this.f31851f.addPath(this.f31854i.get(i3).d(), matrix);
         }
-        this.f31753f.computeBounds(this.f31755h, false);
+        this.f31851f.computeBounds(this.f31853h, false);
         Shader b2 = this.j == GradientType.Linear ? b() : c();
-        this.f31752e.set(matrix);
-        b2.setLocalMatrix(this.f31752e);
-        this.f31754g.setShader(b2);
+        this.f31850e.set(matrix);
+        b2.setLocalMatrix(this.f31850e);
+        this.f31852g.setShader(b2);
         com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> aVar = this.o;
         if (aVar != null) {
-            this.f31754g.setColorFilter(aVar.e());
+            this.f31852g.setColorFilter(aVar.e());
         }
-        this.f31754g.setAlpha(com.ksad.lottie.d.e.a((int) ((((i2 / 255.0f) * this.l.e().intValue()) / 100.0f) * 255.0f), 0, 255));
-        canvas.drawPath(this.f31753f, this.f31754g);
+        this.f31852g.setAlpha(com.ksad.lottie.d.e.a((int) ((((i2 / 255.0f) * this.l.e().intValue()) / 100.0f) * 255.0f), 0, 255));
+        canvas.drawPath(this.f31851f, this.f31852g);
         com.ksad.lottie.c.d("GradientFillContent#draw");
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.f31753f.reset();
-        for (int i2 = 0; i2 < this.f31756i.size(); i2++) {
-            this.f31753f.addPath(this.f31756i.get(i2).d(), matrix);
+        this.f31851f.reset();
+        for (int i2 = 0; i2 < this.f31854i.size(); i2++) {
+            this.f31851f.addPath(this.f31854i.get(i2).d(), matrix);
         }
-        this.f31753f.computeBounds(rectF, false);
+        this.f31851f.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 
@@ -166,7 +166,7 @@ public class g implements d, j, a.InterfaceC0352a {
         for (int i2 = 0; i2 < list2.size(); i2++) {
             b bVar = list2.get(i2);
             if (bVar instanceof l) {
-                this.f31756i.add((l) bVar);
+                this.f31854i.add((l) bVar);
             }
         }
     }

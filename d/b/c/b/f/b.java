@@ -10,38 +10,38 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f69564a;
+        public int f69668a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f69565b;
+        public byte[] f69669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f69566c;
+        public String f69670c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f69567d;
+        public long f69671d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f69568e;
+        public long f69672e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f69569f;
+        public long f69673f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f69570g;
+        public long f69674g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f69571h = Collections.emptyMap();
+        public Map<String, String> f69675h = Collections.emptyMap();
 
         /* renamed from: i  reason: collision with root package name */
-        public List<d.b.c.b.d.a> f69572i;
+        public List<d.b.c.b.d.a> f69676i;
 
         public boolean a() {
-            return this.f69569f < System.currentTimeMillis();
+            return this.f69673f < System.currentTimeMillis();
         }
 
         public boolean b() {
-            return this.f69570g < System.currentTimeMillis();
+            return this.f69674g < System.currentTimeMillis();
         }
     }
 

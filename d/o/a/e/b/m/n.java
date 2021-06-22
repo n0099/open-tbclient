@@ -12,16 +12,16 @@ import java.util.List;
 public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f71191d = "n";
+    public static final String f71295d = "n";
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile com.ss.android.socialbase.downloader.downloader.h f71192a;
+    public volatile com.ss.android.socialbase.downloader.downloader.h f71296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.o.a.e.b.g.o<IndependentProcessDownloadService> f71193b;
+    public d.o.a.e.b.g.o<IndependentProcessDownloadService> f71297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.e.b.g.m f71194c = new o();
+    public d.o.a.e.b.g.m f71298c = new o();
 
     /* loaded from: classes7.dex */
     public class a implements d.o.a.e.b.f.k {
@@ -47,17 +47,17 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     public n() {
         d.o.a.e.b.g.o<IndependentProcessDownloadService> K0 = d.o.a.e.b.g.d.K0();
-        this.f71193b = K0;
+        this.f71297b = K0;
         K0.d(this);
     }
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a(i2);
+            this.f71296a.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -69,11 +69,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean b(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return false;
         }
         try {
-            return this.f71192a.b(i2);
+            return this.f71296a.b(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -82,11 +82,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void c(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.c(i2);
+            this.f71296a.c(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -94,11 +94,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void d(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.d(i2);
+            this.f71296a.d(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -106,11 +106,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public long e(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return 0L;
         }
         try {
-            return this.f71192a.e(i2);
+            return this.f71296a.e(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return 0L;
@@ -119,11 +119,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public int f(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return 0;
         }
         try {
-            return this.f71192a.f(i2);
+            return this.f71296a.f(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return 0;
@@ -132,11 +132,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean g(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return false;
         }
         try {
-            return this.f71192a.g(i2);
+            return this.f71296a.g(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -145,11 +145,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public DownloadInfo h(int i2) {
-        if (this.f71192a == null) {
-            return this.f71194c.h(i2);
+        if (this.f71296a == null) {
+            return this.f71298c.h(i2);
         }
         try {
-            return this.f71192a.h(i2);
+            return this.f71296a.h(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -158,11 +158,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public List<com.ss.android.socialbase.downloader.model.b> i(int i2) {
-        if (this.f71192a == null) {
-            return this.f71194c.i(i2);
+        if (this.f71296a == null) {
+            return this.f71298c.i(i2);
         }
         try {
-            return this.f71192a.i(i2);
+            return this.f71296a.i(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -171,12 +171,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void j(int i2) {
-        if (this.f71192a == null) {
-            this.f71194c.j(i2);
+        if (this.f71296a == null) {
+            this.f71298c.j(i2);
             return;
         }
         try {
-            this.f71192a.j(i2);
+            this.f71296a.j(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -184,7 +184,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void k(int i2) {
-        d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar = this.f71193b;
+        d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar = this.f71297b;
         if (oVar != null) {
             oVar.a(i2);
         }
@@ -192,11 +192,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean l(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return false;
         }
         try {
-            return this.f71192a.k(i2);
+            return this.f71296a.k(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -205,11 +205,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public int m(int i2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return d.o.a.e.b.g.e.c().m(i2);
         }
         try {
-            return this.f71192a.m(i2);
+            return this.f71296a.m(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return -1;
@@ -218,11 +218,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean n(int i2) {
-        if (this.f71192a == null) {
-            return this.f71194c.n(i2);
+        if (this.f71296a == null) {
+            return this.f71298c.n(i2);
         }
         try {
-            return this.f71192a.n(i2);
+            return this.f71296a.n(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -231,12 +231,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void o(int i2) {
-        if (this.f71192a == null) {
-            this.f71194c.o(i2);
+        if (this.f71296a == null) {
+            this.f71298c.o(i2);
             return;
         }
         try {
-            this.f71192a.o(i2);
+            this.f71296a.o(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -244,11 +244,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean p(int i2) {
-        if (this.f71192a == null) {
-            return this.f71194c.p(i2);
+        if (this.f71296a == null) {
+            return this.f71298c.p(i2);
         }
         try {
-            return this.f71192a.p(i2);
+            return this.f71296a.p(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -257,9 +257,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public d.o.a.e.b.f.d q(int i2) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.f.d(this.f71192a.q(i2));
+                return com.ss.android.socialbase.downloader.i.f.d(this.f71296a.q(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -270,9 +270,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public d.o.a.e.b.f.i r(int i2) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.f.f(this.f71192a.r(i2));
+                return com.ss.android.socialbase.downloader.i.f.f(this.f71296a.r(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -283,9 +283,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public u s(int i2) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.f.w(this.f71192a.s(i2));
+                return com.ss.android.socialbase.downloader.i.f.w(this.f71296a.s(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -296,11 +296,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, boolean z) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a(i2, z);
+            this.f71296a.a(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -313,11 +313,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> c(String str) {
-        if (this.f71192a == null) {
-            return this.f71194c.c(str);
+        if (this.f71296a == null) {
+            return this.f71298c.c(str);
         }
         try {
-            return this.f71192a.c(str);
+            return this.f71296a.c(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -326,11 +326,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void d(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z, z2);
+            this.f71296a.a(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z, z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -338,9 +338,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> e(String str) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                return this.f71192a.d(str);
+                return this.f71296a.d(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -351,11 +351,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void f(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.b(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z);
+            this.f71296a.b(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -363,11 +363,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void g(int i2, int i3, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z);
+            this.f71296a.a(i2, i3, com.ss.android.socialbase.downloader.i.f.n(bVar, gVar != com.ss.android.socialbase.downloader.constants.g.SUB), gVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -375,16 +375,16 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.n
     public void h() {
-        this.f71192a = null;
+        this.f71296a = null;
     }
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> b(String str) {
-        if (this.f71192a == null) {
-            return this.f71194c.b(str);
+        if (this.f71296a == null) {
+            return this.f71298c.b(str);
         }
         try {
-            return this.f71192a.b(str);
+            return this.f71296a.b(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -393,11 +393,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a() {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a();
+            this.f71296a.a();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -405,11 +405,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> d(String str) {
-        if (this.f71192a == null) {
-            return this.f71194c.d(str);
+        if (this.f71296a == null) {
+            return this.f71298c.d(str);
         }
         try {
-            return this.f71192a.e(str);
+            return this.f71296a.e(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -418,11 +418,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean e() {
-        if (this.f71192a == null) {
-            return this.f71194c.e();
+        if (this.f71296a == null) {
+            return this.f71298c.e();
         }
         try {
-            return this.f71192a.c();
+            return this.f71296a.c();
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -431,12 +431,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void f() {
-        if (this.f71192a == null) {
-            this.f71194c.f();
+        if (this.f71296a == null) {
+            this.f71298c.f();
             return;
         }
         try {
-            this.f71192a.d();
+            this.f71296a.d();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -444,7 +444,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean g() {
-        return this.f71192a != null;
+        return this.f71296a != null;
     }
 
     @Override // d.o.a.e.b.g.m
@@ -454,11 +454,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void c(int i2, boolean z) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.d(i2, z);
+            this.f71296a.d(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -466,11 +466,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public List<DownloadInfo> a(String str) {
-        if (this.f71192a == null) {
-            return this.f71194c.a(str);
+        if (this.f71296a == null) {
+            return this.f71298c.a(str);
         }
         try {
-            return this.f71192a.a(str);
+            return this.f71296a.a(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -479,12 +479,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void b(List<String> list) {
-        if (this.f71192a == null) {
-            this.f71194c.b(list);
+        if (this.f71296a == null) {
+            this.f71298c.b(list);
             return;
         }
         try {
-            this.f71192a.b(list);
+            this.f71296a.b(list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -492,7 +492,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void d() {
-        d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar = this.f71193b;
+        d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar = this.f71297b;
         if (oVar != null) {
             oVar.f();
         }
@@ -500,9 +500,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void e(d.o.a.e.b.f.k kVar) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                this.f71192a.a(com.ss.android.socialbase.downloader.i.f.h(kVar));
+                this.f71296a.a(com.ss.android.socialbase.downloader.i.f.h(kVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -511,11 +511,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean c(DownloadInfo downloadInfo) {
-        if (this.f71192a == null) {
-            return this.f71194c.c(downloadInfo);
+        if (this.f71296a == null) {
+            return this.f71298c.c(downloadInfo);
         }
         try {
-            return this.f71192a.b(downloadInfo);
+            return this.f71296a.b(downloadInfo);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -529,12 +529,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void b(int i2, boolean z) {
-        if (this.f71192a == null) {
-            this.f71194c.b(i2, z);
+        if (this.f71296a == null) {
+            this.f71298c.b(i2, z);
             return;
         }
         try {
-            this.f71192a.b(i2, z);
+            this.f71296a.b(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -542,12 +542,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(List<String> list) {
-        if (this.f71192a == null) {
-            this.f71194c.a(list);
+        if (this.f71296a == null) {
+            this.f71298c.a(list);
             return;
         }
         try {
-            this.f71192a.a(list);
+            this.f71296a.a(list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -555,9 +555,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void c(int i2, d.o.a.e.b.f.d dVar) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                this.f71192a.a(i2, com.ss.android.socialbase.downloader.i.f.c(dVar));
+                this.f71296a.a(i2, com.ss.android.socialbase.downloader.i.f.c(dVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -566,13 +566,13 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean b() {
-        if (this.f71192a == null) {
-            d.o.a.e.b.c.a.i(f71191d, "isServiceForeground, aidlService is null");
+        if (this.f71296a == null) {
+            d.o.a.e.b.c.a.i(f71295d, "isServiceForeground, aidlService is null");
             return false;
         }
-        d.o.a.e.b.c.a.h(f71191d, "aidlService.isServiceForeground");
+        d.o.a.e.b.c.a.h(f71295d, "aidlService.isServiceForeground");
         try {
-            return this.f71192a.e();
+            return this.f71296a.e();
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -581,11 +581,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public boolean a(DownloadInfo downloadInfo) {
-        if (this.f71192a == null) {
-            return this.f71194c.a(downloadInfo);
+        if (this.f71296a == null) {
+            return this.f71298c.a(downloadInfo);
         }
         try {
-            this.f71192a.a(downloadInfo);
+            this.f71296a.a(downloadInfo);
             return false;
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -595,14 +595,14 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, Notification notification) {
-        if (this.f71192a == null) {
-            d.o.a.e.b.c.a.i(f71191d, "startForeground, aidlService is null");
+        if (this.f71296a == null) {
+            d.o.a.e.b.c.a.i(f71295d, "startForeground, aidlService is null");
             return;
         }
-        String str = f71191d;
+        String str = f71295d;
         d.o.a.e.b.c.a.h(str, "aidlService.startForeground, id = " + i2);
         try {
-            this.f71192a.a(i2, notification);
+            this.f71296a.a(i2, notification);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -611,7 +611,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
     @Override // d.o.a.e.b.g.m
     public void b(d.o.a.e.b.n.a aVar) {
         d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar;
-        if (aVar == null || (oVar = this.f71193b) == null) {
+        if (aVar == null || (oVar = this.f71297b) == null) {
             return;
         }
         oVar.a(aVar);
@@ -619,12 +619,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        if (this.f71192a == null) {
-            this.f71194c.b(i2, list);
+        if (this.f71296a == null) {
+            this.f71298c.b(i2, list);
             return;
         }
         try {
-            this.f71192a.a(i2, list);
+            this.f71296a.a(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -632,13 +632,13 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(boolean z, boolean z2) {
-        if (this.f71192a == null) {
-            d.o.a.e.b.c.a.i(f71191d, "stopForeground, aidlService is null");
+        if (this.f71296a == null) {
+            d.o.a.e.b.c.a.i(f71295d, "stopForeground, aidlService is null");
             return;
         }
-        d.o.a.e.b.c.a.h(f71191d, "aidlService.stopForeground");
+        d.o.a.e.b.c.a.h(f71295d, "aidlService.stopForeground");
         try {
-            this.f71192a.a(z2);
+            this.f71296a.a(z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -647,7 +647,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
     @Override // d.o.a.e.b.g.m
     public void a(d.o.a.e.b.n.a aVar) {
         d.o.a.e.b.g.o<IndependentProcessDownloadService> oVar;
-        if (aVar == null || (oVar = this.f71193b) == null) {
+        if (aVar == null || (oVar = this.f71297b) == null) {
             return;
         }
         oVar.b(aVar);
@@ -655,11 +655,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.b(i2, list);
+            this.f71296a.b(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -667,12 +667,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
-        if (this.f71192a == null) {
-            this.f71194c.a(bVar);
+        if (this.f71296a == null) {
+            this.f71298c.a(bVar);
             return;
         }
         try {
-            this.f71192a.a(bVar);
+            this.f71296a.a(bVar);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -680,12 +680,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, long j) {
-        if (this.f71192a == null) {
-            this.f71194c.a(i2, i3, j);
+        if (this.f71296a == null) {
+            this.f71298c.a(i2, i3, j);
             return;
         }
         try {
-            this.f71192a.a(i2, i3, j);
+            this.f71296a.a(i2, i3, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -693,12 +693,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, int i4, long j) {
-        if (this.f71192a == null) {
-            this.f71194c.a(i2, i3, i4, j);
+        if (this.f71296a == null) {
+            this.f71298c.a(i2, i3, i4, j);
             return;
         }
         try {
-            this.f71192a.a(i2, i3, i4, j);
+            this.f71296a.a(i2, i3, i4, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -706,12 +706,12 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3, int i4, int i5) {
-        if (this.f71192a == null) {
-            this.f71194c.a(i2, i3, i4, i5);
+        if (this.f71296a == null) {
+            this.f71298c.a(i2, i3, i4, i5);
             return;
         }
         try {
-            this.f71192a.a(i2, i3, i4, i5);
+            this.f71296a.a(i2, i3, i4, i5);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -719,9 +719,9 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, int i3) {
-        if (this.f71192a != null) {
+        if (this.f71296a != null) {
             try {
-                this.f71192a.a(i2, i3);
+                this.f71296a.a(i2, i3);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -730,7 +730,7 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.n
     public void a(IBinder iBinder) {
-        this.f71192a = h.a.a(iBinder);
+        this.f71296a = h.a.a(iBinder);
         if (d.o.a.e.b.l.e.D()) {
             e(new a(this));
         }
@@ -738,11 +738,11 @@ public class n implements d.o.a.e.b.g.m, d.o.a.e.b.g.n {
 
     @Override // d.o.a.e.b.g.m
     public void a(int i2, long j) {
-        if (this.f71192a == null) {
+        if (this.f71296a == null) {
             return;
         }
         try {
-            this.f71192a.a(i2, j);
+            this.f71296a.a(i2, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

@@ -12,29 +12,29 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f34943b;
+    public WebView f35041b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34945d;
+    public boolean f35043d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f34942a = new ConcurrentHashMap();
+    public final Map<String, a> f35040a = new ConcurrentHashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public a f34944c = new d();
+    public a f35042c = new d();
 
     public g(WebView webView) {
-        this.f34943b = webView;
+        this.f35041b = webView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
         String str3;
-        if (this.f34945d) {
+        if (this.f35043d) {
             str3 = "callJS after destroy jsInterface, " + str2;
         } else if (!TextUtils.isEmpty(str)) {
             com.kwad.sdk.core.d.a.b("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
-            WebView webView = this.f34943b;
+            WebView webView = this.f35041b;
             if (webView == null) {
                 return;
             }
@@ -48,13 +48,13 @@ public class g {
 
     public void a() {
         com.kwad.sdk.core.d.a.b("KSAdJSBridge", "destroy jsInterface");
-        for (Map.Entry<String, a> entry : this.f34942a.entrySet()) {
+        for (Map.Entry<String, a> entry : this.f35040a.entrySet()) {
             a value = entry.getValue();
             if (value != null) {
                 value.b();
             }
         }
-        this.f34945d = true;
+        this.f35043d = true;
     }
 
     public void a(a aVar) {
@@ -62,10 +62,10 @@ public class g {
             com.kwad.sdk.core.d.a.d("KSAdJSBridge", "handler and handler'key cannot be null");
             return;
         }
-        if (this.f34942a.containsKey(aVar.a())) {
+        if (this.f35040a.containsKey(aVar.a())) {
             com.kwad.sdk.core.d.a.d("KSAdJSBridge", "cannot register handler again, handler: " + aVar.a());
         }
-        this.f34942a.put(aVar.a(), aVar);
+        this.f35040a.put(aVar.a(), aVar);
     }
 
     @JavascriptInterface
@@ -74,20 +74,20 @@ public class g {
         try {
             final b bVar = new b();
             bVar.a(new JSONObject(str));
-            a aVar = this.f34942a.get(bVar.f34935a);
+            a aVar = this.f35040a.get(bVar.f35033a);
             if (aVar == null) {
-                aVar = this.f34944c;
+                aVar = this.f35042c;
             }
             if (aVar != null) {
-                aVar.a(bVar.f34936b, !TextUtils.isEmpty(bVar.f34937c) ? new c() { // from class: com.kwad.sdk.core.webview.a.g.1
+                aVar.a(bVar.f35034b, !TextUtils.isEmpty(bVar.f35035c) ? new c() { // from class: com.kwad.sdk.core.webview.a.g.1
                     @Override // com.kwad.sdk.core.webview.a.c
                     public void a(int i2, String str2) {
-                        g.this.a(bVar.f34937c, new e(i2, str2).toJson().toString());
+                        g.this.a(bVar.f35035c, new e(i2, str2).toJson().toString());
                     }
 
                     @Override // com.kwad.sdk.core.webview.a.c
                     public void a(com.kwad.sdk.core.b bVar2) {
-                        g.this.a(bVar.f34937c, new f(bVar2).toJson().toString());
+                        g.this.a(bVar.f35035c, new f(bVar2).toJson().toString());
                     }
                 } : new c() { // from class: com.kwad.sdk.core.webview.a.g.2
                     @Override // com.kwad.sdk.core.webview.a.c

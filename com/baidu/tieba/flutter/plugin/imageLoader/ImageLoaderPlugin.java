@@ -124,7 +124,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     }
 
     private boolean shouldMonitorPerformance(int i2) {
-        return d.a.m0.m0.k.d().g() && i2 % 100 == 0;
+        return d.a.n0.m0.k.d().g() && i2 % 100 == 0;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -262,11 +262,11 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        d.a.n0.n0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+        d.a.o0.n0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        d.a.n0.n0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+        d.a.o0.n0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
     }
 }

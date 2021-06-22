@@ -17,59 +17,59 @@ import okhttp3.ResponseBody;
 public class g implements d.o.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.g<String, OkHttpClient> f71181a = new com.ss.android.socialbase.downloader.i.g<>(4, 8);
+    public final com.ss.android.socialbase.downloader.i.g<String, OkHttpClient> f71285a = new com.ss.android.socialbase.downloader.i.g<>(4, 8);
 
     /* loaded from: classes7.dex */
     public class a extends d.o.a.e.b.o.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InputStream f71182a;
+        public final /* synthetic */ InputStream f71286a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Response f71183b;
+        public final /* synthetic */ Response f71287b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Call f71184c;
+        public final /* synthetic */ Call f71288c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ResponseBody f71185d;
+        public final /* synthetic */ ResponseBody f71289d;
 
         public a(g gVar, InputStream inputStream, Response response, Call call, ResponseBody responseBody) {
-            this.f71182a = inputStream;
-            this.f71183b = response;
-            this.f71184c = call;
-            this.f71185d = responseBody;
+            this.f71286a = inputStream;
+            this.f71287b = response;
+            this.f71288c = call;
+            this.f71289d = responseBody;
         }
 
         @Override // d.o.a.e.b.o.k
         public InputStream a() throws IOException {
-            return this.f71182a;
+            return this.f71286a;
         }
 
         @Override // d.o.a.e.b.o.i
         public int b() throws IOException {
-            return this.f71183b.code();
+            return this.f71287b.code();
         }
 
         @Override // d.o.a.e.b.o.i
         public void c() {
-            Call call = this.f71184c;
+            Call call = this.f71288c;
             if (call == null || call.isCanceled()) {
                 return;
             }
-            this.f71184c.cancel();
+            this.f71288c.cancel();
         }
 
         @Override // d.o.a.e.b.o.k
         public void d() {
             try {
-                if (this.f71185d != null) {
-                    this.f71185d.close();
+                if (this.f71289d != null) {
+                    this.f71289d.close();
                 }
-                if (this.f71184c == null || this.f71184c.isCanceled()) {
+                if (this.f71288c == null || this.f71288c.isCanceled()) {
                     return;
                 }
-                this.f71184c.cancel();
+                this.f71288c.cancel();
             } catch (Throwable unused) {
             }
         }
@@ -81,7 +81,7 @@ public class g implements d.o.a.e.b.o.a {
 
         @Override // d.o.a.e.b.o.i
         public String a(String str) {
-            return this.f71183b.header(str);
+            return this.f71287b.header(str);
         }
     }
 
@@ -96,16 +96,16 @@ public class g implements d.o.a.e.b.o.a {
             String host = Uri.parse(str).getHost();
             if (!TextUtils.isEmpty(host) && !TextUtils.isEmpty(str2)) {
                 String str3 = host + "_" + str2;
-                synchronized (this.f71181a) {
-                    OkHttpClient okHttpClient = this.f71181a.get(str3);
+                synchronized (this.f71285a) {
+                    OkHttpClient okHttpClient = this.f71285a.get(str3);
                     if (okHttpClient != null) {
                         return okHttpClient;
                     }
                     OkHttpClient.Builder E0 = d.o.a.e.b.g.d.E0();
                     E0.dns(new b(this, host, str2));
                     OkHttpClient build = E0.build();
-                    synchronized (this.f71181a) {
-                        this.f71181a.put(str3, build);
+                    synchronized (this.f71285a) {
+                        this.f71285a.put(str3, build);
                     }
                     return build;
                 }

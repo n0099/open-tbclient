@@ -16,20 +16,20 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import d.a.n0.e3.l0.b;
-import d.a.n0.e3.l0.c;
+import d.a.o0.e3.l0.b;
+import d.a.o0.e3.l0.c;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes4.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     public static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
-    public d.a.n0.e3.l0.a jsBridge;
+    public d.a.o0.e3.l0.a jsBridge;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
     public b jsPromptInterface = new b() { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
-        @Override // d.a.n0.e3.l0.b
+        @Override // d.a.o0.e3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
                 jsPromptResult.confirm();
@@ -46,7 +46,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         public a() {
         }
 
-        @Override // d.a.n0.e3.l0.c
+        @Override // d.a.o0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             if (AccountRestoreActivity.this.jsBridge != null) {
                 return AccountRestoreActivity.this.jsBridge.b(AccountRestoreActivity.this.mWebView, str, jsPromptResult);
@@ -75,7 +75,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_restore_activity);
-        d.a.n0.e3.l0.a aVar = new d.a.n0.e3.l0.a();
+        d.a.o0.e3.l0.a aVar = new d.a.o0.e3.l0.a();
         this.jsBridge = aVar;
         aVar.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");

@@ -6,14 +6,14 @@ import com.xiaomi.push.ai;
 public class bo extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41042a;
+    public Context f41145a;
 
     public bo(Context context) {
-        this.f41042a = context;
+        this.f41145a = context;
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.f41042a).m61a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.f41145a).m61a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -26,8 +26,8 @@ public class bo extends ai.a {
     public void run() {
         try {
             if (a()) {
-                com.xiaomi.clientreport.manager.a.a(this.f41042a).c();
-                com.xiaomi.channel.commonutils.logger.b.c(this.f41042a.getPackageName() + "perf  begin upload");
+                com.xiaomi.clientreport.manager.a.a(this.f41145a).c();
+                com.xiaomi.channel.commonutils.logger.b.c(this.f41145a.getPackageName() + "perf  begin upload");
             }
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);

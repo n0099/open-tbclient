@@ -8,10 +8,10 @@ import java.security.NoSuchAlgorithmException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f29568a = a();
+    public static final MessageDigest f29650a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f29569b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f29651b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static MessageDigest a() {
         try {
@@ -23,11 +23,11 @@ public class b {
 
     public static String a(String str) {
         byte[] digest;
-        MessageDigest messageDigest = f29568a;
+        MessageDigest messageDigest = f29650a;
         if (messageDigest == null || TextUtils.isEmpty(str)) {
             return "";
         }
-        byte[] bytes = str.getBytes(d.f29575a);
+        byte[] bytes = str.getBytes(d.f29657a);
         synchronized (b.class) {
             digest = messageDigest.digest(bytes);
         }
@@ -42,7 +42,7 @@ public class b {
         int i2 = 0;
         for (byte b2 : bArr) {
             int i3 = i2 + 1;
-            char[] cArr2 = f29569b;
+            char[] cArr2 = f29651b;
             cArr[i2] = cArr2[(b2 & 240) >> 4];
             i2 = i3 + 1;
             cArr[i3] = cArr2[b2 & 15];

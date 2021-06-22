@@ -7,35 +7,35 @@ import com.baidu.mapapi.http.HttpClient;
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f9301a;
+    public final /* synthetic */ d f9309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f9302b;
+    public final /* synthetic */ Object f9310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f9303c;
+    public final /* synthetic */ a f9311c;
 
     public b(a aVar, d dVar, Object obj) {
-        this.f9303c = aVar;
-        this.f9301a = dVar;
-        this.f9302b = obj;
+        this.f9311c = aVar;
+        this.f9309a = dVar;
+        this.f9310b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
-        this.f9303c.a(httpStateError, this.f9301a, this.f9302b);
+        this.f9311c.a(httpStateError, this.f9309a, this.f9310b);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         AsyncHttpClient asyncHttpClient;
-        String a2 = this.f9301a instanceof com.baidu.platform.core.b.e ? this.f9303c.a(str) : "";
+        String a2 = this.f9309a instanceof com.baidu.platform.core.b.e ? this.f9311c.a(str) : "";
         String str2 = !TextUtils.isEmpty(a2) ? a2 : str;
-        this.f9303c.c(str2);
-        a aVar = this.f9303c;
-        d dVar = this.f9301a;
-        Object obj = this.f9302b;
-        asyncHttpClient = aVar.f9296b;
+        this.f9311c.c(str2);
+        a aVar = this.f9311c;
+        d dVar = this.f9309a;
+        Object obj = this.f9310b;
+        asyncHttpClient = aVar.f9304b;
         aVar.a(str2, dVar, obj, asyncHttpClient, this);
     }
 }

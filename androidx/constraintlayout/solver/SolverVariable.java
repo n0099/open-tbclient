@@ -1,6 +1,7 @@
 package androidx.constraintlayout.solver;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class SolverVariable {
@@ -199,7 +200,7 @@ public class SolverVariable {
     }
 
     public String strengthsToString() {
-        String str = this + "[";
+        String str = this + PreferencesUtil.LEFT_MOUNT;
         boolean z = false;
         boolean z2 = true;
         for (int i2 = 0; i2 < this.strengthVector.length; i2++) {

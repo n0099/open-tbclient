@@ -16,22 +16,22 @@ import java.util.regex.Pattern;
 public class RatingView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20261e;
+    public Context f20343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f20262f;
+    public a f20344f;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20263a;
+        public String f20345a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20264b;
+        public String f20346b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Double f20265c;
+        public Double f20347c;
     }
 
     public RatingView(Context context) {
@@ -40,37 +40,37 @@ public class RatingView extends LinearLayout {
 
     public final void a() {
         removeAllViews();
-        a aVar = this.f20262f;
+        a aVar = this.f20344f;
         if (aVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(aVar.f20263a)) {
+        if (!TextUtils.isEmpty(aVar.f20345a)) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView = new TextView(this.f20261e);
-            textView.setText(this.f20262f.f20263a);
-            textView.setTextSize(0, l.g(this.f20261e, R.dimen.fontsize24));
+            TextView textView = new TextView(this.f20343e);
+            textView.setText(this.f20344f.f20345a);
+            textView.setTextSize(0, l.g(this.f20343e, R.dimen.fontsize24));
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            textView.setPadding(0, 0, l.g(this.f20261e, R.dimen.ds30), 0);
+            textView.setPadding(0, 0, l.g(this.f20343e, R.dimen.ds30), 0);
             textView.setLayoutParams(layoutParams);
             textView.setIncludeFontPadding(false);
             addView(textView);
         }
-        if (!TextUtils.isEmpty(this.f20262f.f20264b)) {
+        if (!TextUtils.isEmpty(this.f20344f.f20346b)) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView2 = new TextView(this.f20261e);
-            textView2.setText(this.f20262f.f20264b);
-            textView2.setTextSize(0, l.g(this.f20261e, R.dimen.fontsize24));
+            TextView textView2 = new TextView(this.f20343e);
+            textView2.setText(this.f20344f.f20346b);
+            textView2.setTextSize(0, l.g(this.f20343e, R.dimen.fontsize24));
             textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            textView2.setPadding(0, 0, l.g(this.f20261e, R.dimen.ds6), 0);
+            textView2.setPadding(0, 0, l.g(this.f20343e, R.dimen.ds6), 0);
             textView2.setLayoutParams(layoutParams2);
             textView2.setIncludeFontPadding(false);
             addView(textView2);
         }
-        Double d2 = this.f20262f.f20265c;
+        Double d2 = this.f20344f.f20347c;
         if (d2 == null || Double.isNaN(d2.doubleValue())) {
             return;
         }
-        Integer valueOf = Integer.valueOf(this.f20262f.f20265c.intValue());
+        Integer valueOf = Integer.valueOf(this.f20344f.f20347c.intValue());
         if (valueOf.intValue() > 10) {
             valueOf = 10;
         }
@@ -92,9 +92,9 @@ public class RatingView extends LinearLayout {
     }
 
     public final ImageView b(Drawable drawable) {
-        ImageView imageView = new ImageView(this.f20261e);
+        ImageView imageView = new ImageView(this.f20343e);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        imageView.setPadding(0, 0, l.g(this.f20261e, R.dimen.ds4), 0);
+        imageView.setPadding(0, 0, l.g(this.f20343e, R.dimen.ds4), 0);
         imageView.setImageDrawable(drawable);
         return imageView;
     }
@@ -106,20 +106,20 @@ public class RatingView extends LinearLayout {
 
     public final a d(String str) {
         a aVar = new a();
-        aVar.f20264b = "";
+        aVar.f20346b = "";
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("(.*)\\{(.+)\\}").matcher(str);
             if (matcher.find()) {
                 try {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
-                        aVar.f20264b = matcher.group(1);
+                        aVar.f20346b = matcher.group(1);
                     }
-                    aVar.f20265c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.f20347c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException unused) {
-                    aVar.f20264b = str;
+                    aVar.f20346b = str;
                 }
             } else {
-                aVar.f20264b = str;
+                aVar.f20346b = str;
             }
         }
         return aVar;
@@ -127,14 +127,14 @@ public class RatingView extends LinearLayout {
 
     public void setRating(String str, String str2) {
         a d2 = d(str2);
-        this.f20262f = d2;
-        d2.f20263a = str;
+        this.f20344f = d2;
+        d2.f20345a = str;
         a();
     }
 
     public RatingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20261e = context;
+        this.f20343e = context;
         c();
     }
 }

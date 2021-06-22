@@ -36,49 +36,49 @@ public final class MessageDigestHashFunction extends d.g.c.d.b implements Serial
     public static final class b extends d.g.c.d.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageDigest f31437b;
+        public final MessageDigest f31535b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31438c;
+        public final int f31536c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f31439d;
+        public boolean f31537d;
 
         @Override // d.g.c.d.f
         public HashCode e() {
             q();
-            this.f31439d = true;
-            if (this.f31438c == this.f31437b.getDigestLength()) {
-                return HashCode.fromBytesNoCopy(this.f31437b.digest());
+            this.f31537d = true;
+            if (this.f31536c == this.f31535b.getDigestLength()) {
+                return HashCode.fromBytesNoCopy(this.f31535b.digest());
             }
-            return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f31437b.digest(), this.f31438c));
+            return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f31535b.digest(), this.f31536c));
         }
 
         @Override // d.g.c.d.a
         public void m(byte b2) {
             q();
-            this.f31437b.update(b2);
+            this.f31535b.update(b2);
         }
 
         @Override // d.g.c.d.a
         public void n(ByteBuffer byteBuffer) {
             q();
-            this.f31437b.update(byteBuffer);
+            this.f31535b.update(byteBuffer);
         }
 
         @Override // d.g.c.d.a
         public void p(byte[] bArr, int i2, int i3) {
             q();
-            this.f31437b.update(bArr, i2, i3);
+            this.f31535b.update(bArr, i2, i3);
         }
 
         public final void q() {
-            n.x(!this.f31439d, "Cannot re-use a Hasher after calling hash() on it");
+            n.x(!this.f31537d, "Cannot re-use a Hasher after calling hash() on it");
         }
 
         public b(MessageDigest messageDigest, int i2) {
-            this.f31437b = messageDigest;
-            this.f31438c = i2;
+            this.f31535b = messageDigest;
+            this.f31536c = i2;
         }
     }
 

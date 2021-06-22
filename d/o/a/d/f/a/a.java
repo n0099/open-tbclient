@@ -24,51 +24,51 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f70484e = "a";
+    public static final String f70588e = "a";
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f70485f;
+    public static a f70589f;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.b> f70486a;
+    public CopyOnWriteArrayList<c.b> f70590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f70487b = false;
+    public boolean f70591b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70488c;
+    public String f70592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.o.a.d.f.a.b f70489d;
+    public d.o.a.d.f.a.b f70593d;
 
     /* renamed from: d.o.a.d.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1925a implements c.InterfaceC1920c {
+    public class C1928a implements c.InterfaceC1923c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f70490a;
+        public final /* synthetic */ d.o.a.b.a.c.b f70594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f70491b;
+        public final /* synthetic */ Context f70595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.b f70492c;
+        public final /* synthetic */ c.b f70596c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f70493d;
+        public final /* synthetic */ b f70597d;
 
-        public C1925a(d.o.a.b.a.c.b bVar, Context context, c.b bVar2, b bVar3) {
-            this.f70490a = bVar;
-            this.f70491b = context;
-            this.f70492c = bVar2;
-            this.f70493d = bVar3;
+        public C1928a(d.o.a.b.a.c.b bVar, Context context, c.b bVar2, b bVar3) {
+            this.f70594a = bVar;
+            this.f70595b = context;
+            this.f70596c = bVar2;
+            this.f70597d = bVar3;
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1920c
+        @Override // d.o.a.a.a.d.c.InterfaceC1923c
         public void a(DialogInterface dialogInterface) {
-            j.c.a().n("backdialog_exit", this.f70490a);
-            b bVar = this.f70493d;
+            j.c.a().n("backdialog_exit", this.f70594a);
+            b bVar = this.f70597d;
             if (bVar != null) {
                 bVar.a();
             }
@@ -76,14 +76,14 @@ public class a {
             dialogInterface.dismiss();
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1920c
+        @Override // d.o.a.a.a.d.c.InterfaceC1923c
         public void b(DialogInterface dialogInterface) {
-            j.c.a().n("backdialog_install", this.f70490a);
-            e.s(this.f70491b, (int) this.f70492c.f70514a);
+            j.c.a().n("backdialog_install", this.f70594a);
+            e.s(this.f70595b, (int) this.f70596c.f70618a);
             dialogInterface.dismiss();
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1920c
+        @Override // d.o.a.a.a.d.c.InterfaceC1923c
         public void c(DialogInterface dialogInterface) {
             a.this.j("");
         }
@@ -96,15 +96,15 @@ public class a {
 
     public a() {
         d.o.a.d.f.a.b bVar = new d.o.a.d.f.a.b();
-        this.f70489d = bVar;
-        this.f70486a = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
+        this.f70593d = bVar;
+        this.f70590a = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
     }
 
     public static a a() {
-        if (f70485f == null) {
-            f70485f = new a();
+        if (f70589f == null) {
+            f70589f = new a();
         }
-        return f70485f;
+        return f70589f;
     }
 
     public DownloadInfo b(Context context) {
@@ -139,20 +139,20 @@ public class a {
     }
 
     public void c(long j, long j2, long j3, String str, String str2, String str3, String str4) {
-        for (int i2 = 0; i2 < this.f70486a.size(); i2++) {
-            c.b bVar = this.f70486a.get(i2);
-            if (bVar != null && bVar.f70515b == j2) {
-                this.f70486a.set(i2, new c.b(j, j2, j3, str, str2, str3, str4));
-                this.f70489d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f70486a);
+        for (int i2 = 0; i2 < this.f70590a.size(); i2++) {
+            c.b bVar = this.f70590a.get(i2);
+            if (bVar != null && bVar.f70619b == j2) {
+                this.f70590a.set(i2, new c.b(j, j2, j3, str, str2, str3, str4));
+                this.f70593d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f70590a);
                 return;
             }
         }
-        this.f70486a.add(new c.b(j, j2, j3, str, str2, str3, str4));
-        this.f70489d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f70486a);
+        this.f70590a.add(new c.b(j, j2, j3, str, str2, str3, str4));
+        this.f70593d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f70590a);
     }
 
     public final void d(Context context, c.b bVar, b bVar2, boolean z) {
-        d.o.a.b.a.c.b u = c.g.e().u(bVar.f70515b);
+        d.o.a.b.a.c.b u = c.g.e().u(bVar.f70619b);
         if (u == null) {
             k.B();
             return;
@@ -161,26 +161,26 @@ public class a {
         c.b bVar3 = new c.b(context);
         bVar3.e(z ? "应用安装确认" : "退出确认");
         Object[] objArr = new Object[1];
-        objArr[0] = TextUtils.isEmpty(bVar.f70518e) ? "刚刚下载的应用" : bVar.f70518e;
+        objArr[0] = TextUtils.isEmpty(bVar.f70622e) ? "刚刚下载的应用" : bVar.f70622e;
         bVar3.h(String.format("%1$s下载完成，是否立即安装？", objArr));
         bVar3.j("立即安装");
         bVar3.l(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes)));
         bVar3.f(false);
-        bVar3.c(k.i(context, bVar.f70520g));
-        bVar3.d(new C1925a(u, context, bVar, bVar2));
+        bVar3.c(k.i(context, bVar.f70624g));
+        bVar3.d(new C1928a(u, context, bVar, bVar2));
         bVar3.b(1);
         n.b(bVar3.g());
         j.c.a().n("backdialog_show", u);
-        this.f70488c = bVar.f70517d;
+        this.f70592c = bVar.f70621d;
     }
 
     public void e(Context context, c.b bVar, boolean z, b bVar2) {
-        this.f70486a.clear();
+        this.f70590a.clear();
         d(context, bVar, bVar2, z);
-        this.f70487b = true;
+        this.f70591b = true;
         l.b(context).l();
-        this.f70489d.c("sp_ad_install_back_dialog", "key_uninstalled_list");
-        d.o.a.d.n.j.a(f70484e, "tryShowInstallDialog isShow:true", null);
+        this.f70593d.c("sp_ad_install_back_dialog", "key_uninstalled_list");
+        d.o.a.d.n.j.a(f70588e, "tryShowInstallDialog isShow:true", null);
     }
 
     public void f(d.o.a.b.a.c.b bVar) {
@@ -193,7 +193,7 @@ public class a {
     public final boolean g(Activity activity, DownloadInfo downloadInfo, boolean z, b bVar) {
         if (downloadInfo == null) {
             try {
-                if (this.f70486a.isEmpty()) {
+                if (this.f70590a.isEmpty()) {
                     return false;
                 }
             } catch (Exception e2) {
@@ -202,27 +202,27 @@ public class a {
         }
         if (activity != null && !activity.isFinishing()) {
             boolean z2 = true;
-            if (downloadInfo != null && this.f70486a.isEmpty()) {
+            if (downloadInfo != null && this.f70590a.isEmpty()) {
                 e(activity, new c.b(downloadInfo.c0(), 0L, 0L, downloadInfo.v0(), downloadInfo.P0(), null, downloadInfo.K0()), z, bVar);
                 return true;
             }
             long lastModified = downloadInfo != null ? new File(downloadInfo.K0()).lastModified() : 0L;
-            ListIterator<c.b> listIterator = this.f70486a.listIterator(this.f70486a.size());
+            ListIterator<c.b> listIterator = this.f70590a.listIterator(this.f70590a.size());
             while (true) {
                 if (!listIterator.hasPrevious()) {
                     z2 = false;
                     break;
                 }
                 c.b previous = listIterator.previous();
-                if (previous != null && !k.I(n.a(), previous.f70517d) && k.x(previous.f70520g)) {
-                    if (new File(previous.f70520g).lastModified() >= lastModified) {
+                if (previous != null && !k.I(n.a(), previous.f70621d) && k.x(previous.f70624g)) {
+                    if (new File(previous.f70624g).lastModified() >= lastModified) {
                         e(activity, previous, z, bVar);
                     } else {
                         e(activity, new c.b(downloadInfo.c0(), 0L, 0L, downloadInfo.v0(), downloadInfo.P0(), null, downloadInfo.K0()), z, bVar);
                     }
                 }
             }
-            String str = f70484e;
+            String str = f70588e;
             d.o.a.d.n.j.a(str, "tryShowInstallDialog isShow:" + z2, null);
             return z2;
         }
@@ -231,21 +231,21 @@ public class a {
 
     @MainThread
     public boolean h(Activity activity, boolean z, b bVar) {
-        if (n.s().optInt("disable_install_app_dialog") == 1 || this.f70487b) {
+        if (n.s().optInt("disable_install_app_dialog") == 1 || this.f70591b) {
             return false;
         }
         return g(activity, b(activity), z, bVar);
     }
 
     public boolean i(String str) {
-        return TextUtils.equals(this.f70488c, str);
+        return TextUtils.equals(this.f70592c, str);
     }
 
     public void j(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.f70488c = "";
-        } else if (TextUtils.equals(this.f70488c, str)) {
-            this.f70488c = "";
+            this.f70592c = "";
+        } else if (TextUtils.equals(this.f70592c, str)) {
+            this.f70592c = "";
         }
     }
 }

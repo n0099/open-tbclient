@@ -14,40 +14,40 @@ import java.util.Map;
 public class f implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f43038a;
+    public Handler f43141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43039b;
+    public boolean f43142b;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43040e;
+        public final /* synthetic */ String f43143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.c0.k.a.c f43041f;
+        public final /* synthetic */ d.a.c0.k.a.c f43144f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.c0.k.a.b f43042g;
+        public final /* synthetic */ d.a.c0.k.a.b f43145g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.c0.k.a.a f43043h;
+        public final /* synthetic */ d.a.c0.k.a.a f43146h;
 
         /* renamed from: d.a.c0.k.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0557a implements Runnable {
+        public class RunnableC0560a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43045e;
+            public final /* synthetic */ String f43148e;
 
-            public RunnableC0557a(String str) {
-                this.f43045e = str;
+            public RunnableC0560a(String str) {
+                this.f43148e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f43043h.a(this.f43045e);
+                a.this.f43146h.a(this.f43148e);
             }
         }
 
@@ -55,20 +55,20 @@ public class f implements e {
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f43047e;
+            public final /* synthetic */ int f43150e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f43048f;
+            public final /* synthetic */ String f43151f;
 
             public b(int i2, String str) {
-                this.f43047e = i2;
-                this.f43048f = str;
+                this.f43150e = i2;
+                this.f43151f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.c0.k.a.a aVar = a.this.f43043h;
-                aVar.b(new IOException("status code " + this.f43047e + ", response " + this.f43048f), null);
+                d.a.c0.k.a.a aVar = a.this.f43146h;
+                aVar.b(new IOException("status code " + this.f43150e + ", response " + this.f43151f), null);
             }
         }
 
@@ -76,23 +76,23 @@ public class f implements e {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f43050e;
+            public final /* synthetic */ Throwable f43153e;
 
             public c(Throwable th) {
-                this.f43050e = th;
+                this.f43153e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f43043h.b(this.f43050e, null);
+                a.this.f43146h.b(this.f43153e, null);
             }
         }
 
         public a(String str, d.a.c0.k.a.c cVar, d.a.c0.k.a.b bVar, d.a.c0.k.a.a aVar) {
-            this.f43040e = str;
-            this.f43041f = cVar;
-            this.f43042g = bVar;
-            this.f43043h = aVar;
+            this.f43143e = str;
+            this.f43144f = cVar;
+            this.f43145g = bVar;
+            this.f43146h = aVar;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ea */
@@ -119,8 +119,8 @@ public class f implements e {
             i2 = 2;
             i2 = 2;
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f43040e).openConnection();
-                for (Map.Entry<String, String> entry : this.f43041f.d().entrySet()) {
+                httpURLConnection = (HttpURLConnection) new URL(this.f43143e).openConnection();
+                for (Map.Entry<String, String> entry : this.f43144f.d().entrySet()) {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
                 httpURLConnection.setDoInput(true);
@@ -130,7 +130,7 @@ public class f implements e {
                 httpURLConnection.setConnectTimeout(15000);
                 httpURLConnection.setReadTimeout(15000);
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : this.f43042g.d().entrySet()) {
+                for (Map.Entry<String, String> entry2 : this.f43145g.d().entrySet()) {
                     String encode = URLEncoder.encode(entry2.getValue());
                     sb.append(entry2.getKey());
                     sb.append("=");
@@ -151,12 +151,12 @@ public class f implements e {
                                 InputStream inputStream = httpURLConnection.getInputStream();
                                 String a2 = d.a.c0.n.c.a(inputStream);
                                 httpURLConnection = inputStream;
-                                if (this.f43043h != null) {
-                                    if (f.this.f43039b) {
-                                        f.this.f43038a.post(new RunnableC0557a(a2));
+                                if (this.f43146h != null) {
+                                    if (f.this.f43142b) {
+                                        f.this.f43141a.post(new RunnableC0560a(a2));
                                         httpURLConnection = inputStream;
                                     } else {
-                                        this.f43043h.a(a2);
+                                        this.f43146h.a(a2);
                                         httpURLConnection = inputStream;
                                     }
                                 }
@@ -165,7 +165,7 @@ public class f implements e {
                                 httpURLConnection = null;
                                 try {
                                     d.a.c0.n.d.a("POST FAILED", th);
-                                    if (this.f43043h != null) {
+                                    if (this.f43146h != null) {
                                     }
                                     Closeable[] closeableArr = new Closeable[i2];
                                     closeableArr[0] = httpURLConnection;
@@ -183,12 +183,12 @@ public class f implements e {
                             InputStream errorStream = httpURLConnection.getErrorStream();
                             String a3 = d.a.c0.n.c.a(errorStream);
                             httpURLConnection = errorStream;
-                            if (this.f43043h != null) {
-                                if (f.this.f43039b) {
-                                    f.this.f43038a.post(new b(responseCode, a3));
+                            if (this.f43146h != null) {
+                                if (f.this.f43142b) {
+                                    f.this.f43141a.post(new b(responseCode, a3));
                                     httpURLConnection = errorStream;
                                 } else {
-                                    d.a.c0.k.a.a aVar = this.f43043h;
+                                    d.a.c0.k.a.a aVar = this.f43146h;
                                     StringBuilder sb2 = new StringBuilder();
                                     sb2.append("status code ");
                                     sb2.append(responseCode);
@@ -204,11 +204,11 @@ public class f implements e {
                     } catch (Throwable th4) {
                         th = th4;
                         d.a.c0.n.d.a("POST FAILED", th);
-                        if (this.f43043h != null) {
-                            if (f.this.f43039b) {
-                                f.this.f43038a.post(new c(th));
+                        if (this.f43146h != null) {
+                            if (f.this.f43142b) {
+                                f.this.f43141a.post(new c(th));
                             } else {
-                                this.f43043h.b(th, null);
+                                this.f43146h.b(th, null);
                             }
                         }
                         Closeable[] closeableArr3 = new Closeable[i2];
@@ -237,7 +237,7 @@ public class f implements e {
     }
 
     public f(boolean z) {
-        this.f43038a = new Handler(Looper.getMainLooper());
-        this.f43039b = z;
+        this.f43141a = new Handler(Looper.getMainLooper());
+        this.f43142b = z;
     }
 }

@@ -40,31 +40,31 @@ public class i {
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f70904a;
+    public Activity f71008a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f70905b;
+    public Context f71009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70906c;
+    public String f71010c;
     public String c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f70907d;
+    public List<String> f71011d;
     public int[] d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f70908e;
+    public String f71012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f70909f;
+    public String f71013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f70910g;
+    public String f71014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f70911h;
+    public List<com.ss.android.socialbase.downloader.model.c> f71015h;
     public d.o.a.e.b.f.b m;
     public d.o.a.e.b.f.b n;
     public String o;
@@ -80,7 +80,7 @@ public class i {
     public long z;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f70912i = true;
+    public boolean f71016i = true;
     public boolean j = false;
     public boolean k = true;
     public boolean l = false;
@@ -94,12 +94,12 @@ public class i {
     public boolean b0 = true;
 
     public i(@NonNull Context context, @NonNull String str) {
-        this.f70905b = context.getApplicationContext();
-        this.f70906c = str;
+        this.f71009b = context.getApplicationContext();
+        this.f71010c = str;
     }
 
     public Activity A() {
-        return this.f70904a;
+        return this.f71008a;
     }
 
     public d.o.a.e.b.f.b A0() {
@@ -189,7 +189,7 @@ public class i {
     }
 
     public i J(String str) {
-        this.f70908e = str;
+        this.f71012e = str;
         return this;
     }
 
@@ -198,7 +198,7 @@ public class i {
     }
 
     public i K(List<com.ss.android.socialbase.downloader.model.c> list) {
-        this.f70911h = list;
+        this.f71015h = list;
         return this;
     }
 
@@ -216,7 +216,7 @@ public class i {
     }
 
     public i M(boolean z) {
-        this.f70912i = z;
+        this.f71016i = z;
         return this;
     }
 
@@ -241,7 +241,7 @@ public class i {
     }
 
     public List<String> P() {
-        return this.f70907d;
+        return this.f71011d;
     }
 
     public String P0() {
@@ -265,7 +265,7 @@ public class i {
     }
 
     public Context S() {
-        return this.f70905b;
+        return this.f71009b;
     }
 
     public int S0() {
@@ -278,12 +278,12 @@ public class i {
     }
 
     public i U(String str) {
-        this.f70909f = str;
+        this.f71013f = str;
         return this;
     }
 
     public i V(List<String> list) {
-        this.f70907d = list;
+        this.f71011d = list;
         return this;
     }
 
@@ -298,7 +298,7 @@ public class i {
     }
 
     public i Y(@NonNull String str) {
-        this.f70910g = str;
+        this.f71014g = str;
         return this;
     }
 
@@ -312,7 +312,7 @@ public class i {
     }
 
     public String a0() {
-        return this.f70906c;
+        return this.f71010c;
     }
 
     public String b() {
@@ -347,7 +347,7 @@ public class i {
     }
 
     public String e0() {
-        return this.f70908e;
+        return this.f71012e;
     }
 
     public int f() {
@@ -382,7 +382,7 @@ public class i {
     }
 
     public String i0() {
-        return this.f70910g;
+        return this.f71014g;
     }
 
     public boolean j() {
@@ -417,11 +417,11 @@ public class i {
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> m0() {
-        return this.f70911h;
+        return this.f71015h;
     }
 
     public String n() {
-        return this.f70909f;
+        return this.f71013f;
     }
 
     public i n0(String str) {
@@ -443,7 +443,7 @@ public class i {
     }
 
     public boolean p0() {
-        return this.f70912i;
+        return this.f71016i;
     }
 
     public d.g q() {

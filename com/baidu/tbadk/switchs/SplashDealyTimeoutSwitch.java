@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tieba.debugtool.annotation.Modify;
 import d.a.c.e.f.a;
-import d.a.m0.r.d0.b;
+import d.a.n0.r.d0.b;
 /* loaded from: classes3.dex */
 public class SplashDealyTimeoutSwitch extends a {
     public static final String KEY_SWITCH = "ad_screen_delay_switch";

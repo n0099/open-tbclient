@@ -9,38 +9,38 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.m0.r.q.f1;
+import d.a.n0.r.q.f1;
 /* loaded from: classes5.dex */
 public class PersonFriendModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f19870g;
+    public static final String f19952g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f19871h;
+    public static TbHttpMessageTask f19953h;
 
     /* renamed from: e  reason: collision with root package name */
-    public f1 f19872e;
+    public f1 f19954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19873f;
+    public String f19955f;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f19870g = str;
+        f19952g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f19871h = tbHttpMessageTask;
+        f19953h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f19871h);
+        MessageManager.getInstance().registerTask(f19953h);
     }
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f19872e = new f1();
+        this.f19954e = new f1();
     }
 
     public void A(String str) {
-        this.f19873f = str;
+        this.f19955f = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,14 +54,14 @@ public class PersonFriendModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f19873f;
+        return this.f19955f;
     }
 
     public void setSex(int i2) {
     }
 
     public f1 w() {
-        return this.f19872e;
+        return this.f19954e;
     }
 
     public void x() {
@@ -81,6 +81,6 @@ public class PersonFriendModel extends BdBaseModel {
     }
 
     public void z(f1 f1Var) {
-        this.f19872e = f1Var;
+        this.f19954e = f1Var;
     }
 }

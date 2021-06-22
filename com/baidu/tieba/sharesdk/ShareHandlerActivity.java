@@ -11,12 +11,12 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 import d.a.c.e.p.k;
-import d.a.n0.x2.d.a;
-import d.a.n0.x2.d.c;
-import d.a.n0.x2.d.d;
-import d.a.n0.x2.d.e;
-import d.a.n0.x2.d.f;
-import d.a.n0.x2.e.b;
+import d.a.o0.x2.d.a;
+import d.a.o0.x2.d.c;
+import d.a.o0.x2.d.d;
+import d.a.o0.x2.d.e;
+import d.a.o0.x2.d.f;
+import d.a.o0.x2.e.b;
 /* loaded from: classes5.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
     public static int skinType = 3;
@@ -99,7 +99,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
             this.mShareByWeibo = eVar2;
             this.mCurrentShare = eVar2;
         } else if (i2 == 8) {
-            this.mCurrentShare = new d.a.n0.x2.d.b(this);
+            this.mCurrentShare = new d.a.o0.x2.d.b(this);
         } else if (i2 == 2) {
             this.mCurrentShare = new f(this, 2);
         } else if (i2 == 3) {
@@ -182,16 +182,16 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         super.onSaveInstanceState(bundle);
     }
 
-    @Override // d.a.n0.x2.e.b
+    @Override // d.a.o0.x2.e.b
     public void onShare(int i2, int i3) {
         if (i3 == 1) {
-            d.a.n0.x2.f.b.b(i2, this.mShareEntity);
+            d.a.o0.x2.f.b.b(i2, this.mShareEntity);
         }
         if (i3 == 3) {
             if (i2 != 8 && i2 != 6) {
-                d.a.n0.x2.f.b.a(i2, this.mShareEntity);
+                d.a.o0.x2.f.b.a(i2, this.mShareEntity);
             } else {
-                d.a.n0.x2.f.b.b(i2, this.mShareEntity);
+                d.a.o0.x2.f.b.b(i2, this.mShareEntity);
             }
         }
         if (this.mShareEntity.l() != null) {

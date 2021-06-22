@@ -9,23 +9,23 @@ import com.qq.e.comm.util.StringUtil;
 public class GDTAD {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38856a = false;
+    public static boolean f38954a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static InitListener f38857b;
+    public static InitListener f38955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PM.a.InterfaceC0470a f38858c = new PM.a.InterfaceC0470a() { // from class: com.qq.e.ads.cfg.GDTAD.1
-        @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0470a
+    public static PM.a.InterfaceC0473a f38956c = new PM.a.InterfaceC0473a() { // from class: com.qq.e.ads.cfg.GDTAD.1
+        @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0473a
         public final void onLoadFail() {
             GDTLogger.w("Init fail", null);
         }
 
-        @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0470a
+        @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0473a
         public final void onLoadSuccess() {
-            boolean unused = GDTAD.f38856a = true;
-            if (GDTAD.f38857b != null) {
-                GDTAD.f38857b.onSuccess();
+            boolean unused = GDTAD.f38954a = true;
+            if (GDTAD.f38955b != null) {
+                GDTAD.f38955b.onSuccess();
             }
         }
     };
@@ -36,16 +36,16 @@ public class GDTAD {
     }
 
     public static void initSDK(Context context, String str, InitListener initListener) {
-        if (f38856a) {
+        if (f38954a) {
             GDTLogger.w("SDK已经被初始化过", null);
         } else if (context == null) {
             GDTLogger.e("Context参数不能为null");
         } else if (StringUtil.isEmpty(str)) {
             GDTLogger.e("AppId参数不能为空");
         } else {
-            f38857b = initListener;
+            f38955b = initListener;
             GDTADManager gDTADManager = GDTADManager.getInstance();
-            gDTADManager.setPluginLoadListener(f38858c);
+            gDTADManager.setPluginLoadListener(f38956c);
             gDTADManager.initWith(context.getApplicationContext(), str);
         }
     }

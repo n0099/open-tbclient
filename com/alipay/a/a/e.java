@@ -1,6 +1,7 @@
 package com.alipay.a.a;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public final class e {
             return null;
         }
         String trim = str.trim();
-        if (trim.startsWith("[") && trim.endsWith("]")) {
+        if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
             bVar = new org.json.alipay.a(trim);
         } else if (!trim.startsWith(StringUtil.ARRAY_START) || !trim.endsWith("}")) {
             return a((Object) trim, type);

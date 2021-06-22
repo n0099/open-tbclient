@@ -1,6 +1,7 @@
 package com.baidu.mobads.container.components.statemachine;
 
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public enum AdStateCode {
@@ -37,7 +38,7 @@ public enum AdStateCode {
     EVENT_DL_OPEN(832, "alreadyDownloadedOpen"),
     EVENT_AD_TIMEOUT(400, "adTimeout"),
     EVENT_REMOVE_AD_VIEW(700, "removeAdView"),
-    EVENT_AD_STATE_END(0, "finish");
+    EVENT_AD_STATE_END(0, ConstantHelper.LOG_FINISH);
     
     public int code;
     public String msg;

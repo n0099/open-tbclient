@@ -6,18 +6,18 @@ import java.util.List;
 public final class r implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f22977a;
+    public final /* synthetic */ int f23059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ j f22978b;
+    public final /* synthetic */ j f23060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f22979c;
+    public final /* synthetic */ FeedbackEditActivity f23061c;
 
     public r(FeedbackEditActivity feedbackEditActivity, int i2, j jVar) {
-        this.f22979c = feedbackEditActivity;
-        this.f22977a = i2;
-        this.f22978b = jVar;
+        this.f23061c = feedbackEditActivity;
+        this.f23059a = i2;
+        this.f23060b = jVar;
     }
 
     @Override // com.baidu.ufosdk.ui.l
@@ -42,59 +42,59 @@ public final class r implements l {
         HashMap hashMap13;
         HashMap hashMap14;
         com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> confirm clicked!");
-        int i2 = this.f22977a;
+        int i2 = this.f23059a;
         if (i2 == 1) {
-            list4 = this.f22979c.q;
+            list4 = this.f23061c.q;
             int size = list4.size();
             if (size == 1) {
-                hashMap6 = this.f22979c.r;
+                hashMap6 = this.f23061c.r;
                 hashMap6.remove("0");
             } else if (size == 2) {
-                hashMap7 = this.f22979c.r;
-                hashMap8 = this.f22979c.r;
+                hashMap7 = this.f23061c.r;
+                hashMap8 = this.f23061c.r;
                 hashMap7.put("0", hashMap8.get("1"));
-                hashMap9 = this.f22979c.r;
+                hashMap9 = this.f23061c.r;
                 hashMap9.remove("1");
             } else if (size == 3) {
-                hashMap10 = this.f22979c.r;
-                hashMap11 = this.f22979c.r;
+                hashMap10 = this.f23061c.r;
+                hashMap11 = this.f23061c.r;
                 hashMap10.put("0", hashMap11.get("1"));
-                hashMap12 = this.f22979c.r;
-                hashMap13 = this.f22979c.r;
+                hashMap12 = this.f23061c.r;
+                hashMap13 = this.f23061c.r;
                 hashMap12.put("1", hashMap13.get("2"));
-                hashMap14 = this.f22979c.r;
+                hashMap14 = this.f23061c.r;
                 hashMap14.remove("2");
             }
-            list5 = this.f22979c.q;
+            list5 = this.f23061c.q;
             list5.remove(0);
         } else if (i2 == 2) {
-            list2 = this.f22979c.q;
+            list2 = this.f23061c.q;
             int size2 = list2.size();
             if (size2 == 2) {
-                hashMap2 = this.f22979c.r;
+                hashMap2 = this.f23061c.r;
                 hashMap2.remove("1");
             } else if (size2 == 3) {
-                hashMap3 = this.f22979c.r;
-                hashMap4 = this.f22979c.r;
+                hashMap3 = this.f23061c.r;
+                hashMap4 = this.f23061c.r;
                 hashMap3.put("1", hashMap4.get("2"));
-                hashMap5 = this.f22979c.r;
+                hashMap5 = this.f23061c.r;
                 hashMap5.remove("2");
             }
-            list3 = this.f22979c.q;
+            list3 = this.f23061c.q;
             list3.remove(1);
         } else {
-            hashMap = this.f22979c.r;
+            hashMap = this.f23061c.r;
             hashMap.remove("2");
-            list = this.f22979c.q;
+            list = this.f23061c.q;
             list.remove(2);
         }
-        this.f22979c.b();
-        this.f22978b.dismiss();
+        this.f23061c.b();
+        this.f23060b.dismiss();
     }
 
     @Override // com.baidu.ufosdk.ui.l
     public final void b() {
         com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> cancel clicked!");
-        this.f22978b.dismiss();
+        this.f23060b.dismiss();
     }
 }

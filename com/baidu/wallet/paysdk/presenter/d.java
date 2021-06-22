@@ -8,11 +8,11 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f25499a = new d();
+        public static d f25581a = new d();
     }
 
     public static d a() {
-        return a.f25499a;
+        return a.f25581a;
     }
 
     public d() {

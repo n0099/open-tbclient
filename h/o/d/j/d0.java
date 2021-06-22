@@ -3,14 +3,14 @@ package h.o.d.j;
 public abstract class d0<E> extends e0<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f71961e;
+    public int f72065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f71962f;
+    public long f72066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f71963g;
+    public long f72067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public E[] f71964h;
+    public E[] f72068h;
 }

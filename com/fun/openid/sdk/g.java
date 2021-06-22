@@ -9,33 +9,33 @@ import com.fun.openid.sdk.u;
 public class g implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30811a = false;
+    public boolean f30893a = false;
 
     /* loaded from: classes6.dex */
     public class a implements u.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f.a f30812a;
+        public final /* synthetic */ f.a f30894a;
 
         public a(f.a aVar) {
-            this.f30812a = aVar;
+            this.f30894a = aVar;
         }
     }
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
-        if (this.f30811a) {
+        if (this.f30893a) {
             return;
         }
         u uVar = new u();
         a aVar2 = new a(aVar);
-        uVar.f30836a = context;
-        uVar.f30839d = aVar2;
-        uVar.f30838c = new t(uVar);
+        uVar.f30918a = context;
+        uVar.f30921d = aVar2;
+        uVar.f30920c = new t(uVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = uVar.f30836a.bindService(intent, uVar.f30838c, 1) ? (char) 1 : (char) 65535;
-        this.f30811a = true;
+        char c2 = uVar.f30918a.bindService(intent, uVar.f30920c, 1) ? (char) 1 : (char) 65535;
+        this.f30893a = true;
         if (c2 != 1) {
             ((e.a) aVar).a(true, null);
         }

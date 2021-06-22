@@ -25,96 +25,96 @@ import javax.crypto.IllegalBlockSizeException;
 public class a extends FingerprintManager.AuthenticationCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public FingerprintManager f25371a;
+    public FingerprintManager f25453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a f25372b;
+    public com.baidu.wallet.paysdk.fingerprint.a f25454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f25373c;
+    public b f25455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CancellationSignal f25374d;
+    public CancellationSignal f25456d;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25376f;
+    public String f25458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f25377g;
+    public Context f25459g;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25375e = 1;
+    public int f25457e = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f25378h = 0;
+    public int f25460h = 0;
 
     public a(Context context) throws KeyStoreException {
-        this.f25377g = context;
-        this.f25371a = (FingerprintManager) context.getSystemService(FingerprintManager.class);
-        this.f25372b = com.baidu.wallet.paysdk.fingerprint.a.a(context);
+        this.f25459g = context;
+        this.f25453a = (FingerprintManager) context.getSystemService(FingerprintManager.class);
+        this.f25454b = com.baidu.wallet.paysdk.fingerprint.a.a(context);
     }
 
     private void e() {
-        this.f25375e = 1;
-        if (this.f25373c == null || TextUtils.isEmpty(this.f25376f)) {
+        this.f25457e = 1;
+        if (this.f25455c == null || TextUtils.isEmpty(this.f25458f)) {
             return;
         }
         try {
-            FingerprintManager.CryptoObject a2 = this.f25372b.a(1, null);
+            FingerprintManager.CryptoObject a2 = this.f25454b.a(1, null);
             if (a2 == null) {
-                if (this.f25373c != null) {
-                    this.f25373c.a(-1, "");
+                if (this.f25455c != null) {
+                    this.f25455c.a(-1, "");
                     return;
                 }
                 return;
             }
             CancellationSignal cancellationSignal = new CancellationSignal();
-            this.f25374d = cancellationSignal;
-            this.f25371a.authenticate(a2, cancellationSignal, 0, this, null);
+            this.f25456d = cancellationSignal;
+            this.f25453a.authenticate(a2, cancellationSignal, 0, this, null);
         } catch (SecurityException e2) {
             e2.printStackTrace();
             StatisticManager.onEvent(StatServiceEvent.EVENT_FP_SECURITY_EXCEPTION_ON_ENCRYPT);
-            b bVar = this.f25373c;
+            b bVar = this.f25455c;
             if (bVar != null) {
                 bVar.a(-1, "");
             }
         } catch (InvalidKeyException unused) {
-            b bVar2 = this.f25373c;
+            b bVar2 = this.f25455c;
             if (bVar2 != null) {
-                bVar2.a(-3, ResUtils.getString(this.f25377g, "wallet_fp_fingerprint_changed"));
+                bVar2.a(-3, ResUtils.getString(this.f25459g, "wallet_fp_fingerprint_changed"));
             }
         }
     }
 
     private void f() {
         String str;
-        String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f25377g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f25377g), ""), 0)).split("\\|");
+        String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f25459g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f25459g), ""), 0)).split("\\|");
         if (split.length == 3) {
-            this.f25376f = split[0];
+            this.f25458f = split[0];
             str = split[1];
         } else {
             str = null;
         }
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f25376f)) {
-            this.f25375e = 2;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f25458f)) {
+            this.f25457e = 2;
             try {
-                FingerprintManager.CryptoObject a2 = this.f25372b.a(2, Base64.decode(str, 0));
+                FingerprintManager.CryptoObject a2 = this.f25454b.a(2, Base64.decode(str, 0));
                 if (a2 == null) {
                     StatisticManager.onEventWithValue(StatServiceEvent.EVENT_FP_START_FP_FAILED, "case: decrypttoken & reason : cryptObject is null");
-                    if (this.f25373c != null) {
-                        this.f25373c.a(-1, "");
+                    if (this.f25455c != null) {
+                        this.f25455c.a(-1, "");
                         return;
                     }
                     return;
                 }
                 CancellationSignal cancellationSignal = new CancellationSignal();
-                this.f25374d = cancellationSignal;
-                this.f25371a.authenticate(a2, cancellationSignal, 0, this, null);
+                this.f25456d = cancellationSignal;
+                this.f25453a.authenticate(a2, cancellationSignal, 0, this, null);
                 return;
             } catch (SecurityException e2) {
                 e2.printStackTrace();
                 StatisticManager.onEventWithValue(StatServiceEvent.EVENT_FP_START_FP_FAILED, "case: decrypttoken & reason : SecurityException happends");
-                b bVar = this.f25373c;
+                b bVar = this.f25455c;
                 if (bVar != null) {
                     bVar.a(-1, "");
                     return;
@@ -122,17 +122,17 @@ public class a extends FingerprintManager.AuthenticationCallback {
                 return;
             } catch (InvalidKeyException e3) {
                 e3.printStackTrace();
-                WalletFingerprint.getInstance(this.f25377g).clearOTPToken();
-                b bVar2 = this.f25373c;
+                WalletFingerprint.getInstance(this.f25459g).clearOTPToken();
+                b bVar2 = this.f25455c;
                 if (bVar2 != null) {
-                    bVar2.a(-3, ResUtils.getString(this.f25377g, "wallet_fp_changed_usepwd"));
+                    bVar2.a(-3, ResUtils.getString(this.f25459g, "wallet_fp_changed_usepwd"));
                     return;
                 }
                 return;
             } catch (Exception e4) {
                 e4.printStackTrace();
                 StatisticManager.onEventWithValue(StatServiceEvent.EVENT_FP_START_FP_FAILED, "case: decrypttoken & reason : exception is" + e4.getLocalizedMessage());
-                b bVar3 = this.f25373c;
+                b bVar3 = this.f25455c;
                 if (bVar3 != null) {
                     bVar3.a(-1, "");
                     return;
@@ -141,14 +141,14 @@ public class a extends FingerprintManager.AuthenticationCallback {
             }
         }
         StatisticManager.onEventWithValue(StatServiceEvent.EVENT_FP_START_FP_FAILED, "impossible case: decrypttoken & reason : encrypt_base64_IV or operateData is null");
-        b bVar4 = this.f25373c;
+        b bVar4 = this.f25455c;
         if (bVar4 != null) {
             bVar4.a(-1, "");
         }
     }
 
     public void a(String str) {
-        this.f25376f = str;
+        this.f25458f = str;
     }
 
     public void b() {
@@ -160,11 +160,11 @@ public class a extends FingerprintManager.AuthenticationCallback {
     }
 
     public void d() {
-        this.f25371a = null;
-        this.f25372b = null;
-        this.f25373c = null;
-        this.f25374d = null;
-        this.f25377g = null;
+        this.f25453a = null;
+        this.f25454b = null;
+        this.f25455c = null;
+        this.f25456d = null;
+        this.f25459g = null;
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -173,12 +173,12 @@ public class a extends FingerprintManager.AuthenticationCallback {
         super.onAuthenticationError(i2, charSequence);
         LogUtil.d("FingerprintPresenter", "onAuthenticationError code=" + i2 + " # " + ((Object) charSequence));
         if (i2 == 7) {
-            if (this.f25375e == 1) {
-                string = ResUtils.getString(this.f25377g, "wallet_fp_try_too_many_times_try_later");
+            if (this.f25457e == 1) {
+                string = ResUtils.getString(this.f25459g, "wallet_fp_try_too_many_times_try_later");
             } else {
-                string = ResUtils.getString(this.f25377g, "wallet_fp_error_fp_many_times_usepwd");
+                string = ResUtils.getString(this.f25459g, "wallet_fp_error_fp_many_times_usepwd");
             }
-            b bVar = this.f25373c;
+            b bVar = this.f25455c;
             if (bVar != null) {
                 bVar.a(-6, string);
             }
@@ -189,24 +189,24 @@ public class a extends FingerprintManager.AuthenticationCallback {
     public void onAuthenticationFailed() {
         String string;
         super.onAuthenticationFailed();
-        this.f25378h++;
-        LogUtil.d("FingerprintPresenter", "onAuthenticationFailed  reTryCount=" + this.f25378h);
-        if (this.f25378h >= 3) {
-            if (this.f25375e == 1) {
-                string = ResUtils.getString(this.f25377g, "wallet_fp_try_too_many_times_try_later");
+        this.f25460h++;
+        LogUtil.d("FingerprintPresenter", "onAuthenticationFailed  reTryCount=" + this.f25460h);
+        if (this.f25460h >= 3) {
+            if (this.f25457e == 1) {
+                string = ResUtils.getString(this.f25459g, "wallet_fp_try_too_many_times_try_later");
             } else {
-                string = ResUtils.getString(this.f25377g, "wallet_fp_error_fp_many_times_usepwd");
+                string = ResUtils.getString(this.f25459g, "wallet_fp_error_fp_many_times_usepwd");
             }
-            b bVar = this.f25373c;
+            b bVar = this.f25455c;
             if (bVar != null) {
                 bVar.a(-4, string);
             }
-            this.f25378h = 0;
+            this.f25460h = 0;
             return;
         }
-        b bVar2 = this.f25373c;
+        b bVar2 = this.f25455c;
         if (bVar2 != null) {
-            bVar2.a(-5, ResUtils.getString(this.f25377g, "wallet_fp_error_fp"));
+            bVar2.a(-5, ResUtils.getString(this.f25459g, "wallet_fp_error_fp"));
         }
     }
 
@@ -218,19 +218,19 @@ public class a extends FingerprintManager.AuthenticationCallback {
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult authenticationResult) {
-        if (this.f25373c == null) {
+        if (this.f25455c == null) {
             return;
         }
         Cipher cipher = authenticationResult.getCryptoObject().getCipher();
-        if (this.f25375e == 2) {
-            if (!TextUtils.isEmpty(this.f25376f)) {
+        if (this.f25457e == 2) {
+            if (!TextUtils.isEmpty(this.f25458f)) {
                 try {
-                    this.f25373c.a(0, new String(cipher.doFinal(Base64.decode(this.f25376f, 0))));
+                    this.f25455c.a(0, new String(cipher.doFinal(Base64.decode(this.f25458f, 0))));
                     return;
                 } catch (BadPaddingException | IllegalBlockSizeException e2) {
                     e2.printStackTrace();
-                    WalletFingerprint.getInstance(this.f25377g).clearOTPToken();
-                    this.f25373c.a(-3, ResUtils.getString(this.f25377g, "wallet_fp_changed_usepwd"));
+                    WalletFingerprint.getInstance(this.f25459g).clearOTPToken();
+                    this.f25455c.a(-3, ResUtils.getString(this.f25459g, "wallet_fp_changed_usepwd"));
                     StatisticManager.onEvent(StatServiceEvent.EVENT_FP_BadPaddingException_IllegalBlockSizeException);
                     return;
                 }
@@ -239,40 +239,40 @@ public class a extends FingerprintManager.AuthenticationCallback {
         }
         String str = null;
         try {
-            String[] split = this.f25376f.split("\\|");
+            String[] split = this.f25458f.split("\\|");
             if (split.length == 2) {
                 str = split[0];
-                this.f25376f = split[1];
+                this.f25458f = split[1];
             }
-            byte[] doFinal = cipher.doFinal(this.f25376f.getBytes());
+            byte[] doFinal = cipher.doFinal(this.f25458f.getBytes());
             byte[] iv = cipher.getIV();
             if (doFinal != null && iv != null) {
                 String encodeToString = Base64.encodeToString(doFinal, 0);
                 String encodeToString2 = Base64.encodeToString(iv, 0);
                 String encodeToString3 = Base64.encodeToString((encodeToString + "|" + encodeToString2 + "|" + str).getBytes(), 0);
-                String newPpKey = PayPreferenceManager.getNewPpKey(this.f25377g);
+                String newPpKey = PayPreferenceManager.getNewPpKey(this.f25459g);
                 if (!TextUtils.isEmpty(newPpKey)) {
-                    SharedPreferencesUtils.setParam(this.f25377g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, newPpKey, encodeToString3);
+                    SharedPreferencesUtils.setParam(this.f25459g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, newPpKey, encodeToString3);
                 }
-                this.f25373c.a(0, encodeToString);
+                this.f25455c.a(0, encodeToString);
                 return;
             }
-            this.f25373c.a(-2, "");
+            this.f25455c.a(-2, "");
         } catch (BadPaddingException | IllegalBlockSizeException e3) {
             e3.printStackTrace();
-            this.f25373c.a(-2, "");
+            this.f25455c.a(-2, "");
         }
     }
 
     public void a(b bVar) {
-        this.f25373c = bVar;
+        this.f25455c = bVar;
     }
 
     public void a() {
-        CancellationSignal cancellationSignal = this.f25374d;
+        CancellationSignal cancellationSignal = this.f25456d;
         if (cancellationSignal != null) {
             cancellationSignal.cancel();
-            this.f25374d = null;
+            this.f25456d = null;
         }
     }
 

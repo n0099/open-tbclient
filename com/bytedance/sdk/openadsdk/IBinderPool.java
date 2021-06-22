@@ -28,18 +28,18 @@ public interface IBinderPool extends IInterface {
         public static class a implements IBinderPool {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f27054a;
+            public static IBinderPool f27136a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27055b;
+            public IBinder f27137b;
 
             public a(IBinder iBinder) {
-                this.f27055b = iBinder;
+                this.f27137b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27055b;
+                return this.f27137b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -49,7 +49,7 @@ public interface IBinderPool extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                     obtain.writeInt(i2);
-                    if (!this.f27055b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27137b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         return Stub.getDefaultImpl().queryBinder(i2);
                     }
                     obtain2.readException();
@@ -77,14 +77,14 @@ public interface IBinderPool extends IInterface {
         }
 
         public static IBinderPool getDefaultImpl() {
-            return a.f27054a;
+            return a.f27136a;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
-            if (a.f27054a != null || iBinderPool == null) {
+            if (a.f27136a != null || iBinderPool == null) {
                 return false;
             }
-            a.f27054a = iBinderPool;
+            a.f27136a = iBinderPool;
             return true;
         }
 

@@ -6,13 +6,13 @@ import androidx.annotation.UiThread;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile long f33354a;
+    public static volatile long f33452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f33355b;
+    public a f33453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33356c;
+    public boolean f33454c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -24,18 +24,18 @@ public class d {
     }
 
     public d(@NonNull a aVar) {
-        this.f33355b = aVar;
+        this.f33453b = aVar;
     }
 
     private void b() {
-        a aVar = this.f33355b;
+        a aVar = this.f33453b;
         if (aVar != null) {
             aVar.b();
         }
     }
 
     private void c() {
-        a aVar = this.f33355b;
+        a aVar = this.f33453b;
         if (aVar != null) {
             aVar.c();
         }
@@ -43,20 +43,20 @@ public class d {
 
     @UiThread
     public void a() {
-        a aVar = this.f33355b;
+        a aVar = this.f33453b;
         if (aVar == null || aVar.a()) {
-            f33354a = 0L;
-        } else if (!this.f33356c) {
+            f33452a = 0L;
+        } else if (!this.f33454c) {
             c();
-        } else if (System.currentTimeMillis() - f33354a < 3000) {
+        } else if (System.currentTimeMillis() - f33452a < 3000) {
             c();
         } else {
-            f33354a = System.currentTimeMillis();
+            f33452a = System.currentTimeMillis();
             b();
         }
     }
 
     public void a(boolean z) {
-        this.f33356c = z;
+        this.f33454c = z;
     }
 }

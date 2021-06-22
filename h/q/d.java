@@ -6,93 +6,93 @@ import rx.internal.operators.NotificationLite;
 public class d<T> implements h.e<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<? super T> f71978e;
+    public final h.e<? super T> f72082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f71979f;
+    public boolean f72083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f71980g;
+    public volatile boolean f72084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f71981h;
+    public a f72085h;
 
     /* loaded from: classes8.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f71982a;
+        public Object[] f72086a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71983b;
+        public int f72087b;
 
         public void a(Object obj) {
-            int i2 = this.f71983b;
-            Object[] objArr = this.f71982a;
+            int i2 = this.f72087b;
+            Object[] objArr = this.f72086a;
             if (objArr == null) {
                 objArr = new Object[16];
-                this.f71982a = objArr;
+                this.f72086a = objArr;
             } else if (i2 == objArr.length) {
                 Object[] objArr2 = new Object[(i2 >> 2) + i2];
                 System.arraycopy(objArr, 0, objArr2, 0, i2);
-                this.f71982a = objArr2;
+                this.f72086a = objArr2;
                 objArr = objArr2;
             }
             objArr[i2] = obj;
-            this.f71983b = i2 + 1;
+            this.f72087b = i2 + 1;
         }
     }
 
     public d(h.e<? super T> eVar) {
-        this.f71978e = eVar;
+        this.f72082e = eVar;
     }
 
     @Override // h.e
     public void onCompleted() {
-        if (this.f71980g) {
+        if (this.f72084g) {
             return;
         }
         synchronized (this) {
-            if (this.f71980g) {
+            if (this.f72084g) {
                 return;
             }
-            this.f71980g = true;
-            if (this.f71979f) {
-                a aVar = this.f71981h;
+            this.f72084g = true;
+            if (this.f72083f) {
+                a aVar = this.f72085h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f71981h = aVar;
+                    this.f72085h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f71979f = true;
-            this.f71978e.onCompleted();
+            this.f72083f = true;
+            this.f72082e.onCompleted();
         }
     }
 
     @Override // h.e
     public void onError(Throwable th) {
         h.m.a.e(th);
-        if (this.f71980g) {
+        if (this.f72084g) {
             return;
         }
         synchronized (this) {
-            if (this.f71980g) {
+            if (this.f72084g) {
                 return;
             }
-            this.f71980g = true;
-            if (this.f71979f) {
-                a aVar = this.f71981h;
+            this.f72084g = true;
+            if (this.f72083f) {
+                a aVar = this.f72085h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f71981h = aVar;
+                    this.f72085h = aVar;
                 }
                 aVar.a(NotificationLite.c(th));
                 return;
             }
-            this.f71979f = true;
-            this.f71978e.onError(th);
+            this.f72083f = true;
+            this.f72082e.onError(th);
         }
     }
 
@@ -105,54 +105,54 @@ public class d<T> implements h.e<T> {
     */
     public void onNext(T t) {
         Object[] objArr;
-        if (this.f71980g) {
+        if (this.f72084g) {
             return;
         }
         synchronized (this) {
-            if (this.f71980g) {
+            if (this.f72084g) {
                 return;
             }
-            if (this.f71979f) {
-                a aVar = this.f71981h;
+            if (this.f72083f) {
+                a aVar = this.f72085h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f71981h = aVar;
+                    this.f72085h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f71979f = true;
+            this.f72083f = true;
             try {
-                this.f71978e.onNext(t);
+                this.f72082e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f71981h;
+                        a aVar2 = this.f72085h;
                         if (aVar2 == null) {
-                            this.f71979f = false;
+                            this.f72083f = false;
                             return;
                         }
-                        this.f71981h = null;
-                        for (Object obj : aVar2.f71982a) {
+                        this.f72085h = null;
+                        for (Object obj : aVar2.f72086a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f71978e, obj)) {
-                                    this.f71980g = true;
+                                if (NotificationLite.a(this.f72082e, obj)) {
+                                    this.f72084g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f71980g = true;
+                                this.f72084g = true;
                                 h.m.a.e(th);
-                                this.f71978e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f72082e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f71980g = true;
-                h.m.a.g(th2, this.f71978e, t);
+                this.f72084g = true;
+                h.m.a.g(th2, this.f72082e, t);
             }
         }
     }

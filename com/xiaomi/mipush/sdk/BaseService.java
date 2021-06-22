@@ -10,16 +10,16 @@ import java.lang.ref.WeakReference;
 public abstract class BaseService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f40888a;
+    public a f40991a;
 
     /* loaded from: classes7.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<BaseService> f40889a;
+        public WeakReference<BaseService> f40992a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.f40889a = weakReference;
+            this.f40992a = weakReference;
         }
 
         public void a() {
@@ -33,7 +33,7 @@ public abstract class BaseService extends Service {
         public void handleMessage(Message message) {
             WeakReference<BaseService> weakReference;
             BaseService baseService;
-            if (message.what != 1001 || (weakReference = this.f40889a) == null || (baseService = weakReference.get()) == null) {
+            if (message.what != 1001 || (weakReference = this.f40992a) == null || (baseService = weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
@@ -57,9 +57,9 @@ public abstract class BaseService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i2) {
         super.onStart(intent, i2);
-        if (this.f40888a == null) {
-            this.f40888a = new a(new WeakReference(this));
+        if (this.f40991a == null) {
+            this.f40991a = new a(new WeakReference(this));
         }
-        this.f40888a.a();
+        this.f40991a.a();
     }
 }

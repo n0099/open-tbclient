@@ -12,38 +12,38 @@ import java.util.Map;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f69773d;
+    public static Context f69877d;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.d.a.a.b.a f69774a;
+    public d.d.a.a.b.a f69878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69775b;
+    public boolean f69879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f69776c;
+    public c f69880c;
 
     /* renamed from: d.d.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1903a {
+    public static class C1906a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f69777a = new a();
+        public static a f69881a = new a();
     }
 
     public static boolean b(Context context) {
-        if (f69773d == null && context != null) {
-            f69773d = context.getApplicationContext();
+        if (f69877d == null && context != null) {
+            f69877d = context.getApplicationContext();
         }
-        return f69773d != null;
+        return f69877d != null;
     }
 
     public static Context c() {
-        return f69773d;
+        return f69877d;
     }
 
     public static a e() {
-        return C1903a.f69777a;
+        return C1906a.f69881a;
     }
 
     public static void g(Context context, d.d.a.a.b.a aVar) {
@@ -52,12 +52,12 @@ public final class a {
             return;
         }
         a e2 = e();
-        e2.f69774a = aVar;
+        e2.f69878a = aVar;
         try {
-            if (e2.f69775b) {
+            if (e2.f69879b) {
                 return;
             }
-            e2.f69775b = true;
+            e2.f69879b = true;
             i.a().e();
             d.h().i("normal_log");
         } catch (Exception e3) {
@@ -175,11 +175,11 @@ public final class a {
     }
 
     public static void x(c cVar) {
-        e().f69776c = cVar;
+        e().f69880c = cVar;
     }
 
     public final boolean a() {
-        d.d.a.a.b.a aVar = this.f69774a;
+        d.d.a.a.b.a aVar = this.f69878a;
         if (aVar != null) {
             return aVar.isDisabled();
         }
@@ -187,11 +187,11 @@ public final class a {
     }
 
     public c d() {
-        return this.f69776c;
+        return this.f69880c;
     }
 
     public d.d.a.a.b.a f() {
-        return this.f69774a;
+        return this.f69878a;
     }
 
     public a() {

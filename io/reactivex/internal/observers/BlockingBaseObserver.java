@@ -10,7 +10,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f72264d;
+    public Disposable f72368d;
     public Throwable error;
     public T value;
 
@@ -38,7 +38,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
         this.cancelled = true;
-        Disposable disposable = this.f72264d;
+        Disposable disposable = this.f72368d;
         if (disposable != null) {
             disposable.dispose();
         }
@@ -56,7 +56,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
 
     @Override // io.reactivex.Observer
     public final void onSubscribe(Disposable disposable) {
-        this.f72264d = disposable;
+        this.f72368d = disposable;
         if (this.cancelled) {
             disposable.dispose();
         }

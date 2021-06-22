@@ -23,10 +23,10 @@ import java.util.Map;
 public class M0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f40559a = new HashMap();
+    public static HashMap f40662a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40560b = false;
+    public static boolean f40663b = false;
 
     public static String a(Map map) {
         StringBuilder sb = new StringBuilder();
@@ -104,25 +104,25 @@ public class M0 {
         NetworkInfo activeNetworkInfo;
         String deviceId;
         String str8;
-        if (f40560b) {
-            hashMap = f40559a;
+        if (f40663b) {
+            hashMap = f40662a;
         } else {
-            f40559a.put("app", z.b(context));
-            f40559a.put("sdkna", "norm-1.2.3");
-            f40559a.put("plat", "a");
-            f40559a.put("model", Build.MODEL);
-            f40559a.put("manu", Build.MANUFACTURER);
-            f40559a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
-            f40559a.put("h", String.valueOf(context.getResources().getDisplayMetrics().heightPixels));
-            f40559a.put("w", String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
-            HashMap hashMap2 = f40559a;
+            f40662a.put("app", z.b(context));
+            f40662a.put("sdkna", "norm-1.2.3");
+            f40662a.put("plat", "a");
+            f40662a.put("model", Build.MODEL);
+            f40662a.put("manu", Build.MANUFACTURER);
+            f40662a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
+            f40662a.put("h", String.valueOf(context.getResources().getDisplayMetrics().heightPixels));
+            f40662a.put("w", String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
+            HashMap hashMap2 = f40662a;
             try {
                 i2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
             } catch (Exception unused) {
                 i2 = -1;
             }
             hashMap2.put("appv", String.valueOf(i2));
-            HashMap hashMap3 = f40559a;
+            HashMap hashMap3 = f40662a;
             try {
                 str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
                 if (str != null) {
@@ -131,8 +131,8 @@ public class M0 {
             }
             str = "";
             hashMap3.put("appvn", str);
-            f40559a.put("rt", r1.a() ? "1" : "0");
-            f40559a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
+            f40662a.put("rt", r1.a() ? "1" : "0");
+            f40662a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
             try {
                 str2 = Build.SERIAL;
             } catch (Exception e2) {
@@ -151,7 +151,7 @@ public class M0 {
                 str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
             }
             if (!TextUtils.isEmpty(str2)) {
-                HashMap hashMap4 = f40559a;
+                HashMap hashMap4 = f40662a;
                 try {
                     str2 = z.a(str2);
                 } catch (Exception unused3) {
@@ -302,7 +302,7 @@ public class M0 {
                                     str7 = stringBuffer.toString().toUpperCase();
                                     if (!TextUtils.isEmpty(str7)) {
                                     }
-                                    d2 = m1.f40764c.f40765a;
+                                    d2 = m1.f40867c.f40868a;
                                     if (d2 > 0.0d) {
                                     }
                                     b2 = q1.a(context).b();
@@ -342,7 +342,7 @@ public class M0 {
                     }
                     hashMap5.put("wm", str7);
                 }
-                d2 = m1.f40764c.f40765a;
+                d2 = m1.f40867c.f40868a;
                 if (d2 > 0.0d) {
                     String valueOf = String.valueOf(d2);
                     try {
@@ -350,7 +350,7 @@ public class M0 {
                     } catch (Exception unused12) {
                     }
                     hashMap5.put("lau", valueOf);
-                    String valueOf2 = String.valueOf(m1.f40764c.f40766b);
+                    String valueOf2 = String.valueOf(m1.f40867c.f40869b);
                     try {
                         valueOf2 = z.a(valueOf2);
                     } catch (Exception unused13) {
@@ -390,7 +390,7 @@ public class M0 {
             str7 = stringBuffer22.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f40764c.f40765a;
+            d2 = m1.f40867c.f40868a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -421,7 +421,7 @@ public class M0 {
             str7 = stringBuffer222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f40764c.f40765a;
+            d2 = m1.f40867c.f40868a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -442,7 +442,7 @@ public class M0 {
         str7 = stringBuffer2222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f40764c.f40765a;
+        d2 = m1.f40867c.f40868a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();
@@ -457,15 +457,15 @@ public class M0 {
         return hashMap5;
         str3 = "";
         if (!TextUtils.isEmpty(str3)) {
-            HashMap hashMap6 = f40559a;
+            HashMap hashMap6 = f40662a;
             try {
                 str3 = z.a(str3);
             } catch (Exception unused17) {
             }
             hashMap6.put(BaseStatisContent.IMSI, str3);
         }
-        f40560b = true;
-        hashMap = f40559a;
+        f40663b = true;
+        hashMap = f40662a;
         HashMap hashMap52 = new HashMap();
         if (hashMap != null) {
         }
@@ -505,7 +505,7 @@ public class M0 {
                 str7 = stringBuffer22222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = m1.f40764c.f40765a;
+                d2 = m1.f40867c.f40868a;
                 if (d2 > 0.0d) {
                 }
                 b2 = q1.a(context).b();
@@ -526,7 +526,7 @@ public class M0 {
             str7 = stringBuffer222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f40764c.f40765a;
+            d2 = m1.f40867c.f40868a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -557,7 +557,7 @@ public class M0 {
             str7 = stringBuffer2222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f40764c.f40765a;
+            d2 = m1.f40867c.f40868a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -578,7 +578,7 @@ public class M0 {
         str7 = stringBuffer22222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f40764c.f40765a;
+        d2 = m1.f40867c.f40868a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();
@@ -592,8 +592,8 @@ public class M0 {
         }
         return hashMap52;
         hashMap6.put(BaseStatisContent.IMSI, str3);
-        f40560b = true;
-        hashMap = f40559a;
+        f40663b = true;
+        hashMap = f40662a;
         HashMap hashMap522 = new HashMap();
         if (hashMap != null) {
         }
@@ -633,7 +633,7 @@ public class M0 {
             str7 = stringBuffer222222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f40764c.f40765a;
+            d2 = m1.f40867c.f40868a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -654,7 +654,7 @@ public class M0 {
         str7 = stringBuffer2222222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f40764c.f40765a;
+        d2 = m1.f40867c.f40868a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();

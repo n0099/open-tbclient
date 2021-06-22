@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
@@ -27,6 +28,7 @@ import com.baidu.sapi2.activity.RegisterActivity;
 import com.baidu.sapi2.activity.RemoteProcessWebviewActivity;
 import com.baidu.sapi2.activity.ShareResultProxyActivity;
 import com.baidu.sapi2.activity.SwitchAccountActivity;
+import com.baidu.sapi2.activity.YouthStyleLoginActivity;
 import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -97,34 +99,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoreViewRouter implements NoProguard {
-    public static CoreViewRouter A;
+    public static final String C = "https://wappass.baidu.com/v6/securitySettings/deviceManage?adapter=3";
+    public static CoreViewRouter D;
+    public SparseArray<String> A;
+    public Context B = SapiAccountManager.getInstance().getSapiConfiguration().context;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbstractThirdPartyService f9465a;
+    public AbstractThirdPartyService f9474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebAuthListener f9466b;
+    public WebAuthListener f9475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebLoginDTO f9467c;
+    public WebLoginDTO f9476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WebRegDTO f9468d;
+    public WebRegDTO f9477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebBindWidgetDTO f9469e;
+    public WebBindWidgetDTO f9478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebSocialLoginDTO f9470f;
+    public WebSocialLoginDTO f9479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountCenterDTO f9471g;
+    public AccountCenterDTO f9480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NormalizeGuestAccountDTO f9472h;
+    public NormalizeGuestAccountDTO f9481h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RealNameDTO f9473i;
+    public RealNameDTO f9482i;
     public SwitchAccountDTO j;
     public IdCardOcrDTO k;
     public AccountCenterCallback l;
@@ -141,60 +146,93 @@ public class CoreViewRouter implements NoProguard {
     public AccountToolsCallback w;
     public IdCardOcrCallback x;
     public String y;
-    public Context z = SapiAccountManager.getInstance().getSapiConfiguration().context;
+    public SparseArray<SmsViewLoginCallback> z;
 
     /* loaded from: classes2.dex */
-    public class a extends GetTplStokenCallback {
+    public class a extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9480a;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9489a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9481b;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9490b;
+
+        public a(ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+            this.f9489a = extendSysWebViewMethodResult;
+            this.f9490b = extendSysWebViewMethodCallback;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+        /* renamed from: a */
+        public void onFailure(PassFaceRecogResult passFaceRecogResult) {
+            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9489a;
+            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+            this.f9490b.onFinish(extendSysWebViewMethodResult);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+        /* renamed from: b */
+        public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
+            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9489a;
+            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+            this.f9490b.onFinish(extendSysWebViewMethodResult);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b extends GetTplStokenCallback {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ Activity f9492a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f9493b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Map f9482c;
+        public final /* synthetic */ Map f9494c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f9483d;
+        public final /* synthetic */ String f9495d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SapiAccount f9484e;
+        public final /* synthetic */ SapiAccount f9496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f9485f;
+        public final /* synthetic */ PassFaceRecogCallback f9497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9486g;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9498g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9487h;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9499h;
 
-        public a(Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-            this.f9480a = activity;
-            this.f9481b = str;
-            this.f9482c = map;
-            this.f9483d = str2;
-            this.f9484e = sapiAccount;
-            this.f9485f = passFaceRecogCallback;
-            this.f9486g = extendSysWebViewMethodResult;
-            this.f9487h = extendSysWebViewMethodCallback;
+        public b(Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+            this.f9492a = activity;
+            this.f9493b = str;
+            this.f9494c = map;
+            this.f9495d = str2;
+            this.f9496e = sapiAccount;
+            this.f9497f = passFaceRecogCallback;
+            this.f9498g = extendSysWebViewMethodResult;
+            this.f9499h = extendSysWebViewMethodCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: a */
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            this.f9486g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
-            this.f9486g.params.put("retMsg", getTplStokenResult.getResultMsg());
-            this.f9487h.onFinish(this.f9486g);
+            this.f9498g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
+            this.f9498g.params.put("retMsg", getTplStokenResult.getResultMsg());
+            this.f9499h.onFinish(this.f9498g);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: b */
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            BiometricsManager.getInstance().recogWithBduss(this.f9480a, this.f9481b, this.f9482c, this.f9483d, this.f9484e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f9485f);
+            BiometricsManager.getInstance().recogWithBduss(this.f9492a, this.f9493b, this.f9494c, this.f9495d, this.f9496e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f9497f);
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -207,8 +245,8 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends ShareCallPacking.ShareLoginCallBack {
-        public b() {
+    public class c extends ShareCallPacking.ShareLoginCallBack {
+        public c() {
         }
 
         @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
@@ -217,10 +255,11 @@ public class CoreViewRouter implements NoProguard {
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.setResultCode(i2);
             webAuthResult.setResultMsg(str);
-            if (CoreViewRouter.this.f9466b != null) {
-                CoreViewRouter.this.f9466b.onFailure(webAuthResult);
-            }
+            WebAuthListener webAuthListener = CoreViewRouter.this.f9475b;
             CoreViewRouter.getInstance().release();
+            if (webAuthListener != null) {
+                webAuthListener.onFailure(webAuthResult);
+            }
         }
 
         @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
@@ -228,33 +267,62 @@ public class CoreViewRouter implements NoProguard {
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.accountType = AccountType.NORMAL;
             webAuthResult.setResultCode(0);
-            if (CoreViewRouter.this.f9466b != null) {
-                CoreViewRouter.this.f9466b.onSuccess(webAuthResult);
+            if (CoreViewRouter.this.f9475b != null) {
+                CoreViewRouter.this.f9475b.onSuccess(webAuthResult);
             }
             CoreViewRouter.getInstance().release();
         }
     }
 
     /* loaded from: classes2.dex */
-    public class c extends QrLoginCallback {
+    public class d extends WebAuthListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginCallback f9490a;
+        public final /* synthetic */ QrLoginCallback f9502a;
+
+        public d(QrLoginCallback qrLoginCallback) {
+            this.f9502a = qrLoginCallback;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            QrLoginCallback qrLoginCallback = this.f9502a;
+            if (qrLoginCallback != null) {
+                qrLoginCallback.onLocalLogin(webAuthResult);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            QrLoginCallback qrLoginCallback = this.f9502a;
+            if (qrLoginCallback != null) {
+                qrLoginCallback.onLocalLogin(webAuthResult);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class e extends QrLoginCallback {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ QrLoginCallback f9504a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f9491b;
+        public final /* synthetic */ List f9505b;
 
-        public c(QrLoginCallback qrLoginCallback, List list) {
-            this.f9490a = qrLoginCallback;
-            this.f9491b = list;
+        public e(QrLoginCallback qrLoginCallback, List list) {
+            this.f9504a = qrLoginCallback;
+            this.f9505b = list;
         }
 
         @Override // com.baidu.sapi2.callback.QrLoginCallback
         public void onFinish(QrLoginResult qrLoginResult) {
-            this.f9490a.onFinish(qrLoginResult);
-            if (this.f9491b.size() == 1) {
-                ((WebAuthResult) this.f9491b.get(0)).finishActivity();
-                this.f9490a.onLocalLogin((WebAuthResult) this.f9491b.get(0));
+            this.f9504a.onFinish(qrLoginResult);
+            if (this.f9505b.size() == 1) {
+                ((WebAuthResult) this.f9505b.get(0)).finishActivity();
+                this.f9504a.onLocalLogin((WebAuthResult) this.f9505b.get(0));
             }
         }
 
@@ -264,21 +332,21 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class d extends WebAuthListener {
+    public class f extends WebAuthListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f9493a;
+        public final /* synthetic */ List f9507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9494b;
+        public final /* synthetic */ String f9508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f9495c;
+        public final /* synthetic */ boolean f9509c;
 
-        public d(List list, String str, boolean z) {
-            this.f9493a = list;
-            this.f9494b = str;
-            this.f9495c = z;
+        public f(List list, String str, boolean z) {
+            this.f9507a = list;
+            this.f9508b = str;
+            this.f9509c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -289,74 +357,74 @@ public class CoreViewRouter implements NoProguard {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            this.f9493a.add(webAuthResult);
-            String str = this.f9494b.indexOf("?") > 0 ? "&" : "?";
-            CoreViewRouter.this.a(this.f9494b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f9495c);
+            this.f9507a.add(webAuthResult);
+            String str = this.f9508b.indexOf("?") > 0 ? "&" : "?";
+            CoreViewRouter.this.a(this.f9508b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f9509c);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class e extends AuthWidgetCallback {
+    public class g extends AuthWidgetCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9497a;
+        public final /* synthetic */ Activity f9511a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ RegisterUserFaceIDCallback f9498b;
+        public final /* synthetic */ RegisterUserFaceIDCallback f9512b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDRegDTO f9499c;
+        public final /* synthetic */ FaceIDRegDTO f9513c;
 
-        public e(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-            this.f9497a = activity;
-            this.f9498b = registerUserFaceIDCallback;
-            this.f9499c = faceIDRegDTO;
+        public g(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
+            this.f9511a = activity;
+            this.f9512b = registerUserFaceIDCallback;
+            this.f9513c = faceIDRegDTO;
         }
 
         @Override // com.baidu.sapi2.callback.AuthWidgetCallback
         public void onFailure(SapiResult sapiResult) {
-            this.f9498b.onFailure(sapiResult);
+            this.f9512b.onFailure(sapiResult);
         }
 
         @Override // com.baidu.sapi2.callback.AuthWidgetCallback
         public void onSuccess(String str) {
             CoreViewRouter coreViewRouter = CoreViewRouter.this;
-            Activity activity = this.f9497a;
-            RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f9498b;
-            FaceIDRegDTO faceIDRegDTO = this.f9499c;
+            Activity activity = this.f9511a;
+            RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f9512b;
+            FaceIDRegDTO faceIDRegDTO = this.f9513c;
             coreViewRouter.b(activity, registerUserFaceIDCallback, "faceDetect", str, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class f extends GetTplStokenCallback {
+    public class h extends GetTplStokenCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9501a;
+        public final /* synthetic */ Activity f9515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FaceIDVerifyDTO f9502b;
+        public final /* synthetic */ FaceIDVerifyDTO f9516b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f9503c;
+        public final /* synthetic */ VerifyUserFaceIDCallback f9517c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f9504d;
+        public final /* synthetic */ RealNameFaceIDResult f9518d;
 
-        public f(Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-            this.f9501a = activity;
-            this.f9502b = faceIDVerifyDTO;
-            this.f9503c = verifyUserFaceIDCallback;
-            this.f9504d = realNameFaceIDResult;
+        public h(Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
+            this.f9515a = activity;
+            this.f9516b = faceIDVerifyDTO;
+            this.f9517c = verifyUserFaceIDCallback;
+            this.f9518d = realNameFaceIDResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: a */
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            this.f9504d.setResultCode(getTplStokenResult.getResultCode());
-            this.f9504d.setResultMsg(getTplStokenResult.getResultMsg());
-            this.f9503c.onFailure(this.f9504d);
+            this.f9518d.setResultCode(getTplStokenResult.getResultCode());
+            this.f9518d.setResultMsg(getTplStokenResult.getResultMsg());
+            this.f9517c.onFailure(this.f9518d);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -366,14 +434,14 @@ public class CoreViewRouter implements NoProguard {
             String str = getTplStokenResult.tplStokenMap.get("pp");
             if (!TextUtils.isEmpty(str)) {
                 CoreViewRouter coreViewRouter = CoreViewRouter.this;
-                Activity activity = this.f9501a;
-                FaceIDVerifyDTO faceIDVerifyDTO = this.f9502b;
-                coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f9503c, this.f9504d);
+                Activity activity = this.f9515a;
+                FaceIDVerifyDTO faceIDVerifyDTO = this.f9516b;
+                coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f9517c, this.f9518d);
                 return;
             }
-            this.f9504d.setResultCode(-402);
-            this.f9504d.setResultMsg("服务异常，请稍后再试");
-            this.f9503c.onFailure(this.f9504d);
+            this.f9518d.setResultCode(-402);
+            this.f9518d.setResultMsg("服务异常，请稍后再试");
+            this.f9517c.onFailure(this.f9518d);
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -386,66 +454,66 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class g extends PassFaceRecogCallback {
+    public class i extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f9506a;
+        public final /* synthetic */ RealNameFaceIDResult f9520a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f9507b;
+        public final /* synthetic */ VerifyUserFaceIDCallback f9521b;
 
-        public g(RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
-            this.f9506a = realNameFaceIDResult;
-            this.f9507b = verifyUserFaceIDCallback;
+        public i(RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
+            this.f9520a = realNameFaceIDResult;
+            this.f9521b = verifyUserFaceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            this.f9506a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9506a.setResultMsg(passFaceRecogResult.getResultMsg());
-            this.f9507b.onFailure(this.f9506a);
+            this.f9520a.setResultCode(passFaceRecogResult.getResultCode());
+            this.f9520a.setResultMsg(passFaceRecogResult.getResultMsg());
+            this.f9521b.onFailure(this.f9520a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-            this.f9506a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9506a.setResultMsg(passFaceRecogResult.getResultMsg());
-            RealNameFaceIDResult realNameFaceIDResult = this.f9506a;
+            this.f9520a.setResultCode(passFaceRecogResult.getResultCode());
+            this.f9520a.setResultMsg(passFaceRecogResult.getResultMsg());
+            RealNameFaceIDResult realNameFaceIDResult = this.f9520a;
             realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
             realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
             realNameFaceIDResult.setResultCode(0);
-            this.f9507b.onSuccess(this.f9506a);
+            this.f9521b.onSuccess(this.f9520a);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class h extends PassFaceRecogCallback {
+    public class j extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnRealNameFaceIDResult f9509a;
+        public final /* synthetic */ UnRealNameFaceIDResult f9523a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9510b;
+        public final /* synthetic */ String f9524b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDCallback f9511c;
+        public final /* synthetic */ FaceIDCallback f9525c;
 
-        public h(UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
-            this.f9509a = unRealNameFaceIDResult;
-            this.f9510b = str;
-            this.f9511c = faceIDCallback;
+        public j(UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
+            this.f9523a = unRealNameFaceIDResult;
+            this.f9524b = str;
+            this.f9525c = faceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            this.f9509a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9511c.onFailure(this.f9509a);
+            this.f9523a.setResultCode(passFaceRecogResult.getResultCode());
+            this.f9525c.onFailure(this.f9523a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -453,54 +521,54 @@ public class CoreViewRouter implements NoProguard {
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
             JSONObject jSONObject;
-            this.f9509a.setResultMsg(passFaceRecogResult.getResultMsg());
-            if (this.f9510b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
-                this.f9509a.registerResult = jSONObject.toString();
+            this.f9523a.setResultMsg(passFaceRecogResult.getResultMsg());
+            if (this.f9524b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
+                this.f9523a.registerResult = jSONObject.toString();
             }
-            UnRealNameFaceIDResult unRealNameFaceIDResult = this.f9509a;
+            UnRealNameFaceIDResult unRealNameFaceIDResult = this.f9523a;
             String str = passFaceRecogResult.callbackkey;
             unRealNameFaceIDResult.callBackKey = str;
             if (TextUtils.isEmpty(str)) {
-                this.f9509a.setResultCode(-205);
-                this.f9511c.onFailure(this.f9509a);
+                this.f9523a.setResultCode(-205);
+                this.f9525c.onFailure(this.f9523a);
                 return;
             }
-            this.f9509a.setResultCode(0);
-            this.f9511c.onSuccess(this.f9509a);
+            this.f9523a.setResultCode(0);
+            this.f9525c.onSuccess(this.f9523a);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class i implements SapiCallback<SapiResult> {
+    public class k implements SapiCallback<SapiResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f9513a;
+        public final /* synthetic */ int f9527a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f9514b;
+        public final /* synthetic */ Activity f9528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9515c;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9529c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9516d;
+        public final /* synthetic */ JSONObject f9530d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9517e;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9531e;
 
-        public i(int i2, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
-            this.f9513a = i2;
-            this.f9514b = activity;
-            this.f9515c = extendSysWebViewMethodCallback;
-            this.f9516d = jSONObject;
-            this.f9517e = extendSysWebViewMethodResult;
+        public k(int i2, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
+            this.f9527a = i2;
+            this.f9528b = activity;
+            this.f9529c = extendSysWebViewMethodCallback;
+            this.f9530d = jSONObject;
+            this.f9531e = extendSysWebViewMethodResult;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(SapiResult sapiResult) {
-            this.f9517e.setResultCode(sapiResult.getResultCode());
-            this.f9517e.setResultMsg(sapiResult.getResultMsg());
-            this.f9515c.onFinish(this.f9517e);
+            this.f9531e.setResultCode(sapiResult.getResultCode());
+            this.f9531e.setResultMsg(sapiResult.getResultMsg());
+            this.f9529c.onFinish(this.f9531e);
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -513,26 +581,26 @@ public class CoreViewRouter implements NoProguard {
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(SapiResult sapiResult) {
-            int i2 = this.f9513a;
+            int i2 = this.f9527a;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
-                    CoreViewRouter.this.a(this.f9514b, this.f9515c, this.f9516d, i2, this.f9517e);
+                    CoreViewRouter.this.a(this.f9528b, this.f9529c, this.f9530d, i2, this.f9531e);
                     return;
                 case 5:
-                    CoreViewRouter.this.u = this.f9515c;
-                    String optString = this.f9516d.optString("url");
-                    String optString2 = this.f9516d.optString("title");
-                    Intent intent = new Intent(CoreViewRouter.this.z, LoadExternalWebViewActivity.class);
+                    CoreViewRouter.this.u = this.f9529c;
+                    String optString = this.f9530d.optString("url");
+                    String optString2 = this.f9530d.optString("title");
+                    Intent intent = new Intent(CoreViewRouter.this.B, LoadExternalWebViewActivity.class);
                     intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, optString2);
                     intent.putExtra("extra_external_url", optString);
                     intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                    CoreViewRouter.this.z.startActivity(intent);
+                    CoreViewRouter.this.B.startActivity(intent);
                     return;
                 case 6:
-                    JSONArray optJSONArray = this.f9516d.optJSONArray("di_keys");
+                    JSONArray optJSONArray = this.f9530d.optJSONArray("di_keys");
                     ArrayList arrayList = new ArrayList();
                     int length = optJSONArray.length();
                     for (int i3 = 0; i3 < length; i3++) {
@@ -541,60 +609,27 @@ public class CoreViewRouter implements NoProguard {
                         }
                     }
                     String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-                    this.f9517e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
-                    this.f9517e.params.put("result", diCookieInfo);
-                    this.f9515c.onFinish(this.f9517e);
+                    this.f9531e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
+                    this.f9531e.params.put("result", diCookieInfo);
+                    this.f9529c.onFinish(this.f9531e);
                     return;
                 default:
-                    this.f9517e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
-                    Map<String, Object> map = this.f9517e.params;
-                    map.put("retMsg", "action :" + this.f9513a + " is not support");
-                    this.f9515c.onFinish(this.f9517e);
+                    this.f9531e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
+                    Map<String, Object> map = this.f9531e.params;
+                    map.put("retMsg", "action :" + this.f9527a + " is not support");
+                    this.f9529c.onFinish(this.f9531e);
                     return;
             }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class j extends PassFaceRecogCallback {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9519a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9520b;
-
-        public j(ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-            this.f9519a = extendSysWebViewMethodResult;
-            this.f9520b = extendSysWebViewMethodCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-        /* renamed from: a */
-        public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9519a;
-            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-            this.f9520b.onFinish(extendSysWebViewMethodResult);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-        /* renamed from: b */
-        public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9519a;
-            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-            this.f9520b.onFinish(extendSysWebViewMethodResult);
         }
     }
 
     public static synchronized CoreViewRouter getInstance() {
         CoreViewRouter coreViewRouter;
         synchronized (CoreViewRouter.class) {
-            if (A == null) {
-                A = new CoreViewRouter();
+            if (D == null) {
+                D = new CoreViewRouter();
             }
-            coreViewRouter = A;
+            coreViewRouter = D;
         }
         return coreViewRouter;
     }
@@ -608,7 +643,7 @@ public class CoreViewRouter implements NoProguard {
             String optString = optJSONObject.optString("open_appid");
             String optString2 = optJSONObject.optString("open_apikey");
             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new i(optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
+                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new k(optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
                 return;
             }
             extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
@@ -627,7 +662,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public AccountCenterDTO getAccountCenterDTO() {
-        return this.f9471g;
+        return this.f9480g;
     }
 
     public AccountRealNameCallback getAccountRealNameCallback() {
@@ -667,7 +702,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
-        return this.f9472h;
+        return this.f9481h;
     }
 
     public OneKeyLoginCallback getOneKeyLoginCallback() {
@@ -679,19 +714,23 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public RealNameDTO getRealNameDTO() {
-        return this.f9473i;
+        return this.f9482i;
     }
 
     public String getSmsLoginStatExtra() {
         return WebLoginDTO.getStatExtraDecode(this.y);
     }
 
-    public SmsViewLoginCallback getSmsViewLoginCallback() {
+    public SmsViewLoginCallback getSmsViewLoginCallback(int i2) {
+        SparseArray<SmsViewLoginCallback> sparseArray;
+        if (i2 >= 0 && (sparseArray = this.z) != null) {
+            return sparseArray.get(i2);
+        }
         return this.r;
     }
 
     public WebSocialLoginDTO getSocialLoginDTO() {
-        return this.f9470f;
+        return this.f9479f;
     }
 
     public SwitchAccountDTO getSwitchAccountDTO() {
@@ -699,14 +738,14 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public AbstractThirdPartyService getThirdPartyService() {
-        if (this.f9465a == null) {
+        if (this.f9474a == null) {
             a();
         }
-        return this.f9465a;
+        return this.f9474a;
     }
 
     public WebAuthListener getWebAuthListener() {
-        return this.f9466b;
+        return this.f9475b;
     }
 
     public WebBindWidgetCallback getWebBindWidgetCallback() {
@@ -714,20 +753,20 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public WebBindWidgetDTO getWebBindWidgetDTO() {
-        return this.f9469e;
+        return this.f9478e;
     }
 
     public WebLoginDTO getWebLoginDTO() {
-        return this.f9467c;
+        return this.f9476c;
     }
 
     public WebRegDTO getWebRegDTO() {
-        return this.f9468d;
+        return this.f9477d;
     }
 
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
         AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-        this.f9465a = thirdPartyService;
+        this.f9474a = thirdPartyService;
         if (thirdPartyService == null) {
             return;
         }
@@ -748,7 +787,7 @@ public class CoreViewRouter implements NoProguard {
                 webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
                 webAuthListener.onFailure(webAuthResult);
             }
-            this.f9466b = webAuthListener;
+            this.f9475b = webAuthListener;
             ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
             if (!TextUtils.isEmpty(str)) {
                 arrayList.add(new PassNameValuePair("extrajson", str));
@@ -770,15 +809,15 @@ public class CoreViewRouter implements NoProguard {
             accountCenterDTO.bduss = currentAccount.bduss;
         }
         this.l = accountCenterCallback;
-        this.f9471g = accountCenterDTO;
-        Intent intent = new Intent(this.z, AccountCenterActivity.class);
+        this.f9480g = accountCenterDTO;
+        Intent intent = new Intent(this.B, AccountCenterActivity.class);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
         this.m = accountRealNameCallback;
-        this.f9473i = realNameDTO;
+        this.f9482i = realNameDTO;
         Intent intent = new Intent(context, AccountRealNameActivity.class);
         if (realNameDTO != null) {
             intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
@@ -791,7 +830,7 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
@@ -814,18 +853,18 @@ public class CoreViewRouter implements NoProguard {
         if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
             webBindWidgetDTO.bduss = currentAccount.bduss;
         }
-        this.f9469e = webBindWidgetDTO;
-        Intent intent = new Intent(this.z, BindWidgetActivity.class);
+        this.f9478e = webBindWidgetDTO;
+        Intent intent = new Intent(this.B, BindWidgetActivity.class);
         intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
         intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
         Context context = webBindWidgetDTO.context;
         if (context instanceof Activity) {
             context.startActivity(intent);
-            webBindWidgetDTO.context = this.z;
+            webBindWidgetDTO.context = this.B;
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
@@ -837,7 +876,7 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void loadIdCardOcr(IdCardOcrDTO idCardOcrDTO, IdCardOcrCallback idCardOcrCallback) {
@@ -861,6 +900,13 @@ public class CoreViewRouter implements NoProguard {
         loadQrLogin(qrLoginCallback, str, null, true);
     }
 
+    public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
+        WebLoginDTO webLoginDTO = new WebLoginDTO();
+        webLoginDTO.encryptedId = SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
+        webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
+        startLogin(new d(qrLoginCallback), webLoginDTO);
+    }
+
     public void loadRemoteProcessWebViewActivity(Context context, String str, String str2) {
         Intent intent = new Intent(context, RemoteProcessWebviewActivity.class);
         intent.putExtra(RemoteProcessWebviewActivity.EXTRA_EXTERNAL_TITLE, str);
@@ -871,15 +917,15 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
         this.j = switchAccountDTO;
-        this.f9466b = webAuthListener;
-        Intent intent = new Intent(this.z, SwitchAccountActivity.class);
+        this.f9475b = webAuthListener;
+        Intent intent = new Intent(this.B, SwitchAccountActivity.class);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
         LinkedHashMap linkedHashMap = new LinkedHashMap(1);
         linkedHashMap.put("eventType", "switch_account_enter");
         StatService.onEventAutoStatistic(linkedHashMap);
@@ -887,9 +933,32 @@ public class CoreViewRouter implements NoProguard {
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
         WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-        this.f9470f = webSocialLoginDTO;
+        this.f9479f = webSocialLoginDTO;
         webSocialLoginDTO.socialType = socialType;
         loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
+    }
+
+    public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
+        AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+        this.f9474a = thirdPartyService;
+        if (thirdPartyService == null) {
+            if (webAuthListener != null) {
+                WebAuthResult webAuthResult = new WebAuthResult();
+                webAuthResult.setResultCode(-100);
+                webAuthResult.setResultMsg("thirdPartyService is null");
+                webAuthListener.onFailure(webAuthResult);
+                return;
+            }
+            return;
+        }
+        WebLoginDTO webLoginDTO = new WebLoginDTO();
+        webLoginDTO.finishActivityAfterSuc = true;
+        this.f9476c = webLoginDTO;
+        WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+        webSocialLoginDTO.finishActivityAfterSuc = true;
+        this.f9479f = webSocialLoginDTO;
+        this.f9475b = webAuthListener;
+        this.f9474a.loadYYSSOLogin(context, str);
     }
 
     public void onShareLoginActivityResult(int i2, int i3, Intent intent, String str) {
@@ -897,39 +966,41 @@ public class CoreViewRouter implements NoProguard {
         if (!TextUtils.isEmpty(str)) {
             arrayList.add(new PassNameValuePair("extrajson", str));
         }
-        new ShareCallPacking().onLoginActivityActivityResult(new b(), i2, i3, intent, arrayList, "product");
+        new ShareCallPacking().onLoginActivityActivityResult(new c(), i2, i3, intent, arrayList, "product");
     }
 
     public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
         if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
-            startAuth(new e(activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
+            startAuth(new g(activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
         } else {
             b(activity, registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
         }
     }
 
     public synchronized void release() {
-        this.f9466b = null;
-        this.f9467c = null;
-        this.f9469e = null;
-        this.f9470f = null;
-        this.f9472h = null;
+        this.f9475b = null;
+        this.f9476c = null;
+        this.f9478e = null;
+        this.f9479f = null;
+        this.f9481h = null;
         this.l = null;
         this.n = null;
         this.o = null;
         this.p = null;
-        this.f9471g = null;
+        this.f9480g = null;
         this.m = null;
         this.q = null;
         this.r = null;
         this.y = null;
+        this.z = null;
+        this.A = null;
         this.s = null;
         this.t = null;
         this.u = null;
         this.v = null;
         this.j = null;
         PassportViewManager.getInstance().release();
-        A = null;
+        D = null;
     }
 
     public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
@@ -941,15 +1012,15 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
-        this.f9465a = abstractThirdPartyService;
+        this.f9474a = abstractThirdPartyService;
     }
 
     public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
         this.t = authWidgetCallback;
-        Intent intent = new Intent(this.z, AuthWidgetActivity.class);
+        Intent intent = new Intent(this.B, AuthWidgetActivity.class);
         intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
@@ -958,12 +1029,24 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        startLogin(this.z, webAuthListener, webLoginDTO);
+        startLogin(this.B, webAuthListener, webLoginDTO);
+    }
+
+    public void startLoginDeviceManager(Context context) {
+        Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+        intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, "设备管理");
+        intent.putExtra("extra_external_url", C);
+        if (context instanceof Activity) {
+            context.startActivity(intent);
+            return;
+        }
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        this.B.startActivity(intent);
     }
 
     public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
         this.s = normalizeGuestAccountCallback;
-        this.f9472h = normalizeGuestAccountDTO;
+        this.f9481h = normalizeGuestAccountDTO;
         Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
         intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
         if (!(context instanceof Activity)) {
@@ -973,11 +1056,11 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
-        this.f9466b = webAuthListener;
-        this.f9468d = webRegDTO;
-        Intent intent = new Intent(this.z, RegisterActivity.class);
+        this.f9475b = webAuthListener;
+        this.f9477d = webRegDTO;
+        Intent intent = new Intent(this.B, RegisterActivity.class);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void startSchemeLoginForQA(Context context, String str) {
@@ -988,7 +1071,7 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
@@ -1011,7 +1094,7 @@ public class CoreViewRouter implements NoProguard {
             RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new f(activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new h(activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
             return;
         }
         b(activity, verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence);
@@ -1027,7 +1110,13 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        a(context, LoginActivity.class, webAuthListener, webLoginDTO);
+        Class<?> cls;
+        if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {
+            cls = YouthStyleLoginActivity.class;
+        } else {
+            cls = LoginActivity.class;
+        }
+        a(context, cls, webAuthListener, webLoginDTO);
     }
 
     public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
@@ -1037,13 +1126,14 @@ public class CoreViewRouter implements NoProguard {
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
         JSONObject jSONObject;
         ArrayList arrayList = new ArrayList(1);
-        this.q = new c(qrLoginCallback, arrayList);
+        this.q = new e(qrLoginCallback, arrayList);
         if (SapiAccountManager.getInstance().isLogin()) {
             a(str, z);
             return;
         }
         WebLoginDTO webLoginDTO = new WebLoginDTO();
         webLoginDTO.finishActivityAfterSuc = false;
+        webLoginDTO.encryptedId = SapiUtils.parseQrLoginSchema(str).get("enuid");
         try {
             if (TextUtils.isEmpty(str2)) {
                 jSONObject = new JSONObject();
@@ -1054,7 +1144,7 @@ public class CoreViewRouter implements NoProguard {
             webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
         } catch (JSONException unused) {
         }
-        startLogin(new d(arrayList, str, z), webLoginDTO);
+        startLogin(new f(arrayList, str, z), webLoginDTO);
     }
 
     public void loadOneKeyLogin(final Context context, final String str, final boolean z, final OneKeyLoginCallback oneKeyLoginCallback) {
@@ -1065,9 +1155,9 @@ public class CoreViewRouter implements NoProguard {
             new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -108, null);
         } else {
             this.v = oneKeyLoginCallback;
-            new OneKeyLoginSdkCall().getToken(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.CoreViewRouter.11
+            new OneKeyLoginSdkCall().getToken(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.CoreViewRouter.12
 
-                /* renamed from: com.baidu.sapi2.CoreViewRouter$11$a */
+                /* renamed from: com.baidu.sapi2.CoreViewRouter$12$a */
                 /* loaded from: classes2.dex */
                 public class a implements LoadExternalWebViewActivityCallback {
                     public a() {
@@ -1075,7 +1165,7 @@ public class CoreViewRouter implements NoProguard {
 
                     @Override // com.baidu.sapi2.callback.inner.LoadExternalWebViewActivityCallback
                     public void needLoadExternalWebView(String str, String str2) {
-                        AnonymousClass11 anonymousClass11 = AnonymousClass11.this;
+                        AnonymousClass12 anonymousClass12 = AnonymousClass12.this;
                         if (z) {
                             Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
                             intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
@@ -1091,7 +1181,7 @@ public class CoreViewRouter implements NoProguard {
                                 return;
                             }
                             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                            CoreViewRouter.this.z.startActivity(intent);
+                            CoreViewRouter.this.B.startActivity(intent);
                             return;
                         }
                         new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -111, null);
@@ -1112,10 +1202,10 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
-        this.f9466b = webAuthListener;
-        this.f9470f = webSocialLoginDTO;
+        this.f9475b = webAuthListener;
+        this.f9479f = webSocialLoginDTO;
         AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-        this.f9465a = thirdPartyService;
+        this.f9474a = thirdPartyService;
         if (thirdPartyService == null) {
             return;
         }
@@ -1123,25 +1213,45 @@ public class CoreViewRouter implements NoProguard {
             ThirdLoginCallback thirdLoginCallback = (ThirdLoginCallback) webAuthListener;
             Context context = webSocialLoginDTO.context;
             if (context == null) {
-                context = this.z;
+                context = this.B;
             }
             thirdPartyService.loadThirdPartyLogin(context, webSocialLoginDTO.socialType, 2002, thirdLoginCallback);
         } else {
             Context context2 = webSocialLoginDTO.context;
             if (context2 == null) {
-                context2 = this.z;
+                context2 = this.B;
             }
             thirdPartyService.loadThirdPartyLogin(context2, webSocialLoginDTO.socialType, 2002);
         }
         webSocialLoginDTO.context = null;
     }
 
+    public void startSmsViewLogin(SmsLoginView smsLoginView, SmsViewLoginCallback smsViewLoginCallback, String str) {
+        int i2 = SmsLoginView.smgLoginViewIndexStat;
+        SmsLoginView.smgLoginViewIndexStat = i2 + 1;
+        if (smsLoginView != null) {
+            smsLoginView.setSmsLoginViewIndex(i2);
+        }
+        if (this.z == null) {
+            this.z = new SparseArray<>();
+        }
+        if (this.A == null) {
+            this.A = new SparseArray<>();
+        }
+        this.z.put(i2, smsViewLoginCallback);
+        this.A.put(i2, str);
+        SmsLoginView.notifyStartLogin();
+    }
+
     private void a(Context context, Class<?> cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        if (context == null) {
+            return;
+        }
         StatLoadLogin statLoadLogin = new StatLoadLogin();
         SapiWebView.statLoadLogin = statLoadLogin;
         statLoadLogin.tOpenLoginPage = System.currentTimeMillis();
-        this.f9466b = webAuthListener;
-        this.f9467c = webLoginDTO;
+        this.f9475b = webAuthListener;
+        this.f9476c = webLoginDTO;
         Intent intent = new Intent(context, cls);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
@@ -1160,11 +1270,11 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
-        this.f9466b = webAuthListener;
+        this.f9475b = webAuthListener;
         Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
         intent.putExtra("extra_external_url", str);
         if (context instanceof Activity) {
@@ -1172,21 +1282,21 @@ public class CoreViewRouter implements NoProguard {
             return;
         }
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z) {
-        Intent intent = new Intent(this.z, QrLoginActivity.class);
+        Intent intent = new Intent(this.B, QrLoginActivity.class);
         intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
         intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.z.startActivity(intent);
+        this.B.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-        BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new g(realNameFaceIDResult, verifyUserFaceIDCallback));
+        BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new i(realNameFaceIDResult, verifyUserFaceIDCallback));
     }
 
     private void a(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
@@ -1194,12 +1304,12 @@ public class CoreViewRouter implements NoProguard {
             BiometricsManager biometricsManager = BiometricsManager.getInstance();
             String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
             HashMap hashMap = new HashMap();
-            h hVar = new h(new UnRealNameFaceIDResult(), str, faceIDCallback);
+            j jVar = new j(new UnRealNameFaceIDResult(), str, faceIDCallback);
             if (str.equals("faceDetect")) {
-                biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, hVar);
+                biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, jVar);
                 return;
             } else if (str.equals("outer")) {
-                biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, hVar);
+                biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, jVar);
                 return;
             } else {
                 return;
@@ -1213,7 +1323,7 @@ public class CoreViewRouter implements NoProguard {
         String str;
         HashMap hashMap;
         BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        j jVar = new j(extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
+        a aVar = new a(extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
         int optInt = jSONObject.optInt("imageFlag", 0);
         String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
         HashMap hashMap2 = new HashMap();
@@ -1233,23 +1343,23 @@ public class CoreViewRouter implements NoProguard {
             BiometricsManager.e eVar = new BiometricsManager.e();
             str = "";
             hashMap = hashMap2;
-            a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, jVar, optString, hashMap2, optInt + "");
+            a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, aVar, optString, hashMap2, optInt + "");
         } else {
             str = "";
             hashMap = hashMap2;
         }
         if (i2 == 2) {
-            biometricsManager.recogWithCertInfo(activity, optString, hashMap, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), jVar);
+            biometricsManager.recogWithCertInfo(activity, optString, hashMap, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), aVar);
         }
         if (i2 == 3) {
-            biometricsManager.recogWithAuthToken(activity, optString, hashMap, optInt + str, jSONObject.optString("authtoken"), jVar);
+            biometricsManager.recogWithAuthToken(activity, optString, hashMap, optInt + str, jSONObject.optString("authtoken"), aVar);
         }
         if (i2 == 4) {
             if (jSONObject.optInt("type") == 1) {
-                biometricsManager.recogWithFaceDetect(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), "", jVar);
+                biometricsManager.recogWithFaceDetect(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), "", aVar);
                 return;
             }
-            biometricsManager.recogWithFaceOuter(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), jVar);
+            biometricsManager.recogWithFaceOuter(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), aVar);
         }
     }
 
@@ -1264,7 +1374,7 @@ public class CoreViewRouter implements NoProguard {
         eVar.j = currentAccount.bduss;
         ArrayList arrayList = new ArrayList();
         arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
     }
 
     private String a(Context context, String str) {

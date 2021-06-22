@@ -3,21 +3,21 @@ package com.xiaomi.push;
 public final class ja {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f41653a;
+    public final byte f41756a;
 
     /* renamed from: a  reason: collision with other field name */
     public final int f811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte f41654b;
+    public final byte f41757b;
 
     public ja() {
         this((byte) 0, (byte) 0, 0);
     }
 
     public ja(byte b2, byte b3, int i2) {
-        this.f41653a = b2;
-        this.f41654b = b3;
+        this.f41756a = b2;
+        this.f41757b = b3;
         this.f811a = i2;
     }
 }

@@ -5,27 +5,27 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import d.a.f0.a.l.c;
+import d.a.g0.a.l.c;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public abstract class AbsCountDownView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f10039e;
+    public long f10071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f10040f;
+    public b f10072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.f0.a.l.b f10041g;
+    public d.a.g0.a.l.b f10073g;
 
     /* loaded from: classes2.dex */
-    public class a extends d.a.f0.a.l.b {
+    public class a extends d.a.g0.a.l.b {
         public a() {
         }
 
-        @Override // d.a.f0.a.l.b
+        @Override // d.a.g0.a.l.b
         public Object b() {
             AbsCountDownView.this.d();
             return null;
@@ -44,8 +44,8 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public final void a() {
-        this.f10041g = new a();
-        c.a().d(this.f10041g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+        this.f10073g = new a();
+        c.a().d(this.f10073g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
     }
 
     public void b() {
@@ -54,10 +54,10 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        d.a.f0.a.l.b bVar = this.f10041g;
+        d.a.g0.a.l.b bVar = this.f10073g;
         if (bVar != null) {
             bVar.cancel();
-            this.f10041g = null;
+            this.f10073g = null;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public long getTaskPeriod() {
-        long j = this.f10039e;
+        long j = this.f10071e;
         if (j == 0) {
             return 100L;
         }
@@ -75,11 +75,11 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void setCountdownProgressListener(b bVar) {
-        this.f10040f = bVar;
+        this.f10072f = bVar;
     }
 
     public void setTaskPeriod(long j) {
-        this.f10039e = j;
+        this.f10071e = j;
     }
 
     public abstract void setTimeMillis(long j);

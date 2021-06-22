@@ -13,23 +13,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.m0.r.f0.m.a;
-import d.a.m0.r.q.a2;
-import d.a.n0.e2.k.e.q0;
+import d.a.n0.r.f0.m.a;
+import d.a.n0.r.q.a2;
+import d.a.o0.e2.k.e.q0;
 /* loaded from: classes5.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f19577e;
+    public HeadImageView f19659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbVideoFullscreenLikeBtn f19578f;
+    public PbVideoFullscreenLikeBtn f19660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public q0 f19579g;
+    public q0 f19661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f19580h;
+    public BdUniqueId f19662h;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
         super(context);
@@ -47,19 +47,19 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public boolean b() {
-        q0 q0Var = this.f19579g;
-        return (q0Var == null || q0Var.j() == null || !this.f19579g.j().getIsLike()) ? false : true;
+        q0 q0Var = this.f19661g;
+        return (q0Var == null || q0Var.j() == null || !this.f19661g.j().getIsLike()) ? false : true;
     }
 
     public final void c(Context context) {
         FrameLayout.inflate(context, R.layout.pb_video_attention, this);
-        this.f19577e = (HeadImageView) findViewById(R.id.attention_img);
-        this.f19578f = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.f19577e.setIsRound(true);
-        this.f19577e.setBorderWidth(l.g(context, R.dimen.tbds3));
-        this.f19577e.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-        this.f19577e.setAutoChangeStyle(false);
-        this.f19578f.setConfig(new a());
+        this.f19659e = (HeadImageView) findViewById(R.id.attention_img);
+        this.f19660f = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.f19659e.setIsRound(true);
+        this.f19659e.setBorderWidth(l.g(context, R.dimen.tbds3));
+        this.f19659e.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+        this.f19659e.setAutoChangeStyle(false);
+        this.f19660f.setConfig(new a());
     }
 
     public void d(a2 a2Var) {
@@ -68,19 +68,19 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String str = a2Var.A;
         int a2 = a(a2Var);
-        if (this.f19579g == null) {
+        if (this.f19661g == null) {
             if (!(getContext() instanceof PbActivity)) {
                 return;
             }
-            q0 q0Var = new q0(((PbActivity) getContext()).getPageContext(), this.f19578f, -1);
-            this.f19579g = q0Var;
+            q0 q0Var = new q0(((PbActivity) getContext()).getPageContext(), this.f19660f, -1);
+            this.f19661g = q0Var;
             q0Var.m("11");
-            this.f19579g.l(this.f19580h);
+            this.f19661g.l(this.f19662h);
         }
-        this.f19579g.n(a2Var.T());
-        this.f19579g.w(str);
-        this.f19579g.u(a2Var);
-        q0 q0Var2 = this.f19579g;
+        this.f19661g.n(a2Var.T());
+        this.f19661g.w(str);
+        this.f19661g.u(a2Var);
+        q0 q0Var2 = this.f19661g;
         q0Var2.s = true;
         q0Var2.v(a2);
     }
@@ -91,28 +91,28 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(a2Var.T().getAvater());
         if (headPortraitFilter.startsWith("http")) {
-            this.f19577e.U(headPortraitFilter, 10, false);
+            this.f19659e.U(headPortraitFilter, 10, false);
         } else {
-            this.f19577e.U(headPortraitFilter, 25, false);
+            this.f19659e.U(headPortraitFilter, 25, false);
         }
         if (a2Var.T().getBaijiahaoInfo() != null && a2Var.T().getBaijiahaoInfo().auth_id.intValue() > 0) {
-            this.f19577e.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(a2Var.T().getBaijiahaoInfo().auth_id.intValue(), 1));
-            this.f19577e.setShowV(true);
-            this.f19577e.setGodIconWidth(R.dimen.tbds31);
+            this.f19659e.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(a2Var.T().getBaijiahaoInfo().auth_id.intValue(), 1));
+            this.f19659e.setShowV(true);
+            this.f19659e.setGodIconWidth(R.dimen.tbds31);
         } else {
-            this.f19577e.setBjhAuthIconRes(0);
-            this.f19577e.setIsBigV(a2Var.T().isBigV());
-            this.f19577e.setShowV(a2Var.T().isBigV());
+            this.f19659e.setBjhAuthIconRes(0);
+            this.f19659e.setIsBigV(a2Var.T().isBigV());
+            this.f19659e.setShowV(a2Var.T().isBigV());
         }
         d(a2Var);
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.f19578f.setOnclickEvent(onClickListener);
+        this.f19660f.setOnclickEvent(onClickListener);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.f19580h = bdUniqueId;
+        this.f19662h = bdUniqueId;
     }
 
     public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet) {

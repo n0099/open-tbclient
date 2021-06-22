@@ -8,17 +8,17 @@ import org.json.JSONException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26777a;
+    public String f26859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f26778b = new HashSet<>();
+    public HashSet<String> f26860b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f26779c = new HashSet<>();
+    public HashSet<String> f26861c = new HashSet<>();
 
     public c(String str) {
-        this.f26777a = "full";
-        this.f26777a = str;
+        this.f26859a = "full";
+        this.f26859a = str;
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -28,7 +28,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26778b.add(string);
+                this.f26860b.add(string);
             }
         }
     }
@@ -40,7 +40,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26779c.add(string);
+                this.f26861c.add(string);
             }
         }
     }

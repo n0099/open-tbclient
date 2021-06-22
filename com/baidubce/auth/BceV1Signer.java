@@ -20,7 +20,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BceV1Signer implements Signer {
     public static final Set<String> defaultHeadersToSign;
 

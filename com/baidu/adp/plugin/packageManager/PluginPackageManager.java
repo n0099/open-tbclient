@@ -688,7 +688,7 @@ public class PluginPackageManager {
             if (bdFileDownloadData == null || (h2 = d.a.c.h.j.g.d.k().h((id = bdFileDownloadData.getId()))) == null) {
                 return;
             }
-            d.a.c.h.j.g.d.k().y(id, d.a.c.h.j.g.b.f42804a);
+            d.a.c.h.j.g.d.k().y(id, d.a.c.h.j.g.b.f42907a);
             if (this.f2243a.containsKey(id)) {
                 long currentTimeMillis = System.currentTimeMillis() - this.f2243a.get(id).longValue();
                 d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
@@ -844,7 +844,7 @@ public class PluginPackageManager {
         if (TextUtils.isEmpty(str) || (h2 = d.a.c.h.j.g.d.k().h(str)) == null) {
             return;
         }
-        if (h2.installStatus == d.a.c.h.j.g.b.f42805b && TextUtils.isEmpty(str2)) {
+        if (h2.installStatus == d.a.c.h.j.g.b.f42908b && TextUtils.isEmpty(str2)) {
             d.a.c.h.h.a.b().q("plugin_del_unuse", "server forbidden", str);
             F(str);
         } else if (!TextUtils.isEmpty(h2.getAbandon_apk_path())) {
@@ -1214,7 +1214,7 @@ public class PluginPackageManager {
             for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                 if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName) && (!pluginSetting.isPatch || !TextUtils.isEmpty(pluginSetting.replaceMethodClasses))) {
                     if (!pluginSetting.isPatch || this.k <= 0) {
-                        if (pluginSetting.enable && pluginSetting.installStatus != d.a.c.h.j.g.b.f42805b) {
+                        if (pluginSetting.enable && pluginSetting.installStatus != d.a.c.h.j.g.b.f42908b) {
                             d.a.c.h.h.b.e("PluginPackageManager_loadPlugin", pluginSetting.packageName + "_launch");
                             if (!this.f2226e || "com.baidu.tieba.pluginCore".equals(pluginSetting.packageName) || "com.baidu.tieba.pluginExtend".equals(pluginSetting.packageName)) {
                                 Plugin.c launch = PluginCenter.getInstance().launch(pluginSetting.packageName);
@@ -1332,7 +1332,7 @@ public class PluginPackageManager {
             h2.enable = false;
             h2.packageName = pluginConfig.package_name;
         }
-        if (h2.installStatus == d.a.c.h.j.g.b.f42804a) {
+        if (h2.installStatus == d.a.c.h.j.g.b.f42907a) {
             String l = Util.l(h2);
             if (!new File(l).exists() && this.f2224c) {
                 d.a.c.h.h.a.b().o("plugin_install", "download_suc_file_not_exist", pluginConfig.package_name, l);
@@ -1354,7 +1354,7 @@ public class PluginPackageManager {
         if (pluginConfig.forbidden == 1) {
             d.a.c.h.h.a.b().o("plugin_setting", "server_forbidden_plugin", pluginConfig.package_name, null);
             d.a.c.h.j.g.d.k().z(pluginConfig.package_name, false);
-            d.a.c.h.j.g.d.k().y(pluginConfig.package_name, d.a.c.h.j.g.b.f42805b);
+            d.a.c.h.j.g.d.k().y(pluginConfig.package_name, d.a.c.h.j.g.b.f42908b);
         } else {
             PluginNetConfigInfos.Newest newest = pluginConfig.newest;
             if (newest != null && newest.version_code < u && this.f2224c) {
@@ -1374,10 +1374,10 @@ public class PluginPackageManager {
                         h2.installStatus = 0;
                         h2.size = newest2.size;
                         int i5 = newest2.download_type;
-                        if (i5 == d.a.c.h.j.g.a.f42802a) {
-                            h2.installStatus = d.a.c.h.j.g.b.f42806c;
-                        } else if (i5 == d.a.c.h.j.g.a.f42803b) {
-                            h2.installStatus = d.a.c.h.j.g.b.f42807d;
+                        if (i5 == d.a.c.h.j.g.a.f42905a) {
+                            h2.installStatus = d.a.c.h.j.g.b.f42909c;
+                        } else if (i5 == d.a.c.h.j.g.a.f42906b) {
+                            h2.installStatus = d.a.c.h.j.g.b.f42910d;
                         }
                     } else if (h2.rollback > 0) {
                         h2.tempVersionCode = 0;
@@ -1422,7 +1422,7 @@ public class PluginPackageManager {
                         b4.o("plugin_setting", "server_disable_plugin_newestversionlow", str5, "up-" + str2 + "-config-" + pluginConfig.newest.version_code + "-set-" + h2.versionCode);
                     }
                     d.a.c.h.j.g.d.k().z(pluginConfig.package_name, false);
-                    d.a.c.h.j.g.d.k().y(pluginConfig.package_name, d.a.c.h.j.g.b.f42805b);
+                    d.a.c.h.j.g.d.k().y(pluginConfig.package_name, d.a.c.h.j.g.b.f42908b);
                 }
             } else {
                 if (h2.versionCode == 0) {
@@ -1439,10 +1439,10 @@ public class PluginPackageManager {
                     h2.installStatus = 0;
                     h2.size = newest3.size;
                     int i6 = newest3.download_type;
-                    if (i6 == d.a.c.h.j.g.a.f42802a) {
-                        h2.installStatus = d.a.c.h.j.g.b.f42806c;
-                    } else if (i6 == d.a.c.h.j.g.a.f42803b) {
-                        h2.installStatus = d.a.c.h.j.g.b.f42807d;
+                    if (i6 == d.a.c.h.j.g.a.f42905a) {
+                        h2.installStatus = d.a.c.h.j.g.b.f42909c;
+                    } else if (i6 == d.a.c.h.j.g.a.f42906b) {
+                        h2.installStatus = d.a.c.h.j.g.b.f42910d;
                     }
                 } else if (h2.rollback > 0) {
                     h2.tempVersionCode = 0;
@@ -1475,14 +1475,14 @@ public class PluginPackageManager {
             d.a.c.h.j.g.d.k().z(pluginSetting.packageName, false);
         }
         int i2 = pluginSetting.installStatus;
-        if (i2 != d.a.c.h.j.g.b.f42805b) {
+        if (i2 != d.a.c.h.j.g.b.f42908b) {
             int i3 = pluginSetting.versionCode;
             int i4 = pluginSetting.tempVersionCode;
             if (i3 < i4) {
-                if (i2 == d.a.c.h.j.g.b.f42804a) {
+                if (i2 == d.a.c.h.j.g.b.f42907a) {
                     X(Util.l(pluginSetting), pluginSetting.packageName, "install_from_setting");
                     return;
-                } else if ((i2 == d.a.c.h.j.g.b.f42807d && d.a.c.e.p.j.H()) || pluginSetting.installStatus == d.a.c.h.j.g.b.f42806c) {
+                } else if ((i2 == d.a.c.h.j.g.b.f42910d && d.a.c.e.p.j.H()) || pluginSetting.installStatus == d.a.c.h.j.g.b.f42909c) {
                     H(pluginSetting);
                     return;
                 } else {
@@ -1538,7 +1538,7 @@ public class PluginPackageManager {
         if (this.f2224c) {
             for (Map.Entry<String, PluginSetting> entry : d.a.c.h.j.g.d.k().l().getPlugins().entrySet()) {
                 PluginSetting value = entry.getValue();
-                if (value != null && (!TextUtils.isEmpty(value.getAbandon_apk_path()) || value.installStatus == d.a.c.h.j.g.b.f42805b)) {
+                if (value != null && (!TextUtils.isEmpty(value.getAbandon_apk_path()) || value.installStatus == d.a.c.h.j.g.b.f42908b)) {
                     Intent intent = new Intent("com.baidu.adp.plugin.currentpath");
                     Bundle bundle = new Bundle();
                     bundle.putString("package_name", value.packageName);

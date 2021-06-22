@@ -22,16 +22,16 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f68580a;
+    public static volatile int f68684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68581b;
+    public static String f68685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f68582c;
+    public static String f68686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f68583d;
+    public static boolean f68687d;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
@@ -44,11 +44,11 @@ public class c {
     public static void a(int i2, Map<String, String> map) {
         int i3;
         int j = e.b().j(i2);
-        if ((f68580a & j) == j) {
+        if ((f68684a & j) == j) {
             return;
         }
         do {
-            i3 = (f68580a ^ j) & j;
+            i3 = (f68684a ^ j) & j;
             if (i3 <= 0) {
                 break;
             }
@@ -57,8 +57,8 @@ public class c {
     }
 
     public static void b(Context context, String str) {
-        f68582c = str;
-        f68583d = Utils.t(context);
+        f68686c = str;
+        f68687d = Utils.t(context);
         e.b().f(context, str);
     }
 
@@ -75,7 +75,7 @@ public class c {
         } else {
             str = str3 + File.separator + Utils.f8039c + File.separator;
         }
-        if (f68583d) {
+        if (f68687d) {
             str = str + "remote" + File.separator;
         }
         Utils.f(str);
@@ -94,15 +94,15 @@ public class c {
 
     public static boolean d(int i2) {
         int j = e.b().j(i2);
-        return (f68580a & j) == j;
+        return (f68684a & j) == j;
     }
 
     public static boolean e(int i2, String str) {
-        if (f68583d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
+        if (f68687d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
             if (i2 != 512) {
                 System.load(str);
             } else {
-                String str2 = f68582c + File.separator + "model_video-sr_1.2";
+                String str2 = f68686c + File.separator + "model_video-sr_1.2";
                 String str3 = str2 + File.separator + "params.mlm";
                 if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
                     throw new FileNotFoundException("model_video-sr_1.2.zip");
@@ -116,7 +116,7 @@ public class c {
     }
 
     public static boolean f(String str) {
-        if (f68583d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
+        if (f68687d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
             Utils.m(str);
             return true;
         }
@@ -128,7 +128,7 @@ public class c {
     }
 
     public static String h() {
-        return f68581b;
+        return f68685b;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0045  */
@@ -166,7 +166,7 @@ public class c {
                 str = null;
                 i3 = 3;
             }
-            if (f68583d) {
+            if (f68687d) {
                 if ((i3 & 2) != 2) {
                     return false;
                 }
@@ -187,7 +187,7 @@ public class c {
                             str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                         } catch (Exception unused2) {
                         }
-                        if (f68583d) {
+                        if (f68687d) {
                             str4 = "4";
                         }
                         if (!file2.canExecute()) {
@@ -222,7 +222,7 @@ public class c {
     }
 
     public static boolean j(String str) {
-        if (f68583d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
+        if (f68687d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
             Utils.o(str);
             return true;
         }
@@ -230,7 +230,7 @@ public class c {
     }
 
     public static String k() {
-        return f68582c;
+        return f68686c;
     }
 
     public static boolean l(int i2, Map<String, String> map) {
@@ -272,7 +272,7 @@ public class c {
                 } else if (e.b().w(i2)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(j);
                 } else if (e.b().y(i2)) {
-                    f68581b = j;
+                    f68685b = j;
                 } else if (e.b().E(i2)) {
                     z = i(i2, map);
                 } else if (e.b().A(i2)) {
@@ -286,9 +286,9 @@ public class c {
             }
             z = true;
         }
-        f68580a = i2 | f68580a;
+        f68684a = i2 | f68684a;
         if (z) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f68583d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f68687d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j + " load success");
         }
         return true;
     }
@@ -304,20 +304,20 @@ public class c {
             return;
         }
         try {
-            String str = f68582c + File.separator + "config";
+            String str = f68686c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + CyberCfgManager.getInstance().getCfgValue("monitor_version", LibsInfoDef.CYBER_CODEC_MONITOR_VERSION) + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f68583d) {
+                if (!new File(str2).exists() && !f68687d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f68583d) {
+                if (f68687d) {
                     file.mkdirs();
                     if (z) {
-                        Utils.h(str2, f68583d);
+                        Utils.h(str2, f68687d);
                         return;
                     }
                     return;
@@ -341,20 +341,20 @@ public class c {
             return;
         }
         try {
-            String str = f68582c + File.separator + "config";
+            String str = f68686c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_NAME + "_" + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_VERSION + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f68583d) {
+                if (!new File(str2).exists() && !f68687d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f68583d) {
+                if (f68687d) {
                     file.mkdirs();
                     if (z) {
-                        DuplayerQualityMonitorManager.getInstance().init(str2, f68583d);
+                        DuplayerQualityMonitorManager.getInstance().init(str2, f68687d);
                         return;
                     }
                     return;

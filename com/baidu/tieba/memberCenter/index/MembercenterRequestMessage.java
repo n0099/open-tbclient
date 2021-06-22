@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.GetVipInfo.DataReq;
 import tbclient.GetVipInfo.GetVipInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MembercenterRequestMessage extends NetMessage {
     public MembercenterRequestMessage() {
         super(CmdConfigHttp.CMD_MEMBERCENTER_INDEX, 309062);

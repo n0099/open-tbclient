@@ -10,29 +10,29 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 /* loaded from: classes5.dex */
 public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public CardForumHeadLayout f19586e;
+    public CardForumHeadLayout f19668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a2 f19587f;
+    public a2 f19669f;
 
     public VideoPbEnterForumViewHolder(View view) {
         super(view);
         CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        this.f19586e = cardForumHeadLayout;
+        this.f19668e = cardForumHeadLayout;
         if (cardForumHeadLayout != null) {
             cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-            this.f19586e.setAfterClickListener(this);
+            this.f19668e.setAfterClickListener(this);
         }
     }
 
     public void b() {
-        this.f19586e.b();
-        CardForumHeadLayout cardForumHeadLayout = this.f19586e;
+        this.f19668e.b();
+        CardForumHeadLayout cardForumHeadLayout = this.f19668e;
         int g2 = l.g(this.itemView.getContext(), R.dimen.tbds10);
         int i2 = R.color.CAM_X0206;
         SkinManager.setBackgroundShapeDrawable(cardForumHeadLayout, g2, i2, i2);
@@ -40,13 +40,13 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f19587f != null) {
-            TiebaStatic.log(new StatisticItem("c13399").param("tid", this.f19587f.z1()).param("fid", this.f19587f.c0()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.f19587f.M0()));
+        if (this.f19669f != null) {
+            TiebaStatic.log(new StatisticItem("c13399").param("tid", this.f19669f.z1()).param("fid", this.f19669f.c0()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.f19669f.M0()));
         }
     }
 
     public void setData(a2 a2Var) {
-        this.f19587f = a2Var;
-        this.f19586e.setData(a2Var);
+        this.f19669f = a2Var;
+        this.f19668e.setData(a2Var);
     }
 }

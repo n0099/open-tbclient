@@ -6,7 +6,7 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
 /* loaded from: classes2.dex */
-public final class a implements a.InterfaceC0117a<c> {
+public final class a implements a.InterfaceC0118a<c> {
 
     /* renamed from: a  reason: collision with root package name */
     public final /* synthetic */ Context f7471a;
@@ -15,7 +15,7 @@ public final class a implements a.InterfaceC0117a<c> {
         this.f7471a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0117a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0118a
     public void a(HttpClient.HttpStateError httpStateError) {
         String str;
         int i2 = b.f7473b[httpStateError.ordinal()];
@@ -30,7 +30,7 @@ public final class a implements a.InterfaceC0117a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0117a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0118a
     public void a(c cVar) {
         String str;
         if (cVar == null) {

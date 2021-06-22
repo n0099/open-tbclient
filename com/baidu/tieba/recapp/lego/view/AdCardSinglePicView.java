@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.a.n0.t2.f0.b.c;
-import d.a.n0.t2.f0.c.a;
+import d.a.o0.t2.f0.b.c;
+import d.a.o0.t2.f0.c.a;
 /* loaded from: classes5.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    public XfremodeRoundLayout i0;
-    public TbImageView j0;
+    public XfremodeRoundLayout n0;
+    public TbImageView o0;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -34,8 +34,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
             L0(tbImageView, b2, i3);
             return true;
         }
-        int i4 = cVar.f64761e;
-        int i5 = cVar.f64760d;
+        int i4 = cVar.f64886e;
+        int i5 = cVar.f64885d;
         if (i3 > 0 && i4 > 0 && i5 > 0) {
             int i6 = (i4 * i3) / i5;
             if (i6 > i3) {
@@ -60,19 +60,19 @@ public class AdCardSinglePicView extends AdCardBaseView {
             layoutParams.height = i2;
             layoutParams.width = i3;
         }
-        this.i0.setLayoutParams(layoutParams);
+        this.n0.setLayoutParams(layoutParams);
         tbImageView.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public void d0(AdCard adCard) {
         c cVar = adCard.picInfo;
-        if (cVar != null && !d.a.n0.k1.o.k.a.e(cVar.f64759c)) {
-            String str = cVar.f64759c.get(0);
-            boolean K0 = K0(this.j0, adCard, cVar);
+        if (cVar != null && !d.a.o0.k1.o.k.a.e(cVar.f64884c)) {
+            String str = cVar.f64884c.get(0);
+            boolean K0 = K0(this.o0, adCard, cVar);
             if (!TextUtils.isEmpty(str) && K0) {
                 this.t.setVisibility(0);
-                this.j0.U(str, 17, false);
+                this.o0.U(str, 17, false);
                 return;
             }
             this.t.setVisibility(8);
@@ -97,10 +97,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         if (view instanceof XfremodeRoundLayout) {
             ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
         }
-        this.i0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.n0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-        this.j0 = tbImageView;
+        this.o0 = tbImageView;
         tbImageView.setPlaceHolder(3);
-        this.i0.setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
+        this.n0.setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
     }
 }

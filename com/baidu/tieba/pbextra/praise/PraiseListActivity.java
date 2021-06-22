@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
-import d.a.m0.z0.v;
-import d.a.n0.f2.c.a;
-import d.a.n0.f2.c.d;
-import d.a.n0.f2.c.e;
+import d.a.n0.z0.v;
+import d.a.o0.f2.c.a;
+import d.a.o0.f2.c.d;
+import d.a.o0.f2.c.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
@@ -98,7 +98,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // d.a.n0.f2.c.d.b
+    @Override // d.a.o0.f2.c.d.b
     public void onLoadFailed(String str) {
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
@@ -107,7 +107,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.mZanListView.k(str, this.pageType);
     }
 
-    @Override // d.a.n0.f2.c.d.b
+    @Override // d.a.o0.f2.c.d.b
     public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
         this.mZanListView.n(i2, list, i3, i4);
     }

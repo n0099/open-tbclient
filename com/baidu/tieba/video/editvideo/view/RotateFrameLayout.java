@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 public class RotateFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public PaintFlagsDrawFilter f21377e;
+    public PaintFlagsDrawFilter f21459e;
 
     public RotateFrameLayout(Context context) {
         this(context, null);
@@ -17,7 +17,7 @@ public class RotateFrameLayout extends FrameLayout {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.setDrawFilter(this.f21377e);
+        canvas.setDrawFilter(this.f21459e);
         super.onDraw(canvas);
     }
 
@@ -27,6 +27,6 @@ public class RotateFrameLayout extends FrameLayout {
 
     public RotateFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21377e = new PaintFlagsDrawFilter(0, 3);
+        this.f21459e = new PaintFlagsDrawFilter(0, 3);
     }
 }

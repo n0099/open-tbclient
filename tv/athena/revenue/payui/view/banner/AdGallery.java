@@ -16,19 +16,19 @@ import java.lang.ref.WeakReference;
 public class AdGallery extends Gallery implements View.OnTouchListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f72965e;
+    public final Handler f73069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72966f;
+    public int f73070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f72967g;
+    public boolean f73071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f72968h;
+    public boolean f73072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f72969i;
+    public boolean f73073i;
     public boolean j;
     public boolean k;
     public final BroadcastReceiver l;
@@ -56,34 +56,34 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<AdGallery> f72970a;
+        public WeakReference<AdGallery> f73074a;
 
         public b(AdGallery adGallery) {
-            this.f72970a = new WeakReference<>(adGallery);
+            this.f73074a = new WeakReference<>(adGallery);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            AdGallery adGallery = this.f72970a.get();
-            if (adGallery != null && message.what == 1 && adGallery.f72968h) {
+            AdGallery adGallery = this.f73074a.get();
+            if (adGallery != null && message.what == 1 && adGallery.f73072h) {
                 if (adGallery.getSelectedItemPosition() >= adGallery.getCount() - 1) {
                     adGallery.setSelection(0, true);
                     adGallery.onKeyDown(21, null);
                 } else {
                     adGallery.onKeyDown(22, null);
                 }
-                sendMessageDelayed(obtainMessage(1), adGallery.f72966f);
+                sendMessageDelayed(obtainMessage(1), adGallery.f73070f);
             }
         }
     }
 
     public AdGallery(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f72965e = new b(this);
-        this.f72966f = 10000;
-        this.f72967g = false;
-        this.f72968h = false;
-        this.f72969i = false;
+        this.f73069e = new b(this);
+        this.f73070f = 10000;
+        this.f73071g = false;
+        this.f73072h = false;
+        this.f73073i = false;
         this.j = false;
         this.k = true;
         this.l = new a();
@@ -109,7 +109,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");
-        getContext().registerReceiver(this.l, intentFilter, null, this.f72965e);
+        getContext().registerReceiver(this.l, intentFilter, null, this.f73069e);
         this.m = true;
         RLog.debug("AdGallery", "[onAttachedToWindow] mHasRegisterReceiver = " + this.m);
     }
@@ -119,12 +119,12 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     }
 
     public void k() {
-        this.f72969i = true;
+        this.f73073i = true;
         n();
     }
 
     public void l() {
-        this.f72969i = false;
+        this.f73073i = false;
         n();
     }
 
@@ -146,15 +146,15 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     }
 
     public final void o(boolean z) {
-        boolean z2 = this.j && this.f72969i && this.k;
-        if (z2 != this.f72968h) {
+        boolean z2 = this.j && this.f73073i && this.k;
+        if (z2 != this.f73072h) {
             if (z2) {
                 setSelection(getSelectedItemPosition(), z);
-                this.f72965e.sendMessageDelayed(this.f72965e.obtainMessage(1), this.f72966f);
+                this.f73069e.sendMessageDelayed(this.f73069e.obtainMessage(1), this.f73070f);
             } else {
-                this.f72965e.removeMessages(1);
+                this.f73069e.removeMessages(1);
             }
-            this.f72968h = z2;
+            this.f73072h = z2;
         }
     }
 
@@ -162,7 +162,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         i();
-        if (this.f72967g) {
+        if (this.f73071g) {
             k();
         }
     }
@@ -204,20 +204,20 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     }
 
     public void setAutoStart(boolean z) {
-        this.f72967g = z;
+        this.f73071g = z;
     }
 
     public void setFlipInterval(int i2) {
-        this.f72966f = i2;
+        this.f73070f = i2;
     }
 
     public AdGallery(Context context) {
         super(context);
-        this.f72965e = new b(this);
-        this.f72966f = 10000;
-        this.f72967g = false;
-        this.f72968h = false;
-        this.f72969i = false;
+        this.f73069e = new b(this);
+        this.f73070f = 10000;
+        this.f73071g = false;
+        this.f73072h = false;
+        this.f73073i = false;
         this.j = false;
         this.k = true;
         this.l = new a();
@@ -227,11 +227,11 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
 
     public AdGallery(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f72965e = new b(this);
-        this.f72966f = 10000;
-        this.f72967g = false;
-        this.f72968h = false;
-        this.f72969i = false;
+        this.f73069e = new b(this);
+        this.f73070f = 10000;
+        this.f73071g = false;
+        this.f73072h = false;
+        this.f73073i = false;
         this.j = false;
         this.k = true;
         this.l = new a();

@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.sampleentry;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -11,13 +12,13 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class AmrSpecificBox extends AbstractBox {
     public static final String TYPE = "damr";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_6 = null;
     public int decoderVersion;
     public int framesPerSample;
     public int modeChangePeriod;
@@ -96,6 +97,6 @@ public class AmrSpecificBox extends AbstractBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_6, this, this));
-        return "AmrSpecificBox[vendor=" + getVendor() + ";decoderVersion=" + getDecoderVersion() + ";modeSet=" + getModeSet() + ";modeChangePeriod=" + getModeChangePeriod() + ";framesPerSample=" + getFramesPerSample() + "]";
+        return "AmrSpecificBox[vendor=" + getVendor() + ";decoderVersion=" + getDecoderVersion() + ";modeSet=" + getModeSet() + ";modeChangePeriod=" + getModeChangePeriod() + ";framesPerSample=" + getFramesPerSample() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

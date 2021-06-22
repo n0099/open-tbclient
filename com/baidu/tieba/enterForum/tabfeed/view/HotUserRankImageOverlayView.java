@@ -17,19 +17,19 @@ import java.util.List;
 public class HotUserRankImageOverlayView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14620e;
+    public int f14702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14621f;
+    public int f14703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14622g;
+    public int f14704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14623h;
+    public int f14705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14624i;
+    public int f14706i;
     public int j;
     public ImageOverlayView.a k;
     public int l;
@@ -47,19 +47,19 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void a(int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.f14620e = i2;
-        this.f14621f = i3;
-        this.f14622g = i4;
-        this.f14623h = i5;
-        this.f14624i = i6;
+        this.f14702e = i2;
+        this.f14703f = i3;
+        this.f14704g = i4;
+        this.f14705h = i5;
+        this.f14706i = i6;
         this.j = i7;
         b();
     }
 
     public final void b() {
-        for (int i2 = 0; i2 < this.f14620e; i2++) {
+        for (int i2 = 0; i2 < this.f14702e; i2++) {
             HeadImageView headImageView = new HeadImageView(getContext());
-            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f14621f, this.f14622g));
+            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f14703f, this.f14704g));
             headImageView.setIsRound(true);
             headImageView.setBorderSurroundContent(true);
             headImageView.setDrawBorder(true);
@@ -79,7 +79,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void d() {
-        this.n.setColor(SkinManager.getColor(this.f14624i));
+        this.n.setColor(SkinManager.getColor(this.f14706i));
         for (int i2 = 0; i2 < getChildCount(); i2++) {
             View childAt = getChildAt(i2);
             if (childAt instanceof HeadImageView) {
@@ -91,15 +91,15 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        this.n.setColor(SkinManager.getColor(this.f14624i));
-        this.n.setStrokeWidth(this.f14623h);
+        this.n.setColor(SkinManager.getColor(this.f14706i));
+        this.n.setStrokeWidth(this.f14705h);
         int i2 = this.o;
         if (i2 <= 0) {
-            i2 = this.f14624i;
+            i2 = this.f14706i;
         }
         this.o = i2;
-        float f2 = this.f14623h * 0.5f;
-        float f3 = this.f14621f / 2.0f;
+        float f2 = this.f14705h * 0.5f;
+        float f3 = this.f14703f / 2.0f;
         float acos = ((float) ((Math.acos((((f3 * 2.0f) - this.j) / 2.0f) / f3) / 3.141592653589793d) * 180.0d)) - 180.0f;
         float abs = Math.abs(2.0f * acos);
         int i3 = 0;
@@ -114,7 +114,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
                 if (i3 == childCount) {
                     this.n.setColor(SkinManager.getColor(this.o));
                 } else {
-                    this.n.setColor(SkinManager.getColor(this.f14624i));
+                    this.n.setColor(SkinManager.getColor(this.f14706i));
                 }
                 canvas.drawArc(left, top, right, bottom, i3 == childCount ? 0.0f : acos, i3 == childCount ? 360.0f : abs, false, this.n);
             }
@@ -125,23 +125,23 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         View childAt;
-        int paddingLeft = getPaddingLeft() + ((this.f14620e - 1) * (this.f14621f - this.j)) + this.f14623h;
-        int paddingTop = getPaddingTop() + this.f14623h;
-        for (int i6 = 0; i6 < this.f14620e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-            childAt.layout(paddingLeft, paddingTop, this.f14621f + paddingLeft, this.f14622g + paddingTop);
-            paddingLeft -= this.f14621f - this.j;
+        int paddingLeft = getPaddingLeft() + ((this.f14702e - 1) * (this.f14703f - this.j)) + this.f14705h;
+        int paddingTop = getPaddingTop() + this.f14705h;
+        for (int i6 = 0; i6 < this.f14702e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+            childAt.layout(paddingLeft, paddingTop, this.f14703f + paddingLeft, this.f14704g + paddingTop);
+            paddingLeft -= this.f14703f - this.j;
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        int i4 = this.f14623h;
+        int i4 = this.f14705h;
         if (this.p == 1) {
             i4 *= 2;
         }
         int paddingLeft = getPaddingLeft() + getPaddingRight() + i4;
-        int i5 = this.f14620e;
-        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f14621f * i5)) - ((i5 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f14622g + (this.f14623h * 2), i3));
+        int i5 = this.f14702e;
+        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f14703f * i5)) - ((i5 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f14704g + (this.f14705h * 2), i3));
     }
 
     public void setData(List<String> list) {
@@ -150,7 +150,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i2 = this.f14620e - 1; i2 >= 0; i2--) {
+        for (int i2 = this.f14702e - 1; i2 >= 0; i2--) {
             HeadImageView headImageView = (HeadImageView) getChildAt(i2);
             if (headImageView == null) {
                 return;
@@ -167,9 +167,9 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             } else {
                 headImageView.setVisibility(0);
                 if (this.l == 12) {
-                    headImageView.R(str, 12, this.f14621f, this.f14622g, false);
+                    headImageView.R(str, 12, this.f14703f, this.f14704g, false);
                 } else {
-                    headImageView.R(str, 10, this.f14621f, this.f14622g, false);
+                    headImageView.R(str, 10, this.f14703f, this.f14704g, false);
                 }
             }
         }

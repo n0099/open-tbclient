@@ -10,21 +10,21 @@ import com.baidu.tieba.hottopic.message.RequestHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import d.a.c.e.p.l;
-import d.a.m0.r.k;
-import d.a.n0.d1.c.e;
+import d.a.n0.r.k;
+import d.a.o0.d1.c.e;
 /* loaded from: classes4.dex */
 public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f16833e;
+    public BaseActivity<?> f16915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16834f;
+    public b f16916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16835g;
+    public d.a.c.c.g.a f16917g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -43,9 +43,9 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    HotTopicModel.this.f16833e.showToast(responsedMessage.getErrorString());
+                    HotTopicModel.this.f16915e.showToast(responsedMessage.getErrorString());
                 }
-                HotTopicModel.this.f16834f.hotTopicDataCallback(false, null);
+                HotTopicModel.this.f16916f.hotTopicDataCallback(false, null);
             }
         }
     }
@@ -57,10 +57,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
 
     public HotTopicModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.f16834f = null;
+        this.f16916f = null;
         a aVar = new a(CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f16835g = aVar;
-        this.f16833e = baseActivity;
+        this.f16917g = aVar;
+        this.f16915e = baseActivity;
         registerListener(aVar);
     }
 
@@ -84,7 +84,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f16834f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f16916f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j, String str, int i2, long j2, String str2, String str3, String str4, long j3) {
@@ -115,7 +115,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     public void C(b bVar) {
-        this.f16834f = bVar;
+        this.f16916f = bVar;
     }
 
     public final int D(String str) {

@@ -22,33 +22,33 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30329a;
+        public String f30411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30330b;
+        public String f30412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30331c;
+        public String f30413c;
 
         public a(String str, String str2, String str3) {
-            this.f30329a = str;
-            this.f30330b = str2;
-            this.f30331c = str3;
+            this.f30411a = str;
+            this.f30412b = str2;
+            this.f30413c = str3;
         }
 
         public boolean equals(Object obj) {
             String str;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                String str2 = this.f30329a;
-                return str2 != null && str2.equals(aVar.f30329a) && (str = this.f30331c) != null && str.equals(aVar.f30331c);
+                String str2 = this.f30411a;
+                return str2 != null && str2.equals(aVar.f30411a) && (str = this.f30413c) != null && str.equals(aVar.f30413c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f30329a + " name=\"" + this.f30330b + "\" path=\"" + this.f30331c + "\" />";
+                return "<" + this.f30411a + " name=\"" + this.f30412b + "\" path=\"" + this.f30413c + "\" />";
             } catch (Throwable unused) {
                 return super.toString();
             }

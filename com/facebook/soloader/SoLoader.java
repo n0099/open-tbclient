@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -157,7 +158,7 @@ public class SoLoader {
                     z = false;
                 }
                 if (SYSTRACE_LIBRARY_LOADING) {
-                    Api18TraceUtils.beginTraceSection("SoLoader.loadLibrary[" + str + "]");
+                    Api18TraceUtils.beginTraceSection("SoLoader.loadLibrary[" + str + PreferencesUtil.RIGHT_MOUNT);
                 }
                 int i3 = 0;
                 do {
@@ -692,7 +693,7 @@ public class SoLoader {
                     }
                     if (str3 != null && !z2) {
                         if (SYSTRACE_LIBRARY_LOADING) {
-                            Api18TraceUtils.beginTraceSection("MergedSoMapping.invokeJniOnload[" + str2 + "]");
+                            Api18TraceUtils.beginTraceSection("MergedSoMapping.invokeJniOnload[" + str2 + PreferencesUtil.RIGHT_MOUNT);
                         }
                         Log.d("SoLoader", "About to merge: " + str2 + " / " + str);
                         MergedSoMapping.invokeJniOnload(str2);

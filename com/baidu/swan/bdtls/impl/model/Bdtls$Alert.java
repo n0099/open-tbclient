@@ -41,13 +41,13 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Alert, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11507e;
+        public int f11589e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f11508f;
+        public int f11590f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f11509g = ByteString.EMPTY;
+        public ByteString f11591g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         /* renamed from: n */
         public Bdtls$Alert buildPartial() {
             Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this);
-            int i2 = this.f11507e;
+            int i2 = this.f11589e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            bdtls$Alert.level_ = this.f11508f;
+            bdtls$Alert.level_ = this.f11590f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            bdtls$Alert.description_ = this.f11509g;
+            bdtls$Alert.description_ = this.f11591g;
             bdtls$Alert.bitField0_ = i3;
             return bdtls$Alert;
         }
 
         public b o() {
             super.clear();
-            this.f11508f = 0;
-            int i2 = this.f11507e & (-2);
-            this.f11507e = i2;
-            this.f11509g = ByteString.EMPTY;
-            this.f11507e = i2 & (-3);
+            this.f11590f = 0;
+            int i2 = this.f11589e & (-2);
+            this.f11589e = i2;
+            this.f11591g = ByteString.EMPTY;
+            this.f11589e = i2 & (-3);
             return this;
         }
 
@@ -131,11 +131,11 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
 
         public boolean s() {
-            return (this.f11507e & 2) == 2;
+            return (this.f11589e & 2) == 2;
         }
 
         public boolean t() {
-            return (this.f11507e & 1) == 1;
+            return (this.f11589e & 1) == 1;
         }
 
         public b u(Bdtls$Alert bdtls$Alert) {
@@ -187,16 +187,16 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
 
         public b w(ByteString byteString) {
             if (byteString != null) {
-                this.f11507e |= 2;
-                this.f11509g = byteString;
+                this.f11589e |= 2;
+                this.f11591g = byteString;
                 return this;
             }
             throw null;
         }
 
         public b x(int i2) {
-            this.f11507e |= 1;
-            this.f11508f = i2;
+            this.f11589e |= 1;
+            this.f11590f = i2;
             return this;
         }
 

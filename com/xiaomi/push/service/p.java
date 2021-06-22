@@ -16,7 +16,7 @@ public class p {
     public static final Map<String, byte[]> f965a = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f41840a = new ArrayList<>();
+    public static ArrayList<Pair<String, byte[]>> f41943a = new ArrayList<>();
 
     public static void a(Context context, int i2, String str) {
         synchronized (f965a) {
@@ -59,9 +59,9 @@ public class p {
     public static void b(XMPushService xMPushService) {
         ArrayList<Pair<String, byte[]>> arrayList;
         try {
-            synchronized (f41840a) {
-                arrayList = f41840a;
-                f41840a = new ArrayList<>();
+            synchronized (f41943a) {
+                arrayList = f41943a;
+                f41943a = new ArrayList<>();
             }
             boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
             Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -82,10 +82,10 @@ public class p {
     }
 
     public static void b(String str, byte[] bArr) {
-        synchronized (f41840a) {
-            f41840a.add(new Pair<>(str, bArr));
-            if (f41840a.size() > 50) {
-                f41840a.remove(0);
+        synchronized (f41943a) {
+            f41943a.add(new Pair<>(str, bArr));
+            if (f41943a.size() > 50) {
+                f41943a.remove(0);
             }
         }
     }

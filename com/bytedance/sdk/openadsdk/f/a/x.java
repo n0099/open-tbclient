@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29244a;
+    public static boolean f29326a;
 
     public static String a() {
         return "";
@@ -15,7 +15,7 @@ public class x {
     public static String a(@Nullable Throwable th) {
         StringBuilder sb = new StringBuilder();
         sb.append("{\"code\":");
-        sb.append(th instanceof r ? ((r) th).f29212a : 0);
+        sb.append(th instanceof r ? ((r) th).f29294a : 0);
         sb.append("}");
         return sb.toString();
     }
@@ -24,7 +24,7 @@ public class x {
         if (TextUtils.isEmpty(str)) {
             return "{\"code\":1}";
         }
-        String substring = f29244a ? str.substring(1, str.length() - 1) : "";
+        String substring = f29326a ? str.substring(1, str.length() - 1) : "";
         String str2 = "{\"code\":1,\"__data\":" + str;
         if (!substring.isEmpty()) {
             return str2 + "," + substring + "}";
@@ -33,6 +33,6 @@ public class x {
     }
 
     public static void a(boolean z) {
-        f29244a = z;
+        f29326a = z;
     }
 }

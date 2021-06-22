@@ -28,18 +28,18 @@ import java.util.Set;
 public class f extends Drawable implements Animatable, Drawable.Callback {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31933c = f.class.getSimpleName();
+    public static final String f32031c = f.class.getSimpleName();
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public com.ksad.lottie.a f31934a;
+    public com.ksad.lottie.a f32032a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public m f31935b;
+    public m f32033b;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f31937e;
+    public d f32035e;
     @Nullable
     public com.ksad.lottie.b.b j;
     @Nullable
@@ -54,19 +54,19 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     public boolean q;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Matrix f31936d = new Matrix();
+    public final Matrix f32034d = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.d.c f31938f = new com.ksad.lottie.d.c();
+    public final com.ksad.lottie.d.c f32036f = new com.ksad.lottie.d.c();
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31939g = 1.0f;
+    public float f32037g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<Object> f31940h = new HashSet();
+    public final Set<Object> f32038h = new HashSet();
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<a> f31941i = new ArrayList<>();
+    public final ArrayList<a> f32039i = new ArrayList<>();
     public int p = 255;
 
     /* loaded from: classes6.dex */
@@ -75,30 +75,30 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public f() {
-        this.f31938f.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.ksad.lottie.f.1
+        this.f32036f.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.ksad.lottie.f.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (f.this.o != null) {
-                    f.this.o.a(f.this.f31938f.d());
+                    f.this.o.a(f.this.f32036f.d());
                 }
             }
         });
     }
 
     private float a(@NonNull Canvas canvas) {
-        return Math.min(canvas.getWidth() / this.f31937e.b().width(), canvas.getHeight() / this.f31937e.b().height());
+        return Math.min(canvas.getWidth() / this.f32035e.b().width(), canvas.getHeight() / this.f32035e.b().height());
     }
 
     private void u() {
-        this.o = new com.ksad.lottie.model.layer.b(this, s.a(this.f31937e), this.f31937e.g(), this.f31937e);
+        this.o = new com.ksad.lottie.model.layer.b(this, s.a(this.f32035e), this.f32035e.g(), this.f32035e);
     }
 
     private void v() {
-        if (this.f31937e == null) {
+        if (this.f32035e == null) {
             return;
         }
         float q = q();
-        setBounds(0, 0, (int) (this.f31937e.b().width() * q), (int) (this.f31937e.b().height() * q));
+        setBounds(0, 0, (int) (this.f32035e.b().width() * q), (int) (this.f32035e.b().height() * q));
     }
 
     private com.ksad.lottie.b.b w() {
@@ -111,7 +111,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             this.j = null;
         }
         if (this.j == null) {
-            this.j = new com.ksad.lottie.b.b(getCallback(), this.k, this.l, this.f31937e.j());
+            this.j = new com.ksad.lottie.b.b(getCallback(), this.k, this.l, this.f32035e.j());
         }
         return this.j;
     }
@@ -121,7 +121,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return null;
         }
         if (this.m == null) {
-            this.m = new com.ksad.lottie.b.a(getCallback(), this.f31934a);
+            this.m = new com.ksad.lottie.b.a(getCallback(), this.f32032a);
         }
         return this.m;
     }
@@ -145,38 +145,38 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(final float f2) {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.6
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.6
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar2) {
                     f.this.a(f2);
                 }
             });
         } else {
-            a((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31937e.e(), f2));
+            a((int) com.ksad.lottie.d.e.a(dVar.d(), this.f32035e.e(), f2));
         }
     }
 
     public void a(final int i2) {
-        if (this.f31937e == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.5
+        if (this.f32035e == null) {
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.5
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
                     f.this.a(i2);
                 }
             });
         } else {
-            this.f31938f.b(i2);
+            this.f32036f.b(i2);
         }
     }
 
     public void a(Animator.AnimatorListener animatorListener) {
-        this.f31938f.addListener(animatorListener);
+        this.f32036f.addListener(animatorListener);
     }
 
     public void a(com.ksad.lottie.a aVar) {
-        this.f31934a = aVar;
+        this.f32032a = aVar;
         com.ksad.lottie.b.a aVar2 = this.m;
         if (aVar2 != null) {
             aVar2.a(aVar);
@@ -192,7 +192,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(m mVar) {
-        this.f31935b = mVar;
+        this.f32033b = mVar;
     }
 
     public void a(@Nullable String str) {
@@ -204,11 +204,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return;
         }
         if (Build.VERSION.SDK_INT < 19) {
-            Log.w(f31933c, "Merge paths are not supported pre-Kit Kat.");
+            Log.w(f32031c, "Merge paths are not supported pre-Kit Kat.");
             return;
         }
         this.n = z;
-        if (this.f31937e != null) {
+        if (this.f32035e != null) {
             u();
         }
     }
@@ -218,22 +218,22 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public boolean a(d dVar) {
-        if (this.f31937e == dVar) {
+        if (this.f32035e == dVar) {
             return false;
         }
         e();
-        this.f31937e = dVar;
+        this.f32035e = dVar;
         u();
-        this.f31938f.a(dVar);
-        d(this.f31938f.getAnimatedFraction());
-        e(this.f31939g);
+        this.f32036f.a(dVar);
+        d(this.f32036f.getAnimatedFraction());
+        e(this.f32037g);
         v();
-        Iterator it = new ArrayList(this.f31941i).iterator();
+        Iterator it = new ArrayList(this.f32039i).iterator();
         while (it.hasNext()) {
             ((a) it.next()).a(dVar);
             it.remove();
         }
-        this.f31941i.clear();
+        this.f32039i.clear();
         dVar.a(this.q);
         return true;
     }
@@ -253,39 +253,39 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void b(@FloatRange(from = 0.0d, to = 1.0d) final float f2) {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.8
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.8
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar2) {
                     f.this.b(f2);
                 }
             });
         } else {
-            b((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31937e.e(), f2));
+            b((int) com.ksad.lottie.d.e.a(dVar.d(), this.f32035e.e(), f2));
         }
     }
 
     public void b(final int i2) {
-        if (this.f31937e == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.7
+        if (this.f32035e == null) {
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.7
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
                     f.this.b(i2);
                 }
             });
         } else {
-            this.f31938f.c(i2);
+            this.f32036f.c(i2);
         }
     }
 
     public void b(Animator.AnimatorListener animatorListener) {
-        this.f31938f.removeListener(animatorListener);
+        this.f32036f.removeListener(animatorListener);
     }
 
     public void b(boolean z) {
         this.q = z;
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar != null) {
             dVar.a(z);
         }
@@ -299,25 +299,25 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void c(float f2) {
-        this.f31938f.a(f2);
+        this.f32036f.a(f2);
     }
 
     public void c(final int i2) {
-        if (this.f31937e == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.2
+        if (this.f32035e == null) {
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.2
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
                     f.this.c(i2);
                 }
             });
         } else {
-            this.f31938f.a(i2);
+            this.f32036f.a(i2);
         }
     }
 
     @Nullable
     public l d() {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar != null) {
             return dVar.a();
         }
@@ -325,21 +325,21 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void d(@FloatRange(from = 0.0d, to = 1.0d) final float f2) {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.3
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.3
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar2) {
                     f.this.d(f2);
                 }
             });
         } else {
-            c((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31937e.e(), f2));
+            c((int) com.ksad.lottie.d.e.a(dVar.d(), this.f32035e.e(), f2));
         }
     }
 
     public void d(int i2) {
-        this.f31938f.setRepeatMode(i2);
+        this.f32036f.setRepeatMode(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -349,10 +349,10 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
         if (this.o == null) {
             return;
         }
-        float f3 = this.f31939g;
+        float f3 = this.f32037g;
         float a2 = a(canvas);
         if (f3 > a2) {
-            f2 = this.f31939g / a2;
+            f2 = this.f32037g / a2;
         } else {
             a2 = f3;
             f2 = 1.0f;
@@ -360,16 +360,16 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
         int i2 = (f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1));
         if (i2 > 0) {
             canvas.save();
-            float width = this.f31937e.b().width() / 2.0f;
-            float height = this.f31937e.b().height() / 2.0f;
+            float width = this.f32035e.b().width() / 2.0f;
+            float height = this.f32035e.b().height() / 2.0f;
             float f4 = width * a2;
             float f5 = height * a2;
             canvas.translate((q() * width) - f4, (q() * height) - f5);
             canvas.scale(f2, f2, f4, f5);
         }
-        this.f31936d.reset();
-        this.f31936d.preScale(a2, a2);
-        this.o.a(canvas, this.f31936d, this.p);
+        this.f32034d.reset();
+        this.f32034d.preScale(a2, a2);
+        this.o.a(canvas, this.f32034d, this.p);
         c.d("Drawable#draw");
         if (i2 > 0) {
             canvas.restore();
@@ -378,43 +378,43 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     public void e() {
         c();
-        if (this.f31938f.isRunning()) {
-            this.f31938f.cancel();
+        if (this.f32036f.isRunning()) {
+            this.f32036f.cancel();
         }
-        this.f31937e = null;
+        this.f32035e = null;
         this.o = null;
         this.j = null;
-        this.f31938f.f();
+        this.f32036f.f();
         invalidateSelf();
     }
 
     public void e(float f2) {
-        this.f31939g = f2;
+        this.f32037g = f2;
         v();
     }
 
     public void e(int i2) {
-        this.f31938f.setRepeatCount(i2);
+        this.f32036f.setRepeatCount(i2);
     }
 
     @MainThread
     public void f() {
         if (this.o == null) {
-            this.f31941i.add(new a() { // from class: com.ksad.lottie.f.4
+            this.f32039i.add(new a() { // from class: com.ksad.lottie.f.4
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
                     f.this.f();
                 }
             });
         } else {
-            this.f31938f.i();
+            this.f32036f.i();
         }
     }
 
     @MainThread
     public void g() {
-        this.f31941i.clear();
-        this.f31938f.j();
+        this.f32039i.clear();
+        this.f32036f.j();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -424,7 +424,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar == null) {
             return -1;
         }
@@ -433,7 +433,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        d dVar = this.f31937e;
+        d dVar = this.f32035e;
         if (dVar == null) {
             return -1;
         }
@@ -446,11 +446,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public float h() {
-        return this.f31938f.k();
+        return this.f32036f.k();
     }
 
     public float i() {
-        return this.f31938f.l();
+        return this.f32036f.l();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -476,45 +476,45 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public float j() {
-        return this.f31938f.h();
+        return this.f32036f.h();
     }
 
     public int k() {
-        return (int) this.f31938f.e();
+        return (int) this.f32036f.e();
     }
 
     public int l() {
-        return this.f31938f.getRepeatMode();
+        return this.f32036f.getRepeatMode();
     }
 
     public int m() {
-        return this.f31938f.getRepeatCount();
+        return this.f32036f.getRepeatCount();
     }
 
     public boolean n() {
-        return this.f31938f.isRunning();
+        return this.f32036f.isRunning();
     }
 
     @Nullable
     public m o() {
-        return this.f31935b;
+        return this.f32033b;
     }
 
     public boolean p() {
-        return this.f31935b == null && this.f31937e.h().size() > 0;
+        return this.f32033b == null && this.f32035e.h().size() > 0;
     }
 
     public float q() {
-        return this.f31939g;
+        return this.f32037g;
     }
 
     public d r() {
-        return this.f31937e;
+        return this.f32035e;
     }
 
     public void s() {
-        this.f31941i.clear();
-        this.f31938f.cancel();
+        this.f32039i.clear();
+        this.f32036f.cancel();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -550,7 +550,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @FloatRange(from = 0.0d, to = 1.0d)
     public float t() {
-        return this.f31938f.d();
+        return this.f32036f.d();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback

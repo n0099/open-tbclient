@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.BaseFragment;
 public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BaseFragment[] f21097a;
+    public final BaseFragment[] f21179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f21098b;
+    public final int f21180b;
 
     public NewUserGuidePagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
         BaseFragment[] baseFragmentArr = {new NewUserGuideIntroduceFragment(), new NewUserGuideMainFragment()};
-        this.f21097a = baseFragmentArr;
-        this.f21098b = baseFragmentArr.length;
+        this.f21179a = baseFragmentArr;
+        this.f21180b = baseFragmentArr.length;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f21098b;
+        return this.f21180b;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i2) {
-        if (i2 < 0 || i2 >= this.f21098b) {
+        if (i2 < 0 || i2 >= this.f21180b) {
             return null;
         }
-        return this.f21097a[i2];
+        return this.f21179a[i2];
     }
 }

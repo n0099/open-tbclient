@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -422,7 +423,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         this.stateVerifier.throwIfRecycled();
         int logLevel = this.glideContext.getLogLevel();
         if (logLevel <= i2) {
-            Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + "]", glideException);
+            Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT, glideException);
             if (logLevel <= 4) {
                 glideException.logRootCauses("Glide");
             }

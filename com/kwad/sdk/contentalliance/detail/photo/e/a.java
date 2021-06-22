@@ -18,24 +18,24 @@ import java.util.List;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f32858c;
+    public AdBaseFrameLayout f32956c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CommentListPanel f32859d;
+    public CommentListPanel f32957d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommentBottomAdPanel f32860e;
+    public CommentBottomAdPanel f32958e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32861f;
+    public com.kwad.sdk.core.download.b.b f32959f;
     public List<g> l;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32862g = 0;
+    public int f32960g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.i.c f32863h = new com.kwad.sdk.core.i.d() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.1
+    public com.kwad.sdk.core.i.c f32961h = new com.kwad.sdk.core.i.d() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.1
         @Override // com.kwad.sdk.core.i.d, com.kwad.sdk.core.i.c
         public void b() {
             a.this.e();
@@ -43,16 +43,16 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     };
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.a.a f32864i = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.2
+    public com.kwad.sdk.contentalliance.a.a f32962i = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.2
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
-            ((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.f32720h = false;
+            ((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.f32818h = false;
             a.this.e();
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnKeyListener f32857b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.3
+    public View.OnKeyListener f32955b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.3
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i2, KeyEvent keyEvent) {
             if (i2 == 4 && keyEvent.getAction() == 1) {
@@ -66,21 +66,21 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.a
         public void a() {
             com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " mCommentBottomAdPanel PanelCloseListener close");
-            ((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.f32720h = true;
+            ((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.f32818h = true;
             a.this.a(false);
         }
     };
     public f k = new f() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.f
         public void a(final int i2) {
-            com.kwad.sdk.core.download.b.b.a(a.this.f32861f, true);
-            com.kwad.sdk.core.download.b.a.a(a.this.f32860e.getContext(), ((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.j, new a.InterfaceC0379a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
+            com.kwad.sdk.core.download.b.b.a(a.this.f32959f, true);
+            com.kwad.sdk.core.download.b.a.a(a.this.f32958e.getContext(), ((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.j, new a.InterfaceC0382a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0382a
                 public void a() {
                     com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", "CommentPanelAdClickListener onAdClick itemClickType:" + i2);
-                    com.kwad.sdk.core.report.b.a(((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.j, i2, a.this.f32858c.getTouchCoords());
+                    com.kwad.sdk.core.report.b.a(((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.j, i2, a.this.f32956c.getTouchCoords());
                 }
-            }, a.this.f32861f);
+            }, a.this.f32959f);
         }
     };
     public CommentListPanel.b m = new CommentListPanel.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.6
@@ -92,64 +92,64 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public CommentListPanel.c n = new CommentListPanel.c() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.7
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.c
         public void a(boolean z) {
-            if (!z || ((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.f32720h) {
-                if (a.this.f32862g == 1) {
+            if (!z || ((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.f32818h) {
+                if (a.this.f32960g == 1) {
                     return;
                 }
                 a.this.a(false);
-            } else if (a.this.f32862g == 2) {
+            } else if (a.this.f32960g == 2) {
                 return;
             } else {
-                a.this.f32860e.a(((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.j, a.this.f32861f);
-                com.kwad.sdk.core.report.b.d(((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.j, 89);
-                a.this.f32860e.a(a.this.j);
-                a.this.f32862g = 2;
-                a.this.f32860e.a(true, false);
+                a.this.f32958e.a(((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.j, a.this.f32959f);
+                com.kwad.sdk.core.report.b.d(((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.j, 89);
+                a.this.f32958e.a(a.this.j);
+                a.this.f32960g = 2;
+                a.this.f32958e.a(true, false);
             }
-            com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " onShowBottomAdBanner + show:" + z + "  mHasCloseBottomAdBanner: " + ((com.kwad.sdk.contentalliance.detail.b) a.this).f32692a.f32720h);
+            com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " onShowBottomAdBanner + show:" + z + "  mHasCloseBottomAdBanner: " + ((com.kwad.sdk.contentalliance.detail.b) a.this).f32790a.f32818h);
         }
     };
     public f.a o = new f.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.8
         @Override // com.kwad.sdk.contentalliance.detail.photo.f.f.a
         public void a(@NonNull AdTemplate adTemplate, long j) {
-            a.this.f32859d.a(adTemplate, j);
-            a.this.f32859d.a();
+            a.this.f32957d.a(adTemplate, j);
+            a.this.f32957d.a();
             a.this.f();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        this.f32862g = 1;
-        this.f32860e.b(this.j);
-        this.f32860e.a();
-        this.f32860e.a(false, z);
+        this.f32960g = 1;
+        this.f32958e.b(this.j);
+        this.f32958e.a();
+        this.f32958e.a(false, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
-        cVar.f32719g = false;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
+        cVar.f32817g = false;
         cVar.n = false;
-        if (this.f32859d.getVisibility() == 0) {
-            this.f32859d.setVisibility(8);
-            this.f32859d.setFocusableInTouchMode(false);
-            this.f32859d.setOnKeyListener(null);
-            this.f32859d.c();
+        if (this.f32957d.getVisibility() == 0) {
+            this.f32957d.setVisibility(8);
+            this.f32957d.setFocusableInTouchMode(false);
+            this.f32957d.setOnKeyListener(null);
+            this.f32957d.c();
             h();
         }
         a(true);
-        this.f32862g = 0;
+        this.f32960g = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f32859d.setVisibility(0);
-        this.f32859d.setFocusableInTouchMode(true);
-        this.f32859d.requestFocus();
-        this.f32859d.setOnKeyListener(this.f32857b);
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
-        cVar.f32719g = true;
+        this.f32957d.setVisibility(0);
+        this.f32957d.setFocusableInTouchMode(true);
+        this.f32957d.requestFocus();
+        this.f32957d.setOnKeyListener(this.f32955b);
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
+        cVar.f32817g = true;
         cVar.n = true;
         g();
     }
@@ -175,20 +175,20 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
-        this.l = cVar.f32713a.f33384f;
-        cVar.f32714b.add(this.f32864i);
-        com.kwad.sdk.contentalliance.detail.c cVar2 = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
-        this.f32861f = cVar2.o;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
+        this.l = cVar.f32811a.f33482f;
+        cVar.f32812b.add(this.f32962i);
+        com.kwad.sdk.contentalliance.detail.c cVar2 = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
+        this.f32959f = cVar2.o;
         com.kwad.sdk.contentalliance.detail.video.b bVar = cVar2.m;
         if (bVar != null) {
-            bVar.a(this.f32863h);
+            bVar.a(this.f32961h);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32718f.add(this.o);
-        this.f32859d.a(this.m);
-        if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j)) {
-            this.f32859d.a(this.n);
-            this.f32859d.a(this.k);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32816f.add(this.o);
+        this.f32957d.a(this.m);
+        if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j)) {
+            this.f32957d.a(this.n);
+            this.f32957d.a(this.k);
         }
     }
 
@@ -196,26 +196,26 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public void b_() {
         super.b_();
         this.l = null;
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.remove(this.f32864i);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32718f.remove(this.o);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.m;
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.remove(this.f32962i);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32816f.remove(this.o);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
         if (bVar != null) {
-            bVar.b(this.f32863h);
+            bVar.b(this.f32961h);
         }
         e();
-        this.f32859d.b(this.m);
-        this.f32859d.b(this.n);
-        this.f32859d.b(this.k);
-        this.f32859d.d();
+        this.f32957d.b(this.m);
+        this.f32957d.b(this.n);
+        this.f32957d.b(this.k);
+        this.f32957d.d();
         a(true);
-        this.f32862g = 0;
+        this.f32960g = 0;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32859d = (CommentListPanel) b(R.id.ksad_photo_comment_list_panel);
-        this.f32858c = (AdBaseFrameLayout) b(R.id.ksad_root_container);
-        this.f32860e = (CommentBottomAdPanel) b(R.id.ksad_photo_comment_bottom_ad_panel);
+        this.f32957d = (CommentListPanel) b(R.id.ksad_photo_comment_list_panel);
+        this.f32956c = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32958e = (CommentBottomAdPanel) b(R.id.ksad_photo_comment_bottom_ad_panel);
     }
 }

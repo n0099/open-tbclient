@@ -10,18 +10,18 @@ import java.util.Map;
 public class j<T extends d> implements i<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, T> f34680a = new LinkedHashMap();
+    public Map<String, T> f34778a = new LinkedHashMap();
 
     @Override // com.kwad.sdk.core.report.i
     public synchronized long a() {
         int size;
-        size = this.f34680a.size();
+        size = this.f34778a.size();
         com.kwad.sdk.core.d.a.a("MemReportCache", "size() = " + size);
         return size;
     }
 
     public synchronized void a(@NonNull T t) {
-        this.f34680a.put(t.f34674a, t);
+        this.f34778a.put(t.f34772a, t);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.kwad.sdk.core.report.j<T extends com.kwad.sdk.core.report.d> */
@@ -34,15 +34,15 @@ public class j<T extends d> implements i<T> {
     @Override // com.kwad.sdk.core.report.i
     public synchronized void a(List<T> list) {
         for (T t : list) {
-            this.f34680a.remove(t.f34674a);
+            this.f34778a.remove(t.f34772a);
         }
     }
 
     @Override // com.kwad.sdk.core.report.i
     public synchronized List<T> b() {
         ArrayList arrayList;
-        arrayList = new ArrayList(this.f34680a.size());
-        for (Map.Entry<String, T> entry : this.f34680a.entrySet()) {
+        arrayList = new ArrayList(this.f34778a.size());
+        for (Map.Entry<String, T> entry : this.f34778a.entrySet()) {
             arrayList.add(entry.getValue());
         }
         return arrayList;

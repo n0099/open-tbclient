@@ -13,10 +13,10 @@ import org.json.JSONObject;
 public class c implements com.bytedance.sdk.openadsdk.h.c.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a> f29295b = Collections.synchronizedList(new LinkedList());
+    public final List<a> f29377b = Collections.synchronizedList(new LinkedList());
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f29294a = b.a();
+    public final b f29376a = b.a();
 
     public static com.bytedance.sdk.openadsdk.h.c.a c() {
         return e.c();
@@ -31,11 +31,11 @@ public class c implements com.bytedance.sdk.openadsdk.h.c.a {
         com.bytedance.sdk.openadsdk.l.e.a(new g("init") { // from class: com.bytedance.sdk.openadsdk.h.c.c.1
             @Override // java.lang.Runnable
             public void run() {
-                List<a> d2 = c.this.f29294a.d();
+                List<a> d2 = c.this.f29376a.d();
                 if (d2 != null) {
-                    c.this.f29295b.addAll(d2);
+                    c.this.f29377b.addAll(d2);
                 }
-                c.this.f29294a.c();
+                c.this.f29376a.c();
             }
         }, 5);
     }
@@ -62,14 +62,14 @@ public class c implements com.bytedance.sdk.openadsdk.h.c.a {
     public static class a implements i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f29297a;
+        public final String f29379a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONObject f29298b;
+        public final JSONObject f29380b;
 
         public a(String str, JSONObject jSONObject) {
-            this.f29297a = str;
-            this.f29298b = jSONObject;
+            this.f29379a = str;
+            this.f29380b = jSONObject;
         }
 
         public static a a(String str) {
@@ -90,17 +90,17 @@ public class c implements com.bytedance.sdk.openadsdk.h.c.a {
 
         @Override // com.bytedance.sdk.openadsdk.c.i
         public String b() {
-            return this.f29297a;
+            return this.f29379a;
         }
 
         public String a() {
-            if (TextUtils.isEmpty(this.f29297a) || this.f29298b == null) {
+            if (TextUtils.isEmpty(this.f29379a) || this.f29380b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f29297a);
-                jSONObject.put("event", this.f29298b);
+                jSONObject.put("localId", this.f29379a);
+                jSONObject.put("event", this.f29380b);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();

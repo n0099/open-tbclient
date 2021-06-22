@@ -6,10 +6,10 @@ import com.xiaomi.push.ai;
 public class bv extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f41051a;
+    public final /* synthetic */ bu f41154a;
 
     public bv(bu buVar) {
-        this.f41051a = buVar;
+        this.f41154a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -24,12 +24,12 @@ public class bv extends ai.a {
         ck ckVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        ckVar = this.f41051a.f160a;
+        ckVar = this.f41154a.f160a;
         if (ckVar != null) {
-            ckVar2 = this.f41051a.f160a;
-            context = this.f41051a.f157a;
+            ckVar2 = this.f41154a.f160a;
+            context = this.f41154a.f157a;
             ckVar2.a(context);
-            this.f41051a.b("upload_time");
+            this.f41154a.b("upload_time");
         }
     }
 }

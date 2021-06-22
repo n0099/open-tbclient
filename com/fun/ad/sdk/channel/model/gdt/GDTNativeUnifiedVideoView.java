@@ -24,16 +24,16 @@ import java.util.List;
 public class GDTNativeUnifiedVideoView extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaView f30743d;
+    public MediaView f30825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30744e;
+    public ImageView f30826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f30745f;
+    public View.OnClickListener f30827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30746g;
+    public float f30828g;
 
     /* loaded from: classes6.dex */
     public class a implements NativeADMediaListener {
@@ -44,9 +44,9 @@ public class GDTNativeUnifiedVideoView extends b {
         public void onVideoClicked() {
             d.b("GDTNativeUnifiedAd video onVideoClicked", new Object[0]);
             GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = GDTNativeUnifiedVideoView.this;
-            View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f30745f;
+            View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f30827f;
             if (onClickListener != null) {
-                onClickListener.onClick(gDTNativeUnifiedVideoView.f30743d);
+                onClickListener.onClick(gDTNativeUnifiedVideoView.f30825d);
             }
         }
 
@@ -111,7 +111,7 @@ public class GDTNativeUnifiedVideoView extends b {
 
     public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f30746g = 1.78f;
+        this.f30828g = 1.78f;
     }
 
     @Override // a.a.a.a.u.b.b.b
@@ -120,7 +120,7 @@ public class GDTNativeUnifiedVideoView extends b {
         arrayList.add(this.f1304c);
         arrayList.add(((b) this).f1303b);
         arrayList.add(((b) this).f1302a);
-        arrayList.add(this.f30744e);
+        arrayList.add(this.f30826e);
         return arrayList;
     }
 
@@ -129,7 +129,7 @@ public class GDTNativeUnifiedVideoView extends b {
         super.a(activity, nativeUnifiedADData);
         Context context = getContext();
         String iconUrl = nativeUnifiedADData.getIconUrl();
-        ImageView imageView = this.f30744e;
+        ImageView imageView = this.f30826e;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -143,28 +143,28 @@ public class GDTNativeUnifiedVideoView extends b {
             Glide.with(context).load(iconUrl).into(imageView);
         }
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-        this.f30746g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-        nativeUnifiedADData.bindMediaView(this.f30743d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a());
+        this.f30828g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+        nativeUnifiedADData.bindMediaView(this.f30825d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a());
     }
 
     @Override // a.a.a.a.u.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30743d = (MediaView) findViewById(R.id.ad_video);
-        this.f30744e = (ImageView) findViewById(R.id.ad_icon);
+        this.f30825d = (MediaView) findViewById(R.id.ad_video);
+        this.f30826e = (ImageView) findViewById(R.id.ad_icon);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30743d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30825d.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
-        layoutParams.height = (int) (i6 / this.f30746g);
-        this.f30743d.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i6 / this.f30828g);
+        this.f30825d.setLayoutParams(layoutParams);
     }
 
     public void setVideoOnClickListener(View.OnClickListener onClickListener) {
-        this.f30745f = onClickListener;
+        this.f30827f = onClickListener;
     }
 }

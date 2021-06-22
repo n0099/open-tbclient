@@ -8,16 +8,16 @@ import tv.athena.revenue.payui.model.ThemeColorConfig;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PaysSettingInfo f72155a = null;
+    public static PaysSettingInfo f72259a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f72156b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String f72260b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f72157c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String f72261c = "https://web.yy.com/yy_wallet/wallet.html?";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f72158d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String f72262d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
 
     public static String a(String str, PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
@@ -47,34 +47,34 @@ public class b {
 
     public static String b(PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-            return a(f72158d, payUIKitConfig);
+            return a(f72262d, payUIKitConfig);
         }
-        return f72158d;
+        return f72262d;
     }
 
     public static String c(PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-            return a(f72157c, payUIKitConfig);
+            return a(f72261c, payUIKitConfig);
         }
-        return f72157c;
+        return f72261c;
     }
 
     public static String d(PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-            return f72156b;
+            return f72260b;
         }
-        return a(f72156b, payUIKitConfig);
+        return a(f72260b, payUIKitConfig);
     }
 
     public static void e(boolean z) {
         if (z) {
-            f72156b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-            f72157c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-            f72158d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            f72260b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+            f72261c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+            f72262d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
             return;
         }
-        f72156b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-        f72157c = "https://web.yy.com/yy_wallet/wallet.html?";
-        f72158d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+        f72260b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+        f72261c = "https://web.yy.com/yy_wallet/wallet.html?";
+        f72262d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
     }
 }

@@ -14,43 +14,43 @@ import com.kwad.sdk.lib.a.a;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0423a, b<PAGE> {
+public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0426a, b<PAGE> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f36632a;
+    public ViewGroup f36730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f36633b;
+    public RecyclerView f36731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f36634c;
+    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f36732c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public RefreshLayout f36635d;
+    public RefreshLayout f36733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36636e;
+    public boolean f36734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f36637f;
+    public a f36735f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.lib.a.a.b<PAGE, MODEL> f36638g;
+    public com.kwad.sdk.lib.a.a.b<PAGE, MODEL> f36736g;
 
     @NonNull
     private com.kwad.sdk.lib.a.a.b<PAGE, MODEL> k() {
         com.kwad.sdk.lib.a.a.b<PAGE, MODEL> f2 = f();
-        f2.f36606e = this;
-        f2.f36607f = this.f36633b;
+        f2.f36704e = this;
+        f2.f36705f = this.f36731b;
         f2.k = this;
-        f2.f36608g = c();
+        f2.f36706g = c();
         com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> d2 = d();
-        this.f36634c = d2;
+        this.f36732c = d2;
         com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(d2);
-        f2.f36609h = this.f36634c;
-        f2.f36610i = dVar;
-        f2.j = this.f36635d;
+        f2.f36707h = this.f36732c;
+        f2.f36708i = dVar;
+        f2.j = this.f36733d;
         f2.l = h();
         return f2;
     }
@@ -66,12 +66,12 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
 
     public abstract com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> d();
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC0423a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC0426a
     @NonNull
     public final Presenter e() {
         Presenter presenter = new Presenter();
         presenter.a((Presenter) new com.kwad.sdk.lib.a.b.b(g()));
-        if (this.f36636e) {
+        if (this.f36734e) {
             presenter.a((Presenter) new com.kwad.sdk.lib.a.b.d());
         }
         presenter.a((Presenter) new com.kwad.sdk.lib.a.b.a());
@@ -93,7 +93,7 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     }
 
     public final RecyclerView i() {
-        return this.f36633b;
+        return this.f36731b;
     }
 
     public RefreshLayout j() {
@@ -104,8 +104,8 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     public void onActivityCreated(@Nullable Bundle bundle) {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onActivityCreated(bundle);
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -117,8 +117,8 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     public void onActivityResult(int i2, int i3, Intent intent) {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onActivityResult(i2, i3, intent);
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -129,29 +129,29 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        this.f36637f = new a(this, this);
+        this.f36735f = new a(this, this);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f36632a == null) {
+        if (this.f36730a == null) {
             ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(a(), viewGroup, false);
-            this.f36632a = viewGroup2;
-            this.f36633b = (RecyclerView) viewGroup2.findViewById(b());
+            this.f36730a = viewGroup2;
+            this.f36731b = (RecyclerView) viewGroup2.findViewById(b());
             RefreshLayout j = j();
-            this.f36635d = j;
-            this.f36636e = j != null;
+            this.f36733d = j;
+            this.f36734e = j != null;
         }
-        return this.f36632a;
+        return this.f36730a;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onDestroy();
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -163,8 +163,8 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     public void onDestroyView() {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onDestroyView();
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -176,8 +176,8 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     public void onPause() {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onPause();
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -189,8 +189,8 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     public void onResume() {
         List<com.kwad.sdk.contentalliance.a.c> list;
         super.onResume();
-        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36638g;
-        if (bVar == null || (list = bVar.f36605d) == null) {
+        com.kwad.sdk.lib.a.a.b<PAGE, MODEL> bVar = this.f36736g;
+        if (bVar == null || (list = bVar.f36703d) == null) {
             return;
         }
         for (com.kwad.sdk.contentalliance.a.c cVar : list) {
@@ -201,10 +201,10 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC0
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
         super.onViewCreated(view, bundle);
-        if (this.f36637f != null) {
+        if (this.f36735f != null) {
             com.kwad.sdk.lib.a.a.b<PAGE, MODEL> k = k();
-            this.f36638g = k;
-            this.f36637f.a(k);
+            this.f36736g = k;
+            this.f36735f.a(k);
         }
     }
 }

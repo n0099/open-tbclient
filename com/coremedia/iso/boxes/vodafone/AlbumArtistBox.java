@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.vodafone;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -12,11 +13,11 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class AlbumArtistBox extends AbstractFullBox {
     public static final String TYPE = "albr";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
     public String albumArtist;
     public String language;
 
@@ -79,6 +80,6 @@ public class AlbumArtistBox extends AbstractFullBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_4, this, this));
-        return "AlbumArtistBox[language=" + getLanguage() + ";albumArtist=" + getAlbumArtist() + "]";
+        return "AlbumArtistBox[language=" + getLanguage() + ";albumArtist=" + getAlbumArtist() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

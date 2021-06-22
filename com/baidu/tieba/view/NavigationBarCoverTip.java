@@ -15,19 +15,19 @@ import com.baidu.tieba.R;
 public class NavigationBarCoverTip extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f21756e;
+    public Animation f21838e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f21757f;
+    public Animation f21839f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f21758g;
+    public Runnable f21840g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f21759h;
+    public e f21841h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Activity f21760i;
+    public Activity f21842i;
     public int j;
     public View k;
 
@@ -38,7 +38,7 @@ public class NavigationBarCoverTip extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.m.e.a().removeCallbacks(NavigationBarCoverTip.this.f21758g);
+            d.a.c.e.m.e.a().removeCallbacks(NavigationBarCoverTip.this.f21840g);
             NavigationBarCoverTip.this.e();
         }
     }
@@ -58,11 +58,11 @@ public class NavigationBarCoverTip extends LinearLayout {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            if (NavigationBarCoverTip.this.f21759h != null) {
-                NavigationBarCoverTip.this.f21759h.onShow();
+            if (NavigationBarCoverTip.this.f21841h != null) {
+                NavigationBarCoverTip.this.f21841h.onShow();
             }
-            if (NavigationBarCoverTip.this.f21760i != null) {
-                UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.f21760i);
+            if (NavigationBarCoverTip.this.f21842i != null) {
+                UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.f21842i);
             }
         }
     }
@@ -74,8 +74,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (NavigationBarCoverTip.this.f21759h != null) {
-                NavigationBarCoverTip.this.f21759h.a();
+            if (NavigationBarCoverTip.this.f21841h != null) {
+                NavigationBarCoverTip.this.f21841h.a();
             }
             NavigationBarCoverTip.this.j();
         }
@@ -113,7 +113,7 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public void e() {
         clearAnimation();
-        startAnimation(this.f21757f);
+        startAnimation(this.f21839f);
     }
 
     public final void f() {
@@ -130,12 +130,12 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public final void g() {
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.f21756e = loadAnimation;
+        this.f21838e = loadAnimation;
         loadAnimation.setAnimationListener(new b());
         Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.f21757f = loadAnimation2;
+        this.f21839f = loadAnimation2;
         loadAnimation2.setAnimationListener(new c());
-        this.f21758g = new d();
+        this.f21840g = new d();
     }
 
     public void h(int i2) {
@@ -150,26 +150,26 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public final void j() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f21758g);
+        d.a.c.e.m.e.a().removeCallbacks(this.f21840g);
         clearAnimation();
         setVisibility(8);
-        Activity activity = this.f21760i;
+        Activity activity = this.f21842i;
         if (activity != null) {
             UtilHelper.changeStatusBarIconAndTextColor(false, activity);
-            this.f21760i = null;
+            this.f21842i = null;
         }
     }
 
     public void k(Activity activity, int i2) {
-        this.f21760i = activity;
+        this.f21842i = activity;
         if (i2 < 0) {
             i2 = 5000;
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.f21756e);
-        d.a.c.e.m.e.a().removeCallbacks(this.f21758g);
-        d.a.c.e.m.e.a().postDelayed(this.f21758g, i2);
+        startAnimation(this.f21838e);
+        d.a.c.e.m.e.a().removeCallbacks(this.f21840g);
+        d.a.c.e.m.e.a().postDelayed(this.f21840g, i2);
     }
 
     public void l(Activity activity, View view) {
@@ -177,7 +177,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void m(Activity activity, View view, int i2) {
-        this.f21760i = activity;
+        this.f21842i = activity;
         if (view != this.k) {
             removeAllViews();
             addView(view);
@@ -188,13 +188,13 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.f21756e);
-        d.a.c.e.m.e.a().removeCallbacks(this.f21758g);
-        d.a.c.e.m.e.a().postDelayed(this.f21758g, i2);
+        startAnimation(this.f21838e);
+        d.a.c.e.m.e.a().removeCallbacks(this.f21840g);
+        d.a.c.e.m.e.a().postDelayed(this.f21840g, i2);
     }
 
     public void setCoverTipListener(e eVar) {
-        this.f21759h = eVar;
+        this.f21841h = eVar;
     }
 
     public NavigationBarCoverTip(Context context, AttributeSet attributeSet) {

@@ -6,20 +6,20 @@ import com.baidu.pass.common.SharedPreferencesUtil;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9269a;
+    public final /* synthetic */ PermissionsHelperActivity f9277a;
 
     public b(PermissionsHelperActivity permissionsHelperActivity) {
-        this.f9269a = permissionsHelperActivity;
+        this.f9277a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         StringBuilder sb;
         PermissionsDTO permissionsDTO;
-        sb = this.f9269a.f9266e;
+        sb = this.f9277a.f9274e;
         SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
-        PermissionsHelperActivity permissionsHelperActivity = this.f9269a;
-        permissionsDTO = permissionsHelperActivity.f9264c;
-        permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.f9263b);
+        PermissionsHelperActivity permissionsHelperActivity = this.f9277a;
+        permissionsDTO = permissionsHelperActivity.f9272c;
+        permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.f9271b);
     }
 }

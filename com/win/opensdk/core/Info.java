@@ -22,7 +22,7 @@ public class Info implements Serializable {
     public String events;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40703h;
+    public int f40806h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -122,7 +122,7 @@ public class Info implements Serializable {
     }
 
     public int getH() {
-        return this.f40703h;
+        return this.f40806h;
     }
 
     public String getIcon() {
@@ -310,7 +310,7 @@ public class Info implements Serializable {
     }
 
     public void setH(int i2) {
-        this.f40703h = i2;
+        this.f40806h = i2;
     }
 
     public void setHo_c_sw(boolean z) {

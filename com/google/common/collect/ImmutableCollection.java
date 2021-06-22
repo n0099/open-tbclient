@@ -19,47 +19,47 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
     public static abstract class a<E> extends b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f31103a;
+        public Object[] f31201a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31104b;
+        public int f31202b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f31105c;
+        public boolean f31203c;
 
         public a(int i2) {
             m.b(i2, "initialCapacity");
-            this.f31103a = new Object[i2];
-            this.f31104b = 0;
+            this.f31201a = new Object[i2];
+            this.f31202b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
         public b<E> b(E... eArr) {
             j0.b(eArr);
-            g(this.f31104b + eArr.length);
-            System.arraycopy(eArr, 0, this.f31103a, this.f31104b, eArr.length);
-            this.f31104b += eArr.length;
+            g(this.f31202b + eArr.length);
+            System.arraycopy(eArr, 0, this.f31201a, this.f31202b, eArr.length);
+            this.f31202b += eArr.length;
             return this;
         }
 
         public a<E> f(E e2) {
             n.p(e2);
-            g(this.f31104b + 1);
-            Object[] objArr = this.f31103a;
-            int i2 = this.f31104b;
-            this.f31104b = i2 + 1;
+            g(this.f31202b + 1);
+            Object[] objArr = this.f31201a;
+            int i2 = this.f31202b;
+            this.f31202b = i2 + 1;
             objArr[i2] = e2;
             return this;
         }
 
         public final void g(int i2) {
-            Object[] objArr = this.f31103a;
+            Object[] objArr = this.f31201a;
             if (objArr.length < i2) {
-                this.f31103a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
-                this.f31105c = false;
-            } else if (this.f31105c) {
-                this.f31103a = (Object[]) objArr.clone();
-                this.f31105c = false;
+                this.f31201a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
+                this.f31203c = false;
+            } else if (this.f31203c) {
+                this.f31201a = (Object[]) objArr.clone();
+                this.f31203c = false;
             }
         }
     }

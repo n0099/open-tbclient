@@ -3,17 +3,17 @@ package d.a.c.e.r;
 public class k extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f42637a;
+    public byte[] f42740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f42638b;
+    public long f42741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42639c;
+    public long f42742c;
 
     public k(byte[] bArr, long j, long j2) {
-        this.f42637a = bArr;
-        this.f42638b = j;
-        this.f42639c = j2;
+        this.f42740a = bArr;
+        this.f42741b = j;
+        this.f42742c = j2;
     }
 }

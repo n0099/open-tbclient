@@ -11,17 +11,17 @@ import d.a.c.e.p.l;
 public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestUserPermissionMessage f17394e;
+    public RequestUserPermissionMessage f17476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17395f;
+    public boolean f17477f;
     public long friendUid;
     public int mImageHeight;
     public int mImageWidth;
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity) {
         super(personGroupActivity.getPageContext());
-        this.f17395f = false;
+        this.f17477f = false;
         this.mImageWidth = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
@@ -40,7 +40,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f17394e = null;
+        this.f17476e = null;
     }
 
     public final RequestUserPermissionMessage w(long j) {
@@ -51,17 +51,17 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void x(long j) {
         RequestUserPermissionMessage w = w(j);
-        this.f17394e = w;
+        this.f17476e = w;
         super.sendMessage(w);
     }
 
     public void y() {
         if (this.friendUid == 0) {
-            if (this.f17395f) {
+            if (this.f17477f) {
                 super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                 return;
             }
-            this.f17395f = true;
+            this.f17477f = true;
             super.sendMessage(new GroupsByUidLocalMessage());
             return;
         }
@@ -70,7 +70,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity, long j) {
         super(personGroupActivity.getPageContext());
-        this.f17395f = false;
+        this.f17477f = false;
         this.mImageWidth = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;

@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.appframework.GlobalActivityLifecycle;
 import com.baidu.searchbox.config.AppConfig;
@@ -139,18 +140,18 @@ public class TraceManager {
         if (!TextUtils.isEmpty(activityToken)) {
             sb2.append("[token:");
             sb2.append(activityToken);
-            sb2.append("]");
+            sb2.append(PreferencesUtil.RIGHT_MOUNT);
             sb2.toString();
         }
         if (AppConfig.isBeta() && (simpleName = activity.getClass().getSimpleName()) != null && simpleName.equals("BdBoxSchemeDispatchActivity") && (intent = activity.getIntent()) != null) {
             sb2.append("[intent:");
             sb2.append(intent.toString());
-            sb2.append("]");
+            sb2.append(PreferencesUtil.RIGHT_MOUNT);
         }
         if (!TextUtils.isEmpty(str)) {
-            sb2.append("[");
+            sb2.append(PreferencesUtil.LEFT_MOUNT);
             sb2.append(str);
-            sb2.append("]");
+            sb2.append(PreferencesUtil.RIGHT_MOUNT);
         }
         if (obj != null) {
             String name2 = obj.getClass().getName();

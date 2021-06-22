@@ -9,22 +9,22 @@ import java.util.TreeMap;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69523a;
+    public final int f69627a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f69524b;
+    public final byte[] f69628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f69525c;
+    public final Map<String, String> f69629c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<a> f69526d;
+    public final List<a> f69630d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f69527e;
+    public final boolean f69631e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f69528f;
+    public final long f69632f;
 
     @Deprecated
     public k(int i2, byte[] bArr, Map<String, String> map, boolean z, long j) {
@@ -69,15 +69,15 @@ public class k {
     }
 
     public k(int i2, byte[] bArr, Map<String, String> map, List<a> list, boolean z, long j) {
-        this.f69523a = i2;
-        this.f69524b = bArr;
-        this.f69525c = map;
+        this.f69627a = i2;
+        this.f69628b = bArr;
+        this.f69629c = map;
         if (list == null) {
-            this.f69526d = null;
+            this.f69630d = null;
         } else {
-            this.f69526d = Collections.unmodifiableList(list);
+            this.f69630d = Collections.unmodifiableList(list);
         }
-        this.f69527e = z;
-        this.f69528f = j;
+        this.f69631e = z;
+        this.f69632f = j;
     }
 }

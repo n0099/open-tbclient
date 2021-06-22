@@ -4,6 +4,7 @@ import androidx.core.util.Pools;
 import androidx.recyclerview.widget.OpReorderer;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -99,7 +100,7 @@ public class AdapterHelper implements OpReorderer.Callback {
         }
 
         public String toString() {
-            return Integer.toHexString(System.identityHashCode(this)) + "[" + cmdToString() + ",s:" + this.positionStart + "c:" + this.itemCount + ",p:" + this.payload + "]";
+            return Integer.toHexString(System.identityHashCode(this)) + PreferencesUtil.LEFT_MOUNT + cmdToString() + ",s:" + this.positionStart + "c:" + this.itemCount + ",p:" + this.payload + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

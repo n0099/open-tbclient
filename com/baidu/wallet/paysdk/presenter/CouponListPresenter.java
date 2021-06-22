@@ -27,28 +27,28 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f25465a;
+        public String f25547a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f25466b;
+        public int f25548b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f25467c;
+        public int f25549c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f25468d;
+        public String f25550d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f25469e;
+        public String f25551e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f25470f;
+        public String f25552f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f25471g;
+        public boolean f25553g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f25472h;
+        public boolean f25554h;
     }
 
     public CouponListPresenter(CouponListActivity couponListActivity) {
@@ -60,7 +60,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
 
     @Override // com.baidu.wallet.paysdk.contract.CouponListContract.Presenter
     public void calcPayamount(a aVar) {
-        if (aVar != null && aVar.f25466b == -1) {
+        if (aVar != null && aVar.f25548b == -1) {
             this.mActivity.showLoading(0);
         } else {
             this.mActivity.setPageClickable(false);
@@ -69,7 +69,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
         PayStatisticsUtil.onEventStart(StatServiceEvent.CALCU_COUPON);
         if (aVar != null) {
             this.isFromActivityJump = false;
-            cVar.a(aVar.f25467c, aVar.f25466b, !aVar.f25472h ? "4" : "0");
+            cVar.a(aVar.f25549c, aVar.f25548b, !aVar.f25554h ? "4" : "0");
         } else {
             this.isFromActivityJump = true;
         }
@@ -115,14 +115,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                 for (int i4 = 0; i4 < calcPaymentResponse.coupon_list.length; i4++) {
                     a aVar = new a();
                     PayData.Coupon[] couponArr = calcPaymentResponse.coupon_list;
-                    aVar.f25465a = couponArr[i4].icon_url;
-                    aVar.f25466b = i4;
-                    aVar.f25467c = 2;
-                    aVar.f25468d = couponArr[i4].description;
-                    aVar.f25469e = couponArr[i4].discount_msg;
-                    aVar.f25470f = couponArr[i4].select_state_desc;
-                    aVar.f25471g = couponArr[i4].getEnable();
-                    aVar.f25472h = calcPaymentResponse.coupon_list[i4].getSelected();
+                    aVar.f25547a = couponArr[i4].icon_url;
+                    aVar.f25548b = i4;
+                    aVar.f25549c = 2;
+                    aVar.f25550d = couponArr[i4].description;
+                    aVar.f25551e = couponArr[i4].discount_msg;
+                    aVar.f25552f = couponArr[i4].select_state_desc;
+                    aVar.f25553g = couponArr[i4].getEnable();
+                    aVar.f25554h = calcPaymentResponse.coupon_list[i4].getSelected();
                     arrayList.add(aVar);
                 }
             }
@@ -135,14 +135,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                     if (discountArr[i3].isCommonDiscount()) {
                         a aVar2 = new a();
                         PayData.Discount[] discountArr2 = calcPaymentResponse.activity_list;
-                        aVar2.f25465a = discountArr2[i3].icon_url;
-                        aVar2.f25466b = i3;
-                        aVar2.f25467c = 1;
-                        aVar2.f25468d = discountArr2[i3].description;
-                        aVar2.f25469e = discountArr2[i3].discount_msg;
-                        aVar2.f25470f = discountArr2[i3].select_state_desc;
-                        aVar2.f25471g = discountArr2[i3].getEnable();
-                        aVar2.f25472h = calcPaymentResponse.activity_list[i3].getSelected();
+                        aVar2.f25547a = discountArr2[i3].icon_url;
+                        aVar2.f25548b = i3;
+                        aVar2.f25549c = 1;
+                        aVar2.f25550d = discountArr2[i3].description;
+                        aVar2.f25551e = discountArr2[i3].discount_msg;
+                        aVar2.f25552f = discountArr2[i3].select_state_desc;
+                        aVar2.f25553g = discountArr2[i3].getEnable();
+                        aVar2.f25554h = calcPaymentResponse.activity_list[i3].getSelected();
                         arrayList.add(aVar2);
                     }
                     i3++;

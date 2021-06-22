@@ -17,35 +17,35 @@ import com.kwad.sdk.utils.am;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public SlidePlayViewPager f32773b;
+    public SlidePlayViewPager f32871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewStub f32774c;
+    public ViewStub f32872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f32775d;
+    public View f32873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LottieAnimationView f32776e;
+    public LottieAnimationView f32874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f32777f;
+    public com.kwad.sdk.contentalliance.detail.video.b f32875f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32778g;
+    public com.kwad.sdk.core.i.a f32876g;
     public ValueAnimator k;
     public ValueAnimator l;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32779h = false;
+    public boolean f32877h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32780i = false;
+    public boolean f32878i = false;
     public boolean j = false;
     public final com.kwad.sdk.contentalliance.a.a m = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.b.1
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
-            if (b.this.f32773b.getCurrentItem() != b.this.f32773b.getPreItem()) {
+            if (b.this.f32871b.getCurrentItem() != b.this.f32871b.getPreItem()) {
                 ae.d(b.this.o());
                 b.this.e();
             }
@@ -61,12 +61,12 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     public final c o = new c() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.b.3
         @Override // com.kwad.sdk.core.i.c
         public void b() {
-            b.this.f32779h = false;
+            b.this.f32877h = false;
         }
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            b.this.f32779h = true;
+            b.this.f32877h = true;
         }
     };
 
@@ -74,48 +74,48 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     public void a(long j) {
         if (!ae.c(o())) {
             e();
-        } else if (!((com.kwad.sdk.contentalliance.detail.b) this).f32692a.n && this.f32779h && j >= com.kwad.sdk.core.config.c.ai() && !this.f32780i) {
-            this.f32780i = true;
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.n = true;
-            if (this.f32774c.getParent() != null) {
-                this.f32775d = this.f32774c.inflate();
+        } else if (!((com.kwad.sdk.contentalliance.detail.b) this).f32790a.n && this.f32877h && j >= com.kwad.sdk.core.config.c.ai() && !this.f32878i) {
+            this.f32878i = true;
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.n = true;
+            if (this.f32872c.getParent() != null) {
+                this.f32873d = this.f32872c.inflate();
                 LottieAnimationView lottieAnimationView = (LottieAnimationView) b(R.id.ksad_guider_up_anim);
-                this.f32776e = lottieAnimationView;
+                this.f32874e = lottieAnimationView;
                 lottieAnimationView.setAnimation(R.raw.ksad_detail_guider_slide_up_new);
-                this.f32776e.setRepeatMode(1);
-                this.f32776e.setRepeatCount(-1);
+                this.f32874e.setRepeatMode(1);
+                this.f32874e.setRepeatCount(-1);
             }
-            this.f32776e.b();
-            ValueAnimator a2 = am.a(this.f32775d, true);
+            this.f32874e.b();
+            ValueAnimator a2 = am.a(this.f32873d, true);
             this.k = a2;
             a2.start();
-            this.f32773b.a(false, 2);
-            this.f32775d.setClickable(true);
-            this.f32775d.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.b.4
+            this.f32871b.a(false, 2);
+            this.f32873d.setClickable(true);
+            this.f32873d.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.b.4
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     b.this.g();
                     return false;
                 }
             });
-            com.kwad.sdk.core.report.e.r(((com.kwad.sdk.contentalliance.detail.b) this).f32692a.j);
+            com.kwad.sdk.core.report.e.r(((com.kwad.sdk.contentalliance.detail.b) this).f32790a.j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f32780i = false;
+        this.f32878i = false;
         this.j = false;
-        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32777f;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32875f;
         if (bVar != null) {
             bVar.b(this.n);
         }
-        com.kwad.sdk.core.i.a aVar = this.f32778g;
+        com.kwad.sdk.core.i.a aVar = this.f32876g;
         if (aVar != null) {
             aVar.b(this.o);
-            this.f32779h = false;
+            this.f32877h = false;
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.remove(this.m);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.remove(this.m);
     }
 
     private void f() {
@@ -136,10 +136,10 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         }
         this.j = true;
         ae.d(o());
-        ValueAnimator a2 = am.a(this.f32775d, false);
+        ValueAnimator a2 = am.a(this.f32873d, false);
         this.l = a2;
         a2.start();
-        SlidePlayViewPager slidePlayViewPager = this.f32773b;
+        SlidePlayViewPager slidePlayViewPager = this.f32871b;
         if (slidePlayViewPager != null) {
             slidePlayViewPager.a(true, 2);
         }
@@ -151,19 +151,19 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         com.kwad.sdk.contentalliance.detail.c cVar;
         h hVar;
         super.a();
-        if (ae.c(o()) && (hVar = (cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a).f32713a) != null) {
+        if (ae.c(o()) && (hVar = (cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a).f32811a) != null) {
             SlidePlayViewPager slidePlayViewPager = cVar.l;
-            this.f32773b = slidePlayViewPager;
-            com.kwad.sdk.core.i.a aVar = hVar.f33379a;
-            this.f32778g = aVar;
+            this.f32871b = slidePlayViewPager;
+            com.kwad.sdk.core.i.a aVar = hVar.f33477a;
+            this.f32876g = aVar;
             com.kwad.sdk.contentalliance.detail.video.b bVar = cVar.m;
-            this.f32777f = bVar;
+            this.f32875f = bVar;
             if (bVar == null || slidePlayViewPager == null || aVar == null) {
                 return;
             }
             bVar.a(this.n);
-            this.f32778g.a(this.o);
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32692a.f32714b.add(this.m);
+            this.f32876g.a(this.o);
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(this.m);
         }
     }
 
@@ -177,7 +177,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32774c = (ViewStub) b(R.id.ksad_slide_up_guide_view_stub);
+        this.f32872c = (ViewStub) b(R.id.ksad_slide_up_guide_view_stub);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

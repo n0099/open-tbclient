@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.util.Base64Encoder;
 import d.a.c.e.p.j;
-import d.a.m0.z0.f0;
-import d.a.m0.z0.h0;
-import d.a.m0.z0.n;
+import d.a.n0.z0.f0;
+import d.a.n0.z0.h0;
+import d.a.n0.z0.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -22,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @d.a.e.a.a
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements d.a.n0.e3.l0.b {
+public class SearchJsBridge implements d.a.o0.e3.l0.b {
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
     public static final String COOKIE_CFROM = "cfrom";
@@ -54,18 +54,18 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
     public class a extends f0<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11987a;
+        public final /* synthetic */ String f12069a;
 
         public a(SearchJsBridge searchJsBridge, String str) {
-            this.f11987a = str;
+            this.f12069a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.z0.f0
+        @Override // d.a.n0.z0.f0
         /* renamed from: a */
         public String doInBackground() {
-            d.a.n0.e3.n0.a.h(this.f11987a);
-            return this.f11987a;
+            d.a.o0.e3.n0.a.h(this.f12069a);
+            return this.f12069a;
         }
     }
 
@@ -75,7 +75,7 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.z0.n
+        @Override // d.a.n0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
@@ -87,9 +87,9 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         public c(SearchJsBridge searchJsBridge) {
         }
 
-        @Override // d.a.m0.z0.f0
+        @Override // d.a.n0.z0.f0
         public Object doInBackground() {
-            d.a.n0.e3.n0.a.b();
+            d.a.o0.e3.n0.a.b();
             return null;
         }
     }
@@ -99,7 +99,7 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         public d() {
         }
 
-        @Override // d.a.m0.z0.n
+        @Override // d.a.n0.z0.n
         public void onReturnDataInUI(Object obj) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
             if (SearchJsBridge.this.mHistoryDatas != null) {
@@ -148,7 +148,7 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         return jSONObject.toString();
     }
 
-    @Override // d.a.n0.e3.l0.b
+    @Override // d.a.o0.e3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_GET_SEARCH_HISTORY.equals(str2)) {
@@ -183,26 +183,26 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         return false;
     }
 
-    public d.a.n0.e3.l0.d.c deleteAllSearchHistory() {
-        d.a.n0.e3.l0.d.c cVar = new d.a.n0.e3.l0.d.c();
+    public d.a.o0.e3.l0.d.c deleteAllSearchHistory() {
+        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
         h0.b(new c(this), new d());
         return cVar;
     }
 
-    public d.a.n0.e3.l0.d.c deleteSearchHistory(String str) {
-        d.a.n0.e3.l0.d.c cVar = new d.a.n0.e3.l0.d.c();
+    public d.a.o0.e3.l0.d.c deleteSearchHistory(String str) {
+        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
         h0.b(new a(this, str), new b(this));
         return cVar;
     }
 
-    public d.a.n0.e3.l0.d.c getSearchAdCookie() {
-        d.a.n0.e3.l0.d.c cVar = new d.a.n0.e3.l0.d.c();
+    public d.a.o0.e3.l0.d.c getSearchAdCookie() {
+        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
         cVar.l(initCookies());
         return cVar;
     }
 
-    public d.a.n0.e3.l0.d.c getSearchHistoryJson() {
-        d.a.n0.e3.l0.d.c cVar = new d.a.n0.e3.l0.d.c();
+    public d.a.o0.e3.l0.d.c getSearchHistoryJson() {
+        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
         int count = ListUtils.getCount(this.mHistoryDatas);
         if (count == 0) {
             cVar.l("");
@@ -215,8 +215,8 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         return cVar;
     }
 
-    public d.a.n0.e3.l0.d.c openSearchPage(String str, int i2) {
-        d.a.n0.e3.l0.d.c cVar = new d.a.n0.e3.l0.d.c();
+    public d.a.o0.e3.l0.d.c openSearchPage(String str, int i2) {
+        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("query", str);

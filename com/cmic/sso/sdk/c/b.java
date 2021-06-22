@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.cmic.sso.sdk.a f30656a;
+    public com.cmic.sso.sdk.a f30738a;
 
     public static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
         if (aVar == null || aVar2 == null) {
@@ -69,9 +69,9 @@ public class b {
             a2.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
             a(a2, aVar);
             JSONArray jSONArray = null;
-            if (a2.f30647a.size() > 0) {
+            if (a2.f30729a.size() > 0) {
                 jSONArray = new JSONArray();
-                Iterator<Throwable> it = a2.f30647a.iterator();
+                Iterator<Throwable> it = a2.f30729a.iterator();
                 while (it.hasNext()) {
                     Throwable next = it.next();
                     StringBuffer stringBuffer = new StringBuffer();
@@ -84,7 +84,7 @@ public class b {
                     jSONObject.put("stack", stringBuffer.toString());
                     jSONArray.put(jSONObject);
                 }
-                a2.f30647a.clear();
+                a2.f30729a.clear();
             }
             if (jSONArray != null && jSONArray.length() > 0) {
                 a2.a(jSONArray);
@@ -97,13 +97,13 @@ public class b {
     }
 
     private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
-        this.f30656a = aVar;
+        this.f30738a = aVar;
         a(jSONObject);
     }
 
     private void a(JSONObject jSONObject) {
         if (q.o() == 0 || q.n() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.o()) {
-            com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f30656a, new d() { // from class: com.cmic.sso.sdk.c.b.1
+            com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f30738a, new d() { // from class: com.cmic.sso.sdk.c.b.1
                 @Override // com.cmic.sso.sdk.b.c.d
                 public void a(String str, String str2, JSONObject jSONObject2) {
                     if (!str.equals("103000")) {

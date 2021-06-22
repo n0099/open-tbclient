@@ -5,18 +5,18 @@ import org.json.JSONObject;
 public class b extends c<b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f29280a;
+    public long f29362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29281b;
+    public long f29363b;
 
     public b a(long j) {
-        this.f29280a = j;
+        this.f29362a = j;
         return this;
     }
 
     public b b(long j) {
-        this.f29281b = j;
+        this.f29363b = j;
         return this;
     }
 
@@ -24,8 +24,8 @@ public class b extends c<b> {
     public JSONObject a() {
         JSONObject a2 = super.a();
         try {
-            a2.put("c_process_time", this.f29280a);
-            a2.put("s_process_time", this.f29281b);
+            a2.put("c_process_time", this.f29362a);
+            a2.put("s_process_time", this.f29363b);
         } catch (Exception unused) {
         }
         return a2;

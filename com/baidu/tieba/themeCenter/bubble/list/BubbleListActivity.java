@@ -5,15 +5,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
-import d.a.m0.k0.d;
-import d.a.m0.r.f0.f;
-import d.a.n0.k3.h.e;
+import d.a.n0.k0.d;
+import d.a.n0.r.f0.f;
+import d.a.o0.k3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
-    public d.a.n0.k3.f.a.a mItemController;
+    public d.a.o0.k3.f.a.a mItemController;
     public BubbleListModel mModel;
-    public d.a.n0.k3.f.c.b mView;
+    public d.a.o0.k3.f.c.b mView;
     public BubbleListModel.c mCallback = new a();
     public BdListView.p mScrollToBottomListener = new b();
     public final f.g mOnPullRefreshListener = new c();
@@ -55,7 +55,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public c() {
         }
 
-        @Override // d.a.m0.r.f0.f.g
+        @Override // d.a.n0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (BubbleListActivity.this.mModel != null) {
                 BubbleListActivity.this.mModel.LoadData();
@@ -63,7 +63,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "b011";
     }
@@ -72,7 +72,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53110a = true;
+            pageStayDurationItem.f53217a = true;
         }
         return pageStayDurationItem;
     }
@@ -80,7 +80,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.n0.k3.f.c.b bVar = this.mView;
+        d.a.o0.k3.f.c.b bVar = this.mView;
         if (bVar != null) {
             bVar.d();
         }
@@ -92,9 +92,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         BubbleListModel bubbleListModel = new BubbleListModel(this);
         this.mModel = bubbleListModel;
         bubbleListModel.N(this.mCallback);
-        d.a.n0.k3.f.a.a aVar = new d.a.n0.k3.f.a.a(getPageContext());
+        d.a.o0.k3.f.a.a aVar = new d.a.o0.k3.f.a.a(getPageContext());
         this.mItemController = aVar;
-        d.a.n0.k3.f.c.b bVar = new d.a.n0.k3.f.c.b(this, aVar);
+        d.a.o0.k3.f.c.b bVar = new d.a.o0.k3.f.c.b(this, aVar);
         this.mView = bVar;
         bVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
         showLoadingView(this.mView.c());
@@ -108,7 +108,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.a.n0.k3.f.c.b bVar;
+        d.a.o0.k3.f.c.b bVar;
         if (this.mModel == null || (bVar = this.mView) == null) {
             return;
         }

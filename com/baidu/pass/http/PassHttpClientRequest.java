@@ -6,10 +6,10 @@ import com.baidu.pass.common.Log;
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9237a = "PassHttpClientRequest";
+    public static final String f9245a = "PassHttpClientRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9238b;
+    public int f9246b;
     public volatile boolean cancelRequest = false;
     public Context context;
     public Method method;
@@ -17,7 +17,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
     public HttpResponseHandler responseHandler;
 
     public PassHttpClientRequest(Method method, Context context, PassHttpParamDTO passHttpParamDTO, int i2, HttpResponseHandler httpResponseHandler) {
-        this.f9238b = i2;
+        this.f9246b = i2;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -38,7 +38,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         try {
             new b().a(this);
         } catch (Exception e2) {
-            Log.e(f9237a, "PassHttpClientRequestrun " + e2.getMessage());
+            Log.e(f9245a, "PassHttpClientRequestrun " + e2.getMessage());
             HttpResponseHandler httpResponseHandler2 = this.responseHandler;
             if (httpResponseHandler2 != null) {
                 httpResponseHandler2.b(e2, e2.getMessage());
@@ -55,6 +55,6 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
     public int compareTo(PassHttpClientRequest passHttpClientRequest) {
         ReqPriority reqPriority = this.paramDTO.priority;
         ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-        return reqPriority == reqPriority2 ? this.f9238b - passHttpClientRequest.f9238b : reqPriority2.ordinal() - reqPriority.ordinal();
+        return reqPriority == reqPriority2 ? this.f9246b - passHttpClientRequest.f9246b : reqPriority2.ordinal() - reqPriority.ordinal();
     }
 }

@@ -47,18 +47,18 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
         public static class a implements IFullScreenVideoAdInteractionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IFullScreenVideoAdInteractionListener f27060a;
+            public static IFullScreenVideoAdInteractionListener f27142a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27061b;
+            public IBinder f27143b;
 
             public a(IBinder iBinder) {
-                this.f27061b = iBinder;
+                this.f27143b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27061b;
+                return this.f27143b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
@@ -67,7 +67,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdClose();
                     } else {
                         obtain2.readException();
@@ -84,7 +84,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdShow();
                     } else {
                         obtain2.readException();
@@ -101,7 +101,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdVideoBarClick();
                     } else {
                         obtain2.readException();
@@ -118,7 +118,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDestroy();
                     } else {
                         obtain2.readException();
@@ -135,7 +135,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onSkippedVideo();
                     } else {
                         obtain2.readException();
@@ -152,7 +152,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    if (!this.f27061b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27143b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onVideoComplete();
                     } else {
                         obtain2.readException();
@@ -180,14 +180,14 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
         }
 
         public static IFullScreenVideoAdInteractionListener getDefaultImpl() {
-            return a.f27060a;
+            return a.f27142a;
         }
 
         public static boolean setDefaultImpl(IFullScreenVideoAdInteractionListener iFullScreenVideoAdInteractionListener) {
-            if (a.f27060a != null || iFullScreenVideoAdInteractionListener == null) {
+            if (a.f27142a != null || iFullScreenVideoAdInteractionListener == null) {
                 return false;
             }
-            a.f27060a = iFullScreenVideoAdInteractionListener;
+            a.f27142a = iFullScreenVideoAdInteractionListener;
             return true;
         }
 

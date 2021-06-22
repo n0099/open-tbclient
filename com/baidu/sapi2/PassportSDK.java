@@ -95,12 +95,20 @@ public final class PassportSDK {
         CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str);
     }
 
+    public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
+        CoreViewRouter.getInstance().loadQrLoginWithEncuid(qrLoginCallback, str);
+    }
+
     public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
         CoreViewRouter.getInstance().loadSwitchAccount(switchAccountDTO, webAuthListener);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
         CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, socialType);
+    }
+
+    public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
+        CoreViewRouter.getInstance().loadYYSSOLogin(context, str, webAuthListener);
     }
 
     public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
@@ -125,6 +133,12 @@ public final class PassportSDK {
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         CoreViewRouter.getInstance().startLogin(webAuthListener, webLoginDTO);
+    }
+
+    public void startLoginDeviceManager(Context context) {
+        if (SapiAccountManager.getInstance().isLogin()) {
+            CoreViewRouter.getInstance().startLoginDeviceManager(context);
+        }
     }
 
     public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {

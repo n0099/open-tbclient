@@ -17,87 +17,87 @@ import java.util.Map;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f42349c;
+    public static d f42452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdAsyncTaskParallel f42350d;
+    public static BdAsyncTaskParallel f42453d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdAsyncTaskParallel f42351e;
+    public static BdAsyncTaskParallel f42454e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BdUniqueId f42352a = BdUniqueId.gen();
+    public final BdUniqueId f42455a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<e<?>> f42353b;
+    public SparseArray<e<?>> f42456b;
 
     /* loaded from: classes.dex */
     public class a<T> extends BdAsyncTask<String, Object, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f42354a;
+        public final String f42457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f42355b;
+        public final int f42458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42356c;
+        public int f42459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f42357d;
+        public int f42460d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42358e;
+        public boolean f42461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object[] f42359f;
+        public Object[] f42462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f42360g = 2;
+        public int f42463g = 2;
 
         /* renamed from: i  reason: collision with root package name */
-        public final Map<c<T>, BdUniqueId> f42362i = new HashMap();
+        public final Map<c<T>, BdUniqueId> f42465i = new HashMap();
         public final b j = new b();
 
         /* renamed from: h  reason: collision with root package name */
-        public long f42361h = System.currentTimeMillis();
+        public long f42464h = System.currentTimeMillis();
 
         public a(String str, int i2, int i3, int i4, BdUniqueId bdUniqueId, c<T> cVar, boolean z, Object... objArr) {
-            this.f42356c = 0;
-            this.f42357d = 0;
-            this.f42358e = false;
-            this.f42359f = null;
-            this.f42354a = str;
-            this.f42355b = i2;
-            this.f42356c = i3;
-            this.f42357d = i4;
-            this.f42358e = z;
-            this.f42359f = objArr;
+            this.f42459c = 0;
+            this.f42460d = 0;
+            this.f42461e = false;
+            this.f42462f = null;
+            this.f42457a = str;
+            this.f42458b = i2;
+            this.f42459c = i3;
+            this.f42460d = i4;
+            this.f42461e = z;
+            this.f42462f = objArr;
             b(cVar, bdUniqueId);
         }
 
         public void b(c<T> cVar, BdUniqueId bdUniqueId) {
             l.d();
-            if (this.f42362i.containsKey(cVar)) {
+            if (this.f42465i.containsKey(cVar)) {
                 return;
             }
-            this.f42362i.put(cVar, bdUniqueId);
+            this.f42465i.put(cVar, bdUniqueId);
         }
 
         public void c(BdUniqueId bdUniqueId) {
             l.d();
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 cancel();
                 return;
             }
-            Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f42362i.entrySet().iterator();
+            Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f42465i.entrySet().iterator();
             while (it.hasNext()) {
                 BdUniqueId value = it.next().getValue();
                 if (value != null && value == bdUniqueId) {
                     it.remove();
                 }
             }
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 cancel();
             }
         }
@@ -107,28 +107,28 @@ public class d {
             b.a aVar;
             super.cancel();
             b bVar = this.j;
-            if (bVar != null && (aVar = bVar.f42348a) != null) {
+            if (bVar != null && (aVar = bVar.f42451a) != null) {
                 aVar.cancel();
             }
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 return;
             }
-            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42362i.entrySet()) {
+            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42465i.entrySet()) {
                 c<T> key = entry.getKey();
                 if (key != null) {
-                    key.onCancelled(this.f42354a);
+                    key.onCancelled(this.f42457a);
                 }
             }
-            this.f42362i.clear();
+            this.f42465i.clear();
         }
 
         public void d(BdUniqueId bdUniqueId, c<T> cVar) {
             l.d();
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 cancel();
                 return;
             }
-            Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f42362i.entrySet().iterator();
+            Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f42465i.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<c<T>, BdUniqueId> next = it.next();
                 c<T> key = next.getKey();
@@ -137,18 +137,18 @@ public class d {
                     it.remove();
                 }
             }
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 cancel();
             }
         }
 
         public void e(c<T> cVar) {
             l.d();
-            this.f42362i.remove(cVar);
+            this.f42465i.remove(cVar);
             if (cVar != null) {
-                cVar.onCancelled(this.f42354a);
+                cVar.onCancelled(this.f42457a);
             }
-            if (this.f42362i.size() == 0) {
+            if (this.f42465i.size() == 0) {
                 cancel();
             }
         }
@@ -158,8 +158,8 @@ public class d {
         /* renamed from: f */
         public T doInBackground(String... strArr) {
             T t;
-            d.a.c.e.l.a.m(true, System.currentTimeMillis() - this.f42361h);
-            e eVar = (e) d.this.f42353b.get(this.f42355b);
+            d.a.c.e.l.a.m(true, System.currentTimeMillis() - this.f42464h);
+            e eVar = (e) d.this.f42456b.get(this.f42458b);
             if (eVar == null) {
                 return null;
             }
@@ -172,17 +172,17 @@ public class d {
             if (isCancelled()) {
                 return null;
             }
-            T t2 = (T) eVar.getFromLocal(this.f42354a, key, this.f42356c, this.f42357d, this.j, this.f42359f);
+            T t2 = (T) eVar.getFromLocal(this.f42457a, key, this.f42459c, this.f42460d, this.j, this.f42462f);
             if (t2 != null) {
                 return t2;
             }
             t = t2;
-            if (isCancelled() || this.f42358e) {
+            if (isCancelled() || this.f42461e) {
                 return null;
             }
-            this.f42360g = 3;
+            this.f42463g = 3;
             try {
-                return (T) eVar.getFromRemote(this.f42354a, key, this.f42356c, this.f42357d, this.j, this.f42359f);
+                return (T) eVar.getFromRemote(this.f42457a, key, this.f42459c, this.f42460d, this.j, this.f42462f);
             } catch (Exception e3) {
                 BdLog.e(e3.getMessage());
                 return t;
@@ -192,20 +192,20 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
             e eVar;
-            if (t != null && (eVar = (e) d.this.f42353b.get(this.f42355b)) != null) {
-                eVar.updateMemory(d.this.g(this.f42354a, this.f42355b), t, this.f42356c, this.f42357d, this.f42359f);
+            if (t != null && (eVar = (e) d.this.f42456b.get(this.f42458b)) != null) {
+                eVar.updateMemory(d.this.g(this.f42457a, this.f42458b), t, this.f42459c, this.f42460d, this.f42462f);
             }
-            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42362i.entrySet()) {
+            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42465i.entrySet()) {
                 c<T> key = entry.getKey();
                 if (key != null) {
-                    key.onLoaded(t, this.f42354a, this.f42360g);
+                    key.onLoaded(t, this.f42457a, this.f42463g);
                 }
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Object... objArr) {
-            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42362i.entrySet()) {
+            for (Map.Entry<c<T>, BdUniqueId> entry : this.f42465i.entrySet()) {
                 c<T> key = entry.getKey();
                 if (key != null) {
                     key.onProgressUpdate(objArr);
@@ -215,26 +215,26 @@ public class d {
     }
 
     public d() {
-        this.f42353b = null;
+        this.f42456b = null;
         BdUniqueId gen = BdUniqueId.gen();
-        f42350d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        f42351e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.f42353b = new SparseArray<>();
+        f42453d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        f42454e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.f42456b = new SparseArray<>();
     }
 
     public static d h() {
-        if (f42349c == null) {
+        if (f42452c == null) {
             synchronized (d.class) {
-                if (f42349c == null) {
-                    f42349c = new d();
+                if (f42452c == null) {
+                    f42452c = new d();
                 }
             }
         }
-        return f42349c;
+        return f42452c;
     }
 
     public void b(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.f42352a);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.f42455a);
         if (searchAllTask == null || searchAllTask.size() == 0) {
             return;
         }
@@ -264,7 +264,7 @@ public class d {
     }
 
     public void e(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.f42352a);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.f42455a);
         if (searchWaitingTask == null || searchWaitingTask.size() == 0) {
             return;
         }
@@ -278,7 +278,7 @@ public class d {
     }
 
     public <T> void f(BdUniqueId bdUniqueId, c<T> cVar) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.f42352a);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.f42455a);
         if (searchWaitingTask == null || searchWaitingTask.size() == 0) {
             return;
         }
@@ -299,7 +299,7 @@ public class d {
     }
 
     public e i(int i2) {
-        SparseArray<e<?>> sparseArray = this.f42353b;
+        SparseArray<e<?>> sparseArray = this.f42456b;
         if (sparseArray == null) {
             return null;
         }
@@ -307,7 +307,7 @@ public class d {
     }
 
     public boolean j(int i2) {
-        e<?> eVar = this.f42353b.get(i2);
+        e<?> eVar = this.f42456b.get(i2);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
             return false;
@@ -335,7 +335,7 @@ public class d {
         boolean H;
         int asyncTaskPriority;
         Object fromMemory;
-        if (TextUtils.isEmpty(str) || (eVar = this.f42353b.get(i2)) == null) {
+        if (TextUtils.isEmpty(str) || (eVar = this.f42456b.get(i2)) == null) {
             return null;
         }
         if (i3 < 0 || i4 < 0) {
@@ -365,7 +365,7 @@ public class d {
                     boolean v = j.v();
                     a aVar = new a(str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
                     aVar.setKey(g2);
-                    aVar.setTag(this.f42352a);
+                    aVar.setTag(this.f42455a);
                     asyncTaskPriority = eVar.getAsyncTaskPriority();
                     if (asyncTaskPriority == 0) {
                     }
@@ -389,16 +389,16 @@ public class d {
         boolean v2 = j.v();
         a aVar2 = new a(str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
         aVar2.setKey(g2);
-        aVar2.setTag(this.f42352a);
+        aVar2.setTag(this.f42455a);
         asyncTaskPriority = eVar.getAsyncTaskPriority();
         if (asyncTaskPriority == 0) {
             asyncTaskPriority = 1;
         }
         aVar2.setPriority(asyncTaskPriority);
         if (H && !v2) {
-            aVar2.setParallel(f42350d);
+            aVar2.setParallel(f42453d);
         } else if (eVar.getAsyncTaskParallel() != null) {
-            aVar2.setParallel(f42351e);
+            aVar2.setParallel(f42454e);
         } else {
             aVar2.setParallel(eVar.getAsyncTaskParallel());
         }
@@ -414,7 +414,7 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        e<?> eVar = this.f42353b.get(i2);
+        e<?> eVar = this.f42456b.get(i2);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
             return null;
@@ -424,8 +424,8 @@ public class d {
 
     public synchronized <T> void o(int i2, e<T> eVar) {
         if (eVar != null) {
-            if (this.f42353b.get(i2) == null) {
-                this.f42353b.put(i2, eVar);
+            if (this.f42456b.get(i2) == null) {
+                this.f42456b.put(i2, eVar);
             } else {
                 throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i2);
             }

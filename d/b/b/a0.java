@@ -20,19 +20,19 @@ import org.json.JSONObject;
 public class a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f68699d;
+    public static int f68803d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashMap<String, z> f68700e = new HashMap<>();
+    public static final HashMap<String, z> f68804e = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f68701a;
+    public final i f68805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final j f68702b;
+    public final j f68806b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f68703c;
+    public final a f68807c;
 
     /* loaded from: classes6.dex */
     public static class a extends SQLiteOpenHelper {
@@ -44,7 +44,7 @@ public class a0 {
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.beginTransaction();
-                for (z zVar : a0.f68700e.values()) {
+                for (z zVar : a0.f68804e.values()) {
                     String j = zVar.j();
                     if (j != null) {
                         sQLiteDatabase.execSQL(j);
@@ -67,7 +67,7 @@ public class a0 {
             r0.e("onUpgrade, " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3, null);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<z> it = a0.f68700e.values().iterator();
+                Iterator<z> it = a0.f68804e.values().iterator();
                 while (it.hasNext()) {
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + it.next().k());
                 }
@@ -96,13 +96,13 @@ public class a0 {
     }
 
     public a0(Application application, j jVar, i iVar) {
-        this.f68703c = new a(application, "bd_embed_tea_agent.db", null, 29);
-        this.f68702b = jVar;
-        this.f68701a = iVar;
+        this.f68807c = new a(application, "bd_embed_tea_agent.db", null, 29);
+        this.f68806b = jVar;
+        this.f68805a = iVar;
     }
 
     public static void h(z zVar) {
-        f68700e.put(zVar.k(), zVar);
+        f68804e.put(zVar.k(), zVar);
     }
 
     public final int a(z[] zVarArr, int i2, SQLiteDatabase sQLiteDatabase, String str, JSONArray[] jSONArrayArr) {
@@ -150,9 +150,9 @@ public class a0 {
     public ArrayList<g0> e() {
         Cursor cursor;
         ArrayList<g0> arrayList = new ArrayList<>();
-        g0 g0Var = (g0) f68700e.get("pack");
+        g0 g0Var = (g0) f68804e.get("pack");
         try {
-            cursor = this.f68703c.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
+            cursor = this.f68807c.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
             while (cursor.moveToNext()) {
                 try {
                     g0Var = (g0) g0Var.clone();
@@ -186,12 +186,12 @@ public class a0 {
             while (cursor.moveToNext()) {
                 try {
                     zVar.a(cursor);
-                    if (r0.f68823b) {
+                    if (r0.f68927b) {
                         r0.a("queryEvnetInner, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zVar, null);
                     }
                     jSONArray.put(zVar.m());
-                    if (zVar.f68873e > j) {
-                        j = zVar.f68873e;
+                    if (zVar.f68977e > j) {
+                        j = zVar.f68977e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -237,15 +237,15 @@ public class a0 {
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x0077, code lost:
         r13.m = r6;
-        r13.f68875g = r12.f68875g;
-        r13.f68873e = r12.f68873e;
-        r13.n = (r12.f68873e + r6) / 1000;
-        r13.f68874f = d.b.b.e2.a(r11.f68701a);
-        r13.f68877i = r12.f68877i;
+        r13.f68979g = r12.f68979g;
+        r13.f68977e = r12.f68977e;
+        r13.n = (r12.f68977e + r6) / 1000;
+        r13.f68978f = d.b.b.e2.a(r11.f68805a);
+        r13.f68981i = r12.f68981i;
         r13.j = r12.j;
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0099, code lost:
-        if (d.b.b.r0.f68823b == false) goto L33;
+        if (d.b.b.r0.f68927b == false) goto L33;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x009b, code lost:
         d.b.b.r0.a("queryPage, " + r13 + com.baidu.android.common.others.lang.StringUtil.ARRAY_ELEMENT_SEPARATOR + r3.length(), null);
@@ -259,7 +259,7 @@ public class a0 {
     public final JSONArray g(f0 f0Var, j0 j0Var, h0 h0Var, SQLiteDatabase sQLiteDatabase) {
         Cursor cursor;
         boolean z = false;
-        String[] strArr = {f0Var.f68875g};
+        String[] strArr = {f0Var.f68979g};
         JSONArray jSONArray = new JSONArray();
         long j = 0;
         try {
@@ -267,7 +267,7 @@ public class a0 {
             while (cursor.moveToNext()) {
                 try {
                     h0Var.a(cursor);
-                    if (r0.f68823b) {
+                    if (r0.f68927b) {
                         r0.a("queryPageInner, " + strArr + StringUtil.ARRAY_ELEMENT_SEPARATOR + h0Var, null);
                     }
                     if (h0Var.p()) {
@@ -305,7 +305,7 @@ public class a0 {
         r0.a("save, " + arrayList.toString(), null);
         try {
             try {
-                sQLiteDatabase = this.f68703c.getWritableDatabase();
+                sQLiteDatabase = this.f68807c.getWritableDatabase();
                 try {
                     sQLiteDatabase.beginTransaction();
                     Iterator<z> it = arrayList.iterator();
@@ -320,7 +320,7 @@ public class a0 {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        f68699d += arrayList.size();
+                        f68803d += arrayList.size();
                         r0.b(th);
                         if (sQLiteDatabase != null) {
                             sQLiteDatabase.endTransaction();
@@ -386,16 +386,16 @@ public class a0 {
             }
         }
         try {
-            SQLiteDatabase writableDatabase = this.f68703c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f68807c.getWritableDatabase();
             writableDatabase.beginTransaction();
             Iterator<g0> it2 = arrayList.iterator();
             while (it2.hasNext()) {
-                writableDatabase.execSQL("DELETE FROM pack WHERE local_time_ms=?", new String[]{String.valueOf(it2.next().f68873e)});
+                writableDatabase.execSQL("DELETE FROM pack WHERE local_time_ms=?", new String[]{String.valueOf(it2.next().f68977e)});
             }
             Iterator<g0> it3 = arrayList2.iterator();
             while (it3.hasNext()) {
                 g0 next2 = it3.next();
-                long j = next2.f68873e;
+                long j = next2.f68977e;
                 int i4 = next2.n + 1;
                 next2.n = i4;
                 writableDatabase.execSQL(b(j, i4));
@@ -456,18 +456,18 @@ public class a0 {
         h0 h0Var;
         j0 j0Var;
         int i2;
-        f0 f0Var = (f0) f68700e.get("launch");
-        j0 j0Var2 = (j0) f68700e.get("terminate");
-        h0 h0Var2 = (h0) f68700e.get("page");
-        d0 d0Var = (d0) f68700e.get("eventv3");
-        b0 b0Var = (b0) f68700e.get("event");
-        c0 c0Var = (c0) f68700e.get("event_misc");
+        f0 f0Var = (f0) f68804e.get("launch");
+        j0 j0Var2 = (j0) f68804e.get("terminate");
+        h0 h0Var2 = (h0) f68804e.get("page");
+        d0 d0Var = (d0) f68804e.get("eventv3");
+        b0 b0Var = (b0) f68804e.get("event");
+        c0 c0Var = (c0) f68804e.get("event_misc");
         String str2 = "pack";
-        g0 g0Var2 = (g0) f68700e.get("pack");
+        g0 g0Var2 = (g0) f68804e.get("pack");
         ContentValues contentValues2 = new ContentValues();
         Cursor cursor2 = null;
         try {
-            SQLiteDatabase writableDatabase = this.f68703c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f68807c.getWritableDatabase();
             try {
                 writableDatabase.beginTransaction();
                 Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM launch ORDER BY local_time_ms DESC LIMIT 5", null);
@@ -482,24 +482,24 @@ public class a0 {
                             break;
                         }
                         f0Var.a(rawQuery);
-                        if (TextUtils.equals(f0Var.f68875g, x1.h())) {
+                        if (TextUtils.equals(f0Var.f68979g, x1.h())) {
                             str2 = str3;
                         } else {
                             try {
-                                if (TextUtils.equals(f0Var.n, this.f68702b.m())) {
+                                if (TextUtils.equals(f0Var.n, this.f68806b.m())) {
                                     try {
-                                        if (f0Var.m == this.f68702b.l()) {
+                                        if (f0Var.m == this.f68806b.l()) {
                                             jSONObject2 = jSONObject3;
                                             h0 h0Var3 = h0Var2;
-                                            long j3 = f0Var.f68873e >= j2 ? f0Var.f68873e : j2;
-                                            long j4 = f0Var.f68873e <= j ? f0Var.f68873e : j;
+                                            long j3 = f0Var.f68977e >= j2 ? f0Var.f68977e : j2;
+                                            long j4 = f0Var.f68977e <= j ? f0Var.f68977e : j;
                                             g2 = g(f0Var, j0Var2, h0Var3, writableDatabase);
                                             z[] zVarArr2 = {b0Var, d0Var, c0Var};
                                             JSONArray[] jSONArrayArr = new JSONArray[3];
-                                            int a2 = a(zVarArr2, 0, writableDatabase, f0Var.f68875g, jSONArrayArr);
+                                            int a2 = a(zVarArr2, 0, writableDatabase, f0Var.f68979g, jSONArrayArr);
                                             if (g2.length() <= 0) {
                                                 try {
-                                                    long j5 = f0Var.f68873e;
+                                                    long j5 = f0Var.f68977e;
                                                     JSONArray jSONArray = jSONArrayArr[0];
                                                     JSONArray jSONArray2 = jSONArrayArr[1];
                                                     JSONArray jSONArray3 = jSONArrayArr[2];
@@ -575,14 +575,14 @@ public class a0 {
                                                 j0Var = j0Var2;
                                                 str = str3;
                                                 f0Var.o = true;
-                                                g0Var.p(f0Var.f68873e, jSONObject2, f0Var, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
+                                                g0Var.p(f0Var.f68977e, jSONObject2, f0Var, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
                                             }
-                                            if (r0.f68823b) {
+                                            if (r0.f68927b) {
                                                 StringBuilder sb = new StringBuilder();
                                                 sb.append("packer launch, ");
                                                 sb.append(g2.length() <= 0);
                                                 sb.append(", sid:");
-                                                sb.append(f0Var.f68875g);
+                                                sb.append(f0Var.f68979g);
                                                 r0.a(sb.toString(), null);
                                             }
                                             ContentValues g3 = g0Var.g(contentValues);
@@ -595,12 +595,12 @@ public class a0 {
                                             while (i2 < 3) {
                                                 g0 g0Var3 = g0Var;
                                                 String str6 = str5;
-                                                i2 = a(zVarArr, i2, sQLiteDatabase, f0Var.f68875g, jSONArrayArr);
+                                                i2 = a(zVarArr, i2, sQLiteDatabase, f0Var.f68979g, jSONArrayArr);
                                                 if (jSONArrayArr[0] == null && jSONArrayArr[1] == null && jSONArrayArr[2] == null) {
                                                     g0Var = g0Var3;
                                                     str5 = str6;
                                                 }
-                                                g0Var3.p(f0Var.f68873e, jSONObject2, null, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
+                                                g0Var3.p(f0Var.f68977e, jSONObject2, null, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
                                                 contentValues4 = g0Var3.g(contentValues4);
                                                 sQLiteDatabase.insert(str4, str6, contentValues4);
                                                 g0Var = g0Var3;
@@ -678,17 +678,17 @@ public class a0 {
                             jSONObject4.put("version_code", f0Var.m);
                             jSONObject2 = jSONObject4;
                             h0 h0Var32 = h0Var2;
-                            if (f0Var.f68873e >= j2) {
+                            if (f0Var.f68977e >= j2) {
                             }
-                            if (f0Var.f68873e <= j) {
+                            if (f0Var.f68977e <= j) {
                             }
                             g2 = g(f0Var, j0Var2, h0Var32, writableDatabase);
                             z[] zVarArr22 = {b0Var, d0Var, c0Var};
                             JSONArray[] jSONArrayArr2 = new JSONArray[3];
-                            int a22 = a(zVarArr22, 0, writableDatabase, f0Var.f68875g, jSONArrayArr2);
+                            int a22 = a(zVarArr22, 0, writableDatabase, f0Var.f68979g, jSONArrayArr2);
                             if (g2.length() <= 0) {
                             }
-                            if (r0.f68823b) {
+                            if (r0.f68927b) {
                             }
                             ContentValues g32 = g0Var.g(contentValues);
                             sQLiteDatabase = sQLiteDatabase2;
@@ -779,20 +779,20 @@ public class a0 {
         long currentTimeMillis;
         JSONArray jSONArray;
         JSONArray jSONArray2;
-        d0 d0Var = (d0) f68700e.get("eventv3");
-        b0 b0Var = (b0) f68700e.get("event");
-        c0 c0Var = (c0) f68700e.get("event_misc");
-        g0 g0Var3 = (g0) f68700e.get("pack");
+        d0 d0Var = (d0) f68804e.get("eventv3");
+        b0 b0Var = (b0) f68804e.get("event");
+        c0 c0Var = (c0) f68804e.get("event_misc");
+        g0 g0Var3 = (g0) f68804e.get("pack");
         ContentValues contentValues2 = new ContentValues();
         SQLiteDatabase sQLiteDatabase3 = null;
         try {
-            SQLiteDatabase writableDatabase = this.f68703c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f68807c.getWritableDatabase();
             try {
                 writableDatabase.beginTransaction();
                 z[] zVarArr2 = {b0Var, d0Var, c0Var};
                 JSONArray[] jSONArrayArr = new JSONArray[3];
                 char c2 = 1;
-                int a2 = a(zVarArr2, 0, writableDatabase, f0Var.f68875g, jSONArrayArr);
+                int a2 = a(zVarArr2, 0, writableDatabase, f0Var.f68979g, jSONArrayArr);
                 if (jSONArrayArr[0] != null) {
                     try {
                     } catch (Exception e2) {
@@ -847,7 +847,7 @@ public class a0 {
                                         g0 g0Var4 = g0Var;
                                         SQLiteDatabase sQLiteDatabase4 = sQLiteDatabase2;
                                         try {
-                                            i2 = a(zVarArr, i2, sQLiteDatabase2, f0Var.f68875g, jSONArrayArr);
+                                            i2 = a(zVarArr, i2, sQLiteDatabase2, f0Var.f68979g, jSONArrayArr);
                                             if (jSONArrayArr[0] != null) {
                                                 try {
                                                 } catch (Exception e5) {
@@ -950,8 +950,8 @@ public class a0 {
                         ContentValues g2 = g0Var.g(contentValues2);
                         str = "pack";
                         sQLiteDatabase2.insert(str, null, g2);
-                        if (r0.f68823b && l(f0Var, z)) {
-                            r0.a("send launch, " + f0Var.f68875g + ", hadUI:" + z, null);
+                        if (r0.f68927b && l(f0Var, z)) {
+                            r0.a("send launch, " + f0Var.f68979g + ", hadUI:" + z, null);
                         }
                         f0Var.p = true;
                         i2 = a2;

@@ -21,12 +21,12 @@ import java.util.Locale;
 import kotlin.UShort;
 /* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_5 = null;
     public static HashMap<String, String> language;
     public int dataCountry;
     public int dataLanguage;

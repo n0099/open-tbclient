@@ -17,26 +17,26 @@ import java.util.regex.Pattern;
 public class BaiduTraffic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24089a = "BaiduTraffic";
+    public static final String f24171a = "BaiduTraffic";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24090b;
+    public Context f24172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a> f24091c;
+    public final Map<Integer, a> f24173c;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass1 implements PayCallBack {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetTrafficOrderResponse f24092a;
+        public final /* synthetic */ GetTrafficOrderResponse f24174a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f24093b;
+        public final /* synthetic */ int f24175b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaiduTraffic f24094c;
+        public final /* synthetic */ BaiduTraffic f24176c;
 
         @Override // com.baidu.android.pay.PayCallBack
         public boolean isHideLoadingDialog() {
@@ -46,37 +46,37 @@ public class BaiduTraffic {
         @Override // com.baidu.android.pay.PayCallBack
         public void onPayResult(final int i2, String str) {
             if (i2 != 0 && i2 != 1) {
-                a a2 = this.f24094c.a(this.f24093b);
+                a a2 = this.f24176c.a(this.f24175b);
                 if (a2 != null) {
-                    a2.a(this.f24093b, 0, new a.C0235a(i2, ""));
-                    this.f24094c.b(this.f24093b);
+                    a2.a(this.f24175b, 0, new a.C0238a(i2, ""));
+                    this.f24176c.b(this.f24175b);
                     return;
                 }
                 return;
             }
-            GetTrafficOrderResponse getTrafficOrderResponse = this.f24092a;
-            if (getTrafficOrderResponse != null && !TextUtils.isEmpty(getTrafficOrderResponse.orderNo) && this.f24092a.isGotoResultActivity()) {
-                GetTrafficOrderResponse.Params params = this.f24092a.params;
-                WalletMobileResultActivity.gotoBusniessResultPage(this.f24094c.f24090b, false, this.f24092a.orderNo, params != null ? params.pay_desc : "", i2 == 1, new ResultPageStateListener() { // from class: com.baidu.wallet.fastpay.sdk.BaiduTraffic.1.1
+            GetTrafficOrderResponse getTrafficOrderResponse = this.f24174a;
+            if (getTrafficOrderResponse != null && !TextUtils.isEmpty(getTrafficOrderResponse.orderNo) && this.f24174a.isGotoResultActivity()) {
+                GetTrafficOrderResponse.Params params = this.f24174a.params;
+                WalletMobileResultActivity.gotoBusniessResultPage(this.f24176c.f24172b, false, this.f24174a.orderNo, params != null ? params.pay_desc : "", i2 == 1, new ResultPageStateListener() { // from class: com.baidu.wallet.fastpay.sdk.BaiduTraffic.1.1
                     @Override // com.baidu.wallet.api.ResultPageStateListener
                     public void onConfirm() {
                         PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(i2);
                         AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                        a a3 = anonymousClass1.f24094c.a(anonymousClass1.f24093b);
+                        a a3 = anonymousClass1.f24176c.a(anonymousClass1.f24175b);
                         if (a3 != null) {
-                            a3.a(AnonymousClass1.this.f24093b, 1, payStateTrafficModle);
+                            a3.a(AnonymousClass1.this.f24175b, 1, payStateTrafficModle);
                             AnonymousClass1 anonymousClass12 = AnonymousClass1.this;
-                            anonymousClass12.f24094c.b(anonymousClass12.f24093b);
+                            anonymousClass12.f24176c.b(anonymousClass12.f24175b);
                         }
                     }
                 });
                 return;
             }
             PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(i2);
-            a a3 = this.f24094c.a(this.f24093b);
+            a a3 = this.f24176c.a(this.f24175b);
             if (a3 != null) {
-                a3.a(this.f24093b, 1, payStateTrafficModle);
-                this.f24094c.b(this.f24093b);
+                a3.a(this.f24175b, 1, payStateTrafficModle);
+                this.f24176c.b(this.f24175b);
             }
         }
     }
@@ -96,7 +96,7 @@ public class BaiduTraffic {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(int i2, int i3, a.C0235a c0235a);
+        void a(int i2, int i3, a.C0238a c0238a);
 
         void a(int i2, int i3, Object obj);
     }
@@ -105,7 +105,7 @@ public class BaiduTraffic {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduTraffic f24097a = new BaiduTraffic(null);
+        public static BaiduTraffic f24179a = new BaiduTraffic(null);
     }
 
     public /* synthetic */ BaiduTraffic(AnonymousClass1 anonymousClass1) {
@@ -113,19 +113,19 @@ public class BaiduTraffic {
     }
 
     public void b(int i2) {
-        Map<Integer, a> map = this.f24091c;
+        Map<Integer, a> map = this.f24173c;
         if (map == null || map.size() <= 0) {
             return;
         }
-        this.f24091c.remove(Integer.valueOf(i2));
+        this.f24173c.remove(Integer.valueOf(i2));
     }
 
     public BaiduTraffic() {
-        this.f24091c = new HashMap();
+        this.f24173c = new HashMap();
     }
 
     public static BaiduTraffic a() {
-        return b.f24097a;
+        return b.f24179a;
     }
 
     public boolean a(String str) {
@@ -133,10 +133,10 @@ public class BaiduTraffic {
     }
 
     public a a(int i2) {
-        Map<Integer, a> map = this.f24091c;
+        Map<Integer, a> map = this.f24173c;
         if (map == null || map.size() <= 0) {
             return null;
         }
-        return this.f24091c.get(Integer.valueOf(i2));
+        return this.f24173c.get(Integer.valueOf(i2));
     }
 }

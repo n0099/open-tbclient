@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk.location;
 
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes5.dex */
 public class ZeusGeoLocationInfo {
     public static final String COOR_TYPE_GCJ = "gcj02";
@@ -119,6 +120,6 @@ public class ZeusGeoLocationInfo {
     }
 
     public String toString() {
-        return "longitude[" + this.mLongitude + "] latitude[" + this.mLatitude + "] radius[" + this.mRadius + "] province[" + this.mProvince + "] city[" + this.mCity + "] district[" + this.mDistrict + "] street[" + this.mStreet + "] streetNumber[" + this.mStreetNumber + "] cityCode[" + this.mCityCode + "] mTime[" + ((Object) DateFormat.format("yyyy-MM-dd kk:mm:ss", this.mTime)) + "]";
+        return "longitude[" + this.mLongitude + "] latitude[" + this.mLatitude + "] radius[" + this.mRadius + "] province[" + this.mProvince + "] city[" + this.mCity + "] district[" + this.mDistrict + "] street[" + this.mStreet + "] streetNumber[" + this.mStreetNumber + "] cityCode[" + this.mCityCode + "] mTime[" + ((Object) DateFormat.format("yyyy-MM-dd kk:mm:ss", this.mTime)) + PreferencesUtil.RIGHT_MOUNT;
     }
 }

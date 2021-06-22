@@ -6,44 +6,44 @@ public final class a {
 
     /* renamed from: d.g.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C1909a {
+    public static /* synthetic */ class C1912a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f70047a;
+        public static final /* synthetic */ int[] f70151a;
 
         static {
             int[] iArr = new int[RoundingMode.values().length];
-            f70047a = iArr;
+            f70151a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f70047a[RoundingMode.FLOOR.ordinal()] = 2;
+                f70151a[RoundingMode.FLOOR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f70047a[RoundingMode.CEILING.ordinal()] = 3;
+                f70151a[RoundingMode.CEILING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f70047a[RoundingMode.DOWN.ordinal()] = 4;
+                f70151a[RoundingMode.DOWN.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f70047a[RoundingMode.UP.ordinal()] = 5;
+                f70151a[RoundingMode.UP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f70047a[RoundingMode.HALF_EVEN.ordinal()] = 6;
+                f70151a[RoundingMode.HALF_EVEN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f70047a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f70151a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f70047a[RoundingMode.HALF_DOWN.ordinal()] = 8;
+                f70151a[RoundingMode.HALF_DOWN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -59,7 +59,7 @@ public final class a {
 
     public static double b(double d2, RoundingMode roundingMode) {
         if (b.c(d2)) {
-            switch (C1909a.f70047a[roundingMode.ordinal()]) {
+            switch (C1912a.f70151a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(a(d2));
                     return d2;

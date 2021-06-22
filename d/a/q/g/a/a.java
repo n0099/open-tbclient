@@ -5,21 +5,21 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d[] f67909a = {new e(8, 0), new f(0, 1), new f(1, 1), new e(7, 1)};
+    public d[] f67865a = {new e(8, 0), new f(0, 1), new f(1, 1), new e(7, 1)};
 
     public byte[] a(byte[] bArr) {
         c cVar = new c();
-        byte[] b2 = b.b(bArr, bArr.length + ((this.f67909a.length + 1) * c.f67910b));
+        byte[] b2 = b.b(bArr, bArr.length + ((this.f67865a.length + 1) * c.f67866b));
         b.a(b2, cVar.b(), bArr.length);
         int i2 = 0;
         while (true) {
-            d[] dVarArr = this.f67909a;
+            d[] dVarArr = this.f67865a;
             if (i2 >= dVarArr.length) {
-                return Arrays.copyOf(cVar.b(), c.f67910b);
+                return Arrays.copyOf(cVar.b(), c.f67866b);
             }
             d dVar = dVarArr[i2];
             i2++;
-            int length = bArr.length + (c.f67910b * i2);
+            int length = bArr.length + (c.f67866b * i2);
             cVar.a(dVar.b(b2, 0, length), dVar.a(), dVar.c(), dVar.d());
             b.a(b2, cVar.b(), length);
         }

@@ -28,8 +28,8 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.a.m0.s.c.u;
-/* loaded from: classes3.dex */
+import d.a.n0.s.c.u;
+/* loaded from: classes4.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static String AUTO_PAY_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
     public static String LAW_JUMP_URL = "https://tieba.baidu.com/tb/eula_mobile.html?";
@@ -54,7 +54,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     public final CustomMessageListener mAutoPaySuccListener = new c(2016525);
     public NoNetworkView.b mNetworkChangeListener = new e();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i2) {
             super(i2);
@@ -78,7 +78,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         MemberPayActivity.this.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(MemberPayActivity.this.mCurrentShowType)));
                         MemberPayActivity.this.setResult(-1);
-                        d.a.m0.r.d0.b.j().t("show_member_deid_line", true);
+                        d.a.n0.r.d0.b.j().t("show_member_deid_line", true);
                         if (MemberPayActivity.this.mIsClose) {
                             MemberPayActivity.this.closeActivity();
                         } else {
@@ -90,7 +90,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public b(int i2) {
             super(i2);
@@ -120,7 +120,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i2) {
             super(i2);
@@ -137,30 +137,30 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements d.a.m0.l0.a {
+    /* loaded from: classes4.dex */
+    public class d implements d.a.n0.l0.a {
         public d() {
         }
 
-        @Override // d.a.m0.l0.a
+        @Override // d.a.n0.l0.a
         public void a() {
-            d.a.m0.l0.d c2 = d.a.m0.l0.d.c();
+            d.a.n0.l0.d c2 = d.a.n0.l0.d.c();
             c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + MemberPayActivity.this.mReferPage + "&click_zone=" + MemberPayActivity.this.mClickZone, MemberPayActivity.this.getPageContext());
             MemberPayActivity.this.finish();
         }
 
-        @Override // d.a.m0.l0.a
+        @Override // d.a.n0.l0.a
         public void b() {
             MemberPayActivity.this.requestMemberPayInfo();
         }
 
-        @Override // d.a.m0.l0.a
+        @Override // d.a.n0.l0.a
         public void onError(String str) {
             MemberPayActivity.this.requestMemberPayInfo();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements NoNetworkView.b {
         public e() {
         }
@@ -324,7 +324,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         return this.mClickZone;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "b001";
     }
@@ -334,10 +334,10 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.m0.k0.d getPageStayDurationItem() {
-        d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.n0.k0.d getPageStayDurationItem() {
+        d.a.n0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53110a = true;
+            pageStayDurationItem.f53217a = true;
         }
         return pageStayDurationItem;
     }

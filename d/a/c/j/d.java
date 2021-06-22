@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42855a = d.a.c.j.a.f42853a;
+    public static final boolean f42958a = d.a.c.j.a.f42956a;
 
     /* loaded from: classes.dex */
     public static abstract class a implements b<JSONObject> {
@@ -45,7 +45,7 @@ public class d {
                         byteArrayOutputStream.write(bArr, 0, read);
                     }
                     JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                    if (d.f42855a) {
+                    if (d.f42958a) {
                         Log.d(TitanDownloadService.TAG, jSONObject.toString());
                     }
                     return jSONObject;
@@ -130,7 +130,7 @@ public class d {
                 if (!TextUtils.equals(str2, "POST")) {
                     outputStream2 = null;
                 } else if (bArr == null) {
-                    if (f42855a) {
+                    if (f42958a) {
                         Log.d(TitanDownloadService.TAG, "post requestSync body is null");
                     }
                     if (bVar != null) {

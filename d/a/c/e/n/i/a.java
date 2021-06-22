@@ -3,28 +3,28 @@ package d.a.c.e.n.i;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f42434b;
+    public static a f42537b;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42435a = 0;
+    public long f42538a = 0;
 
     public static a b() {
-        if (f42434b == null) {
+        if (f42537b == null) {
             synchronized (a.class) {
-                if (f42434b == null) {
-                    f42434b = new a();
+                if (f42537b == null) {
+                    f42537b = new a();
                 }
             }
         }
-        return f42434b;
+        return f42537b;
     }
 
     public synchronized long a() {
-        if (this.f42435a > 0) {
-            this.f42435a++;
+        if (this.f42538a > 0) {
+            this.f42538a++;
         } else {
-            this.f42435a = System.currentTimeMillis();
+            this.f42538a = System.currentTimeMillis();
         }
-        return this.f42435a;
+        return this.f42538a;
     }
 }

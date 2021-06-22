@@ -12,50 +12,50 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class TTRatingBar extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28688a;
+    public int f28770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28689b;
+    public int f28771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28690c;
+    public int f28772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28691d;
+    public float f28773d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28692e;
+    public float f28774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28693f;
+    public float f28775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f28694g;
+    public Drawable f28776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f28695h;
+    public Drawable f28777h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f28696i;
+    public Drawable f28778i;
 
     public TTRatingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28688a = 5;
-        this.f28689b = 0;
-        this.f28690c = 0;
+        this.f28770a = 5;
+        this.f28771b = 0;
+        this.f28772c = 0;
         setOrientation(0);
-        this.f28694g = ad.c(context, "tt_star_empty_bg");
-        this.f28695h = ad.c(context, "tt_star_full_bg");
-        this.f28696i = ad.c(context, "tt_star_empty_bg");
-        this.f28691d = al.c(context, 15.0f);
-        this.f28692e = al.c(context, 15.0f);
-        this.f28693f = al.c(context, 5.0f);
+        this.f28776g = ad.c(context, "tt_star_empty_bg");
+        this.f28777h = ad.c(context, "tt_star_full_bg");
+        this.f28778i = ad.c(context, "tt_star_empty_bg");
+        this.f28773d = al.c(context, 15.0f);
+        this.f28774e = al.c(context, 15.0f);
+        this.f28775f = al.c(context, 5.0f);
     }
 
     private ImageView getStarImageView() {
         ImageView imageView = new ImageView(getContext());
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f28691d), Math.round(this.f28692e)));
-        imageView.setPadding(0, 0, Math.round(this.f28693f), 0);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f28773d), Math.round(this.f28774e)));
+        imageView.setPadding(0, 0, Math.round(this.f28775f), 0);
         return imageView;
     }
 
@@ -79,74 +79,74 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public Drawable getStarEmptyDrawable() {
-        return this.f28694g;
+        return this.f28776g;
     }
 
     public int getStarEmptyNum() {
-        return this.f28690c;
+        return this.f28772c;
     }
 
     public Drawable getStarFillDrawable() {
-        return this.f28695h;
+        return this.f28777h;
     }
 
     public int getStarFillNum() {
-        return this.f28688a;
+        return this.f28770a;
     }
 
     public Drawable getStarHalfDrawable() {
-        return this.f28696i;
+        return this.f28778i;
     }
 
     public int getStarHalfNum() {
-        return this.f28689b;
+        return this.f28771b;
     }
 
     public float getStarImageHeight() {
-        return this.f28692e;
+        return this.f28774e;
     }
 
     public float getStarImagePadding() {
-        return this.f28693f;
+        return this.f28775f;
     }
 
     public float getStarImageWidth() {
-        return this.f28691d;
+        return this.f28773d;
     }
 
     public void setStarEmptyDrawable(Drawable drawable) {
-        this.f28694g = drawable;
+        this.f28776g = drawable;
     }
 
     public void setStarEmptyNum(int i2) {
-        this.f28690c = i2;
+        this.f28772c = i2;
     }
 
     public void setStarFillDrawable(Drawable drawable) {
-        this.f28695h = drawable;
+        this.f28777h = drawable;
     }
 
     public void setStarFillNum(int i2) {
-        this.f28688a = i2;
+        this.f28770a = i2;
     }
 
     public void setStarHalfDrawable(Drawable drawable) {
-        this.f28696i = drawable;
+        this.f28778i = drawable;
     }
 
     public void setStarHalfNum(int i2) {
-        this.f28689b = i2;
+        this.f28771b = i2;
     }
 
     public void setStarImageHeight(float f2) {
-        this.f28692e = f2;
+        this.f28774e = f2;
     }
 
     public void setStarImagePadding(float f2) {
-        this.f28693f = f2;
+        this.f28775f = f2;
     }
 
     public void setStarImageWidth(float f2) {
-        this.f28691d = f2;
+        this.f28773d = f2;
     }
 }

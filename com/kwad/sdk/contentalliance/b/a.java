@@ -16,22 +16,22 @@ public abstract class a extends PagerAdapter {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final KsFragmentManager f32434a;
+    public final KsFragmentManager f32532a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32436c;
+    public boolean f32534c;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<List<KsFragment>> f32437f = new SparseArray<>();
+    public final SparseArray<List<KsFragment>> f32535f = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public KsFragmentTransaction f32435b = null;
+    public KsFragmentTransaction f32533b = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public KsFragment f32438g = null;
+    public KsFragment f32536g = null;
 
     public a(@NonNull KsFragmentManager ksFragmentManager) {
-        this.f32434a = ksFragmentManager;
+        this.f32532a = ksFragmentManager;
     }
 
     public static String a(int i2, long j) {
@@ -39,7 +39,7 @@ public abstract class a extends PagerAdapter {
     }
 
     private List<KsFragment> a(int i2) {
-        return this.f32437f.get(i2);
+        return this.f32535f.get(i2);
     }
 
     private long b(int i2) {
@@ -62,12 +62,12 @@ public abstract class a extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
-        if (this.f32435b == null) {
-            this.f32435b = this.f32434a.beginTransaction();
+        if (this.f32533b == null) {
+            this.f32533b = this.f32532a.beginTransaction();
         }
         KsFragment ksFragment = (KsFragment) obj;
-        if (!this.f32436c) {
-            this.f32435b.detach(ksFragment);
+        if (!this.f32534c) {
+            this.f32533b.detach(ksFragment);
             if (!b(ksFragment)) {
                 return;
             }
@@ -76,13 +76,13 @@ public abstract class a extends PagerAdapter {
                 List<KsFragment> a3 = a(a2);
                 if (a3 == null) {
                     a3 = new ArrayList<>();
-                    this.f32437f.put(a2, a3);
+                    this.f32535f.put(a2, a3);
                 }
                 a3.add(ksFragment);
                 return;
             }
         }
-        this.f32435b.remove(ksFragment);
+        this.f32533b.remove(ksFragment);
     }
 
     public boolean f(int i2) {
@@ -91,22 +91,22 @@ public abstract class a extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void finishUpdate(@NonNull ViewGroup viewGroup) {
-        KsFragmentTransaction ksFragmentTransaction = this.f32435b;
+        KsFragmentTransaction ksFragmentTransaction = this.f32533b;
         if (ksFragmentTransaction != null) {
             try {
                 ksFragmentTransaction.commitNowAllowingStateLoss();
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            this.f32435b = null;
+            this.f32533b = null;
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
-        if (this.f32435b == null) {
-            this.f32435b = this.f32434a.beginTransaction();
+        if (this.f32533b == null) {
+            this.f32533b = this.f32532a.beginTransaction();
         }
         long b2 = b(i2);
         int d2 = d(i2);
@@ -117,13 +117,13 @@ public abstract class a extends PagerAdapter {
         }
         if (ksFragment != null) {
             a(ksFragment, i2, d2);
-            this.f32435b.attach(ksFragment);
+            this.f32533b.attach(ksFragment);
         } else {
             ksFragment = a(i2, d2);
             a(ksFragment, i2, d2);
-            this.f32435b.add(viewGroup.getId(), ksFragment, a(viewGroup.getId(), b2));
+            this.f32533b.add(viewGroup.getId(), ksFragment, a(viewGroup.getId(), b2));
         }
-        if (ksFragment != this.f32438g) {
+        if (ksFragment != this.f32536g) {
             ksFragment.setMenuVisibility(false);
             ksFragment.setUserVisibleHint(false);
         }
@@ -147,15 +147,15 @@ public abstract class a extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
         KsFragment ksFragment = (KsFragment) obj;
-        KsFragment ksFragment2 = this.f32438g;
+        KsFragment ksFragment2 = this.f32536g;
         if (ksFragment != ksFragment2) {
             if (ksFragment2 != null) {
                 ksFragment2.setMenuVisibility(false);
-                this.f32438g.setUserVisibleHint(false);
+                this.f32536g.setUserVisibleHint(false);
             }
             ksFragment.setMenuVisibility(true);
             ksFragment.setUserVisibleHint(true);
-            this.f32438g = ksFragment;
+            this.f32536g = ksFragment;
         }
     }
 

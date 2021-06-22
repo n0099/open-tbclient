@@ -5,38 +5,38 @@ import android.widget.ImageView;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f70249a;
+    public float f70353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f70250b;
+    public float f70354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f70251c = 1.0f;
+    public float f70355c = 1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f70252d = 1.0f;
+    public float f70356d = 1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f70253e;
+    public boolean f70357e;
 
     public final boolean a() {
-        return this.f70253e;
+        return this.f70357e;
     }
 
     public final float b() {
-        return this.f70251c;
+        return this.f70355c;
     }
 
     public final float c() {
-        return this.f70252d;
+        return this.f70356d;
     }
 
     public final float d() {
-        return this.f70249a;
+        return this.f70353a;
     }
 
     public final float e() {
-        return this.f70250b;
+        return this.f70354b;
     }
 
     public final void f(float f2, float f3, float f4, float f5, ImageView.ScaleType scaleType) {
@@ -52,96 +52,96 @@ public final class e {
         float f11 = f2 / f4;
         switch (d.$EnumSwitchMapping$0[scaleType.ordinal()]) {
             case 1:
-                this.f70249a = f6;
-                this.f70250b = f7;
+                this.f70353a = f6;
+                this.f70354b = f7;
                 return;
             case 2:
                 if (f8 > f9) {
-                    this.f70253e = false;
-                    this.f70251c = f10;
-                    this.f70252d = f10;
-                    this.f70249a = (f2 - (f4 * f10)) / 2.0f;
+                    this.f70357e = false;
+                    this.f70355c = f10;
+                    this.f70356d = f10;
+                    this.f70353a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
-                this.f70253e = true;
-                this.f70251c = f11;
-                this.f70252d = f11;
-                this.f70250b = (f3 - (f5 * f11)) / 2.0f;
+                this.f70357e = true;
+                this.f70355c = f11;
+                this.f70356d = f11;
+                this.f70354b = (f3 - (f5 * f11)) / 2.0f;
                 return;
             case 3:
                 if (f4 < f2 && f5 < f3) {
-                    this.f70249a = f6;
-                    this.f70250b = f7;
+                    this.f70353a = f6;
+                    this.f70354b = f7;
                     return;
                 } else if (f8 > f9) {
-                    this.f70253e = true;
-                    this.f70251c = f11;
-                    this.f70252d = f11;
-                    this.f70250b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f70357e = true;
+                    this.f70355c = f11;
+                    this.f70356d = f11;
+                    this.f70354b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 } else {
-                    this.f70253e = false;
-                    this.f70251c = f10;
-                    this.f70252d = f10;
-                    this.f70249a = (f2 - (f4 * f10)) / 2.0f;
+                    this.f70357e = false;
+                    this.f70355c = f10;
+                    this.f70356d = f10;
+                    this.f70353a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
             case 4:
                 if (f8 > f9) {
-                    this.f70253e = true;
-                    this.f70251c = f11;
-                    this.f70252d = f11;
-                    this.f70250b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f70357e = true;
+                    this.f70355c = f11;
+                    this.f70356d = f11;
+                    this.f70354b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 }
-                this.f70253e = false;
-                this.f70251c = f10;
-                this.f70252d = f10;
-                this.f70249a = (f2 - (f4 * f10)) / 2.0f;
+                this.f70357e = false;
+                this.f70355c = f10;
+                this.f70356d = f10;
+                this.f70353a = (f2 - (f4 * f10)) / 2.0f;
                 return;
             case 5:
                 if (f8 > f9) {
-                    this.f70253e = true;
-                    this.f70251c = f11;
-                    this.f70252d = f11;
+                    this.f70357e = true;
+                    this.f70355c = f11;
+                    this.f70356d = f11;
                     return;
                 }
-                this.f70253e = false;
-                this.f70251c = f10;
-                this.f70252d = f10;
+                this.f70357e = false;
+                this.f70355c = f10;
+                this.f70356d = f10;
                 return;
             case 6:
                 if (f8 > f9) {
-                    this.f70253e = true;
-                    this.f70251c = f11;
-                    this.f70252d = f11;
-                    this.f70250b = f3 - (f5 * f11);
+                    this.f70357e = true;
+                    this.f70355c = f11;
+                    this.f70356d = f11;
+                    this.f70354b = f3 - (f5 * f11);
                     return;
                 }
-                this.f70253e = false;
-                this.f70251c = f10;
-                this.f70252d = f10;
-                this.f70249a = f2 - (f4 * f10);
+                this.f70357e = false;
+                this.f70355c = f10;
+                this.f70356d = f10;
+                this.f70353a = f2 - (f4 * f10);
                 return;
             case 7:
                 Math.max(f11, f10);
-                this.f70253e = f11 > f10;
-                this.f70251c = f11;
-                this.f70252d = f10;
+                this.f70357e = f11 > f10;
+                this.f70355c = f11;
+                this.f70356d = f10;
                 return;
             default:
-                this.f70253e = true;
-                this.f70251c = f11;
-                this.f70252d = f11;
+                this.f70357e = true;
+                this.f70355c = f11;
+                this.f70356d = f11;
                 return;
         }
     }
 
     public final void g() {
-        this.f70249a = 0.0f;
-        this.f70250b = 0.0f;
-        this.f70251c = 1.0f;
-        this.f70252d = 1.0f;
-        this.f70253e = false;
+        this.f70353a = 0.0f;
+        this.f70354b = 0.0f;
+        this.f70355c = 1.0f;
+        this.f70356d = 1.0f;
+        this.f70357e = false;
     }
 }

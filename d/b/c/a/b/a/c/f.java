@@ -18,56 +18,56 @@ public final class f {
     public static final /* synthetic */ boolean o = !f.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.c.a.b.b f68974a;
+    public final d.b.c.a.b.b f69078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e.a f68975b;
+    public e.a f69079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.c.a.b.e f68976c;
+    public d.b.c.a.b.e f69080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final n f68977d;
+    public final n f69081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f68978e;
+    public final i f69082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final t f68979f;
+    public final t f69083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f68980g;
+    public final Object f69084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e f68981h;
+    public final e f69085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f68982i;
+    public int f69086i;
     public c j;
     public boolean k;
     public boolean l;
     public boolean m;
-    public e.InterfaceC1885e n;
+    public e.InterfaceC1888e n;
 
     /* loaded from: classes6.dex */
     public static final class a extends WeakReference<f> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f68983a;
+        public final Object f69087a;
 
         public a(f fVar, Object obj) {
             super(fVar);
-            this.f68983a = obj;
+            this.f69087a = obj;
         }
     }
 
     public f(n nVar, d.b.c.a.b.b bVar, i iVar, t tVar, Object obj) {
-        this.f68977d = nVar;
-        this.f68974a = bVar;
-        this.f68978e = iVar;
-        this.f68979f = tVar;
-        this.f68981h = new e(bVar, p(), iVar, tVar);
-        this.f68980g = obj;
+        this.f69081d = nVar;
+        this.f69078a = bVar;
+        this.f69082e = iVar;
+        this.f69083f = tVar;
+        this.f69085h = new e(bVar, p(), iVar, tVar);
+        this.f69084g = obj;
     }
 
     public final c a(int i2, int i3, int i4, boolean z) throws IOException {
@@ -79,7 +79,7 @@ public final class f {
         boolean z2;
         boolean z3;
         e.a aVar;
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             if (!this.l) {
                 if (this.n == null) {
                     if (!this.m) {
@@ -97,13 +97,13 @@ public final class f {
                             cVar = null;
                         }
                         if (cVar2 == null) {
-                            d.b.c.a.b.a.b.f68949a.b(this.f68977d, this.f68974a, this, null);
+                            d.b.c.a.b.a.b.f69053a.b(this.f69081d, this.f69078a, this, null);
                             if (this.j != null) {
                                 cVar2 = this.j;
                                 eVar = null;
                                 z2 = true;
                             } else {
-                                eVar = this.f68976c;
+                                eVar = this.f69080c;
                             }
                         } else {
                             eVar = null;
@@ -121,26 +121,26 @@ public final class f {
         }
         d.b.c.a.b.a.e.r(o2);
         if (cVar != null) {
-            this.f68979f.p(this.f68978e, cVar);
+            this.f69083f.p(this.f69082e, cVar);
         }
         if (z2) {
-            this.f68979f.e(this.f68978e, cVar2);
+            this.f69083f.e(this.f69082e, cVar2);
         }
         if (cVar2 != null) {
             return cVar2;
         }
-        if (eVar != null || ((aVar = this.f68975b) != null && aVar.a())) {
+        if (eVar != null || ((aVar = this.f69079b) != null && aVar.a())) {
             z3 = false;
         } else {
-            this.f68975b = this.f68981h.f();
+            this.f69079b = this.f69085h.f();
             z3 = true;
         }
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             if (this.m) {
                 throw new IOException(ResponseException.CANCELED);
             }
             if (z3) {
-                List<d.b.c.a.b.e> c2 = this.f68975b.c();
+                List<d.b.c.a.b.e> c2 = this.f69079b.c();
                 int size = c2.size();
                 int i5 = 0;
                 while (true) {
@@ -148,10 +148,10 @@ public final class f {
                         break;
                     }
                     d.b.c.a.b.e eVar2 = c2.get(i5);
-                    d.b.c.a.b.a.b.f68949a.b(this.f68977d, this.f68974a, this, eVar2);
+                    d.b.c.a.b.a.b.f69053a.b(this.f69081d, this.f69078a, this, eVar2);
                     if (this.j != null) {
                         cVar2 = this.j;
-                        this.f68976c = eVar2;
+                        this.f69080c = eVar2;
                         z2 = true;
                         break;
                     }
@@ -160,37 +160,37 @@ public final class f {
             }
             if (!z2) {
                 if (eVar == null) {
-                    eVar = this.f68975b.b();
+                    eVar = this.f69079b.b();
                 }
-                this.f68976c = eVar;
-                this.f68982i = 0;
-                cVar2 = new c(this.f68977d, eVar);
+                this.f69080c = eVar;
+                this.f69086i = 0;
+                cVar2 = new c(this.f69081d, eVar);
                 g(cVar2, false);
             }
         }
         if (z2) {
-            this.f68979f.e(this.f68978e, cVar2);
+            this.f69083f.e(this.f69082e, cVar2);
             return cVar2;
         }
-        cVar2.f(i2, i3, i4, z, this.f68978e, this.f68979f);
+        cVar2.f(i2, i3, i4, z, this.f69082e, this.f69083f);
         p().b(cVar2.a());
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             this.k = true;
-            d.b.c.a.b.a.b.f68949a.j(this.f68977d, cVar2);
+            d.b.c.a.b.a.b.f69053a.j(this.f69081d, cVar2);
             if (cVar2.o()) {
-                socket = d.b.c.a.b.a.b.f68949a.d(this.f68977d, this.f68974a, this);
+                socket = d.b.c.a.b.a.b.f69053a.d(this.f69081d, this.f69078a, this);
                 cVar2 = this.j;
             }
         }
         d.b.c.a.b.a.e.r(socket);
-        this.f68979f.e(this.f68978e, cVar2);
+        this.f69083f.e(this.f69082e, cVar2);
         return cVar2;
     }
 
     public final c b(int i2, int i3, int i4, boolean z, boolean z2) throws IOException {
         while (true) {
             c a2 = a(i2, i3, i4, z);
-            synchronized (this.f68977d) {
+            synchronized (this.f69081d) {
                 if (a2.l == 0) {
                     return a2;
                 }
@@ -202,18 +202,18 @@ public final class f {
         }
     }
 
-    public e.InterfaceC1885e c() {
-        e.InterfaceC1885e interfaceC1885e;
-        synchronized (this.f68977d) {
-            interfaceC1885e = this.n;
+    public e.InterfaceC1888e c() {
+        e.InterfaceC1888e interfaceC1888e;
+        synchronized (this.f69081d) {
+            interfaceC1888e = this.n;
         }
-        return interfaceC1885e;
+        return interfaceC1888e;
     }
 
-    public e.InterfaceC1885e d(y yVar, w.a aVar, boolean z) {
+    public e.InterfaceC1888e d(y yVar, w.a aVar, boolean z) {
         try {
-            e.InterfaceC1885e c2 = b(aVar.b(), aVar.c(), aVar.d(), yVar.u(), z).c(yVar, aVar, this);
-            synchronized (this.f68977d) {
+            e.InterfaceC1888e c2 = b(aVar.b(), aVar.c(), aVar.d(), yVar.u(), z).c(yVar, aVar, this);
+            synchronized (this.f69081d) {
                 this.n = c2;
             }
             return c2;
@@ -223,7 +223,7 @@ public final class f {
     }
 
     public Socket e(c cVar) {
-        if (o || Thread.holdsLock(this.f68977d)) {
+        if (o || Thread.holdsLock(this.f69081d)) {
             if (this.n == null && this.j.n.size() == 1) {
                 Socket f2 = f(true, false, false);
                 this.j = cVar;
@@ -237,7 +237,7 @@ public final class f {
 
     public final Socket f(boolean z, boolean z2, boolean z3) {
         Socket socket;
-        if (o || Thread.holdsLock(this.f68977d)) {
+        if (o || Thread.holdsLock(this.f69081d)) {
             if (z3) {
                 this.n = null;
             }
@@ -254,7 +254,7 @@ public final class f {
                         k(this.j);
                         if (this.j.n.isEmpty()) {
                             this.j.o = System.nanoTime();
-                            if (d.b.c.a.b.a.b.f68949a.i(this.f68977d, this.j)) {
+                            if (d.b.c.a.b.a.b.f69053a.i(this.f69081d, this.j)) {
                                 socket = this.j.m();
                                 this.j = null;
                                 return socket;
@@ -274,13 +274,13 @@ public final class f {
     }
 
     public void g(c cVar, boolean z) {
-        if (!o && !Thread.holdsLock(this.f68977d)) {
+        if (!o && !Thread.holdsLock(this.f69081d)) {
             throw new AssertionError();
         }
         if (this.j == null) {
             this.j = cVar;
             this.k = z;
-            cVar.n.add(new a(this, this.f68980g));
+            cVar.n.add(new a(this, this.f69084g));
             return;
         }
         throw new IllegalStateException();
@@ -290,25 +290,25 @@ public final class f {
         c cVar;
         boolean z;
         Socket f2;
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             cVar = null;
             if (iOException instanceof o) {
                 o oVar = (o) iOException;
-                if (oVar.f26962a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
-                    this.f68982i++;
+                if (oVar.f27044a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
+                    this.f69086i++;
                 }
-                if (oVar.f26962a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.f68982i > 1) {
-                    this.f68976c = null;
+                if (oVar.f27044a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.f69086i > 1) {
+                    this.f69080c = null;
                     z = true;
                 }
                 z = false;
             } else {
                 if (this.j != null && (!this.j.o() || (iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
                     if (this.j.l == 0) {
-                        if (this.f68976c != null && iOException != null) {
-                            this.f68981h.b(this.f68976c, iOException);
+                        if (this.f69080c != null && iOException != null) {
+                            this.f69085h.b(this.f69080c, iOException);
                         }
-                        this.f68976c = null;
+                        this.f69080c = null;
                     }
                     z = true;
                 }
@@ -322,18 +322,18 @@ public final class f {
         }
         d.b.c.a.b.a.e.r(f2);
         if (cVar != null) {
-            this.f68979f.p(this.f68978e, cVar);
+            this.f69083f.p(this.f69082e, cVar);
         }
     }
 
-    public void i(boolean z, e.InterfaceC1885e interfaceC1885e, long j, IOException iOException) {
+    public void i(boolean z, e.InterfaceC1888e interfaceC1888e, long j, IOException iOException) {
         c cVar;
         Socket f2;
         boolean z2;
-        this.f68979f.o(this.f68978e, j);
-        synchronized (this.f68977d) {
-            if (interfaceC1885e != null) {
-                if (interfaceC1885e == this.n) {
+        this.f69083f.o(this.f69082e, j);
+        synchronized (this.f69081d) {
+            if (interfaceC1888e != null) {
+                if (interfaceC1888e == this.n) {
                     if (!z) {
                         this.j.l++;
                     }
@@ -345,16 +345,16 @@ public final class f {
                     z2 = this.l;
                 }
             }
-            throw new IllegalStateException("expected " + this.n + " but was " + interfaceC1885e);
+            throw new IllegalStateException("expected " + this.n + " but was " + interfaceC1888e);
         }
         d.b.c.a.b.a.e.r(f2);
         if (cVar != null) {
-            this.f68979f.p(this.f68978e, cVar);
+            this.f69083f.p(this.f69082e, cVar);
         }
         if (iOException != null) {
-            this.f68979f.h(this.f68978e, iOException);
+            this.f69083f.h(this.f69082e, iOException);
         } else if (z2) {
-            this.f68979f.u(this.f68978e);
+            this.f69083f.u(this.f69082e);
         }
     }
 
@@ -376,7 +376,7 @@ public final class f {
     public void l() {
         c cVar;
         Socket f2;
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             cVar = this.j;
             f2 = f(false, true, false);
             if (this.j != null) {
@@ -385,14 +385,14 @@ public final class f {
         }
         d.b.c.a.b.a.e.r(f2);
         if (cVar != null) {
-            this.f68979f.p(this.f68978e, cVar);
+            this.f69083f.p(this.f69082e, cVar);
         }
     }
 
     public void m() {
         c cVar;
         Socket f2;
-        synchronized (this.f68977d) {
+        synchronized (this.f69081d) {
             cVar = this.j;
             f2 = f(true, false, false);
             if (this.j != null) {
@@ -401,17 +401,17 @@ public final class f {
         }
         d.b.c.a.b.a.e.r(f2);
         if (cVar != null) {
-            this.f68979f.p(this.f68978e, cVar);
+            this.f69083f.p(this.f69082e, cVar);
         }
     }
 
     public boolean n() {
         e.a aVar;
-        return this.f68976c != null || ((aVar = this.f68975b) != null && aVar.a()) || this.f68981h.e();
+        return this.f69080c != null || ((aVar = this.f69079b) != null && aVar.a()) || this.f69085h.e();
     }
 
     public final Socket o() {
-        if (o || Thread.holdsLock(this.f68977d)) {
+        if (o || Thread.holdsLock(this.f69081d)) {
             c cVar = this.j;
             if (cVar == null || !cVar.k) {
                 return null;
@@ -422,11 +422,11 @@ public final class f {
     }
 
     public final d p() {
-        return d.b.c.a.b.a.b.f68949a.c(this.f68977d);
+        return d.b.c.a.b.a.b.f69053a.c(this.f69081d);
     }
 
     public String toString() {
         c j = j();
-        return j != null ? j.toString() : this.f68974a.toString();
+        return j != null ? j.toString() : this.f69078a.toString();
     }
 }

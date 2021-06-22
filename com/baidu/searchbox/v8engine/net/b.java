@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.net.IDN;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -11,7 +12,7 @@ import java.util.Locale;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f10090a = Charset.forName("UTF-8");
+    public static final Charset f10122a = Charset.forName("UTF-8");
 
     public static int a(char c2) {
         if (c2 < '0' || c2 > '9') {
@@ -175,7 +176,7 @@ public final class b {
     public static String a(String str) {
         InetAddress c2;
         if (str.contains(":")) {
-            if (str.startsWith("[") && str.endsWith("]")) {
+            if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                 c2 = c(str, 1, str.length() - 1);
             } else {
                 c2 = c(str, 0, str.length());

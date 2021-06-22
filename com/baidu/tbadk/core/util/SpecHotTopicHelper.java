@@ -13,8 +13,8 @@ import d.a.c.e.l.d;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
 import d.a.c.k.d.a;
-import d.a.m0.r.f0.k;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.f0.k;
+import d.a.n0.r.q.a2;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -26,7 +26,7 @@ public class SpecHotTopicHelper {
         public void onLoaded(a aVar, String str, int i2) {
             super.onLoaded((AnonymousClass2) aVar, str, i2);
             if (aVar != null) {
-                d.a.m0.a0.c.k().a(str, aVar.p());
+                d.a.n0.a0.c.k().a(str, aVar.p());
             }
         }
     };
@@ -43,15 +43,15 @@ public class SpecHotTopicHelper {
         if (StringUtils.isNull(E0) || StringUtils.isNull(e1)) {
             return;
         }
-        Bitmap j = d.a.m0.a0.c.k().j(E0);
+        Bitmap j = d.a.n0.a0.c.k().j(E0);
         if ((j == null || !AbstractImageLoaderProc.isImageFileExist(E0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(E0, 10)) != null) {
             j = loadBdImageFromLocal.p();
-            d.a.m0.a0.c.k().a(E0, j);
+            d.a.n0.a0.c.k().a(E0, j);
         }
-        Bitmap j2 = d.a.m0.a0.c.k().j(e1);
+        Bitmap j2 = d.a.n0.a0.c.k().j(e1);
         if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(e1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(e1, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            d.a.m0.a0.c.k().a(e1, j2);
+            d.a.n0.a0.c.k().a(e1, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
             int i3 = 0;
@@ -77,8 +77,8 @@ public class SpecHotTopicHelper {
     }
 
     public static void loadSpecTopicIconIfNeed(final String str, final String str2) {
-        Bitmap j = d.a.m0.a0.c.k().j(str);
-        Bitmap j2 = d.a.m0.a0.c.k().j(str2);
+        Bitmap j = d.a.n0.a0.c.k().j(str);
+        Bitmap j2 = d.a.n0.a0.c.k().j(str2);
         if (j == null || j2 == null) {
             if (!l.C()) {
                 e.a().post(new Runnable() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1

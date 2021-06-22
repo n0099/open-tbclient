@@ -6,38 +6,38 @@ import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f43416e;
+    public static c f43497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int[] f43417f = {8000, 11025, 16000, 22050, 32000, SwanAudioPlayer.DEFAULT_SAMPLE_RATE, 47250, 48000};
+    public static int[] f43498f = {8000, 11025, 16000, 22050, 32000, SwanAudioPlayer.DEFAULT_SAMPLE_RATE, 47250, 48000};
 
     /* renamed from: g  reason: collision with root package name */
-    public static short[] f43418g = {2, 3};
+    public static short[] f43499g = {2, 3};
 
     /* renamed from: h  reason: collision with root package name */
-    public static short[] f43419h = {2, 16, 12, 3};
+    public static short[] f43500h = {2, 16, 12, 3};
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43420a;
+    public int f43501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f43421b;
+    public short f43502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public short f43422c;
+    public short f43503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43423d = -2;
+    public int f43504d = -2;
 
     public static c b() {
         c cVar;
-        c cVar2 = f43416e;
+        c cVar2 = f43497e;
         if (cVar2 == null) {
             synchronized (c.class) {
-                if (f43416e == null) {
-                    f43416e = new c();
+                if (f43497e == null) {
+                    f43497e = new c();
                 }
-                cVar = f43416e;
+                cVar = f43497e;
             }
             return cVar;
         }
@@ -59,20 +59,20 @@ public class c {
         int i5;
         int minBufferSize;
         AudioRecord audioRecord;
-        if (this.f43420a > 0 && this.f43421b > 0 && this.f43422c > 0) {
-            return new AudioRecord(1, this.f43420a, this.f43422c, this.f43421b, this.f43423d);
+        if (this.f43501a > 0 && this.f43502b > 0 && this.f43503c > 0) {
+            return new AudioRecord(1, this.f43501a, this.f43503c, this.f43502b, this.f43504d);
         }
-        int[] iArr2 = f43417f;
+        int[] iArr2 = f43498f;
         int length = iArr2.length;
         AudioRecord audioRecord2 = null;
         for (int i6 = 0; i6 < length; i6++) {
             int i7 = iArr2[i6];
-            short[] sArr2 = f43418g;
+            short[] sArr2 = f43499g;
             int length2 = sArr2.length;
             int i8 = 0;
             while (i8 < length2) {
                 short s2 = sArr2[i8];
-                short[] sArr3 = f43419h;
+                short[] sArr3 = f43500h;
                 int length3 = sArr3.length;
                 AudioRecord audioRecord3 = audioRecord2;
                 int i9 = 0;
@@ -80,7 +80,7 @@ public class c {
                     short s3 = sArr3[i9];
                     try {
                         minBufferSize = AudioRecord.getMinBufferSize(i7, s3, s2);
-                        this.f43423d = minBufferSize;
+                        this.f43504d = minBufferSize;
                     } catch (Throwable th) {
                         th = th;
                         iArr = iArr2;
@@ -131,11 +131,11 @@ public class c {
                         try {
                             if (audioRecord.getState() == 1) {
                                 try {
-                                    this.f43420a = i7;
+                                    this.f43501a = i7;
                                     try {
-                                        this.f43421b = s4;
-                                        this.f43422c = s3;
-                                        this.f43423d = min;
+                                        this.f43502b = s4;
+                                        this.f43503c = s3;
+                                        this.f43504d = min;
                                         if (audioRecord.getState() != 1) {
                                             audioRecord.release();
                                         }
@@ -163,7 +163,7 @@ public class c {
                                 try {
                                     audioRecord.release();
                                     try {
-                                        audioRecord3 = new AudioRecord(1, i7, s3, s4, this.f43423d);
+                                        audioRecord3 = new AudioRecord(1, i7, s3, s4, this.f43504d);
                                         try {
                                         } catch (Throwable th6) {
                                             th = th6;
@@ -188,11 +188,11 @@ public class c {
                                     s = s4;
                                 }
                                 if (audioRecord3.getState() == 1) {
-                                    this.f43420a = i7;
+                                    this.f43501a = i7;
                                     s = s4;
                                     try {
-                                        this.f43421b = s;
-                                        this.f43422c = s3;
+                                        this.f43502b = s;
+                                        this.f43503c = s3;
                                         if (audioRecord3.getState() != 1) {
                                             audioRecord3.release();
                                         }

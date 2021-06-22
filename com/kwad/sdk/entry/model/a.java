@@ -10,17 +10,17 @@ public class a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.response.model.a f35374a;
+    public final com.kwad.sdk.core.response.model.a f35472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35375b;
+    public int f35473b;
 
     public a(@NonNull com.kwad.sdk.core.response.model.a aVar) {
-        this.f35374a = aVar;
+        this.f35472a = aVar;
     }
 
     public List<AdTemplate> a(SceneImpl sceneImpl) {
-        List<AdTemplate> list = this.f35374a.k;
+        List<AdTemplate> list = this.f35472a.k;
         if (list == null) {
             return null;
         }
@@ -32,12 +32,12 @@ public class a {
     }
 
     public void a(AdTemplate adTemplate) {
-        if (adTemplate == null || this.f35374a.k == null) {
+        if (adTemplate == null || this.f35472a.k == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f35374a.k.size(); i2++) {
-            if (adTemplate.equals(this.f35374a.k.get(i2))) {
-                this.f35375b = i2;
+        for (int i2 = 0; i2 < this.f35472a.k.size(); i2++) {
+            if (adTemplate.equals(this.f35472a.k.get(i2))) {
+                this.f35473b = i2;
                 return;
             }
         }

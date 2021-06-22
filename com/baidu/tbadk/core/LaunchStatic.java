@@ -51,7 +51,7 @@ import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
 import com.baidu.tieba.wallet.WalletStaticInit;
 import d.a.c.e.l.d;
-import d.a.n0.f1.h.i;
+import d.a.o0.f1.h.i;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class LaunchStatic {
@@ -113,18 +113,18 @@ public class LaunchStatic {
         b();
         c();
         SyncSwitch.initSyncSwitch();
-        d.a.n0.e3.m0.a.a();
-        d.a.n0.f1.y.b.a();
-        d.a.n0.f1.b.a();
+        d.a.o0.e3.m0.a.a();
+        d.a.o0.f1.y.b.a();
+        d.a.o0.f1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
-        d.a.m0.l.c.e();
-        d.a.m0.r.i.a();
+        d.a.n0.l.c.e();
+        d.a.n0.r.i.a();
         WalletStaticInit.init();
-        d.a.m0.r.t.a.d();
-        d.a.m0.r.x.c.a();
-        d.a.m0.n0.a.c();
-        d.a.m0.o.a.d();
+        d.a.n0.r.t.a.d();
+        d.a.n0.r.x.c.a();
+        d.a.n0.n0.a.c();
+        d.a.n0.o.a.d();
     }
 
     public static void a() {
@@ -161,7 +161,7 @@ public class LaunchStatic {
         d.h().o(27, new BigImageLoaderProc(27));
         d.h().o(29, new SimpleForeverLoaderProc(true, 29));
         d.h().o(32, new LocalFileDrawableLoaderProc(32));
-        d.h().o(23, new d.a.m0.r.g0.b.c());
+        d.h().o(23, new d.a.n0.r.g0.b.c());
         d.h().o(33, new MemeLoaderProc2());
         d.h().o(34, new EmotionShareLoaderProc());
         d.h().o(35, new LocalFileImageLoaderProc(160, 160));
@@ -185,9 +185,9 @@ public class LaunchStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        d.a.m0.z.b.a().c();
-        d.a.n0.e3.d0.a.f(303039, ClientConfigSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, d.a.n0.e3.d0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+        d.a.n0.z.b.a().c();
+        d.a.o0.e3.d0.a.f(303039, ClientConfigSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, d.a.o0.e3.d0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

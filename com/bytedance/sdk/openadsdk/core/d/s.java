@@ -10,86 +10,86 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28049a;
+    public String f28131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28050b;
+    public String f28132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28051c;
+    public String f28133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28052d;
+    public String f28134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f28053e;
+    public List<a> f28135e;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28054a;
+        public String f28136a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28055b;
+        public String f28137b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f28056c;
+        public int f28138c;
 
         public String a() {
-            return this.f28054a;
+            return this.f28136a;
         }
 
         public String b() {
-            return this.f28055b;
+            return this.f28137b;
         }
 
         public int c() {
-            return this.f28056c;
+            return this.f28138c;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                String str = this.f28054a;
+                String str = this.f28136a;
                 return str != null && str.equals(((a) obj).a());
             }
             return super.equals(obj);
         }
 
         public void a(String str) {
-            this.f28054a = str;
+            this.f28136a = str;
         }
 
         public void b(String str) {
-            this.f28055b = str;
+            this.f28137b = str;
         }
 
         public void a(int i2) {
-            this.f28056c = i2;
+            this.f28138c = i2;
         }
     }
 
     public String a() {
-        return this.f28049a;
+        return this.f28131a;
     }
 
     public String b() {
-        return this.f28050b;
+        return this.f28132b;
     }
 
     public String c() {
-        return this.f28051c;
+        return this.f28133c;
     }
 
     public String d() {
-        return this.f28052d;
+        return this.f28134d;
     }
 
     public List<a> e() {
-        if (this.f28053e == null) {
-            this.f28053e = new ArrayList();
+        if (this.f28135e == null) {
+            this.f28135e = new ArrayList();
         }
-        return this.f28053e;
+        return this.f28135e;
     }
 
     public boolean f() {
@@ -124,26 +124,26 @@ public class s {
     }
 
     public void a(String str) {
-        this.f28049a = str;
+        this.f28131a = str;
     }
 
     public void b(String str) {
-        this.f28050b = str;
+        this.f28132b = str;
     }
 
     public void c(String str) {
-        this.f28051c = str;
+        this.f28133c = str;
     }
 
     public void d(String str) {
-        this.f28052d = str;
+        this.f28134d = str;
     }
 
     public void a(List<a> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
-        this.f28053e = list;
+        this.f28135e = list;
     }
 
     public static s a(JSONObject jSONObject) {

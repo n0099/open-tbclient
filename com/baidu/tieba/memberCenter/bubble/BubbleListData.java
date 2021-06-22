@@ -4,14 +4,14 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BubbleListData extends OrmObject implements Serializable, Cloneable {
     public static final long serialVersionUID = -4612117445868668894L;
     public List<BubbleData> b_info = new ArrayList();
     public String error_code;
     public String error_msg;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class BubbleData extends OrmObject implements Serializable {
         public static final long serialVersionUID = 1540726255641451917L;
         public String b_url;

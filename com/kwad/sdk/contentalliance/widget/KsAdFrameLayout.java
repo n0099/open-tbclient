@@ -11,7 +11,7 @@ import java.util.List;
 public class KsAdFrameLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<GestureDetector> f33993a;
+    public final List<GestureDetector> f34091a;
 
     public KsAdFrameLayout(Context context) {
         this(context, null);
@@ -23,26 +23,26 @@ public class KsAdFrameLayout extends FrameLayout {
 
     public KsAdFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f33993a = new ArrayList();
+        this.f34091a = new ArrayList();
     }
 
     public void a(GestureDetector gestureDetector) {
-        if (gestureDetector == null || this.f33993a.contains(gestureDetector)) {
+        if (gestureDetector == null || this.f34091a.contains(gestureDetector)) {
             return;
         }
-        this.f33993a.add(gestureDetector);
+        this.f34091a.add(gestureDetector);
     }
 
     public void b(GestureDetector gestureDetector) {
         if (gestureDetector != null) {
-            this.f33993a.remove(gestureDetector);
+            this.f34091a.remove(gestureDetector);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        for (GestureDetector gestureDetector : this.f33993a) {
+        for (GestureDetector gestureDetector : this.f34091a) {
             dispatchTouchEvent = gestureDetector.onTouchEvent(motionEvent) || dispatchTouchEvent;
         }
         return dispatchTouchEvent;

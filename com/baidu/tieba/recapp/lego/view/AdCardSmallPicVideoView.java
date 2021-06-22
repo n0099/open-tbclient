@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import d.a.m0.r.q.d;
+import d.a.n0.r.q.d;
 import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
@@ -26,17 +26,17 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20251e;
+        public final /* synthetic */ AdCard f20333e;
 
         public a(AdCard adCard) {
-            this.f20251e = adCard;
+            this.f20333e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.X(this.f20251e);
+                adCardSmallPicVideoView.X(this.f20333e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -103,8 +103,8 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             String pageTypeByBusiness = getPageTypeByBusiness();
             d dVar = advertAppInfo.S3;
             if (dVar != null) {
-                i2 = dVar.f53656b;
-                pageTypeByBusiness = dVar.f53655a;
+                i2 = dVar.f53763b;
+                pageTypeByBusiness = dVar.f53762a;
             }
             this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }

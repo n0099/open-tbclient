@@ -9,22 +9,22 @@ import d.b.c.b.b.d;
 public class a implements d.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Bitmap.Config f69556a;
+    public final Bitmap.Config f69660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69557b;
+    public final int f69661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f69558c;
+    public final int f69662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ImageView.ScaleType f69559d;
+    public final ImageView.ScaleType f69663d;
 
     public a(int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
-        this.f69556a = config;
-        this.f69557b = i2;
-        this.f69558c = i3;
-        this.f69559d = scaleType;
+        this.f69660a = config;
+        this.f69661b = i2;
+        this.f69662c = i3;
+        this.f69663d = scaleType;
     }
 
     @VisibleForTesting
@@ -64,16 +64,16 @@ public class a implements d.j {
     @Override // d.b.c.b.b.d.j
     public Bitmap a(byte[] bArr) {
         BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f69557b == 0 && this.f69558c == 0) {
-            options.inPreferredConfig = this.f69556a;
+        if (this.f69661b == 0 && this.f69662c == 0) {
+            options.inPreferredConfig = this.f69660a;
             return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
         }
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
         int i2 = options.outWidth;
         int i3 = options.outHeight;
-        int b2 = b(this.f69557b, this.f69558c, i2, i3, this.f69559d);
-        int b3 = b(this.f69558c, this.f69557b, i3, i2, this.f69559d);
+        int b2 = b(this.f69661b, this.f69662c, i2, i3, this.f69663d);
+        int b3 = b(this.f69662c, this.f69661b, i3, i2, this.f69663d);
         options.inJustDecodeBounds = false;
         options.inSampleSize = a(i2, i3, b2, b3);
         Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);

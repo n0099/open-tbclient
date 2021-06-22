@@ -1,6 +1,7 @@
 package com.google.gson.stream;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import java.io.Closeable;
 import java.io.Flushable;
@@ -197,7 +198,7 @@ public class JsonWriter implements Closeable, Flushable {
 
     public JsonWriter beginArray() throws IOException {
         writeDeferredName();
-        return open(1, "[");
+        return open(1, PreferencesUtil.LEFT_MOUNT);
     }
 
     public JsonWriter beginObject() throws IOException {
@@ -206,7 +207,7 @@ public class JsonWriter implements Closeable, Flushable {
     }
 
     public JsonWriter endArray() throws IOException {
-        return close(1, 2, "]");
+        return close(1, 2, PreferencesUtil.RIGHT_MOUNT);
     }
 
     public JsonWriter endObject() throws IOException {

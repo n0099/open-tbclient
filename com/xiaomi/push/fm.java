@@ -5,13 +5,13 @@ import java.util.Map;
 public class fm implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41273a = "wcc-ml-test10.bj";
+    public static String f41376a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41274b = ae.f40974a;
+    public static final String f41377b = ae.f41077a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41275c = null;
+    public static String f41378c = null;
 
     /* renamed from: a  reason: collision with other field name */
     public int f403a;
@@ -26,30 +26,30 @@ public class fm implements Cloneable {
     public boolean f406b = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41276d;
+    public String f41379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41277e;
+    public String f41380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41278f;
+    public String f41381f;
 
     public fm(Map<String, Integer> map, int i2, String str, fp fpVar) {
         a(map, i2, str, fpVar);
     }
 
     public static final String a() {
-        String str = f41275c;
-        return str != null ? str : ab.m125a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f41274b : "app.chat.xiaomi.net";
+        String str = f41378c;
+        return str != null ? str : ab.m125a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f41377b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
-        f41275c = str;
+        f41378c = str;
     }
 
     private void a(Map<String, Integer> map, int i2, String str, fp fpVar) {
         this.f403a = i2;
-        this.f41276d = str;
+        this.f41379d = str;
         this.f404a = fpVar;
     }
 
@@ -73,21 +73,21 @@ public class fm implements Cloneable {
     }
 
     public String b() {
-        return this.f41278f;
+        return this.f41381f;
     }
 
     public void b(String str) {
-        this.f41278f = str;
+        this.f41381f = str;
     }
 
     public String c() {
-        if (this.f41277e == null) {
-            this.f41277e = a();
+        if (this.f41380e == null) {
+            this.f41380e = a();
         }
-        return this.f41277e;
+        return this.f41380e;
     }
 
     public void c(String str) {
-        this.f41277e = str;
+        this.f41380e = str;
     }
 }

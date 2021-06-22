@@ -7,21 +7,21 @@ import java.util.Date;
 public class c1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c1 f40702a;
+    public static c1 f40805a;
 
     public static c1 a() {
-        if (f40702a == null) {
+        if (f40805a == null) {
             synchronized (c1.class) {
-                if (f40702a == null) {
-                    f40702a = new c1();
+                if (f40805a == null) {
+                    f40805a = new c1();
                 }
             }
         }
-        return f40702a;
+        return f40805a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
-        if (((r6 / 60) / 60) >= r10.f40483a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
+        if (((r6 / 60) / 60) >= r10.f40586a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -36,7 +36,7 @@ public class c1 {
         }
         u1.a(new b1(this, context));
         D0 a2 = D0.a(context);
-        long h2 = s1.h(a2.f40483a);
+        long h2 = s1.h(a2.f40586a);
         boolean z = true;
         if (h2 > 0) {
             try {
@@ -50,7 +50,7 @@ public class c1 {
             }
         }
         if (z) {
-            a2.f40484b = System.currentTimeMillis();
+            a2.f40587b = System.currentTimeMillis();
             u1.a(new C0(a2));
         }
         z.d(context);

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -62,7 +63,7 @@ public class Common {
             String f2 = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
             String arrays = Arrays.toString(Build.VERSION.SDK_INT >= 21 ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI});
             if (!TextUtils.isEmpty(arrays)) {
-                arrays = arrays.replace("[", "").replace("]", "");
+                arrays = arrays.replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "");
             }
             device.mCPU = str + ";" + num + ";" + f2 + ";" + arrays;
             String prop = RomUtils.getProp("dalvik.vm.heapstartsize");

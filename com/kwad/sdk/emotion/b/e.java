@@ -6,10 +6,10 @@ import com.kwad.sdk.utils.z;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35343a;
+    public static String f35441a;
 
     public static void a(@NonNull String str) {
         z.a(str);
-        f35343a = str;
+        f35441a = str;
     }
 }

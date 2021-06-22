@@ -22,8 +22,8 @@ import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.p.l;
-import d.a.m0.a.d;
-import d.a.m0.a.s;
+import d.a.n0.a.d;
+import d.a.n0.a.s;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
@@ -141,7 +141,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
             this.mBottonActionText.setVisibility(0);
             this.mBottonActionText.setText("未开始");
         }
-        d.a.m0.r.f0.m.a aVar = new d.a.m0.r.f0.m.a();
+        d.a.n0.r.f0.m.a aVar = new d.a.n0.r.f0.m.a();
         aVar.o(R.color.CAM_X0301);
         aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
         this.mBottomActionBtn.setConfig(aVar);
@@ -302,7 +302,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         SkinManager.setViewTextColor(this.mBottomActionDetail, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.mBottonActionText, R.color.CAM_X0109);
         if (this.mBottomActionBtn != null) {
-            d.a.m0.r.f0.m.a aVar = new d.a.m0.r.f0.m.a();
+            d.a.n0.r.f0.m.a aVar = new d.a.n0.r.f0.m.a();
             aVar.o(R.color.CAM_X0301);
             aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
             this.mBottomActionBtn.setConfig(aVar);

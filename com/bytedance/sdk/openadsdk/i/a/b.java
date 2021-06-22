@@ -22,52 +22,52 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f29312a;
+    public static volatile int f29394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f29313b;
+    public static boolean f29395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final n f29314c;
+    public final n f29396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f29315d = new Handler(Looper.getMainLooper());
+    public final Handler f29397d = new Handler(Looper.getMainLooper());
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, d> f29316e = Collections.synchronizedMap(new HashMap());
+    public final Map<String, d> f29398e = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: f  reason: collision with root package name */
-    public r f29317f;
+    public r f29399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29318g;
+    public long f29400g;
 
     /* loaded from: classes6.dex */
-    public static class a implements InterfaceC0309b {
-        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0309b
+    public static class a implements InterfaceC0312b {
+        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0312b
         public void a() {
         }
 
-        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0309b
+        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0312b
         public void a(c cVar) {
         }
 
-        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0309b
+        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0312b
         public void a(String str, com.bytedance.sdk.openadsdk.i.a.d dVar) {
         }
 
-        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0309b
+        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0312b
         public void b() {
         }
 
-        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0309b
+        @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0312b
         public void b(c cVar) {
         }
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.i.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0309b {
+    public interface InterfaceC0312b {
         void a();
 
         void a(c cVar);
@@ -83,146 +83,146 @@ public class b {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.i.a.c f29340a;
+        public com.bytedance.sdk.openadsdk.i.a.c f29422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public o f29341b;
+        public o f29423b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<InterfaceC0309b> f29342c = new CopyOnWriteArrayList();
+        public List<InterfaceC0312b> f29424c = new CopyOnWriteArrayList();
 
         /* renamed from: d  reason: collision with root package name */
-        public VAdError f29343d;
+        public VAdError f29425d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.i.a.d f29344e;
+        public com.bytedance.sdk.openadsdk.i.a.d f29426e;
 
-        public d(com.bytedance.sdk.openadsdk.i.a.c cVar, InterfaceC0309b interfaceC0309b) {
-            this.f29340a = cVar;
-            a(interfaceC0309b);
+        public d(com.bytedance.sdk.openadsdk.i.a.c cVar, InterfaceC0312b interfaceC0312b) {
+            this.f29422a = cVar;
+            a(interfaceC0312b);
         }
 
-        public void a(InterfaceC0309b interfaceC0309b) {
-            if (interfaceC0309b != null) {
-                this.f29342c.add(interfaceC0309b);
+        public void a(InterfaceC0312b interfaceC0312b) {
+            if (interfaceC0312b != null) {
+                this.f29424c.add(interfaceC0312b);
             }
         }
 
         public boolean a() {
             com.bytedance.sdk.openadsdk.i.a.d dVar;
-            return this.f29343d == null && (dVar = this.f29344e) != null && dVar.c();
+            return this.f29425d == null && (dVar = this.f29426e) != null && dVar.c();
         }
     }
 
     public b(n nVar) {
-        this.f29314c = nVar;
+        this.f29396c = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(final String str, final InterfaceC0309b interfaceC0309b, int i2, int i3, ImageView.ScaleType scaleType) {
-        a.C0308a a2;
+    public void b(final String str, final InterfaceC0312b interfaceC0312b, int i2, int i3, ImageView.ScaleType scaleType) {
+        a.C0311a a2;
         byte[] bArr;
         u.f("splashLoadAd", " GiftLoader doTask requestUrl " + str);
         String a3 = com.bytedance.sdk.openadsdk.i.a.a.a().a(str, i2, i3, scaleType);
         u.f("splashLoadAd", " GiftLoader doTask cacheKey " + a3);
-        if (f29313b) {
+        if (f29395b) {
             a2 = com.bytedance.sdk.openadsdk.i.a.a.a().b(a3);
         } else {
             a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(a3);
         }
-        final a.C0308a c0308a = a2;
-        if (c0308a != null && (bArr = c0308a.f29311a) != null) {
-            final c cVar = new c(new com.bytedance.sdk.openadsdk.i.a.d(bArr), interfaceC0309b, a3, str);
-            this.f29315d.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.b.3
+        final a.C0311a c0311a = a2;
+        if (c0311a != null && (bArr = c0311a.f29393a) != null) {
+            final c cVar = new c(new com.bytedance.sdk.openadsdk.i.a.d(bArr), interfaceC0312b, a3, str);
+            this.f29397d.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (interfaceC0309b != null) {
+                    if (interfaceC0312b != null) {
                         u.f("splashLoadAd", " GiftLoader doTask  缓存存在，直接返回缓存数据");
-                        b.f29312a = 1;
+                        b.f29394a = 1;
                         b.this.a(true);
-                        interfaceC0309b.a(str, new com.bytedance.sdk.openadsdk.i.a.d(c0308a.f29311a));
+                        interfaceC0312b.a(str, new com.bytedance.sdk.openadsdk.i.a.d(c0311a.f29393a));
                     }
-                    InterfaceC0309b interfaceC0309b2 = interfaceC0309b;
-                    if (interfaceC0309b2 != null) {
-                        interfaceC0309b2.a(cVar);
+                    InterfaceC0312b interfaceC0312b2 = interfaceC0312b;
+                    if (interfaceC0312b2 != null) {
+                        interfaceC0312b2.a(cVar);
                     }
                 }
             });
             return;
         }
-        d dVar = this.f29316e.get(a3);
+        d dVar = this.f29398e.get(a3);
         if (dVar != null) {
-            dVar.a(interfaceC0309b);
+            dVar.a(interfaceC0312b);
             return;
         }
         a(false);
         u.f("splashLoadAd", " GiftLoader doTask 缓存不存在 网络请求图片 requestUrl " + str);
         com.bytedance.sdk.openadsdk.i.a.c a4 = a(str, i2, i3, scaleType, a3);
-        d dVar2 = new d(a4, interfaceC0309b);
+        d dVar2 = new d(a4, interfaceC0312b);
         c();
-        this.f29314c.a(a4);
-        this.f29316e.put(a3, dVar2);
+        this.f29396c.a(a4);
+        this.f29398e.put(a3, dVar2);
     }
 
     private void c() {
-        r rVar = this.f29317f;
+        r rVar = this.f29399f;
         if (rVar != null && rVar.z()) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f29318g = currentTimeMillis;
-            r rVar2 = this.f29317f;
+            this.f29400g = currentTimeMillis;
+            r rVar2 = this.f29399f;
             rVar2.h(currentTimeMillis - rVar2.t());
-            this.f29317f.n(this.f29318g);
+            this.f29399f.n(this.f29400g);
         }
     }
 
-    public void a(String str, InterfaceC0309b interfaceC0309b, int i2, int i3, boolean z) {
-        f29313b = z;
-        a(str, interfaceC0309b, i2, i3, ImageView.ScaleType.CENTER_INSIDE);
+    public void a(String str, InterfaceC0312b interfaceC0312b, int i2, int i3, boolean z) {
+        f29395b = z;
+        a(str, interfaceC0312b, i2, i3, ImageView.ScaleType.CENTER_INSIDE);
     }
 
     /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.i.a.d f29335a;
+        public final com.bytedance.sdk.openadsdk.i.a.d f29417a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final InterfaceC0309b f29336b;
+        public final InterfaceC0312b f29418b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f29337c;
+        public final String f29419c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f29338d;
+        public final String f29420d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final VAdError f29339e;
+        public final VAdError f29421e;
 
-        public c(com.bytedance.sdk.openadsdk.i.a.d dVar, InterfaceC0309b interfaceC0309b, String str, String str2) {
-            this.f29335a = dVar;
-            this.f29336b = interfaceC0309b;
-            this.f29337c = str;
-            this.f29338d = str2;
-            this.f29339e = null;
+        public c(com.bytedance.sdk.openadsdk.i.a.d dVar, InterfaceC0312b interfaceC0312b, String str, String str2) {
+            this.f29417a = dVar;
+            this.f29418b = interfaceC0312b;
+            this.f29419c = str;
+            this.f29420d = str2;
+            this.f29421e = null;
         }
 
-        public c(VAdError vAdError, InterfaceC0309b interfaceC0309b, String str, String str2) {
-            this.f29339e = vAdError;
-            this.f29336b = interfaceC0309b;
-            this.f29337c = str;
-            this.f29338d = str2;
-            this.f29335a = null;
+        public c(VAdError vAdError, InterfaceC0312b interfaceC0312b, String str, String str2) {
+            this.f29421e = vAdError;
+            this.f29418b = interfaceC0312b;
+            this.f29419c = str;
+            this.f29420d = str2;
+            this.f29417a = null;
         }
     }
 
-    public void a(final String str, final InterfaceC0309b interfaceC0309b, final int i2, final int i3, final ImageView.ScaleType scaleType) {
-        if (interfaceC0309b != null) {
-            this.f29315d.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.b.1
+    public void a(final String str, final InterfaceC0312b interfaceC0312b, final int i2, final int i3, final ImageView.ScaleType scaleType) {
+        if (interfaceC0312b != null) {
+            this.f29397d.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    InterfaceC0309b interfaceC0309b2 = interfaceC0309b;
-                    if (interfaceC0309b2 != null) {
-                        interfaceC0309b2.a();
+                    InterfaceC0312b interfaceC0312b2 = interfaceC0312b;
+                    if (interfaceC0312b2 != null) {
+                        interfaceC0312b2.a();
                     }
                 }
             });
@@ -230,16 +230,16 @@ public class b {
         e.a(new g("GifLoader get") { // from class: com.bytedance.sdk.openadsdk.i.a.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.b(str, interfaceC0309b, i2, i3, scaleType);
+                b.this.b(str, interfaceC0312b, i2, i3, scaleType);
             }
         }, 5);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        r rVar = this.f29317f;
+        r rVar = this.f29399f;
         if (rVar != null && rVar.z()) {
-            this.f29317f.a(z);
+            this.f29399f.a(z);
         }
     }
 
@@ -251,12 +251,12 @@ public class b {
 
             @Override // com.bytedance.sdk.openadsdk.i.a.c.a
             public void a(String str3, com.bytedance.sdk.openadsdk.i.a.d dVar) {
-                d dVar2 = (d) b.this.f29316e.get(str2);
+                d dVar2 = (d) b.this.f29398e.get(str2);
                 if (dVar2 != null) {
-                    for (InterfaceC0309b interfaceC0309b : dVar2.f29342c) {
-                        if (interfaceC0309b != null) {
-                            b.f29312a = 2;
-                            interfaceC0309b.a(str3, dVar);
+                    for (InterfaceC0312b interfaceC0312b : dVar2.f29424c) {
+                        if (interfaceC0312b != null) {
+                            b.f29394a = 2;
+                            interfaceC0312b.a(str3, dVar);
                         }
                     }
                 }
@@ -264,25 +264,25 @@ public class b {
 
             @Override // com.bytedance.sdk.openadsdk.i.a.c.a, d.b.c.b.d.o.a
             public void b(o<com.bytedance.sdk.openadsdk.i.a.d> oVar) {
-                d dVar = (d) b.this.f29316e.remove(str2);
+                d dVar = (d) b.this.f29398e.remove(str2);
                 if (dVar != null) {
-                    dVar.f29341b = oVar;
-                    dVar.f29343d = oVar.f69542c;
+                    dVar.f29423b = oVar;
+                    dVar.f29425d = oVar.f69646c;
                     b.this.a(str2, str, dVar);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.a.c.a, d.b.c.b.d.o.a
             public void a(o<com.bytedance.sdk.openadsdk.i.a.d> oVar) {
-                d dVar = (d) b.this.f29316e.remove(str2);
+                d dVar = (d) b.this.f29398e.remove(str2);
                 if (dVar != null) {
-                    dVar.f29341b = oVar;
-                    dVar.f29344e = oVar.f69540a;
+                    dVar.f29423b = oVar;
+                    dVar.f29426e = oVar.f69644a;
                     b.this.a(str2, str, dVar);
                 }
             }
         }, i2, i3, scaleType, Bitmap.Config.RGB_565);
-        cVar.a(this.f29317f);
+        cVar.a(this.f29399f);
         return cVar;
     }
 
@@ -292,24 +292,24 @@ public class b {
             return;
         }
         boolean a2 = dVar.a();
-        List<InterfaceC0309b> list = dVar.f29342c;
+        List<InterfaceC0312b> list = dVar.f29424c;
         if (list != null) {
-            for (InterfaceC0309b interfaceC0309b : list) {
-                if (interfaceC0309b != null) {
+            for (InterfaceC0312b interfaceC0312b : list) {
+                if (interfaceC0312b != null) {
                     if (a2) {
-                        interfaceC0309b.a(new c(dVar.f29344e, interfaceC0309b, str, str2));
+                        interfaceC0312b.a(new c(dVar.f29426e, interfaceC0312b, str, str2));
                     } else {
-                        interfaceC0309b.b(new c(dVar.f29343d, interfaceC0309b, str, str2));
+                        interfaceC0312b.b(new c(dVar.f29425d, interfaceC0312b, str, str2));
                     }
-                    interfaceC0309b.b();
+                    interfaceC0312b.b();
                 }
             }
-            dVar.f29342c.clear();
+            dVar.f29424c.clear();
         }
     }
 
     public r b() {
-        return this.f29317f;
+        return this.f29399f;
     }
 
     public static a a() {
@@ -317,6 +317,6 @@ public class b {
     }
 
     public void a(r rVar) {
-        this.f29317f = rVar;
+        this.f29399f = rVar;
     }
 }

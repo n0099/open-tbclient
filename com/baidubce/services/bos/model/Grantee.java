@@ -1,5 +1,7 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes5.dex */
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+/* loaded from: classes6.dex */
 public class Grantee {
     public String id;
 
@@ -39,7 +41,7 @@ public class Grantee {
     }
 
     public String toString() {
-        return "Grantee [id=" + this.id + "]";
+        return "Grantee [id=" + this.id + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public Grantee withId(String str) {

@@ -12,11 +12,11 @@ import com.kwad.sdk.utils.ao;
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.detail.photo.related.a.b> {
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f33059c;
+    public AdTemplate f33157c;
 
     public b(KsFragment ksFragment, RecyclerView recyclerView, AdTemplate adTemplate) {
         super(ksFragment, recyclerView, new com.kwad.sdk.contentalliance.a());
-        this.f33059c = adTemplate;
+        this.f33157c = adTemplate;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -45,7 +45,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.detail.photo.related.a.b bVar, int i2) {
         super.a((b) bVar, i2);
-        bVar.f33058a = this.f33059c;
+        bVar.f33156a = this.f33157c;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c

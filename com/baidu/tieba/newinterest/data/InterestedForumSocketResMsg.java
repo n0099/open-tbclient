@@ -2,10 +2,10 @@ package com.baidu.tieba.newinterest.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.a2.c.c;
+import d.a.o0.a2.c.c;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public c pageData;
 

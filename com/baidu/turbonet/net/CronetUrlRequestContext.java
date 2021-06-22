@@ -31,39 +31,39 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public static long p;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f22401d;
+    public long f22483d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PowerManager f22402e;
+    public PowerManager f22484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ActivityManager f22403f;
+    public ActivityManager f22485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22404g;
+    public String f22486g;
 
     /* renamed from: i  reason: collision with root package name */
-    public Executor f22406i;
+    public Executor f22488i;
     public TurbonetEngine.TCPNetworkQualityStatus m;
     @GuardedBy("mDataTrafficMonitorLock")
-    public final d.a.o0.a.b<DataTrafficListener> n;
+    public final d.a.p0.a.b<DataTrafficListener> n;
     @GuardedBy("mNetworkQualityLock")
-    public final d.a.o0.a.b<NetworkQualityListener> o;
+    public final d.a.p0.a.b<NetworkQualityListener> o;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f22398a = new Object();
+    public final Object f22480a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConditionVariable f22399b = new ConditionVariable(false);
+    public final ConditionVariable f22481b = new ConditionVariable(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f22400c = new AtomicInteger(0);
+    public final AtomicInteger f22482c = new AtomicInteger(0);
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f22405h = new Object();
+    public final Object f22487h = new Object();
     public final Object j = new Object();
     public final Map<Object, HashSet<UrlRequest>> k = new HashMap();
-    public ProxyConfig l = ProxyConfig.f22553b;
+    public ProxyConfig l = ProxyConfig.f22635b;
 
     /* loaded from: classes5.dex */
     public enum AppThreadState {
@@ -76,10 +76,10 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public static final class ResolveResult {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f22407a = new Object();
+        public final Object f22489a = new Object();
 
         public Object a() {
-            return this.f22407a;
+            return this.f22489a;
         }
 
         public void b(String str) {
@@ -90,17 +90,17 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TurbonetEngine.Builder f22408e;
+        public final /* synthetic */ TurbonetEngine.Builder f22490e;
 
         public a(TurbonetEngine.Builder builder) {
-            this.f22408e = builder;
+            this.f22490e = builder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CronetLibraryLoader.b(this.f22408e.i());
-            synchronized (CronetUrlRequestContext.this.f22398a) {
-                CronetUrlRequestContext.this.nativeInitRequestContextOnInitThread(CronetUrlRequestContext.this.f22401d);
+            CronetLibraryLoader.b(this.f22490e.i());
+            synchronized (CronetUrlRequestContext.this.f22480a) {
+                CronetUrlRequestContext.this.nativeInitRequestContextOnInitThread(CronetUrlRequestContext.this.f22483d);
             }
         }
     }
@@ -109,14 +109,14 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f22410e;
+        public final /* synthetic */ int f22492e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f22411f;
+        public final /* synthetic */ int f22493f;
 
         public b(int i2, int i3) {
-            this.f22410e = i2;
-            this.f22411f = i3;
+            this.f22492e = i2;
+            this.f22493f = i3;
         }
 
         @Override // java.lang.Runnable
@@ -124,7 +124,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             synchronized (CronetUrlRequestContext.this.j) {
                 Iterator it = CronetUrlRequestContext.this.n.iterator();
                 while (it.hasNext()) {
-                    ((DataTrafficListener) it.next()).a(this.f22410e, this.f22411f);
+                    ((DataTrafficListener) it.next()).a(this.f22492e, this.f22493f);
                 }
             }
         }
@@ -134,19 +134,19 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetworkQualityListener f22413e;
+        public final /* synthetic */ NetworkQualityListener f22495e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f22414f;
+        public final /* synthetic */ int f22496f;
 
         public c(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, int i2) {
-            this.f22413e = networkQualityListener;
-            this.f22414f = i2;
+            this.f22495e = networkQualityListener;
+            this.f22496f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f22413e.b(this.f22414f);
+            this.f22495e.b(this.f22496f);
         }
     }
 
@@ -154,19 +154,19 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetworkQualityListener f22415e;
+        public final /* synthetic */ NetworkQualityListener f22497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f22416f;
+        public final /* synthetic */ String f22498f;
 
         public d(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, String str) {
-            this.f22415e = networkQualityListener;
-            this.f22416f = str;
+            this.f22497e = networkQualityListener;
+            this.f22498f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f22415e.c(this.f22416f);
+            this.f22497e.c(this.f22498f);
         }
     }
 
@@ -177,29 +177,29 @@ public class CronetUrlRequestContext extends TurbonetEngine {
 
     @UsedByReflection
     public CronetUrlRequestContext(TurbonetEngine.Builder builder) {
-        this.f22401d = 0L;
+        this.f22483d = 0L;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new d.a.o0.a.b<>();
-        this.o = new d.a.o0.a.b<>();
-        this.f22404g = builder.f();
+        this.n = new d.a.p0.a.b<>();
+        this.o = new d.a.p0.a.b<>();
+        this.f22486g = builder.f();
         try {
-            this.f22402e = (PowerManager) builder.i().getSystemService("power");
+            this.f22484e = (PowerManager) builder.i().getSystemService("power");
         } catch (Exception e2) {
             Log.e("ChromiumNetwork", e2.getMessage());
-            this.f22402e = null;
+            this.f22484e = null;
         }
         try {
-            this.f22403f = (ActivityManager) builder.i().getSystemService("activity");
+            this.f22485f = (ActivityManager) builder.i().getSystemService("activity");
         } catch (Exception e3) {
             Log.e("ChromiumNetwork", e3.getMessage());
-            this.f22403f = null;
+            this.f22485f = null;
         }
         CronetLibraryLoader.a(builder.i(), builder);
         nativeSetMinLogLevel(p());
-        synchronized (this.f22398a) {
+        synchronized (this.f22480a) {
             long nativeCreateRequestContextAdapter = nativeCreateRequestContextAdapter(o(builder.i(), builder));
-            this.f22401d = nativeCreateRequestContextAdapter;
+            this.f22483d = nativeCreateRequestContextAdapter;
             if (nativeCreateRequestContextAdapter != 0) {
                 builder.o();
             } else {
@@ -212,17 +212,17 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     @CalledByNative
     private int getAppState() {
         try {
-            if (this.f22403f != null) {
-                if (this.f22402e != null) {
+            if (this.f22485f != null) {
+                if (this.f22484e != null) {
                     if (Build.VERSION.SDK_INT >= 20) {
-                        if (!this.f22402e.isInteractive()) {
+                        if (!this.f22484e.isInteractive()) {
                             return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
                         }
-                    } else if (!this.f22402e.isScreenOn()) {
+                    } else if (!this.f22484e.isScreenOn()) {
                         return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
                     }
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f22403f.getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f22404g)) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f22485f.getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f22486g)) {
                             if (runningAppProcessInfo.importance == 100) {
                                 return AppThreadState.APP_THREAD_FOREGROUND.ordinal();
                             }
@@ -245,9 +245,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         if (z) {
             this.l.b(ProxyConfig.LibType.NATIVE);
         }
-        synchronized (this.f22398a) {
+        synchronized (this.f22480a) {
             Thread.currentThread();
-            this.f22399b.open();
+            this.f22481b.open();
         }
         Thread.currentThread().setName("TurboNet");
         Process.setThreadPriority(10);
@@ -259,9 +259,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         } catch (Exception e2) {
             Log.e("ChromiumNetwork", e2.getMessage());
         }
-        if (this.f22403f != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f22403f.getRunningAppProcesses()) {
-                if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f22404g)) {
+        if (this.f22485f != null) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f22485f.getRunningAppProcesses()) {
+                if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f22486g)) {
                     return runningAppProcessInfo.importance == 100;
                 }
             }
@@ -273,11 +273,11 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     @CalledByNative
     private boolean isInteractive() {
         try {
-            if (this.f22402e != null) {
+            if (this.f22484e != null) {
                 if (Build.VERSION.SDK_INT >= 20) {
-                    return this.f22402e.isInteractive();
+                    return this.f22484e.isInteractive();
                 }
-                return this.f22402e.isScreenOn();
+                return this.f22484e.isScreenOn();
             }
             throw new NullPointerException("Error: mPowerManager is null.");
         } catch (Exception e2) {
@@ -396,7 +396,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
 
     @CalledByNative
     private void onNetworkQualityObservation(int i2) {
-        synchronized (this.f22405h) {
+        synchronized (this.f22487h) {
             Iterator<NetworkQualityListener> it = this.o.iterator();
             while (it.hasNext()) {
                 NetworkQualityListener next = it.next();
@@ -438,7 +438,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     @Override // com.baidu.turbonet.net.TurbonetEngine
     public UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i2, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
         CronetUrlRequest cronetUrlRequest;
-        synchronized (this.f22398a) {
+        synchronized (this.f22480a) {
             n();
             cronetUrlRequest = new CronetUrlRequest(this, str, i2, callback, executor, collection, false, z, z2, z3);
         }
@@ -465,11 +465,11 @@ public class CronetUrlRequestContext extends TurbonetEngine {
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
     public void g(String str, String str2, int i2, int i3, long j, long j2, long j3, long j4) {
-        synchronized (this.f22398a) {
+        synchronized (this.f22480a) {
             try {
                 try {
                     n();
-                    nativeUploadNativeRequestLog(this.f22401d, str, str2, i2, i3, j, j2, j3, j4);
+                    nativeUploadNativeRequestLog(this.f22483d, str, str2, i2, i3, j, j2, j3, j4);
                 } catch (Throwable th) {
                     th = th;
                     throw th;
@@ -506,28 +506,28 @@ public class CronetUrlRequestContext extends TurbonetEngine {
 
     public long q() {
         long j;
-        synchronized (this.f22398a) {
+        synchronized (this.f22480a) {
             n();
-            j = this.f22401d;
+            j = this.f22483d;
         }
         return j;
     }
 
     public final boolean r() {
-        return this.f22401d != 0;
+        return this.f22483d != 0;
     }
 
     public void s() {
-        this.f22400c.decrementAndGet();
+        this.f22482c.decrementAndGet();
     }
 
     public void t() {
-        this.f22400c.incrementAndGet();
+        this.f22482c.incrementAndGet();
     }
 
     public void u(Runnable runnable) {
         try {
-            this.f22406i.execute(runnable);
+            this.f22488i.execute(runnable);
         } catch (RejectedExecutionException e2) {
             Log.e("ChromiumNetwork", "Exception posting task to executor", e2);
         }

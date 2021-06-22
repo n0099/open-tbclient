@@ -11,68 +11,68 @@ import java.util.Set;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31856a = false;
+    public static boolean f31954a = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String[] f31859d;
+    public static String[] f31957d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long[] f31860e;
+    public static long[] f31958e;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f31857b = new HashSet();
+    public static final Set<String> f31955b = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f31858c = false;
+    public static boolean f31956c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f31861f = 0;
+    public static int f31959f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f31862g = 0;
+    public static int f31960g = 0;
 
     public static void a(String str) {
-        if (f31856a) {
+        if (f31954a) {
             Log.d(L.TAG, str);
         }
     }
 
     public static void b(String str) {
-        if (f31857b.contains(str)) {
+        if (f31955b.contains(str)) {
             return;
         }
         Log.w(L.TAG, str);
-        f31857b.add(str);
+        f31955b.add(str);
     }
 
     public static void c(String str) {
-        if (f31858c) {
-            int i2 = f31861f;
+        if (f31956c) {
+            int i2 = f31959f;
             if (i2 == 20) {
-                f31862g++;
+                f31960g++;
                 return;
             }
-            f31859d[i2] = str;
-            f31860e[i2] = System.nanoTime();
+            f31957d[i2] = str;
+            f31958e[i2] = System.nanoTime();
             TraceCompat.beginSection(str);
-            f31861f++;
+            f31959f++;
         }
     }
 
     public static float d(String str) {
-        int i2 = f31862g;
+        int i2 = f31960g;
         if (i2 > 0) {
-            f31862g = i2 - 1;
+            f31960g = i2 - 1;
             return 0.0f;
-        } else if (f31858c) {
-            int i3 = f31861f - 1;
-            f31861f = i3;
+        } else if (f31956c) {
+            int i3 = f31959f - 1;
+            f31959f = i3;
             if (i3 != -1) {
-                if (str.equals(f31859d[i3])) {
+                if (str.equals(f31957d[i3])) {
                     TraceCompat.endSection();
-                    return ((float) (System.nanoTime() - f31860e[f31861f])) / 1000000.0f;
+                    return ((float) (System.nanoTime() - f31958e[f31959f])) / 1000000.0f;
                 }
-                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + f31859d[f31861f] + ".");
+                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + f31957d[f31959f] + ".");
             }
             throw new IllegalStateException("Can't end trace section. There are none.");
         } else {

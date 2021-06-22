@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public abstract class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40190a;
+    public Context f40293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f40191b;
+    public Handler f40294b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f40192c = new Object();
+    public final Object f40295c = new Object();
 
     /* loaded from: classes7.dex */
     public class a extends Handler {
@@ -33,22 +33,22 @@ public abstract class aa {
     public aa() {
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f40191b = new a(handlerThread.getLooper());
+        this.f40294b = new a(handlerThread.getLooper());
     }
 
     public final void a(Context context) {
-        this.f40190a = context;
+        this.f40293a = context;
     }
 
     public abstract void b(Message message);
 
     public final void a(Message message) {
-        synchronized (this.f40192c) {
-            if (this.f40191b == null) {
+        synchronized (this.f40295c) {
+            if (this.f40294b == null) {
                 String simpleName = getClass().getSimpleName();
                 com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
             } else {
-                this.f40191b.sendMessage(message);
+                this.f40294b.sendMessage(message);
             }
         }
     }

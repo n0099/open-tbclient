@@ -18,10 +18,10 @@ import org.apache.http.protocol.HTTP;
 public final class a implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f68933a;
+    public final d f69037a;
 
     public a(d dVar) {
-        this.f68933a = dVar;
+        this.f69037a = dVar;
     }
 
     public static d.b.c.a.b.c c(d.b.c.a.b.c cVar) {
@@ -40,14 +40,14 @@ public final class a implements w {
             String b2 = vVar.b(i2);
             String e2 = vVar.e(i2);
             if ((!"Warning".equalsIgnoreCase(b2) || !e2.startsWith("1")) && (!e(b2) || vVar2.c(b2) == null)) {
-                d.b.c.a.b.a.b.f68949a.g(aVar, b2, e2);
+                d.b.c.a.b.a.b.f69053a.g(aVar, b2, e2);
             }
         }
         int a3 = vVar2.a();
         for (int i3 = 0; i3 < a3; i3++) {
             String b3 = vVar2.b(i3);
             if (!"Content-Length".equalsIgnoreCase(b3) && e(b3)) {
-                d.b.c.a.b.a.b.f68949a.g(aVar, b3, vVar2.e(i3));
+                d.b.c.a.b.a.b.f69053a.g(aVar, b3, vVar2.e(i3));
             }
         }
         return aVar.c();
@@ -59,12 +59,12 @@ public final class a implements w {
 
     @Override // d.b.c.a.b.w
     public d.b.c.a.b.c a(w.a aVar) throws IOException {
-        d dVar = this.f68933a;
+        d dVar = this.f69037a;
         d.b.c.a.b.c a2 = dVar != null ? dVar.a(aVar.a()) : null;
         c a3 = new c.a(System.currentTimeMillis(), aVar.a(), a2).a();
-        a0 a0Var = a3.f68938a;
-        d.b.c.a.b.c cVar = a3.f68939b;
-        d dVar2 = this.f68933a;
+        a0 a0Var = a3.f69042a;
+        d.b.c.a.b.c cVar = a3.f69043b;
+        d dVar2 = this.f69037a;
         if (dVar2 != null) {
             dVar2.c(a3);
         }
@@ -77,7 +77,7 @@ public final class a implements w {
             aVar2.g(com.bytedance.sdk.a.b.w.HTTP_1_1);
             aVar2.a(504);
             aVar2.i("Unsatisfiable Request (only-if-cached)");
-            aVar2.d(e.f68987c);
+            aVar2.d(e.f69091c);
             aVar2.b(-1L);
             aVar2.m(System.currentTimeMillis());
             return aVar2.k();
@@ -100,8 +100,8 @@ public final class a implements w {
                         y2.c(c(a4));
                         d.b.c.a.b.c k = y2.k();
                         a4.x().close();
-                        this.f68933a.a();
-                        this.f68933a.d(cVar, k);
+                        this.f69037a.a();
+                        this.f69037a.d(cVar, k);
                         return k;
                     }
                     e.q(cVar.x());
@@ -110,13 +110,13 @@ public final class a implements w {
                 y3.n(c(cVar));
                 y3.c(c(a4));
                 d.b.c.a.b.c k2 = y3.k();
-                if (this.f68933a != null) {
+                if (this.f69037a != null) {
                     if (e.g.h(k2) && c.a(k2, a0Var)) {
-                        return b(this.f68933a.b(k2), k2);
+                        return b(this.f69037a.b(k2), k2);
                     }
                     if (e.h.a(a0Var.c())) {
                         try {
-                            this.f68933a.e(a0Var);
+                            this.f69037a.e(a0Var);
                         } catch (IOException unused) {
                         }
                     }
@@ -135,54 +135,54 @@ public final class a implements w {
         if (bVar == null || (a2 = bVar.a()) == null) {
             return cVar;
         }
-        C1884a c1884a = new C1884a(this, cVar.x().r(), bVar, k.a(a2));
+        C1887a c1887a = new C1887a(this, cVar.x().r(), bVar, k.a(a2));
         String o = cVar.o("Content-Type");
         long o2 = cVar.x().o();
         c.a y = cVar.y();
-        y.d(new e.j(o, o2, k.b(c1884a)));
+        y.d(new e.j(o, o2, k.b(c1887a)));
         return y.k();
     }
 
     /* renamed from: d.b.c.a.b.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1884a implements q {
+    public class C1887a implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f68934e;
+        public boolean f69038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.c.a.a.e f68935f;
+        public final /* synthetic */ d.b.c.a.a.e f69039f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f68936g;
+        public final /* synthetic */ b f69040g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.c.a.a.d f68937h;
+        public final /* synthetic */ d.b.c.a.a.d f69041h;
 
-        public C1884a(a aVar, d.b.c.a.a.e eVar, b bVar, d.b.c.a.a.d dVar) {
-            this.f68935f = eVar;
-            this.f68936g = bVar;
-            this.f68937h = dVar;
+        public C1887a(a aVar, d.b.c.a.a.e eVar, b bVar, d.b.c.a.a.d dVar) {
+            this.f69039f = eVar;
+            this.f69040g = bVar;
+            this.f69041h = dVar;
         }
 
         @Override // d.b.c.a.a.q
         public long a(d.b.c.a.a.c cVar, long j) throws IOException {
             try {
-                long a2 = this.f68935f.a(cVar, j);
+                long a2 = this.f69039f.a(cVar, j);
                 if (a2 == -1) {
-                    if (!this.f68934e) {
-                        this.f68934e = true;
-                        this.f68937h.close();
+                    if (!this.f69038e) {
+                        this.f69038e = true;
+                        this.f69041h.close();
                     }
                     return -1L;
                 }
-                cVar.n(this.f68937h.c(), cVar.v() - a2, a2);
-                this.f68937h.u();
+                cVar.n(this.f69041h.c(), cVar.v() - a2, a2);
+                this.f69041h.u();
                 return a2;
             } catch (IOException e2) {
-                if (!this.f68934e) {
-                    this.f68934e = true;
-                    this.f68936g.b();
+                if (!this.f69038e) {
+                    this.f69038e = true;
+                    this.f69040g.b();
                 }
                 throw e2;
             }
@@ -190,16 +190,16 @@ public final class a implements w {
 
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!this.f68934e && !e.s(this, 100, TimeUnit.MILLISECONDS)) {
-                this.f68934e = true;
-                this.f68936g.b();
+            if (!this.f69038e && !e.s(this, 100, TimeUnit.MILLISECONDS)) {
+                this.f69038e = true;
+                this.f69040g.b();
             }
-            this.f68935f.close();
+            this.f69039f.close();
         }
 
         @Override // d.b.c.a.a.q
         public r a() {
-            return this.f68935f.a();
+            return this.f69039f.a();
         }
     }
 }

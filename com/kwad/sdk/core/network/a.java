@@ -5,14 +5,14 @@ import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class a<R extends g> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f34487a = Executors.newFixedThreadPool(5);
+    public static final ExecutorService f34585a = Executors.newFixedThreadPool(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f34488b;
+    public Future<?> f34586b;
 
     public abstract void a(R r, c cVar);
 
@@ -21,7 +21,7 @@ public abstract class a<R extends g> {
 
     public void d() {
         try {
-            this.f34488b = f34487a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f34586b = f34585a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.f();
@@ -33,7 +33,7 @@ public abstract class a<R extends g> {
     }
 
     public void e() {
-        Future<?> future = this.f34488b;
+        Future<?> future = this.f34586b;
         if (future == null) {
             return;
         }

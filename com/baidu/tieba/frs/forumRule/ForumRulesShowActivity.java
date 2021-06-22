@@ -17,23 +17,23 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
 import com.baidu.tieba.view.BdTopToast;
-import d.a.m0.b1.m.f;
-import d.a.n0.r0.q1.f.c;
+import d.a.n0.b1.m.f;
+import d.a.o0.r0.q1.f.c;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
-    public d.a.n0.r0.q1.b.a callback = new a();
+    public d.a.o0.r0.q1.b.a callback = new a();
     public CustomMessageListener richTextIntentClickListener = new b(2001332);
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.n0.r0.q1.b.a {
+    public class a implements d.a.o0.r0.q1.b.a {
         public a() {
         }
 
-        @Override // d.a.n0.r0.q1.b.a
+        @Override // d.a.o0.r0.q1.b.a
         public void a() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.m();
@@ -43,21 +43,21 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
-        public void b(d.a.n0.r0.q1.c.a aVar) {
+        @Override // d.a.o0.r0.q1.b.a
+        public void b(d.a.o0.r0.q1.c.a aVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.f(aVar);
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
-        public void c(List<d.a.n0.r0.q1.c.c> list) {
+        @Override // d.a.o0.r0.q1.b.a
+        public void c(List<d.a.o0.r0.q1.c.c> list) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.g(list);
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
+        @Override // d.a.o0.r0.q1.b.a
         public void d(boolean z, String str) {
             if (ForumRulesShowActivity.this.mView == null) {
                 return;
@@ -69,21 +69,21 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
-        public void e(d.a.n0.r0.q1.c.b bVar) {
+        @Override // d.a.o0.r0.q1.b.a
+        public void e(d.a.o0.r0.q1.c.b bVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.e(bVar);
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
+        @Override // d.a.o0.r0.q1.b.a
         public void f(String str) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.h(str);
             }
         }
 
-        @Override // d.a.n0.r0.q1.b.a
+        @Override // d.a.o0.r0.q1.b.a
         public void finish() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
@@ -108,7 +108,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f52803a, aVar.f52804b, aVar.f52805c);
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f52910a, aVar.f52911b, aVar.f52912c);
         }
     }
 

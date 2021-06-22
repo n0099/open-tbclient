@@ -19,10 +19,10 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import d.a.c.e.m.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NewDetailTopicStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -75,18 +75,18 @@ public class NewDetailTopicStatic {
     }
 
     public static void a() {
-        d.a.n0.e3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
     public static void b() {
-        d.a.n0.e3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
     public static void c() {
-        d.a.n0.e3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        d.a.o0.e3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 
     public static void d() {

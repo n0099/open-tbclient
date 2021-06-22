@@ -2,9 +2,9 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import d.a.c.e.p.k;
-import d.a.n0.e3.l0.b;
-import d.a.n0.h0.f.a.a;
-import d.a.n0.h0.f.a.c;
+import d.a.o0.e3.l0.b;
+import d.a.o0.h0.f.a.a;
+import d.a.o0.h0.f.a.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
@@ -16,16 +16,16 @@ public class EasterEggBridge implements b {
     public static final String KEY_CALLBACK = "native_clbk";
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
-    public List<d.a.n0.h0.b> mListener = new ArrayList();
+    public List<d.a.o0.h0.b> mListener = new ArrayList();
 
     public EasterEggBridge() {
-        addListener(new d.a.n0.h0.f.a.b());
+        addListener(new d.a.o0.h0.f.a.b());
         addListener(new c());
         addListener(new a());
     }
 
-    public void addListener(d.a.n0.h0.b bVar) {
-        List<d.a.n0.h0.b> list;
+    public void addListener(d.a.o0.h0.b bVar) {
+        List<d.a.o0.h0.b> list;
         if (bVar == null || (list = this.mListener) == null) {
             return;
         }
@@ -33,13 +33,13 @@ public class EasterEggBridge implements b {
     }
 
     public void clearListener() {
-        List<d.a.n0.h0.b> list = this.mListener;
+        List<d.a.o0.h0.b> list = this.mListener;
         if (list != null) {
             list.clear();
         }
     }
 
-    @Override // d.a.n0.e3.l0.b
+    @Override // d.a.o0.e3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if (KEY_INTERFACE_NAME.equals(str2)) {
             try {
@@ -49,7 +49,7 @@ public class EasterEggBridge implements b {
                     return false;
                 }
                 String trim = optString.trim();
-                for (d.a.n0.h0.b bVar : this.mListener) {
+                for (d.a.o0.h0.b bVar : this.mListener) {
                     if (trim.equals(bVar.b())) {
                         bVar.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                     }
@@ -60,8 +60,8 @@ public class EasterEggBridge implements b {
         return false;
     }
 
-    public void removeListener(d.a.n0.h0.b bVar) {
-        List<d.a.n0.h0.b> list;
+    public void removeListener(d.a.o0.h0.b bVar) {
+        List<d.a.o0.h0.b> list;
         if (bVar == null || (list = this.mListener) == null) {
             return;
         }

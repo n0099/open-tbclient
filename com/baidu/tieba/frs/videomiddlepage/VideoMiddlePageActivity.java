@@ -22,8 +22,8 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.m0.k0.d;
-import d.a.n0.q3.c;
+import d.a.n0.k0.d;
+import d.a.o0.q3.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
@@ -86,7 +86,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a023";
     }
@@ -183,7 +183,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.a.m0.a.d.y().E();
+        d.a.n0.a.d.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -192,7 +192,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (k.isEmpty(this.mId)) {
             return;
         }
-        d.a.m0.a.d.y().P(d.a.m0.a.c.Z, b.f(this.mId, 0L));
+        d.a.n0.a.d.y().P(d.a.n0.a.c.Z, b.f(this.mId, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

@@ -11,11 +11,11 @@ import java.util.zip.ZipInputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41913a;
+    public String f42016a;
 
     public a(File file) {
-        this.f41913a = null;
-        this.f41913a = file.getAbsolutePath();
+        this.f42016a = null;
+        this.f42016a = file.getAbsolutePath();
     }
 
     public boolean a() {
@@ -32,10 +32,10 @@ public class a {
         FileInputStream fileInputStream;
         Exception e2;
         ZipInputStream zipInputStream;
-        if (TextUtils.isEmpty(this.f41913a)) {
+        if (TextUtils.isEmpty(this.f42016a)) {
             return false;
         }
-        File file = new File(this.f41913a);
+        File file = new File(this.f42016a);
         ?? r2 = 0;
         r2 = 0;
         try {

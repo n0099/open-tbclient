@@ -9,38 +9,38 @@ import com.baidu.pyramid.annotation.Inject;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f68623b = new d();
+    public static d f68727b = new d();
     @Inject
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.e0.a.b.c<IResourcesFetcher> f68624a;
+    public d.a.f0.a.b.c<IResourcesFetcher> f68728a;
 
     public d() {
         e();
     }
 
     public static d c() {
-        return f68623b;
+        return f68727b;
     }
 
     public Resources a() {
         if (d.a.z.i.b.a()) {
-            Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.f68624a.getClass());
+            Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.f68728a.getClass());
         }
-        return this.f68624a.get().getBaseContextResources();
+        return this.f68728a.get().getBaseContextResources();
     }
 
     public Resources b() {
-        return this.f68624a.get().getGlobalResources();
+        return this.f68728a.get().getGlobalResources();
     }
 
     public Resources[] d() {
-        return this.f68624a.get().getWrapperResources();
+        return this.f68728a.get().getWrapperResources();
     }
 
     public void e() {
-        d.a.e0.a.b.a b2 = d.a.e0.a.b.a.b();
-        this.f68624a = b2;
+        d.a.f0.a.b.a b2 = d.a.f0.a.b.a.b();
+        this.f68728a = b2;
         b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
     }
 }

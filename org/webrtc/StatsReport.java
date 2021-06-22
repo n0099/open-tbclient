@@ -1,6 +1,7 @@
 package org.webrtc;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes8.dex */
 public class StatsReport {
     public final String id;
@@ -20,7 +21,7 @@ public class StatsReport {
         }
 
         public String toString() {
-            return "[" + this.name + ": " + this.value + "]";
+            return PreferencesUtil.LEFT_MOUNT + this.name + ": " + this.value + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

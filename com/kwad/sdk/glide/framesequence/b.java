@@ -5,10 +5,10 @@ import com.kwad.sdk.glide.load.engine.s;
 public class b implements s<FrameSequence> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final FrameSequence f35859a;
+    public final FrameSequence f35957a;
 
     public b(FrameSequence frameSequence) {
-        this.f35859a = frameSequence;
+        this.f35957a = frameSequence;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -20,12 +20,12 @@ public class b implements s<FrameSequence> {
     @Override // com.kwad.sdk.glide.load.engine.s
     /* renamed from: b */
     public FrameSequence e() {
-        return this.f35859a;
+        return this.f35957a;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.f35859a.getWidth() * this.f35859a.getHeight() * 4;
+        return this.f35957a.getWidth() * this.f35957a.getHeight() * 4;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

@@ -17,16 +17,16 @@ import java.util.List;
 public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35573f;
+    public TextView f35671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f35574g;
+    public ImageView f35672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f35575h;
+    public ImageView f35673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f35576i;
+    public ImageView f35674i;
     public ImageView j;
     public KsLogoView k;
 
@@ -37,13 +37,13 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f35573f.setText(com.kwad.sdk.core.response.b.a.n(this.f35579b));
+        this.f35671f.setText(com.kwad.sdk.core.response.b.a.n(this.f35677b));
         this.k.a(adTemplate);
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f35579b);
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f35677b);
         if (I.size() >= 3) {
-            KSImageLoader.loadFeeImage(this.f35574g, I.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
-            KSImageLoader.loadFeeImage(this.f35575h, I.get(1), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
-            KSImageLoader.loadFeeImage(this.f35576i, I.get(2), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
+            KSImageLoader.loadFeeImage(this.f35672g, I.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35676a);
+            KSImageLoader.loadFeeImage(this.f35673h, I.get(1), ((com.kwad.sdk.feed.widget.base.a) this).f35676a);
+            KSImageLoader.loadFeeImage(this.f35674i, I.get(2), ((com.kwad.sdk.feed.widget.base.a) this).f35676a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextAboveGroupImageView", "getImageUrlList size less than three");
         }
@@ -53,11 +53,11 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.f35573f = (TextView) findViewById(R.id.ksad_ad_desc);
+        this.f35671f = (TextView) findViewById(R.id.ksad_ad_desc);
         ((RatioFrameLayout) findViewById(R.id.ksad_image_container)).setRatio(0.56f);
-        this.f35574g = (ImageView) findViewById(R.id.ksad_ad_image_left);
-        this.f35575h = (ImageView) findViewById(R.id.ksad_ad_image_mid);
-        this.f35576i = (ImageView) findViewById(R.id.ksad_ad_image_right);
+        this.f35672g = (ImageView) findViewById(R.id.ksad_ad_image_left);
+        this.f35673h = (ImageView) findViewById(R.id.ksad_ad_image_mid);
+        this.f35674i = (ImageView) findViewById(R.id.ksad_ad_image_right);
         this.j = (ImageView) findViewById(R.id.ksad_ad_dislike);
         this.k = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
     }
@@ -71,15 +71,15 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         if (view == this.j) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35578a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35676a, 1) == 1) {
             k();
         } else {
-            boolean y = com.kwad.sdk.core.response.b.a.y(this.f35579b);
+            boolean y = com.kwad.sdk.core.response.b.a.y(this.f35677b);
             k();
             if (y) {
-                FeedDownloadActivityProxy.launch(this.f35581d, ((com.kwad.sdk.feed.widget.base.a) this).f35578a, this.f35580c);
+                FeedDownloadActivityProxy.launch(this.f35679d, ((com.kwad.sdk.feed.widget.base.a) this).f35676a, this.f35678c);
             } else {
-                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
+                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35676a);
             }
         }
     }

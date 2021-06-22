@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
-import d.a.n0.e3.n0.d;
-import d.a.n0.z.b;
+import d.a.n0.r.q.a2;
+import d.a.o0.e3.n0.d;
+import d.a.o0.z.b;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends b<d.a.n0.r0.s1.a.a.b> {
+public class FrsGameStrategyItemView extends b<d.a.o0.r0.s1.a.a.b> {
     public TbPageContext m;
     public View n;
     public TbImageView o;
@@ -28,11 +28,11 @@ public class FrsGameStrategyItemView extends b<d.a.n0.r0.s1.a.a.b> {
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f15504a;
+        public FrsGameStrategyItemView f15586a;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
             super(frsGameStrategyItemView.m());
-            this.f15504a = frsGameStrategyItemView;
+            this.f15586a = frsGameStrategyItemView;
         }
     }
 
@@ -43,12 +43,12 @@ public class FrsGameStrategyItemView extends b<d.a.n0.r0.s1.a.a.b> {
         t();
     }
 
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     public int h() {
         return R.layout.frs_game_strategy_item_layout;
     }
 
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
@@ -72,9 +72,9 @@ public class FrsGameStrategyItemView extends b<d.a.n0.r0.s1.a.a.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     /* renamed from: u */
-    public void n(d.a.n0.r0.s1.a.a.b bVar) {
+    public void n(d.a.o0.r0.s1.a.a.b bVar) {
         if (bVar == null || bVar.c() == null) {
             return;
         }
@@ -89,7 +89,7 @@ public class FrsGameStrategyItemView extends b<d.a.n0.r0.s1.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(c2.J1());
         String formatTimeShort = StringHelper.getFormatTimeShort(c2.S());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f67160g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f67285g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (c2.v1() == 40) {

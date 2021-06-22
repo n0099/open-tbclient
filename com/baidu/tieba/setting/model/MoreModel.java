@@ -6,10 +6,10 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 public class MoreModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f20474e;
+    public PersonChangeData f20556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20475f;
+    public boolean f20557f;
 
     /* loaded from: classes5.dex */
     public enum TaskType {
@@ -19,11 +19,11 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.f20474e = null;
-        this.f20475f = false;
-        this.f20474e = personChangeData;
+        this.f20556e = null;
+        this.f20557f = false;
+        this.f20556e = personChangeData;
         if (personChangeData == null) {
-            this.f20474e = new PersonChangeData();
+            this.f20556e = new PersonChangeData();
         }
     }
 
@@ -38,18 +38,18 @@ public class MoreModel extends BdBaseModel {
     }
 
     public PersonChangeData w() {
-        return this.f20474e;
+        return this.f20556e;
     }
 
     public boolean x() {
-        return this.f20475f;
+        return this.f20557f;
     }
 
     public void y(PersonChangeData personChangeData) {
-        this.f20474e = personChangeData;
+        this.f20556e = personChangeData;
     }
 
     public void z(boolean z) {
-        this.f20475f = z;
+        this.f20557f = z;
     }
 }

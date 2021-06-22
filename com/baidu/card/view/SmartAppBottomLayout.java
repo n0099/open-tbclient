@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.m0.r.q.a;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class SmartAppBottomLayout extends LinearLayout implements p<a> {
 

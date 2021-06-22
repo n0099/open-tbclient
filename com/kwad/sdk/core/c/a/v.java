@@ -27,46 +27,46 @@ import java.util.Map;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<Class<? extends com.kwad.sdk.core.response.a.a>, com.kwad.sdk.core.c> f34054a;
+    public static Map<Class<? extends com.kwad.sdk.core.response.a.a>, com.kwad.sdk.core.c> f34152a;
 
     static {
         HashMap hashMap = new HashMap(32);
-        f34054a = hashMap;
+        f34152a = hashMap;
         hashMap.put(CDNUrl.class, new j());
-        f34054a.put(ProfileGuideConfigItem.ProfileGuideConfig.class, new ab());
-        f34054a.put(g.a.class, new ae());
-        f34054a.put(InstallActivateReminderConfigItem.InstallActivateReminderConfig.class, new u());
-        f34054a.put(SplashPreloadManager.PreLoadPara.class, new aa());
-        f34054a.put(EmotionPackage.class, new q());
-        f34054a.put(o.a.class, new k());
-        f34054a.put(AdInfo.AdBaseInfo.class, new c());
-        f34054a.put(AdStyleInfo.FeedAdInfo.class, new s());
-        f34054a.put(AdInfo.DownloadSafeInfo.class, new m());
-        f34054a.put(l.b.class, new i());
-        f34054a.put(AdInfo.MaterialSize.class, new y());
-        f34054a.put(AdInfo.AdMaterialInfo.class, new e());
-        f34054a.put(SdkConfigData.TemplateConfigMap.class, new ad());
-        f34054a.put(p.a.class, new ag());
-        f34054a.put(com.kwad.sdk.core.g.a.g.class, new w());
-        f34054a.put(DownloadParams.class, new l());
-        f34054a.put(a.C0395a.class, new b());
-        f34054a.put(HomeApkBannerData.class, new t());
-        f34054a.put(SplashPreloadManager.PreLoadItem.class, new z());
-        f34054a.put(ABParams.class, new a());
-        f34054a.put(WebCardVideoPositionHandler.VideoPosition.class, new af());
-        f34054a.put(EmotionInfo.class, new p());
-        f34054a.put(AdInfo.AdPreloadInfo.class, new f());
-        f34054a.put(EmotionCode.class, new o());
-        f34054a.put(b.a.class, new r());
-        f34054a.put(l.a.class, new h());
-        f34054a.put(AdInfo.AdConversionInfo.class, new d());
-        f34054a.put(AdInfo.AdMaterialInfo.MaterialFeature.class, new x());
-        f34054a.put(EmotionAuthor.class, new n());
-        f34054a.put(AdInfo.AdSplashInfo.class, new g());
-        f34054a.put(SdkConfigData.TemplateConfig.class, new ac());
+        f34152a.put(ProfileGuideConfigItem.ProfileGuideConfig.class, new ab());
+        f34152a.put(g.a.class, new ae());
+        f34152a.put(InstallActivateReminderConfigItem.InstallActivateReminderConfig.class, new u());
+        f34152a.put(SplashPreloadManager.PreLoadPara.class, new aa());
+        f34152a.put(EmotionPackage.class, new q());
+        f34152a.put(o.a.class, new k());
+        f34152a.put(AdInfo.AdBaseInfo.class, new c());
+        f34152a.put(AdStyleInfo.FeedAdInfo.class, new s());
+        f34152a.put(AdInfo.DownloadSafeInfo.class, new m());
+        f34152a.put(l.b.class, new i());
+        f34152a.put(AdInfo.MaterialSize.class, new y());
+        f34152a.put(AdInfo.AdMaterialInfo.class, new e());
+        f34152a.put(SdkConfigData.TemplateConfigMap.class, new ad());
+        f34152a.put(p.a.class, new ag());
+        f34152a.put(com.kwad.sdk.core.g.a.g.class, new w());
+        f34152a.put(DownloadParams.class, new l());
+        f34152a.put(a.C0398a.class, new b());
+        f34152a.put(HomeApkBannerData.class, new t());
+        f34152a.put(SplashPreloadManager.PreLoadItem.class, new z());
+        f34152a.put(ABParams.class, new a());
+        f34152a.put(WebCardVideoPositionHandler.VideoPosition.class, new af());
+        f34152a.put(EmotionInfo.class, new p());
+        f34152a.put(AdInfo.AdPreloadInfo.class, new f());
+        f34152a.put(EmotionCode.class, new o());
+        f34152a.put(b.a.class, new r());
+        f34152a.put(l.a.class, new h());
+        f34152a.put(AdInfo.AdConversionInfo.class, new d());
+        f34152a.put(AdInfo.AdMaterialInfo.MaterialFeature.class, new x());
+        f34152a.put(EmotionAuthor.class, new n());
+        f34152a.put(AdInfo.AdSplashInfo.class, new g());
+        f34152a.put(SdkConfigData.TemplateConfig.class, new ac());
     }
 
     public static <T extends com.kwad.sdk.core.response.a.a> com.kwad.sdk.core.c<T> a(T t) {
-        return f34054a.get(t.getClass());
+        return f34152a.get(t.getClass());
     }
 }

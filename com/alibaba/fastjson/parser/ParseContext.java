@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public class ParseContext {
@@ -22,7 +23,7 @@ public class ParseContext {
             if (this.parent == null) {
                 this.path = "$";
             } else if (this.fieldName instanceof Integer) {
-                this.path = this.parent.toString() + "[" + this.fieldName + "]";
+                this.path = this.parent.toString() + PreferencesUtil.LEFT_MOUNT + this.fieldName + PreferencesUtil.RIGHT_MOUNT;
             } else {
                 this.path = this.parent.toString() + "." + this.fieldName;
             }

@@ -1,0 +1,370 @@
+package com.baidu.sofire.utility;
+
+import android.accounts.NetworkErrorException;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Proxy;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+import java.util.Locale;
+import java.util.zip.GZIPInputStream;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+@SuppressLint({"NewApi"})
+/* loaded from: classes2.dex */
+public final class m {
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f10427b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f10428c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f10429d;
+
+    /* renamed from: a  reason: collision with root package name */
+    public byte[] f10426a = new byte[8192];
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f10430e = 120000;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f10431f = 120000;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f10432g = false;
+
+    public m(Context context) {
+        this.f10427b = context;
+    }
+
+    private void a(String str, String str2) {
+        this.f10428c = str;
+        this.f10429d = str2;
+    }
+
+    public static byte[] b(InputStream inputStream) throws IOException, InterruptedException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read != -1) {
+                byteArrayOutputStream.write(bArr, 0, read);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            }
+        }
+    }
+
+    private HttpURLConnection a() throws IOException {
+        HttpURLConnection httpURLConnection;
+        if (!TextUtils.isEmpty(this.f10428c) && !TextUtils.isEmpty(this.f10429d)) {
+            if (!this.f10428c.equals("POST") && !this.f10428c.equals("GET")) {
+                this.f10428c = "POST";
+            }
+            URL url = new URL(this.f10429d);
+            String str = null;
+            int i2 = -1;
+            if (c.e(this.f10427b)) {
+                i2 = 0;
+            } else if (Build.VERSION.SDK_INT >= 13) {
+                str = System.getProperties().getProperty("http.proxyHost");
+                String property = System.getProperties().getProperty("http.proxyPort");
+                if (!TextUtils.isEmpty(property)) {
+                    try {
+                        i2 = Integer.parseInt(property);
+                    } catch (Throwable unused) {
+                    }
+                }
+            } else {
+                str = Proxy.getHost(this.f10427b);
+                i2 = Proxy.getPort(this.f10427b);
+            }
+            if (str != null && i2 > 0) {
+                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i2)));
+            } else {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            }
+            if ("https".equals(url.getProtocol())) {
+                try {
+                    ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                } catch (Throwable unused2) {
+                    c.a();
+                }
+            }
+            httpURLConnection.setRequestMethod(this.f10428c);
+            httpURLConnection.setDoInput(true);
+            if ("POST".equals(this.f10428c)) {
+                httpURLConnection.setDoOutput(true);
+            }
+            httpURLConnection.setInstanceFollowRedirects(true);
+            httpURLConnection.setConnectTimeout(this.f10430e);
+            httpURLConnection.setReadTimeout(this.f10431f);
+            String str2 = c.g(this.f10427b)[0];
+            httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + z.a(this.f10427b) + "/3.5.8.6");
+            httpURLConnection.setRequestProperty("Pragma", "no-cache");
+            httpURLConnection.setRequestProperty("Accept", "*/*");
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+            httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry());
+            httpURLConnection.setRequestProperty("x-device-id", o.a(e.b(this.f10427b)));
+            return httpURLConnection;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    private InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) throws IOException, NetworkErrorException {
+        BufferedOutputStream bufferedOutputStream = null;
+        if (httpURLConnection == null) {
+            return null;
+        }
+        try {
+            try {
+                if (bArr == null) {
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (responseCode == 200) {
+                        String contentEncoding = httpURLConnection.getContentEncoding();
+                        if (!TextUtils.isEmpty(contentEncoding) && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(contentEncoding)) {
+                            this.f10432g = true;
+                        } else {
+                            this.f10432g = false;
+                        }
+                        return httpURLConnection.getInputStream();
+                    }
+                    throw new NetworkErrorException(String.valueOf(responseCode));
+                }
+                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    bufferedOutputStream2.write(bArr);
+                    bufferedOutputStream2.flush();
+                    int responseCode2 = httpURLConnection.getResponseCode();
+                    if (responseCode2 == 200) {
+                        if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
+                            this.f10432g = true;
+                        } else {
+                            this.f10432g = false;
+                        }
+                        InputStream inputStream = httpURLConnection.getInputStream();
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (Throwable unused) {
+                        }
+                        return inputStream;
+                    }
+                    throw new NetworkErrorException(String.valueOf(responseCode2));
+                } catch (NetworkErrorException e2) {
+                    throw e2;
+                } catch (IOException e3) {
+                    throw e3;
+                } catch (Throwable unused2) {
+                    c.a();
+                    throw new IOException();
+                }
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    try {
+                        bufferedOutputStream.close();
+                    } catch (Throwable unused3) {
+                    }
+                }
+                throw th;
+            }
+        } catch (NetworkErrorException e4) {
+            throw e4;
+        } catch (IOException e5) {
+            throw e5;
+        } catch (Throwable unused4) {
+        }
+    }
+
+    private InputStream a(HttpURLConnection httpURLConnection) {
+        if (c.f(this.f10427b) && httpURLConnection != null && httpURLConnection != null) {
+            try {
+                if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
+                    this.f10432g = true;
+                } else {
+                    this.f10432g = false;
+                }
+                return httpURLConnection.getInputStream();
+            } catch (IOException unused) {
+                c.a();
+            }
+        }
+        return null;
+    }
+
+    private String a(InputStream inputStream) throws IOException, InterruptedException {
+        if (inputStream != null) {
+            byte[] b2 = b(inputStream);
+            if (b2 != null) {
+                if (this.f10432g) {
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b2);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    i.a(byteArrayInputStream, byteArrayOutputStream);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    byteArrayOutputStream.flush();
+                    byteArrayOutputStream.close();
+                    byteArrayInputStream.close();
+                    b2 = byteArray;
+                }
+                if (b2 != null) {
+                    return new String(b2);
+                }
+                throw new IOException();
+            }
+            throw new IOException("responseBytes");
+        }
+        throw new IOException("InputStream");
+    }
+
+    public final String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
+        HttpURLConnection httpURLConnection;
+        y.a();
+        try {
+            if (s.m(this.f10427b)) {
+                a("POST", str);
+                InputStream inputStream = null;
+                try {
+                    httpURLConnection = a();
+                    try {
+                        inputStream = a(bArr, httpURLConnection);
+                        String a2 = a(inputStream);
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        return a2;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    httpURLConnection = null;
+                }
+            } else {
+                throw new NetworkErrorException("Not allow background connect.");
+            }
+        } finally {
+            y.b();
+        }
+    }
+
+    public final boolean a(String str, File file) {
+        HttpURLConnection httpURLConnection;
+        y.a();
+        try {
+            if (c.f(this.f10427b)) {
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (s.m(this.f10427b)) {
+                    InputStream inputStream = null;
+                    try {
+                        a("GET", str);
+                        httpURLConnection = a();
+                    } catch (Throwable unused) {
+                        httpURLConnection = null;
+                    }
+                    try {
+                        inputStream = a(httpURLConnection);
+                        boolean a2 = a(inputStream, file);
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        return a2;
+                    } catch (Throwable unused2) {
+                        c.a();
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+            return false;
+        } finally {
+            y.b();
+        }
+    }
+
+    private boolean a(InputStream inputStream, File file) {
+        BufferedOutputStream bufferedOutputStream;
+        if (this.f10432g) {
+            try {
+                inputStream = new GZIPInputStream(inputStream);
+            } catch (IOException unused) {
+                c.a();
+            }
+        }
+        if (inputStream == null) {
+            return false;
+        }
+        try {
+            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+        } catch (Throwable unused2) {
+            bufferedOutputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read != -1) {
+                    bufferedOutputStream.write(bArr, 0, read);
+                    bufferedOutputStream.flush();
+                } else {
+                    try {
+                        bufferedOutputStream.close();
+                        return true;
+                    } catch (IOException unused3) {
+                        c.a();
+                        return true;
+                    }
+                }
+            }
+        } catch (Throwable unused4) {
+            try {
+                c.a();
+                return false;
+            } finally {
+                if (bufferedOutputStream != null) {
+                    try {
+                        bufferedOutputStream.close();
+                    } catch (IOException unused5) {
+                        c.a();
+                    }
+                }
+            }
+        }
+    }
+}

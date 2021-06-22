@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.ImageHeaderParser;
@@ -112,7 +113,7 @@ public final class Downsampler {
         int i7;
         if (i3 <= 0 || i4 <= 0) {
             if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + "]");
+                Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT);
                 return;
             }
             return;
@@ -199,7 +200,7 @@ public final class Downsampler {
             }
             throw new IllegalArgumentException("Cannot round with null rounding");
         }
-        throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + "]");
+        throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT);
     }
 
     private Bitmap decodeFromWrappedStreams(InputStream inputStream, BitmapFactory.Options options, DownsampleStrategy downsampleStrategy, DecodeFormat decodeFormat, boolean z, int i2, int i3, boolean z2, DecodeCallbacks decodeCallbacks) throws IOException {
@@ -319,7 +320,7 @@ public final class Downsampler {
         } else {
             str = "";
         }
-        return "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig() + str;
+        return PreferencesUtil.LEFT_MOUNT + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig() + str;
     }
 
     public static synchronized BitmapFactory.Options getDefaultOptions() {

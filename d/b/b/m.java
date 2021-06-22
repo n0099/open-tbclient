@@ -11,16 +11,16 @@ import org.json.JSONObject;
 public class m extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68796e;
+    public final Context f68900e;
 
     public m(Context context) {
         super(true, true);
-        this.f68796e = context;
+        this.f68900e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        j.f(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f68796e.getResources().getConfiguration().locale.getLanguage());
+        j.f(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f68900e.getResources().getConfiguration().locale.getLanguage());
         int rawOffset = TimeZone.getDefault().getRawOffset() / 3600000;
         if (rawOffset < -12) {
             rawOffset = -12;

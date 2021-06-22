@@ -33,17 +33,17 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31303a;
+        public static final /* synthetic */ int[] f31401a;
 
         static {
             int[] iArr = new int[BoundType.values().length];
-            f31303a = iArr;
+            f31401a = iArr;
             try {
                 iArr[BoundType.OPEN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31303a[BoundType.CLOSED.ordinal()] = 2;
+                f31401a[BoundType.CLOSED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -53,7 +53,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static class b implements g<Range, Cut> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f31304e = new b();
+        public static final b f31402e = new b();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.a.g
@@ -67,7 +67,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static class c implements g<Range, Cut> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f31305e = new c();
+        public static final c f31403e = new c();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.a.g
@@ -120,7 +120,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> downTo(C c2, BoundType boundType) {
-        int i2 = a.f31303a[boundType.ordinal()];
+        int i2 = a.f31401a[boundType.ordinal()];
         if (i2 != 1) {
             if (i2 == 2) {
                 return atLeast(c2);
@@ -163,7 +163,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> lowerBoundFn() {
-        return b.f31304e;
+        return b.f31402e;
     }
 
     public static <C extends Comparable<?>> Range<C> open(C c2, C c3) {
@@ -189,7 +189,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> upTo(C c2, BoundType boundType) {
-        int i2 = a.f31303a[boundType.ordinal()];
+        int i2 = a.f31401a[boundType.ordinal()];
         if (i2 != 1) {
             if (i2 == 2) {
                 return atMost(c2);
@@ -200,7 +200,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> upperBoundFn() {
-        return c.f31305e;
+        return c.f31403e;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.Range<C extends java.lang.Comparable> */

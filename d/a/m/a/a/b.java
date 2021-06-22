@@ -6,23 +6,23 @@ import java.io.IOException;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Process f52275e;
+    public final /* synthetic */ Process f44350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f52276f;
+    public final /* synthetic */ String f44351f;
 
     public b(Process process, String str) {
-        this.f52275e = process;
-        this.f52276f = str;
+        this.f44350e = process;
+        this.f44351f = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
             do {
-            } while (this.f52275e.getErrorStream().read(new byte[8192]) >= 0);
+            } while (this.f44350e.getErrorStream().read(new byte[8192]) >= 0);
         } catch (IOException e2) {
-            com.baidu.crabsdk.lite.b.a.e(this.f52276f, BitmapPoolType.DUMMY, e2);
+            com.baidu.crabsdk.lite.b.a.e(this.f44351f, BitmapPoolType.DUMMY, e2);
         }
     }
 }

@@ -5,15 +5,15 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
-import d.a.l0.a.e;
-import d.a.l0.a.z1.b.d.b;
+import d.a.m0.a.e;
+import d.a.m0.a.z1.b.d.b;
 /* loaded from: classes3.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
     public ImageView w;
     public int x;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.l0.a.g2.a {
+    public class a implements d.a.m0.a.g2.a {
         public a() {
         }
     }
@@ -23,7 +23,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.l0.a.z1.b.d.b
+    @Override // d.a.m0.a.z1.b.d.b
     public BdShimmerView getLoadingView() {
         return this;
     }
@@ -31,13 +31,13 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d.a.l0.a.c1.a.H().f(this, new a());
+        d.a.m0.a.c1.a.H().f(this, new a());
     }
 
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d.a.l0.a.c1.a.H().g(this);
+        d.a.m0.a.c1.a.H().g(this);
     }
 
     public void setPageResources() {
@@ -71,7 +71,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         }
         this.w.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
         ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-        if (d.a.l0.a.c1.a.H().a()) {
+        if (d.a.m0.a.c1.a.H().a()) {
             maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
         }
         setMaskShape(maskShape);

@@ -31,19 +31,19 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         @Override // com.sina.weibo.sdk.auth.WbAuthListener
         public void cancel() {
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9789f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9810f) {
                 sinaSSOLoginActivity.b(3001);
                 SinaSSOLoginActivity.this.finish();
                 return;
             }
-            sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f9790g);
+            sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f9811g);
         }
 
         @Override // com.sina.weibo.sdk.auth.WbAuthListener
         public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
             Toast.makeText(SinaSSOLoginActivity.this, wbConnectErrorMessage.getErrorMessage(), 0).show();
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9789f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9810f) {
                 sinaSSOLoginActivity.b(3001);
                 SinaSSOLoginActivity.this.finish();
             }
@@ -55,7 +55,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             String uid = oauth2AccessToken.getUid();
             String urlBind = ParamsUtil.getUrlBind(SinaSSOLoginActivity.this.configuration, SocialType.SINA_WEIBO_SSO, token, uid, SinaSSOLoginActivity.this.configuration.sinaAppId);
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9789f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9810f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                 intent.putExtra("userId", uid);

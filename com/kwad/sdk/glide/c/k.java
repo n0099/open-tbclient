@@ -23,7 +23,7 @@ import java.util.Map;
 public class k implements Handler.Callback {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f35783i = new a() { // from class: com.kwad.sdk.glide.c.k.1
+    public static final a f35881i = new a() { // from class: com.kwad.sdk.glide.c.k.1
         @Override // com.kwad.sdk.glide.c.k.a
         @NonNull
         public com.kwad.sdk.glide.g a(@NonNull com.kwad.sdk.glide.c cVar, @NonNull h hVar, @NonNull l lVar, @NonNull Context context) {
@@ -32,30 +32,30 @@ public class k implements Handler.Callback {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile com.kwad.sdk.glide.g f35786c;
+    public volatile com.kwad.sdk.glide.g f35884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35787d;
+    public final Handler f35885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f35788e;
+    public final a f35886e;
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<FragmentManager, Object> f35784a = new HashMap();
+    public final Map<FragmentManager, Object> f35882a = new HashMap();
     @VisibleForTesting
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<KsFragmentManager, n> f35785b = new HashMap();
+    public final Map<KsFragmentManager, n> f35883b = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayMap<View, KsFragment> f35789f = new ArrayMap<>();
+    public final ArrayMap<View, KsFragment> f35887f = new ArrayMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayMap<View, Fragment> f35790g = new ArrayMap<>();
+    public final ArrayMap<View, Fragment> f35888g = new ArrayMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public final Bundle f35791h = new Bundle();
+    public final Bundle f35889h = new Bundle();
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -64,22 +64,22 @@ public class k implements Handler.Callback {
     }
 
     public k(@Nullable a aVar) {
-        this.f35788e = aVar == null ? f35783i : aVar;
-        this.f35787d = new Handler(Looper.getMainLooper(), this);
+        this.f35886e = aVar == null ? f35881i : aVar;
+        this.f35885d = new Handler(Looper.getMainLooper(), this);
     }
 
     @NonNull
     private n a(@NonNull KsFragmentManager ksFragmentManager, @Nullable KsFragment ksFragment, boolean z) {
         n nVar = (n) ksFragmentManager.findFragmentByTag("com.kwad.sdk.glide.manager");
-        if (nVar == null && (nVar = this.f35785b.get(ksFragmentManager)) == null) {
+        if (nVar == null && (nVar = this.f35883b.get(ksFragmentManager)) == null) {
             nVar = new n();
             nVar.a(ksFragment);
             if (z) {
                 nVar.a().a();
             }
-            this.f35785b.put(ksFragmentManager, nVar);
+            this.f35883b.put(ksFragmentManager, nVar);
             ksFragmentManager.beginTransaction().add(nVar, "com.kwad.sdk.glide.manager").commitAllowingStateLoss();
-            this.f35787d.obtainMessage(2, ksFragmentManager).sendToTarget();
+            this.f35885d.obtainMessage(2, ksFragmentManager).sendToTarget();
         }
         return nVar;
     }
@@ -89,7 +89,7 @@ public class k implements Handler.Callback {
         n a2 = a(ksFragmentManager, ksFragment, z);
         com.kwad.sdk.glide.g b2 = a2.b();
         if (b2 == null) {
-            com.kwad.sdk.glide.g a3 = this.f35788e.a(com.kwad.sdk.glide.c.a(context), a2.a(), a2.c(), context);
+            com.kwad.sdk.glide.g a3 = this.f35886e.a(com.kwad.sdk.glide.c.a(context), a2.a(), a2.c(), context);
             a2.a(a3);
             return a3;
         }
@@ -102,14 +102,14 @@ public class k implements Handler.Callback {
 
     @NonNull
     private com.kwad.sdk.glide.g b(@NonNull Context context) {
-        if (this.f35786c == null) {
+        if (this.f35884c == null) {
             synchronized (this) {
-                if (this.f35786c == null) {
-                    this.f35786c = this.f35788e.a(com.kwad.sdk.glide.c.a(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
+                if (this.f35884c == null) {
+                    this.f35884c = this.f35886e.a(com.kwad.sdk.glide.c.a(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
                 }
             }
         }
-        return this.f35786c;
+        return this.f35884c;
     }
 
     @NonNull
@@ -144,7 +144,7 @@ public class k implements Handler.Callback {
         boolean z = true;
         if (i2 == 1) {
             obj = (FragmentManager) message.obj;
-            map = this.f35784a;
+            map = this.f35882a;
         } else if (i2 != 2) {
             z = false;
             obj2 = null;
@@ -154,7 +154,7 @@ public class k implements Handler.Callback {
             return z;
         } else {
             obj = (KsFragmentManager) message.obj;
-            map = this.f35785b;
+            map = this.f35883b;
         }
         Object obj4 = obj;
         obj3 = map.remove(obj);

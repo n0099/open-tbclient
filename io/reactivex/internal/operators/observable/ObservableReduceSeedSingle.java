@@ -21,7 +21,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public final SingleObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72319d;
+        public Disposable f72423d;
         public final BiFunction<R, ? super T, R> reducer;
         public R value;
 
@@ -33,12 +33,12 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72319d.dispose();
+            this.f72423d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72319d.isDisposed();
+            return this.f72423d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -68,7 +68,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
                     this.value = (R) ObjectHelper.requireNonNull(this.reducer.apply(r, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f72319d.dispose();
+                    this.f72423d.dispose();
                     onError(th);
                 }
             }
@@ -76,8 +76,8 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72319d, disposable)) {
-                this.f72319d = disposable;
+            if (DisposableHelper.validate(this.f72423d, disposable)) {
+                this.f72423d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

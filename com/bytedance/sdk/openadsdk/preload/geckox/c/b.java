@@ -6,13 +6,13 @@ import com.bytedance.sdk.openadsdk.preload.a.g;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f30132a = new b();
+    public static b f30214a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public f f30133b = c();
+    public f f30215b = c();
 
     public static b a() {
-        return f30132a;
+        return f30214a;
     }
 
     public static f c() {
@@ -23,6 +23,6 @@ public class b {
     }
 
     public f b() {
-        return this.f30133b;
+        return this.f30215b;
     }
 }

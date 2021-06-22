@@ -1,6 +1,7 @@
 package com.baidu.lbsapi.auth;
 
 import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes2.dex */
 public class a {
 
@@ -12,7 +13,7 @@ public class a {
 
     public static String a() {
         StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
-        return stackTraceElement.getFileName() + "[" + stackTraceElement.getLineNumber() + "]";
+        return stackTraceElement.getFileName() + PreferencesUtil.LEFT_MOUNT + stackTraceElement.getLineNumber() + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public static void a(String str) {

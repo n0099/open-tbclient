@@ -39,17 +39,17 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
         com.kwad.sdk.core.network.c cVar = null;
         try {
             cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(b2.a(), (Map<String, String>) null, b2.d());
-            if (cVar == null || cVar.f34494a != 200) {
+            if (cVar == null || cVar.f34592a != 200) {
                 str = "report fail result is null";
             } else {
-                str = "report success actionType:" + b2.f34688b;
+                str = "report success actionType:" + b2.f34786b;
             }
             com.kwad.sdk.core.d.a.a("ReportNetwork", str);
             a(b2);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        if (com.kwad.sdk.a.f32184b.booleanValue()) {
+        if (com.kwad.sdk.a.f32282b.booleanValue()) {
             BaseResultData baseResultData = new BaseResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
                 @Override // com.kwad.sdk.core.network.BaseResultData
                 public void parseJson(@Nullable JSONObject jSONObject) {
@@ -58,7 +58,7 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
             };
             if (cVar != null) {
                 try {
-                    baseResultData.parseJson(new JSONObject(cVar.f34495b));
+                    baseResultData.parseJson(new JSONObject(cVar.f34593b));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }

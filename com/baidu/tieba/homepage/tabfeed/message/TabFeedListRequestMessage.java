@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.c.e.p.l;
-import d.a.m0.r.k;
-import d.a.m0.z0.w;
+import d.a.n0.r.k;
+import d.a.n0.z0.w;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
 /* loaded from: classes4.dex */

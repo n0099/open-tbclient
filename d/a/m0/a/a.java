@@ -1,179 +1,71 @@
 package d.a.m0.a;
-
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class a {
-
-    /* renamed from: d.a.m0.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1151a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f52280a = new a();
-    }
-
-    public static final a g() {
-        return C1151a.f52280a;
-    }
-
-    public synchronized long a(c cVar) {
-        long h2;
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        h2 = h(f2, cVar);
-        f2.setTransactionSuccessful();
-        f2.endTransaction();
-        return h2;
-    }
-
-    public synchronized void b(List<c> list) {
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        for (c cVar : list) {
-            h(f2, cVar);
-        }
-        f2.setTransactionSuccessful();
-        f2.endTransaction();
-    }
-
-    public final ContentValues c(c cVar) {
-        if (cVar == null) {
-            return null;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("activityid", Integer.valueOf(cVar.d()));
-        contentValues.put("missionid", Integer.valueOf(cVar.q()));
-        contentValues.put("activitysource", cVar.e());
-        contentValues.put("calltype", Integer.valueOf(cVar.i()));
-        contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(cVar.x()));
-        contentValues.put("browsetimepage", cVar.g());
-        contentValues.put("browsetime", Long.valueOf(cVar.f()));
-        contentValues.put("threadnum", Integer.valueOf(cVar.A()));
-        contentValues.put("forumnum", Integer.valueOf(cVar.p()));
-        contentValues.put("cleartype", Integer.valueOf(cVar.k()));
-        contentValues.put("cleartime", Long.valueOf(cVar.j()));
-        contentValues.put("specificcleartime", Long.valueOf(cVar.t()));
-        contentValues.put("tid", Long.valueOf(cVar.C()));
-        contentValues.put("fid", Long.valueOf(cVar.o()));
-        contentValues.put("threadtext", cVar.B());
-        contentValues.put("threadimg", cVar.z());
-        contentValues.put("threadforum", Long.valueOf(cVar.y()));
-        contentValues.put("totalLimit", Integer.valueOf(cVar.F()));
-        contentValues.put("completedLimitCount", Integer.valueOf(cVar.w()));
-        contentValues.put("token", cVar.E());
-        contentValues.put("executingMissionList", cVar.b());
-        return contentValues;
-    }
-
-    public final c d(Cursor cursor) {
-        if (cursor == null || cursor.isClosed()) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.S(cursor.getInt(cursor.getColumnIndex("activityid")));
-        cVar.b0(cursor.getInt(cursor.getColumnIndex("missionid")));
-        cVar.T(cursor.getString(cursor.getColumnIndex("activitysource")));
-        cVar.W(cursor.getInt(cursor.getColumnIndex("calltype")));
-        cVar.f0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-        cVar.V(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-        cVar.U(cursor.getLong(cursor.getColumnIndex("browsetime")));
-        cVar.i0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-        cVar.a0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-        cVar.Y(cursor.getInt(cursor.getColumnIndex("cleartype")));
-        cVar.X(cursor.getLong(cursor.getColumnIndex("cleartime")));
-        cVar.d0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-        cVar.k0(cursor.getLong(cursor.getColumnIndex("tid")));
-        cVar.Z(cursor.getLong(cursor.getColumnIndex("fid")));
-        cVar.j0(cursor.getString(cursor.getColumnIndex("threadtext")));
-        cVar.h0(cursor.getString(cursor.getColumnIndex("threadimg")));
-        cVar.g0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-        cVar.m0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-        cVar.e0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-        cVar.P(cVar.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-        cVar.l0(cursor.getString(cursor.getColumnIndex("token")));
-        return cVar;
-    }
-
-    public synchronized boolean e(c cVar) {
-        if (cVar == null) {
-            return false;
-        }
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        int delete = f2.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
-        f2.setTransactionSuccessful();
-        f2.endTransaction();
-        return delete >= 0;
-    }
-
-    public synchronized List<c> f() {
-        LinkedList linkedList;
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        linkedList = new LinkedList();
-        Cursor rawQuery = f2.rawQuery("SELECT * FROM activity_mission_info", null);
-        while (rawQuery.moveToNext()) {
-            c d2 = d(rawQuery);
-            if (d2 != null) {
-                linkedList.add(d2);
-            }
-        }
-        f2.setTransactionSuccessful();
-        d.a.c.e.p.m.a(rawQuery);
-        f2.endTransaction();
-        return linkedList;
-    }
-
-    public final long h(SQLiteDatabase sQLiteDatabase, c cVar) {
-        try {
-            return sQLiteDatabase.insert("activity_mission_info", null, c(cVar));
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return -1L;
-        }
-    }
-
-    public synchronized long i(c cVar) {
-        if (cVar == null) {
-            return -1L;
-        }
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        long j = j(f2, cVar);
-        f2.setTransactionSuccessful();
-        f2.endTransaction();
-        return j;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, c cVar) {
-        try {
-            return sQLiteDatabase.update("activity_mission_info", c(cVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return -1L;
-        }
-    }
-
-    public synchronized void k(List<c> list) {
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-        f2.beginTransaction();
-        for (c cVar : list) {
-            j(f2, cVar);
-        }
-        f2.setTransactionSuccessful();
-        f2.endTransaction();
-    }
+/* loaded from: classes2.dex */
+public final class a {
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771986;
+    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771987;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771988;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771989;
+    public static final int aiapps_accelerate_quad = 2130771990;
+    public static final int aiapps_action_sheet_enter = 2130771991;
+    public static final int aiapps_action_sheet_exit = 2130771992;
+    public static final int aiapps_big_pic_toast_enter = 2130771993;
+    public static final int aiapps_big_pic_toast_exit = 2130771994;
+    public static final int aiapps_brower_menu_close = 2130771995;
+    public static final int aiapps_brower_menu_open = 2130771996;
+    public static final int aiapps_highlight_toast_show = 2130771997;
+    public static final int aiapps_highlight_toast_show_d20 = 2130771998;
+    public static final int aiapps_hold = 2130771999;
+    public static final int aiapps_loading_progress = 2130772000;
+    public static final int aiapps_pop_window_dismiss_anim = 2130772001;
+    public static final int aiapps_pop_window_show_anim = 2130772002;
+    public static final int aiapps_slide_in_from_right = 2130772005;
+    public static final int aiapps_slide_out_to_bottom = 2130772006;
+    public static final int aiapps_slide_out_to_right = 2130772008;
+    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772009;
+    public static final int aiapps_toast_enter = 2130772010;
+    public static final int aiapps_toast_exit = 2130772011;
+    public static final int aiapps_update_loading_progressbar_anim = 2130772012;
+    public static final int aiapps_wx_pay_loading_anim = 2130772019;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772038;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772039;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772041;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772042;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772043;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772044;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772045;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772046;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772047;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772048;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772049;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772050;
+    public static final int loading_rotate = 2130772119;
+    public static final int ng_game_ad_close = 2130772129;
+    public static final int ng_game_ad_open = 2130772130;
+    public static final int popupwindow_grow_fade_in = 2130772154;
+    public static final int popupwindow_grow_fade_in_from_bottom = 2130772155;
+    public static final int popupwindow_shrink_fade_out = 2130772156;
+    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772157;
+    public static final int slide_in_bottom = 2130772246;
+    public static final int slide_out_bottom = 2130772247;
+    public static final int swanapp_album_checkshake = 2130772261;
+    public static final int swanapp_album_floating_layer_in_animation = 2130772262;
+    public static final int swanapp_album_floating_layer_out_animation = 2130772263;
+    public static final int swanapp_album_preview_enter = 2130772264;
+    public static final int swanapp_album_preview_img_enter = 2130772265;
+    public static final int swanapp_album_preview_img_exit = 2130772266;
+    public static final int swanapp_album_rotate_loading = 2130772267;
+    public static final int swanapp_album_slide_bottom_in = 2130772268;
+    public static final int swanapp_album_slide_bottom_out = 2130772269;
 }

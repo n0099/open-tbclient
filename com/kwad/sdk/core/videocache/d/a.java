@@ -13,7 +13,7 @@ import com.kwai.video.player.misc.IMediaFormat;
 public class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f34814a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, IMediaFormat.KEY_MIME};
+    public static final String[] f34912a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, IMediaFormat.KEY_MIME};
 
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
@@ -22,9 +22,9 @@ public class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f34860a);
-        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f34861b));
-        contentValues.put(IMediaFormat.KEY_MIME, nVar.f34862c);
+        contentValues.put("url", nVar.f34958a);
+        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f34959b));
+        contentValues.put(IMediaFormat.KEY_MIME, nVar.f34960c);
         return contentValues;
     }
 
@@ -39,7 +39,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f34814a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f34912a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

@@ -1,8 +1,9 @@
 package com.baidubce.auth;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Date;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SignOptions {
     public static final SignOptions DEFAULT = new SignOptions();
     public static final int DEFAULT_EXPIRATION_IN_SECONDS = 1800;
@@ -35,6 +36,6 @@ public class SignOptions {
     }
 
     public String toString() {
-        return "SignOptions [\n  headersToSign=" + this.headersToSign + ",\n  timestamp=" + this.timestamp + ",\n  expirationInSeconds=" + this.expirationInSeconds + "]";
+        return "SignOptions [\n  headersToSign=" + this.headersToSign + ",\n  timestamp=" + this.timestamp + ",\n  expirationInSeconds=" + this.expirationInSeconds + PreferencesUtil.RIGHT_MOUNT;
     }
 }

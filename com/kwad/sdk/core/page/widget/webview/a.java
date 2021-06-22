@@ -3,7 +3,7 @@ package com.kwad.sdk.core.page.widget.webview;
 import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {

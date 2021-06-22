@@ -1,7 +1,7 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
-import d.a.e0.b.a.e;
-import d.a.e0.b.a.i.a;
+import d.a.f0.b.a.e;
+import d.a.f0.b.a.i.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -17,11 +17,11 @@ public class ServerProvider extends DispatchableContentProvider {
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
     public List<a> getContentProviderDelegates() {
-        List<a> a2 = d.a.e0.b.a.k.a.a(getAuthority());
+        List<a> a2 = d.a.f0.b.a.k.a.a(getAuthority());
         if (a2 == null) {
             a2 = new ArrayList<>();
         }
-        a2.add(0, new d.a.e0.b.a.j.a());
+        a2.add(0, new d.a.f0.b.a.j.a());
         return a2;
     }
 }

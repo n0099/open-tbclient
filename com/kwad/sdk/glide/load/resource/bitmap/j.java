@@ -13,19 +13,19 @@ import java.nio.charset.Charset;
 public final class j implements ImageHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f36356a = DefaultImageHeaderParser.JPEG_EXIF_SEGMENT_PREAMBLE.getBytes(Charset.forName("UTF-8"));
+    public static final byte[] f36454a = DefaultImageHeaderParser.JPEG_EXIF_SEGMENT_PREAMBLE.getBytes(Charset.forName("UTF-8"));
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f36357b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
+    public static final int[] f36455b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
 
     /* loaded from: classes7.dex */
     public static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f36358a;
+        public final ByteBuffer f36456a;
 
         public a(ByteBuffer byteBuffer) {
-            this.f36358a = byteBuffer;
+            this.f36456a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
@@ -36,18 +36,18 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i2) {
-            int min = Math.min(i2, this.f36358a.remaining());
+            int min = Math.min(i2, this.f36456a.remaining());
             if (min == 0) {
                 return -1;
             }
-            this.f36358a.get(bArr, 0, min);
+            this.f36456a.get(bArr, 0, min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public long a(long j) {
-            int min = (int) Math.min(this.f36358a.remaining(), j);
-            ByteBuffer byteBuffer = this.f36358a;
+            int min = (int) Math.min(this.f36456a.remaining(), j);
+            ByteBuffer byteBuffer = this.f36456a;
             byteBuffer.position(byteBuffer.position() + min);
             return min;
         }
@@ -59,10 +59,10 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            if (this.f36358a.remaining() < 1) {
+            if (this.f36456a.remaining() < 1) {
                 return -1;
             }
-            return this.f36358a.get();
+            return this.f36456a.get();
         }
     }
 
@@ -70,34 +70,34 @@ public final class j implements ImageHeaderParser {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f36359a;
+        public final ByteBuffer f36457a;
 
         public b(byte[] bArr, int i2) {
-            this.f36359a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i2);
+            this.f36457a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i2);
         }
 
         private boolean a(int i2, int i3) {
-            return this.f36359a.remaining() - i2 >= i3;
+            return this.f36457a.remaining() - i2 >= i3;
         }
 
         public int a() {
-            return this.f36359a.remaining();
+            return this.f36457a.remaining();
         }
 
         public int a(int i2) {
             if (a(i2, 4)) {
-                return this.f36359a.getInt(i2);
+                return this.f36457a.getInt(i2);
             }
             return -1;
         }
 
         public void a(ByteOrder byteOrder) {
-            this.f36359a.order(byteOrder);
+            this.f36457a.order(byteOrder);
         }
 
         public short b(int i2) {
             if (a(i2, 2)) {
-                return this.f36359a.getShort(i2);
+                return this.f36457a.getShort(i2);
             }
             return (short) -1;
         }
@@ -120,22 +120,22 @@ public final class j implements ImageHeaderParser {
     public static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final InputStream f36360a;
+        public final InputStream f36458a;
 
         public d(InputStream inputStream) {
-            this.f36360a = inputStream;
+            this.f36458a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a() {
-            return ((this.f36360a.read() << 8) & 65280) | (this.f36360a.read() & 255);
+            return ((this.f36458a.read() << 8) & 65280) | (this.f36458a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i2) {
             int i3 = i2;
             while (i3 > 0) {
-                int read = this.f36360a.read(bArr, i2 - i3, i3);
+                int read = this.f36458a.read(bArr, i2 - i3, i3);
                 if (read == -1) {
                     break;
                 }
@@ -151,9 +151,9 @@ public final class j implements ImageHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f36360a.skip(j2);
+                long skip = this.f36458a.skip(j2);
                 if (skip <= 0) {
-                    if (this.f36360a.read() == -1) {
+                    if (this.f36458a.read() == -1) {
                         break;
                     }
                     skip = 1;
@@ -165,12 +165,12 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public short b() {
-            return (short) (this.f36360a.read() & 255);
+            return (short) (this.f36458a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            return this.f36360a.read();
+            return this.f36458a.read();
         }
     }
 
@@ -206,7 +206,7 @@ public final class j implements ImageHeaderParser {
                         if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
                             Log.d(DefaultImageHeaderParser.TAG, "Got tagIndex=" + i2 + " tagType=" + ((int) b4) + " formatCode=" + ((int) b5) + " componentCount=" + a4);
                         }
-                        int i3 = a4 + f36357b[b5];
+                        int i3 = a4 + f36455b[b5];
                         if (i3 <= 4) {
                             int i4 = a3 + 8;
                             if (i4 < 0 || i4 > bVar.a()) {
@@ -328,11 +328,11 @@ public final class j implements ImageHeaderParser {
     }
 
     private boolean a(byte[] bArr, int i2) {
-        boolean z = bArr != null && i2 > f36356a.length;
+        boolean z = bArr != null && i2 > f36454a.length;
         if (z) {
             int i3 = 0;
             while (true) {
-                byte[] bArr2 = f36356a;
+                byte[] bArr2 = f36454a;
                 if (i3 >= bArr2.length) {
                     break;
                 } else if (bArr[i3] != bArr2[i3]) {

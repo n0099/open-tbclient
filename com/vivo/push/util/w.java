@@ -5,22 +5,22 @@ import android.content.Context;
 public final class w extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f40414b;
+    public static w f40517b;
 
     public static synchronized w b() {
         w wVar;
         synchronized (w.class) {
-            if (f40414b == null) {
-                f40414b = new w();
+            if (f40517b == null) {
+                f40517b = new w();
             }
-            wVar = f40414b;
+            wVar = f40517b;
         }
         return wVar;
     }
 
     public final void a(Context context) {
-        if (this.f40371a == null) {
-            this.f40371a = context;
+        if (this.f40474a == null) {
+            this.f40474a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

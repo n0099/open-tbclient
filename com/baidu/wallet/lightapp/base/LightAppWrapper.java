@@ -20,24 +20,24 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public static final String LIGHT_APP_METHOD_IMPL_BY_APP = "method_implemented_by_app";
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightAppListener f24536a;
+    public ILightAppListener f24618a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LightAppWrapper f24537a = new LightAppWrapper();
+        public static LightAppWrapper f24619a = new LightAppWrapper();
     }
 
     public static LightAppWrapper getInstance() {
-        return a.f24537a;
+        return a.f24619a;
     }
 
     public boolean callShare(Activity activity, LightAppShareModel lightAppShareModel, ILightappInvokerCallback iLightappInvokerCallback) {
         if (activity == null) {
             return false;
         }
-        ILightAppListener iLightAppListener = this.f24536a;
+        ILightAppListener iLightAppListener = this.f24618a;
         if (iLightAppListener != null) {
             boolean callShare = iLightAppListener.callShare(activity, lightAppShareModel.toMap(), iLightappInvokerCallback);
             if (callShare) {
@@ -64,7 +64,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     }
 
     public boolean getCurrentLocation(ILocationCallback iLocationCallback) {
-        ILightAppListener iLightAppListener = this.f24536a;
+        ILightAppListener iLightAppListener = this.f24618a;
         if (iLightAppListener == null || !iLightAppListener.getCurrentLocation(iLocationCallback)) {
             return false;
         }
@@ -75,7 +75,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
 
     @Override // com.baidu.wallet.api.ILightappInvoker
     public Set<String> getMethodList() {
-        ILightAppListener iLightAppListener = this.f24536a;
+        ILightAppListener iLightAppListener = this.f24618a;
         if (iLightAppListener != null) {
             return iLightAppListener.getMethodList();
         }
@@ -83,12 +83,12 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     }
 
     public void initLightApp(ILightAppListener iLightAppListener) {
-        this.f24536a = iLightAppListener;
+        this.f24618a = iLightAppListener;
     }
 
     @Override // com.baidu.wallet.api.ILightappInvoker
     public void lightappInvoke(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback) {
-        ILightAppListener iLightAppListener = this.f24536a;
+        ILightAppListener iLightAppListener = this.f24618a;
         if (iLightAppListener != null) {
             iLightAppListener.lightappInvoke(context, str, iLightappInvokerCallback);
         }

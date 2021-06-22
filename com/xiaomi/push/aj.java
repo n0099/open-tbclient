@@ -6,7 +6,7 @@ import com.xiaomi.push.ai;
 public class aj extends ai.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f40978a;
+    public final /* synthetic */ ai f41081a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f107a;
@@ -17,7 +17,7 @@ public class aj extends ai.b {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(ai aiVar, ai.a aVar, boolean z, String str) {
         super(aVar);
-        this.f40978a = aiVar;
+        this.f41081a = aiVar;
         this.f108a = z;
         this.f107a = str;
     }
@@ -33,7 +33,7 @@ public class aj extends ai.b {
         if (this.f108a) {
             return;
         }
-        sharedPreferences = this.f40978a.f103a;
+        sharedPreferences = this.f41081a.f103a;
         sharedPreferences.edit().putLong(this.f107a, System.currentTimeMillis()).commit();
     }
 }

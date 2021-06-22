@@ -2,6 +2,7 @@ package com.baidu.wallet.fastpay.datamodel;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
@@ -38,6 +39,6 @@ public class SimpleOrderInfo implements NoProguard, Serializable {
     }
 
     public String toString() {
-        return "SimpleOrderInfo [mMobile=" + this.mMobile + ", mFaceValue=" + this.mFaceValue + ", mOrderNo=" + this.mOrderNo + ", mPrice=" + this.mPrice + ", mOrderInfo=" + this.mOrderInfo + "]";
+        return "SimpleOrderInfo [mMobile=" + this.mMobile + ", mFaceValue=" + this.mFaceValue + ", mOrderNo=" + this.mOrderNo + ", mPrice=" + this.mPrice + ", mOrderInfo=" + this.mOrderInfo + PreferencesUtil.RIGHT_MOUNT;
     }
 }

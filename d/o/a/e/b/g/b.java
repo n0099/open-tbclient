@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f70975a;
+    public final Context f71079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f70976b;
+    public j f71080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f70977c;
+    public k f71081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f70978d;
+    public i f71082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.o.a.e.b.f.i f70979e;
+    public d.o.a.e.b.f.i f71083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.e.b.o.a f70980f;
+    public d.o.a.e.b.o.a f71084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.e.b.o.j f70981g;
+    public d.o.a.e.b.o.j f71085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.o.h f70982h;
+    public d.o.a.e.b.o.h f71086h;
 
     /* renamed from: i  reason: collision with root package name */
-    public l f70983i;
+    public l f71087i;
     public h j;
     public p k;
     public d.o.a.e.b.e.b l;
@@ -53,7 +53,7 @@ public class b {
     public int A = 1056964607;
 
     public b(Context context) {
-        this.f70975a = context;
+        this.f71079a = context;
     }
 
     public p A() {
@@ -61,7 +61,7 @@ public class b {
     }
 
     public d.o.a.e.b.f.i B() {
-        return this.f70979e;
+        return this.f71083e;
     }
 
     public ExecutorService C() {
@@ -73,7 +73,7 @@ public class b {
     }
 
     public b E(d.o.a.e.b.o.a aVar) {
-        this.f70980f = aVar;
+        this.f71084f = aVar;
         return this;
     }
 
@@ -86,7 +86,7 @@ public class b {
     }
 
     public b H(d.o.a.e.b.f.i iVar) {
-        this.f70979e = iVar;
+        this.f71083e = iVar;
         return this;
     }
 
@@ -130,7 +130,7 @@ public class b {
     }
 
     public i h() {
-        return this.f70978d;
+        return this.f71082d;
     }
 
     public ExecutorService i() {
@@ -138,7 +138,7 @@ public class b {
     }
 
     public Context j() {
-        return this.f70975a;
+        return this.f71079a;
     }
 
     public ExecutorService k() {
@@ -146,7 +146,7 @@ public class b {
     }
 
     public j l() {
-        return this.f70976b;
+        return this.f71080b;
     }
 
     public List<d.o.a.e.b.f.p> m() {
@@ -154,7 +154,7 @@ public class b {
     }
 
     public d.o.a.e.b.o.h n() {
-        return this.f70982h;
+        return this.f71086h;
     }
 
     public int o() {
@@ -162,7 +162,7 @@ public class b {
     }
 
     public l p() {
-        return this.f70983i;
+        return this.f71087i;
     }
 
     public d.o.a.e.b.e.b q() {
@@ -174,11 +174,11 @@ public class b {
     }
 
     public d.o.a.e.b.o.j s() {
-        return this.f70981g;
+        return this.f71085g;
     }
 
     public d.o.a.e.b.o.a t() {
-        return this.f70980f;
+        return this.f71084f;
     }
 
     public ExecutorService u() {
@@ -186,7 +186,7 @@ public class b {
     }
 
     public k v() {
-        return this.f70977c;
+        return this.f71081c;
     }
 
     public int w() {

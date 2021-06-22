@@ -14,14 +14,14 @@ import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
 import d.a.c.e.p.j;
-import d.a.m0.r.s.a;
+import d.a.n0.r.s.a;
 /* loaded from: classes4.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    public d.a.m0.r.s.a mDialog;
+    public d.a.n0.r.s.a mDialog;
     public d.a.c.c.g.c mListener = new a(0);
     public BlackListModel mModel;
     public BlackListItemData mNeedRemovedData;
-    public d.a.n0.g1.a.c.b mView;
+    public d.a.o0.g1.a.c.b mView;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.c {
@@ -90,8 +90,8 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public c() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.show();
             if (IMBlackListActivity.this.mNeedRemovedData != null) {
                 IMBlackListActivity.this.showLoadingDialog();
@@ -105,14 +105,14 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public d() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
     private void createDialog(String str) {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
+        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
         this.mDialog = aVar;
         aVar.setMessage(str);
         this.mDialog.setPositiveButton(R.string.confirm, new c());
@@ -127,7 +127,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void initView() {
-        this.mView = new d.a.n0.g1.a.c.b(this);
+        this.mView = new d.a.o0.g1.a.c.b(this);
     }
 
     private void loadData() {

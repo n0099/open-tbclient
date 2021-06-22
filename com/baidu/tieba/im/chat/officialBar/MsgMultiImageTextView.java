@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.n0.f1.f.e;
-import d.a.n0.f1.l.c.a;
+import d.a.o0.f1.f.e;
+import d.a.o0.f1.l.c.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MsgMultiImageTextView extends e {
@@ -19,7 +19,7 @@ public class MsgMultiImageTextView extends e {
     }
 
     public final void F() {
-        this.f58033h = (TextView) d(R.id.tex_msgitem_time);
+        this.f58158h = (TextView) d(R.id.tex_msgitem_time);
         this.t = (MultiContentView) d(R.id.msg_content);
     }
 
@@ -28,9 +28,9 @@ public class MsgMultiImageTextView extends e {
             return;
         }
         x(chatMessage);
-        List<a.C1374a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f58031f);
-        this.t.setOnItemViewLongClickListener(this.f58028c);
+        List<a.C1378a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.t.setPosition(this.f58156f);
+        this.t.setOnItemViewLongClickListener(this.f58153c);
         this.t.setNeedNightMode(true);
         this.t.setType(1);
         this.t.setData(tbPageContext, b2, view);

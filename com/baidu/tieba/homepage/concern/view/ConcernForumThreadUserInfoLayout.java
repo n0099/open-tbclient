@@ -15,25 +15,25 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
-import d.a.n0.z.m;
+import d.a.n0.r.q.a2;
+import d.a.o0.z.m;
 /* loaded from: classes4.dex */
 public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f16259e;
+    public ClickableHeaderImageView f16341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16260f;
+    public TextView f16342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16261g;
+    public TextView f16343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16262h;
+    public TextView f16344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f16263i;
+    public View f16345i;
     public a2 j;
     public View.OnClickListener k;
     public View.OnClickListener l;
@@ -62,29 +62,29 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     public final void c(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_forum_thread_user_info_layout, (ViewGroup) this, true);
-        this.f16259e = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
-        this.f16260f = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-        this.f16261g = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
-        this.f16262h = (TextView) inflate.findViewById(R.id.thread_info_address);
-        this.f16263i = inflate.findViewById(R.id.divider);
+        this.f16341e = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
+        this.f16342f = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
+        this.f16343g = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
+        this.f16344h = (TextView) inflate.findViewById(R.id.thread_info_address);
+        this.f16345i = inflate.findViewById(R.id.divider);
         setGravity(16);
         d();
-        this.f16260f.setOnClickListener(this.m);
+        this.f16342f.setOnClickListener(this.m);
     }
 
     public final void d() {
-        ClickableHeaderImageView clickableHeaderImageView = this.f16259e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f16341e;
         if (clickableHeaderImageView == null) {
             return;
         }
         clickableHeaderImageView.setDefaultResource(17170445);
-        this.f16259e.setDefaultBgResource(R.color.CAM_X0205);
-        this.f16259e.setIsRound(true);
-        this.f16259e.setOnClickListener(this.m);
+        this.f16341e.setDefaultBgResource(R.color.CAM_X0205);
+        this.f16341e.setIsRound(true);
+        this.f16341e.setOnClickListener(this.m);
     }
 
     public ClickableHeaderImageView getHeaderImg() {
-        return this.f16259e;
+        return this.f16341e;
     }
 
     public boolean getIsSimpleThread() {
@@ -92,7 +92,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     }
 
     public TextView getUserName() {
-        return this.f16261g;
+        return this.f16343g;
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
@@ -100,7 +100,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        ClickableHeaderImageView clickableHeaderImageView = this.f16259e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f16341e;
         if (clickableHeaderImageView != null) {
             clickableHeaderImageView.setPageId(bdUniqueId);
         }
@@ -108,7 +108,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         this.k = onClickListener;
-        ClickableHeaderImageView clickableHeaderImageView = this.f16259e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f16341e;
         if (clickableHeaderImageView != null) {
             clickableHeaderImageView.setAfterClickListener(onClickListener);
         }

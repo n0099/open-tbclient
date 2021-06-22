@@ -13,7 +13,7 @@ import com.baidu.tieba.im.chat.view.ChatClipImageItemView;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.a.c.e.p.l;
-import d.a.n0.f1.f.e;
+import d.a.o0.f1.f.e;
 /* loaded from: classes4.dex */
 public class MsgrightView extends e {
     public static final String z = "com.baidu.tieba.im.chat.MsgrightView";
@@ -32,7 +32,7 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f58027b.onItemViewClick(view, 6, msgrightView.f58031f, 0L);
+            msgrightView.f58152b.onItemViewClick(view, 6, msgrightView.f58156f, 0L);
         }
     }
 
@@ -44,7 +44,7 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f58027b.onItemViewClick(view, 1, msgrightView.f58031f, 0L);
+            msgrightView.f58152b.onItemViewClick(view, 1, msgrightView.f58156f, 0L);
         }
     }
 
@@ -71,17 +71,17 @@ public class MsgrightView extends e {
         this.n.setIsLeft(false);
     }
 
-    @Override // d.a.n0.f1.f.e
+    @Override // d.a.o0.f1.f.e
     public void l(View view, ChatMessage chatMessage) {
         super.l(view, chatMessage);
         if (chatMessage == null) {
-            this.f58033h.setVisibility(8);
+            this.f58158h.setVisibility(8);
             this.t.setVisibility(8);
             this.u.setVisibility(8);
             this.x.setVisibility(8);
             this.y.setVisibility(8);
-            this.f58034i.setVisibility(0);
-            this.f58034i.setText(null);
+            this.f58159i.setVisibility(0);
+            this.f58159i.setText(null);
             m(8);
             this.p.getImage().setTag(null);
             this.j.setVisibility(8);
@@ -128,7 +128,7 @@ public class MsgrightView extends e {
             if (this.u.getVisibility() == 0) {
                 this.u.setOnClickListener(new b());
             }
-            this.f58034i.setVisibility(8);
+            this.f58159i.setVisibility(8);
             m(8);
             this.j.setVisibility(8);
             this.k.setVisibility(8);
@@ -153,7 +153,7 @@ public class MsgrightView extends e {
         }
     }
 
-    @Override // d.a.n0.f1.f.e
+    @Override // d.a.o0.f1.f.e
     public void t(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
             if (this.v.getVisibility() != 8) {

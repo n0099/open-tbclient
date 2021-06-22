@@ -10,14 +10,14 @@ import java.lang.reflect.Method;
 public final class e<E extends g> extends ProtoAdapter<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<E> f70310a;
+    public final Class<E> f70414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f70311b;
+    public Method f70415b;
 
     public e(Class<E> cls) {
         super(FieldEncoding.VARINT, cls);
-        this.f70310a = cls;
+        this.f70414a = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
             if (e2 != null) {
                 return e2;
             }
-            throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f70310a);
+            throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f70414a);
         } catch (IllegalAccessException | InvocationTargetException e3) {
             throw new AssertionError(e3);
         }
@@ -51,13 +51,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     }
 
     public final Method d() {
-        Method method = this.f70311b;
+        Method method = this.f70415b;
         if (method != null) {
             return method;
         }
         try {
-            Method method2 = this.f70310a.getMethod("fromValue", Integer.TYPE);
-            this.f70311b = method2;
+            Method method2 = this.f70414a.getMethod("fromValue", Integer.TYPE);
+            this.f70415b = method2;
             return method2;
         } catch (NoSuchMethodException e2) {
             throw new AssertionError(e2);
@@ -65,10 +65,10 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof e) && ((e) obj).f70310a == this.f70310a;
+        return (obj instanceof e) && ((e) obj).f70414a == this.f70414a;
     }
 
     public int hashCode() {
-        return this.f70310a.hashCode();
+        return this.f70414a.hashCode();
     }
 }

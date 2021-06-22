@@ -21,13 +21,13 @@ import java.util.List;
 public class ScrollItemView extends ListView {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f21815e;
+    public c f21897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21816f;
+    public int f21898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f21817g;
+    public Runnable f21899g;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -36,12 +36,12 @@ public class ScrollItemView extends ListView {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.a().removeCallbacks(ScrollItemView.this.f21817g);
+            e.a().removeCallbacks(ScrollItemView.this.f21899g);
             if (ScrollItemView.this.getItemCount() > 0) {
                 ScrollItemView scrollItemView = ScrollItemView.this;
                 scrollItemView.smoothScrollToPositionFromTop(ScrollItemView.d(scrollItemView), 0, 300);
             }
-            e.a().postDelayed(ScrollItemView.this.f21817g, 3000L);
+            e.a().postDelayed(ScrollItemView.this.f21899g, 3000L);
         }
     }
 
@@ -58,7 +58,7 @@ public class ScrollItemView extends ListView {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             if (i2 == 0) {
                 ScrollItemView scrollItemView = ScrollItemView.this;
-                scrollItemView.setSelection(scrollItemView.f21816f);
+                scrollItemView.setSelection(scrollItemView.f21898f);
             }
         }
     }
@@ -67,17 +67,17 @@ public class ScrollItemView extends ListView {
     public class c extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<String> f21820e = new ArrayList();
+        public List<String> f21902e = new ArrayList();
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f21821f;
+        public Context f21903f;
 
         public c(Context context) {
-            this.f21821f = context;
+            this.f21903f = context;
         }
 
         public int a() {
-            List<String> list = this.f21820e;
+            List<String> list = this.f21902e;
             if (list == null) {
                 return 0;
             }
@@ -85,22 +85,22 @@ public class ScrollItemView extends ListView {
         }
 
         public final String b(int i2) {
-            List<String> list = this.f21820e;
+            List<String> list = this.f21902e;
             if (list == null || i2 < 0) {
                 return "";
             }
-            return this.f21820e.get(i2 % list.size());
+            return this.f21902e.get(i2 % list.size());
         }
 
         public void c(List<String> list) {
-            this.f21820e.clear();
-            this.f21820e.addAll(list);
+            this.f21902e.clear();
+            this.f21902e.addAll(list);
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return ListUtils.isEmpty(this.f21820e) ? 0 : Integer.MAX_VALUE;
+            return ListUtils.isEmpty(this.f21902e) ? 0 : Integer.MAX_VALUE;
         }
 
         @Override // android.widget.Adapter
@@ -117,14 +117,14 @@ public class ScrollItemView extends ListView {
         public View getView(int i2, View view, ViewGroup viewGroup) {
             d dVar;
             if (view == null) {
-                view = LayoutInflater.from(this.f21821f).inflate(R.layout.scroll_item_layout, viewGroup, false);
+                view = LayoutInflater.from(this.f21903f).inflate(R.layout.scroll_item_layout, viewGroup, false);
                 dVar = new d(view);
                 view.setTag(dVar);
             } else {
                 dVar = (d) view.getTag();
             }
-            dVar.f21823a.setText(b(ScrollItemView.this.f21816f));
-            SkinManager.setViewTextColor(dVar.f21823a, R.color.CAM_X0109);
+            dVar.f21905a.setText(b(ScrollItemView.this.f21898f));
+            SkinManager.setViewTextColor(dVar.f21905a, R.color.CAM_X0109);
             return view;
         }
     }
@@ -133,29 +133,29 @@ public class ScrollItemView extends ListView {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f21823a;
+        public TextView f21905a;
 
         public d(View view) {
-            this.f21823a = (TextView) view.findViewById(R.id.item_text);
+            this.f21905a = (TextView) view.findViewById(R.id.item_text);
         }
     }
 
     public ScrollItemView(Context context) {
         super(context);
-        this.f21816f = 0;
-        this.f21817g = new a();
+        this.f21898f = 0;
+        this.f21899g = new a();
         e(context);
     }
 
     public static /* synthetic */ int d(ScrollItemView scrollItemView) {
-        int i2 = scrollItemView.f21816f + 1;
-        scrollItemView.f21816f = i2;
+        int i2 = scrollItemView.f21898f + 1;
+        scrollItemView.f21898f = i2;
         return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getItemCount() {
-        c cVar = this.f21815e;
+        c cVar = this.f21897e;
         if (cVar == null) {
             return 0;
         }
@@ -164,7 +164,7 @@ public class ScrollItemView extends ListView {
 
     public final void e(Context context) {
         c cVar = new c(context);
-        this.f21815e = cVar;
+        this.f21897e = cVar;
         setAdapter((ListAdapter) cVar);
         setOnScrollListener(new b());
         setClickable(false);
@@ -173,17 +173,17 @@ public class ScrollItemView extends ListView {
 
     public final void f() {
         int floor = (int) Math.floor(getItemCount() * Math.random());
-        this.f21816f = floor;
+        this.f21898f = floor;
         smoothScrollToPosition(floor);
     }
 
     public void g() {
-        e.a().postDelayed(this.f21817g, 3000L);
+        e.a().postDelayed(this.f21899g, 3000L);
     }
 
     public void h() {
-        e.a().removeCallbacks(this.f21817g);
-        setSelection(this.f21816f);
+        e.a().removeCallbacks(this.f21899g);
+        setSelection(this.f21898f);
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -200,22 +200,22 @@ public class ScrollItemView extends ListView {
 
     public void setData(List<String> list) {
         h();
-        this.f21815e.c(list);
+        this.f21897e.c(list);
         f();
         g();
     }
 
     public ScrollItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21816f = 0;
-        this.f21817g = new a();
+        this.f21898f = 0;
+        this.f21899g = new a();
         e(context);
     }
 
     public ScrollItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21816f = 0;
-        this.f21817g = new a();
+        this.f21898f = 0;
+        this.f21899g = new a();
         e(context);
     }
 }

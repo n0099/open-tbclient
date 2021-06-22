@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-import d.a.n0.a;
-import d.a.n0.q.d.e;
+import d.a.o0.a;
+import d.a.o0.q.d.e;
 /* loaded from: classes4.dex */
 public class TBAdWebView extends BaseAdWebView {
     public TBAdWebView(Context context) {

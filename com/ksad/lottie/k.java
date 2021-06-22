@@ -18,27 +18,27 @@ import java.util.concurrent.FutureTask;
 public class k<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Executor f31964a = Executors.newCachedThreadPool();
+    public static Executor f32062a = Executors.newCachedThreadPool();
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f31965b;
+    public Thread f32063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<h<T>> f31966c;
+    public final Set<h<T>> f32064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<h<Throwable>> f31967d;
+    public final Set<h<Throwable>> f32065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f31968e;
+    public final Handler f32066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FutureTask<j<T>> f31969f;
+    public final FutureTask<j<T>> f32067f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile j<T> f31970g;
+    public volatile j<T> f32068g;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public k(Callable<j<T>> callable) {
@@ -47,14 +47,14 @@ public class k<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public k(Callable<j<T>> callable, boolean z) {
-        this.f31966c = new LinkedHashSet(1);
-        this.f31967d = new LinkedHashSet(1);
-        this.f31968e = new Handler(Looper.getMainLooper());
-        this.f31970g = null;
+        this.f32064c = new LinkedHashSet(1);
+        this.f32065d = new LinkedHashSet(1);
+        this.f32066e = new Handler(Looper.getMainLooper());
+        this.f32068g = null;
         FutureTask<j<T>> futureTask = new FutureTask<>(callable);
-        this.f31969f = futureTask;
+        this.f32067f = futureTask;
         if (!z) {
-            f31964a.execute(futureTask);
+            f32062a.execute(futureTask);
             b();
             return;
         }
@@ -66,13 +66,13 @@ public class k<T> {
     }
 
     private void a() {
-        this.f31968e.post(new Runnable() { // from class: com.ksad.lottie.k.1
+        this.f32066e.post(new Runnable() { // from class: com.ksad.lottie.k.1
             @Override // java.lang.Runnable
             public void run() {
-                if (k.this.f31970g == null || k.this.f31969f.isCancelled()) {
+                if (k.this.f32068g == null || k.this.f32067f.isCancelled()) {
                     return;
                 }
-                j jVar = k.this.f31970g;
+                j jVar = k.this.f32068g;
                 if (jVar.a() != null) {
                     k.this.a((k) jVar.a());
                 } else {
@@ -84,23 +84,23 @@ public class k<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable j<T> jVar) {
-        if (this.f31970g != null) {
+        if (this.f32068g != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.f31970g = jVar;
+        this.f32068g = jVar;
         a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(T t) {
-        for (h hVar : new ArrayList(this.f31966c)) {
+        for (h hVar : new ArrayList(this.f32064c)) {
             hVar.a(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Throwable th) {
-        ArrayList<h> arrayList = new ArrayList(this.f31967d);
+        ArrayList<h> arrayList = new ArrayList(this.f32065d);
         if (arrayList.isEmpty()) {
             Log.w(L.TAG, "Lottie encountered an error but no failure listener was added.", th);
             return;
@@ -111,28 +111,28 @@ public class k<T> {
     }
 
     private synchronized void b() {
-        if (!d() && this.f31970g == null) {
+        if (!d() && this.f32068g == null) {
             Thread thread = new Thread("LottieTaskObserver") { // from class: com.ksad.lottie.k.2
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f31973b = false;
+                public boolean f32071b = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.f31973b) {
-                        if (k.this.f31969f.isDone()) {
+                    while (!isInterrupted() && !this.f32071b) {
+                        if (k.this.f32067f.isDone()) {
                             try {
-                                k.this.a((j) k.this.f31969f.get());
+                                k.this.a((j) k.this.f32067f.get());
                             } catch (InterruptedException | ExecutionException e2) {
                                 k.this.a(new j(e2));
                             }
-                            this.f31973b = true;
+                            this.f32071b = true;
                             k.this.c();
                         }
                     }
                 }
             };
-            this.f31965b = thread;
+            this.f32063b = thread;
             thread.start();
             c.a("Starting TaskObserver thread");
         }
@@ -141,45 +141,45 @@ public class k<T> {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void c() {
         if (d()) {
-            if (this.f31966c.isEmpty() || this.f31970g != null) {
-                this.f31965b.interrupt();
-                this.f31965b = null;
+            if (this.f32064c.isEmpty() || this.f32068g != null) {
+                this.f32063b.interrupt();
+                this.f32063b = null;
                 c.a("Stopping TaskObserver thread");
             }
         }
     }
 
     private boolean d() {
-        Thread thread = this.f31965b;
+        Thread thread = this.f32063b;
         return thread != null && thread.isAlive();
     }
 
     public synchronized k<T> a(h<T> hVar) {
-        if (this.f31970g != null && this.f31970g.a() != null) {
-            hVar.a(this.f31970g.a());
+        if (this.f32068g != null && this.f32068g.a() != null) {
+            hVar.a(this.f32068g.a());
         }
-        this.f31966c.add(hVar);
+        this.f32064c.add(hVar);
         b();
         return this;
     }
 
     public synchronized k<T> b(h<T> hVar) {
-        this.f31966c.remove(hVar);
+        this.f32064c.remove(hVar);
         c();
         return this;
     }
 
     public synchronized k<T> c(h<Throwable> hVar) {
-        if (this.f31970g != null && this.f31970g.b() != null) {
-            hVar.a(this.f31970g.b());
+        if (this.f32068g != null && this.f32068g.b() != null) {
+            hVar.a(this.f32068g.b());
         }
-        this.f31967d.add(hVar);
+        this.f32065d.add(hVar);
         b();
         return this;
     }
 
     public synchronized k<T> d(h<Throwable> hVar) {
-        this.f31967d.remove(hVar);
+        this.f32065d.remove(hVar);
         c();
         return this;
     }

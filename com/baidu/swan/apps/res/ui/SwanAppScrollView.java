@@ -7,20 +7,20 @@ import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.a.l0.a.d;
-import d.a.l0.a.k;
+import d.a.m0.a.d;
+import d.a.m0.a.k;
 /* loaded from: classes3.dex */
 public class SwanAppScrollView extends ScrollView {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11198f = k.f46875a;
+    public static final boolean f11280f = k.f46983a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11199e;
+    public int f11281e;
 
     public SwanAppScrollView(Context context) {
         super(context);
-        this.f11199e = -1;
+        this.f11281e = -1;
     }
 
     private int getLimitHeight() {
@@ -35,7 +35,7 @@ public class SwanAppScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
-        if (f11198f) {
+        if (f11280f) {
             Log.d("BoxScrollView", "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
@@ -43,12 +43,12 @@ public class SwanAppScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        if (f11198f) {
+        if (f11280f) {
             Log.d("BoxScrollView", "onMeasure( " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX);
         }
         int size = View.MeasureSpec.getSize(i3);
         int size2 = View.MeasureSpec.getSize(i2);
-        int i4 = this.f11199e;
+        int i4 = this.f11281e;
         if (i4 > 0) {
             size = Math.min(size, i4);
         }
@@ -68,16 +68,16 @@ public class SwanAppScrollView extends ScrollView {
     }
 
     public void setMaxHeight(int i2) {
-        this.f11199e = i2;
+        this.f11281e = i2;
     }
 
     public SwanAppScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11199e = -1;
+        this.f11281e = -1;
     }
 
     public SwanAppScrollView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11199e = -1;
+        this.f11281e = -1;
     }
 }

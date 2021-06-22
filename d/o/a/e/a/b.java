@@ -6,19 +6,19 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70801a;
+    public String f70905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70802b = -1;
+    public int f70906b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70803c;
+    public String f70907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f70804d;
+    public String f70908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f70805e;
+    public String f70909e;
 
     public static b a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -27,15 +27,15 @@ public class b {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            bVar.f70805e = jSONObject.optString("device_plans", null);
-            bVar.f70804d = jSONObject.optString("real_device_plan", null);
-            bVar.f70803c = jSONObject.optString("error_msg", null);
-            bVar.f70801a = jSONObject.optString("ah_plan_type", null);
+            bVar.f70909e = jSONObject.optString("device_plans", null);
+            bVar.f70908d = jSONObject.optString("real_device_plan", null);
+            bVar.f70907c = jSONObject.optString("error_msg", null);
+            bVar.f70905a = jSONObject.optString("ah_plan_type", null);
             String optString = jSONObject.optString("error_code");
             if (TextUtils.isEmpty(optString)) {
-                bVar.f70802b = -1;
+                bVar.f70906b = -1;
             } else {
-                bVar.f70802b = Integer.parseInt(optString);
+                bVar.f70906b = Integer.parseInt(optString);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -52,11 +52,11 @@ public class b {
             return;
         }
         try {
-            jSONObject.put("ah_plan_type", this.f70801a);
-            jSONObject.put("error_code", String.valueOf(this.f70802b));
-            jSONObject.put("error_msg", this.f70803c);
-            jSONObject.put("real_device_plan", this.f70804d);
-            jSONObject.put("device_plans", this.f70805e);
+            jSONObject.put("ah_plan_type", this.f70905a);
+            jSONObject.put("error_code", String.valueOf(this.f70906b));
+            jSONObject.put("error_msg", this.f70907c);
+            jSONObject.put("real_device_plan", this.f70908d);
+            jSONObject.put("device_plans", this.f70909e);
         } catch (Throwable unused) {
         }
     }

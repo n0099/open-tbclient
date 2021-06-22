@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class SysUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f22318a;
+    public static Boolean f22400a;
 
     public static int a() {
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
@@ -62,9 +62,9 @@ public class SysUtils {
 
     @CalledByNative
     public static boolean isLowEndDevice() {
-        if (f22318a == null) {
-            f22318a = Boolean.valueOf(b());
+        if (f22400a == null) {
+            f22400a = Boolean.valueOf(b());
         }
-        return f22318a.booleanValue();
+        return f22400a.booleanValue();
     }
 }

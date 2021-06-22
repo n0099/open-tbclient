@@ -12,8 +12,8 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.n0.f1.s.a;
-import d.a.n0.f1.w.c;
+import d.a.o0.f1.s.a;
+import d.a.o0.f1.w.c;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
@@ -446,7 +446,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f58385i);
+                this.gid = String.valueOf(a.f58510i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

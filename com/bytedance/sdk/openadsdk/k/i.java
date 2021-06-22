@@ -13,60 +13,60 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f29579a;
+    public final c f29661a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f29580b;
+    public final List<b> f29662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f29581c;
+    public final a f29663c;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f29582a;
+        public final int f29664a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29583b;
+        public final String f29665b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f29584c;
+        public final String f29666c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29585d;
+        public final int f29667d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f29586e;
+        public final int f29668e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f29587f;
+        public final String f29669f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<String> f29588g;
+        public final List<String> f29670g;
 
         public a(int i2, String str, String str2, int i3, int i4, String str3, List<String> list) {
-            this.f29582a = i2;
-            this.f29583b = str;
-            this.f29584c = str2;
-            this.f29585d = i3;
-            this.f29586e = i4;
-            this.f29587f = str3;
-            this.f29588g = list;
+            this.f29664a = i2;
+            this.f29665b = str;
+            this.f29666c = str2;
+            this.f29667d = i3;
+            this.f29668e = i4;
+            this.f29669f = str3;
+            this.f29670g = list;
         }
 
         public static a a(c cVar, List<b> list) throws d {
             String str;
             int i2;
             int i3;
-            int indexOf = cVar.f29592b.indexOf("?");
+            int indexOf = cVar.f29674b.indexOf("?");
             if (indexOf != -1) {
                 ArrayList arrayList = new ArrayList();
                 String str2 = null;
                 String str3 = null;
                 String str4 = null;
                 int i4 = 0;
-                for (String str5 : cVar.f29592b.substring(indexOf + 1).split("&")) {
+                for (String str5 : cVar.f29674b.substring(indexOf + 1).split("&")) {
                     String[] split = str5.split("=");
                     if (split.length == 2) {
                         if ("rk".equals(split[0])) {
@@ -85,11 +85,11 @@ public class i {
                         i3 = 0;
                         int i5 = 0;
                         for (b bVar : list) {
-                            if (bVar != null && "Range".equalsIgnoreCase(bVar.f29589a)) {
-                                int indexOf2 = bVar.f29590b.indexOf("=");
+                            if (bVar != null && "Range".equalsIgnoreCase(bVar.f29671a)) {
+                                int indexOf2 = bVar.f29672b.indexOf("=");
                                 if (indexOf2 != -1) {
-                                    if ("bytes".equalsIgnoreCase(bVar.f29590b.substring(0, indexOf2).trim())) {
-                                        String substring = bVar.f29590b.substring(indexOf2 + 1);
+                                    if ("bytes".equalsIgnoreCase(bVar.f29672b.substring(0, indexOf2).trim())) {
+                                        String substring = bVar.f29672b.substring(indexOf2 + 1);
                                         if (!substring.contains(",")) {
                                             int indexOf3 = substring.indexOf("-");
                                             if (indexOf3 != -1) {
@@ -100,23 +100,23 @@ public class i {
                                                         i3 = Integer.parseInt(trim);
                                                     }
                                                     if (trim2.length() > 0 && i3 > (i5 = Integer.parseInt(trim2))) {
-                                                        throw new d("Range format error, Range: " + bVar.f29590b);
+                                                        throw new d("Range format error, Range: " + bVar.f29672b);
                                                     }
-                                                    str2 = bVar.f29590b;
+                                                    str2 = bVar.f29672b;
                                                 } catch (NumberFormatException unused) {
-                                                    throw new d("Range format error, Range: " + bVar.f29590b);
+                                                    throw new d("Range format error, Range: " + bVar.f29672b);
                                                 }
                                             } else {
-                                                throw new d("Range format error, Range: " + bVar.f29590b);
+                                                throw new d("Range format error, Range: " + bVar.f29672b);
                                             }
                                         } else {
-                                            throw new d("Range format error, Range: " + bVar.f29590b);
+                                            throw new d("Range format error, Range: " + bVar.f29672b);
                                         }
                                     } else {
-                                        throw new d("Range format error, Range: " + bVar.f29590b);
+                                        throw new d("Range format error, Range: " + bVar.f29672b);
                                     }
                                 } else {
-                                    throw new d("Range format error, Range: " + bVar.f29590b);
+                                    throw new d("Range format error, Range: " + bVar.f29672b);
                                 }
                             }
                         }
@@ -130,15 +130,15 @@ public class i {
                     if (!arrayList.isEmpty()) {
                         return new a(i4, str3, str4, i3, i2, str, arrayList);
                     }
-                    throw new d("no url found: path: " + cVar.f29592b);
+                    throw new d("no url found: path: " + cVar.f29674b);
                 }
-                throw new d("rawKey or key is empty, path: " + cVar.f29592b);
+                throw new d("rawKey or key is empty, path: " + cVar.f29674b);
             }
-            throw new d("path format error, path: " + cVar.f29592b);
+            throw new d("path format error, path: " + cVar.f29674b);
         }
 
         public String toString() {
-            return "Extra{flag=" + this.f29582a + ", rawKey='" + this.f29583b + "', key='" + this.f29584c + "', from=" + this.f29585d + ", to=" + this.f29586e + ", urls=" + this.f29588g + '}';
+            return "Extra{flag=" + this.f29664a + ", rawKey='" + this.f29665b + "', key='" + this.f29666c + "', from=" + this.f29667d + ", to=" + this.f29668e + ", urls=" + this.f29670g + '}';
         }
     }
 
@@ -146,14 +146,14 @@ public class i {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f29589a;
+        public final String f29671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29590b;
+        public final String f29672b;
 
         public b(String str, String str2) {
-            this.f29589a = str;
-            this.f29590b = str2;
+            this.f29671a = str;
+            this.f29672b = str2;
         }
 
         public static b a(String str) throws d {
@@ -170,7 +170,7 @@ public class i {
         }
 
         public String toString() {
-            return "Header{name='" + this.f29589a + "', value='" + this.f29590b + "'}";
+            return "Header{name='" + this.f29671a + "', value='" + this.f29672b + "'}";
         }
     }
 
@@ -178,18 +178,18 @@ public class i {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f29591a;
+        public final String f29673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29592b;
+        public final String f29674b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f29593c;
+        public final String f29675c;
 
         public c(String str, String str2, String str3) {
-            this.f29591a = str;
-            this.f29592b = str2;
-            this.f29593c = str3;
+            this.f29673a = str;
+            this.f29674b = str2;
+            this.f29675c = str3;
         }
 
         public static c a(String str) throws d {
@@ -211,7 +211,7 @@ public class i {
         }
 
         public String toString() {
-            return "RequestLine{method='" + this.f29591a + "', path='" + this.f29592b + "', version='" + this.f29593c + "'}";
+            return "RequestLine{method='" + this.f29673a + "', path='" + this.f29674b + "', version='" + this.f29675c + "'}";
         }
     }
 
@@ -223,13 +223,13 @@ public class i {
     }
 
     public i(c cVar, List<b> list, a aVar) {
-        this.f29579a = cVar;
-        this.f29580b = list;
-        this.f29581c = aVar;
+        this.f29661a = cVar;
+        this.f29662b = list;
+        this.f29663c = aVar;
     }
 
     public static i a(InputStream inputStream) throws IOException, d {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.k.g.d.f29575a));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.k.g.d.f29657a));
         ArrayList arrayList = new ArrayList();
         c cVar = null;
         while (true) {
@@ -251,7 +251,7 @@ public class i {
     }
 
     public String toString() {
-        return "Request{requestLine=" + this.f29579a + ", headers=" + this.f29580b + ", extra=" + this.f29581c + '}';
+        return "Request{requestLine=" + this.f29661a + ", headers=" + this.f29662b + ", extra=" + this.f29663c + '}';
     }
 
     public static String a(String str, String str2, List<String> list) {

@@ -8,14 +8,14 @@ import kotlin.coroutines.Continuation;
 public final class ThrowingCollector implements FlowCollector<Object> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Throwable f72340e;
+    public final Throwable f72444e;
 
     public ThrowingCollector(Throwable th) {
-        this.f72340e = th;
+        this.f72444e = th;
     }
 
     @Override // kotlinx.coroutines.flow.FlowCollector
     public Object emit(Object obj, Continuation<? super Unit> continuation) {
-        throw this.f72340e;
+        throw this.f72444e;
     }
 }

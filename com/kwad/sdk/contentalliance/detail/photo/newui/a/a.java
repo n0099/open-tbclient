@@ -30,49 +30,49 @@ import com.kwad.sdk.utils.ao;
 public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32978a;
+    public boolean f33076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f32979b;
+    public TextView f33077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f32980c;
+    public ImageView f33078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f32981d;
+    public ImageView f33079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f32982e;
+    public RelativeLayout f33080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f32983f;
+    public TextView f33081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f32984g;
+    public TextView f33082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CommentLikeButton f32985h;
+    public CommentLikeButton f33083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f32986i;
+    public b f33084i;
     public CharSequence j;
 
     public a(Context context) {
         super(context);
-        this.f32978a = false;
+        this.f33076a = false;
         a();
     }
 
     private void a() {
         com.kwad.sdk.core.d.a.a("CommentItemView2", "initView");
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_item_2, (ViewGroup) this, true);
-        this.f32980c = (ImageView) findViewById(R.id.ksad_photo_comment_item_avatar);
-        this.f32981d = (ImageView) findViewById(R.id.ksad_photo_comment_item_self_img);
-        this.f32979b = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
+        this.f33078c = (ImageView) findViewById(R.id.ksad_photo_comment_item_avatar);
+        this.f33079d = (ImageView) findViewById(R.id.ksad_photo_comment_item_self_img);
+        this.f33077b = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.ksad_photo_comment_item_content_frame);
-        this.f32982e = relativeLayout;
+        this.f33080e = relativeLayout;
         TextView textView = (TextView) relativeLayout.findViewById(R.id.ksad_photo_comment_item_comment);
-        this.f32984g = textView;
+        this.f33082g = textView;
         textView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
@@ -80,8 +80,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
                 a.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-        this.f32983f = (TextView) this.f32982e.findViewById(R.id.ksad_photo_comment_item_created_time);
-        this.f32985h = (CommentLikeButton) findViewById(R.id.ksad_photo_comment_item_like_frame);
+        this.f33081f = (TextView) this.f33080e.findViewById(R.id.ksad_photo_comment_item_created_time);
+        this.f33083h = (CommentLikeButton) findViewById(R.id.ksad_photo_comment_item_like_frame);
     }
 
     private void a(PhotoComment photoComment) {
@@ -106,10 +106,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
         int i2;
         if (photoComment != null) {
             if (j == photoComment.author_id) {
-                imageView = this.f32981d;
+                imageView = this.f33079d;
                 i2 = 0;
             } else {
-                imageView = this.f32981d;
+                imageView = this.f33079d;
                 i2 = 8;
             }
             imageView.setVisibility(i2);
@@ -118,12 +118,12 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
 
     private SpannableStringBuilder b(String str, long j) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        this.f32984g.measure(makeMeasureSpec, makeMeasureSpec);
-        int width = this.f32984g.getWidth() - ao.a(getContext(), 4.0f);
+        this.f33082g.measure(makeMeasureSpec, makeMeasureSpec);
+        int width = this.f33082g.getWidth() - ao.a(getContext(), 4.0f);
         TextPaint textPaint = new TextPaint();
         textPaint.setTextSize(ao.a(getContext(), 13.0f));
         float measureText = textPaint.measureText(GlideException.IndentedAppendable.INDENT + ag.a(getContext(), j)) + ao.a(getContext(), 6.0f);
-        float measureText2 = this.f32984g.getPaint().measureText(str);
+        float measureText2 = this.f33082g.getPaint().measureText(str);
         float a2 = measureText + measureText2 + ((float) ao.a(getContext(), 4.0f));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         int i2 = (int) a2;
@@ -131,20 +131,20 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
         int i4 = i2 % width;
         int i5 = ((int) measureText2) % width;
         if (!(((float) (width * 4)) - a2 > 0.0f) || i3 > 4 || i5 + measureText >= width || i4 >= width) {
-            this.f32983f.setVisibility(0);
+            this.f33081f.setVisibility(0);
         } else {
             spannableStringBuilder.append((CharSequence) GlideException.IndentedAppendable.INDENT);
             spannableStringBuilder.append((CharSequence) ag.a(getContext(), j));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#888B90")), str.length(), spannableStringBuilder.length(), 17);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(13, true), str.length(), spannableStringBuilder.length(), 17);
-            this.f32983f.setVisibility(8);
+            this.f33081f.setVisibility(8);
         }
         return spannableStringBuilder;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f32986i == null) {
+        if (this.f33084i == null) {
             com.kwad.sdk.core.d.a.a("CommentItemView2", "layoutCommentSpan mCommentItemData == null");
         } else {
             c();
@@ -153,54 +153,54 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
 
     private void c() {
         b bVar;
-        if (this.f32978a) {
+        if (this.f33076a) {
             setCommentText(this.j);
             return;
         }
-        Layout layout = this.f32984g.getLayout();
-        if (layout == null || (bVar = this.f32986i) == null || bVar.f32808a == null) {
+        Layout layout = this.f33082g.getLayout();
+        if (layout == null || (bVar = this.f33084i) == null || bVar.f32906a == null) {
             return;
         }
         int lineCount = layout.getLineCount();
         if (lineCount > 4 || layout.getEllipsisCount(lineCount - 1) != 0) {
-            this.f32986i.f32813f = true;
-            this.f32983f.setVisibility(0);
+            this.f33084i.f32911f = true;
+            this.f33081f.setVisibility(0);
             return;
         }
-        b bVar2 = this.f32986i;
-        if (bVar2.f32813f) {
+        b bVar2 = this.f33084i;
+        if (bVar2.f32911f) {
             return;
         }
-        PhotoComment photoComment = bVar2.f32808a;
+        PhotoComment photoComment = bVar2.f32906a;
         setCommentText(b(photoComment.content, photoComment.timestamp));
-        this.f32984g.setOnClickListener(null);
-        this.f32978a = true;
+        this.f33082g.setOnClickListener(null);
+        this.f33076a = true;
     }
 
     public void a(int i2, long j) {
-        this.f32985h.a(i2, j);
-        this.f32985h.setLikeStateListener(new CommentLikeButton.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.3
+        this.f33083h.a(i2, j);
+        this.f33083h.setLikeStateListener(new CommentLikeButton.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.3
             @Override // com.kwad.sdk.contentalliance.detail.photo.comment.CommentLikeButton.a
             public void a(int i3) {
-                if (a.this.f32986i == null || a.this.f32986i.f32808a == null) {
+                if (a.this.f33084i == null || a.this.f33084i.f32906a == null) {
                     return;
                 }
                 if (i3 == 2) {
-                    c.a(a.this.f32986i.f32808a.photo_id, a.this.f32986i.f32808a.comment_id);
-                    e.b(a.this.f32986i.f32809b, a.this.f32986i.f32808a.comment_id);
+                    c.a(a.this.f33084i.f32906a.photo_id, a.this.f33084i.f32906a.comment_id);
+                    e.b(a.this.f33084i.f32907b, a.this.f33084i.f32906a.comment_id);
                     return;
                 }
-                c.b(a.this.f32986i.f32808a.photo_id, a.this.f32986i.f32808a.comment_id);
-                e.c(a.this.f32986i.f32809b, a.this.f32986i.f32808a.comment_id);
+                c.b(a.this.f33084i.f32906a.photo_id, a.this.f33084i.f32906a.comment_id);
+                e.c(a.this.f33084i.f32907b, a.this.f33084i.f32906a.comment_id);
             }
         });
     }
 
     public void a(String str, long j) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        this.f32983f.setVisibility(8);
+        this.f33081f.setVisibility(8);
         setCommentText(spannableStringBuilder);
-        this.f32984g.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.2
+        this.f33082g.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.2
             @Override // java.lang.Runnable
             public void run() {
                 a.this.b();
@@ -209,16 +209,16 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
     }
 
     public void setAuthorIcon(String str) {
-        KSImageLoader.loadAuthorCircleIcon(this.f32980c, str);
+        KSImageLoader.loadAuthorCircleIcon(this.f33078c, str);
     }
 
     public void setCommentText(CharSequence charSequence) {
         this.j = charSequence;
-        this.f32984g.setText(charSequence);
+        this.f33082g.setText(charSequence);
     }
 
     public void setCommentTime(long j) {
-        TextView textView = this.f32983f;
+        TextView textView = this.f33081f;
         textView.setText(ag.a(textView.getContext(), j));
     }
 
@@ -229,22 +229,22 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
         if (bVar == null) {
             return;
         }
-        com.kwad.sdk.core.d.a.a("CommentItemView2", "bindCommentItemViewData commentHolderData=" + bVar + " commentPosition=" + bVar.f32812e + " isCommentOpen=" + bVar.f32811d);
-        this.f32978a = false;
-        this.f32986i = bVar;
-        if (bVar.f32811d) {
-            textView = this.f32984g;
+        com.kwad.sdk.core.d.a.a("CommentItemView2", "bindCommentItemViewData commentHolderData=" + bVar + " commentPosition=" + bVar.f32910e + " isCommentOpen=" + bVar.f32909d);
+        this.f33076a = false;
+        this.f33084i = bVar;
+        if (bVar.f32909d) {
+            textView = this.f33082g;
             i2 = Integer.MAX_VALUE;
         } else {
-            textView = this.f32984g;
+            textView = this.f33082g;
             i2 = 4;
         }
         textView.setMaxLines(i2);
-        a(this.f32986i.f32808a);
-        a(this.f32986i.f32808a, d.o(com.kwad.sdk.core.response.b.c.k(bVar.f32809b)));
+        a(this.f33084i.f32906a);
+        a(this.f33084i.f32906a, d.o(com.kwad.sdk.core.response.b.c.k(bVar.f32907b)));
     }
 
     public void setName(String str) {
-        this.f32979b.setText(str);
+        this.f33077b.setText(str);
     }
 }

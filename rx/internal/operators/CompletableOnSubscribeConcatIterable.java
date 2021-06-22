@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CompletableOnSubscribeConcatIterable implements b.f {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends b> f72375e;
+    public final Iterable<? extends b> f72479e;
 
     /* loaded from: classes8.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -73,7 +73,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
     }
 
     public CompletableOnSubscribeConcatIterable(Iterable<? extends b> iterable) {
-        this.f72375e = iterable;
+        this.f72479e = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
     /* renamed from: a */
     public void call(c cVar) {
         try {
-            Iterator<? extends b> it = this.f72375e.iterator();
+            Iterator<? extends b> it = this.f72479e.iterator();
             if (it == null) {
                 cVar.onSubscribe(e.c());
                 cVar.onError(new NullPointerException("The iterator returned is null"));

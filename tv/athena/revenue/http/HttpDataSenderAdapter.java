@@ -37,56 +37,56 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public class a extends i.a.a.c.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f72903a;
+        public final /* synthetic */ int f73007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f72904b;
+        public final /* synthetic */ String f73008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f72905c;
+        public final /* synthetic */ byte[] f73009c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f72906d;
+        public final /* synthetic */ PSCIMessageRequest f73010d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f72907e;
+        public final /* synthetic */ String f73011e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f72908f;
+        public final /* synthetic */ ArrayList f73012f;
 
         public a(int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
-            this.f72903a = i2;
-            this.f72904b = str;
-            this.f72905c = bArr;
-            this.f72906d = pSCIMessageRequest;
-            this.f72907e = str2;
-            this.f72908f = arrayList;
+            this.f73007a = i2;
+            this.f73008b = str;
+            this.f73009c = bArr;
+            this.f73010d = pSCIMessageRequest;
+            this.f73011e = str2;
+            this.f73012f = arrayList;
         }
 
         @Override // i.a.a.c.b.a
         public void a(Request request, Exception exc) {
-            RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f72904b + " exception: " + exc.getMessage(), new Object[0]);
-            String retryDomain = HttpDataSenderAdapter.this.getRetryDomain(this.f72907e);
+            RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f73008b + " exception: " + exc.getMessage(), new Object[0]);
+            String retryDomain = HttpDataSenderAdapter.this.getRetryDomain(this.f73011e);
             if (!TextUtils.isEmpty(retryDomain)) {
                 try {
                     RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                    HttpDataSenderAdapter.this.sendByHttpPost(retryDomain, this.f72903a, this.f72904b, this.f72908f, this.f72905c);
+                    HttpDataSenderAdapter.this.sendByHttpPost(retryDomain, this.f73007a, this.f73008b, this.f73012f, this.f73009c);
                     return;
                 } catch (Exception e2) {
                     RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
                 }
             }
             RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-            int i2 = this.f72903a;
-            String str = this.f72904b;
-            int cmd = this.f72906d.getCmd();
+            int i2 = this.f73007a;
+            String str = this.f73008b;
+            int cmd = this.f73010d.getCmd();
             revenueDataParser.onRequestError(i2, str, cmd, -500, "onFailure = " + exc.getMessage());
-            RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f72904b + " exception:" + exc.getMessage(), new Object[0]);
+            RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f73008b + " exception:" + exc.getMessage(), new Object[0]);
         }
 
         @Override // i.a.a.c.b.a
         public void b(Object obj) {
-            HttpDataSenderAdapter.this.onSuccess(this.f72903a, this.f72904b, this.f72905c, obj, this.f72906d);
+            HttpDataSenderAdapter.this.onSuccess(this.f73007a, this.f73008b, this.f73009c, obj, this.f73010d);
         }
     }
 

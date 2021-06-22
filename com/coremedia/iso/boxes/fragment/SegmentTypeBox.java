@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.fragment;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -15,12 +16,12 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SegmentTypeBox extends AbstractBox {
     public static final String TYPE = "styp";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_5 = null;
     public List<String> compatibleBrands;
     public String majorBrand;
     public long minorVersion;
@@ -113,7 +114,7 @@ public class SegmentTypeBox extends AbstractBox {
             sb.append("compatibleBrand=");
             sb.append(str);
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

@@ -18,19 +18,19 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.a.m0.a.g;
-import d.a.m0.r.q.z0;
-import d.a.n0.d1.b.b;
-import d.a.n0.d1.c.d;
-import d.a.n0.d1.c.e;
-import d.a.n0.d1.c.f;
-import d.a.n0.d1.c.i;
+import d.a.n0.a.g;
+import d.a.n0.r.q.z0;
+import d.a.o0.d1.b.b;
+import d.a.o0.d1.c.d;
+import d.a.o0.d1.c.e;
+import d.a.o0.d1.c.f;
+import d.a.o0.d1.c.i;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements d.a.n0.y1.a, BdListView.p {
+/* loaded from: classes5.dex */
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements d.a.o0.y1.a, BdListView.p {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long fid;
@@ -38,7 +38,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public b hotTopicShareModel;
     public HotTopicDetailModel mModel;
     public long mTid;
-    public d.a.n0.y1.b mView;
+    public d.a.o0.y1.b mView;
     public String secondDir;
     public boolean mIsFromSchema = false;
     public long topicIdLong = -1;
@@ -47,12 +47,12 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public String topicName = null;
     public String mFrom = "";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements g.b {
         public a() {
         }
 
-        @Override // d.a.m0.a.g.b
+        @Override // d.a.n0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(g.u) instanceof String)) {
                 String str = (String) hashMap.get(g.u);
@@ -133,7 +133,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
         this.mView.r(k);
         if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.N3)) {
-            d.a.n0.y1.b bVar = this.mView;
+            d.a.o0.y1.b bVar = this.mView;
             if (!z && bVar.o(k).K3 != null) {
                 r1 = false;
             }
@@ -169,7 +169,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a077";
     }
@@ -196,7 +196,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.n0.y1.a
+    @Override // d.a.o0.y1.a
     public void netCallback(int i2, e eVar) {
         if (eVar != null && eVar.s == -1) {
             this.mView.c(eVar);
@@ -206,7 +206,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         this.mView.l();
         if (i2 == 0 && eVar != null) {
             if (eVar.h() != null) {
-                resetTopicId(eVar.h().f56262e, eVar.h().f56263f);
+                resetTopicId(eVar.h().f56387e, eVar.h().f56388f);
             }
             this.mView.m(eVar);
             this.mView.q();
@@ -216,12 +216,12 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.n0.y1.a
+    @Override // d.a.o0.y1.a
     public void netLoadMoreCallback(int i2, d dVar) {
         loadMoreCallback(i2, dVar, false);
     }
 
-    @Override // d.a.n0.y1.a
+    @Override // d.a.o0.y1.a
     public void netPkCallback(int i2, long j, long j2, int i3) {
         if (i2 != 0 || j <= 0 || i3 < 0) {
             return;
@@ -316,7 +316,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.n0.y1.a
+    @Override // d.a.o0.y1.a
     public void refreshFullData(int i2) {
         boolean w = this.mModel.w(i2);
         if (this.mView.g() != null) {
@@ -333,7 +333,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    public boolean sendBlessData(d.a.n0.d1.c.a aVar) {
+    public boolean sendBlessData(d.a.o0.d1.c.a aVar) {
         return this.mModel.F(aVar);
     }
 
@@ -341,7 +341,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return this.mModel.G(iVar, i2);
     }
 
-    @Override // d.a.n0.y1.a
+    @Override // d.a.o0.y1.a
     public void shareTopic(e eVar) {
         f h2;
         if (eVar == null || (h2 = eVar.h()) == null) {
@@ -351,6 +351,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f56262e, h2.f56263f, str, h2.k, h2.j, true);
+        this.hotTopicShareModel.e(h2.f56387e, h2.f56388f, str, h2.k, h2.j, true);
     }
 }

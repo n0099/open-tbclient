@@ -16,52 +16,52 @@ public class e {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f29366a;
+    public static volatile e f29448a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d.b.c.b.f.a f29367c;
+    public static d.b.c.b.f.a f29449c;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29368b;
+    public Context f29450b;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile n f29369d;
+    public volatile n f29451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c.b.b.b f29370e;
+    public d.b.c.b.b.b f29452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile n f29371f;
+    public volatile n f29453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile n f29372g;
+    public volatile n f29454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.c.b.b.d f29373h;
+    public d.b.c.b.b.d f29455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.i.a.b f29374i;
+    public com.bytedance.sdk.openadsdk.i.a.b f29456i;
 
     /* loaded from: classes6.dex */
     public static class a implements d.k {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f29375a;
+        public ImageView f29457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29376b;
+        public final String f29458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29377c;
+        public final int f29459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29378d;
+        public final int f29460d;
 
         public a(ImageView imageView, String str, int i2, int i3) {
-            this.f29375a = imageView;
-            this.f29376b = str;
-            this.f29377c = i2;
-            this.f29378d = i3;
+            this.f29457a = imageView;
+            this.f29458b = str;
+            this.f29459c = i2;
+            this.f29460d = i3;
             if (imageView != null) {
                 imageView.setTag(1094453505, str);
             }
@@ -69,18 +69,18 @@ public class e {
 
         private boolean c() {
             Object tag;
-            ImageView imageView = this.f29375a;
-            return (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f29376b)) ? false : true;
+            ImageView imageView = this.f29457a;
+            return (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f29458b)) ? false : true;
         }
 
         @Override // d.b.c.b.b.d.k
         public void a() {
             int i2;
-            ImageView imageView = this.f29375a;
-            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29375a.getContext()).isFinishing()) || this.f29375a == null || !c() || (i2 = this.f29377c) == 0) {
+            ImageView imageView = this.f29457a;
+            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29457a.getContext()).isFinishing()) || this.f29457a == null || !c() || (i2 = this.f29459c) == 0) {
                 return;
             }
-            this.f29375a.setImageResource(i2);
+            this.f29457a.setImageResource(i2);
         }
 
         @Override // d.b.c.b.d.o.a
@@ -94,34 +94,34 @@ public class e {
 
         @Override // d.b.c.b.b.d.k
         public void b() {
-            this.f29375a = null;
+            this.f29457a = null;
         }
 
         @Override // d.b.c.b.d.o.a
         public void b(o<Bitmap> oVar) {
-            ImageView imageView = this.f29375a;
-            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29375a.getContext()).isFinishing()) || this.f29375a == null || this.f29378d == 0 || !c()) {
+            ImageView imageView = this.f29457a;
+            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29457a.getContext()).isFinishing()) || this.f29457a == null || this.f29460d == 0 || !c()) {
                 return;
             }
-            this.f29375a.setImageResource(this.f29378d);
+            this.f29457a.setImageResource(this.f29460d);
         }
 
         @Override // d.b.c.b.b.d.k
         public void a(d.i iVar, boolean z) {
-            ImageView imageView = this.f29375a;
-            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29375a.getContext()).isFinishing()) || this.f29375a == null || !c() || iVar.a() == null) {
+            ImageView imageView = this.f29457a;
+            if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f29457a.getContext()).isFinishing()) || this.f29457a == null || !c() || iVar.a() == null) {
                 return;
             }
-            this.f29375a.setImageBitmap(iVar.a());
+            this.f29457a.setImageBitmap(iVar.a());
         }
     }
 
     public e(Context context) {
-        this.f29368b = context == null ? p.a() : context.getApplicationContext();
+        this.f29450b = context == null ? p.a() : context.getApplicationContext();
     }
 
     public static d.b.c.b.f.a a() {
-        return f29367c;
+        return f29449c;
     }
 
     public static g b() {
@@ -129,80 +129,80 @@ public class e {
     }
 
     public static e c() {
-        if (f29366a == null) {
+        if (f29448a == null) {
             synchronized (e.class) {
-                if (f29366a == null) {
-                    f29366a = new e(p.a());
+                if (f29448a == null) {
+                    f29448a = new e(p.a());
                 }
             }
         }
-        return f29366a;
+        return f29448a;
     }
 
     private void i() {
-        if (this.f29374i == null) {
-            this.f29374i = new com.bytedance.sdk.openadsdk.i.a.b(d());
+        if (this.f29456i == null) {
+            this.f29456i = new com.bytedance.sdk.openadsdk.i.a.b(d());
         }
     }
 
     private void j() {
-        if (this.f29373h == null) {
-            this.f29373h = new d.b.c.b.b.d(d(), com.bytedance.sdk.openadsdk.i.a.a());
+        if (this.f29455h == null) {
+            this.f29455h = new d.b.c.b.b.d(d(), com.bytedance.sdk.openadsdk.i.a.a());
         }
     }
 
     public n d() {
-        if (this.f29369d == null) {
+        if (this.f29451d == null) {
             synchronized (e.class) {
-                if (this.f29369d == null) {
-                    this.f29369d = d.b.c.b.a.b(this.f29368b);
+                if (this.f29451d == null) {
+                    this.f29451d = d.b.c.b.a.b(this.f29450b);
                 }
             }
         }
-        return this.f29369d;
+        return this.f29451d;
     }
 
     public n e() {
-        if (this.f29372g == null) {
+        if (this.f29454g == null) {
             synchronized (e.class) {
-                if (this.f29372g == null) {
-                    this.f29372g = d.b.c.b.a.b(this.f29368b);
+                if (this.f29454g == null) {
+                    this.f29454g = d.b.c.b.a.b(this.f29450b);
                 }
             }
         }
-        return this.f29372g;
+        return this.f29454g;
     }
 
     public n f() {
-        if (this.f29371f == null) {
+        if (this.f29453f == null) {
             synchronized (e.class) {
-                if (this.f29371f == null) {
-                    this.f29371f = d.b.c.b.a.b(this.f29368b);
+                if (this.f29453f == null) {
+                    this.f29453f = d.b.c.b.a.b(this.f29450b);
                 }
             }
         }
-        return this.f29371f;
+        return this.f29453f;
     }
 
     public com.bytedance.sdk.openadsdk.i.a.b g() {
         i();
-        return this.f29374i;
+        return this.f29456i;
     }
 
     public d.b.c.b.b.d h() {
         j();
-        return this.f29373h;
+        return this.f29455h;
     }
 
     public static void a(d.b.c.b.f.a aVar) {
-        f29367c = aVar;
+        f29449c = aVar;
     }
 
-    public void a(String str, b.InterfaceC1894b interfaceC1894b) {
-        if (this.f29370e == null) {
-            this.f29370e = new d.b.c.b.b.b(this.f29368b, d());
+    public void a(String str, b.InterfaceC1897b interfaceC1897b) {
+        if (this.f29452e == null) {
+            this.f29452e = new d.b.c.b.b.b(this.f29450b, d());
         }
-        this.f29370e.d(str, interfaceC1894b);
+        this.f29452e.d(str, interfaceC1897b);
     }
 
     public void a(String str, ImageView imageView) {
@@ -211,7 +211,7 @@ public class e {
 
     public void a(String str, ImageView imageView, d.k kVar) {
         j();
-        this.f29373h.f(str, kVar);
+        this.f29455h.f(str, kVar);
     }
 
     public static a a(String str, ImageView imageView, int i2, int i3) {

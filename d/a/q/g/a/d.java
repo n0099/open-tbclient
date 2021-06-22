@@ -3,25 +3,25 @@ package d.a.q.g.a;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67913a;
+    public int f67869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67914b;
+    public int f67870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67915c;
+    public int f67871c;
 
     public int a() {
-        return this.f67914b;
+        return this.f67870b;
     }
 
     public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i2, int i3);
 
     public int c() {
-        return this.f67913a;
+        return this.f67869a;
     }
 
     public int d() {
-        return this.f67915c;
+        return this.f67871c;
     }
 }

@@ -10,10 +10,10 @@ import tbclient.UserBfbInfo;
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16154e;
+    public b f16236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16155f;
+    public d.a.c.c.g.a f16237f;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -30,8 +30,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                 UserBfbInfo userBfbInfo = null;
                 if (responsedMessage.getError() != 0) {
-                    if (BfbInfoModel.this.f16154e != null) {
-                        BfbInfoModel.this.f16154e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    if (BfbInfoModel.this.f16236e != null) {
+                        BfbInfoModel.this.f16236e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
@@ -41,8 +41,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                     userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                 }
-                if (BfbInfoModel.this.f16154e != null) {
-                    BfbInfoModel.this.f16154e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                if (BfbInfoModel.this.f16236e != null) {
+                    BfbInfoModel.this.f16236e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                 }
             }
         }
@@ -55,13 +55,13 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
 
     public BfbInfoModel(CreateBarGuideActivity createBarGuideActivity) {
         super(createBarGuideActivity.getPageContext());
-        this.f16155f = new a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        this.f16237f = new a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
         z();
         y();
     }
 
     public void A(b bVar) {
-        this.f16154e = bVar;
+        this.f16236e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,17 +76,17 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void w() {
-        MessageManager.getInstance().unRegisterListener(this.f16155f);
+        MessageManager.getInstance().unRegisterListener(this.f16237f);
         MessageManager.getInstance().unRegisterTask(309366);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
     }
 
     public final void y() {
-        registerListener(this.f16155f);
+        registerListener(this.f16237f);
     }
 
     public final void z() {
-        d.a.n0.e3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+        d.a.o0.e3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
 }

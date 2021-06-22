@@ -8,8 +8,8 @@ public class r implements com.kwad.sdk.core.c<b.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(b.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f34646a);
-        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f34647b);
+        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f34744a);
+        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f34745b);
         return jSONObject;
     }
 
@@ -19,7 +19,7 @@ public class r implements com.kwad.sdk.core.c<b.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f34646a = jSONObject.optInt("code");
-        aVar.f34647b = jSONObject.optString("msg");
+        aVar.f34744a = jSONObject.optInt("code");
+        aVar.f34745b = jSONObject.optString("msg");
     }
 }

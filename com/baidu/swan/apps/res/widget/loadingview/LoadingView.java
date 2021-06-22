@@ -8,25 +8,25 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
-import d.a.l0.a.c;
-import d.a.l0.a.e;
-import d.a.l0.a.f;
-import d.a.l0.a.g;
-import d.a.l0.a.z1.b.d.b;
+import d.a.m0.a.c;
+import d.a.m0.a.e;
+import d.a.m0.a.f;
+import d.a.m0.a.g;
+import d.a.m0.a.z1.b.d.b;
 /* loaded from: classes3.dex */
 public class LoadingView extends FrameLayout implements b<LoadingView> {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f11303e;
+    public View f11385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmoothProgressBar f11304f;
+    public SmoothProgressBar f11386f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f11305g;
+    public TextView f11387g;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.l0.a.g2.a {
+    public class a implements d.a.m0.a.g2.a {
         public a() {
         }
     }
@@ -38,14 +38,14 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
 
     public void a() {
         LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
-        this.f11303e = findViewById(f.root_container);
-        this.f11304f = (SmoothProgressBar) findViewById(f.loading_bar);
-        this.f11305g = (TextView) findViewById(f.message);
+        this.f11385e = findViewById(f.root_container);
+        this.f11386f = (SmoothProgressBar) findViewById(f.loading_bar);
+        this.f11387g = (TextView) findViewById(f.message);
         setPageResources();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.l0.a.z1.b.d.b
+    @Override // d.a.m0.a.z1.b.d.b
     public LoadingView getLoadingView() {
         return this;
     }
@@ -53,36 +53,36 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d.a.l0.a.c1.a.H().f(this, new a());
+        d.a.m0.a.c1.a.H().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d.a.l0.a.c1.a.H().g(this);
+        d.a.m0.a.c1.a.H().g(this);
     }
 
     public void setMsg(int i2) {
-        this.f11305g.setText(i2);
+        this.f11387g.setText(i2);
     }
 
     public void setPageResources() {
-        View view = this.f11303e;
+        View view = this.f11385e;
         if (view != null) {
             view.setBackground(view.getResources().getDrawable(e.aiapps_loading_bg));
         }
-        SmoothProgressBar smoothProgressBar = this.f11304f;
+        SmoothProgressBar smoothProgressBar = this.f11386f;
         if (smoothProgressBar != null) {
             smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(e.aiapps_loading_progress_animation));
         }
-        TextView textView = this.f11305g;
+        TextView textView = this.f11387g;
         if (textView != null) {
             textView.setTextColor(textView.getResources().getColor(c.aiapps_loading_text_color));
         }
     }
 
     public void setMsg(String str) {
-        this.f11305g.setText(str);
+        this.f11387g.setText(str);
     }
 
     public LoadingView(Context context, AttributeSet attributeSet) {

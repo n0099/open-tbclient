@@ -17,20 +17,20 @@ import java.util.Map;
 public class AlbumImagePagerAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f21883a;
+    public BaseFragmentActivity f21965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f21884b;
+    public LayoutInflater f21966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ImageFileInfo> f21885c;
+    public List<ImageFileInfo> f21967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<Integer, Boolean> f21886d = new HashMap();
+    public Map<Integer, Boolean> f21968d = new HashMap();
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
-        this.f21883a = baseFragmentActivity;
-        this.f21884b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f21965a = baseFragmentActivity;
+        this.f21966b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -40,16 +40,16 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f21885c);
+        return ListUtils.getCount(this.f21967c);
     }
 
     public ImageFileInfo i(int i2) {
-        return (ImageFileInfo) ListUtils.getItem(this.f21885c, i2);
+        return (ImageFileInfo) ListUtils.getItem(this.f21967c, i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        View inflate = this.f21884b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
+        View inflate = this.f21966b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
@@ -66,7 +66,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         if (i3 != null) {
             tbImageView2.V(i3.getFilePath(), 35, false, true);
             tbImageView.U(i3.getFilePath(), 36, false);
-            this.f21886d.put(Integer.valueOf(i2), Boolean.TRUE);
+            this.f21968d.put(Integer.valueOf(i2), Boolean.TRUE);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, R.color.CAM_X0201);
@@ -79,14 +79,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     public boolean j(int i2) {
-        if (this.f21886d.get(Integer.valueOf(i2)) == null) {
+        if (this.f21968d.get(Integer.valueOf(i2)) == null) {
             return false;
         }
-        return this.f21886d.get(Integer.valueOf(i2)).booleanValue();
+        return this.f21968d.get(Integer.valueOf(i2)).booleanValue();
     }
 
     public void k(List<ImageFileInfo> list) {
-        this.f21885c = list;
+        this.f21967c = list;
         notifyDataSetChanged();
     }
 }

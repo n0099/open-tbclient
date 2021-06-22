@@ -15,7 +15,7 @@ public class ThreadUtils {
     public class C1CaughtException {
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f72358e;
+        public Exception f72462e;
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
@@ -128,17 +128,17 @@ public class ThreadUtils {
                 try {
                     C1Result.this.value = callable.call();
                 } catch (Exception e3) {
-                    c1CaughtException.f72358e = e3;
+                    c1CaughtException.f72462e = e3;
                 }
                 countDownLatch.countDown();
             }
         });
         awaitUninterruptibly(countDownLatch);
-        if (c1CaughtException.f72358e == null) {
+        if (c1CaughtException.f72462e == null) {
             return c1Result.value;
         }
-        RuntimeException runtimeException = new RuntimeException(c1CaughtException.f72358e);
-        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f72358e.getStackTrace(), runtimeException.getStackTrace()));
+        RuntimeException runtimeException = new RuntimeException(c1CaughtException.f72462e);
+        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f72462e.getStackTrace(), runtimeException.getStackTrace()));
         throw runtimeException;
     }
 

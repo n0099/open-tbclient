@@ -4,7 +4,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RestartableNonResettableInputStream extends RestartableInputStream {
     public byte[] buffer;
     public boolean eof;

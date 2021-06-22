@@ -386,7 +386,7 @@ public class BdStatisticsManager {
         d.a.c.e.n.l.b.m().n(cVar, str4, str5);
         g.h().k(cVar);
         if (cVar != null) {
-            this.mAppVersion = cVar.f42390c;
+            this.mAppVersion = cVar.f42493c;
         }
         if (TextUtils.isEmpty(this.mProcessNameMd5)) {
             String processNameMd5 = getProcessNameMd5();
@@ -554,9 +554,9 @@ public class BdStatisticsManager {
         if (aVar == null) {
             return;
         }
-        Address j = d.a.c.e.i.a.l().j(false, false);
-        if (j != null) {
-            aVar.b("location", j.getLocality());
+        Address i2 = d.a.c.e.i.a.k().i(false, false);
+        if (i2 != null) {
+            aVar.b("location", i2.getLocality());
         }
         addLog("pfmonitor", str, -1L, null, aVar, new Object[0]);
     }

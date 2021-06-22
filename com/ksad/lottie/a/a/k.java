@@ -12,51 +12,51 @@ import java.util.ListIterator;
 public class k implements i, l {
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f31768d;
+    public final String f31866d;
 
     /* renamed from: f  reason: collision with root package name */
-    public final MergePaths f31770f;
+    public final MergePaths f31868f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f31765a = new Path();
+    public final Path f31863a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path f31766b = new Path();
+    public final Path f31864b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Path f31767c = new Path();
+    public final Path f31865c = new Path();
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f31769e = new ArrayList();
+    public final List<l> f31867e = new ArrayList();
 
     /* renamed from: com.ksad.lottie.a.a.k$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31771a;
+        public static final /* synthetic */ int[] f31869a;
 
         static {
             int[] iArr = new int[MergePaths.MergePathsMode.values().length];
-            f31771a = iArr;
+            f31869a = iArr;
             try {
                 iArr[MergePaths.MergePathsMode.Merge.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31771a[MergePaths.MergePathsMode.Add.ordinal()] = 2;
+                f31869a[MergePaths.MergePathsMode.Add.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31771a[MergePaths.MergePathsMode.Subtract.ordinal()] = 3;
+                f31869a[MergePaths.MergePathsMode.Subtract.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31771a[MergePaths.MergePathsMode.Intersect.ordinal()] = 4;
+                f31869a[MergePaths.MergePathsMode.Intersect.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31771a[MergePaths.MergePathsMode.ExcludeIntersections.ordinal()] = 5;
+                f31869a[MergePaths.MergePathsMode.ExcludeIntersections.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -66,53 +66,53 @@ public class k implements i, l {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
-        this.f31768d = mergePaths.a();
-        this.f31770f = mergePaths;
+        this.f31866d = mergePaths.a();
+        this.f31868f = mergePaths;
     }
 
     private void a() {
-        for (int i2 = 0; i2 < this.f31769e.size(); i2++) {
-            this.f31767c.addPath(this.f31769e.get(i2).d());
+        for (int i2 = 0; i2 < this.f31867e.size(); i2++) {
+            this.f31865c.addPath(this.f31867e.get(i2).d());
         }
     }
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.f31766b.reset();
-        this.f31765a.reset();
-        for (int size = this.f31769e.size() - 1; size >= 1; size--) {
-            l lVar = this.f31769e.get(size);
+        this.f31864b.reset();
+        this.f31863a.reset();
+        for (int size = this.f31867e.size() - 1; size >= 1; size--) {
+            l lVar = this.f31867e.get(size);
             if (lVar instanceof c) {
                 c cVar = (c) lVar;
                 List<l> b2 = cVar.b();
                 for (int size2 = b2.size() - 1; size2 >= 0; size2--) {
                     Path d2 = b2.get(size2).d();
                     d2.transform(cVar.c());
-                    this.f31766b.addPath(d2);
+                    this.f31864b.addPath(d2);
                 }
             } else {
-                this.f31766b.addPath(lVar.d());
+                this.f31864b.addPath(lVar.d());
             }
         }
-        l lVar2 = this.f31769e.get(0);
+        l lVar2 = this.f31867e.get(0);
         if (lVar2 instanceof c) {
             c cVar2 = (c) lVar2;
             List<l> b3 = cVar2.b();
             for (int i2 = 0; i2 < b3.size(); i2++) {
                 Path d3 = b3.get(i2).d();
                 d3.transform(cVar2.c());
-                this.f31765a.addPath(d3);
+                this.f31863a.addPath(d3);
             }
         } else {
-            this.f31765a.set(lVar2.d());
+            this.f31863a.set(lVar2.d());
         }
-        this.f31767c.op(this.f31765a, this.f31766b, op);
+        this.f31865c.op(this.f31863a, this.f31864b, op);
     }
 
     @Override // com.ksad.lottie.a.a.b
     public void a(List<b> list, List<b> list2) {
-        for (int i2 = 0; i2 < this.f31769e.size(); i2++) {
-            this.f31769e.get(i2).a(list, list2);
+        for (int i2 = 0; i2 < this.f31867e.size(); i2++) {
+            this.f31867e.get(i2).a(list, list2);
         }
     }
 
@@ -123,7 +123,7 @@ public class k implements i, l {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.f31769e.add((l) previous);
+                this.f31867e.add((l) previous);
                 listIterator.remove();
             }
         }
@@ -132,8 +132,8 @@ public class k implements i, l {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         Path.Op op;
-        this.f31767c.reset();
-        int i2 = AnonymousClass1.f31771a[this.f31770f.b().ordinal()];
+        this.f31865c.reset();
+        int i2 = AnonymousClass1.f31869a[this.f31868f.b().ordinal()];
         if (i2 != 1) {
             if (i2 == 2) {
                 op = Path.Op.UNION;
@@ -148,6 +148,6 @@ public class k implements i, l {
         } else {
             a();
         }
-        return this.f31767c;
+        return this.f31865c;
     }
 }

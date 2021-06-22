@@ -14,12 +14,12 @@ import java.util.List;
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37519a = true;
+    public static boolean f37617a = true;
 
     public static List<com.kwad.sdk.core.g.a.a> a(Context context, int i2) {
         WifiManager wifiManager;
         ArrayList arrayList = new ArrayList();
-        if (context != null && f37519a) {
+        if (context != null && f37617a) {
             try {
                 if ((Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == -1 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == -1) || (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) == null) {
                     return arrayList;
@@ -29,9 +29,9 @@ public class at {
                 if (scanResults != null) {
                     for (ScanResult scanResult : scanResults) {
                         com.kwad.sdk.core.g.a.a aVar = new com.kwad.sdk.core.g.a.a();
-                        aVar.f34256b = scanResult.SSID;
-                        aVar.f34257c = scanResult.BSSID;
-                        aVar.f34255a = scanResult.level;
+                        aVar.f34354b = scanResult.SSID;
+                        aVar.f34355c = scanResult.BSSID;
+                        aVar.f34353a = scanResult.level;
                         if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
                             arrayList.add(aVar);
                         } else {
@@ -50,6 +50,6 @@ public class at {
     }
 
     public static void a(SdkConfig sdkConfig) {
-        f37519a = sdkConfig.canReadNearbyWifiList();
+        f37617a = sdkConfig.canReadNearbyWifiList();
     }
 }

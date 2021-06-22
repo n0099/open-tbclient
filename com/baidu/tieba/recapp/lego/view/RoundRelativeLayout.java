@@ -13,45 +13,45 @@ import d.a.c.e.p.l;
 public class RoundRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20266e;
+    public float f20348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f20267f;
+    public Path f20349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f20268g;
+    public RectF f20350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f20269h;
+    public float[] f20351h;
 
     public RoundRelativeLayout(Context context) {
         super(context);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20266e = g2;
-        this.f20269h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f20348e = g2;
+        this.f20351h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
     public final void a() {
         setWillNotDraw(false);
-        this.f20267f = new Path();
-        this.f20268g = new RectF();
+        this.f20349f = new Path();
+        this.f20350g = new RectF();
     }
 
     public final void b() {
-        this.f20267f.addRoundRect(this.f20268g, this.f20269h, Path.Direction.CW);
+        this.f20349f.addRoundRect(this.f20350g, this.f20351h, Path.Direction.CW);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.clipPath(this.f20267f);
+        canvas.clipPath(this.f20349f);
         super.draw(canvas);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
-        this.f20268g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f20350g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         b();
     }
 
@@ -59,9 +59,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f20269h = new float[fArr.length];
+        this.f20351h = new float[fArr.length];
         for (int i2 = 0; i2 < fArr.length; i2++) {
-            this.f20269h[i2] = fArr[i2];
+            this.f20351h[i2] = fArr[i2];
         }
         b();
         invalidate();
@@ -70,16 +70,16 @@ public class RoundRelativeLayout extends RelativeLayout {
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20266e = g2;
-        this.f20269h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f20348e = g2;
+        this.f20351h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20266e = g2;
-        this.f20269h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f20348e = g2;
+        this.f20351h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, a> f70791a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, a> f70895a = Collections.synchronizedMap(new HashMap());
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -31,7 +31,7 @@ public class i {
         if (TextUtils.isEmpty(str) || aVar == null) {
             return;
         }
-        f70791a.put(str, aVar);
+        f70895a.put(str, aVar);
     }
 
     public static void c(String str, String str2) {
@@ -59,6 +59,6 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f70791a.remove(str);
+        return f70895a.remove(str);
     }
 }

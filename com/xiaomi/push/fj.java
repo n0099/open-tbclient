@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.xiaomi.push.du;
 import com.xiaomi.push.fl;
 import java.text.SimpleDateFormat;
@@ -9,7 +10,7 @@ import java.util.Map;
 public class fj implements fx {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41263a = false;
+    public static boolean f41366a = false;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f382a;
@@ -21,7 +22,7 @@ public class fj implements fx {
     public a f381a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f41264b = null;
+    public a f41367b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public fo f383a = null;
@@ -48,7 +49,7 @@ public class fj implements fx {
         public void a(fa faVar) {
             StringBuilder sb;
             String str;
-            if (fj.f41263a) {
+            if (fj.f41366a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
@@ -65,7 +66,7 @@ public class fj implements fx {
                 sb.append(faVar.a());
                 sb.append(",");
                 sb.append(faVar.e());
-                str = "]";
+                str = PreferencesUtil.RIGHT_MOUNT;
             }
             sb.append(str);
             com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
@@ -99,7 +100,7 @@ public class fj implements fx {
                     faVar4.a(faVar.e());
                     faVar4.a(faVar.m290a());
                     faVar4.b(faVar.f());
-                    faVar4.a(faVar.m293a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f41749h), (String) null);
+                    faVar4.a(faVar.m293a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f41852h), (String) null);
                     faVar2 = faVar4;
                 }
             }
@@ -116,7 +117,7 @@ public class fj implements fx {
         public void a(gc gcVar) {
             StringBuilder sb;
             String str;
-            if (fj.f41263a) {
+            if (fj.f41366a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
@@ -132,7 +133,7 @@ public class fj implements fx {
                 sb.append(gcVar.k());
                 sb.append(",");
                 sb.append(gcVar.j());
-                str = "]";
+                str = PreferencesUtil.RIGHT_MOUNT;
             }
             sb.append(str);
             com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
@@ -152,12 +153,12 @@ public class fj implements fx {
 
     private void a() {
         this.f381a = new a(true);
-        this.f41264b = new a(false);
+        this.f41367b = new a(false);
         fl flVar = this.f382a;
         a aVar = this.f381a;
         flVar.a(aVar, aVar);
         fl flVar2 = this.f382a;
-        a aVar2 = this.f41264b;
+        a aVar2 = this.f41367b;
         flVar2.b(aVar2, aVar2);
         this.f383a = new fk(this);
     }

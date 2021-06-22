@@ -2,6 +2,7 @@ package com.baidu.wallet.fastpay.datamodel;
 
 import android.content.Context;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.math.BigDecimal;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
@@ -39,6 +40,6 @@ public class QueryLocationResponse implements IBeanResponse {
     }
 
     public String toString() {
-        return "QueryLocationResult [operator=" + this.operator + ", area=" + this.area + ", area_operator=" + this.area_operator + ", is_huodong_price=" + this.is_huodong_price + ", price_info=" + Arrays.toString(this.price_info) + "]";
+        return "QueryLocationResult [operator=" + this.operator + ", area=" + this.area + ", area_operator=" + this.area_operator + ", is_huodong_price=" + this.is_huodong_price + ", price_info=" + Arrays.toString(this.price_info) + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class k0 extends c implements p<a2> {
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f43712i;
+    public TbPageContext f43805i;
     public TbImageView j;
     public boolean k = true;
 
@@ -25,20 +25,20 @@ public class k0 extends c implements p<a2> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f43713e;
+        public final /* synthetic */ ThemeCardInUserData f43806e;
 
         public a(ThemeCardInUserData themeCardInUserData) {
-            this.f43713e = themeCardInUserData;
+            this.f43806e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(k0.this.f43712i.getPageActivity(), this.f43713e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(k0.this.f43805i.getPageActivity(), this.f43806e.getCardId())));
         }
     }
 
     public k0(TbPageContext tbPageContext) {
-        this.f43712i = tbPageContext;
+        this.f43805i = tbPageContext;
         h(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
@@ -59,7 +59,7 @@ public class k0 extends c implements p<a2> {
         if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !a2Var.R1) {
             if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f43712i.getPageActivity(), R.dimen.tbds106);
+                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f43805i.getPageActivity(), R.dimen.tbds106);
                 this.j.setLayoutParams(layoutParams);
             }
             this.j.setVisibility(0);

@@ -1,7 +1,7 @@
 package com.baidubce;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BceServiceException extends BceClientException {
     public static final long serialVersionUID = 1483785729559154396L;
     public String errorCode;
@@ -10,7 +10,7 @@ public class BceServiceException extends BceClientException {
     public String requestId;
     public int statusCode;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum ErrorType {
         Client,
         Service,

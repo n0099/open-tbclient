@@ -33,36 +33,36 @@ import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import d.a.c.e.p.j;
-import d.a.m0.z0.b0;
-import d.a.n0.r0.o0;
+import d.a.n0.z0.b0;
+import d.a.o0.r0.o0;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TabWebFragment extends BaseWebViewFragment implements o0 {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16595h;
+    public String f16677h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f16596i;
+    public String f16678i;
     public String j;
     public int k;
     public View l;
     public NestedScrollWebView m;
     public FrameLayout n;
-    public d.a.n0.e3.l0.a o;
+    public d.a.o0.e3.l0.a o;
     public boolean q;
     public boolean r;
     public final View.OnClickListener u;
     public boolean p = true;
     public boolean s = false;
-    public d.a.n0.e3.l0.c t = new a();
+    public d.a.o0.e3.l0.c t = new a();
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.n0.e3.l0.c {
+    public class a implements d.a.o0.e3.l0.c {
         public a() {
         }
 
-        @Override // d.a.n0.e3.l0.c
+        @Override // d.a.o0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             if (TabWebFragment.this.o != null) {
                 return TabWebFragment.this.o.b(TabWebFragment.this.m, str, jsPromptResult);
@@ -80,7 +80,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || StringUtils.isNull(TabWebFragment.this.f11980e)) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || StringUtils.isNull(TabWebFragment.this.f12062e)) {
                 return;
             }
             TabWebFragment.this.u();
@@ -112,7 +112,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
             super.onPageFinished(webView, str);
             TabWebFragment.this.q = false;
             TabWebFragment tabWebFragment = TabWebFragment.this;
-            tabWebFragment.f11980e = str;
+            tabWebFragment.f12062e = str;
             if (tabWebFragment.m == null || TabWebFragment.this.n == null) {
                 return;
             }
@@ -155,7 +155,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
                 TabWebFragment tabWebFragment = TabWebFragment.this;
                 tabWebFragment.showLoadingView(tabWebFragment.n);
             }
-            TabWebFragment.this.f11980e = str;
+            TabWebFragment.this.f12062e = str;
         }
 
         @Override // android.webkit.WebViewClient
@@ -229,35 +229,35 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         this.u = new c();
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void H() {
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void I() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final d.a.n0.e3.l0.b g1() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, d.a.n0.e3.l0.b.class, getPageContext());
+    public final d.a.o0.e3.l0.b g1() {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, d.a.o0.e3.l0.b.class, getPageContext());
         if (runTask == null || runTask.getData() == null) {
             return null;
         }
-        return (d.a.n0.e3.l0.b) runTask.getData();
+        return (d.a.o0.e3.l0.b) runTask.getData();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         return super.getCurrentPageSourceKeyList();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public d.a.m0.k0.d getPageStayDurationItem() {
+    public d.a.n0.k0.d getPageStayDurationItem() {
         return super.getPageStayDurationItem();
     }
 
@@ -269,15 +269,15 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
     }
 
     public void i1() {
-        d.a.m0.l.a.f(getBaseFragmentActivity().getApplicationContext());
+        d.a.n0.l.a.f(getBaseFragmentActivity().getApplicationContext());
     }
 
     public final void initData() {
-        String str = this.f11980e;
+        String str = this.f12062e;
         if (str != null && str.contains("redirect=1")) {
             this.s = true;
         }
-        k1(this.f11980e);
+        k1(this.f12062e);
     }
 
     @RequiresApi(api = 11)
@@ -301,7 +301,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
             this.m.setScrollBarStyle(33554432);
             this.m.setWebViewClient(new d());
             this.m.setDownloadListener(new e(this, null));
-            d.a.n0.b1.j.i.a aVar = new d.a.n0.b1.j.i.a(getPageContext());
+            d.a.o0.b1.j.i.a aVar = new d.a.o0.b1.j.i.a(getPageContext());
             aVar.a(this.t);
             this.m.setWebChromeClient(aVar);
             CompatibleUtile.getInstance().removeJavascriptInterface(this.m);
@@ -318,8 +318,8 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         if (isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f16595h);
-            statisticItem.param("obj_type", this.f16596i);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f16677h);
+            statisticItem.param("obj_type", this.f16678i);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -336,7 +336,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        d.a.m0.s0.a.a(getPageContext(), this.l);
+        d.a.n0.s0.a.a(getPageContext(), this.l);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -345,17 +345,17 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         if (getArguments() != null) {
             Bundle arguments = getArguments();
             this.k = arguments.getInt("tab_type");
-            this.f16595h = arguments.getString("tab_name");
-            this.f16596i = arguments.getString(LowFlowsActivityConfig.TAB_CODE);
+            this.f16677h = arguments.getString("tab_name");
+            this.f16678i = arguments.getString(LowFlowsActivityConfig.TAB_CODE);
             this.j = arguments.getString("tab_url");
         } else if (bundle != null) {
             this.k = bundle.getInt("tab_type");
-            this.f16595h = bundle.getString("tab_name");
-            this.f16596i = bundle.getString(LowFlowsActivityConfig.TAB_CODE);
+            this.f16677h = bundle.getString("tab_name");
+            this.f16678i = bundle.getString(LowFlowsActivityConfig.TAB_CODE);
             this.j = bundle.getString("tab_url");
         }
-        this.f11980e = this.j;
-        d.a.n0.e3.l0.a aVar = new d.a.n0.e3.l0.a();
+        this.f12062e = this.j;
+        d.a.o0.e3.l0.a aVar = new d.a.o0.e3.l0.a();
         this.o = aVar;
         aVar.a(new XiubaTbJsBridge(getPageContext()));
         this.o.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
@@ -385,7 +385,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.a.n0.e3.l0.a aVar = this.o;
+        d.a.o0.e3.l0.a aVar = this.o;
         if (aVar != null) {
             aVar.f();
         }
@@ -412,8 +412,8 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (bundle != null) {
-            bundle.putString("tab_name", this.f16595h);
-            bundle.putString(LowFlowsActivityConfig.TAB_CODE, this.f16596i);
+            bundle.putString("tab_name", this.f16677h);
+            bundle.putString(LowFlowsActivityConfig.TAB_CODE, this.f16678i);
             bundle.putString("tab_url", this.j);
             bundle.putInt("tab_type", this.k);
         }
@@ -424,17 +424,17 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         super.onUserChanged(z);
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void r() {
         u();
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void t() {
     }
 
     public final void u() {
-        if (this.n == null || this.m == null || this.q || TextUtils.isEmpty(this.f11980e) || !j.z()) {
+        if (this.n == null || this.m == null || this.q || TextUtils.isEmpty(this.f12062e) || !j.z()) {
             return;
         }
         this.q = true;
@@ -443,14 +443,14 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         this.m.setVisibility(8);
         hideNetRefreshView(this.n);
         showLoadingView(this.n);
-        k1(this.f11980e);
+        k1(this.f12062e);
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void v() {
     }
 
-    @Override // d.a.n0.r0.o0
+    @Override // d.a.o0.r0.o0
     public void z(b0 b0Var) {
     }
 }

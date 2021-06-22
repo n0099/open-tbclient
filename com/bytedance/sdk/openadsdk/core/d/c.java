@@ -7,82 +7,82 @@ import org.json.JSONArray;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27926a;
+    public String f28008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27927b;
+    public String f28009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27928c;
+    public String f28010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f27929d;
+    public JSONArray f28011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27930e;
+    public String f28012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27931f;
+    public String f28013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, String> f27932g = new HashMap<>();
+    public HashMap<String, String> f28014g = new HashMap<>();
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f27932g.put(str, str2);
+        this.f28014g.put(str, str2);
     }
 
     public String b() {
-        return this.f27926a;
+        return this.f28008a;
     }
 
     public String c() {
-        return this.f27927b;
+        return this.f28009b;
     }
 
     public String d() {
-        return this.f27928c;
+        return this.f28010c;
     }
 
     public JSONArray e() {
-        return this.f27929d;
+        return this.f28011d;
     }
 
     public String f() {
-        return this.f27930e;
+        return this.f28012e;
     }
 
     public String g() {
-        return this.f27931f;
+        return this.f28013f;
     }
 
     public void b(String str) {
-        this.f27927b = str;
+        this.f28009b = str;
     }
 
     public void c(String str) {
-        this.f27928c = str;
+        this.f28010c = str;
     }
 
     public void d(String str) {
-        this.f27930e = str;
+        this.f28012e = str;
     }
 
     public void e(String str) {
-        this.f27931f = str;
+        this.f28013f = str;
     }
 
     public HashMap<String, String> a() {
-        return this.f27932g;
+        return this.f28014g;
     }
 
     public void a(String str) {
-        this.f27926a = str;
+        this.f28008a = str;
     }
 
     public void a(JSONArray jSONArray) {
-        this.f27929d = jSONArray;
+        this.f28011d = jSONArray;
     }
 }

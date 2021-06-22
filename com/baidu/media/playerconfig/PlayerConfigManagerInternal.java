@@ -168,33 +168,33 @@ public class PlayerConfigManagerInternal {
             if (string != null) {
                 if (!string.isEmpty()) {
                     aVar = new d.a.y.d.a(str);
-                    aVar.f68596e = string.split(";");
-                    aVar.f68597f = jSONObject.getString("cntl_id");
+                    aVar.f68700e = string.split(";");
+                    aVar.f68701f = jSONObject.getString("cntl_id");
                     try {
                         boolean z = true;
                         if (jSONObject.getJSONObject("pcdn_config").getInt(SetImageWatermarkTypeReqMsg.SWITCH) != 1) {
                             z = false;
                         }
-                        aVar.f68598g = z;
+                        aVar.f68702g = z;
                     } catch (Exception e2) {
                         CyberLog.e("PlayerServer-PlyrCnfgMngr", "update pcdn_config fail", e2);
                     }
                     try {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("cdn_config").getJSONObject("limit_rate");
-                        aVar.f68600i.f68601e = jSONObject2.getInt("sle");
-                        aVar.f68600i.f68602f = (float) jSONObject2.getDouble("sl_rate");
-                        aVar.f68600i.f68603g = (float) jSONObject2.getDouble("split_rate");
+                        aVar.f68704i.f68705e = jSONObject2.getInt("sle");
+                        aVar.f68704i.f68706f = (float) jSONObject2.getDouble("sl_rate");
+                        aVar.f68704i.f68707g = (float) jSONObject2.getDouble("split_rate");
                     } catch (Exception e3) {
                         CyberLog.e("PlayerServer-PlyrCnfgMngr", "update cdn config fail", e3);
                     }
                     try {
                         JSONObject jSONObject3 = jSONObject.getJSONObject("prefetch_config");
-                        aVar.j.f68604e = jSONObject3.getInt("duration");
-                        aVar.j.f68605f = jSONObject3.getInt("pcdn_enable");
-                        aVar.j.f68606g = jSONObject3.getInt("p2p_enable");
+                        aVar.j.f68708e = jSONObject3.getInt("duration");
+                        aVar.j.f68709f = jSONObject3.getInt("pcdn_enable");
+                        aVar.j.f68710g = jSONObject3.getInt("p2p_enable");
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("limit_rate");
-                        aVar.j.f68607h = jSONObject4.getInt("sle");
-                        aVar.j.f68608i = (float) jSONObject4.getDouble("sl_rate");
+                        aVar.j.f68711h = jSONObject4.getInt("sle");
+                        aVar.j.f68712i = (float) jSONObject4.getDouble("sl_rate");
                         aVar.j.j = (float) jSONObject4.getDouble("split_rate");
                     } catch (Exception e4) {
                         CyberLog.e("PlayerServer-PlyrCnfgMngr", "update prefetch config fail", e4);
@@ -251,7 +251,7 @@ public class PlayerConfigManagerInternal {
             if (!a3.c()) {
                 CyberLog.i("PlayerServer-PlyrCnfgMngr", "The player server config is invalidate, use old uri continue!");
                 return uri;
-            } else if (!f(uri.getHost(), a3.f68596e)) {
+            } else if (!f(uri.getHost(), a3.f68700e)) {
                 CyberLog.i("PlayerServer-PlyrCnfgMngr", "host : " + uri.getHost() + " not match");
                 return uri;
             } else {
@@ -266,12 +266,12 @@ public class PlayerConfigManagerInternal {
                 boolean z2 = false;
                 for (int i5 = 0; i5 < split.length; i5++) {
                     if (split[i5].indexOf("sle") != -1) {
-                        split[i5] = "sle=" + a3.f68600i.f68601e;
+                        split[i5] = "sle=" + a3.f68704i.f68705e;
                         z2 = true;
                     } else if (split[i5].indexOf("sl") != -1) {
-                        split[i5] = "sl=" + ((int) ((a3.f68600i.f68602f * i2) / 8.0f));
+                        split[i5] = "sl=" + ((int) ((a3.f68704i.f68706f * i2) / 8.0f));
                     } else if (split[i5].indexOf("split") != -1) {
-                        split[i5] = "split=" + ((int) ((((a3.f68600i.f68603g * i2) * 1024.0f) / 8.0f) + i3));
+                        split[i5] = "split=" + ((int) ((((a3.f68704i.f68707g * i2) * 1024.0f) / 8.0f) + i3));
                     } else {
                         if (split[i5].indexOf("vt") != -1) {
                             i4 = Integer.parseInt(split[i5].substring(3));
@@ -291,15 +291,15 @@ public class PlayerConfigManagerInternal {
                         buildUpon.appendQueryParameter(split2[0], split2[1]);
                     }
                     if (!z2) {
-                        buildUpon.appendQueryParameter("sle", "" + a3.f68600i.f68601e);
+                        buildUpon.appendQueryParameter("sle", "" + a3.f68704i.f68705e);
                         StringBuilder sb = new StringBuilder();
                         sb.append("");
-                        sb.append((int) ((a3.f68600i.f68602f * ((float) i2)) / 8.0f));
+                        sb.append((int) ((a3.f68704i.f68706f * ((float) i2)) / 8.0f));
                         buildUpon.appendQueryParameter("sl", sb.toString());
-                        buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f68600i.f68603g * f2) * 1024.0f) / 8.0f) + i3)));
+                        buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f68704i.f68707g * f2) * 1024.0f) / 8.0f) + i3)));
                     }
-                    if (a3.f68597f != null && a3.f68597f.length() > 0) {
-                        buildUpon.appendQueryParameter("ctid", a3.f68597f);
+                    if (a3.f68701f != null && a3.f68701f.length() > 0) {
+                        buildUpon.appendQueryParameter("ctid", a3.f68701f);
                     }
                     return buildUpon.build();
                 } catch (Exception unused) {
@@ -342,7 +342,7 @@ public class PlayerConfigManagerInternal {
                 if (!a3.c()) {
                     CyberLog.i("PlayerServer-PlyrCnfgMngr", "The player server config is invalidate, use old uri continue!");
                     return null;
-                } else if (!f(uri.getHost(), a3.f68596e)) {
+                } else if (!f(uri.getHost(), a3.f68700e)) {
                     CyberLog.i("PlayerServer-PlyrCnfgMngr", "host : " + uri.getHost() + " not match");
                     return null;
                 } else {
@@ -357,10 +357,10 @@ public class PlayerConfigManagerInternal {
                         boolean z2 = false;
                         for (int i5 = 0; i5 < split.length; i5++) {
                             if (split[i5].indexOf("sle") != -1) {
-                                split[i5] = "sle=" + a3.j.f68607h;
+                                split[i5] = "sle=" + a3.j.f68711h;
                                 z2 = true;
                             } else if (split[i5].indexOf("sl") != -1) {
-                                split[i5] = "sl=" + ((int) ((a3.j.f68608i * i2) / 8.0f));
+                                split[i5] = "sl=" + ((int) ((a3.j.f68712i * i2) / 8.0f));
                             } else if (split[i5].indexOf("split") != -1) {
                                 split[i5] = "split=" + ((int) ((((a3.j.j * i2) * 1024.0f) / 8.0f) + i3));
                             } else {
@@ -379,17 +379,17 @@ public class PlayerConfigManagerInternal {
                                     buildUpon.appendQueryParameter(split2[0], split2[1]);
                                 }
                                 if (!z2) {
-                                    buildUpon.appendQueryParameter("sle", "" + a3.j.f68607h);
+                                    buildUpon.appendQueryParameter("sle", "" + a3.j.f68711h);
                                     StringBuilder sb = new StringBuilder();
                                     sb.append("");
-                                    sb.append((int) ((a3.j.f68608i * ((float) i2)) / 8.0f));
+                                    sb.append((int) ((a3.j.f68712i * ((float) i2)) / 8.0f));
                                     buildUpon.appendQueryParameter("sl", sb.toString());
                                     buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.j.j * f2) * 1024.0f) / 8.0f) + i3)));
                                 }
-                                if (a3.f68597f != null && a3.f68597f.length() > 0) {
-                                    buildUpon.appendQueryParameter("ctid", a3.f68597f);
+                                if (a3.f68701f != null && a3.f68701f.length() > 0) {
+                                    buildUpon.appendQueryParameter("ctid", a3.f68701f);
                                 }
-                                return new b(buildUpon.build().toString(), (((i2 * 1024) / 8) * a3.j.f68604e) + i3);
+                                return new b(buildUpon.build().toString(), (((i2 * 1024) / 8) * a3.j.f68708e) + i3);
                             } catch (Exception unused) {
                                 return null;
                             }

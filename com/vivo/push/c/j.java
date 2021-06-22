@@ -7,34 +7,34 @@ import java.util.List;
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40270a;
+    public final /* synthetic */ int f40373a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f40271b;
+    public final /* synthetic */ List f40374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f40272c;
+    public final /* synthetic */ List f40375c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f40273d;
+    public final /* synthetic */ String f40376d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f40274e;
+    public final /* synthetic */ h f40377e;
 
     public j(h hVar, int i2, List list, List list2, String str) {
-        this.f40274e = hVar;
-        this.f40270a = i2;
-        this.f40271b = list;
-        this.f40272c = list2;
-        this.f40273d = str;
+        this.f40377e = hVar;
+        this.f40373a = i2;
+        this.f40374b = list;
+        this.f40375c = list2;
+        this.f40376d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        h hVar = this.f40274e;
-        PushMessageCallback pushMessageCallback = ((ab) hVar).f40249b;
-        context = hVar.f40431a;
-        pushMessageCallback.onDelAlias(context, this.f40270a, this.f40271b, this.f40272c, this.f40273d);
+        h hVar = this.f40377e;
+        PushMessageCallback pushMessageCallback = ((ab) hVar).f40352b;
+        context = hVar.f40534a;
+        pushMessageCallback.onDelAlias(context, this.f40373a, this.f40374b, this.f40375c, this.f40376d);
     }
 }

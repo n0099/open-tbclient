@@ -14,7 +14,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public ReplyMessageFragment mReplyMessageFragment;
     public VoiceManager mVoiceManager;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }

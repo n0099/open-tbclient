@@ -3,6 +3,7 @@ package com.baidu.searchbox.feed.util;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.IllegalFormatException;
 /* loaded from: classes2.dex */
 public final class LogEx {
@@ -56,7 +57,7 @@ public final class LogEx {
         String str3;
         if (str != null) {
             if (str2 != null) {
-                str3 = "[" + Thread.currentThread().getName() + "]" + str2;
+                str3 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + PreferencesUtil.RIGHT_MOUNT + str2;
             } else {
                 str3 = MESSAGE_IS_EMPTY;
             }

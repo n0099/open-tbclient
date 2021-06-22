@@ -5,15 +5,15 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import d.a.l0.k.r.c;
+import d.a.m0.k.r.c;
 /* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public c<View> f11889a = new c<>(5);
+    public c<View> f11971a = new c<>(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f11890b = new SparseArray<>();
+    public SparseArray<View> f11972b = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -31,8 +31,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.f11889a.b(view);
-        this.f11890b.remove(i2);
+        this.f11971a.b(view);
+        this.f11972b.remove(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -42,11 +42,11 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        View a2 = this.f11889a.a();
+        View a2 = this.f11971a.a();
         if (a2 == null) {
             a2 = b(viewGroup, i2);
         }
-        this.f11890b.put(i2, a2);
+        this.f11972b.put(i2, a2);
         viewGroup.addView(a2);
         a(a2, i2);
         return a2;

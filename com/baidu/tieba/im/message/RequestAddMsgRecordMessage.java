@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
 import tbclient.AddMsgRecord.DataReq;

@@ -3,36 +3,36 @@ package com.tencent.open.utils;
 public final class l implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40178a;
+    public int f40281a;
 
     public l(byte[] bArr) {
         this(bArr, 0);
     }
 
     public byte[] a() {
-        int i2 = this.f40178a;
+        int i2 = this.f40281a;
         return new byte[]{(byte) (i2 & 255), (byte) ((i2 & 65280) >> 8)};
     }
 
     public int b() {
-        return this.f40178a;
+        return this.f40281a;
     }
 
     public boolean equals(Object obj) {
-        return obj != null && (obj instanceof l) && this.f40178a == ((l) obj).b();
+        return obj != null && (obj instanceof l) && this.f40281a == ((l) obj).b();
     }
 
     public int hashCode() {
-        return this.f40178a;
+        return this.f40281a;
     }
 
     public l(byte[] bArr, int i2) {
         int i3 = (bArr[i2 + 1] << 8) & 65280;
-        this.f40178a = i3;
-        this.f40178a = i3 + (bArr[i2] & 255);
+        this.f40281a = i3;
+        this.f40281a = i3 + (bArr[i2] & 255);
     }
 
     public l(int i2) {
-        this.f40178a = i2;
+        this.f40281a = i2;
     }
 }

@@ -117,12 +117,12 @@ public final class b {
     public static final int pay_ui_pei_action_bar_red_dot_margin = 2131166402;
     public static final int pay_ui_pei_action_bar_text_padding = 2131166403;
     public static final int pay_ui_shenqu_watchcoun = 2131166404;
-    public static final int tooltip_corner_radius = 2131167382;
-    public static final int tooltip_horizontal_padding = 2131167383;
-    public static final int tooltip_margin = 2131167384;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167385;
-    public static final int tooltip_precise_anchor_threshold = 2131167386;
-    public static final int tooltip_vertical_padding = 2131167387;
-    public static final int tooltip_y_offset_non_touch = 2131167388;
-    public static final int tooltip_y_offset_touch = 2131167389;
+    public static final int tooltip_corner_radius = 2131167383;
+    public static final int tooltip_horizontal_padding = 2131167384;
+    public static final int tooltip_margin = 2131167385;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167386;
+    public static final int tooltip_precise_anchor_threshold = 2131167387;
+    public static final int tooltip_vertical_padding = 2131167388;
+    public static final int tooltip_y_offset_non_touch = 2131167389;
+    public static final int tooltip_y_offset_touch = 2131167390;
 }

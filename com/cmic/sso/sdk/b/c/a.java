@@ -22,17 +22,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f30624a;
+    public static a f30706a;
 
     public static a a() {
-        if (f30624a == null) {
+        if (f30706a == null) {
             synchronized (a.class) {
-                if (f30624a == null) {
-                    f30624a = new a();
+                if (f30706a == null) {
+                    f30706a = new a();
                 }
             }
         }
-        return f30624a;
+        return f30706a;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
@@ -90,7 +90,7 @@ public class a {
             bVar.a("defendEOF", "0");
         } else {
             e eVar = new e();
-            eVar.a(aVar.a(b.a.f30569a));
+            eVar.a(aVar.a(b.a.f30651a));
             eVar.a(hVar);
             eVar.a(false);
             aVar.a("isCloseIpv4", q.b());
@@ -99,9 +99,9 @@ public class a {
             if (aVar.b("use2048PublicKey", false)) {
                 com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
                 eVar.b("2");
-                a2 = i.a().b(aVar.a(b.a.f30569a));
+                a2 = i.a().b(aVar.a(b.a.f30651a));
             } else {
-                a2 = i.a().a(aVar.a(b.a.f30569a));
+                a2 = i.a().a(aVar.a(b.a.f30651a));
             }
             eVar.c(a2);
             bVar = new b(str, eVar, "POST", aVar.b("traceId"));

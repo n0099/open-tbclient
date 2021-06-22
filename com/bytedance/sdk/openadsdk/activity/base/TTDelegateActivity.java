@@ -39,25 +39,25 @@ import org.json.JSONObject;
 public class TTDelegateActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f27168a;
+    public Intent f27250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlertDialog f27169b;
+    public AlertDialog f27251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTAdDislike f27170c;
+    public TTAdDislike f27252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f27171d;
+    public e f27253d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f27172e;
+    public d f27254e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.widget.a f27173f;
+    public com.bytedance.sdk.openadsdk.core.widget.a f27255f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f27174g;
+    public b f27256g;
 
     /* loaded from: classes6.dex */
     public static class a extends g {
@@ -73,10 +73,10 @@ public class TTDelegateActivity extends Activity {
     }
 
     private void c(String str) {
-        if (str != null && this.f27170c == null) {
+        if (str != null && this.f27252c == null) {
             try {
                 com.bytedance.sdk.openadsdk.dislike.b bVar = new com.bytedance.sdk.openadsdk.dislike.b(this, c.a(new JSONObject(str)));
-                this.f27170c = bVar;
+                this.f27252c = bVar;
                 bVar.setDislikeInteractionCallback(new TTAdDislike.DislikeInteractionCallback() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.12
                     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
                     public void onCancel() {
@@ -96,7 +96,7 @@ public class TTDelegateActivity extends Activity {
                 e2.printStackTrace();
             }
         }
-        TTAdDislike tTAdDislike = this.f27170c;
+        TTAdDislike tTAdDislike = this.f27252c;
         if (tTAdDislike != null) {
             tTAdDislike.showDislikeDialog(0);
         }
@@ -106,7 +106,7 @@ public class TTDelegateActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         a();
-        this.f27168a = getIntent();
+        this.f27250a = getIntent();
         if (p.a() == null) {
             p.a(this);
         }
@@ -116,17 +116,17 @@ public class TTDelegateActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         try {
-            if (this.f27169b != null && this.f27169b.isShowing()) {
-                this.f27169b.dismiss();
+            if (this.f27251b != null && this.f27251b.isShowing()) {
+                this.f27251b.dismiss();
             }
-            if (this.f27172e != null && this.f27172e.isShowing()) {
-                this.f27172e.dismiss();
+            if (this.f27254e != null && this.f27254e.isShowing()) {
+                this.f27254e.dismiss();
             }
-            if (this.f27173f != null && this.f27173f.isShowing()) {
-                this.f27173f.dismiss();
+            if (this.f27255f != null && this.f27255f.isShowing()) {
+                this.f27255f.dismiss();
             }
-            if (this.f27174g != null && this.f27174g.isShowing()) {
-                this.f27174g.dismiss();
+            if (this.f27256g != null && this.f27256g.isShowing()) {
+                this.f27256g.dismiss();
             }
         } catch (Throwable unused) {
         }
@@ -141,7 +141,7 @@ public class TTDelegateActivity extends Activity {
         }
         try {
             setIntent(intent);
-            this.f27168a = intent;
+            this.f27250a = intent;
         } catch (Throwable unused) {
         }
     }
@@ -163,12 +163,12 @@ public class TTDelegateActivity extends Activity {
 
     private void b() {
         try {
-            if (this.f27168a == null) {
+            if (this.f27250a == null) {
                 return;
             }
-            int intExtra = this.f27168a.getIntExtra("type", 0);
-            String stringExtra = this.f27168a.getStringExtra("app_download_url");
-            this.f27168a.getStringExtra("app_name");
+            int intExtra = this.f27250a.getIntExtra("type", 0);
+            String stringExtra = this.f27250a.getStringExtra("app_download_url");
+            this.f27250a.getStringExtra("app_name");
             switch (intExtra) {
                 case 1:
                     break;
@@ -176,28 +176,28 @@ public class TTDelegateActivity extends Activity {
                     c();
                     break;
                 case 3:
-                    a(stringExtra, this.f27168a.getStringExtra("dialog_title_key"), this.f27168a.getStringExtra("dialog_content_key"));
+                    a(stringExtra, this.f27250a.getStringExtra("dialog_title_key"), this.f27250a.getStringExtra("dialog_content_key"));
                     break;
                 case 4:
-                    b(this.f27168a.getStringExtra("permission_id_key"), this.f27168a.getStringArrayExtra("permission_content_key"));
+                    b(this.f27250a.getStringExtra("permission_id_key"), this.f27250a.getStringArrayExtra("permission_content_key"));
                     break;
                 case 5:
-                    a(stringExtra, this.f27168a.getStringExtra("dialog_title_key"), this.f27168a.getStringExtra("dialog_content_key"), this.f27168a.getStringExtra("dialog_btn_yes_key"), this.f27168a.getStringExtra("dialog_btn_no_key"));
+                    a(stringExtra, this.f27250a.getStringExtra("dialog_title_key"), this.f27250a.getStringExtra("dialog_content_key"), this.f27250a.getStringExtra("dialog_btn_yes_key"), this.f27250a.getStringExtra("dialog_btn_no_key"));
                     break;
                 case 6:
-                    c(this.f27168a.getStringExtra("materialmeta"));
+                    c(this.f27250a.getStringExtra("materialmeta"));
                     break;
                 case 7:
-                    if (this.f27168a != null) {
-                        a(this.f27168a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27168a.getStringExtra("dialog_title_key"), this.f27168a.getStringExtra("dialog_app_manage_model_icon_url"), this.f27168a.getBooleanExtra("dialog_app_detail_is_download_type", false));
+                    if (this.f27250a != null) {
+                        a(this.f27250a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27250a.getStringExtra("dialog_title_key"), this.f27250a.getStringExtra("dialog_app_manage_model_icon_url"), this.f27250a.getBooleanExtra("dialog_app_detail_is_download_type", false));
                         break;
                     }
                     break;
                 case 8:
-                    a(this.f27168a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27168a.getStringExtra("dialog_title_key"), this.f27168a.getBooleanExtra("dialog_app_detail_is_download_type", false));
+                    a(this.f27250a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27250a.getStringExtra("dialog_title_key"), this.f27250a.getBooleanExtra("dialog_app_detail_is_download_type", false));
                     break;
                 case 9:
-                    b(this.f27168a.getStringExtra("dialog_app_manage_model"));
+                    b(this.f27250a.getStringExtra("dialog_app_manage_model"));
                     break;
                 default:
                     finish();
@@ -322,18 +322,18 @@ public class TTDelegateActivity extends Activity {
 
     private void b(String str) {
         try {
-            if (this.f27174g != null) {
-                this.f27174g.dismiss();
+            if (this.f27256g != null) {
+                this.f27256g.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.b bVar = new com.bytedance.sdk.openadsdk.core.widget.b(this, str);
-            this.f27174g = bVar;
+            this.f27256g = bVar;
             bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.10
                 @Override // com.bytedance.sdk.openadsdk.core.widget.b.a
                 public void a(Dialog dialog) {
                     TTDelegateActivity.this.finish();
                 }
             });
-            this.f27174g.show();
+            this.f27256g.show();
         } catch (Throwable unused) {
         }
     }
@@ -341,32 +341,32 @@ public class TTDelegateActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final String str, final String str2, String str3, boolean z) {
         try {
-            if (this.f27173f != null) {
-                this.f27173f.dismiss();
+            if (this.f27255f != null) {
+                this.f27255f.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.a aVar = new com.bytedance.sdk.openadsdk.core.widget.a(this, str);
-            this.f27173f = aVar;
-            aVar.a(str3).a(new a.InterfaceC0302a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.11
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+            this.f27255f = aVar;
+            aVar.a(str3).a(new a.InterfaceC0305a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.11
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                 public void a(Dialog dialog) {
                     com.bytedance.sdk.openadsdk.utils.g.a(str2);
                     TTDelegateActivity.this.finish();
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                 public void b(Dialog dialog) {
-                    if (TTDelegateActivity.this.f27173f != null) {
-                        TTDelegateActivity.this.f27173f.dismiss();
+                    if (TTDelegateActivity.this.f27255f != null) {
+                        TTDelegateActivity.this.f27255f.dismiss();
                     }
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                 public void c(Dialog dialog) {
                     TTDelegateActivity.this.a(str);
                 }
             });
-            this.f27173f.a(z);
-            this.f27173f.show();
+            this.f27255f.a(z);
+            this.f27255f.show();
         } catch (Throwable unused) {
         }
     }
@@ -470,7 +470,7 @@ public class TTDelegateActivity extends Activity {
                     str5 = str3;
                 }
             }
-            if (this.f27172e == null || !this.f27172e.isShowing()) {
+            if (this.f27254e == null || !this.f27254e.isShowing()) {
                 d a2 = new d(this).a(str5).b(str7).c(str4).d(str6).a(new d.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.7
                     @Override // com.bytedance.sdk.openadsdk.core.widget.d.a
                     public void a(Dialog dialog) {
@@ -494,7 +494,7 @@ public class TTDelegateActivity extends Activity {
                         TTDelegateActivity.this.a(str);
                     }
                 });
-                this.f27172e = a2;
+                this.f27254e = a2;
                 a2.show();
             }
         } catch (Throwable unused) {
@@ -503,29 +503,29 @@ public class TTDelegateActivity extends Activity {
 
     private void a(final String str, final String str2, String str3, boolean z) {
         try {
-            if (this.f27173f == null || !this.f27173f.isShowing()) {
+            if (this.f27255f == null || !this.f27255f.isShowing()) {
                 com.bytedance.sdk.openadsdk.core.widget.a aVar = new com.bytedance.sdk.openadsdk.core.widget.a(this, str);
-                this.f27173f = aVar;
-                aVar.a(str3).a(new a.InterfaceC0302a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.8
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+                this.f27255f = aVar;
+                aVar.a(str3).a(new a.InterfaceC0305a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.8
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                     public void a(Dialog dialog) {
                         com.bytedance.sdk.openadsdk.utils.g.a(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                     public void b(Dialog dialog) {
                         com.bytedance.sdk.openadsdk.utils.g.c(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0302a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0305a
                     public void c(Dialog dialog) {
                         TTDelegateActivity.this.a(str);
                     }
                 });
-                this.f27173f.a(z);
-                this.f27173f.show();
+                this.f27255f.a(z);
+                this.f27255f.show();
             }
         } catch (Throwable unused) {
         }
@@ -534,31 +534,31 @@ public class TTDelegateActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         try {
-            if (this.f27174g != null) {
-                this.f27174g.dismiss();
+            if (this.f27256g != null) {
+                this.f27256g.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.b bVar = new com.bytedance.sdk.openadsdk.core.widget.b(this, str);
-            this.f27174g = bVar;
+            this.f27256g = bVar;
             bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.9
                 @Override // com.bytedance.sdk.openadsdk.core.widget.b.a
                 public void a(Dialog dialog) {
-                    if (TTDelegateActivity.this.f27174g != null) {
-                        TTDelegateActivity.this.f27174g.dismiss();
+                    if (TTDelegateActivity.this.f27256g != null) {
+                        TTDelegateActivity.this.f27256g.dismiss();
                     }
                 }
             });
-            this.f27174g.show();
+            this.f27256g.show();
         } catch (Throwable unused) {
         }
     }
 
     private void a(final String str, String str2, String str3, String str4, String str5) {
-        AlertDialog alertDialog = this.f27169b;
+        AlertDialog alertDialog = this.f27251b;
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
-        if (this.f27171d == null) {
-            this.f27171d = new e(this).a(str2).b(str3).c(str4).d(str5).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.14
+        if (this.f27253d == null) {
+            this.f27253d = new e(this).a(str2).b(str3).c(str4).d(str5).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.14
                 @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
                 public void a(Dialog dialog) {
                     com.bytedance.sdk.openadsdk.utils.g.a(str);
@@ -578,10 +578,10 @@ public class TTDelegateActivity extends Activity {
                 }
             });
         }
-        if (!this.f27171d.isShowing()) {
-            this.f27171d.show();
+        if (!this.f27253d.isShowing()) {
+            this.f27253d.show();
         }
-        this.f27169b = this.f27171d;
+        this.f27251b = this.f27253d;
     }
 
     private void a(final String str, String str2, String str3) {
@@ -615,18 +615,18 @@ public class TTDelegateActivity extends Activity {
 
     private void a(String str, String str2, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2, DialogInterface.OnCancelListener onCancelListener) {
         try {
-            if (this.f27169b == null) {
-                this.f27169b = new AlertDialog.Builder(this, ad.g(this, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).create();
+            if (this.f27251b == null) {
+                this.f27251b = new AlertDialog.Builder(this, ad.g(this, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).create();
             }
-            this.f27169b.setTitle(String.valueOf(str));
-            this.f27169b.setMessage(String.valueOf(str2));
-            this.f27169b.setButton(-1, ad.a(this, "tt_label_ok"), onClickListener);
-            this.f27169b.setButton(-2, ad.a(this, "tt_label_cancel"), onClickListener2);
-            this.f27169b.setOnCancelListener(onCancelListener);
-            if (this.f27169b.isShowing()) {
+            this.f27251b.setTitle(String.valueOf(str));
+            this.f27251b.setMessage(String.valueOf(str2));
+            this.f27251b.setButton(-1, ad.a(this, "tt_label_ok"), onClickListener);
+            this.f27251b.setButton(-2, ad.a(this, "tt_label_cancel"), onClickListener2);
+            this.f27251b.setOnCancelListener(onCancelListener);
+            if (this.f27251b.isShowing()) {
                 return;
             }
-            this.f27169b.show();
+            this.f27251b.show();
         } catch (Exception e2) {
             e2.printStackTrace();
         }

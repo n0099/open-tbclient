@@ -9,10 +9,10 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         @MainThread
         void a(int i2, String str);
@@ -30,8 +30,8 @@ public class i {
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f34412a) {
-                    arrayList.add(fVar.f34277a);
+                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f34510a) {
+                    arrayList.add(fVar.f34375a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);

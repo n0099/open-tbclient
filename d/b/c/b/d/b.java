@@ -7,41 +7,41 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69471a;
+    public final int f69575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a> f69472b;
+    public final List<a> f69576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f69473c;
+    public final int f69577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final InputStream f69474d;
+    public final InputStream f69578d;
 
     public b(int i2, List<a> list) {
         this(i2, list, -1, null);
     }
 
     public final InputStream a() {
-        return this.f69474d;
+        return this.f69578d;
     }
 
     public final int b() {
-        return this.f69473c;
+        return this.f69577c;
     }
 
     public final List<a> c() {
-        return Collections.unmodifiableList(this.f69472b);
+        return Collections.unmodifiableList(this.f69576b);
     }
 
     public final int d() {
-        return this.f69471a;
+        return this.f69575a;
     }
 
     public b(int i2, List<a> list, int i3, InputStream inputStream) {
-        this.f69471a = i2;
-        this.f69472b = list;
-        this.f69473c = i3;
-        this.f69474d = inputStream;
+        this.f69575a = i2;
+        this.f69576b = list;
+        this.f69577c = i3;
+        this.f69578d = inputStream;
     }
 }

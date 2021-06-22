@@ -13,18 +13,18 @@ import java.util.List;
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UnvarnishedMessage f40314a;
+    public final /* synthetic */ UnvarnishedMessage f40417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f40315b;
+    public final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f40418b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f40316c;
+    public final /* synthetic */ LocalAliasTagsManager f40419c;
 
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
-        this.f40316c = localAliasTagsManager;
-        this.f40314a = unvarnishedMessage;
-        this.f40315b = localMessageCallback;
+        this.f40419c = localAliasTagsManager;
+        this.f40417a = unvarnishedMessage;
+        this.f40418b = localMessageCallback;
     }
 
     @Override // java.lang.Runnable
@@ -32,11 +32,11 @@ public final class j implements Runnable {
         Handler handler;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
         ISubscribeAppTagManager iSubscribeAppTagManager;
-        int targetType = this.f40314a.getTargetType();
-        String tragetContent = this.f40314a.getTragetContent();
+        int targetType = this.f40417a.getTargetType();
+        String tragetContent = this.f40417a.getTragetContent();
         if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
             if (targetType == 3) {
-                iSubscribeAppAliasManager = this.f40316c.mSubscribeAppAliasManager;
+                iSubscribeAppAliasManager = this.f40419c.mSubscribeAppAliasManager;
                 SubscribeAppInfo subscribeAppInfo = iSubscribeAppAliasManager.getSubscribeAppInfo();
                 if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
                     p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, tragetContent);
@@ -44,7 +44,7 @@ public final class j implements Runnable {
                     return;
                 }
             } else if (targetType == 4) {
-                iSubscribeAppTagManager = this.f40316c.mSubscribeAppTagManager;
+                iSubscribeAppTagManager = this.f40419c.mSubscribeAppTagManager;
                 List<String> subscribeTags = iSubscribeAppTagManager.getSubscribeTags();
                 if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
                     ArrayList<String> arrayList = new ArrayList<>();
@@ -55,7 +55,7 @@ public final class j implements Runnable {
                 }
             }
         }
-        handler = this.f40316c.mHandler;
+        handler = this.f40419c.mHandler;
         handler.post(new k(this));
     }
 }

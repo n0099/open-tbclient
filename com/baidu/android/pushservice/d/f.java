@@ -1,4 +1,6 @@
 package com.baidu.android.pushservice.d;
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public class f {
 
@@ -22,6 +24,6 @@ public class f {
     }
 
     public String toString() {
-        return "BindCache [mApiKey=" + this.f3023a + ", mContent=" + this.f3024b + "]";
+        return "BindCache [mApiKey=" + this.f3023a + ", mContent=" + this.f3024b + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -7,13 +7,13 @@ import java.util.Observable;
 public class AudioRecorder extends Observable implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f23201a;
+    public AudioRecord f23283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f23202b;
+    public State f23284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f23203c;
+    public byte[] f23285c;
 
     /* loaded from: classes5.dex */
     public enum State {
@@ -28,36 +28,36 @@ public class AudioRecorder extends Observable implements Runnable {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AudioRecorder f23204a = new AudioRecorder();
+        public static final AudioRecorder f23286a = new AudioRecorder();
     }
 
     private void a(State state) {
-        this.f23202b = state;
+        this.f23284b = state;
         setChanged();
         notifyObservers(state);
     }
 
     public static AudioRecorder getInstance() {
-        return a.f23204a;
+        return a.f23286a;
     }
 
     public void end() {
-        if (State.RUNNING == this.f23202b) {
-            this.f23202b = State.STOP;
+        if (State.RUNNING == this.f23284b) {
+            this.f23284b = State.STOP;
         }
     }
 
     public State getState() {
-        return this.f23202b;
+        return this.f23284b;
     }
 
     public synchronized boolean init(int i2, int i3, int i4, int i5) {
-        if (this.f23202b == null || State.DESTROY == this.f23202b) {
+        if (this.f23284b == null || State.DESTROY == this.f23284b) {
             try {
                 AudioRecord audioRecord = new AudioRecord(1, i2, i3, i4, i5);
-                this.f23201a = audioRecord;
+                this.f23283a = audioRecord;
                 if (1 == audioRecord.getState()) {
-                    this.f23203c = new byte[i5];
+                    this.f23285c = new byte[i5];
                     a(State.INIT);
                     return true;
                 }
@@ -71,18 +71,18 @@ public class AudioRecorder extends Observable implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        AudioRecord audioRecord = this.f23201a;
+        AudioRecord audioRecord = this.f23283a;
         if (audioRecord == null) {
             return;
         }
         audioRecord.startRecording();
         a(State.OPEN);
-        ByteBuffer wrap = ByteBuffer.wrap(this.f23203c);
-        this.f23202b = State.RUNNING;
-        while (State.RUNNING == this.f23202b) {
+        ByteBuffer wrap = ByteBuffer.wrap(this.f23285c);
+        this.f23284b = State.RUNNING;
+        while (State.RUNNING == this.f23284b) {
             wrap.clear();
-            AudioRecord audioRecord2 = this.f23201a;
-            byte[] bArr = this.f23203c;
+            AudioRecord audioRecord2 = this.f23283a;
+            byte[] bArr = this.f23285c;
             int read = audioRecord2.read(bArr, 0, bArr.length);
             if (read <= 0) {
                 break;
@@ -91,17 +91,17 @@ public class AudioRecorder extends Observable implements Runnable {
             setChanged();
             notifyObservers(wrap);
         }
-        this.f23201a.stop();
+        this.f23283a.stop();
         a(State.STOP);
-        this.f23201a.release();
-        this.f23201a = null;
+        this.f23283a.release();
+        this.f23283a = null;
         a(State.DESTROY);
         deleteObservers();
-        this.f23203c = null;
+        this.f23285c = null;
     }
 
     public AudioRecorder() {
-        this.f23201a = null;
-        this.f23202b = null;
+        this.f23283a = null;
+        this.f23284b = null;
     }
 }

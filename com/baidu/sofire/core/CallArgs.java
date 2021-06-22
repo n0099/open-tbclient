@@ -19,22 +19,22 @@ public class CallArgs implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10162a;
+    public int f10218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10163b;
+    public int f10219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10164c;
+    public String f10220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f10165d;
+    public Object[] f10221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f10166e;
+    public Object[] f10222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f10167f;
+    public Object f10223f;
 
     public CallArgs() {
     }
@@ -46,20 +46,20 @@ public class CallArgs implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f10162a);
-        parcel.writeInt(this.f10163b);
-        parcel.writeString(this.f10164c);
-        parcel.writeArray(this.f10166e);
-        parcel.writeArray(this.f10165d);
-        parcel.writeValue(this.f10167f);
+        parcel.writeInt(this.f10218a);
+        parcel.writeInt(this.f10219b);
+        parcel.writeString(this.f10220c);
+        parcel.writeArray(this.f10222e);
+        parcel.writeArray(this.f10221d);
+        parcel.writeValue(this.f10223f);
     }
 
     public CallArgs(Parcel parcel) {
-        this.f10162a = parcel.readInt();
-        this.f10163b = parcel.readInt();
-        this.f10164c = parcel.readString();
-        this.f10166e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f10165d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f10167f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f10218a = parcel.readInt();
+        this.f10219b = parcel.readInt();
+        this.f10220c = parcel.readString();
+        this.f10222e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f10221d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f10223f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

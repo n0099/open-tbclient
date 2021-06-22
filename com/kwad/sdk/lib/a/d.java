@@ -15,94 +15,94 @@ import java.util.List;
 public abstract class d extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f36639a;
+    public View f36737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PagerSlidingTabStrip f36640b;
+    public PagerSlidingTabStrip f36738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewPager f36641c;
+    public ViewPager f36739c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.viewpager.tabstrip.a f36642d;
+    public com.kwad.sdk.lib.widget.viewpager.tabstrip.a f36740d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36643e;
+    public int f36741e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36644f = -1;
+    public int f36742f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36645g = null;
+    public String f36743g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f36646h = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.lib.a.d.1
+    public ViewPager.OnPageChangeListener f36744h = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.lib.a.d.1
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f36649b;
+        public boolean f36747b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f36650c;
+        public boolean f36748c;
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             if (d.this.j()) {
-                if (i2 == 0 && this.f36650c && this.f36649b) {
+                if (i2 == 0 && this.f36748c && this.f36747b) {
                     d dVar = d.this;
                     dVar.a(dVar.g());
-                    this.f36649b = false;
-                    this.f36650c = false;
+                    this.f36747b = false;
+                    this.f36748c = false;
                 } else if (i2 == 2) {
-                    this.f36649b = true;
+                    this.f36747b = true;
                 }
             }
-            if (d.this.f36647i != null) {
-                d.this.f36647i.onPageScrollStateChanged(i2);
+            if (d.this.f36745i != null) {
+                d.this.f36745i.onPageScrollStateChanged(i2);
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
-            if (d.this.f36647i != null) {
-                d.this.f36647i.onPageScrolled(i2, f2, i3);
+            if (d.this.f36745i != null) {
+                d.this.f36745i.onPageScrolled(i2, f2, i3);
             }
-            this.f36649b = true;
+            this.f36747b = true;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
-            this.f36650c = true;
-            if (!this.f36649b || !d.this.j()) {
+            this.f36748c = true;
+            if (!this.f36747b || !d.this.j()) {
                 d.this.a(i2);
             }
-            if (d.this.f36647i != null) {
-                d.this.f36647i.onPageSelected(i2);
+            if (d.this.f36745i != null) {
+                d.this.f36745i.onPageSelected(i2);
             }
         }
     };
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f36647i;
+    public ViewPager.OnPageChangeListener f36745i;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
         int i3;
-        com.kwad.sdk.lib.widget.viewpager.tabstrip.a aVar = this.f36642d;
-        if (aVar == null || i2 == (i3 = this.f36643e)) {
+        com.kwad.sdk.lib.widget.viewpager.tabstrip.a aVar = this.f36740d;
+        if (aVar == null || i2 == (i3 = this.f36741e)) {
             return;
         }
         aVar.a(i3);
-        this.f36642d.a(i2);
-        this.f36643e = i2;
+        this.f36740d.a(i2);
+        this.f36741e = i2;
     }
 
     private String b(int i2) {
-        return this.f36642d.c(i2);
+        return this.f36740d.c(i2);
     }
 
     private int e() {
         int a2;
-        if (h() == null || this.f36642d == null || (a2 = a(h())) < 0) {
+        if (h() == null || this.f36740d == null || (a2 = a(h())) < 0) {
             return 0;
         }
         return a2;
@@ -111,7 +111,7 @@ public abstract class d extends KsFragment {
     public abstract int a();
 
     public int a(String str) {
-        return this.f36642d.a(str);
+        return this.f36740d.a(str);
     }
 
     public void a(int i2, Bundle bundle) {
@@ -119,13 +119,13 @@ public abstract class d extends KsFragment {
     }
 
     public void a(int i2, Bundle bundle, boolean z) {
-        this.f36642d.a(i2, bundle);
-        this.f36641c.setCurrentItem(i2, z);
+        this.f36740d.a(i2, bundle);
+        this.f36739c.setCurrentItem(i2, z);
     }
 
     public void a(List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> list) {
-        this.f36642d.a(list);
-        this.f36640b.c();
+        this.f36740d.a(list);
+        this.f36738b.c();
     }
 
     public abstract int b();
@@ -139,16 +139,16 @@ public abstract class d extends KsFragment {
     }
 
     public int g() {
-        ViewPager viewPager = this.f36641c;
+        ViewPager viewPager = this.f36739c;
         return viewPager != null ? viewPager.getCurrentItem() : e();
     }
 
     public String h() {
-        if (TextUtils.isEmpty(this.f36645g)) {
-            int i2 = this.f36644f;
+        if (TextUtils.isEmpty(this.f36743g)) {
+            int i2 = this.f36742f;
             return i2 >= 0 ? b(i2) : i();
         }
-        return this.f36645g;
+        return this.f36743g;
     }
 
     public String i() {
@@ -163,7 +163,7 @@ public abstract class d extends KsFragment {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a(), viewGroup, false);
-        this.f36639a = inflate;
+        this.f36737a = inflate;
         return inflate;
     }
 
@@ -178,25 +178,25 @@ public abstract class d extends KsFragment {
         ViewPager viewPager;
         int i2;
         super.onViewCreated(view, bundle);
-        this.f36640b = (PagerSlidingTabStrip) this.f36639a.findViewById(b());
-        this.f36641c = (ViewPager) this.f36639a.findViewById(c());
-        this.f36642d = new com.kwad.sdk.lib.widget.viewpager.tabstrip.a(getActivity(), getChildFragmentManager());
+        this.f36738b = (PagerSlidingTabStrip) this.f36737a.findViewById(b());
+        this.f36739c = (ViewPager) this.f36737a.findViewById(c());
+        this.f36740d = new com.kwad.sdk.lib.widget.viewpager.tabstrip.a(getActivity(), getChildFragmentManager());
         List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> d2 = d();
-        this.f36641c.setAdapter(this.f36642d);
+        this.f36739c.setAdapter(this.f36740d);
         if (d2 != null && !d2.isEmpty()) {
-            this.f36642d.a(d2);
-            this.f36643e = e();
+            this.f36740d.a(d2);
+            this.f36741e = e();
             if (getArguments() == null || !getArguments().containsKey("last_selected_item_pos")) {
-                viewPager = this.f36641c;
-                i2 = this.f36643e;
+                viewPager = this.f36739c;
+                i2 = this.f36741e;
             } else {
-                viewPager = this.f36641c;
+                viewPager = this.f36739c;
                 i2 = getArguments().getInt("last_selected_item_pos");
             }
             viewPager.setCurrentItem(i2, false);
         }
-        this.f36640b.setViewPager(this.f36641c);
-        this.f36640b.setOnPageChangeListener(this.f36646h);
+        this.f36738b.setViewPager(this.f36739c);
+        this.f36738b.setOnPageChangeListener(this.f36744h);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

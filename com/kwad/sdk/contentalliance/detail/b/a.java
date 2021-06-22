@@ -17,10 +17,10 @@ import java.io.Serializable;
 public class a extends com.kwad.sdk.contentalliance.detail.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32693h;
+    public int f32791h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdTemplate f32694i;
+    public AdTemplate f32792i;
     public b j;
     public KsContentPage.SubShowItem k;
 
@@ -49,17 +49,17 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         super.onCreateView(layoutInflater, viewGroup, bundle);
         Bundle arguments = getArguments();
         if (arguments == null) {
-            return this.f32433c;
+            return this.f32531c;
         }
-        this.f32693h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
+        this.f32791h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
         Serializable serializable = getArguments().getSerializable("key_template");
         if (serializable instanceof AdTemplate) {
-            this.f32694i = (AdTemplate) serializable;
+            this.f32792i = (AdTemplate) serializable;
             if (this.j == null) {
                 this.j = new b();
             }
-            this.k = this.j.a(this.f32694i);
-            this.f32433c.removeAllViews();
+            this.k = this.j.a(this.f32792i);
+            this.f32531c.removeAllViews();
             KsContentPage.SubShowItem subShowItem = this.k;
             if (subShowItem != null) {
                 View instantiateItem = subShowItem.instantiateItem();
@@ -67,14 +67,14 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
                     if (instantiateItem.getParent() != null) {
                         ((ViewGroup) instantiateItem.getParent()).removeView(instantiateItem);
                     }
-                    this.f32433c.addView(instantiateItem);
+                    this.f32531c.addView(instantiateItem);
                 } else {
-                    e.i(this.f32694i);
+                    e.i(this.f32792i);
                 }
             }
-            return this.f32433c;
+            return this.f32531c;
         }
-        return this.f32433c;
+        return this.f32531c;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,11 +83,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f32713a = this.f32472e;
-        cVar.j = this.f32694i;
-        cVar.f32721i = this.f32693h;
+        cVar.f32811a = this.f32570e;
+        cVar.j = this.f32792i;
+        cVar.f32819i = this.f32791h;
         cVar.q = this.j;
-        cVar.l = this.f32471d;
+        cVar.l = this.f32569d;
         return cVar;
     }
 }

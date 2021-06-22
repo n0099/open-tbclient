@@ -6,31 +6,31 @@ import java.net.URLEncoder;
 public abstract class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30589a = "";
+    public String f30671a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30590b = "";
+    public String f30672b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30591c = "";
+    public String f30673c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30592d = "";
+    public String f30674d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30593e = "";
+    public String f30675e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30594f = "";
+    public String f30676f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30595g = "";
+    public String f30677g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30596h = "";
+    public String f30678h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30597i = "";
+    public String f30679i = "";
     public String j = "0";
     public String k = "1.0";
     public String l = "";
@@ -48,7 +48,7 @@ public abstract class a extends g {
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30591c;
+        return this.f30673c;
     }
 
     public void a_(String str) {
@@ -56,39 +56,39 @@ public abstract class a extends g {
     }
 
     public void b(String str) {
-        this.f30589a = v(str);
+        this.f30671a = v(str);
     }
 
     public void c(String str) {
-        this.f30590b = v(str);
+        this.f30672b = v(str);
     }
 
     public void d(String str) {
-        this.f30591c = v(str);
+        this.f30673c = v(str);
     }
 
     public void e(String str) {
-        this.f30592d = v(str);
+        this.f30674d = v(str);
     }
 
     public void f(String str) {
-        this.f30593e = v(str);
+        this.f30675e = v(str);
     }
 
     public void g(String str) {
-        this.f30594f = v(str);
+        this.f30676f = v(str);
     }
 
     public void h(String str) {
-        this.f30595g = URLEncoder.encode(v(str));
+        this.f30677g = URLEncoder.encode(v(str));
     }
 
     public void i(String str) {
-        this.f30596h = URLEncoder.encode(v(str));
+        this.f30678h = URLEncoder.encode(v(str));
     }
 
     public void j(String str) {
-        this.f30597i = URLEncoder.encode(v(str));
+        this.f30679i = URLEncoder.encode(v(str));
     }
 
     public void k(String str) {

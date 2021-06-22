@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class r extends t0 {
     public static final int F = d.a.c.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
@@ -27,13 +27,13 @@ public class r extends t0 {
     }
 
     public final void A() {
-        View inflate = LayoutInflater.from(this.f43689f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+        View inflate = LayoutInflater.from(this.f43782f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
         this.j = inflate;
         this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
         this.E = (TextView) this.j.findViewById(R.id.video_seg_abstract);
         this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
         this.C = (InterviewLiveLayout) this.j.findViewById(R.id.frame_interview_no_video);
-        d.a.n0.k2.q.a q = q();
+        d.a.o0.k2.q.a q = q();
         this.n = q;
         q.E().setBackgroundResource(R.color.transparent);
     }
@@ -48,7 +48,7 @@ public class r extends t0 {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
+    public void l(d.a.o0.z.b0<d.a.n0.r.q.a> b0Var) {
         this.C.setSubClickListener(b0Var);
     }
 
@@ -62,8 +62,8 @@ public class r extends t0 {
     }
 
     @Override // d.a.i.t0
-    public d.a.n0.k2.q.a q() {
-        d.a.n0.k2.q.b bVar = new d.a.n0.k2.q.b(this.f43689f, this.m);
+    public d.a.o0.k2.q.a q() {
+        d.a.o0.k2.q.b bVar = new d.a.o0.k2.q.b(this.f43782f, this.m);
         bVar.setStageType("2003");
         return bVar;
     }
@@ -71,7 +71,7 @@ public class r extends t0 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.t0, d.a.i.p
     /* renamed from: r */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         this.l = aVar;
         if (aVar == null || aVar.i() == null) {
             return;

@@ -17,10 +17,10 @@ public class VAdError extends Exception {
     public static final int UNSUPPORT_ENCODE_FAIL_CODE = 604;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27024a;
+    public int f27106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27025b;
+    public long f27107b;
     public final k networkResponse;
 
     public VAdError(k kVar) {
@@ -28,41 +28,41 @@ public class VAdError extends Exception {
     }
 
     public int getErrorCode() {
-        return this.f27024a;
+        return this.f27106a;
     }
 
     public long getNetworkTimeMs() {
-        return this.f27025b;
+        return this.f27107b;
     }
 
     public void setErrorCode(int i2) {
-        this.f27024a = i2;
+        this.f27106a = i2;
     }
 
     public void setNetworkTimeMs(long j) {
-        this.f27025b = j;
+        this.f27107b = j;
     }
 
     public VAdError(int i2) {
         this.networkResponse = null;
-        this.f27024a = i2;
+        this.f27106a = i2;
     }
 
     public VAdError(String str, int i2) {
         super(str);
         this.networkResponse = null;
-        this.f27024a = i2;
+        this.f27106a = i2;
     }
 
     public VAdError(String str, Throwable th, int i2) {
         super(str, th);
         this.networkResponse = null;
-        this.f27024a = i2;
+        this.f27106a = i2;
     }
 
     public VAdError(Throwable th, int i2) {
         super(th);
         this.networkResponse = null;
-        this.f27024a = i2;
+        this.f27106a = i2;
     }
 }

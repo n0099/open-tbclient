@@ -1,5 +1,6 @@
 package com.baidu.searchbox.pms.bean;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ResultData {
@@ -24,7 +25,7 @@ public class ResultData {
                     sb.append(packageInfo.packageName);
                 }
             }
-            sb.append("]");
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
         }
     }
 

@@ -37,7 +37,7 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                 public void run() {
                     try {
                         if (b.a(context, file.getPath(), stringExtra2)) {
-                            f.a(context, f.f32334a, stringExtra2);
+                            f.a(context, f.f32432a, stringExtra2);
                             g.a(file);
                         }
                     } catch (Exception e2) {

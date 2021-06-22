@@ -1,178 +1,41 @@
 package d.a.n0.q;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import d.a.c.e.m.e;
-import d.a.c.e.p.l;
-import d.a.n0.t2.m;
-import java.util.HashMap;
+import d.a.n0.e0.b;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
-public final class a implements m {
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f61854d = Pattern.compile(UrlManager.patternText, 2);
-
-    /* renamed from: e  reason: collision with root package name */
-    public static a f61855e = new a();
+/* loaded from: classes3.dex */
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<m.a> f61856a = new LinkedList();
+    public ArrayList<b> f53414a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, m.b> f61857b = new ConcurrentHashMap<>();
+    public Context f53415b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public m.c f61858c = null;
-
-    /* renamed from: d.a.n0.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC1527a implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m.a f61859e;
-
-        public RunnableC1527a(m.a aVar) {
-            this.f61859e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.f(this.f61859e);
-        }
+    public a(Context context) {
+        this.f53415b = context;
     }
 
-    public static a l() {
-        return f61855e;
-    }
-
-    @Override // d.a.n0.t2.m
-    public boolean a(String str) {
-        return f61854d.matcher(str).find();
-    }
-
-    @Override // d.a.n0.t2.m
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        h(context, strArr, false, null, z, bundle);
-    }
-
-    @Override // d.a.n0.t2.m
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        return h(context, strArr, false, null, false, bundle);
-    }
-
-    public void e(m.a aVar) {
-        if (l.C()) {
-            f(aVar);
-        } else {
-            e.a().post(new RunnableC1527a(aVar));
-        }
-    }
-
-    public final void f(m.a aVar) {
-        if (this.f61856a.contains(aVar)) {
+    public void a(b bVar) {
+        if (bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        this.f61856a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        boolean z3;
-        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-            return false;
-        }
-        String str2 = strArr[0];
-        m.b bVar = this.f61857b.get(m(str2));
-        if (bVar != null) {
-            bVar.a(context, j(k(str2)));
-            return true;
-        }
-        Iterator<m.a> it = this.f61856a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z3 = false;
-                break;
-            }
-            m.a next = it.next();
-            if (next != null && next.a(context, strArr) != 3) {
-                z3 = true;
-                break;
+        Iterator<b> it = this.f53414a.iterator();
+        while (it.hasNext()) {
+            b next = it.next();
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f53119e == bVar.getFragmentTabStructure().f53119e) {
+                return;
             }
         }
-        if (!z3 && this.f61858c != null) {
-            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                return true;
-            }
-            n(context, str, strArr[0], z, dVar, z2, bundle);
-        }
-        return z3;
+        this.f53414a.add(bVar);
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        return g(context, "", strArr, z, dVar, z2, bundle);
+    public Context b() {
+        return this.f53415b;
     }
 
-    public int i(Context context, String[] strArr) {
-        int a2;
-        if (strArr != null && strArr.length != 0) {
-            for (m.a aVar : this.f61856a) {
-                if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                    return a2;
-                }
-            }
-        }
-        return 3;
-    }
-
-    public final Map<String, String> j(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        HashMap hashMap = new HashMap();
-        String[] split = str.split("[&]");
-        if (split == null) {
-            hashMap.put(UrlManager.DEFAULT_PARAM, str);
-            return hashMap;
-        }
-        for (String str2 : split) {
-            String[] split2 = str2.split("[=]");
-            if (split2.length > 1) {
-                hashMap.put(split2[0], split2[1]);
-            }
-        }
-        return hashMap;
-    }
-
-    public final String k(String str) {
-        int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-            return str.substring(lastIndexOf + 1);
-        }
-        return null;
-    }
-
-    public final String m(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
-        }
-        return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        if (f61854d.matcher(str2).find()) {
-            this.f61858c.a(context, str, str2, z, dVar, z2, bundle);
-        }
-    }
-
-    public void o(m.c cVar) {
-        this.f61858c = cVar;
+    public ArrayList<b> c() {
+        return this.f53414a;
     }
 }

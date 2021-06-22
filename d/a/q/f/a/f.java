@@ -24,13 +24,13 @@ public class f implements i {
         JSONArray jSONArray = new JSONArray();
         if (d2) {
             d.b c2 = dVar2.c();
-            if (c2 != null && (t = c2.f67877a) != 0 && (dVar = (b.d) t) != null && dVar.b() != null) {
+            if (c2 != null && (t = c2.f67833a) != 0 && (dVar = (b.d) t) != null && dVar.b() != null) {
                 for (b.e eVar : dVar.b()) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("aid", eVar.f67759b);
-                        jSONObject.put("pkg", eVar.f67758a);
-                        jSONObject.put("priority", eVar.f67760c);
+                        jSONObject.put("aid", eVar.f67715b);
+                        jSONObject.put("pkg", eVar.f67714a);
+                        jSONObject.put("priority", eVar.f67716c);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -52,10 +52,10 @@ public class f implements i {
             return null;
         }
         d.b c2 = dVar.c();
-        if (c2 == null || TextUtils.isEmpty((CharSequence) c2.f67877a)) {
+        if (c2 == null || TextUtils.isEmpty((CharSequence) c2.f67833a)) {
             return null;
         }
-        return (String) c2.f67877a;
+        return (String) c2.f67833a;
     }
 
     @Override // d.a.q.f.a.i
@@ -67,10 +67,10 @@ public class f implements i {
             return null;
         }
         d.b c2 = dVar.c();
-        if (c2 == null || TextUtils.isEmpty((CharSequence) c2.f67877a)) {
+        if (c2 == null || TextUtils.isEmpty((CharSequence) c2.f67833a)) {
             return null;
         }
-        return (String) c2.f67877a;
+        return (String) c2.f67833a;
     }
 
     @Override // d.a.q.f.a.i

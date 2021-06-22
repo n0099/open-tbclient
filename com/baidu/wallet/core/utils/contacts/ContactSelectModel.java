@@ -2,6 +2,7 @@ package com.baidu.wallet.core.utils.contacts;
 
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.JsonUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ContactSelectModel implements NoProguard {
@@ -30,7 +31,7 @@ public class ContactSelectModel implements NoProguard {
         }
 
         public String toString() {
-            return "AllContact [name=" + this.name + ", list=" + this.list + "]";
+            return "AllContact [name=" + this.name + ", list=" + this.list + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

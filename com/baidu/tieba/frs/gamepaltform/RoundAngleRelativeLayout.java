@@ -13,19 +13,19 @@ import android.widget.RelativeLayout;
 public class RoundAngleRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f15518e;
+    public float f15600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f15519f;
+    public float f15601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f15520g;
+    public float f15602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f15521h;
+    public float f15603h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f15522i;
+    public Paint f15604i;
     public Paint j;
 
     public RoundAngleRelativeLayout(Context context) {
@@ -33,62 +33,62 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public final void a(Canvas canvas) {
-        if (this.f15520g > 0.0f) {
+        if (this.f15602g > 0.0f) {
             int height = getHeight();
             Path path = new Path();
             float f2 = height;
-            path.moveTo(0.0f, f2 - this.f15520g);
+            path.moveTo(0.0f, f2 - this.f15602g);
             path.lineTo(0.0f, f2);
-            path.lineTo(this.f15520g, f2);
-            float f3 = this.f15520g;
+            path.lineTo(this.f15602g, f2);
+            float f3 = this.f15602g;
             path.arcTo(new RectF(0.0f, f2 - (f3 * 2.0f), f3 * 2.0f, f2), 90.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.f15522i);
+            canvas.drawPath(path, this.f15604i);
         }
     }
 
     public final void b(Canvas canvas) {
-        if (this.f15521h > 0.0f) {
+        if (this.f15603h > 0.0f) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
             float f3 = height;
-            path.moveTo(f2 - this.f15521h, f3);
+            path.moveTo(f2 - this.f15603h, f3);
             path.lineTo(f2, f3);
-            path.lineTo(f2, f3 - this.f15521h);
-            float f4 = this.f15521h;
+            path.lineTo(f2, f3 - this.f15603h);
+            float f4 = this.f15603h;
             path.arcTo(new RectF(f2 - (f4 * 2.0f), f3 - (f4 * 2.0f), f2, f3), 0.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.f15522i);
+            canvas.drawPath(path, this.f15604i);
         }
     }
 
     public final void c(Canvas canvas) {
-        if (this.f15518e > 0.0f) {
+        if (this.f15600e > 0.0f) {
             Path path = new Path();
-            path.moveTo(0.0f, this.f15518e);
+            path.moveTo(0.0f, this.f15600e);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.f15518e, 0.0f);
-            float f2 = this.f15518e;
+            path.lineTo(this.f15600e, 0.0f);
+            float f2 = this.f15600e;
             path.arcTo(new RectF(0.0f, 0.0f, f2 * 2.0f, f2 * 2.0f), -90.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.f15522i);
+            canvas.drawPath(path, this.f15604i);
         }
     }
 
     public final void d(Canvas canvas) {
-        if (this.f15519f > 0.0f) {
+        if (this.f15601f > 0.0f) {
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
-            path.moveTo(f2 - this.f15519f, 0.0f);
+            path.moveTo(f2 - this.f15601f, 0.0f);
             path.lineTo(f2, 0.0f);
-            path.lineTo(f2, this.f15519f);
-            float f3 = this.f15519f;
+            path.lineTo(f2, this.f15601f);
+            float f3 = this.f15601f;
             path.arcTo(new RectF(f2 - (f3 * 2.0f), 0.0f, f2, f3 * 2.0f), 0.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.f15522i);
+            canvas.drawPath(path, this.f15604i);
         }
     }
 
@@ -104,27 +104,27 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public void setBottomLeftRadius(float f2) {
-        this.f15520g = f2;
+        this.f15602g = f2;
     }
 
     public void setBottomRightRadius(float f2) {
-        this.f15521h = f2;
+        this.f15603h = f2;
     }
 
     public void setRadius(float f2) {
-        this.f15518e = f2;
-        this.f15520g = f2;
-        this.f15519f = f2;
-        this.f15521h = f2;
+        this.f15600e = f2;
+        this.f15602g = f2;
+        this.f15601f = f2;
+        this.f15603h = f2;
         invalidate();
     }
 
     public void setTopLeftRadius(float f2) {
-        this.f15518e = f2;
+        this.f15600e = f2;
     }
 
     public void setTopRightRadius(float f2) {
-        this.f15519f = f2;
+        this.f15601f = f2;
     }
 
     public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet) {
@@ -134,11 +134,11 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         Paint paint = new Paint();
-        this.f15522i = paint;
+        this.f15604i = paint;
         paint.setColor(-1);
-        this.f15522i.setAntiAlias(true);
-        this.f15522i.setStyle(Paint.Style.FILL);
-        this.f15522i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f15604i.setAntiAlias(true);
+        this.f15604i.setStyle(Paint.Style.FILL);
+        this.f15604i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
         this.j = paint2;
         paint2.setXfermode(null);

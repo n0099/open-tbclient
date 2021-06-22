@@ -39,40 +39,40 @@ import com.baidu.wallet.personal.ui.BankCardListActivity;
 public class PwdManagerActivity extends PayBaseBeanActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f25918a;
+    public Context f26000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f25919b;
+    public ViewGroup f26001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f25920c;
+    public ViewGroup f26002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f25921d;
+    public ViewGroup f26003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25922e;
+    public TextView f26004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f25923f;
+    public TextView f26005f;
 
     /* renamed from: i  reason: collision with root package name */
-    public DirectPayContentResponse f25926i;
+    public DirectPayContentResponse f26008i;
     public LinearLayout k;
     public LoginBackListenerProxy n;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25924g = false;
+    public boolean f26006g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25925h = false;
+    public boolean f26007h = false;
     public boolean j = false;
     public boolean l = false;
     public boolean m = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.n = new LoginBackListenerProxy(this.f25918a, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.5
+        this.n = new LoginBackListenerProxy(this.f26000a, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.5
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 if (i2 == 603) {
@@ -104,11 +104,11 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
-        this.f25926i = (DirectPayContentResponse) obj;
+        this.f26008i = (DirectPayContentResponse) obj;
         WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (this.f25926i != null) {
+        if (this.f26008i != null) {
             this.j = true;
-            this.f25924g = false;
+            this.f26006g = false;
             a();
         }
     }
@@ -122,13 +122,13 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f25918a = getActivity();
+        this.f26000a = getActivity();
         setContentView(ResUtils.layout(getActivity(), "wallet_base_pwd_manager_activity"));
         setRequestedOrientation(1);
         if (bundle == null) {
-            this.f25926i = PayDataCache.getInstance().getPayResponse();
+            this.f26008i = PayDataCache.getInstance().getPayResponse();
         } else {
-            this.f25926i = (DirectPayContentResponse) bundle.getSerializable("mUserInfoContent");
+            this.f26008i = (DirectPayContentResponse) bundle.getSerializable("mUserInfoContent");
         }
         b();
         a();
@@ -155,7 +155,7 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
         try {
             JSONObject jSONObject = new JSONObject((String) event.mEventObj);
             if (jSONObject.has("is_succeed") && 1 == jSONObject.getInt("is_succeed")) {
-                this.f25924g = true;
+                this.f26006g = true;
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.REGET_PWD_SUCCESSFULLY, "reGetPwd");
             }
         } catch (Exception e2) {
@@ -176,16 +176,16 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
         super.onResume();
         if (!WalletLoginHelper.getInstance().isLogin()) {
             this.k.setVisibility(8);
-            this.f25921d.setVisibility(8);
-            this.f25922e.setVisibility(0);
-            this.f25923f.setVisibility(8);
-        } else if (this.f25925h) {
+            this.f26003d.setVisibility(8);
+            this.f26004e.setVisibility(0);
+            this.f26005f.setVisibility(8);
+        } else if (this.f26007h) {
             this.k.setVisibility(0);
-            this.f25921d.setVisibility(8);
-            this.f25922e.setVisibility(8);
-            this.f25923f.setVisibility(8);
+            this.f26003d.setVisibility(8);
+            this.f26004e.setVisibility(8);
+            this.f26005f.setVisibility(8);
         }
-        if (this.f25924g) {
+        if (this.f26006g) {
             e();
         }
         if (Build.VERSION.SDK_INT >= 10) {
@@ -196,19 +196,19 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("mUserInfoContent", this.f25926i);
+        bundle.putSerializable("mUserInfoContent", this.f26008i);
     }
 
     private void c() {
-        this.k = (LinearLayout) findViewById(ResUtils.id(this.f25918a, "modify_forget_layout"));
-        ViewGroup viewGroup = (ViewGroup) findViewById(ResUtils.id(this.f25918a, "bd_wallet_modify_pwd"));
-        this.f25919b = viewGroup;
+        this.k = (LinearLayout) findViewById(ResUtils.id(this.f26000a, "modify_forget_layout"));
+        ViewGroup viewGroup = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_modify_pwd"));
+        this.f26001b = viewGroup;
         if (viewGroup != null) {
             viewGroup.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PayStatisticsUtil.onEventWithValue(StatServiceEvent.MODIFY_PWD_LAYOUT_CLICK, "modifyPwd");
-                    PasswordController.getPassWordInstance().editPwd(PwdManagerActivity.this.f25918a, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1.1
+                    PasswordController.getPassWordInstance().editPwd(PwdManagerActivity.this.f26000a, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1.1
                         @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                         public void onFail(int i2, String str) {
                         }
@@ -223,8 +223,8 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
                 }
             });
         }
-        ViewGroup viewGroup2 = (ViewGroup) findViewById(ResUtils.id(this.f25918a, "bd_wallet_forget_pwd"));
-        this.f25920c = viewGroup2;
+        ViewGroup viewGroup2 = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_forget_pwd"));
+        this.f26002c = viewGroup2;
         if (viewGroup2 != null) {
             viewGroup2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.2
                 @Override // android.view.View.OnClickListener
@@ -236,13 +236,13 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
                 }
             });
         }
-        ViewGroup viewGroup3 = (ViewGroup) findViewById(ResUtils.id(this.f25918a, "bd_wallet_set_pwd"));
-        this.f25921d = viewGroup3;
+        ViewGroup viewGroup3 = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_set_pwd"));
+        this.f26003d = viewGroup3;
         if (viewGroup3 != null) {
             viewGroup3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    BaiduPay.getInstance().bindCardOnCardaddReturn(PwdManagerActivity.this.f25918a, new BindCardEntry.OnReturn() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3.1
+                    BaiduPay.getInstance().bindCardOnCardaddReturn(PwdManagerActivity.this.f26000a, new BindCardEntry.OnReturn() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3.1
                         @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
                         public void onFailed(int i2, String str) {
                         }
@@ -257,15 +257,15 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
     }
 
     private void d() {
-        TextView textView = (TextView) findViewById(ResUtils.id(this.f25918a, "bd_wallet_my_bank_network_not_avail"));
-        this.f25922e = textView;
+        TextView textView = (TextView) findViewById(ResUtils.id(this.f26000a, "bd_wallet_my_bank_network_not_avail"));
+        this.f26004e = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PwdManagerActivity.this.e();
             }
         });
-        this.f25923f = (TextView) findViewById(ResUtils.id(this.f25918a, "bd_wallet_get_info_error"));
+        this.f26005f = (TextView) findViewById(ResUtils.id(this.f26000a, "bd_wallet_get_info_error"));
     }
 
     private void b() {
@@ -276,28 +276,28 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
 
     private void a() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25926i;
+        DirectPayContentResponse directPayContentResponse = this.f26008i;
         if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null) {
             if (userModel.hasMobilePwd()) {
                 this.k.setVisibility(0);
-                this.f25921d.setVisibility(8);
-                this.f25922e.setVisibility(8);
-                this.f25923f.setVisibility(8);
-                this.f25925h = true;
+                this.f26003d.setVisibility(8);
+                this.f26004e.setVisibility(8);
+                this.f26005f.setVisibility(8);
+                this.f26007h = true;
                 return;
-            } else if (this.f25926i.user.hasMobilePwd()) {
+            } else if (this.f26008i.user.hasMobilePwd()) {
                 return;
             } else {
                 this.k.setVisibility(8);
-                this.f25921d.setVisibility(0);
-                this.f25922e.setVisibility(8);
-                this.f25923f.setVisibility(8);
+                this.f26003d.setVisibility(0);
+                this.f26004e.setVisibility(8);
+                this.f26005f.setVisibility(8);
                 return;
             }
         }
         this.k.setVisibility(8);
-        this.f25922e.setVisibility(8);
-        this.f25921d.setVisibility(8);
-        this.f25923f.setVisibility(0);
+        this.f26004e.setVisibility(8);
+        this.f26003d.setVisibility(8);
+        this.f26005f.setVisibility(0);
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.AddTail.AddTailReqIdl;
 import tbclient.AddTail.ReqData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AddTailNetMessage extends NetMessage {
     public ReqData.Builder data;
 

@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f69340a = new a();
+    public static final t f69444a = new a();
 
     /* loaded from: classes6.dex */
     public static class a extends t {

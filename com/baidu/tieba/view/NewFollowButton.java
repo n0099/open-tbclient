@@ -18,7 +18,7 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import d.a.c.a.e;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.n0.e3.f0;
+import d.a.o0.e3.f0;
 /* loaded from: classes5.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public int A;
@@ -28,8 +28,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean E;
     public int F;
     public boolean G;
-    public d.a.m0.r.f0.m.b H;
-    public d.a.m0.r.f0.m.b I;
+    public d.a.n0.r.f0.m.b H;
+    public d.a.n0.r.f0.m.b I;
     public LikeModel J;
     public f0 K;
     public b L;
@@ -48,15 +48,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f21765a;
+        public final /* synthetic */ boolean f21847a;
 
         public a(boolean z) {
-            this.f21765a = z;
+            this.f21847a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            NewFollowButton.this.B(this.f21765a);
+            NewFollowButton.this.B(this.f21847a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -73,7 +73,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public b() {
         }
 
-        @Override // d.a.n0.e3.f0.a
+        @Override // d.a.o0.e3.f0.a
         public void a(String str, long j) {
             if (NewFollowButton.this.y != null) {
                 NewFollowButton.this.y.a(str, j);
@@ -81,7 +81,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             NewFollowButton.this.M = false;
         }
 
-        @Override // d.a.n0.e3.f0.a
+        @Override // d.a.o0.e3.f0.a
         public void b(String str, long j) {
             NewFollowButton newFollowButton = NewFollowButton.this;
             newFollowButton.F(false, newFollowButton.E);
@@ -146,7 +146,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             TBSpecificationButtonConfig tBSpecificationButtonConfig = this.w;
             if (tBSpecificationButtonConfig == null) {
                 if (this.I == null) {
-                    d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
+                    d.a.n0.r.f0.m.b bVar = new d.a.n0.r.f0.m.b();
                     this.I = bVar;
                     bVar.r(R.color.CAM_X0109);
                     this.I.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -161,7 +161,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.v;
             if (tBSpecificationButtonConfig2 == null) {
                 if (this.H == null) {
-                    d.a.m0.r.f0.m.b bVar2 = new d.a.m0.r.f0.m.b();
+                    d.a.n0.r.f0.m.b bVar2 = new d.a.n0.r.f0.m.b();
                     this.H = bVar2;
                     bVar2.q(R.color.CAM_X0302);
                     if (this.C) {

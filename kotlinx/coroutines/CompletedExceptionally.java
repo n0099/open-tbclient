@@ -17,7 +17,7 @@ public class CompletedExceptionally {
         this._handled = z ? 1 : 0;
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
     public final boolean getHandled() {
         return this._handled;
     }

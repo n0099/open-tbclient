@@ -8,13 +8,15 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.g.t;
+import com.baidu.sofire.core.f;
+import com.baidu.sofire.core.g;
+import com.baidu.sofire.utility.x;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MyReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public Callback f10121a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
+    public Callback f10154a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
         @Override // com.baidu.sofire.ac.Callback
         public final Object onEnd(Object... objArr) {
             return super.onEnd(objArr);
@@ -22,20 +24,20 @@ public class MyReceiver extends BroadcastReceiver {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10122b = false;
+    public boolean f10155b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f10123c = 0;
+    public long f10156c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f10124d = 0;
+    public long f10157d = 0;
 
     public final MyReceiver a() {
         try {
-            this.f10123c = System.currentTimeMillis();
-            this.f10122b = true;
+            this.f10156c = System.currentTimeMillis();
+            this.f10155b = true;
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
         return this;
     }
@@ -46,31 +48,22 @@ public class MyReceiver extends BroadcastReceiver {
             return;
         }
         try {
-            StringBuilder sb = new StringBuilder();
-            sb.append(intent.toString());
-            sb.append(", ins=");
-            sb.append(this);
-            b.a();
-            if (!this.f10122b || System.currentTimeMillis() - this.f10123c >= 2000) {
+            if (!this.f10155b || System.currentTimeMillis() - this.f10156c >= 2000) {
                 if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                    if (System.currentTimeMillis() - this.f10124d < 100 || !com.baidu.sofire.g.d.g(context)) {
+                    if (System.currentTimeMillis() - this.f10157d < 100 || !com.baidu.sofire.utility.c.f(context)) {
                         return;
                     }
-                    this.f10124d = System.currentTimeMillis();
+                    this.f10157d = System.currentTimeMillis();
                 }
-                new StringBuilder("_2_").append(intent.toString());
-                b.a();
                 final Context applicationContext = context.getApplicationContext();
-                final boolean z = this.f10122b;
-                t.a(applicationContext).a(new Runnable() { // from class: com.baidu.sofire.MyReceiver.2
+                final boolean z = this.f10155b;
+                x.a(applicationContext).a(new Runnable() { // from class: com.baidu.sofire.MyReceiver.2
                     @Override // java.lang.Runnable
                     public final void run() {
                         boolean z2;
                         ApkInfo d2;
                         List<ApkInfo> b2;
                         try {
-                            new StringBuilder().append(intent.toString());
-                            b.a();
                             if (r.f7715a.equals(intent.getStringExtra("t"))) {
                                 String stringExtra = intent.getStringExtra("c");
                                 Intent intent2 = new Intent();
@@ -79,21 +72,21 @@ public class MyReceiver extends BroadcastReceiver {
                                 a.a(applicationContext, intent2);
                             }
                             String action = intent.getAction();
-                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.g.d.g(applicationContext) && U.sMonitorNetworkWhenUpgradeNoNet) {
-                                new U(applicationContext.getApplicationContext(), 3, false).start();
+                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f(applicationContext) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                                x.a(applicationContext).b(new U(applicationContext.getApplicationContext(), 3, false));
                                 z2 = true;
                             } else {
                                 z2 = false;
                             }
-                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.g.d.f10270a && !z2 && com.baidu.sofire.g.d.f(applicationContext)) {
-                                new U(applicationContext.getApplicationContext(), 3, false).start();
+                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f10399a && !z2 && com.baidu.sofire.utility.c.e(applicationContext)) {
+                                x.a(applicationContext).b(new U(applicationContext.getApplicationContext(), 3, false));
                             }
                             if (z) {
                                 return;
                             }
                             String stringExtra2 = intent.getStringExtra("from_plugin_package");
                             if (TextUtils.isEmpty(stringExtra2)) {
-                                com.baidu.sofire.core.f a2 = com.baidu.sofire.core.f.a();
+                                f a2 = f.a();
                                 if (a2 == null || (b2 = a2.b()) == null) {
                                     return;
                                 }
@@ -101,12 +94,10 @@ public class MyReceiver extends BroadcastReceiver {
                                     ApkInfo apkInfo = b2.get(i2);
                                     if (apkInfo.intentFilters != null) {
                                         for (int i3 = 0; i3 < apkInfo.intentFilters.size(); i3++) {
-                                            com.baidu.sofire.core.g gVar = apkInfo.intentFilters.get(i3);
-                                            if (gVar.f10232d.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
-                                                new StringBuilder().append(apkInfo);
-                                                b.a();
-                                                Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f10230b);
-                                                loadClass.getDeclaredMethod(gVar.f10231c, Context.class, Intent.class).invoke(loadClass.newInstance(), applicationContext.getApplicationContext(), intent);
+                                            g gVar = apkInfo.intentFilters.get(i3);
+                                            if (gVar.f10287d.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
+                                                Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f10285b);
+                                                loadClass.getDeclaredMethod(gVar.f10286c, Context.class, Intent.class).invoke(loadClass.newInstance(), applicationContext.getApplicationContext(), intent);
                                             }
                                         }
                                     }
@@ -114,20 +105,20 @@ public class MyReceiver extends BroadcastReceiver {
                             } else if (applicationContext.getPackageName().equals(stringExtra2)) {
                                 MyReceiver.a(applicationContext.getClassLoader(), intent, applicationContext);
                             } else {
-                                com.baidu.sofire.core.f a3 = com.baidu.sofire.core.f.a();
+                                f a3 = f.a();
                                 if (a3 == null || (d2 = a3.d(stringExtra2)) == null) {
                                     return;
                                 }
                                 MyReceiver.a(d2.classLoader, intent, applicationContext);
                             }
                         } catch (Throwable unused) {
-                            com.baidu.sofire.g.d.a();
+                            com.baidu.sofire.utility.c.a();
                         }
                     }
                 });
             }
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
     }
 
@@ -135,9 +126,7 @@ public class MyReceiver extends BroadcastReceiver {
         try {
             Class<?> loadClass = classLoader.loadClass(intent.getStringExtra("target_class"));
             loadClass.getDeclaredMethod(intent.getStringExtra("target_method"), Context.class, Intent.class).invoke(loadClass.newInstance(), context.getApplicationContext(), intent);
-        } catch (Throwable th) {
-            th.getMessage();
-            b.c();
+        } catch (Throwable unused) {
         }
     }
 }

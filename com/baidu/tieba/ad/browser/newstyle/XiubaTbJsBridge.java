@@ -22,7 +22,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class XiubaTbJsBridge implements d.a.n0.e3.l0.b {
+public class XiubaTbJsBridge implements d.a.o0.e3.l0.b {
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
     public static final String METHOD_DOWNLOAD_APK = "downLoadAPK";
@@ -55,7 +55,7 @@ public class XiubaTbJsBridge implements d.a.n0.e3.l0.b {
     public class b extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13548a;
+        public boolean f13630a;
 
         public b(int i2) {
             super(i2);
@@ -72,16 +72,16 @@ public class XiubaTbJsBridge implements d.a.n0.e3.l0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f13548a) {
-                                this.f13548a = true;
+                            if (!this.f13630a) {
+                                this.f13630a = true;
                                 XiubaTbJsBridge.this.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                             XiubaTbJsBridge.this.callDownloadListener(2);
-                            this.f13548a = false;
+                            this.f13630a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                             XiubaTbJsBridge.this.callDownloadListener(0);
-                            this.f13548a = false;
+                            this.f13630a = false;
                         }
                     }
                 }
@@ -223,7 +223,7 @@ public class XiubaTbJsBridge implements d.a.n0.e3.l0.b {
     }
 
     private void startDownload(String str) {
-        d.a.m0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        d.a.n0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     private boolean validateGameUrl(String str) {
@@ -246,7 +246,7 @@ public class XiubaTbJsBridge implements d.a.n0.e3.l0.b {
         }
     }
 
-    @Override // d.a.n0.e3.l0.b
+    @Override // d.a.o0.e3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("XiubaJSBridge".equals(str)) {
             if ("checkAPKInstall".equals(str2)) {

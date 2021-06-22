@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.a.l0.a.v2.w;
-import d.a.l0.f.j.n.e;
+import d.a.m0.a.v2.w;
+import d.a.m0.f.j.n.e;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,24 +29,24 @@ public class InstallActivity extends Activity {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f11662e;
+        public String f11744e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f11663f;
+        public String f11745f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f11664g;
+        public String f11746g;
 
         /* renamed from: h  reason: collision with root package name */
-        public WeakReference<Activity> f11665h;
+        public WeakReference<Activity> f11747h;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.isEmpty(this.f11662e) || TextUtils.isEmpty(this.f11663f)) {
+            if (TextUtils.isEmpty(this.f11744e) || TextUtils.isEmpty(this.f11745f)) {
                 return;
             }
-            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f11665h, this.f11662e, this.f11663f, this.f11664g);
-            Activity activity = this.f11665h.get();
+            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f11747h, this.f11744e, this.f11745f, this.f11746g);
+            Activity activity = this.f11747h.get();
             if (handleInstallApp || activity == null || activity.isDestroyed() || activity.isFinishing()) {
                 return;
             }
@@ -54,10 +54,10 @@ public class InstallActivity extends Activity {
         }
 
         public b(Activity activity, String str, String str2, String str3) {
-            this.f11662e = str;
-            this.f11663f = str2;
-            this.f11664g = str3;
-            this.f11665h = new WeakReference<>(activity);
+            this.f11744e = str;
+            this.f11745f = str2;
+            this.f11746g = str3;
+            this.f11747h = new WeakReference<>(activity);
         }
     }
 
@@ -71,12 +71,12 @@ public class InstallActivity extends Activity {
         if (i2 == 1345431) {
             if (i3 != -1 || TextUtils.isEmpty(this.downloadPackageName)) {
                 if (i3 == 0) {
-                    d.a.l0.f.j.r.b.n().h("installCancel", new d.a.l0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                    d.a.m0.f.j.r.b.n().h("installCancel", new d.a.m0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
                 } else if (i3 == 1 && intent != null) {
-                    d.a.l0.f.j.r.b.n().g("installFailed", new d.a.l0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.downloadUrl);
+                    d.a.m0.f.j.r.b.n().g("installFailed", new d.a.m0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.downloadUrl);
                 }
-            } else if (d.a.l0.f.j.o.a.g(AppRuntime.getAppContext(), this.downloadPackageName) && d.a.l0.f.j.o.a.k(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                d.a.l0.f.j.r.b.n().h("openAtOnce", new d.a.l0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+            } else if (d.a.m0.f.j.o.a.g(AppRuntime.getAppContext(), this.downloadPackageName) && d.a.m0.f.j.o.a.k(AppRuntime.getAppContext(), this.downloadPackageName)) {
+                d.a.m0.f.j.r.b.n().h("openAtOnce", new d.a.m0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
             }
         }
         finish();
@@ -102,8 +102,8 @@ public class InstallActivity extends Activity {
             int i2 = this.mResumeCount + 1;
             this.mResumeCount = i2;
             if (i2 > 1) {
-                if (!d.a.l0.f.j.o.a.g(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                    d.a.l0.f.j.r.b.n().h("installCancel", new d.a.l0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                if (!d.a.m0.f.j.o.a.g(AppRuntime.getAppContext(), this.downloadPackageName)) {
+                    d.a.m0.f.j.r.b.n().h("installCancel", new d.a.m0.f.j.r.a(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
                 }
                 finish();
             }

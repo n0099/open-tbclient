@@ -1,227 +1,280 @@
 package d.a.n0.d0;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.m0.r.q.a2;
-/* loaded from: classes4.dex */
-public class g {
+/* loaded from: classes3.dex */
+public class g extends d.a.n0.d0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56128a;
+    public ContinuousAnimationView f53059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.m0.s.e.a f56129b;
+    public String[] f53060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a2 f56130c;
+    public TextView f53061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupWindow f56131d;
+    public TextView f53062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PopupWindow f56132e;
+    public int f53063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f56133f;
+    public final int f53064f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56134g;
+    public int f53065g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f56135h;
+    public Runnable f53066h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.f0.m.b f56136i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public View q;
-    public int r = 3;
-    public PopupWindow.OnDismissListener s = new a();
-    public View.OnClickListener t = new b();
+    public boolean f53067i;
+    public ValueAnimator.AnimatorUpdateListener j;
+    public final Animator.AnimatorListener k;
 
-    /* loaded from: classes4.dex */
-    public class a implements PopupWindow.OnDismissListener {
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
         public a() {
         }
 
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            if (g.this.f56132e != null) {
-                g.this.f56132e.dismiss();
-                g.this.f56132e = null;
+        @Override // java.lang.Runnable
+        public void run() {
+            if (!g.this.isViewAttached()) {
+                TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.f53066h);
+                return;
             }
+            g.this.f53061c.setText(g.this.f53060b[g.this.k()]);
+            TbadkCoreApplication.getInst().handler.postDelayed(g.this.f53066h, 200L);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class b implements ValueAnimator.AnimatorUpdateListener {
         public b() {
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (!j.A()) {
-                g.this.f56128a.showToast(R.string.network_ungeilivable);
-            }
-            if (ViewHelper.checkUpIsLogin(g.this.f56128a.getPageActivity())) {
-                if (g.this.f56130c == null) {
-                    return;
-                }
-                g.this.f56129b.m(false, g.this.f56130c.T().getPortrait(), g.this.f56130c.T().getUserId(), g.this.f56130c.T().isGod(), "0", g.this.f56128a.getUniqueId(), null, "0");
-                TiebaStatic.log(new StatisticItem("c13571"));
-            }
-            if (g.this.f56132e == null || g.this.f56131d == null) {
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            if (g.this.f53067i) {
                 return;
             }
-            g.this.f56132e.dismiss();
-            g.this.f56131d.dismiss();
-            g.this.f56131d = null;
-            g.this.f56132e = null;
+            g.this.f53059a.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
         }
     }
 
-    public g(TbPageContext tbPageContext, View view) {
-        this.f56128a = tbPageContext;
-        this.f56129b = new d.a.m0.s.e.a(tbPageContext);
-        this.q = view;
+    /* loaded from: classes3.dex */
+    public class c implements Animator.AnimatorListener {
+        public c() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            g.this.f53067i = true;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            g.this.f53067i = false;
+        }
+    }
+
+    public g(Context context) {
+        this(context, 0);
+    }
+
+    @Override // d.a.n0.d0.a
+    public void dettachView(View view) {
+        ContinuousAnimationView continuousAnimationView = this.f53059a;
+        if (continuousAnimationView != null) {
+            continuousAnimationView.cancelAnimation();
+        }
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.f53066h);
+        super.dettachView(view);
+    }
+
+    public void h() {
+        ContinuousAnimationView continuousAnimationView = this.f53059a;
+        if (continuousAnimationView == null) {
+            return;
+        }
+        ((RelativeLayout.LayoutParams) continuousAnimationView.getLayoutParams()).addRule(15, 0);
+    }
+
+    public View i() {
+        return this.attachedView;
+    }
+
+    public TextView j() {
+        return this.f53062d;
+    }
+
+    public final int k() {
+        int i2 = this.f53063e + 1;
+        this.f53063e = i2;
+        if (i2 >= this.f53064f) {
+            this.f53063e = 0;
+        }
+        return this.f53063e;
+    }
+
+    public void l(int i2) {
+        SkinManager.setViewTextColor(this.f53061c, R.color.CAM_X0108, 1, i2);
+        SkinManager.setViewTextColor(this.f53062d, R.color.CAM_X0108, 1, i2);
+        SkinManager.setLottieAnimation(this.f53059a, R.raw.lottie_full_screen_refresh);
+        if (isViewAttached()) {
+            r();
+        }
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.f53066h);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.f53066h, 200L);
+        this.f53065g = i2;
+    }
+
+    public void m() {
+        s();
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.f53066h);
+    }
+
+    public void n(int i2) {
+        View view = this.attachedView;
+        if (view != null) {
+            view.setBackgroundColor(i2);
+        }
+    }
+
+    public void o(int i2) {
+        TextView textView;
+        if (this.f53059a == null || (textView = this.f53062d) == null) {
+            return;
+        }
+        if (textView.getVisibility() == 8) {
+            ViewGroup.LayoutParams layoutParams = this.f53059a.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.bottomMargin = i2;
+                this.f53059a.setLayoutParams(marginLayoutParams);
+                return;
+            }
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams2 = this.f53062d.getLayoutParams();
+        if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
+            marginLayoutParams2.bottomMargin = i2;
+            this.f53062d.setLayoutParams(marginLayoutParams2);
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void onChangeSkinType() {
+        if (this.f53065g == -1) {
+            this.f53065g = TbadkCoreApplication.getInst().getSkinType();
+        }
+        if (isViewAttached()) {
+            SkinManager.setViewTextColor(this.f53061c, R.color.CAM_X0108, 1, this.f53065g);
+            SkinManager.setViewTextColor(this.f53062d, R.color.CAM_X0108, 1, this.f53065g);
+            r();
+        }
+    }
+
+    @Override // d.a.n0.d0.a
+    public void onViewAttached() {
+        if (this.f53065g == -1) {
+            this.f53065g = TbadkCoreApplication.getInst().getSkinType();
+        }
+        SkinManager.setLottieAnimation(this.f53059a, R.raw.lottie_full_screen_refresh);
+        r();
+        SkinManager.setViewTextColor(this.f53061c, R.color.CAM_X0108, 1, this.f53065g);
+        SkinManager.setViewTextColor(this.f53062d, R.color.CAM_X0108, 1, this.f53065g);
+        this.f53061c.setText(this.f53060b[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.f53066h);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.f53066h, 200L);
+        this.attachedView.setClickable(true);
+    }
+
+    @Override // d.a.n0.d0.a
+    public void onViewDettached() {
         m();
     }
 
-    public void h(a2 a2Var) {
-        this.f56130c = a2Var;
+    public void p(int i2) {
+        this.f53065g = i2;
     }
 
-    public final boolean i(Context context, View view, int i2, int i3, int i4, int i5, int[] iArr) {
-        if (context == null || view == null || iArr == null || iArr.length != 2) {
-            return false;
-        }
-        int[] iArr2 = new int[2];
-        view.getLocationOnScreen(iArr2);
-        int height = view.getHeight();
-        int i6 = l.i(context);
-        int k = l.k(context);
-        boolean z = ((i6 - iArr2[1]) - height) - i4 < i2;
-        iArr[0] = k - i3;
-        if (z) {
-            iArr[1] = (iArr2[1] - i2) - i5;
-            iArr[1] = Math.max(UtilHelper.getStatusBarHeight(), iArr[1]);
-        } else {
-            iArr[1] = iArr2[1] + height + i5;
-        }
-        return z;
-    }
-
-    public final void j() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.r) {
-            SkinManager.setViewTextColor(this.f56134g, R.color.CAM_X0105, 1);
-            this.r = skinType;
-        }
-    }
-
-    public final View k() {
-        if (this.f56128a.getContext() == null) {
-            return null;
-        }
-        if (this.f56133f == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f56128a.getContext()).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
-            this.f56133f = viewGroup;
-            TextView textView = (TextView) viewGroup.findViewById(R.id.head_text);
-            this.f56134g = textView;
-            textView.setText(this.f56128a.getString(R.string.confirm_unlike));
-            SkinManager.setViewTextColor(this.f56134g, R.color.CAM_X0105, 1);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f56133f.findViewById(R.id.uninterested_btn);
-            this.f56135h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(this.f56128a.getString(R.string.confirm_unlike_confirm));
-            this.f56135h.setTextSize(R.dimen.T_X08);
-            this.f56135h.setOnClickListener(this.t);
-            d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
-            this.f56136i = bVar;
-            bVar.q(R.color.CAM_X0304);
-            this.f56135h.setConfig(this.f56136i);
-            ViewGroup viewGroup2 = this.f56133f;
-            int i2 = this.j;
-            viewGroup2.setPadding(i2, 0, i2, 0);
-        }
-        j();
-        return this.f56133f;
-    }
-
-    public final int l() {
-        ViewGroup viewGroup = this.f56133f;
-        if (viewGroup == null) {
-            return 0;
-        }
-        viewGroup.measure(0, 0);
-        int measuredHeight = this.f56133f.getMeasuredHeight();
-        this.o = measuredHeight;
-        return measuredHeight;
-    }
-
-    public final void m() {
-        this.j = l.g(this.f56128a.getContext(), R.dimen.M_W_X005);
-        this.k = l.g(this.f56128a.getContext(), R.dimen.M_W_X004);
-        this.l = l.g(this.f56128a.getContext(), R.dimen.tbds14);
-        this.p = l.g(this.f56128a.getContext(), R.dimen.tbds160);
-    }
-
-    public void n() {
-        if (this.f56128a.getContext() == null) {
+    public void q(int i2) {
+        ContinuousAnimationView continuousAnimationView = this.f53059a;
+        if (continuousAnimationView == null) {
             return;
         }
-        View k = k();
-        this.n = l.k(this.f56128a.getContext()) - (this.k * 2);
-        this.m = l();
-        int[] iArr = new int[2];
-        boolean i2 = i(this.f56128a.getContext(), this.q, this.m, this.n, this.p, this.l, iArr);
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(0);
-        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        gradientDrawable.setCornerRadius(l.g(this.f56128a.getContext(), R.dimen.tbds31));
-        k.setBackgroundDrawable(gradientDrawable);
-        PopupWindow popupWindow = new PopupWindow(k, this.n, l());
-        this.f56131d = popupWindow;
-        popupWindow.setFocusable(true);
-        this.f56131d.setTouchable(true);
-        this.f56131d.setOnDismissListener(this.s);
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f56128a.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
-        this.f56132e = popupWindow2;
-        if (Build.VERSION.SDK_INT >= 22) {
-            popupWindow2.setAttachedInDecor(false);
+        ViewGroup.LayoutParams layoutParams = continuousAnimationView.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            marginLayoutParams.topMargin = i2;
+            this.f53059a.setLayoutParams(marginLayoutParams);
         }
-        this.f56132e.showAtLocation(this.q, 0, 0, 0);
-        if (iArr[0] == 0 && iArr[1] == 0) {
-            return;
+    }
+
+    public final void r() {
+        ContinuousAnimationView continuousAnimationView = this.f53059a;
+        if (continuousAnimationView != null) {
+            continuousAnimationView.playAnimation();
         }
-        this.f56131d.setBackgroundDrawable(new ColorDrawable(0));
-        if (i2) {
-            this.f56131d.setAnimationStyle(R.style.scale_rb2lt_anim);
-        } else {
-            this.f56131d.setAnimationStyle(R.style.scale_rt2lb_anim);
+    }
+
+    public final void s() {
+        ContinuousAnimationView continuousAnimationView = this.f53059a;
+        if (continuousAnimationView != null) {
+            continuousAnimationView.pauseAnimation();
         }
-        this.f56131d.showAtLocation(this.q, 0, iArr[0] - this.k, iArr[1]);
+    }
+
+    public g(Context context, int i2) {
+        super(LayoutInflater.from(context).inflate(R.layout.loading_view_layout, (ViewGroup) null));
+        this.f53063e = 0;
+        this.f53065g = -1;
+        this.f53066h = new a();
+        this.j = new b();
+        this.k = new c();
+        ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.f53059a = continuousAnimationView;
+        if (i2 > 0) {
+            ViewGroup.LayoutParams layoutParams = continuousAnimationView.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = i2;
+                this.f53059a.setLayoutParams(marginLayoutParams);
+            }
+        }
+        SkinManager.setLottieAnimation(this.f53059a, R.raw.lottie_full_screen_refresh);
+        this.f53059a.setMinAndMaxProgress(0.0f, 1.0f);
+        this.f53059a.setRepeatMode(1);
+        this.f53059a.addAnimatorUpdateListener(this.j);
+        this.f53059a.addAnimatorListener(this.k);
+        this.f53059a.setSpeed(1.2f);
+        this.f53061c = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
+        this.f53062d = (TextView) this.attachedView.findViewById(R.id.loading_text);
+        String[] stringArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
+        this.f53060b = stringArray;
+        this.f53064f = stringArray.length;
     }
 }

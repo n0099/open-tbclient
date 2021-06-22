@@ -10,8 +10,8 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.yy.hiidostatis.defs.controller.SensorController;
-import d.a.l0.a.a2.n.c;
-import d.a.l0.a.v2.o0;
+import d.a.m0.a.a2.n.c;
+import d.a.m0.a.v2.o0;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import java.util.ArrayList;
@@ -25,39 +25,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SwanAppConfigData {
-    public static final boolean r = d.a.l0.a.k.f46875a;
-    public static final d.a.l0.a.a2.n.f<SwanAppConfigData> s = new a();
-    public static final d.a.l0.a.a2.n.e<SwanAppConfigData> t = new b();
+    public static final boolean r = d.a.m0.a.k.f46983a;
+    public static final d.a.m0.a.a2.n.f<SwanAppConfigData> s = new a();
+    public static final d.a.m0.a.a2.n.e<SwanAppConfigData> t = new b();
     public static final HashMap<String, Integer> u;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11307a;
+    public boolean f11389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f11308b;
+    public d f11390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f11309c;
+    public j f11391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f11310d;
+    public k f11392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.a2.n.g f11311e;
+    public d.a.m0.a.a2.n.g f11393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f11312f;
+    public l f11394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f11313g;
+    public h f11395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a f11314h;
+    public c.a f11396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f11315i;
+    public f f11397i;
     public f j;
-    public List<d.a.l0.n.h.h> k;
+    public List<d.a.m0.n.h.h> k;
     public String l;
     public String m;
     public g n;
@@ -92,59 +92,59 @@ public class SwanAppConfigData {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends d.a.l0.a.a2.n.f<SwanAppConfigData> {
+    public static class a extends d.a.m0.a.a2.n.f<SwanAppConfigData> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.l0.a.a2.n.f
+        @Override // d.a.m0.a.a2.n.f
         /* renamed from: c */
-        public void b(@NonNull SwanAppConfigData swanAppConfigData, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-            dVar.writeBoolean(swanAppConfigData.f11307a);
-            dVar.e(swanAppConfigData.f11308b, d.f11320c);
-            dVar.e(swanAppConfigData.f11309c, j.f11341f);
-            dVar.e(swanAppConfigData.f11310d, k.f11346b);
-            dVar.e(swanAppConfigData.f11311e, d.a.l0.a.a2.n.g.s);
-            dVar.e(swanAppConfigData.f11312f, l.f11349f);
-            dVar.e(swanAppConfigData.f11313g, h.f11331b);
-            dVar.e(swanAppConfigData.f11314h, c.a.f44459e);
-            dVar.e(swanAppConfigData.f11315i, f.f11325b);
-            dVar.e(swanAppConfigData.j, f.f11325b);
+        public void b(@NonNull SwanAppConfigData swanAppConfigData, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+            dVar.writeBoolean(swanAppConfigData.f11389a);
+            dVar.e(swanAppConfigData.f11390b, d.f11402c);
+            dVar.e(swanAppConfigData.f11391c, j.f11423f);
+            dVar.e(swanAppConfigData.f11392d, k.f11428b);
+            dVar.e(swanAppConfigData.f11393e, d.a.m0.a.a2.n.g.s);
+            dVar.e(swanAppConfigData.f11394f, l.f11431f);
+            dVar.e(swanAppConfigData.f11395g, h.f11413b);
+            dVar.e(swanAppConfigData.f11396h, c.a.f44567e);
+            dVar.e(swanAppConfigData.f11397i, f.f11407b);
+            dVar.e(swanAppConfigData.j, f.f11407b);
             dVar.n(swanAppConfigData.l);
-            dVar.e(swanAppConfigData.n, g.f11329c);
-            dVar.e(swanAppConfigData.o, e.f11322b);
+            dVar.e(swanAppConfigData.n, g.f11411c);
+            dVar.e(swanAppConfigData.o, e.f11404b);
             dVar.o(swanAppConfigData.p);
-            dVar.e(swanAppConfigData.q, c.f11317c);
+            dVar.e(swanAppConfigData.q, c.f11399c);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends d.a.l0.a.a2.n.e<SwanAppConfigData> {
+    public static class b extends d.a.m0.a.a2.n.e<SwanAppConfigData> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.l0.a.a2.n.e
+        @Override // d.a.m0.a.a2.n.e
         /* renamed from: c */
-        public SwanAppConfigData b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+        public SwanAppConfigData b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
             SwanAppConfigData swanAppConfigData = new SwanAppConfigData(null);
-            swanAppConfigData.f11307a = cVar.readBoolean();
-            swanAppConfigData.f11308b = (d) cVar.p(d.f11319b);
-            j jVar = (j) cVar.p(j.f11340e);
-            swanAppConfigData.f11309c = jVar;
+            swanAppConfigData.f11389a = cVar.readBoolean();
+            swanAppConfigData.f11390b = (d) cVar.p(d.f11401b);
+            j jVar = (j) cVar.p(j.f11422e);
+            swanAppConfigData.f11391c = jVar;
             if (jVar == null) {
-                swanAppConfigData.f11309c = j.e();
+                swanAppConfigData.f11391c = j.e();
             }
-            swanAppConfigData.f11310d = (k) cVar.p(k.f11347c);
-            swanAppConfigData.f11311e = (d.a.l0.a.a2.n.g) cVar.p(d.a.l0.a.a2.n.g.t);
-            swanAppConfigData.f11312f = (l) cVar.p(l.f11350g);
-            swanAppConfigData.f11313g = (h) cVar.p(h.f11332c);
-            swanAppConfigData.f11314h = (c.a) cVar.p(c.a.f44460f);
-            swanAppConfigData.f11315i = (f) cVar.p(f.f11326c);
-            swanAppConfigData.j = (f) cVar.p(f.f11326c);
+            swanAppConfigData.f11392d = (k) cVar.p(k.f11429c);
+            swanAppConfigData.f11393e = (d.a.m0.a.a2.n.g) cVar.p(d.a.m0.a.a2.n.g.t);
+            swanAppConfigData.f11394f = (l) cVar.p(l.f11432g);
+            swanAppConfigData.f11395g = (h) cVar.p(h.f11414c);
+            swanAppConfigData.f11396h = (c.a) cVar.p(c.a.f44568f);
+            swanAppConfigData.f11397i = (f) cVar.p(f.f11408c);
+            swanAppConfigData.j = (f) cVar.p(f.f11408c);
             String s = cVar.s();
             swanAppConfigData.l = s;
             if (!TextUtils.isEmpty(s)) {
-                swanAppConfigData.k = d.a.l0.a.t1.g.b.k(swanAppConfigData.l, false);
+                swanAppConfigData.k = d.a.m0.a.t1.g.b.k(swanAppConfigData.l, false);
             }
-            swanAppConfigData.n = (g) cVar.p(g.f11328b);
-            swanAppConfigData.o = (e) cVar.p(e.f11323c);
+            swanAppConfigData.n = (g) cVar.p(g.f11410b);
+            swanAppConfigData.o = (e) cVar.p(e.f11405c);
             swanAppConfigData.p = cVar.u(Collections.emptyList());
-            swanAppConfigData.q = (c) cVar.p(c.f11316b);
+            swanAppConfigData.q = (c) cVar.p(c.f11398b);
             return swanAppConfigData;
         }
     }
@@ -153,33 +153,33 @@ public class SwanAppConfigData {
     public static class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<c> f11316b = new a();
+        public static final d.a.m0.a.a2.n.e<c> f11398b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<c> f11317c = new b();
+        public static final d.a.m0.a.a2.n.f<c> f11399c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f11318a;
+        public boolean f11400a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.e<c> {
+        public static class a extends d.a.m0.a.a2.n.e<c> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public c b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public c b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 c cVar2 = new c();
-                cVar2.f11318a = cVar.readBoolean();
+                cVar2.f11400a = cVar.readBoolean();
                 return cVar2;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.f<c> {
+        public static class b extends d.a.m0.a.a2.n.f<c> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull c cVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.writeBoolean(cVar.f11318a);
+            public void b(@NonNull c cVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.writeBoolean(cVar.f11400a);
             }
         }
 
@@ -189,7 +189,7 @@ public class SwanAppConfigData {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("cookie")) == null) {
                 return cVar;
             }
-            cVar.f11318a = optJSONObject.optBoolean("enableStore");
+            cVar.f11400a = optJSONObject.optBoolean("enableStore");
             return cVar;
         }
     }
@@ -198,33 +198,33 @@ public class SwanAppConfigData {
     public static class d {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<d> f11319b = new a();
+        public static final d.a.m0.a.a2.n.e<d> f11401b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<d> f11320c = new b();
+        public static final d.a.m0.a.a2.n.f<d> f11402c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f11321a;
+        public List<String> f11403a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.e<d> {
+        public static class a extends d.a.m0.a.a2.n.e<d> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public d b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public d b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 d dVar = new d();
-                dVar.f11321a = cVar.u(Collections.emptyList());
+                dVar.f11403a = cVar.u(Collections.emptyList());
                 return dVar;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.f<d> {
+        public static class b extends d.a.m0.a.a2.n.f<d> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull d dVar, @NonNull d.a.l0.a.b1.d dVar2) throws Exception {
-                dVar2.o(dVar.f11321a);
+            public void b(@NonNull d dVar, @NonNull d.a.m0.a.b1.d dVar2) throws Exception {
+                dVar2.o(dVar.f11403a);
             }
         }
 
@@ -237,9 +237,9 @@ public class SwanAppConfigData {
                 return d();
             }
             d dVar = new d();
-            dVar.f11321a = new ArrayList(optJSONArray.length());
+            dVar.f11403a = new ArrayList(optJSONArray.length());
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                dVar.f11321a.add(optJSONArray.optString(i2));
+                dVar.f11403a.add(optJSONArray.optString(i2));
             }
             return dVar;
         }
@@ -249,12 +249,12 @@ public class SwanAppConfigData {
                 Log.w("SwanAppConfigData", "PageConfig createNullObject()");
             }
             d dVar = new d();
-            dVar.f11321a = new ArrayList();
+            dVar.f11403a = new ArrayList();
             return dVar;
         }
 
         public boolean c(String str) {
-            List<String> list = this.f11321a;
+            List<String> list = this.f11403a;
             return list != null && list.contains(str);
         }
     }
@@ -263,65 +263,65 @@ public class SwanAppConfigData {
     public static class e {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<e> f11322b = new a();
+        public static final d.a.m0.a.a2.n.f<e> f11404b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<e> f11323c = new b();
+        public static final d.a.m0.a.a2.n.e<e> f11405c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, Map<String, String>> f11324a;
+        public Map<String, Map<String, String>> f11406a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<e> {
+        public static class a extends d.a.m0.a.a2.n.f<e> {
 
             /* renamed from: com.baidu.swan.apps.runtime.config.SwanAppConfigData$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0158a extends d.a.l0.a.a2.n.f<Map<String, String>> {
-                public C0158a(a aVar) {
+            public class C0161a extends d.a.m0.a.a2.n.f<Map<String, String>> {
+                public C0161a(a aVar) {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.l0.a.a2.n.f
+                @Override // d.a.m0.a.a2.n.f
                 /* renamed from: c */
-                public void b(@NonNull Map<String, String> map, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
+                public void b(@NonNull Map<String, String> map, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
                     dVar.p(map);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull e eVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.m(eVar.f11324a, new C0158a(this));
+            public void b(@NonNull e eVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.m(eVar.f11406a, new C0161a(this));
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<e> {
+        public static class b extends d.a.m0.a.a2.n.e<e> {
 
             /* loaded from: classes3.dex */
-            public class a extends d.a.l0.a.a2.n.e<Map<String, String>> {
+            public class a extends d.a.m0.a.a2.n.e<Map<String, String>> {
                 public a(b bVar) {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.l0.a.a2.n.e
+                @Override // d.a.m0.a.a2.n.e
                 /* renamed from: c */
-                public Map<String, String> b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+                public Map<String, String> b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                     return cVar.v();
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public e b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public e b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 Map<String, Map<String, String>> r = cVar.r(new a(this));
                 if (r == null) {
                     return e.d();
                 }
                 e eVar = new e();
-                eVar.f11324a = r;
+                eVar.f11406a = r;
                 return eVar;
             }
         }
@@ -335,7 +335,7 @@ public class SwanAppConfigData {
             if (optJSONObject == null) {
                 return null;
             }
-            d2.f11324a = new HashMap();
+            d2.f11406a = new HashMap();
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
@@ -348,14 +348,14 @@ public class SwanAppConfigData {
                         hashMap.put(next2, optJSONObject2.optString(next2));
                     }
                 }
-                d2.f11324a.put(next, hashMap);
+                d2.f11406a.put(next, hashMap);
             }
             return d2;
         }
 
         public static e d() {
             e eVar = new e();
-            eVar.f11324a = new HashMap();
+            eVar.f11406a = new HashMap();
             return eVar;
         }
     }
@@ -364,36 +364,36 @@ public class SwanAppConfigData {
     public static class f {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<f> f11325b = new a();
+        public static final d.a.m0.a.a2.n.f<f> f11407b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<f> f11326c = new b();
+        public static final d.a.m0.a.a2.n.e<f> f11408c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.a.l0.a.t1.f.a> f11327a;
+        public List<d.a.m0.a.t1.f.a> f11409a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<f> {
+        public static class a extends d.a.m0.a.a2.n.f<f> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull f fVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.l(fVar.f11327a, d.a.l0.a.t1.f.a.m);
+            public void b(@NonNull f fVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.l(fVar.f11409a, d.a.m0.a.t1.f.a.m);
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<f> {
+        public static class b extends d.a.m0.a.a2.n.e<f> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public f b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
-                List<d.a.l0.a.t1.f.a> q = cVar.q(d.a.l0.a.t1.f.a.l);
+            public f b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
+                List<d.a.m0.a.t1.f.a> q = cVar.q(d.a.m0.a.t1.f.a.l);
                 if (q == null) {
                     return null;
                 }
                 f fVar = new f();
-                fVar.f11327a = q;
+                fVar.f11409a = q;
                 return fVar;
             }
         }
@@ -415,15 +415,15 @@ public class SwanAppConfigData {
                 }
                 Iterator<String> keys = optJSONObject.keys();
                 fVar = new f();
-                fVar.f11327a = new ArrayList();
+                fVar.f11409a = new ArrayList();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    d.a.l0.a.t1.f.a aVar = new d.a.l0.a.t1.f.a(optJSONObject.optJSONObject(next), i2);
-                    aVar.f48465e = next;
+                    d.a.m0.a.t1.f.a aVar = new d.a.m0.a.t1.f.a(optJSONObject.optJSONObject(next), i2);
+                    aVar.f48573e = next;
                     if (file != null && !TextUtils.isEmpty(aVar.j)) {
                         aVar.j = new File(file, aVar.j).getAbsolutePath();
                     }
-                    fVar.f11327a.add(aVar);
+                    fVar.f11409a.add(aVar);
                 }
             }
             return fVar;
@@ -434,37 +434,37 @@ public class SwanAppConfigData {
     public static class g {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<g> f11328b = new a();
+        public static final d.a.m0.a.a2.n.e<g> f11410b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<g> f11329c = new b();
+        public static final d.a.m0.a.a2.n.f<g> f11411c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f11330a;
+        public Map<String, String> f11412a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.e<g> {
+        public static class a extends d.a.m0.a.a2.n.e<g> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public g b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public g b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 Map<String, String> v = cVar.v();
                 if (v == null) {
                     return g.d();
                 }
                 g gVar = new g();
-                gVar.f11330a = v;
+                gVar.f11412a = v;
                 return gVar;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.f<g> {
+        public static class b extends d.a.m0.a.a2.n.f<g> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull g gVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.p(gVar.f11330a);
+            public void b(@NonNull g gVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.p(gVar.f11412a);
             }
         }
 
@@ -478,8 +478,8 @@ public class SwanAppConfigData {
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("path");
                         String optString2 = optJSONObject.optString("page");
-                        if (!d2.f11330a.containsKey(optString)) {
-                            d2.f11330a.put(optString, optString2);
+                        if (!d2.f11412a.containsKey(optString)) {
+                            d2.f11412a.put(optString, optString2);
                         }
                     }
                 }
@@ -489,7 +489,7 @@ public class SwanAppConfigData {
 
         public static g d() {
             g gVar = new g();
-            gVar.f11330a = new HashMap();
+            gVar.f11412a = new HashMap();
             return gVar;
         }
     }
@@ -498,32 +498,32 @@ public class SwanAppConfigData {
     public static class h {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<h> f11331b = new a();
+        public static final d.a.m0.a.a2.n.f<h> f11413b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<h> f11332c = new b();
+        public static final d.a.m0.a.a2.n.e<h> f11414c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f11333a;
+        public boolean f11415a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<h> {
+        public static class a extends d.a.m0.a.a2.n.f<h> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull h hVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.writeBoolean(hVar.f11333a);
+            public void b(@NonNull h hVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.writeBoolean(hVar.f11415a);
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<h> {
+        public static class b extends d.a.m0.a.a2.n.e<h> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public h b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public h b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 h hVar = new h();
-                hVar.f11333a = cVar.readBoolean();
+                hVar.f11415a = cVar.readBoolean();
                 return hVar;
             }
         }
@@ -536,16 +536,16 @@ public class SwanAppConfigData {
             if (optJSONObject == null) {
                 return c();
             }
-            d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-            String str = i2 != null ? i2.f44425f : "";
+            d.a.m0.a.a2.e i2 = d.a.m0.a.a2.e.i();
+            String str = i2 != null ? i2.f44533f : "";
             h hVar = new h();
-            hVar.f11333a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+            hVar.f11415a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
             if (optJSONObject2 != null) {
-                d.a.l0.a.b2.a.c.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
+                d.a.m0.a.b2.a.c.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
                 if (optJSONObject3 != null) {
-                    d.a.l0.a.b2.a.c.s(str, optJSONObject3);
+                    d.a.m0.a.b2.a.c.s(str, optJSONObject3);
                 }
             }
             return hVar;
@@ -556,26 +556,26 @@ public class SwanAppConfigData {
                 Log.w("SwanAppConfigData", "SettingConfig createNullObject()");
             }
             h hVar = new h();
-            hVar.f11333a = true;
+            hVar.f11415a = true;
             return hVar;
         }
 
         public static boolean d() {
-            SwanAppConfigData s = d.a.l0.a.g1.f.V().s();
+            SwanAppConfigData s = d.a.m0.a.g1.f.V().s();
             if (s == null) {
                 return true;
             }
-            h hVar = s.f11313g;
-            d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-            boolean d2 = d.a.l0.a.v.a.d(i2 != null ? i2.N() : null);
-            boolean d3 = d.a.l0.a.e0.f.e.e.d();
-            boolean d4 = d.a.l0.a.h0.a.d();
-            boolean G = d.a.l0.a.u1.a.a.G();
-            boolean C = d.a.l0.a.u1.a.a.C();
+            h hVar = s.f11395g;
+            d.a.m0.a.a2.e i2 = d.a.m0.a.a2.e.i();
+            boolean d2 = d.a.m0.a.v.a.d(i2 != null ? i2.N() : null);
+            boolean d3 = d.a.m0.a.e0.f.e.e.d();
+            boolean d4 = d.a.m0.a.h0.a.d();
+            boolean G = d.a.m0.a.u1.a.a.G();
+            boolean C = d.a.m0.a.u1.a.a.C();
             if (SwanAppConfigData.r) {
-                Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + hVar.f11333a);
+                Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + hVar.f11415a);
             }
-            return (d2 || d3 || d4 || G || C) && !hVar.f11333a;
+            return (d2 || d3 || d4 || G || C) && !hVar.f11415a;
         }
     }
 
@@ -583,66 +583,66 @@ public class SwanAppConfigData {
     public static class i {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f11334d = File.separator;
+        public static final String f11416d = File.separator;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<i> f11335e = new a();
+        public static final d.a.m0.a.a2.n.e<i> f11417e = new a();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<i> f11336f = new b();
+        public static final d.a.m0.a.a2.n.f<i> f11418f = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11337a;
+        public String f11419a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f11338b;
+        public List<String> f11420b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f11339c = false;
+        public boolean f11421c = false;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.e<i> {
+        public static class a extends d.a.m0.a.a2.n.e<i> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public i b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public i b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 i iVar = new i();
-                iVar.f11337a = cVar.s();
-                iVar.f11338b = cVar.u(Collections.emptyList());
-                iVar.f11339c = cVar.readBoolean();
+                iVar.f11419a = cVar.s();
+                iVar.f11420b = cVar.u(Collections.emptyList());
+                iVar.f11421c = cVar.readBoolean();
                 return iVar;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.f<i> {
+        public static class b extends d.a.m0.a.a2.n.f<i> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull i iVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.n(iVar.f11337a);
-                dVar.o(iVar.f11338b);
-                dVar.writeBoolean(iVar.f11339c);
+            public void b(@NonNull i iVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.n(iVar.f11419a);
+                dVar.o(iVar.f11420b);
+                dVar.writeBoolean(iVar.f11421c);
             }
         }
 
         public static i c(JSONObject jSONObject, Map<String, String> map, Map<String, String> map2, File file) {
             if (jSONObject != null && map != null) {
                 i iVar = new i();
-                iVar.f11337a = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH);
-                iVar.f11339c = jSONObject.optBoolean("independent");
+                iVar.f11419a = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH);
+                iVar.f11421c = jSONObject.optBoolean("independent");
                 JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
-                    iVar.f11338b = new ArrayList();
+                    iVar.f11420b = new ArrayList();
                     for (int i2 = 0; i2 < length; i2++) {
                         String optString = optJSONArray.optString(i2);
-                        iVar.f11338b.add(optString);
-                        if (!TextUtils.isEmpty(iVar.f11337a) && !TextUtils.isEmpty(optString)) {
-                            String str = (!iVar.f11337a.endsWith(f11334d) && !optString.startsWith(f11334d)) ? iVar.f11337a + f11334d + optString : iVar.f11337a + optString;
-                            map.put(str, iVar.f11337a);
-                            if (iVar.f11339c) {
-                                map2.put(str, iVar.f11337a);
+                        iVar.f11420b.add(optString);
+                        if (!TextUtils.isEmpty(iVar.f11419a) && !TextUtils.isEmpty(optString)) {
+                            String str = (!iVar.f11419a.endsWith(f11416d) && !optString.startsWith(f11416d)) ? iVar.f11419a + f11416d + optString : iVar.f11419a + optString;
+                            map.put(str, iVar.f11419a);
+                            if (iVar.f11421c) {
+                                map2.put(str, iVar.f11419a);
                             }
                         }
                     }
@@ -654,24 +654,24 @@ public class SwanAppConfigData {
 
         public static i d() {
             i iVar = new i();
-            iVar.f11338b = new ArrayList();
+            iVar.f11420b = new ArrayList();
             return iVar;
         }
 
         public final String e() {
             List<String> list;
-            if (TextUtils.isEmpty(this.f11337a) || (list = this.f11338b) == null || list.size() <= 0) {
+            if (TextUtils.isEmpty(this.f11419a) || (list = this.f11420b) == null || list.size() <= 0) {
                 return null;
             }
-            String str = this.f11338b.get(0);
-            if (this.f11337a.endsWith(f11334d)) {
-                String str2 = this.f11337a;
-                this.f11337a = str2.substring(0, str2.length() - 1);
+            String str = this.f11420b.get(0);
+            if (this.f11419a.endsWith(f11416d)) {
+                String str2 = this.f11419a;
+                this.f11419a = str2.substring(0, str2.length() - 1);
             }
-            if (str.startsWith(f11334d)) {
+            if (str.startsWith(f11416d)) {
                 str = str.substring(1);
             }
-            return this.f11337a + f11334d + str;
+            return this.f11419a + f11416d + str;
         }
     }
 
@@ -679,78 +679,78 @@ public class SwanAppConfigData {
     public static class j {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<j> f11340e = new a();
+        public static final d.a.m0.a.a2.n.e<j> f11422e = new a();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<j> f11341f = new b();
+        public static final d.a.m0.a.a2.n.f<j> f11423f = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public List<i> f11342a;
+        public List<i> f11424a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, Boolean> f11343b;
+        public Map<String, Boolean> f11425b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Map<String, String> f11344c;
+        public Map<String, String> f11426c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Map<String, String> f11345d;
+        public Map<String, String> f11427d;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.e<j> {
+        public static class a extends d.a.m0.a.a2.n.e<j> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public j b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public j b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 j jVar = new j();
-                List<i> q = cVar.q(i.f11335e);
-                jVar.f11342a = q;
+                List<i> q = cVar.q(i.f11417e);
+                jVar.f11424a = q;
                 if (q == null) {
-                    jVar.f11342a = new ArrayList();
+                    jVar.f11424a = new ArrayList();
                 }
                 Map<String, Boolean> n = cVar.n();
-                jVar.f11343b = n;
+                jVar.f11425b = n;
                 if (n == null) {
-                    jVar.f11343b = new HashMap();
+                    jVar.f11425b = new HashMap();
                 }
                 Map<String, String> v = cVar.v();
-                jVar.f11344c = v;
+                jVar.f11426c = v;
                 if (v == null) {
-                    jVar.f11344c = new HashMap();
+                    jVar.f11426c = new HashMap();
                 }
                 Map<String, String> v2 = cVar.v();
-                jVar.f11345d = v2;
+                jVar.f11427d = v2;
                 if (v2 == null) {
-                    jVar.f11345d = new HashMap();
+                    jVar.f11427d = new HashMap();
                 }
                 return jVar;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.f<j> {
+        public static class b extends d.a.m0.a.a2.n.f<j> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull j jVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.l(jVar.f11342a, i.f11336f);
-                dVar.c(jVar.f11343b);
-                dVar.p(jVar.f11344c);
-                dVar.p(jVar.f11345d);
+            public void b(@NonNull j jVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.l(jVar.f11424a, i.f11418f);
+                dVar.c(jVar.f11425b);
+                dVar.p(jVar.f11426c);
+                dVar.p(jVar.f11427d);
             }
         }
 
         public static j c(JSONArray jSONArray, @Nullable File file) {
             if (jSONArray != null && jSONArray.length() > 0) {
                 j jVar = new j();
-                jVar.f11342a = new ArrayList();
-                jVar.f11344c = new HashMap();
-                jVar.f11343b = new HashMap();
-                jVar.f11345d = new HashMap();
+                jVar.f11424a = new ArrayList();
+                jVar.f11426c = new HashMap();
+                jVar.f11425b = new HashMap();
+                jVar.f11427d = new HashMap();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        jVar.f11342a.add(i.c(optJSONObject, jVar.f11344c, jVar.f11345d, file));
+                        jVar.f11424a.add(i.c(optJSONObject, jVar.f11426c, jVar.f11427d, file));
                     }
                 }
                 return jVar;
@@ -767,10 +767,10 @@ public class SwanAppConfigData {
 
         public static j e() {
             j jVar = new j();
-            jVar.f11342a = new ArrayList();
-            jVar.f11344c = new HashMap();
-            jVar.f11343b = new HashMap();
-            jVar.f11345d = new HashMap();
+            jVar.f11424a = new ArrayList();
+            jVar.f11426c = new HashMap();
+            jVar.f11425b = new HashMap();
+            jVar.f11427d = new HashMap();
             return jVar;
         }
     }
@@ -779,53 +779,53 @@ public class SwanAppConfigData {
     public static class k {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<k> f11346b = new a();
+        public static final d.a.m0.a.a2.n.f<k> f11428b = new a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<k> f11347c = new b();
+        public static final d.a.m0.a.a2.n.e<k> f11429c = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f11348a;
+        public Map<String, String> f11430a;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<k> {
+        public static class a extends d.a.m0.a.a2.n.f<k> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull k kVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.p(kVar.f11348a);
+            public void b(@NonNull k kVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.p(kVar.f11430a);
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<k> {
+        public static class b extends d.a.m0.a.a2.n.e<k> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public k b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public k b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 Map<String, String> v = cVar.v();
                 if (v == null) {
                     return k.d();
                 }
                 k kVar = new k();
-                kVar.f11348a = v;
+                kVar.f11430a = v;
                 return kVar;
             }
         }
 
         public static k c(JSONObject jSONObject, j jVar) {
             List<i> list;
-            if (jSONObject != null && jVar != null && (list = jVar.f11342a) != null && list.size() > 0) {
+            if (jSONObject != null && jVar != null && (list = jVar.f11424a) != null && list.size() > 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
                 if (optJSONObject == null) {
                     return d();
                 }
                 k kVar = new k();
-                kVar.f11348a = new HashMap();
-                for (i iVar : jVar.f11342a) {
-                    if (iVar != null && !TextUtils.isEmpty(iVar.f11337a)) {
-                        Map<String, String> map = kVar.f11348a;
-                        String str = iVar.f11337a;
+                kVar.f11430a = new HashMap();
+                for (i iVar : jVar.f11424a) {
+                    if (iVar != null && !TextUtils.isEmpty(iVar.f11419a)) {
+                        Map<String, String> map = kVar.f11430a;
+                        String str = iVar.f11419a;
                         map.put(str, optJSONObject.optString(str));
                     }
                 }
@@ -836,7 +836,7 @@ public class SwanAppConfigData {
 
         public static k d() {
             k kVar = new k();
-            kVar.f11348a = new HashMap();
+            kVar.f11430a = new HashMap();
             return kVar;
         }
     }
@@ -845,55 +845,55 @@ public class SwanAppConfigData {
     public static class l {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<l> f11349f = new a();
+        public static final d.a.m0.a.a2.n.f<l> f11431f = new a();
 
         /* renamed from: g  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<l> f11350g = new b();
+        public static final d.a.m0.a.a2.n.e<l> f11432g = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11351a;
+        public int f11433a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11352b;
+        public int f11434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11353c;
+        public int f11435c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11354d;
+        public int f11436d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<m> f11355e;
+        public List<m> f11437e;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<l> {
+        public static class a extends d.a.m0.a.a2.n.f<l> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull l lVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.writeInt(lVar.f11351a);
-                dVar.writeInt(lVar.f11352b);
-                dVar.writeInt(lVar.f11353c);
-                dVar.writeInt(lVar.f11354d);
-                dVar.l(lVar.f11355e, m.f11356e);
+            public void b(@NonNull l lVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.writeInt(lVar.f11433a);
+                dVar.writeInt(lVar.f11434b);
+                dVar.writeInt(lVar.f11435c);
+                dVar.writeInt(lVar.f11436d);
+                dVar.l(lVar.f11437e, m.f11438e);
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<l> {
+        public static class b extends d.a.m0.a.a2.n.e<l> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public l b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public l b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 l lVar = new l();
-                lVar.f11351a = cVar.readInt();
-                lVar.f11352b = cVar.readInt();
-                lVar.f11353c = cVar.readInt();
-                lVar.f11354d = cVar.readInt();
-                List<m> q = cVar.q(m.f11357f);
-                lVar.f11355e = q;
+                lVar.f11433a = cVar.readInt();
+                lVar.f11434b = cVar.readInt();
+                lVar.f11435c = cVar.readInt();
+                lVar.f11436d = cVar.readInt();
+                List<m> q = cVar.q(m.f11439f);
+                lVar.f11437e = q;
                 if (q == null) {
-                    lVar.f11355e = new ArrayList();
+                    lVar.f11437e = new ArrayList();
                 }
                 return lVar;
             }
@@ -909,18 +909,18 @@ public class SwanAppConfigData {
                 return c();
             }
             l lVar = new l();
-            lVar.f11351a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
-            lVar.f11352b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
-            lVar.f11353c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
-            lVar.f11354d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
+            lVar.f11433a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
+            lVar.f11434b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
+            lVar.f11435c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
+            lVar.f11436d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
                 if (length > 5) {
                     length = 5;
                 }
-                lVar.f11355e = new ArrayList(length);
+                lVar.f11437e = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    lVar.f11355e.add(m.b(optJSONArray.optJSONObject(i2)));
+                    lVar.f11437e.add(m.b(optJSONArray.optJSONObject(i2)));
                 }
             }
             return lVar;
@@ -931,16 +931,16 @@ public class SwanAppConfigData {
                 Log.w("SwanAppConfigData", "TabBarConfig createNullObject() ");
             }
             l lVar = new l();
-            lVar.f11355e = new ArrayList();
+            lVar.f11437e = new ArrayList();
             return lVar;
         }
 
         public boolean d(String str) {
-            if (this.f11355e == null) {
+            if (this.f11437e == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f11355e.size(); i2++) {
-                if (TextUtils.equals(this.f11355e.get(i2).f11358a, str)) {
+            for (int i2 = 0; i2 < this.f11437e.size(); i2++) {
+                if (TextUtils.equals(this.f11437e.get(i2).f11440a, str)) {
                     return true;
                 }
             }
@@ -948,7 +948,7 @@ public class SwanAppConfigData {
         }
 
         public boolean e() {
-            List<m> list = this.f11355e;
+            List<m> list = this.f11437e;
             return list != null && list.size() >= 2;
         }
     }
@@ -957,47 +957,47 @@ public class SwanAppConfigData {
     public static class m {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.f<m> f11356e = new a();
+        public static final d.a.m0.a.a2.n.f<m> f11438e = new a();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.l0.a.a2.n.e<m> f11357f = new b();
+        public static final d.a.m0.a.a2.n.e<m> f11439f = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11358a;
+        public String f11440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11359b;
+        public String f11441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11360c;
+        public String f11442c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11361d;
+        public String f11443d;
 
         /* loaded from: classes3.dex */
-        public static class a extends d.a.l0.a.a2.n.f<m> {
+        public static class a extends d.a.m0.a.a2.n.f<m> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.f
+            @Override // d.a.m0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull m mVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.n(mVar.f11358a);
-                dVar.n(mVar.f11359b);
-                dVar.n(mVar.f11360c);
-                dVar.n(mVar.f11361d);
+            public void b(@NonNull m mVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
+                dVar.n(mVar.f11440a);
+                dVar.n(mVar.f11441b);
+                dVar.n(mVar.f11442c);
+                dVar.n(mVar.f11443d);
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends d.a.l0.a.a2.n.e<m> {
+        public static class b extends d.a.m0.a.a2.n.e<m> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.l0.a.a2.n.e
+            @Override // d.a.m0.a.a2.n.e
             /* renamed from: c */
-            public m b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
+            public m b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
                 m mVar = new m();
-                mVar.f11358a = cVar.s();
-                mVar.f11359b = cVar.s();
-                mVar.f11360c = cVar.s();
-                mVar.f11361d = cVar.s();
+                mVar.f11440a = cVar.s();
+                mVar.f11441b = cVar.s();
+                mVar.f11442c = cVar.s();
+                mVar.f11443d = cVar.s();
                 return mVar;
             }
         }
@@ -1007,10 +1007,10 @@ public class SwanAppConfigData {
                 return c();
             }
             m mVar = new m();
-            mVar.f11358a = jSONObject.optString("pagePath");
-            mVar.f11359b = jSONObject.optString("iconPath");
-            mVar.f11360c = jSONObject.optString("selectedIconPath");
-            mVar.f11361d = jSONObject.optString("text");
+            mVar.f11440a = jSONObject.optString("pagePath");
+            mVar.f11441b = jSONObject.optString("iconPath");
+            mVar.f11442c = jSONObject.optString("selectedIconPath");
+            mVar.f11443d = jSONObject.optString("text");
             return mVar;
         }
 
@@ -1043,21 +1043,21 @@ public class SwanAppConfigData {
         try {
             JSONObject jSONObject = new JSONObject(str);
             swanAppConfigData.j = f.c(jSONObject, file);
-            swanAppConfigData.f11315i = f.d(jSONObject, file);
+            swanAppConfigData.f11397i = f.d(jSONObject, file);
             swanAppConfigData.l = jSONObject.optString("remote_debug_plugins");
             JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                swanAppConfigData.k = d.a.l0.a.t1.g.b.k(optJSONArray.toString(), false);
+                swanAppConfigData.k = d.a.m0.a.t1.g.b.k(optJSONArray.toString(), false);
             }
-            swanAppConfigData.f11307a = jSONObject.optBoolean("debug");
-            swanAppConfigData.f11308b = d.b(jSONObject);
+            swanAppConfigData.f11389a = jSONObject.optBoolean("debug");
+            swanAppConfigData.f11390b = d.b(jSONObject);
             j d2 = j.d(jSONObject, file);
-            swanAppConfigData.f11309c = d2;
-            swanAppConfigData.f11310d = k.c(jSONObject, d2);
-            swanAppConfigData.f11311e = d.a.l0.a.a2.n.g.a(jSONObject);
-            swanAppConfigData.f11312f = l.b(jSONObject);
-            swanAppConfigData.f11313g = h.b(jSONObject);
-            swanAppConfigData.f11314h = c.a.a(jSONObject);
+            swanAppConfigData.f11391c = d2;
+            swanAppConfigData.f11392d = k.c(jSONObject, d2);
+            swanAppConfigData.f11393e = d.a.m0.a.a2.n.g.a(jSONObject);
+            swanAppConfigData.f11394f = l.b(jSONObject);
+            swanAppConfigData.f11395g = h.b(jSONObject);
+            swanAppConfigData.f11396h = c.a.a(jSONObject);
             swanAppConfigData.n = g.c(jSONObject);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
             if (optJSONArray2 != null) {
@@ -1095,9 +1095,9 @@ public class SwanAppConfigData {
     }
 
     public static void r(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
-        File file2 = new File(file, d.a.l0.a.c1.a.m().a() + "_app.json");
+        File file2 = new File(file, d.a.m0.a.c1.a.m().a() + "_app.json");
         if (file2.exists()) {
-            String D = d.a.l0.t.d.D(file2);
+            String D = d.a.m0.t.d.D(file2);
             if (TextUtils.isEmpty(D)) {
                 return;
             }
@@ -1105,12 +1105,12 @@ public class SwanAppConfigData {
                 JSONObject jSONObject2 = new JSONObject(D);
                 JSONObject optJSONObject = jSONObject2.optJSONObject("window");
                 if (optJSONObject != null && optJSONObject.length() > 0) {
-                    swanAppConfigData.f11311e = d.a.l0.a.a2.n.g.a(jSONObject2);
+                    swanAppConfigData.f11393e = d.a.m0.a.a2.n.g.a(jSONObject2);
                     jSONObject.put("window", optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
                 if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                    swanAppConfigData.f11312f = l.b(jSONObject2);
+                    swanAppConfigData.f11394f = l.b(jSONObject2);
                     jSONObject.put("tabBar", optJSONObject2);
                 }
                 swanAppConfigData.m = jSONObject.toString();
@@ -1139,24 +1139,24 @@ public class SwanAppConfigData {
         }
     }
 
-    public final void b(f fVar, List<d.a.l0.a.t1.f.a> list) {
-        List<d.a.l0.a.t1.f.a> list2;
-        if (fVar == null || list == null || (list2 = fVar.f11327a) == null || list2.size() <= 0) {
+    public final void b(f fVar, List<d.a.m0.a.t1.f.a> list) {
+        List<d.a.m0.a.t1.f.a> list2;
+        if (fVar == null || list == null || (list2 = fVar.f11409a) == null || list2.size() <= 0) {
             return;
         }
         list.addAll(list2);
     }
 
     public String e() {
-        return k() ? this.f11308b.f11321a.get(0) : "";
+        return k() ? this.f11390b.f11403a.get(0) : "";
     }
 
     public String f(String str) {
         List<i> list;
-        j jVar = this.f11309c;
-        if (jVar != null && (list = jVar.f11342a) != null) {
+        j jVar = this.f11391c;
+        if (jVar != null && (list = jVar.f11424a) != null) {
             for (i iVar : list) {
-                if (TextUtils.equals(iVar.f11337a, str)) {
+                if (TextUtils.equals(iVar.f11419a, str)) {
                     return iVar.e();
                 }
             }
@@ -1165,9 +1165,9 @@ public class SwanAppConfigData {
     }
 
     public String g(String str) {
-        String b2 = d.a.l0.a.c2.f.p0.j.b(o0.f(str));
+        String b2 = d.a.m0.a.c2.f.p0.j.b(o0.f(str));
         if (!TextUtils.isEmpty(b2)) {
-            if (d.a.l0.a.t1.b.a.e(b2)) {
+            if (d.a.m0.a.t1.b.a.e(b2)) {
                 return "dynamicLib";
             }
             if (p(b2)) {
@@ -1177,14 +1177,14 @@ public class SwanAppConfigData {
         return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
     }
 
-    public List<d.a.l0.a.t1.f.a> h(int i2) {
+    public List<d.a.m0.a.t1.f.a> h(int i2) {
         if (i2 == 3) {
             ArrayList arrayList = new ArrayList();
             b(this.j, arrayList);
             return arrayList;
         } else if (i2 == 4) {
             ArrayList arrayList2 = new ArrayList();
-            b(this.f11315i, arrayList2);
+            b(this.f11397i, arrayList2);
             return arrayList2;
         } else {
             return null;
@@ -1193,49 +1193,49 @@ public class SwanAppConfigData {
 
     public String i(String str) {
         g gVar = this.n;
-        if (gVar == null || gVar.f11330a == null) {
+        if (gVar == null || gVar.f11412a == null) {
             return str;
         }
         String f2 = o0.f(str);
-        String str2 = this.n.f11330a.get(f2);
+        String str2 = this.n.f11412a.get(f2);
         return TextUtils.isEmpty(str2) ? str : str.replaceFirst(f2, str2);
     }
 
     public final boolean j() {
-        j jVar = this.f11309c;
-        return (jVar == null || jVar.f11342a == null || jVar.f11345d == null) ? false : true;
+        j jVar = this.f11391c;
+        return (jVar == null || jVar.f11424a == null || jVar.f11427d == null) ? false : true;
     }
 
     public boolean k() {
         List<String> list;
-        d dVar = this.f11308b;
-        return (dVar == null || (list = dVar.f11321a) == null || list.isEmpty()) ? false : true;
+        d dVar = this.f11390b;
+        return (dVar == null || (list = dVar.f11403a) == null || list.isEmpty()) ? false : true;
     }
 
     public boolean l() {
-        j jVar = this.f11309c;
-        return (jVar == null || jVar.f11342a == null || jVar.f11344c == null) ? false : true;
+        j jVar = this.f11391c;
+        return (jVar == null || jVar.f11424a == null || jVar.f11426c == null) ? false : true;
     }
 
     public boolean m() {
-        l lVar = this.f11312f;
+        l lVar = this.f11394f;
         return lVar != null && lVar.e();
     }
 
     public boolean n(String str) {
-        return j() && this.f11309c.f11345d.containsKey(str);
+        return j() && this.f11391c.f11427d.containsKey(str);
     }
 
     public boolean o(String str) {
-        return (k() && this.f11308b.c(str)) || (l() && this.f11309c.f11344c.containsKey(str));
+        return (k() && this.f11390b.c(str)) || (l() && this.f11391c.f11426c.containsKey(str));
     }
 
     public boolean p(String str) {
-        return l() && this.f11309c.f11344c.containsKey(str);
+        return l() && this.f11391c.f11426c.containsKey(str);
     }
 
     public boolean q(String str) {
-        l lVar = this.f11312f;
+        l lVar = this.f11394f;
         return lVar != null && lVar.d(str);
     }
 

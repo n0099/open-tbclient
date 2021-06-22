@@ -17,25 +17,25 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f70657b;
+    public static Context f70761b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f70659d;
+    public static f f70763d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.o.a.a.a.a.c f70660e;
+    public static d.o.a.a.a.a.c f70764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.o.a.a.a.a.k f70661f;
+    public static d.o.a.a.a.a.k f70765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d.o.a.a.a.a.g f70662g;
+    public static d.o.a.a.a.a.g f70766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static d.o.a.a.a.a.h f70663h;
+    public static d.o.a.a.a.a.h f70767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static d.o.a.a.a.a.i f70664i;
+    public static d.o.a.a.a.a.i f70768i;
     public static d.o.a.a.a.a.b j;
     public static d.j k;
     public static d.o.a.a.a.a.d l;
@@ -47,10 +47,10 @@ public class n {
     public static d.o.a.a.a.a.l r;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JSONObject f70656a = new JSONObject();
+    public static final JSONObject f70760a = new JSONObject();
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f70658c = false;
+    public static boolean f70762c = false;
 
     /* loaded from: classes7.dex */
     public static class a implements d.o.a.a.a.a.c {
@@ -74,7 +74,7 @@ public class n {
     public static class c implements d.o.a.a.a.a.i {
         @Override // d.o.a.a.a.a.i
         public JSONObject a() {
-            return n.f70656a;
+            return n.f70760a;
         }
     }
 
@@ -119,7 +119,7 @@ public class n {
     }
 
     public static Context a() {
-        Context context = f70657b;
+        Context context = f70761b;
         if (context != null) {
             return context;
         }
@@ -128,7 +128,7 @@ public class n {
 
     public static void b(Context context) {
         if (context != null && context.getApplicationContext() != null) {
-            f70657b = context.getApplicationContext();
+            f70761b = context.getApplicationContext();
             return;
         }
         throw new IllegalArgumentException("Context is null");
@@ -139,19 +139,19 @@ public class n {
     }
 
     public static void d(@NonNull f fVar) {
-        f70659d = fVar;
+        f70763d = fVar;
     }
 
     public static void e(@NonNull d.o.a.a.a.a.g gVar) {
-        f70662g = gVar;
+        f70766g = gVar;
     }
 
     public static void f(@NonNull d.o.a.a.a.a.h hVar) {
-        f70663h = hVar;
+        f70767h = hVar;
     }
 
     public static void g(@NonNull d.o.a.a.a.a.i iVar) {
-        f70664i = iVar;
+        f70768i = iVar;
         try {
             d.o.a.e.a.e.F().w(F());
         } catch (Exception e2) {
@@ -160,7 +160,7 @@ public class n {
     }
 
     public static void h(@NonNull d.o.a.a.a.a.k kVar) {
-        f70661f = kVar;
+        f70765f = kVar;
     }
 
     public static void i(@NonNull d.o.a.a.a.d.a aVar) {
@@ -171,42 +171,42 @@ public class n {
     }
 
     public static f k() {
-        return f70659d;
+        return f70763d;
     }
 
     public static void l(Context context) {
-        if (f70657b != null || context == null || context.getApplicationContext() == null) {
+        if (f70761b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f70657b = context.getApplicationContext();
+        f70761b = context.getApplicationContext();
     }
 
     @NonNull
     public static d.o.a.a.a.a.c m() {
-        if (f70660e == null) {
-            f70660e = new a();
+        if (f70764e == null) {
+            f70764e = new a();
         }
-        return f70660e;
+        return f70764e;
     }
 
     @NonNull
     public static d.o.a.a.a.a.k n() {
-        if (f70661f == null) {
-            f70661f = new h.d();
+        if (f70765f == null) {
+            f70765f = new h.d();
         }
-        return f70661f;
+        return f70765f;
     }
 
     public static d.o.a.a.a.a.g o() {
-        return f70662g;
+        return f70766g;
     }
 
     @NonNull
     public static d.o.a.a.a.a.h p() {
-        if (f70663h == null) {
-            f70663h = new h.e();
+        if (f70767h == null) {
+            f70767h = new h.e();
         }
-        return f70663h;
+        return f70767h;
     }
 
     public static d.j q() {
@@ -222,10 +222,10 @@ public class n {
 
     @NonNull
     public static JSONObject s() {
-        if (f70664i == null) {
-            f70664i = new c();
+        if (f70768i == null) {
+            f70768i = new c();
         }
-        return (JSONObject) d.o.a.d.n.k.k(f70664i.a(), f70656a);
+        return (JSONObject) d.o.a.d.n.k.k(f70768i.a(), f70760a);
     }
 
     public static d.o.a.a.a.a.l t() {

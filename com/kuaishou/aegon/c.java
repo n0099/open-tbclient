@@ -5,18 +5,18 @@ import aegon.chrome.net.RequestFinishedInfo;
 public final /* synthetic */ class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f32154a;
+    public final a f32252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RequestFinishedInfo f32155b;
+    public final RequestFinishedInfo f32253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f32156c;
+    public final String f32254c;
 
     public c(a aVar, RequestFinishedInfo requestFinishedInfo, String str) {
-        this.f32154a = aVar;
-        this.f32155b = requestFinishedInfo;
-        this.f32156c = str;
+        this.f32252a = aVar;
+        this.f32253b = requestFinishedInfo;
+        this.f32254c = str;
     }
 
     public static Runnable a(a aVar, RequestFinishedInfo requestFinishedInfo, String str) {
@@ -25,6 +25,6 @@ public final /* synthetic */ class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f32154a.a(this.f32155b, this.f32156c);
+        this.f32252a.a(this.f32253b, this.f32254c);
     }
 }

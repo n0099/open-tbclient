@@ -147,7 +147,7 @@ public class NPSManager {
     }
 
     private void registerRestartReceiver() {
-        ContextHolder.getApplicationContext().registerReceiver(new b(), new IntentFilter(d.a.z.i.a.f68681a));
+        ContextHolder.getApplicationContext().registerReceiver(new b(), new IntentFilter(d.a.z.i.a.f68785a));
     }
 
     private void statisticClassNotFind(String str, InvokeException invokeException) {

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import d.a.n0.q.d.e;
+import d.a.o0.q.d.e;
 /* loaded from: classes4.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     private String extractPackageName(Intent intent) {

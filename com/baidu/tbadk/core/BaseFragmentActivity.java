@@ -67,17 +67,17 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.a.m0.a.q;
-import d.a.m0.a.t;
-import d.a.m0.r.s.a;
-import d.a.m0.z0.d0;
-import d.a.m0.z0.g0;
+import d.a.n0.a.q;
+import d.a.n0.a.t;
+import d.a.n0.r.s.a;
+import d.a.n0.z0.d0;
+import d.a.n0.z0.g0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.a.m0.k0.a, q, Object, d.a.m0.j0.a {
+public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.a.n0.k0.a, q, Object, d.a.n0.j0.a {
     public static int flog = 1;
     public static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
     public final int SHOW_SOFT_KEYBOARD_DELAY;
@@ -88,26 +88,26 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public boolean isAddSwipeBackLayout;
     public long lastResumeTime;
     public View loadingRootView;
-    public d.a.m0.d0.g loadingView;
+    public d.a.n0.d0.g loadingView;
     public int mAboveKeyboardHeight;
     public ViewGroup mActivityRootView;
-    public d.a.m0.r.s.g mClickableTextToast;
+    public d.a.n0.r.s.g mClickableTextToast;
     public String mCurAccountId;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public boolean mHideStatusImmersiveStyle;
     public boolean mIsHasScreenShotListener;
-    public d.a.m0.r.f0.d mKeyboardAdjust;
+    public d.a.n0.r.f0.d mKeyboardAdjust;
     public int mLastOrientation;
     public int mLastScreenHeight;
     public int mLastScreenWidth;
     public boolean mLayoutHasInit;
-    public d.a.m0.r.c mLayoutMode;
+    public d.a.n0.r.c mLayoutMode;
     public int mMaxHeight;
-    public d.a.m0.i0.c mPageExtra;
-    public d.a.m0.r.e mPermissionCallback;
+    public d.a.n0.i0.c mPageExtra;
+    public d.a.n0.r.e mPermissionCallback;
     public int mPreHeight;
     public ProgressBar mProgressBar;
-    public d.a.m0.d0.h mRefreshView;
+    public d.a.n0.d0.h mRefreshView;
     public d0 mScreenShotListenManager;
     public SwipeBackLayout mSwipeBackLayout;
     public TbPageTag mTbPageTag;
@@ -116,22 +116,22 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public l netRefreshListener;
     public final CustomMessageListener nightResourcesChangeListener;
     public TbPageContext<BaseFragmentActivity> pageContext;
-    public d.a.m0.k0.d pageStayDurationItem;
+    public d.a.n0.k0.d pageStayDurationItem;
     public List<PopupWindow> popupWindowList;
     public d.a.c.e.m.c resourcesWrapper;
     public Runnable setNoTranslucentRunnable;
     public final CustomMessageListener skinTypeChangeListener;
-    public d.a.m0.r.f0.a mWaitingDialog = null;
+    public d.a.n0.r.f0.a mWaitingDialog = null;
     public DialogInterface.OnCancelListener mDialogListener = null;
     public int mSkinType = 3;
     public boolean mIsLogin = false;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.m0.r.e {
+    public class a implements d.a.n0.r.e {
         public a() {
         }
 
-        @Override // d.a.m0.r.e
+        @Override // d.a.n0.r.e
         public void onPermissionResult(boolean z) {
             if (z) {
                 TbadkCoreApplication.getInst().setCurrentActivity(BaseFragmentActivity.this.getPageContext().getPageActivity());
@@ -227,30 +227,30 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class e implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f12050a;
+        public final /* synthetic */ Animation.AnimationListener f12132a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f12051b;
+        public final /* synthetic */ WeakReference f12133b;
 
         public e(Animation.AnimationListener animationListener, WeakReference weakReference) {
-            this.f12050a = animationListener;
-            this.f12051b = weakReference;
+            this.f12132a = animationListener;
+            this.f12133b = weakReference;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12050a;
+            Animation.AnimationListener animationListener = this.f12132a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
             synchronized (BaseFragmentActivity.this.animationList) {
-                BaseFragmentActivity.this.animationList.remove(this.f12051b);
+                BaseFragmentActivity.this.animationList.remove(this.f12133b);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12050a;
+            Animation.AnimationListener animationListener = this.f12132a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -258,7 +258,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12050a;
+            Animation.AnimationListener animationListener = this.f12132a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -312,8 +312,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public h() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
             if (BaseFragmentActivity.this.mPermissionCallback != null) {
                 BaseFragmentActivity.this.mPermissionCallback.onPermissionResult(false);
@@ -326,8 +326,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public i() {
         }
 
-        @Override // d.a.m0.r.s.a.e
-        public void onClick(d.a.m0.r.s.a aVar) {
+        @Override // d.a.n0.r.s.a.e
+        public void onClick(d.a.n0.r.s.a aVar) {
             aVar.dismiss();
             try {
                 Intent intent = new Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION");
@@ -347,7 +347,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public j() {
         }
 
-        @Override // d.a.m0.z0.d0.b
+        @Override // d.a.n0.z0.d0.b
         public void onShot(String str) {
             if (BaseFragmentActivity.this.getCurrentPageKey() != "a001" && BaseFragmentActivity.this.getCurrentPageKey() != "a005" && BaseFragmentActivity.this.getCurrentPageKey() != "a006") {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 4));
@@ -360,11 +360,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f12058e;
+        public View f12140e;
 
         public k(View view) {
-            this.f12058e = null;
-            this.f12058e = view;
+            this.f12140e = null;
+            this.f12140e = view;
         }
 
         @Override // java.lang.Runnable
@@ -372,7 +372,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (BaseFragmentActivity.this.isFinishing()) {
                 return;
             }
-            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f12058e);
+            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f12140e);
         }
     }
 
@@ -418,7 +418,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     private void hideClickableTextToast() {
-        d.a.m0.r.s.g gVar = this.mClickableTextToast;
+        d.a.n0.r.s.g gVar = this.mClickableTextToast;
         if (gVar != null) {
             gVar.e();
         }
@@ -487,12 +487,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.a.m0.r.f0.d.c(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = d.a.n0.r.f0.d.c(getPageContext().getPageActivity());
         }
     }
 
     public void adjustResizeForSoftInputOnDestory() {
-        d.a.m0.r.f0.d dVar = this.mKeyboardAdjust;
+        d.a.n0.r.f0.d dVar = this.mKeyboardAdjust;
         if (dVar != null) {
             dVar.i();
             this.mKeyboardAdjust = null;
@@ -500,7 +500,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void adjustResizeForSoftInputOnSkinTypeChanged(int i2) {
-        d.a.m0.r.f0.d dVar = this.mKeyboardAdjust;
+        d.a.n0.r.f0.d dVar = this.mKeyboardAdjust;
         if (dVar != null) {
             dVar.j(i2);
         }
@@ -576,7 +576,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void closeLoadingDialog() {
-        d.a.m0.r.f0.a aVar = this.mWaitingDialog;
+        d.a.n0.r.f0.a aVar = this.mWaitingDialog;
         if (aVar != null) {
             try {
                 if (aVar.c()) {
@@ -642,7 +642,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         t.a(motionEvent, getPageId(), getMissionTid());
-        d.a.n0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        d.a.o0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 
@@ -680,12 +680,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.mActivityRootView;
     }
 
-    @Override // d.a.m0.k0.a
+    @Override // d.a.n0.k0.a
     public String getCurrentPageKey() {
         return null;
     }
 
-    @Override // d.a.m0.k0.a
+    @Override // d.a.n0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         Intent intent = getIntent();
         if (intent != null) {
@@ -698,11 +698,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return TbadkCoreApplication.getInst().isGpuOpen();
     }
 
-    public d.a.m0.r.c getLayoutMode() {
+    public d.a.n0.r.c getLayoutMode() {
         return this.mLayoutMode;
     }
 
-    public d.a.m0.r.f0.a getLoadingDialog() {
+    public d.a.n0.r.f0.a getLoadingDialog() {
         return this.mWaitingDialog;
     }
 
@@ -717,7 +717,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.netRefreshListener;
     }
 
-    @Override // d.a.m0.k0.a
+    @Override // d.a.n0.k0.a
     public List<String> getNextPageSourceKeyList() {
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
@@ -736,8 +736,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 arrayList.add(currentPageKey);
             }
             Fragment visibleFragment = getVisibleFragment();
-            if (visibleFragment instanceof d.a.m0.k0.a) {
-                String currentPageKey2 = ((d.a.m0.k0.a) visibleFragment).getCurrentPageKey();
+            if (visibleFragment instanceof d.a.n0.k0.a) {
+                String currentPageKey2 = ((d.a.n0.k0.a) visibleFragment).getCurrentPageKey();
                 if (!StringUtils.isNull(currentPageKey2)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -758,9 +758,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return 0;
     }
 
-    public d.a.m0.k0.d getPageStayDurationItem() {
+    public d.a.n0.k0.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
-            d.a.m0.k0.d dVar = new d.a.m0.k0.d();
+            d.a.n0.k0.d dVar = new d.a.n0.k0.d();
             this.pageStayDurationItem = dVar;
             dVar.p(getCurrentPageKey());
         }
@@ -768,18 +768,18 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.pageStayDurationItem;
     }
 
-    @Override // d.a.m0.k0.a
-    public d.a.m0.k0.b getPageStayFilter() {
+    @Override // d.a.n0.k0.a
+    public d.a.n0.k0.b getPageStayFilter() {
         return null;
     }
 
     public String getPreExtraPageKey() {
-        d.a.m0.i0.c tbPageExtra = getTbPageExtra();
+        d.a.n0.i0.c tbPageExtra = getTbPageExtra();
         return tbPageExtra != null ? tbPageExtra.d() : "";
     }
 
     public final TbPageTag getPrePageTag() {
-        return d.a.m0.j0.c.m(getIntent());
+        return d.a.n0.j0.c.m(getIntent());
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -797,16 +797,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public d.a.m0.i0.c getTbPageExtra() {
+    public d.a.n0.i0.c getTbPageExtra() {
         if (this.mPageExtra == null) {
-            this.mPageExtra = new d.a.m0.i0.c(getUniqueId(), getCurrentExtraPageKey(), getIntent());
+            this.mPageExtra = new d.a.n0.i0.c(getUniqueId(), getCurrentExtraPageKey(), getIntent());
         }
         return this.mPageExtra;
     }
 
-    @Override // d.a.m0.j0.a
-    public final d.a.m0.j0.b getTbPageInfo() {
-        return new d.a.m0.j0.b(getUniqueId(), getTbPageTag(), getIntent());
+    @Override // d.a.n0.j0.a
+    public final d.a.n0.j0.b getTbPageInfo() {
+        return new d.a.n0.j0.b(getUniqueId(), getTbPageTag(), getIntent());
     }
 
     public TbPageTag getTbPageTag() {
@@ -832,24 +832,24 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return null;
     }
 
-    public boolean grantWindowPermission(d.a.m0.r.e eVar, boolean z) {
+    public boolean grantWindowPermission(d.a.n0.r.e eVar, boolean z) {
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(getBaseContext())) {
                 this.mPermissionCallback = eVar;
-                boolean g2 = d.a.m0.r.d0.b.j().g("key_is_window_permission_dialog_shown", false);
+                boolean g2 = d.a.n0.r.d0.b.j().g("key_is_window_permission_dialog_shown", false);
                 if (z) {
                     g2 = false;
                 }
                 if (!g2) {
-                    d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this);
+                    d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(this);
                     aVar.setCanceledOnTouchOutside(false);
                     aVar.setTitle(R.string.request_permission_default_title);
                     aVar.setMessageId(R.string.request_window_permission_default_text);
                     aVar.setPositiveButton(R.string.isopen, new i()).setNegativeButton(R.string.cancel, new h()).create(getPageContext());
                     aVar.show();
-                    d.a.m0.r.d0.b.j().t("key_is_window_permission_dialog_shown", true);
+                    d.a.n0.r.d0.b.j().t("key_is_window_permission_dialog_shown", true);
                 } else {
-                    d.a.m0.r.e eVar2 = this.mPermissionCallback;
+                    d.a.n0.r.e eVar2 = this.mPermissionCallback;
                     if (eVar2 != null) {
                         eVar2.onPermissionResult(false);
                     }
@@ -869,14 +869,14 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void hideLoadingView(View view) {
-        d.a.m0.d0.g gVar = this.loadingView;
+        d.a.n0.d0.g gVar = this.loadingView;
         if (gVar != null) {
             gVar.dettachView(view);
         }
     }
 
     public void hideNetRefreshView(View view) {
-        d.a.m0.d0.h hVar = this.mRefreshView;
+        d.a.n0.d0.h hVar = this.mRefreshView;
         if (hVar != null) {
             hVar.dettachView(view);
         }
@@ -890,7 +890,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public boolean isLoadingViewAttached() {
-        d.a.m0.d0.g gVar = this.loadingView;
+        d.a.n0.d0.g gVar = this.loadingView;
         if (gVar == null) {
             return false;
         }
@@ -917,7 +917,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
-        d.a.m0.r.e eVar = this.mPermissionCallback;
+        d.a.n0.r.e eVar = this.mPermissionCallback;
         if (eVar != null && Build.VERSION.SDK_INT >= 23 && i2 == 12016) {
             eVar.onPermissionResult(Settings.canDrawOverlays(getBaseContext()));
             this.mPermissionCallback = null;
@@ -942,7 +942,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                d.a.c.e.p.l.f42529a = false;
+                d.a.c.e.p.l.f42632a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {
@@ -980,7 +980,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
         TbadkCoreApplication.setIsAppRunning(true);
         TiebaStaticHelper.setCurrentActivity(getClass().getName());
-        this.mLayoutMode = new d.a.m0.r.c();
+        this.mLayoutMode = new d.a.n0.r.c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -991,7 +991,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         if (this.mLayoutMode == null) {
-            this.mLayoutMode = new d.a.m0.r.c();
+            this.mLayoutMode = new d.a.n0.r.c();
         }
         this.mLayoutMode.i(str, context, attributeSet);
         return super.onCreateView(str, context, attributeSet);
@@ -999,7 +999,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        d.a.m0.r.c cVar = this.mLayoutMode;
+        d.a.n0.r.c cVar = this.mLayoutMode;
         if (cVar != null) {
             cVar.c();
         }
@@ -1061,7 +1061,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    @Override // d.a.m0.a.q
+    @Override // d.a.n0.a.q
     public boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData) {
         hideClickableTextToast();
         this.mClickableTextToast = t.i(completeTaskToastData);
@@ -1073,16 +1073,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        d.a.n0.j3.a.getInstance().onPause(this);
+        d.a.o0.j3.a.getInstance().onPause(this);
         super.onPause();
         if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
             hideFloatingWindow();
         }
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-            d.a.m0.k0.d pageStayDurationItem = getPageStayDurationItem();
+            d.a.n0.k0.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.v(currentTimeMillis);
-            d.a.m0.k0.e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            d.a.n0.k0.e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         stopScreenShotListen();
         TbadkCoreApplication.getInst().DelResumeNum();
@@ -1147,7 +1147,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        d.a.n0.j3.a.getInstance().onResume(this);
+        d.a.o0.j3.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
@@ -1206,18 +1206,18 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onUserChanged(boolean z) {
     }
 
-    public void publishEvent(d.a.m0.f0.a aVar) {
+    public void publishEvent(d.a.n0.f0.a aVar) {
         if (aVar == null) {
             return;
         }
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        d.a.m0.f0.h.i(aVar);
+        d.a.n0.f0.h.i(aVar);
     }
 
-    public void registerResponsedEventListener(Class<? extends d.a.m0.f0.a> cls, d.a.m0.f0.i iVar) {
-        d.a.m0.f0.h.f().m(cls, iVar, getUniqueId());
+    public void registerResponsedEventListener(Class<? extends d.a.n0.f0.a> cls, d.a.n0.f0.i iVar) {
+        d.a.n0.f0.h.f().m(cls, iVar, getUniqueId());
     }
 
     public void setActivityBgTransparent() {
@@ -1243,12 +1243,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.isAddSwipeBackLayout = z;
     }
 
-    public void setLayoutMode(d.a.m0.r.c cVar) {
+    public void setLayoutMode(d.a.n0.r.c cVar) {
         this.mLayoutMode = cVar;
     }
 
     public void setNetRefreshViewEmotionMarginTop(int i2) {
-        d.a.m0.d0.h hVar = this.mRefreshView;
+        d.a.n0.d0.h hVar = this.mRefreshView;
         if (hVar == null || !hVar.isViewAttached()) {
             return;
         }
@@ -1302,7 +1302,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             this.mDialogListener = new d();
         }
         if (!isFinishing() && d.a.c.e.m.g.f(getPageContext())) {
-            d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(getPageContext());
+            d.a.n0.r.f0.a aVar = new d.a.n0.r.f0.a(getPageContext());
             this.mWaitingDialog = aVar;
             if (str != null) {
                 aVar.j(str);
@@ -1423,7 +1423,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void unRegisterResponsedEventListener() {
-        d.a.m0.f0.h.f().n(getUniqueId());
+        d.a.n0.f0.h.f().n(getUniqueId());
     }
 
     public boolean videoNeedPreload() {
@@ -1447,9 +1447,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.loadingRootView = view;
         if (this.loadingView == null) {
             if (i2 < 0) {
-                this.loadingView = new d.a.m0.d0.g(getPageContext().getPageActivity());
+                this.loadingView = new d.a.n0.d0.g(getPageContext().getPageActivity());
             } else {
-                d.a.m0.d0.g gVar = new d.a.m0.d0.g(getPageContext().getPageActivity(), i2);
+                d.a.n0.d0.g gVar = new d.a.n0.d0.g(getPageContext().getPageActivity(), i2);
                 this.loadingView = gVar;
                 gVar.h();
             }
@@ -1463,7 +1463,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             return;
         }
         if (this.mRefreshView == null) {
-            this.mRefreshView = new d.a.m0.d0.h(getPageContext().getContext(), onClickListener);
+            this.mRefreshView = new d.a.n0.d0.h(getPageContext().getContext(), onClickListener);
         }
         this.mRefreshView.m(str);
         this.mRefreshView.l(str2);
@@ -1491,7 +1491,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput(int i2, boolean z) {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.a.m0.r.f0.d.d(getPageContext().getPageActivity(), i2, z);
+            this.mKeyboardAdjust = d.a.n0.r.f0.d.d(getPageContext().getPageActivity(), i2, z);
         }
     }
 
@@ -1517,7 +1517,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     private void adjustResizeForSoftInput(boolean z) {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.a.m0.r.f0.d.e(getPageContext().getPageActivity(), z);
+            this.mKeyboardAdjust = d.a.n0.r.f0.d.e(getPageContext().getPageActivity(), z);
         }
     }
 
@@ -1526,7 +1526,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(getPageContext());
+        d.a.n0.r.f0.a aVar = new d.a.n0.r.f0.a(getPageContext());
         this.mWaitingDialog = aVar;
         if (str != null) {
             aVar.j(str);

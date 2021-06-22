@@ -15,22 +15,22 @@ import com.baidu.tieba.face.data.EmotionImageData;
 import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class EmotionView extends TbImageView {
-    public FrameLayout A0;
-    public long B0;
-    public boolean C0;
-    public boolean D0;
-    public float E0;
-    public float F0;
-    public float G0;
+    public EmotionImageData B0;
+    public EmotionPreview C0;
+    public int D0;
+    public int E0;
+    public FrameLayout F0;
+    public long G0;
+    public boolean H0;
+    public boolean I0;
+    public float J0;
+    public float K0;
+    public float L0;
     public float M0;
     public View.OnClickListener N0;
     public float O0;
     public int P0;
     public c Q0;
-    public EmotionImageData w0;
-    public EmotionPreview x0;
-    public int y0;
-    public int z0;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
@@ -62,27 +62,27 @@ public class EmotionView extends TbImageView {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                EmotionView.this.C0 = true;
-                EmotionView.this.E0 = motionEvent.getRawX();
-                EmotionView.this.F0 = motionEvent.getRawY();
+                EmotionView.this.H0 = true;
+                EmotionView.this.J0 = motionEvent.getRawX();
+                EmotionView.this.K0 = motionEvent.getRawY();
                 EmotionView emotionView = EmotionView.this;
-                emotionView.G0 = emotionView.E0;
+                emotionView.L0 = emotionView.J0;
                 EmotionView emotionView2 = EmotionView.this;
-                emotionView2.M0 = emotionView2.F0;
-                EmotionView.this.B0 = System.currentTimeMillis();
+                emotionView2.M0 = emotionView2.K0;
+                EmotionView.this.G0 = System.currentTimeMillis();
                 if (EmotionView.this.z0()) {
                     EmotionView emotionView3 = EmotionView.this;
-                    emotionView3.postDelayed(new d(emotionView3.B0), 500L);
+                    emotionView3.postDelayed(new d(emotionView3.G0), 500L);
                 }
             } else if (action == 1) {
-                EmotionView.this.C0 = false;
-                if (EmotionView.this.D0) {
+                EmotionView.this.H0 = false;
+                if (EmotionView.this.I0) {
                     EmotionView.this.F0();
                 } else if (EmotionView.this.N0 != null && EmotionView.this.y0()) {
                     EmotionView.this.N0.onClick(EmotionView.this);
                 }
             } else if (action == 3) {
-                EmotionView.this.C0 = false;
+                EmotionView.this.H0 = false;
                 EmotionView.this.F0();
             }
             return true;
@@ -104,15 +104,15 @@ public class EmotionView extends TbImageView {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f14648e;
+        public long f14730e;
 
         public d(long j) {
-            this.f14648e = j;
+            this.f14730e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.C0 && this.f14648e == EmotionView.this.B0 && EmotionView.this.B0()) {
+            if (EmotionView.this.H0 && this.f14730e == EmotionView.this.G0 && EmotionView.this.B0()) {
                 EmotionView.this.E0();
             }
         }
@@ -129,8 +129,8 @@ public class EmotionView extends TbImageView {
     }
 
     public final boolean B0() {
-        float abs = Math.abs(this.G0 - this.E0);
-        float abs2 = Math.abs(this.M0 - this.F0);
+        float abs = Math.abs(this.L0 - this.J0);
+        float abs2 = Math.abs(this.M0 - this.K0);
         float f2 = this.O0;
         return abs < f2 && abs2 < f2;
     }
@@ -139,12 +139,12 @@ public class EmotionView extends TbImageView {
         if (emotionImageData == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
             return;
         }
-        this.w0 = emotionImageData;
+        this.B0 = emotionImageData;
         setTag(emotionImageData.getThumbUrl());
         if (this.P0 == 20) {
-            D0(this.w0);
+            D0(this.B0);
         } else {
-            U(this.w0.getThumbUrl(), this.P0, false);
+            U(this.B0.getThumbUrl(), this.P0, false);
         }
     }
 
@@ -159,7 +159,7 @@ public class EmotionView extends TbImageView {
 
     public final void E0() {
         EmotionImageData emotionImageData;
-        if (this.D0 || !z0() || (emotionImageData = this.w0) == null || TextUtils.isEmpty(emotionImageData.getPicUrl())) {
+        if (this.I0 || !z0() || (emotionImageData = this.B0) == null || TextUtils.isEmpty(emotionImageData.getPicUrl())) {
             return;
         }
         c cVar = this.Q0;
@@ -168,67 +168,67 @@ public class EmotionView extends TbImageView {
         }
         int[] iArr = new int[2];
         getLocationOnScreen(iArr);
-        if (this.x0 == null) {
-            this.x0 = new EmotionPreview(getContext());
+        if (this.C0 == null) {
+            this.C0 = new EmotionPreview(getContext());
         }
-        this.x0.e(this.w0.getPicUrl(), this.w0.getThumbUrl(), this.L, this.P0);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.y0, this.z0);
+        this.C0.e(this.B0.getPicUrl(), this.B0.getThumbUrl(), this.L, this.P0);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.D0, this.E0);
         int i2 = iArr[0] - 60;
         layoutParams.leftMargin = i2;
-        layoutParams.topMargin = iArr[1] - this.z0;
+        layoutParams.topMargin = iArr[1] - this.E0;
         if (i2 < 0) {
             layoutParams.leftMargin = 0;
         }
-        if (layoutParams.leftMargin + this.y0 > l.k(getContext())) {
-            layoutParams.leftMargin = l.k(getContext()) - this.y0;
+        if (layoutParams.leftMargin + this.D0 > l.k(getContext())) {
+            layoutParams.leftMargin = l.k(getContext()) - this.D0;
         }
-        if (this.A0 == null) {
-            this.A0 = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
+        if (this.F0 == null) {
+            this.F0 = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
         }
-        if (this.x0.getParent() != null) {
-            ViewParent parent = this.x0.getParent();
-            FrameLayout frameLayout = this.A0;
+        if (this.C0.getParent() != null) {
+            ViewParent parent = this.C0.getParent();
+            FrameLayout frameLayout = this.F0;
             if (parent == frameLayout) {
-                frameLayout.removeView(this.x0);
+                frameLayout.removeView(this.C0);
             }
         }
-        this.A0.addView(this.x0, layoutParams);
-        this.D0 = true;
+        this.F0.addView(this.C0, layoutParams);
+        this.I0 = true;
     }
 
     public final void F0() {
-        if (this.x0 == null || !this.D0) {
+        if (this.C0 == null || !this.I0) {
             return;
         }
         c cVar = this.Q0;
         if (cVar != null) {
             cVar.b();
         }
-        if (this.x0.getParent() != null) {
-            ViewParent parent = this.x0.getParent();
-            FrameLayout frameLayout = this.A0;
+        if (this.C0.getParent() != null) {
+            ViewParent parent = this.C0.getParent();
+            FrameLayout frameLayout = this.F0;
             if (parent == frameLayout) {
-                frameLayout.removeView(this.x0);
+                frameLayout.removeView(this.C0);
             }
         }
-        this.D0 = false;
+        this.I0 = false;
     }
 
     public final void G() {
-        this.y0 = l.g(getContext(), R.dimen.ds240);
-        this.z0 = l.g(getContext(), R.dimen.ds260);
+        this.D0 = l.g(getContext(), R.dimen.ds240);
+        this.E0 = l.g(getContext(), R.dimen.ds260);
         this.O0 = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void Q() {
-        this.w0 = null;
+        this.B0 = null;
         setImageResource(0);
         super.Q();
     }
 
     public EmotionImageData getData() {
-        return this.w0;
+        return this.B0;
     }
 
     public boolean getIsGif() {

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.e2.h.r;
+import d.a.o0.e2.h.r;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes5.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {

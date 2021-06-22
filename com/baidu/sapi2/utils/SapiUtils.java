@@ -92,6 +92,7 @@ public class SapiUtils implements NoProguard {
     public static final String DELIMITER2 = Character.toString(2);
     public static final String DELIMITER3 = Character.toString(3);
     public static final String KEY_QR_LOGIN_CMD = "cmd";
+    public static final String KEY_QR_LOGIN_ENCUID = "encuid";
     public static final String KEY_QR_LOGIN_ERROR = "error";
     public static final String KEY_QR_LOGIN_LP = "lp";
     public static final String KEY_QR_LOGIN_SIGN = "sign";
@@ -110,6 +111,7 @@ public class SapiUtils implements NoProguard {
     public static final int NETWORK_TYPE_HSUPA = 9;
     public static final int NETWORK_TYPE_IDEN = 11;
     public static final int NETWORK_TYPE_LTE = 13;
+    public static final int NETWORK_TYPE_NR = 20;
     public static final int NETWORK_TYPE_UMTS = 3;
     public static final int NETWORK_TYPE_UNKNOWN = 0;
     public static final String QR_LOGIN_LP_APP = "app";
@@ -546,28 +548,32 @@ public class SapiUtils implements NoProguard {
                 return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
             if (activeNetworkInfo.getType() == 0) {
-                switch (activeNetworkInfo.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return "2G";
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return g.f3985b;
-                    case 13:
-                        return "4G";
-                    default:
-                        return RomUtils.UNKNOWN;
+                int subtype = activeNetworkInfo.getSubtype();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            return "2G";
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return g.f3985b;
+                        case 13:
+                            return "4G";
+                        default:
+                            return RomUtils.UNKNOWN;
+                    }
                 }
+                return "5G";
             }
             return RomUtils.UNKNOWN;
         }
@@ -674,56 +680,59 @@ public class SapiUtils implements NoProguard {
         String str2;
         int i2;
         String str3 = "";
-        StringBuffer stringBuffer = new StringBuffer();
-        try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
-            int i3 = 0;
-            if (connectionInfo != null) {
-                i2 = StrictMath.abs(connectionInfo.getRssi());
-                str2 = connectionInfo.getSSID();
-                if (str2 != null) {
-                    str2 = str2.replace("\"", "");
+        if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+            StringBuffer stringBuffer = new StringBuffer();
+            try {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
+                int i3 = 0;
+                if (connectionInfo != null) {
+                    i2 = StrictMath.abs(connectionInfo.getRssi());
+                    str2 = connectionInfo.getSSID();
+                    if (str2 != null) {
+                        str2 = str2.replace("\"", "");
+                    }
+                    str = connectionInfo.getBSSID();
+                    if (str != null) {
+                        str = str.replace(":", "");
+                    }
+                } else {
+                    str = "";
+                    str2 = str;
+                    i2 = 0;
                 }
-                str = connectionInfo.getBSSID();
-                if (str != null) {
-                    str = str.replace(":", "");
-                }
-            } else {
-                str = "";
-                str2 = str;
-                i2 = 0;
-            }
-            List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
-            if (scanResults != null) {
-                for (ScanResult scanResult : scanResults) {
-                    String str4 = scanResult.BSSID;
-                    String str5 = scanResult.SSID;
-                    int abs = StrictMath.abs(scanResult.level);
-                    String replace = str4 != null ? str4.replace(":", "") : "";
-                    if (!replace.equals(str) && abs != 0) {
-                        if (i3 >= 10) {
-                            break;
+                List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
+                if (scanResults != null) {
+                    for (ScanResult scanResult : scanResults) {
+                        String str4 = scanResult.BSSID;
+                        String str5 = scanResult.SSID;
+                        int abs = StrictMath.abs(scanResult.level);
+                        String replace = str4 != null ? str4.replace(":", "") : "";
+                        if (!replace.equals(str) && abs != 0) {
+                            if (i3 >= 10) {
+                                break;
+                            }
+                            stringBuffer.append(DELIMITER2);
+                            stringBuffer.append(replace);
+                            stringBuffer.append(DELIMITER3);
+                            stringBuffer.append(abs);
+                            stringBuffer.append(DELIMITER3);
+                            stringBuffer.append(str5);
+                            stringBuffer.append(DELIMITER3);
+                            stringBuffer.append("2");
+                            i3++;
                         }
-                        stringBuffer.append(DELIMITER2);
-                        stringBuffer.append(replace);
-                        stringBuffer.append(DELIMITER3);
-                        stringBuffer.append(abs);
-                        stringBuffer.append(DELIMITER3);
-                        stringBuffer.append(str5);
-                        stringBuffer.append(DELIMITER3);
-                        stringBuffer.append("2");
-                        i3++;
                     }
                 }
+                if (!TextUtils.isEmpty(str)) {
+                    str3 = DELIMITER2 + str + DELIMITER3 + i2 + DELIMITER3 + str2 + DELIMITER3 + '1';
+                }
+            } catch (Exception e2) {
+                Log.e(e2);
             }
-            if (!TextUtils.isEmpty(str)) {
-                str3 = DELIMITER2 + str + DELIMITER3 + i2 + DELIMITER3 + str2 + DELIMITER3 + '1';
-            }
-        } catch (Exception e2) {
-            Log.e(e2);
+            return str3 + stringBuffer.toString();
         }
-        return str3 + stringBuffer.toString();
+        return "";
     }
 
     public static boolean hasActiveNetwork(Context context) {
@@ -939,6 +948,16 @@ public class SapiUtils implements NoProguard {
             }
         }
         return null;
+    }
+
+    public static boolean isQrLoginEnuidSchema(String str) {
+        if (isOauthQrLoginSchema(str)) {
+            return true;
+        }
+        if (TextUtils.isEmpty(str) || !str.contains(KEY_QR_LOGIN_ENCUID)) {
+            return false;
+        }
+        return !TextUtils.isEmpty(urlParamsToMap(str).get(KEY_QR_LOGIN_ENCUID));
     }
 
     public static boolean isQrLoginSchema(String str) {

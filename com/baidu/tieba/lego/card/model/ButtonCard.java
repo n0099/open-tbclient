@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import d.a.n0.k1.o.k.b;
+import d.a.o0.k1.o.k.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ButtonCard extends BaseCardInfo {

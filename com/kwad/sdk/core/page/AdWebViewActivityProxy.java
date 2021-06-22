@@ -33,7 +33,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     public static final String KEY_TEMPLATE = "key_template";
     public static final String TAG = "AdWebViewActivityProxy";
@@ -63,10 +63,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     private void inflateJsBridgeContext() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.mJsBridgeContext = aVar;
-        aVar.f34929b = this.mAdTemplate;
-        aVar.f34928a = 0;
-        aVar.f34933f = this.mAdWebView;
-        aVar.f34932e = this.mWebContainer;
+        aVar.f35027b = this.mAdTemplate;
+        aVar.f35026a = 0;
+        aVar.f35031f = this.mAdWebView;
+        aVar.f35030e = this.mWebContainer;
     }
 
     private void initTipBarView() {

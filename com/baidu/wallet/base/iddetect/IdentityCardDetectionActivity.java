@@ -41,21 +41,21 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     public static int x = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public MistView f23323g;
+    public MistView f23405g;
     public Bitmap y;
     public Bitmap z;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f23321e = IdentityCardDetectionActivity.class.getSimpleName();
+    public final String f23403e = IdentityCardDetectionActivity.class.getSimpleName();
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f23322f = 17;
+    public final int f23404f = 17;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f23324h = null;
+    public View f23406h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f23325i = null;
+    public ImageView f23407i = null;
     public RelativeLayout j = null;
     public LinearLayout k = null;
     public TextView l = null;
@@ -93,7 +93,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public View getCustomizedView() {
         MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_base_identity_card_detection_activity"), null);
-        this.f23323g = mistView;
+        this.f23405g = mistView;
         return mistView;
     }
 
@@ -119,7 +119,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             x++;
             a(Boolean.TRUE);
             this.A.putString("pic1", this.v);
-            this.f23323g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
+            this.f23405g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
             restartScan();
         } else if (i2 == 2) {
             String str = this.w;
@@ -207,7 +207,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_CAMERA_AGAGIN, x != 2 ? "1" : "0");
             deleteReady2USeFile();
             a(Boolean.FALSE);
-            this.f23323g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
+            this.f23405g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
             restartScan();
         } else if (ResUtils.id(getActivity(), "idcards_title_back") == id) {
             IdCardDetectionController.getInstance().IdCardDeteFailed(-2, "canceled by user");
@@ -228,8 +228,8 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             x = extras.getInt("step");
             this.B = extras.getBoolean("show_album");
         }
-        this.f23324h = findViewById(ResUtils.id(getActivity(), "focus_view"));
-        this.f23325i = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
+        this.f23406h = findViewById(ResUtils.id(getActivity(), "focus_view"));
+        this.f23407i = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
         this.l = (TextView) findViewById(ResUtils.id(getActivity(), "bd_wallet_promo"));
         this.j = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_bottom_layout"));
         this.k = (LinearLayout) findViewById(ResUtils.id(getActivity(), "idcard_pic_preview_bottom_layout"));
@@ -246,11 +246,11 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             this.s.setVisibility(8);
         }
         if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-            this.f23325i.setOnClickListener(this);
-            this.f23325i.setVisibility(0);
-            AccessibilityUtils.setContentDescription(this.f23325i, "打开闪光灯");
+            this.f23407i.setOnClickListener(this);
+            this.f23407i.setVisibility(0);
+            AccessibilityUtils.setContentDescription(this.f23407i, "打开闪光灯");
         } else {
-            this.f23325i.setVisibility(4);
+            this.f23407i.setVisibility(4);
         }
         this.r.setOnClickListener(this);
         this.m.setOnClickListener(this);
@@ -291,7 +291,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
         runOnUiThread(new Runnable() { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                IdentityCardDetectionActivity.this.f23324h.setVisibility(8);
+                IdentityCardDetectionActivity.this.f23406h.setVisibility(8);
                 IdentityCardDetectionActivity.this.l.setVisibility(8);
                 IdentityCardDetectionActivity.this.j.setVisibility(8);
                 IdentityCardDetectionActivity.this.k.setVisibility(0);
@@ -333,7 +333,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     @Override // com.baidu.wallet.base.camera.IImageProcess
     public Object[] processImage(byte[] bArr, int i2, int i3, Rect rect, byte[] bArr2) {
         if (this.mInCaptureTimeOut.compareAndSet(true, false)) {
-            LogUtil.d(this.f23321e, "preview process");
+            LogUtil.d(this.f23403e, "preview process");
             PayStatisticsUtil.onEvent(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_TAKE_PICTURE_FAILED);
             if (this.u.get()) {
                 rect.set(0, 0, i2, i3);
@@ -350,7 +350,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     @Override // com.baidu.wallet.base.camera.IImageProcess
     public Object[] processImageJpegData(byte[] bArr, int i2, int i3) {
         if (this.u.get()) {
-            LogUtil.d(this.f23321e, "takepic process");
+            LogUtil.d(this.f23403e, "takepic process");
             Bitmap a2 = com.baidu.wallet.base.iddetect.utils.a.a(bArr, i2, i3);
             this.z = a2;
             if (a2 != null) {
@@ -363,21 +363,21 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void relayoutUi() {
-        final ViewGroup.LayoutParams layoutParams = this.f23324h.getLayoutParams();
-        int width = this.f23324h.getWidth();
+        final ViewGroup.LayoutParams layoutParams = this.f23406h.getLayoutParams();
+        int width = this.f23406h.getWidth();
         layoutParams.width = width;
         layoutParams.height = (int) (width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-        this.f23324h.post(new Runnable() { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.2
+        this.f23406h.post(new Runnable() { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.2
             @Override // java.lang.Runnable
             public void run() {
-                IdentityCardDetectionActivity.this.f23324h.setLayoutParams(layoutParams);
+                IdentityCardDetectionActivity.this.f23406h.setLayoutParams(layoutParams);
             }
         });
         int[] iArr = new int[2];
         getWindow().getDecorView().getWindowVisibleDisplayFrame(new Rect());
         int[] iArr2 = new int[2];
         this.mPreviewView.getLocationOnScreen(iArr2);
-        this.f23324h.getLocationOnScreen(iArr);
+        this.f23406h.getLocationOnScreen(iArr);
         Rect rect = this.mFocusViewRect;
         int i2 = iArr[0] - iArr2[0];
         rect.left = i2;
@@ -385,7 +385,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
         int i3 = iArr[1] - iArr2[1];
         rect.top = i3;
         rect.bottom = (i3 + layoutParams.height) - 1;
-        this.f23323g.getFocusFrame().set(this.mFocusViewRect);
+        this.f23405g.getFocusFrame().set(this.mFocusViewRect);
         ViewGroup.LayoutParams layoutParams2 = this.n.getLayoutParams();
         layoutParams2.width = layoutParams.width;
         layoutParams2.height = layoutParams.height;
@@ -401,18 +401,18 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
-        if (this.f23325i == null) {
+        if (this.f23407i == null) {
             return;
         }
-        this.f23325i.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f23325i, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f23407i.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f23407i, z ? "关闭闪光灯" : "打开闪光灯");
     }
 
     private void a(Boolean bool) {
         if (bool.booleanValue()) {
             this.v = this.w;
         }
-        this.f23324h.setVisibility(0);
+        this.f23406h.setVisibility(0);
         this.l.setVisibility(0);
         this.j.setVisibility(0);
         this.k.setVisibility(8);

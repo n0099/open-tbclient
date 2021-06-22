@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.m0.r.r.a;
-import d.a.n0.s1.c.b.m;
+import d.a.n0.r.r.a;
+import d.a.o0.s1.c.b.m;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public m mMembercenter;
 

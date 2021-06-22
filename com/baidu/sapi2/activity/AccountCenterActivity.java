@@ -9,6 +9,7 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
@@ -84,7 +85,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (!TextUtils.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFinish() {
                 }
@@ -412,6 +413,15 @@ public class AccountCenterActivity extends SlideActiviy {
                 this.sapiWebView.setBackgroundColor(getResources().getColor(b.sapi_sdk_account_center_titlebar_bg));
             }
         }
+        this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
+            @Override // com.baidu.sapi2.SapiJsCallBacks.JumpToUriCallBack
+            public void onJumpTo(String str) {
+                if (CoreViewRouter.getInstance().getAccountCenterCallback() == null || TextUtils.isEmpty(str)) {
+                    return;
+                }
+                CoreViewRouter.getInstance().getAccountCenterCallback().onJumpTo(str);
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -429,7 +439,7 @@ public class AccountCenterActivity extends SlideActiviy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
+        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.13
             @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
             public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
             }

@@ -27,27 +27,27 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import d.a.m0.r.f0.f;
-import d.a.m0.r.q.f1;
-import d.a.m0.r.q.z0;
+import d.a.n0.r.f0.f;
+import d.a.n0.r.q.f1;
+import d.a.n0.r.q.z0;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class PersonFriendFragment extends BaseFragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f19858e = null;
+    public BdListView f19940e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.i2.d f19859f = null;
+    public d.a.o0.i2.d f19941f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f19860g = null;
+    public View f19942g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f19861h = null;
+    public NoDataView f19943h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.f0.g f19862i = null;
+    public d.a.n0.r.f0.g f19944i = null;
     public PersonFriendModel j = null;
     public int k = 0;
     public int l = 0;
@@ -102,7 +102,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             UserData userData;
-            if (PersonFriendFragment.this.f19859f == null || PersonFriendFragment.this.f19859f.getItemViewType(i2) != 0 || (userData = (UserData) PersonFriendFragment.this.f19859f.getItem(i2)) == null || userData.getUserId() == null) {
+            if (PersonFriendFragment.this.f19941f == null || PersonFriendFragment.this.f19941f.getItemViewType(i2) != 0 || (userData = (UserData) PersonFriendFragment.this.f19941f.getItem(i2)) == null || userData.getUserId() == null) {
                 return;
             }
             PersonFriendFragment.this.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(PersonFriendFragment.this.U0().getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
@@ -114,7 +114,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         public d() {
         }
 
-        @Override // d.a.m0.r.f0.f.g
+        @Override // d.a.n0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (PersonFriendFragment.this.U0() != null) {
                 PersonFriendFragment.this.q = 0;
@@ -177,7 +177,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             if (PersonFriendFragment.this.U0() == null || httpResponsedMessage.getOrginalMessage().getTag() != PersonFriendFragment.this.U0().getUniqueId()) {
                 return;
             }
-            PersonFriendFragment.this.f19858e.A(0L);
+            PersonFriendFragment.this.f19940e.A(0L);
             if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
                 PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
                 if (personFriendResponseMessage.getError() == 0) {
@@ -193,13 +193,13 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     }
 
     static {
-        d.a.n0.e3.d0.a.b(2001182, d.a.n0.i2.g.class);
+        d.a.o0.e3.d0.a.b(2001182, d.a.o0.i2.g.class);
     }
 
     public final void G0() {
         UserData userData;
-        d.a.n0.i2.d dVar = this.f19859f;
-        if (dVar == null || dVar.getItemViewType(this.l) != 0 || (userData = (UserData) this.f19859f.getItem(this.l)) == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+        d.a.o0.i2.d dVar = this.f19941f;
+        if (dVar == null || dVar.getItemViewType(this.l) != 0 || (userData = (UserData) this.f19941f.getItem(this.l)) == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
         TiebaStatic.eventStat(U0().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
@@ -222,10 +222,10 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     }
 
     public final void W0() {
-        d.a.n0.i2.d dVar = this.f19859f;
+        d.a.o0.i2.d dVar = this.f19941f;
         if (dVar != null) {
             dVar.f(true);
-            this.f19859f.notifyDataSetChanged();
+            this.f19941f.notifyDataSetChanged();
         }
         this.q = this.j.w().d().a() + 1;
         PersonFriendModel personFriendModel = this.j;
@@ -237,7 +237,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         if (f1Var == null) {
             return;
         }
-        this.f19858e.A(0L);
+        this.f19940e.A(0L);
         if (this.j == null || U0() == null) {
             return;
         }
@@ -264,32 +264,32 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     }
 
     public final void Y0(f1 f1Var) {
-        d.a.n0.i2.d dVar = this.f19859f;
+        d.a.o0.i2.d dVar = this.f19941f;
         if (dVar != null) {
             if (f1Var != null) {
                 z0 d2 = f1Var.d();
                 boolean z = true;
                 if (this.k == 0) {
-                    this.f19859f.e((d2 == null || d2.b() != 1) ? false : false);
-                    this.f19859f.d(f1Var.e());
+                    this.f19941f.e((d2 == null || d2.b() != 1) ? false : false);
+                    this.f19941f.d(f1Var.e());
                 } else {
                     if (f1Var.b().size() < this.r) {
-                        this.f19859f.e(false);
+                        this.f19941f.e(false);
                     } else {
-                        this.f19859f.e(true);
+                        this.f19941f.e(true);
                     }
-                    this.f19859f.d(f1Var.b());
+                    this.f19941f.d(f1Var.b());
                 }
-                this.f19859f.f(false);
-                this.f19859f.b();
-                this.f19859f.notifyDataSetChanged();
+                this.f19941f.f(false);
+                this.f19941f.b();
+                this.f19941f.notifyDataSetChanged();
                 return;
             }
             dVar.e(false);
-            this.f19859f.d(new ArrayList<>());
-            this.f19859f.f(false);
-            this.f19859f.b();
-            this.f19859f.notifyDataSetChanged();
+            this.f19941f.d(new ArrayList<>());
+            this.f19941f.f(false);
+            this.f19941f.b();
+            this.f19941f.notifyDataSetChanged();
         }
     }
 
@@ -312,28 +312,28 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             if (personFriendModel.w().e().size() == 0) {
                 f1 f1Var2 = this.n;
                 if (f1Var2 != null && f1Var2.e().size() > 0) {
-                    this.f19861h.setVisibility(8);
-                    this.f19858e.setVisibility(0);
+                    this.f19943h.setVisibility(8);
+                    this.f19940e.setVisibility(0);
                 } else {
-                    this.f19861h.setVisibility(0);
-                    this.f19858e.setVisibility(0);
+                    this.f19943h.setVisibility(0);
+                    this.f19940e.setVisibility(0);
                 }
             } else {
-                this.f19861h.setVisibility(8);
-                this.f19858e.setVisibility(0);
+                this.f19943h.setVisibility(8);
+                this.f19940e.setVisibility(0);
             }
         } else if (personFriendModel.w().b().size() == 0) {
             f1 f1Var3 = this.n;
             if (f1Var3 != null && f1Var3.b().size() > 0) {
-                this.f19861h.setVisibility(8);
-                this.f19858e.setVisibility(0);
+                this.f19943h.setVisibility(8);
+                this.f19940e.setVisibility(0);
             } else {
-                this.f19861h.setVisibility(0);
-                this.f19858e.setVisibility(0);
+                this.f19943h.setVisibility(0);
+                this.f19940e.setVisibility(0);
             }
         } else {
-            this.f19861h.setVisibility(8);
-            this.f19858e.setVisibility(0);
+            this.f19943h.setVisibility(8);
+            this.f19940e.setVisibility(0);
         }
         U0().updateTabTitle(this.j.w().c(), this.j.w().a());
     }
@@ -349,14 +349,14 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
         if (isAdded()) {
-            if (this.f19860g != null && getBaseFragmentActivity() != null) {
-                getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.f19860g);
+            if (this.f19942g != null && getBaseFragmentActivity() != null) {
+                getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.f19942g);
             }
-            NoDataView noDataView = this.f19861h;
+            NoDataView noDataView = this.f19943h;
             if (noDataView != null) {
                 SkinManager.setBackgroundResource(noDataView, R.color.CAM_X0201);
             }
-            d.a.m0.r.f0.g gVar = this.f19862i;
+            d.a.n0.r.f0.g gVar = this.f19944i;
             if (gVar != null) {
                 gVar.I(i2);
             }
@@ -368,15 +368,15 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         String str;
         this.k = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(R.layout.friend_fragment, viewGroup, false);
-        this.f19859f = new d.a.n0.i2.d(U0(), U0().getIsHost(), this.k, new a(), new b());
+        this.f19941f = new d.a.o0.i2.d(U0(), U0().getIsHost(), this.k, new a(), new b());
         BdListView bdListView = (BdListView) inflate.findViewById(R.id.my_friend_list);
-        this.f19858e = bdListView;
+        this.f19940e = bdListView;
         bdListView.setOnItemClickListener(new c());
-        this.f19858e.setAdapter((ListAdapter) this.f19859f);
-        d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(U0().getPageContext());
-        this.f19862i = gVar;
+        this.f19940e.setAdapter((ListAdapter) this.f19941f);
+        d.a.n0.r.f0.g gVar = new d.a.n0.r.f0.g(U0().getPageContext());
+        this.f19944i = gVar;
         gVar.a(new d());
-        this.f19858e.setPullRefresh(this.f19862i);
+        this.f19940e.setPullRefresh(this.f19944i);
         this.m = U0().getIsHost();
         if (U0() == null) {
             str = null;
@@ -387,9 +387,9 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         } else {
             str = getString(R.string.person_friend_no_common_info);
         }
-        this.f19861h = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.c(str), null);
-        this.f19860g = inflate.findViewById(R.id.friend_fragment_parent);
-        this.f19858e.setOnSrollToBottomListener(new e());
+        this.f19943h = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.c(str), null);
+        this.f19942g = inflate.findViewById(R.id.friend_fragment_parent);
+        this.f19940e.setOnSrollToBottomListener(new e());
         if (U0() != null) {
             this.j = U0().getModel();
             if (this.m) {
@@ -398,27 +398,27 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         }
         if (this.k == U0().getCurrentPageType()) {
             this.q = 0;
-            this.f19858e.F();
+            this.f19940e.F();
         }
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        d.a.n0.i2.d dVar = this.f19859f;
+        d.a.o0.i2.d dVar = this.f19941f;
         if (dVar != null) {
             dVar.c();
-            this.f19859f = null;
+            this.f19941f = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
-        d.a.n0.i2.d dVar = this.f19859f;
+        d.a.o0.i2.d dVar = this.f19941f;
         if (dVar != null) {
             dVar.c();
-            this.f19859f = null;
+            this.f19941f = null;
         }
         MessageManager.getInstance().unRegisterListener(this.t);
         MessageManager.getInstance().unRegisterListener(this.s);
@@ -437,7 +437,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        NoDataView noDataView = this.f19861h;
+        NoDataView noDataView = this.f19943h;
         if (noDataView != null) {
             noDataView.d(getPageContext());
         }
@@ -446,7 +446,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        NoDataView noDataView = this.f19861h;
+        NoDataView noDataView = this.f19943h;
         if (noDataView != null) {
             noDataView.e();
         }

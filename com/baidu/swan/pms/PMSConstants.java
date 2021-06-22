@@ -81,7 +81,7 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(d.a.l0.n.a aVar) {
+    public static boolean a(d.a.m0.n.a aVar) {
         if (aVar == null || !aVar.f()) {
             if (aVar != null) {
                 aVar.I("swan_bdtls_pms_encrypt", false);

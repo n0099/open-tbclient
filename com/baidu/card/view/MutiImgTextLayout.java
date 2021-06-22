@@ -18,11 +18,11 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.a.c.e.p.l;
 import d.a.c.k.c.b;
 import d.a.i.p;
-import d.a.m0.r.q.a2;
-import d.a.n0.z.b0;
+import d.a.n0.r.q.a2;
+import d.a.o0.z.b0;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
+public class MutiImgTextLayout extends LinearLayout implements p<d.a.n0.r.q.a> {
     public static final int k = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
 
     /* renamed from: e  reason: collision with root package name */
@@ -35,10 +35,10 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     public PlayVoiceBntNew f4494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b0<d.a.m0.r.q.a> f4495h;
+    public b0<d.a.n0.r.q.a> f4495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.q.a f4496i;
+    public d.a.n0.r.q.a f4496i;
     public boolean j;
 
     /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.m0.r.q.a> subClickListener = MutiImgTextLayout.this.getSubClickListener();
+            b0<d.a.n0.r.q.a> subClickListener = MutiImgTextLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MutiImgTextLayout.this.f4496i);
@@ -91,7 +91,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: d */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         this.f4496i = aVar;
         a2 i2 = aVar.i();
         ThreadCardUtils.setTitle(this.f4492e, i2, this.j);
@@ -129,7 +129,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
         }
     }
 
-    public b0<d.a.m0.r.q.a> getSubClickListener() {
+    public b0<d.a.n0.r.q.a> getSubClickListener() {
         return this.f4495h;
     }
 
@@ -161,7 +161,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     public void setPreloadSizeReadyCallback(b bVar) {
     }
 
-    public void setSubClickListener(b0<d.a.m0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.n0.r.q.a> b0Var) {
         this.f4495h = b0Var;
     }
 

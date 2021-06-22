@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -150,7 +151,7 @@ public class ASMUtils {
 
     public static String type(Class<?> cls) {
         if (cls.isArray()) {
-            return "[" + desc(cls.getComponentType());
+            return PreferencesUtil.LEFT_MOUNT + desc(cls.getComponentType());
         } else if (!cls.isPrimitive()) {
             return cls.getName().replace(IStringUtil.EXTENSION_SEPARATOR, '/');
         } else {
@@ -163,7 +164,7 @@ public class ASMUtils {
             return getPrimitiveLetter(cls);
         }
         if (cls.isArray()) {
-            return "[" + desc(cls.getComponentType());
+            return PreferencesUtil.LEFT_MOUNT + desc(cls.getComponentType());
         }
         return "L" + type(cls) + ";";
     }

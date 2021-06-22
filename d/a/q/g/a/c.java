@@ -3,22 +3,22 @@ package d.a.q.g.a;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f67910b = 5;
+    public static int f67866b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f67911c = 40;
+    public static int f67867c = 40;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.helios.common.cc.a f67912a;
+    public com.baidu.helios.common.cc.a f67868a;
 
     public c() {
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f67911c);
-        this.f67912a = aVar;
-        aVar.a(0, f67911c, true);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f67867c);
+        this.f67868a = aVar;
+        aVar.a(0, f67867c, true);
     }
 
     public void a(com.baidu.helios.common.cc.a aVar, int i2, int i3, int i4) {
-        com.baidu.helios.common.cc.a d2 = this.f67912a.d(i2, i2 + i3);
+        com.baidu.helios.common.cc.a d2 = this.f67868a.d(i2, i2 + i3);
         if (i4 != 0) {
             if (i4 != 1) {
                 if (i4 == 2) {
@@ -32,11 +32,11 @@ public class c {
             d2.b(aVar);
         }
         for (int i5 = 0; i5 < i3; i5++) {
-            this.f67912a.a(i2 + i5, d2.d(i5));
+            this.f67868a.a(i2 + i5, d2.d(i5));
         }
     }
 
     public byte[] b() {
-        return this.f67912a.a();
+        return this.f67868a.a();
     }
 }

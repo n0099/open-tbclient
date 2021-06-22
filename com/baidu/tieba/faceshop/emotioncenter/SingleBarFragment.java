@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class SingleBarFragment extends BaseFragment {
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.n0.k0.a
     public String getCurrentPageKey() {
         return null;
     }

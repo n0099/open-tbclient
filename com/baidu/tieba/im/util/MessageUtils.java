@@ -7,6 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -30,10 +31,10 @@ import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import d.a.c.e.p.k;
-import d.a.m0.r.q.x0;
-import d.a.n0.f1.o.a;
-import d.a.n0.f1.w.b;
-import d.a.n0.f1.w.c;
+import d.a.n0.r.q.x0;
+import d.a.o0.f1.o.a;
+import d.a.o0.f1.w.b;
+import d.a.o0.f1.w.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -105,7 +106,7 @@ public class MessageUtils {
                 n.setHas_read(0);
             }
             String jsonStrWithObject = OrmObject.jsonStrWithObject(n);
-            chatMessage.setContent("[" + jsonStrWithObject + "]");
+            chatMessage.setContent(PreferencesUtil.LEFT_MOUNT + jsonStrWithObject + PreferencesUtil.RIGHT_MOUNT);
         }
         chatMessage.setTime(msgInfo.createTime.intValue());
         chatMessage.setIsFriend(msgInfo.isFriend.intValue());
@@ -148,23 +149,23 @@ public class MessageUtils {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                     groupMsgData.getGroupInfo().setGroupId(l.longValue());
                 }
-                if (d.a.n0.f1.o.c.e().c(chatMessage.getMsgId())) {
+                if (d.a.o0.f1.o.c.e().c(chatMessage.getMsgId())) {
                     return;
                 }
-                long d2 = d.a.n0.f1.o.c.e().d();
+                long d2 = d.a.o0.f1.o.c.e().d();
                 Long l2 = msgInfo.groupId;
                 if (l2 == null) {
                     return;
                 }
-                if (d2 != 0 && l2.longValue() != d.a.n0.f1.o.c.e().d()) {
+                if (d2 != 0 && l2.longValue() != d.a.o0.f1.o.c.e().d()) {
                     return;
                 }
-                Long f3 = d.a.n0.f1.o.c.e().f();
+                Long f3 = d.a.o0.f1.o.c.e().f();
                 if (f3 != null && msgInfo.msgId != null && f3.longValue() >= msgInfo.msgId.longValue()) {
                     return;
                 }
                 chatMessage.setIsPushForOperateAccount(true);
-                d.a.n0.f1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                d.a.o0.f1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
             }
             if (j != 0) {
                 if (linkedList.size() == 0) {
@@ -227,11 +228,11 @@ public class MessageUtils {
     }
 
     public static void createGroupChatMessage(int i2, String str, long j) {
-        createGroupChatMessage(d.a.n0.f1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
+        createGroupChatMessage(d.a.o0.f1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
     }
 
     public static void createPersonalChatMessage(int i2, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(d.a.n0.f1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
+        createPersonalChatMessage(d.a.o0.f1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
     }
 
     public static void generatePushData(List<GroupMsgData> list, int i2, List<MsgInfo> list2, Long l) {
@@ -532,7 +533,7 @@ public class MessageUtils {
 
     public static void sendHasReadMessage(String str, int i2) {
         ImMessageCenterPojo i3;
-        if (StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.n0.f1.k.b.o().i(str, 2)) == null) {
+        if (StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.o0.f1.k.b.o().i(str, 2)) == null) {
             return;
         }
         long pulled_msgId = i3.getPulled_msgId();
@@ -590,7 +591,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         groupChatMessage.setLocalData(msgLocalData);
-        d.a.n0.f1.s.a.j().t(groupChatMessage);
+        d.a.o0.f1.s.a.j().t(groupChatMessage);
     }
 
     public static void createPersonalChatMessage(long j, int i2, String str, long j2, String str2, String str3, String str4) {
@@ -631,7 +632,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        d.a.n0.f1.s.a.j().t(personalChatMessage);
+        d.a.o0.f1.s.a.j().t(personalChatMessage);
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(long j, int i2, long j2, long j3, long j4) {

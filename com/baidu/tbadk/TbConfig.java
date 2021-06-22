@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.a0.c;
+import d.a.n0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {

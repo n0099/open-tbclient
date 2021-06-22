@@ -31,14 +31,14 @@ public class a {
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0238a {
+    public static class C0241a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24344a = new a();
+        public static a f24426a = new a();
     }
 
     public static a a() {
-        return C0238a.f24344a;
+        return C0241a.f24426a;
     }
 
     public a() {

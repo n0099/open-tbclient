@@ -8,51 +8,55 @@ import java.net.UnknownHostException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10148a = -1;
+    public static int f10174a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f10149b = new ThreadLocal<>();
+    public static ThreadLocal<StringBuilder> f10175b = new ThreadLocal<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f10150c;
+    public static int f10176c;
 
     public static String a(Throwable th) {
+        StringWriter stringWriter;
+        if (th == null) {
+            return "";
+        }
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
             if (th2 instanceof UnknownHostException) {
                 return "";
             }
             try {
             } catch (Throwable unused) {
-                com.baidu.sofire.g.d.a();
+                com.baidu.sofire.utility.c.a();
                 return "";
             }
         }
-        StringWriter stringWriter = null;
+        StringWriter stringWriter2 = null;
         try {
-            StringWriter stringWriter2 = new StringWriter();
+            stringWriter = new StringWriter();
+        } catch (Throwable th3) {
+            th = th3;
+        }
+        try {
+            th.printStackTrace(new PrintWriter(stringWriter));
+            String stringWriter3 = stringWriter.toString();
             try {
-                th.printStackTrace(new PrintWriter(stringWriter2));
-                String stringWriter3 = stringWriter2.toString();
-                try {
-                    stringWriter2.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                return stringWriter3;
-            } catch (Throwable th3) {
-                th = th3;
-                stringWriter = stringWriter2;
-                if (stringWriter != null) {
-                    try {
-                        stringWriter.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                throw th;
+                stringWriter.close();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
+            return stringWriter3;
         } catch (Throwable th4) {
             th = th4;
+            stringWriter2 = stringWriter;
+            if (stringWriter2 != null) {
+                try {
+                    stringWriter2.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            throw th;
         }
     }
 
@@ -63,8 +67,5 @@ public final class b {
     }
 
     public static void c() {
-    }
-
-    public static void d() {
     }
 }

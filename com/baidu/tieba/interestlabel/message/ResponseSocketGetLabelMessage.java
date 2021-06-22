@@ -2,7 +2,7 @@ package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.i1.b.b;
+import d.a.o0.i1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
 /* loaded from: classes4.dex */
 public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {

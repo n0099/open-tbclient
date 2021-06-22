@@ -7,13 +7,13 @@ import java.util.concurrent.TimeUnit;
 public final class e extends h.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f71894a = new e();
+    public static final e f71998a = new e();
 
     /* loaded from: classes8.dex */
     public final class a extends g.a implements k {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.a f71895e = new h.u.a();
+        public final h.u.a f71999e = new h.u.a();
 
         public a() {
         }
@@ -31,12 +31,12 @@ public final class e extends h.g {
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f71895e.isUnsubscribed();
+            return this.f71999e.isUnsubscribed();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f71895e.unsubscribe();
+            this.f71999e.unsubscribe();
         }
     }
 

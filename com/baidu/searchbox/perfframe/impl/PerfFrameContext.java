@@ -9,7 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.Track;
-import d.a.e0.a.b.d;
+import d.a.f0.a.b.d;
 @Autowired
 /* loaded from: classes2.dex */
 public class PerfFrameContext {

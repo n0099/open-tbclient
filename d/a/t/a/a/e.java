@@ -11,28 +11,28 @@ public class e {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMPushPb.ActionType f68249e;
+        public final /* synthetic */ IMPushPb.ActionType f68331e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f68250f;
+        public final /* synthetic */ Context f68332f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f68251g;
+        public final /* synthetic */ Object f68333g;
 
         public a(IMPushPb.ActionType actionType, Context context, Object obj) {
-            this.f68249e = actionType;
-            this.f68250f = context;
-            this.f68251g = obj;
+            this.f68331e = actionType;
+            this.f68332f = context;
+            this.f68333g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i2 = b.f68252a[this.f68249e.ordinal()];
+            int i2 = b.f68334a[this.f68331e.ordinal()];
             if (i2 == 1) {
-                f.f(this.f68250f, (Connection) this.f68251g);
+                f.f(this.f68332f, (Connection) this.f68333g);
             } else if (i2 != 2) {
             } else {
-                f.g(this.f68250f, (Request) this.f68251g);
+                f.g(this.f68332f, (Request) this.f68333g);
             }
         }
     }
@@ -41,17 +41,17 @@ public class e {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68252a;
+        public static final /* synthetic */ int[] f68334a;
 
         static {
             int[] iArr = new int[IMPushPb.ActionType.values().length];
-            f68252a = iArr;
+            f68334a = iArr;
             try {
                 iArr[IMPushPb.ActionType.CONNECTION.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68252a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
+                f68334a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -61,15 +61,15 @@ public class e {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f68253a;
+        public Context f68335a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Request f68254b;
+        public Request f68336b;
 
         public c(Context context) {
             Request request = new Request();
-            this.f68254b = request;
-            this.f68253a = context;
+            this.f68336b = request;
+            this.f68335a = context;
             request.method = "";
             request.requestId = "";
             request.timestamp = -1L;
@@ -80,31 +80,31 @@ public class e {
         }
 
         public c a(long j) {
-            this.f68254b.aliasId = j;
+            this.f68336b.aliasId = j;
             return this;
         }
 
         public void b() {
-            e.b(this.f68253a, IMPushPb.ActionType.REQUEST, this.f68254b);
+            e.b(this.f68335a, IMPushPb.ActionType.REQUEST, this.f68336b);
         }
 
         public c c(long j) {
-            this.f68254b.errorCode = j;
+            this.f68336b.errorCode = j;
             return this;
         }
 
         public c d(String str) {
-            this.f68254b.ext = str;
+            this.f68336b.ext = str;
             return this;
         }
 
         public c e(String str) {
-            this.f68254b.method = str;
+            this.f68336b.method = str;
             return this;
         }
 
         public c f(String str) {
-            this.f68254b.requestId = str;
+            this.f68336b.requestId = str;
             return this;
         }
     }

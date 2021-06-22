@@ -12,26 +12,26 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import d.a.c.e.p.e;
-import d.a.m0.r.f0.q.c;
+import d.a.n0.r.f0.q.c;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class UserRecommendLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15987e;
+    public TbPageContext f16069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15988f;
+    public int f16070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15989g;
+    public int f16071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f15990h;
+    public View.OnClickListener f16072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f15991i;
+    public View.OnClickListener f16073i;
     public d.a.c.e.k.b<UserRecommendItemView> j;
     public final ViewGroup.OnHierarchyChangeListener k;
 
@@ -51,7 +51,7 @@ public class UserRecommendLayout extends LinearLayout {
             }
             UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view2;
             if (userRecommendItemView.getTag() instanceof c) {
-                ((c) userRecommendItemView.getTag()).s(UserRecommendLayout.this.f15987e.getUniqueId());
+                ((c) userRecommendItemView.getTag()).s(UserRecommendLayout.this.f16069e.getUniqueId());
             }
             UserRecommendLayout.this.j.e(userRecommendItemView);
         }
@@ -61,23 +61,23 @@ public class UserRecommendLayout extends LinearLayout {
     public class b implements CommonUserLikeButton.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendItemView f15993a;
+        public final /* synthetic */ UserRecommendItemView f16075a;
 
         public b(UserRecommendItemView userRecommendItemView) {
-            this.f15993a = userRecommendItemView;
+            this.f16075a = userRecommendItemView;
         }
 
         @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
         public void a(int i2) {
-            this.f15993a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
+            this.f16075a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
         }
     }
 
     public UserRecommendLayout(Context context) {
         super(context);
-        this.f15989g = 0;
-        this.f15990h = null;
-        this.f15991i = null;
+        this.f16071g = 0;
+        this.f16072h = null;
+        this.f16073i = null;
         this.j = null;
         this.k = new a();
         c();
@@ -97,7 +97,7 @@ public class UserRecommendLayout extends LinearLayout {
         if (i2 == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.f15989g;
+            layoutParams.leftMargin = this.f16071g;
         }
         userRecommendItemView.setLayoutParams(layoutParams);
     }
@@ -111,20 +111,20 @@ public class UserRecommendLayout extends LinearLayout {
         if (userRecommendItemView.getLikeBtn().getTag() instanceof c) {
             cVar = (c) userRecommendItemView.getLikeBtn().getTag();
         } else {
-            cVar = new c(this.f15987e, userRecommendItemView.getLikeBtn());
+            cVar = new c(this.f16069e, userRecommendItemView.getLikeBtn());
         }
         cVar.m("7");
         userRecommendItemView.getLikeBtn().setTag(cVar);
         cVar.n(metaData);
-        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f15990h);
+        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f16072h);
         userRecommendItemView.getHeaderView().setData(metaData);
-        userRecommendItemView.getHeaderView().setAfterClickListener(this.f15991i);
+        userRecommendItemView.getHeaderView().setAfterClickListener(this.f16073i);
         userRecommendItemView.setIsGod(metaData.isGod());
         userRecommendItemView.c(skinType);
     }
 
     public int getChildItemWidth() {
-        return this.f15988f;
+        return this.f16070f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -140,11 +140,11 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public void setAfterHeaderLickListener(View.OnClickListener onClickListener) {
-        this.f15991i = onClickListener;
+        this.f16073i = onClickListener;
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {
-        this.f15990h = onClickListener;
+        this.f16072h = onClickListener;
     }
 
     public void setData(List<MetaData> list) {
@@ -152,9 +152,9 @@ public class UserRecommendLayout extends LinearLayout {
             return;
         }
         int a2 = e.a(getContext()) - (getPaddingLeft() * 2);
-        int i2 = this.f15989g;
+        int i2 = this.f16071g;
         int i3 = (a2 - (i2 * 2)) / 3;
-        this.f15988f = i2 + i3;
+        this.f16070f = i2 + i3;
         int i4 = 0;
         int childCount = getChildCount();
         while (i4 < childCount && i4 < list.size()) {
@@ -182,11 +182,11 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i2) {
-        this.f15989g = i2;
+        this.f16071g = i2;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f15987e = tbPageContext;
+        this.f16069e = tbPageContext;
     }
 
     public void setViewPool(d.a.c.e.k.b<UserRecommendItemView> bVar) {
@@ -195,9 +195,9 @@ public class UserRecommendLayout extends LinearLayout {
 
     public UserRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15989g = 0;
-        this.f15990h = null;
-        this.f15991i = null;
+        this.f16071g = 0;
+        this.f16072h = null;
+        this.f16073i = null;
         this.j = null;
         this.k = new a();
         c();

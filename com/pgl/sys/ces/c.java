@@ -7,7 +7,7 @@ import java.util.Calendar;
 public final class c {
     public static String a() {
         try {
-            Context applicationContext = b.a().f38799b != null ? b.a().f38799b : d.m.b.b.a.a.d().getApplicationContext();
+            Context applicationContext = b.a().f38897b != null ? b.a().f38897b : d.m.b.b.a.a.d().getApplicationContext();
             return d.m.a.b.a.a(MessageDigest.getInstance("SHA1").digest(applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 64).signatures[0].toByteArray())).toUpperCase();
         } catch (Throwable unused) {
             return "0000000000000000000000000000000000000000";

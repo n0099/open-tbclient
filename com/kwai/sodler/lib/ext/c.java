@@ -6,31 +6,31 @@ import com.baidu.webkit.sdk.SevenZipUtils;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37927a;
+    public final int f38025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f37928b;
+    public final String f38026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37929c;
+    public final String f38027c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f37930d;
+    public final String f38028d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f37931e;
+    public final String f38029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f37932f;
+    public final String f38030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f37933g;
+    public final String f38031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f37934h;
+    public final String f38032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f37935i;
+    public final boolean f38033i;
     public final boolean j;
     public String k;
     public byte[] l;
@@ -40,45 +40,45 @@ public final class c {
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37937b;
+        public String f38035b;
         public String k;
         public byte[] l;
         public boolean m;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37936a = 3;
+        public int f38034a = 3;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37938c = "sodler";
+        public String f38036c = "sodler";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37939d = "code-cache";
+        public String f38037d = "code-cache";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37940e = "lib";
+        public String f38038e = "lib";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f37941f = SevenZipUtils.FILE_NAME_TEMP;
+        public String f38039f = SevenZipUtils.FILE_NAME_TEMP;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f37942g = "base-1.apk";
+        public String f38040g = "base-1.apk";
 
         /* renamed from: h  reason: collision with root package name */
-        public String f37943h = ".tmp";
+        public String f38041h = ".tmp";
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f37944i = false;
+        public boolean f38042i = false;
         public boolean j = false;
 
         public a a(int i2) {
             if (i2 > 0) {
-                this.f37936a = i2;
+                this.f38034a = i2;
             }
             return this;
         }
 
         public a a(@NonNull String str) {
-            this.f37938c = str;
+            this.f38036c = str;
             return this;
         }
 
@@ -88,20 +88,20 @@ public final class c {
         }
 
         public c a() {
-            return new c(this.j, this.f37944i, this.f37937b, this.f37938c, this.f37939d, this.f37940e, this.f37941f, this.f37943h, this.f37942g, this.f37936a, this.k, this.l, this.m);
+            return new c(this.j, this.f38042i, this.f38035b, this.f38036c, this.f38037d, this.f38038e, this.f38039f, this.f38041h, this.f38040g, this.f38034a, this.k, this.l, this.m);
         }
     }
 
     public c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, byte[] bArr, boolean z3) {
-        this.f37927a = i2;
-        this.f37928b = str2;
-        this.f37929c = str3;
-        this.f37930d = str4;
-        this.f37931e = str5;
-        this.f37932f = str6;
-        this.f37933g = str7;
-        this.f37934h = str;
-        this.f37935i = z;
+        this.f38025a = i2;
+        this.f38026b = str2;
+        this.f38027c = str3;
+        this.f38028d = str4;
+        this.f38029e = str5;
+        this.f38030f = str6;
+        this.f38031g = str7;
+        this.f38032h = str;
+        this.f38033i = z;
         this.j = z2;
         this.k = str8;
         this.l = bArr;
@@ -109,27 +109,27 @@ public final class c {
     }
 
     public int a() {
-        return this.f37927a;
+        return this.f38025a;
     }
 
     public String b() {
-        return this.f37928b;
+        return this.f38026b;
     }
 
     public String c() {
-        return this.f37930d;
+        return this.f38028d;
     }
 
     public String d() {
-        return this.f37931e;
+        return this.f38029e;
     }
 
     public String e() {
-        return this.f37932f;
+        return this.f38030f;
     }
 
     public String f() {
-        return this.f37933g;
+        return this.f38031g;
     }
 
     public boolean g() {

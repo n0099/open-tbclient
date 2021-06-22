@@ -13,7 +13,7 @@ public final class e extends DexClassLoader {
             try {
                 return findClass(str);
             } catch (Throwable unused) {
-                com.baidu.sofire.g.d.a();
+                com.baidu.sofire.utility.c.a();
                 return findLoadedClass;
             }
         }
@@ -36,7 +36,7 @@ public final class e extends DexClassLoader {
                         findLoadedClass = (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
                     }
                 } catch (Throwable unused2) {
-                    com.baidu.sofire.g.d.a();
+                    com.baidu.sofire.utility.c.a();
                 }
             }
         }
@@ -47,7 +47,7 @@ public final class e extends DexClassLoader {
             try {
                 return super.loadClass(str, z);
             } catch (Throwable unused3) {
-                com.baidu.sofire.g.d.a();
+                com.baidu.sofire.utility.c.a();
             }
         }
         return findLoadedClass;

@@ -10,13 +10,13 @@ public class a {
 
     /* renamed from: com.kwad.sdk.collector.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0359a {
+    public interface InterfaceC0362a {
         void a(int i2, String str);
 
         void a(AppStatusRules appStatusRules);
     }
 
-    public static void a(final Context context, final InterfaceC0359a interfaceC0359a) {
+    public static void a(final Context context, final InterfaceC0362a interfaceC0362a) {
         if (context == null) {
             return;
         }
@@ -47,18 +47,18 @@ public class a {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, int i2, String str) {
                 super.a((AnonymousClass2) aVar, i2, str);
-                InterfaceC0359a interfaceC0359a2 = InterfaceC0359a.this;
-                if (interfaceC0359a2 != null) {
-                    interfaceC0359a2.a(i2, str);
+                InterfaceC0362a interfaceC0362a2 = InterfaceC0362a.this;
+                if (interfaceC0362a2 != null) {
+                    interfaceC0362a2.a(i2, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, @NonNull AppStatusRules appStatusRules) {
-                InterfaceC0359a interfaceC0359a2 = InterfaceC0359a.this;
-                if (interfaceC0359a2 != null) {
-                    interfaceC0359a2.a(appStatusRules);
+                InterfaceC0362a interfaceC0362a2 = InterfaceC0362a.this;
+                if (interfaceC0362a2 != null) {
+                    interfaceC0362a2.a(appStatusRules);
                 }
             }
         });

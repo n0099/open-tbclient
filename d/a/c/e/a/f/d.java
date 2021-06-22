@@ -6,31 +6,31 @@ import com.baidu.adp.lib.util.BdLog;
 public class d extends DiskFileOperate {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42100a;
+    public String f42203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42101b;
+    public String f42204b;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f42100a = null;
-        this.f42101b = "UTF-8";
+        this.f42203a = null;
+        this.f42204b = "UTF-8";
     }
 
     public String a() {
-        return this.f42100a;
+        return this.f42203a;
     }
 
     public void b(String str) {
-        this.f42100a = str;
+        this.f42203a = str;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] buildFormatData() {
-        String str = this.f42100a;
+        String str = this.f42203a;
         if (str != null) {
             try {
-                return str.getBytes(this.f42101b);
+                return str.getBytes(this.f42204b);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -44,7 +44,7 @@ public class d extends DiskFileOperate {
             return false;
         }
         try {
-            this.f42100a = new String(bArr, this.f42101b);
+            this.f42203a = new String(bArr, this.f42204b);
             return true;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

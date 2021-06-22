@@ -8,28 +8,28 @@ import java.util.regex.Pattern;
 public final class x {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f69348c = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+    public static final Pattern f69452c = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f69349d = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    public static final Pattern f69453d = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f69350a;
+    public final String f69454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f69351b;
+    public final String f69455b;
 
     public x(String str, String str2, String str3, String str4) {
-        this.f69350a = str;
-        this.f69351b = str4;
+        this.f69454a = str;
+        this.f69455b = str4;
     }
 
     public static x a(String str) {
-        Matcher matcher = f69348c.matcher(str);
+        Matcher matcher = f69452c.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f69349d.matcher(str);
+            Matcher matcher2 = f69453d.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -63,21 +63,21 @@ public final class x {
 
     public Charset c(Charset charset) {
         try {
-            return this.f69351b != null ? Charset.forName(this.f69351b) : charset;
+            return this.f69455b != null ? Charset.forName(this.f69455b) : charset;
         } catch (IllegalArgumentException unused) {
             return charset;
         }
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof x) && ((x) obj).f69350a.equals(this.f69350a);
+        return (obj instanceof x) && ((x) obj).f69454a.equals(this.f69454a);
     }
 
     public int hashCode() {
-        return this.f69350a.hashCode();
+        return this.f69454a.hashCode();
     }
 
     public String toString() {
-        return this.f69350a;
+        return this.f69454a;
     }
 }

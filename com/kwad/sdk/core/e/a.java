@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.a {
     public T mCallerContext;
     public Presenter mPresenter;
@@ -15,7 +15,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36950a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f37048a) {
             aVar.a();
         }
     }
@@ -25,7 +25,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36950a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f37048a) {
             aVar.d();
         }
     }
@@ -35,7 +35,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36950a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f37048a) {
             aVar.c();
         }
     }
@@ -45,7 +45,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36950a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f37048a) {
             aVar.b();
         }
     }

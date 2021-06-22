@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import d.a.l0.q.c;
-import d.a.l0.q.d;
+import d.a.m0.q.c;
+import d.a.m0.q.d;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public static final String TIP_LOADING = "-- LOADING --";
     public static final String TIP_NO_DATA = "NO DATA";
-    public List<d.a.l0.q.a> mBeans;
+    public List<d.a.m0.q.a> mBeans;
     public int mIndex;
     public Button mSwitchThread;
     public Set<String> mThreads;
@@ -39,16 +39,16 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11932e;
+        public final /* synthetic */ String f12014e;
 
         public b(String str) {
-            this.f11932e = str;
+            this.f12014e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (TraceInfoActivity.this.mTraceInfo != null) {
-                TraceInfoActivity.this.mTraceInfo.setText(this.f11932e);
+                TraceInfoActivity.this.mTraceInfo.setText(this.f12014e);
             }
         }
     }
@@ -59,7 +59,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     private void fillThreads() {
-        for (d.a.l0.q.a aVar : this.mBeans) {
+        for (d.a.m0.q.a aVar : this.mBeans) {
             this.mThreads.add(aVar.f());
         }
     }
@@ -71,17 +71,17 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.mIndex = i2 + 1;
         String str = (String) arrayList.get(i2 % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (d.a.l0.q.a aVar : this.mBeans) {
+        for (d.a.m0.q.a aVar : this.mBeans) {
             if (TextUtils.equals(aVar.f(), str)) {
                 arrayList2.add(aVar);
             }
         }
-        return d.a.l0.q.f.a.c(arrayList2, null);
+        return d.a.m0.q.f.a.c(arrayList2, null);
     }
 
     private void initViews() {
-        this.mTraceInfo = (TextView) findViewById(d.a.l0.q.b.trace_info);
-        Button button = (Button) findViewById(d.a.l0.q.b.switch_thread);
+        this.mTraceInfo = (TextView) findViewById(d.a.m0.q.b.trace_info);
+        Button button = (Button) findViewById(d.a.m0.q.b.switch_thread);
         this.mSwitchThread = button;
         button.setOnClickListener(this);
         this.mThreads = new HashSet();
@@ -93,12 +93,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     private void showTraceInfo() {
-        d.a.l0.q.e.a<List<d.a.l0.q.a>> c2 = d.b().c();
+        d.a.m0.q.e.a<List<d.a.m0.q.a>> c2 = d.b().c();
         if (c2 == null) {
             this.mTraceInfo.setText(TIP_NO_DATA);
             return;
         }
-        List<d.a.l0.q.a> a2 = c2.a();
+        List<d.a.m0.q.a> a2 = c2.a();
         if (a2 != null && a2.size() > 0) {
             this.mBeans = a2;
             this.mIndex = 0;
@@ -111,7 +111,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == d.a.l0.q.b.switch_thread) {
+        if (view.getId() == d.a.m0.q.b.switch_thread) {
             doShowInfo();
         }
     }

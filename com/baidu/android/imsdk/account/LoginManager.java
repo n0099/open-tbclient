@@ -60,10 +60,10 @@ public class LoginManager {
         String str = this.TAG;
         LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
         if (z) {
-            Handler handler = a.f68179c;
+            Handler handler = a.f68193c;
             if (handler != null) {
                 handler.removeCallbacks(this.imLoginRunable);
-                a.f68179c.postDelayed(this.imLoginRunable, 3000L);
+                a.f68193c.postDelayed(this.imLoginRunable, 3000L);
             }
         } else if (loginType == 1) {
             BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -160,11 +160,11 @@ public class LoginManager {
             this.mLoginState = LoginState.NOT_LOGIN;
             return;
         } else if (110 != i2 && 7 != i2 && 23 != i2 && 1004 != i2 && 1001 != i2 && 8010 != i2) {
-            LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f68181e);
+            LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f68195e);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.f68181e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.f68195e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i2);
-            } else if (!a.f68181e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.f68195e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

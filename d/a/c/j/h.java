@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.util.Log;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.util.io.Closeables;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -16,27 +17,27 @@ import java.io.IOException;
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f42865d = a.f42853a;
+    public static final boolean f42968d = a.f42956a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h f42866e;
+    public static volatile h f42969e;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42867a = -1;
+    public long f42970a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f42868b = 0;
+    public long f42971b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42869c = 0;
+    public int f42972c = 0;
 
     public static synchronized h d() {
         h hVar;
         synchronized (h.class) {
-            if (f42866e == null) {
-                f42866e = new h();
+            if (f42969e == null) {
+                f42969e = new h();
             }
-            hVar = f42866e;
+            hVar = f42969e;
         }
         return hVar;
     }
@@ -46,7 +47,7 @@ public class h {
             Context appContext = AppRuntime.getAppContext();
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
             if (packageInfo != null) {
-                if (f42865d) {
+                if (f42968d) {
                     Log.d(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
                 }
                 return packageInfo.versionCode;
@@ -61,15 +62,15 @@ public class h {
         if (a() > c()) {
             return -1L;
         }
-        return this.f42867a;
+        return this.f42970a;
     }
 
     public int c() {
-        return this.f42869c;
+        return this.f42972c;
     }
 
     public long e() {
-        return this.f42868b;
+        return this.f42971b;
     }
 
     public final File f() {
@@ -93,9 +94,9 @@ public class h {
                 e = e2;
             }
             try {
-                this.f42867a = dataInputStream.readLong();
-                this.f42868b = dataInputStream.readLong();
-                this.f42869c = dataInputStream.readInt();
+                this.f42970a = dataInputStream.readLong();
+                this.f42971b = dataInputStream.readLong();
+                this.f42972c = dataInputStream.readInt();
                 Closeables.closeSafely(dataInputStream);
             } catch (IOException e3) {
                 e = e3;
@@ -112,21 +113,21 @@ public class h {
     }
 
     public void h(int i2) {
-        this.f42869c = i2;
+        this.f42972c = i2;
     }
 
     public void i(long j) {
-        this.f42868b = j;
+        this.f42971b = j;
     }
 
     public void j(long j) {
-        this.f42867a = j;
+        this.f42970a = j;
     }
 
     public void k() {
         File file;
         DataOutputStream dataOutputStream;
-        if (f42865d) {
+        if (f42968d) {
             Log.d(TitanDownloadService.TAG, "updateToFile value = " + toString());
         }
         File f2 = f();
@@ -150,9 +151,9 @@ public class h {
             file = null;
         }
         try {
-            dataOutputStream.writeLong(this.f42867a);
-            dataOutputStream.writeLong(this.f42868b);
-            dataOutputStream.writeInt(this.f42869c);
+            dataOutputStream.writeLong(this.f42970a);
+            dataOutputStream.writeLong(this.f42971b);
+            dataOutputStream.writeInt(this.f42972c);
             dataOutputStream.close();
             f2.delete();
             file.renameTo(f2);
@@ -182,6 +183,6 @@ public class h {
     }
 
     public String toString() {
-        return "[updateVersion = " + this.f42867a + ", lastUpdateTime = " + this.f42868b + ", hostVersionCode = " + this.f42869c + "]";
+        return "[updateVersion = " + this.f42970a + ", lastUpdateTime = " + this.f42971b + ", hostVersionCode = " + this.f42972c + PreferencesUtil.RIGHT_MOUNT;
     }
 }

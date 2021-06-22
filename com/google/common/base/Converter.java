@@ -10,7 +10,7 @@ import java.util.Iterator;
 public abstract class Converter<A, B> implements g<A, B> {
 
     /* renamed from: e  reason: collision with root package name */
-    public transient Converter<B, A> f30879e;
+    public transient Converter<B, A> f30977e;
     public final boolean handleNullAutomatically;
 
     /* loaded from: classes6.dex */
@@ -197,42 +197,42 @@ public abstract class Converter<A, B> implements g<A, B> {
     public class a implements Iterable<B> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f30880e;
+        public final /* synthetic */ Iterable f30978e;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0335a implements Iterator<B> {
+        public class C0338a implements Iterator<B> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f30882e;
+            public final Iterator<? extends A> f30980e;
 
-            public C0335a() {
-                this.f30882e = a.this.f30880e.iterator();
+            public C0338a() {
+                this.f30980e = a.this.f30978e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f30882e.hasNext();
+                return this.f30980e.hasNext();
             }
 
             @Override // java.util.Iterator
             public B next() {
-                return (B) Converter.this.convert(this.f30882e.next());
+                return (B) Converter.this.convert(this.f30980e.next());
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                this.f30882e.remove();
+                this.f30980e.remove();
             }
         }
 
         public a(Iterable iterable) {
-            this.f30880e = iterable;
+            this.f30978e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<B> iterator() {
-            return new C0335a();
+            return new C0338a();
         }
     }
 
@@ -306,10 +306,10 @@ public abstract class Converter<A, B> implements g<A, B> {
     }
 
     public Converter<B, A> reverse() {
-        Converter<B, A> converter = this.f30879e;
+        Converter<B, A> converter = this.f30977e;
         if (converter == null) {
             ReverseConverter reverseConverter = new ReverseConverter(this);
-            this.f30879e = reverseConverter;
+            this.f30977e = reverseConverter;
             return reverseConverter;
         }
         return converter;

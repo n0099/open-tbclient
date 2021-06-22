@@ -9,10 +9,10 @@ import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 public final class ef implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22891a;
+    public final /* synthetic */ FeedbackReportActivity f22973a;
 
     public ef(FeedbackReportActivity feedbackReportActivity) {
-        this.f22891a = feedbackReportActivity;
+        this.f22973a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,28 +26,28 @@ public final class ef implements TextWatcher {
         String str;
         EditText editText6;
         String str2;
-        z = this.f22891a.E;
+        z = this.f22973a.E;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22891a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22973a);
             dVar.b(dVar.b() + 1);
-            this.f22891a.E = true;
+            this.f22973a.E = true;
         }
-        editText = this.f22891a.u;
+        editText = this.f22973a.u;
         if (editText != null) {
-            editText4 = this.f22891a.u;
+            editText4 = this.f22973a.u;
             if (editText4.getText().toString().trim().length() > 30) {
-                editText5 = this.f22891a.u;
-                str = this.f22891a.M;
+                editText5 = this.f22973a.u;
+                str = this.f22973a.M;
                 editText5.setText(str);
-                Toast.makeText(this.f22891a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 1).show();
-                editText6 = this.f22891a.u;
-                str2 = this.f22891a.M;
+                Toast.makeText(this.f22973a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 1).show();
+                editText6 = this.f22973a.u;
+                str2 = this.f22973a.M;
                 editText6.setSelection(str2.length());
             }
         }
-        editText2 = this.f22891a.u;
+        editText2 = this.f22973a.u;
         if (editText2 != null) {
-            FeedbackReportActivity feedbackReportActivity = this.f22891a;
+            FeedbackReportActivity feedbackReportActivity = this.f22973a;
             editText3 = feedbackReportActivity.u;
             feedbackReportActivity.M = editText3.getText().toString();
         }

@@ -9,59 +9,59 @@ import java.util.HashMap;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f42728d;
+    public static volatile e f42831d;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Class<?>> f42729a;
+    public HashMap<String, Class<?>> f42832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42730b = 0;
+    public int f42833b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42731c = 0;
+    public int f42834c = 0;
 
     public e() {
-        this.f42729a = null;
-        this.f42729a = new HashMap<>();
+        this.f42832a = null;
+        this.f42832a = new HashMap<>();
     }
 
     public static e a() {
-        if (f42728d == null) {
+        if (f42831d == null) {
             synchronized (e.class) {
-                if (f42728d == null) {
-                    f42728d = new e();
+                if (f42831d == null) {
+                    f42831d = new e();
                 }
             }
         }
-        return f42728d;
+        return f42831d;
     }
 
     public Class<?> b(Class<?> cls) {
         String str;
-        Class<?> cls2 = this.f42729a.get(cls.getName());
+        Class<?> cls2 = this.f42832a.get(cls.getName());
         if (cls2 == null) {
             if (PluginBaseRemoteService.class.isAssignableFrom(cls)) {
-                int i2 = this.f42731c;
+                int i2 = this.f42834c;
                 if (i2 == 10) {
                     BdLog.e("can not find service,Has started 10 Remoteservice");
                     return null;
                 }
-                this.f42731c = i2 + 1;
-                str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f42731c;
+                this.f42834c = i2 + 1;
+                str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f42834c;
             } else if (PluginBaseService.class.isAssignableFrom(cls)) {
-                int i3 = this.f42730b;
+                int i3 = this.f42833b;
                 if (i3 == 20) {
                     BdLog.e("can not find service,Has started 20 service");
                     return null;
                 }
-                this.f42730b = i3 + 1;
-                str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f42730b;
+                this.f42833b = i3 + 1;
+                str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f42833b;
             } else {
                 str = PluginBaseThirdService.class.isAssignableFrom(cls) ? "com.baidu.adp.plugin.proxy.service.ThirdServiceProxy" : "";
             }
             try {
                 cls2 = Class.forName(str);
-                this.f42729a.put(cls.getName(), cls2);
+                this.f42832a.put(cls.getName(), cls2);
                 return cls2;
             } catch (Exception e2) {
                 BdLog.e(e2);

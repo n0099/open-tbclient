@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.squareup.wire.Wire;
-import d.a.m0.r.q.x0;
+import d.a.n0.r.q.x0;
 import java.util.LinkedList;
 import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;

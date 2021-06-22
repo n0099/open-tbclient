@@ -2,6 +2,7 @@ package com.baidu.down.loopj.android.request.handler;
 
 import android.util.Log;
 import com.baidu.down.utils.NamingThreadFactory;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -81,7 +82,7 @@ public final class HttpDns {
         }
 
         public String toString() {
-            return "HostObject [hostName=" + this.hostName + ", ip=" + this.ip + ", mTtl=" + this.mTtl + ", mQueryTime=" + this.mQueryTime + "]";
+            return "HostObject [hostName=" + this.hostName + ", ip=" + this.ip + ", mTtl=" + this.mTtl + ", mQueryTime=" + this.mQueryTime + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

@@ -9,12 +9,12 @@ import java.util.HashMap;
 public class ao extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f40920a;
+    public final /* synthetic */ an f41023a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ao(an anVar, Looper looper) {
         super(looper);
-        this.f40920a = anVar;
+        this.f41023a = anVar;
     }
 
     @Override // android.os.Handler
@@ -44,80 +44,80 @@ public class ao extends Handler {
         String str = (String) message.obj;
         int i2 = message.arg1;
         synchronized (ae.class) {
-            context = this.f40920a.f64a;
+            context = this.f41023a.f64a;
             if (ae.a(context).m77a(str)) {
-                context2 = this.f40920a.f64a;
+                context2 = this.f41023a.f64a;
                 if (ae.a(context2).a(str) < 10) {
                     if (at.DISABLE_PUSH.ordinal() == i2) {
-                        context14 = this.f40920a.f64a;
+                        context14 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context14).a(at.DISABLE_PUSH))) {
-                            anVar2 = this.f40920a;
+                            anVar2 = this.f41023a;
                             atVar2 = at.DISABLE_PUSH;
                             anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
-                            context13 = this.f40920a.f64a;
+                            context13 = this.f41023a.f64a;
                             ae.a(context13).b(str);
                         }
                     }
                     if (at.ENABLE_PUSH.ordinal() == i2) {
-                        context12 = this.f40920a.f64a;
+                        context12 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context12).a(at.ENABLE_PUSH))) {
-                            anVar2 = this.f40920a;
+                            anVar2 = this.f41023a;
                             atVar2 = at.ENABLE_PUSH;
                             anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
-                            context13 = this.f40920a.f64a;
+                            context13 = this.f41023a.f64a;
                             ae.a(context13).b(str);
                         }
                     }
                     if (at.UPLOAD_HUAWEI_TOKEN.ordinal() == i2) {
-                        context10 = this.f40920a.f64a;
+                        context10 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context10).a(at.UPLOAD_HUAWEI_TOKEN))) {
-                            anVar = this.f40920a;
+                            anVar = this.f41023a;
                             atVar = at.UPLOAD_HUAWEI_TOKEN;
-                            context11 = this.f40920a.f64a;
+                            context11 = this.f41023a.f64a;
                             a2 = i.a(context11, e.ASSEMBLE_PUSH_HUAWEI);
                             anVar.a(str, atVar, false, a2);
-                            context13 = this.f40920a.f64a;
+                            context13 = this.f41023a.f64a;
                             ae.a(context13).b(str);
                         }
                     }
                     if (at.UPLOAD_FCM_TOKEN.ordinal() == i2) {
-                        context8 = this.f40920a.f64a;
+                        context8 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context8).a(at.UPLOAD_FCM_TOKEN))) {
-                            anVar = this.f40920a;
+                            anVar = this.f41023a;
                             atVar = at.UPLOAD_FCM_TOKEN;
-                            context9 = this.f40920a.f64a;
+                            context9 = this.f41023a.f64a;
                             a2 = i.a(context9, e.ASSEMBLE_PUSH_FCM);
                             anVar.a(str, atVar, false, a2);
-                            context13 = this.f40920a.f64a;
+                            context13 = this.f41023a.f64a;
                             ae.a(context13).b(str);
                         }
                     }
                     if (at.UPLOAD_COS_TOKEN.ordinal() == i2) {
-                        context6 = this.f40920a.f64a;
+                        context6 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context6).a(at.UPLOAD_COS_TOKEN))) {
-                            anVar = this.f40920a;
+                            anVar = this.f41023a;
                             atVar = at.UPLOAD_COS_TOKEN;
-                            context7 = this.f40920a.f64a;
+                            context7 = this.f41023a.f64a;
                             a2 = i.a(context7, e.ASSEMBLE_PUSH_COS);
                             anVar.a(str, atVar, false, a2);
-                            context13 = this.f40920a.f64a;
+                            context13 = this.f41023a.f64a;
                             ae.a(context13).b(str);
                         }
                     }
                     if (at.UPLOAD_FTOS_TOKEN.ordinal() == i2) {
-                        context4 = this.f40920a.f64a;
+                        context4 = this.f41023a.f64a;
                         if ("syncing".equals(ae.a(context4).a(at.UPLOAD_FTOS_TOKEN))) {
-                            anVar = this.f40920a;
+                            anVar = this.f41023a;
                             atVar = at.UPLOAD_FTOS_TOKEN;
-                            context5 = this.f40920a.f64a;
+                            context5 = this.f41023a.f64a;
                             a2 = i.a(context5, e.ASSEMBLE_PUSH_FTOS);
                             anVar.a(str, atVar, false, a2);
                         }
                     }
-                    context13 = this.f40920a.f64a;
+                    context13 = this.f41023a.f64a;
                     ae.a(context13).b(str);
                 } else {
-                    context3 = this.f40920a.f64a;
+                    context3 = this.f41023a.f64a;
                     ae.a(context3).c(str);
                 }
             }

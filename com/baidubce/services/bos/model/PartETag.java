@@ -1,5 +1,7 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes5.dex */
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+/* loaded from: classes6.dex */
 public class PartETag {
     public String eTag;
     public int partNumber;
@@ -48,7 +50,7 @@ public class PartETag {
     }
 
     public String toString() {
-        return "PartETag [partNumber=" + this.partNumber + ", eTag=" + this.eTag + "]";
+        return "PartETag [partNumber=" + this.partNumber + ", eTag=" + this.eTag + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public PartETag withETag(String str) {

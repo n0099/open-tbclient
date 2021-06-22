@@ -3,18 +3,18 @@ package d.b.b;
 public abstract class t0<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile T f68835a;
+    public volatile T f68939a;
 
     public abstract T a(Object... objArr);
 
     public final T b(Object... objArr) {
-        if (this.f68835a == null) {
+        if (this.f68939a == null) {
             synchronized (this) {
-                if (this.f68835a == null) {
-                    this.f68835a = a(objArr);
+                if (this.f68939a == null) {
+                    this.f68939a = a(objArr);
                 }
             }
         }
-        return this.f68835a;
+        return this.f68939a;
     }
 }

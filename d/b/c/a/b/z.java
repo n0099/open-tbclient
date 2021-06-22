@@ -9,29 +9,29 @@ import java.util.ArrayList;
 public final class z implements i {
 
     /* renamed from: e  reason: collision with root package name */
-    public final y f69366e;
+    public final y f69470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.l f69367f;
+    public final e.l f69471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public t f69368g;
+    public t f69472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a0 f69369h;
+    public final a0 f69473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f69370i;
+    public final boolean f69474i;
     public boolean j;
 
     /* loaded from: classes6.dex */
     public final class a extends d.b.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final j f69371f;
+        public final j f69475f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ z f69372g;
+        public final /* synthetic */ z f69476g;
 
         @Override // d.b.c.a.b.a.d
         public void i() {
@@ -40,47 +40,47 @@ public final class z implements i {
             boolean z = true;
             try {
                 try {
-                    h2 = this.f69372g.h();
+                    h2 = this.f69476g.h();
                 } catch (IOException e3) {
                     e2 = e3;
                     z = false;
                 }
                 try {
-                    if (this.f69372g.f69367f.e()) {
-                        this.f69371f.b(this.f69372g, new IOException(ResponseException.CANCELED));
+                    if (this.f69476g.f69471f.e()) {
+                        this.f69475f.b(this.f69476g, new IOException(ResponseException.CANCELED));
                     } else {
-                        this.f69371f.a(this.f69372g, h2);
+                        this.f69475f.a(this.f69476g, h2);
                     }
                 } catch (IOException e4) {
                     e2 = e4;
                     if (!z) {
-                        this.f69372g.f69368g.h(this.f69372g, e2);
-                        this.f69371f.b(this.f69372g, e2);
+                        this.f69476g.f69472g.h(this.f69476g, e2);
+                        this.f69475f.b(this.f69476g, e2);
                     } else {
                         d.b.c.a.b.a.i.e j = d.b.c.a.b.a.i.e.j();
-                        j.f(4, "Callback failure for " + this.f69372g.f(), e2);
+                        j.f(4, "Callback failure for " + this.f69476g.f(), e2);
                     }
                 }
             } finally {
-                this.f69372g.f69366e.v().b(this);
+                this.f69476g.f69470e.v().b(this);
             }
         }
 
         public String j() {
-            return this.f69372g.f69369h.a().v();
+            return this.f69476g.f69473h.a().v();
         }
     }
 
     public z(y yVar, a0 a0Var, boolean z) {
-        this.f69366e = yVar;
-        this.f69369h = a0Var;
-        this.f69370i = z;
-        this.f69367f = new e.l(yVar, z);
+        this.f69470e = yVar;
+        this.f69473h = a0Var;
+        this.f69474i = z;
+        this.f69471f = new e.l(yVar, z);
     }
 
     public static z c(y yVar, a0 a0Var, boolean z) {
         z zVar = new z(yVar, a0Var, z);
-        zVar.f69368g = yVar.A().a(zVar);
+        zVar.f69472g = yVar.A().a(zVar);
         return zVar;
     }
 
@@ -94,61 +94,61 @@ public final class z implements i {
             }
         }
         i();
-        this.f69368g.b(this);
+        this.f69472g.b(this);
         try {
             try {
-                this.f69366e.v().c(this);
+                this.f69470e.v().c(this);
                 c h2 = h();
                 if (h2 != null) {
                     return h2;
                 }
                 throw new IOException(ResponseException.CANCELED);
             } catch (IOException e2) {
-                this.f69368g.h(this, e2);
+                this.f69472g.h(this, e2);
                 throw e2;
             }
         } finally {
-            this.f69366e.v().g(this);
+            this.f69470e.v().g(this);
         }
     }
 
     public boolean d() {
-        return this.f69367f.e();
+        return this.f69471f.e();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: e */
     public z clone() {
-        return c(this.f69366e, this.f69369h, this.f69370i);
+        return c(this.f69470e, this.f69473h, this.f69474i);
     }
 
     public String f() {
         StringBuilder sb = new StringBuilder();
         sb.append(d() ? "canceled " : "");
-        sb.append(this.f69370i ? "web socket" : NotificationCompat.CATEGORY_CALL);
+        sb.append(this.f69474i ? "web socket" : NotificationCompat.CATEGORY_CALL);
         sb.append(" to ");
         sb.append(g());
         return sb.toString();
     }
 
     public String g() {
-        return this.f69369h.a().C();
+        return this.f69473h.a().C();
     }
 
     public c h() throws IOException {
-        ArrayList arrayList = new ArrayList(this.f69366e.y());
-        arrayList.add(this.f69367f);
-        arrayList.add(new e.c(this.f69366e.i()));
-        arrayList.add(new d.b.c.a.b.a.a.a(this.f69366e.j()));
-        arrayList.add(new d.b.c.a.b.a.c.a(this.f69366e));
-        if (!this.f69370i) {
-            arrayList.addAll(this.f69366e.z());
+        ArrayList arrayList = new ArrayList(this.f69470e.y());
+        arrayList.add(this.f69471f);
+        arrayList.add(new e.c(this.f69470e.i()));
+        arrayList.add(new d.b.c.a.b.a.a.a(this.f69470e.j()));
+        arrayList.add(new d.b.c.a.b.a.c.a(this.f69470e));
+        if (!this.f69474i) {
+            arrayList.addAll(this.f69470e.z());
         }
-        arrayList.add(new e.d(this.f69370i));
-        return new e.i(arrayList, null, null, null, 0, this.f69369h, this, this.f69368g, this.f69366e.b(), this.f69366e.e(), this.f69366e.f()).a(this.f69369h);
+        arrayList.add(new e.d(this.f69474i));
+        return new e.i(arrayList, null, null, null, 0, this.f69473h, this, this.f69472g, this.f69470e.b(), this.f69470e.e(), this.f69470e.f()).a(this.f69473h);
     }
 
     public final void i() {
-        this.f69367f.d(d.b.c.a.b.a.i.e.j().c("response.body().close()"));
+        this.f69471f.d(d.b.c.a.b.a.i.e.j().c("response.body().close()"));
     }
 }

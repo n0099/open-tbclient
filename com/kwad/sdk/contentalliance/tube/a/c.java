@@ -10,7 +10,7 @@ import com.kwad.sdk.core.e.b;
 public abstract class c<T extends com.kwad.sdk.core.e.b> extends com.kwad.sdk.contentalliance.b<T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f33744d;
+    public RecyclerView f33842d;
 
     public abstract int e();
 
@@ -22,7 +22,7 @@ public abstract class c<T extends com.kwad.sdk.core.e.b> extends com.kwad.sdk.co
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.f33744d = (RecyclerView) this.f32433c.findViewById(e());
+        this.f33842d = (RecyclerView) this.f32531c.findViewById(e());
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

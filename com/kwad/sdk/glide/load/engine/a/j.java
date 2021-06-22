@@ -10,12 +10,12 @@ import java.security.NoSuchAlgorithmException;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, String> f36131a = new com.kwad.sdk.glide.g.g<>(1000);
+    public final com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, String> f36229a = new com.kwad.sdk.glide.g.g<>(1000);
 
     /* renamed from: b  reason: collision with root package name */
-    public final Pools.Pool<a> f36132b = com.kwad.sdk.glide.g.a.a.a(10, new a.InterfaceC0410a<a>() { // from class: com.kwad.sdk.glide.load.engine.a.j.1
+    public final Pools.Pool<a> f36230b = com.kwad.sdk.glide.g.a.a.a(10, new a.InterfaceC0413a<a>() { // from class: com.kwad.sdk.glide.load.engine.a.j.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0410a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0413a
         /* renamed from: a */
         public a b() {
             try {
@@ -30,42 +30,42 @@ public class j {
     public static final class a implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final MessageDigest f36134a;
+        public final MessageDigest f36232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.kwad.sdk.glide.g.a.c f36135b = com.kwad.sdk.glide.g.a.c.a();
+        public final com.kwad.sdk.glide.g.a.c f36233b = com.kwad.sdk.glide.g.a.c.a();
 
         public a(MessageDigest messageDigest) {
-            this.f36134a = messageDigest;
+            this.f36232a = messageDigest;
         }
 
         @Override // com.kwad.sdk.glide.g.a.a.c
         @NonNull
         public com.kwad.sdk.glide.g.a.c d() {
-            return this.f36135b;
+            return this.f36233b;
         }
     }
 
     private String b(com.kwad.sdk.glide.load.c cVar) {
-        a aVar = (a) com.kwad.sdk.glide.g.j.a(this.f36132b.acquire());
+        a aVar = (a) com.kwad.sdk.glide.g.j.a(this.f36230b.acquire());
         try {
-            cVar.a(aVar.f36134a);
-            return k.a(aVar.f36134a.digest());
+            cVar.a(aVar.f36232a);
+            return k.a(aVar.f36232a.digest());
         } finally {
-            this.f36132b.release(aVar);
+            this.f36230b.release(aVar);
         }
     }
 
     public String a(com.kwad.sdk.glide.load.c cVar) {
         String b2;
-        synchronized (this.f36131a) {
-            b2 = this.f36131a.b(cVar);
+        synchronized (this.f36229a) {
+            b2 = this.f36229a.b(cVar);
         }
         if (b2 == null) {
             b2 = b(cVar);
         }
-        synchronized (this.f36131a) {
-            this.f36131a.b(cVar, b2);
+        synchronized (this.f36229a) {
+            this.f36229a.b(cVar, b2);
         }
         return b2;
     }

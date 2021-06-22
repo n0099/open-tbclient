@@ -25,28 +25,28 @@ import org.json.JSONObject;
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public UBVI f38834a;
+    public UBVI f38932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38835b;
+    public boolean f38933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38836c;
+    public boolean f38934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38837d;
+    public boolean f38935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DownAPPConfirmPolicy f38838e;
+    public DownAPPConfirmPolicy f38936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f38839f;
+    public AtomicInteger f38937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38840g;
+    public int f38938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadAdParams f38841h;
+    public LoadAdParams f38939h;
 
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
         this(activity, str, unifiedBannerADListener, (Map) null);
@@ -54,12 +54,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.f38835b = false;
-        this.f38836c = false;
-        this.f38837d = false;
-        this.f38839f = new AtomicInteger(0);
-        this.f38840g = 30;
-        this.f38841h = null;
+        this.f38933b = false;
+        this.f38934c = false;
+        this.f38935d = false;
+        this.f38937f = new AtomicInteger(0);
+        this.f38938g = 30;
+        this.f38939h = null;
         if (GDTADManager.getInstance().isInitialized()) {
             a(activity, GDTADManager.getInstance().getAppStatus().getAPPID(), str, unifiedBannerADListener, map);
             return;
@@ -76,12 +76,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     @Deprecated
     public UnifiedBannerView(Activity activity, String str, String str2, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.f38835b = false;
-        this.f38836c = false;
-        this.f38837d = false;
-        this.f38839f = new AtomicInteger(0);
-        this.f38840g = 30;
-        this.f38841h = null;
+        this.f38933b = false;
+        this.f38934c = false;
+        this.f38935d = false;
+        this.f38937f = new AtomicInteger(0);
+        this.f38938g = 30;
+        this.f38939h = null;
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(activity, str, str2, unifiedBannerADListener, map);
     }
@@ -91,12 +91,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
             GDTLogger.e(String.format("UnifiedBannerView Constructor params error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedBannerADListener));
             return;
         }
-        this.f38835b = true;
+        this.f38933b = true;
         if (!a.a(activity)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
         }
-        this.f38836c = true;
+        this.f38934c = true;
         setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.banner2.UnifiedBannerView.1
             @Override // java.lang.Runnable
@@ -112,15 +112,15 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    UnifiedBannerView.this.f38834a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
-                                    UnifiedBannerView.this.f38837d = true;
+                                    UnifiedBannerView.this.f38932a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
+                                    UnifiedBannerView.this.f38935d = true;
                                     UnifiedBannerView.a(UnifiedBannerView.this, map, str2);
-                                    if (UnifiedBannerView.this.f38838e != null) {
-                                        UnifiedBannerView.this.setDownConfirmPolicy(UnifiedBannerView.this.f38838e);
+                                    if (UnifiedBannerView.this.f38936e != null) {
+                                        UnifiedBannerView.this.setDownConfirmPolicy(UnifiedBannerView.this.f38936e);
                                     }
-                                    UnifiedBannerView.this.setRefresh(UnifiedBannerView.this.f38840g);
-                                    UnifiedBannerView.this.setLoadAdParams(UnifiedBannerView.this.f38841h);
-                                    while (UnifiedBannerView.this.f38839f.getAndDecrement() > 0) {
+                                    UnifiedBannerView.this.setRefresh(UnifiedBannerView.this.f38938g);
+                                    UnifiedBannerView.this.setLoadAdParams(UnifiedBannerView.this.f38939h);
+                                    while (UnifiedBannerView.this.f38937f.getAndDecrement() > 0) {
                                         UnifiedBannerView.this.loadAD();
                                     }
                                 }
@@ -151,7 +151,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     }
 
     public void destroy() {
-        UBVI ubvi = this.f38834a;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             ubvi.destroy();
         }
@@ -159,7 +159,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
-        UBVI ubvi = this.f38834a;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             return ubvi.getApkInfoUrl();
         }
@@ -168,7 +168,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     public Map getExt() {
         try {
-            if (this.f38834a != null) {
+            if (this.f38932a != null) {
                 return UBVI.ext;
             }
             return null;
@@ -179,12 +179,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     }
 
     public void loadAD() {
-        if (!this.f38835b || !this.f38836c) {
+        if (!this.f38933b || !this.f38934c) {
             GDTLogger.e("UnifiedBannerView init Paras OR Context error,See More logs while new BannerView");
-        } else if (!this.f38837d) {
-            this.f38839f.incrementAndGet();
+        } else if (!this.f38935d) {
+            this.f38937f.incrementAndGet();
         } else {
-            UBVI ubvi = this.f38834a;
+            UBVI ubvi = this.f38932a;
             if (ubvi != null) {
                 ubvi.fetchAd();
             } else {
@@ -196,7 +196,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        UBVI ubvi = this.f38834a;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             ubvi.onWindowFocusChanged(z);
         }
@@ -204,8 +204,8 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         UBVI ubvi;
-        this.f38838e = downAPPConfirmPolicy;
-        if (downAPPConfirmPolicy == null || (ubvi = this.f38834a) == null) {
+        this.f38936e = downAPPConfirmPolicy;
+        if (downAPPConfirmPolicy == null || (ubvi = this.f38932a) == null) {
             return;
         }
         ubvi.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -213,23 +213,23 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
-        UBVI ubvi = this.f38834a;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             ubvi.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
-        this.f38841h = loadAdParams;
-        UBVI ubvi = this.f38834a;
+        this.f38939h = loadAdParams;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             ubvi.setLoadAdParams(loadAdParams);
         }
     }
 
     public void setRefresh(int i2) {
-        this.f38840g = i2;
-        UBVI ubvi = this.f38834a;
+        this.f38938g = i2;
+        UBVI ubvi = this.f38932a;
         if (ubvi != null) {
             ubvi.setRefresh(i2);
         }

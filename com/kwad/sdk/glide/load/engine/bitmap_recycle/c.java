@@ -2,62 +2,63 @@ package com.kwad.sdk.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes7.dex */
 public class c implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f36158a = new b();
+    public final b f36256a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public final h<a, Bitmap> f36159b = new h<>();
+    public final h<a, Bitmap> f36257b = new h<>();
 
     @VisibleForTesting
     /* loaded from: classes7.dex */
     public static class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f36160a;
+        public final b f36258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36161b;
+        public int f36259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36162c;
+        public int f36260c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Bitmap.Config f36163d;
+        public Bitmap.Config f36261d;
 
         public a(b bVar) {
-            this.f36160a = bVar;
+            this.f36258a = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f36160a.a(this);
+            this.f36258a.a(this);
         }
 
         public void a(int i2, int i3, Bitmap.Config config) {
-            this.f36161b = i2;
-            this.f36162c = i3;
-            this.f36163d = config;
+            this.f36259b = i2;
+            this.f36260c = i3;
+            this.f36261d = config;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f36161b == aVar.f36161b && this.f36162c == aVar.f36162c && this.f36163d == aVar.f36163d;
+                return this.f36259b == aVar.f36259b && this.f36260c == aVar.f36260c && this.f36261d == aVar.f36261d;
             }
             return false;
         }
 
         public int hashCode() {
-            int i2 = ((this.f36161b * 31) + this.f36162c) * 31;
-            Bitmap.Config config = this.f36163d;
+            int i2 = ((this.f36259b * 31) + this.f36260c) * 31;
+            Bitmap.Config config = this.f36261d;
             return i2 + (config != null ? config.hashCode() : 0);
         }
 
         public String toString() {
-            return c.c(this.f36161b, this.f36162c, this.f36163d);
+            return c.c(this.f36259b, this.f36260c, this.f36261d);
         }
     }
 
@@ -79,7 +80,7 @@ public class c implements l {
     }
 
     public static String c(int i2, int i3, Bitmap.Config config) {
-        return "[" + i2 + "x" + i3 + "], " + config;
+        return PreferencesUtil.LEFT_MOUNT + i2 + "x" + i3 + "], " + config;
     }
 
     public static String d(Bitmap bitmap) {
@@ -88,17 +89,17 @@ public class c implements l {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a() {
-        return this.f36159b.a();
+        return this.f36257b.a();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a(int i2, int i3, Bitmap.Config config) {
-        return this.f36159b.a((h<a, Bitmap>) this.f36158a.a(i2, i3, config));
+        return this.f36257b.a((h<a, Bitmap>) this.f36256a.a(i2, i3, config));
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public void a(Bitmap bitmap) {
-        this.f36159b.a(this.f36158a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
+        this.f36257b.a(this.f36256a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
@@ -117,6 +118,6 @@ public class c implements l {
     }
 
     public String toString() {
-        return "AttributeStrategy:\n  " + this.f36159b;
+        return "AttributeStrategy:\n  " + this.f36257b;
     }
 }

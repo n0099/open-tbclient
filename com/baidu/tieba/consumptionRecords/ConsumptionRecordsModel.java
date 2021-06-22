@@ -13,20 +13,20 @@ import java.util.ArrayList;
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d.a.n0.c0.a> f14353h;
+    public ArrayList<d.a.o0.c0.a> f14435h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.c0.b f14354i;
+    public d.a.o0.c0.b f14436i;
     public b k;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14350e = 0;
+    public int f14432e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14351f = 1;
+    public int f14433f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14352g = 1;
+    public int f14434g = 1;
     public boolean j = false;
     public HttpMessageListener l = new a(CmdConfigHttp.CMD_GET_USER_ORDER);
 
@@ -47,14 +47,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                         ConsumptionRecordsModel.this.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
                     if (ConsumptionRecordsModel.this.k != null) {
-                        ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14353h, ConsumptionRecordsModel.this.f14354i, ConsumptionRecordsModel.this.j);
+                        ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14435h, ConsumptionRecordsModel.this.f14436i, ConsumptionRecordsModel.this.j);
                         return;
                     }
                     return;
                 }
                 ConsumptionRecordsModel.w(ConsumptionRecordsModel.this);
                 if (ConsumptionRecordsModel.this.k != null) {
-                    ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14353h, ConsumptionRecordsModel.this.f14354i, ConsumptionRecordsModel.this.j);
+                    ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14435h, ConsumptionRecordsModel.this.f14436i, ConsumptionRecordsModel.this.j);
                 }
             }
         }
@@ -62,7 +62,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i2, String str, ArrayList<d.a.n0.c0.a> arrayList, d.a.n0.c0.b bVar, boolean z);
+        void a(int i2, String str, ArrayList<d.a.o0.c0.a> arrayList, d.a.o0.c0.b bVar, boolean z);
 
         void b();
     }
@@ -75,18 +75,18 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int w(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i2 = consumptionRecordsModel.f14350e;
-        consumptionRecordsModel.f14350e = i2 - 1;
+        int i2 = consumptionRecordsModel.f14432e;
+        consumptionRecordsModel.f14432e = i2 - 1;
         return i2;
     }
 
     public void C() {
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        this.f14350e = 1;
+        this.f14432e = 1;
         newGetUserOrderRequestMessage.setPn(1);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.f14351f);
-        newGetUserOrderRequestMessage.setShowMember(this.f14352g);
+        newGetUserOrderRequestMessage.setOrderType(this.f14433f);
+        newGetUserOrderRequestMessage.setShowMember(this.f14434g);
         sendMessage(newGetUserOrderRequestMessage);
     }
 
@@ -99,30 +99,30 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
             }
             return;
         }
-        this.f14350e++;
+        this.f14432e++;
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        newGetUserOrderRequestMessage.setPn(this.f14350e);
+        newGetUserOrderRequestMessage.setPn(this.f14432e);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.f14351f);
-        newGetUserOrderRequestMessage.setShowMember(this.f14352g);
+        newGetUserOrderRequestMessage.setOrderType(this.f14433f);
+        newGetUserOrderRequestMessage.setShowMember(this.f14434g);
         sendMessage(newGetUserOrderRequestMessage);
     }
 
-    public final void E(ArrayList<d.a.n0.c0.a> arrayList, d.a.n0.c0.b bVar, boolean z) {
+    public final void E(ArrayList<d.a.o0.c0.a> arrayList, d.a.o0.c0.b bVar, boolean z) {
         if (bVar != null) {
-            this.f14354i = bVar;
+            this.f14436i = bVar;
         }
         this.j = z;
         if (arrayList == null) {
             return;
         }
-        if (this.f14353h == null) {
-            this.f14353h = new ArrayList<>();
+        if (this.f14435h == null) {
+            this.f14435h = new ArrayList<>();
         }
-        if (this.f14350e == 1) {
-            this.f14353h.clear();
+        if (this.f14432e == 1) {
+            this.f14435h.clear();
         }
-        this.f14353h.addAll(arrayList);
+        this.f14435h.addAll(arrayList);
     }
 
     public void F(b bVar) {
@@ -154,10 +154,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public void setShowMember(int i2) {
-        this.f14352g = i2;
+        this.f14434g = i2;
     }
 
     public void setType(int i2) {
-        this.f14351f = i2;
+        this.f14433f = i2;
     }
 }

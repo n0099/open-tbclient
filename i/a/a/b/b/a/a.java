@@ -13,19 +13,19 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f72022a;
+    public Activity f72126a;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f72024c;
+    public long f72128c;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProductInfo f72026e;
+    public ProductInfo f72130e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72027f;
+    public int f72131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72028g;
+    public int f72132g;
     public Map<String, Object> k;
     public IPayCallback<String> l;
     public IToken m;
@@ -33,28 +33,28 @@ public final class a {
     public String o;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayType f72023b = PayType.ALI_PAY;
+    public PayType f72127b = PayType.ALI_PAY;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f72025d = "";
+    public String f72129d = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public IMiddlePayService.SubscriptType f72029h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
+    public IMiddlePayService.SubscriptType f72133h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
 
     /* renamed from: i  reason: collision with root package name */
-    public IMiddlePayService.ChargeSource f72030i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
+    public IMiddlePayService.ChargeSource f72134i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
     public String j = "";
 
     public final void A(long j) {
-        this.f72024c = j;
+        this.f72128c = j;
     }
 
     public final void B(int i2) {
-        this.f72027f = i2;
+        this.f72131f = i2;
     }
 
     public final Activity a() {
-        Activity activity = this.f72022a;
+        Activity activity = this.f72126a;
         if (activity == null) {
             Intrinsics.throwUninitializedPropertyAccessException("activity");
         }
@@ -70,11 +70,11 @@ public final class a {
     }
 
     public final IMiddlePayService.ChargeSource d() {
-        return this.f72030i;
+        return this.f72134i;
     }
 
     public final int e() {
-        return this.f72028g;
+        return this.f72132g;
     }
 
     public final Map<String, Object> f() {
@@ -82,7 +82,7 @@ public final class a {
     }
 
     public final ProductInfo g() {
-        ProductInfo productInfo = this.f72026e;
+        ProductInfo productInfo = this.f72130e;
         if (productInfo == null) {
             Intrinsics.throwUninitializedPropertyAccessException("info");
         }
@@ -90,7 +90,7 @@ public final class a {
     }
 
     public final PayType h() {
-        return this.f72023b;
+        return this.f72127b;
     }
 
     public final String i() {
@@ -98,11 +98,11 @@ public final class a {
     }
 
     public final IMiddlePayService.SubscriptType j() {
-        return this.f72029h;
+        return this.f72133h;
     }
 
     public final String k() {
-        return this.f72025d;
+        return this.f72129d;
     }
 
     public final IToken l() {
@@ -114,15 +114,15 @@ public final class a {
     }
 
     public final long n() {
-        return this.f72024c;
+        return this.f72128c;
     }
 
     public final int o() {
-        return this.f72027f;
+        return this.f72131f;
     }
 
     public final void p(Activity activity) {
-        this.f72022a = activity;
+        this.f72126a = activity;
     }
 
     public final void q(AppCustomExpand appCustomExpand) {
@@ -134,7 +134,7 @@ public final class a {
     }
 
     public final void s(int i2) {
-        this.f72028g = i2;
+        this.f72132g = i2;
     }
 
     public final void t(Map<String, Object> map) {
@@ -142,11 +142,11 @@ public final class a {
     }
 
     public final void u(ProductInfo productInfo) {
-        this.f72026e = productInfo;
+        this.f72130e = productInfo;
     }
 
     public final void v(PayType payType) {
-        this.f72023b = payType;
+        this.f72127b = payType;
     }
 
     public final void w(String str) {
@@ -154,7 +154,7 @@ public final class a {
     }
 
     public final void x(String str) {
-        this.f72025d = str;
+        this.f72129d = str;
     }
 
     public final void y(IToken iToken) {

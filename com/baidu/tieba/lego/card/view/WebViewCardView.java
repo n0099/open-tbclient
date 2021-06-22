@@ -169,7 +169,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.t, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.n0.k1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.o0.k1.o.l.e
     public void c(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
             return;

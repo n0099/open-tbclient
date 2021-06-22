@@ -5,31 +5,31 @@ import androidx.annotation.ColorInt;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35734a;
+    public int f35832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35735b;
+    public int f35833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35736c;
+    public int f35834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35737d;
+    public int f35835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35738e;
+    public boolean f35836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35739f;
+    public boolean f35837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35740g;
+    public int f35838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35741h;
+    public int f35839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35742i;
+    public int f35840i;
     public int j;
     @ColorInt
     public int[] k;

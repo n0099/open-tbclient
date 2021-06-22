@@ -139,7 +139,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
             } catch (Exception e3) {
                 com.kwad.sdk.core.d.a.a(e3);
             }
-            if (com.kwad.sdk.core.d.a.f34079a) {
+            if (com.kwad.sdk.core.d.a.f34177a) {
                 com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
             }
         } catch (Exception e4) {

@@ -48,31 +48,31 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public String B;
 
     /* renamed from: a  reason: collision with root package name */
-    public Dialog f9669a;
+    public Dialog f9689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f9670b;
+    public FrameLayout f9690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f9671c;
+    public FrameLayout f9691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f9672d;
+    public TextView f9692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f9673e;
+    public TextView f9693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f9674f;
+    public ImageView f9694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f9675g;
+    public ImageView f9695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Camera f9676h;
+    public Camera f9696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Camera.Parameters f9677i;
+    public Camera.Parameters f9697i;
     public byte[] j;
     public int k;
     public int l;
@@ -93,20 +93,20 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public int A = 80;
 
     private void b() {
-        this.f9670b = (FrameLayout) findViewById(e.sapi_sdk_ocr_frame_layout);
-        this.f9671c = (FrameLayout) findViewById(e.sapi_sdk_fl_ocr_camera_border);
-        this.f9672d = (TextView) findViewById(e.sapi_sdk_tv_light_tip);
-        this.f9673e = (TextView) findViewById(e.sapi_sdk_tv_type_tip);
-        this.f9674f = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_people);
-        this.f9675g = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_emblem);
+        this.f9690b = (FrameLayout) findViewById(e.sapi_sdk_ocr_frame_layout);
+        this.f9691c = (FrameLayout) findViewById(e.sapi_sdk_fl_ocr_camera_border);
+        this.f9692d = (TextView) findViewById(e.sapi_sdk_tv_light_tip);
+        this.f9693e = (TextView) findViewById(e.sapi_sdk_tv_type_tip);
+        this.f9694f = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_people);
+        this.f9695g = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_emblem);
         if ("1".equals(this.B)) {
-            this.f9674f.setVisibility(8);
-            this.f9675g.setVisibility(0);
-            this.f9673e.setText("请将二代身份证的国徽页放入识别框内");
+            this.f9694f.setVisibility(8);
+            this.f9695g.setVisibility(0);
+            this.f9693e.setText("请将二代身份证的国徽页放入识别框内");
         } else if ("2".equals(this.B)) {
-            this.f9674f.setVisibility(0);
-            this.f9675g.setVisibility(8);
-            this.f9673e.setText("请将二代身份证的人像页放入识别框内");
+            this.f9694f.setVisibility(0);
+            this.f9695g.setVisibility(8);
+            this.f9693e.setText("请将二代身份证的人像页放入识别框内");
         } else {
             a(true, IdCardOcrResult.CODE_PAGE_PARAMS_ERROR, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
         }
@@ -116,24 +116,24 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     private void c() {
         boolean z = false;
         try {
-            if (this.f9676h == null) {
+            if (this.f9696h == null) {
                 Camera open = Camera.open(0);
-                this.f9676h = open;
+                this.f9696h = open;
                 Camera.Parameters parameters = open.getParameters();
-                this.f9677i = parameters;
+                this.f9697i = parameters;
                 parameters.setJpegQuality(100);
-                this.f9677i.setPreviewFormat(17);
-                this.f9677i.setPictureFormat(256);
+                this.f9697i.setPreviewFormat(17);
+                this.f9697i.setPictureFormat(256);
                 g();
                 h();
                 f();
-                this.f9676h.setParameters(this.f9677i);
+                this.f9696h.setParameters(this.f9697i);
             }
             if (this.t == null) {
-                a aVar = new a(this, this.f9676h);
+                a aVar = new a(this, this.f9696h);
                 this.t = aVar;
                 aVar.setPreviewCallback(this);
-                this.f9670b.addView(this.t);
+                this.f9690b.addView(this.t);
             }
             z = true;
         } catch (Exception e2) {
@@ -151,26 +151,26 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     }
 
     private void d() {
-        FrameLayout frameLayout = this.f9671c;
+        FrameLayout frameLayout = this.f9691c;
         if (frameLayout != null) {
             frameLayout.setVisibility(8);
         }
-        TextView textView = this.f9673e;
+        TextView textView = this.f9693e;
         if (textView != null) {
             textView.setVisibility(8);
         }
         a aVar = this.t;
         if (aVar != null) {
-            this.f9670b.removeView(aVar);
+            this.f9690b.removeView(aVar);
             this.t.a();
             this.t = null;
         }
-        Camera camera = this.f9676h;
+        Camera camera = this.f9696h;
         if (camera != null) {
             camera.setPreviewCallback(null);
-            this.f9676h.stopPreview();
-            this.f9676h.release();
-            this.f9676h = null;
+            this.f9696h.stopPreview();
+            this.f9696h.release();
+            this.f9696h = null;
         }
     }
 
@@ -200,7 +200,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     }
 
     private void f() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f9671c.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f9691c.getLayoutParams();
         int min = Math.min(this.n - ((int) ((Resources.getSystem().getDisplayMetrics().density * 80.0f) + 0.5f)), dp2px(300.0f));
         this.k = min;
         int i2 = (int) (min * 1.585f);
@@ -208,24 +208,24 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         layoutParams.width = min;
         layoutParams.height = i2;
         Log.e("ocr-test", "设置框尺寸： mBorderWidth = " + this.k + "，mBorderHeight = " + this.l);
-        this.f9671c.setLayoutParams(layoutParams);
-        this.f9673e.setVisibility(0);
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f9674f.getLayoutParams();
+        this.f9691c.setLayoutParams(layoutParams);
+        this.f9693e.setVisibility(0);
+        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f9694f.getLayoutParams();
         layoutParams2.rightMargin = (int) (((float) this.l) * 0.14f);
         layoutParams2.bottomMargin = (int) (((float) this.k) * 0.082f);
-        this.f9674f.setLayoutParams(layoutParams2);
+        this.f9694f.setLayoutParams(layoutParams2);
         layoutParams2.rightMargin = (int) (this.l * 0.098f);
         layoutParams2.topMargin = (int) (this.k * 0.048f);
-        this.f9675g.setLayoutParams((FrameLayout.LayoutParams) this.f9675g.getLayoutParams());
+        this.f9695g.setLayoutParams((FrameLayout.LayoutParams) this.f9695g.getLayoutParams());
     }
 
     private void g() {
         Camera.Parameters parameters;
-        if (this.f9676h == null || (parameters = this.f9677i) == null) {
+        if (this.f9696h == null || (parameters = this.f9697i) == null) {
             return;
         }
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-        List<Camera.Size> supportedPictureSizes = this.f9677i.getSupportedPictureSizes();
+        List<Camera.Size> supportedPictureSizes = this.f9697i.getSupportedPictureSizes();
         ArrayList<CameraSize> arrayList = new ArrayList();
         for (Camera.Size size : supportedPreviewSizes) {
             if (size != null) {
@@ -241,9 +241,9 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         arrayList.retainAll(arrayList2);
         CameraSize cameraSize = null;
         for (CameraSize cameraSize2 : arrayList) {
-            Log.e("ocr-test", "相机支持设置的尺寸： width = " + cameraSize2.f9682a + ", height = " + cameraSize2.f9683b);
-            float f2 = ((float) cameraSize2.f9683b) / ((float) this.n);
-            int i2 = (int) (((float) cameraSize2.f9682a) / f2);
+            Log.e("ocr-test", "相机支持设置的尺寸： width = " + cameraSize2.f9702a + ", height = " + cameraSize2.f9703b);
+            float f2 = ((float) cameraSize2.f9703b) / ((float) this.n);
+            int i2 = (int) (((float) cameraSize2.f9702a) / f2);
             if (i2 >= this.q && f2 > this.s) {
                 this.s = f2;
                 this.o = i2;
@@ -257,21 +257,21 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             this.o = 1920;
             cameraSize = new CameraSize(1920, G);
         }
-        this.f9677i.setPictureSize(cameraSize.f9682a, cameraSize.f9683b);
-        this.f9677i.setPreviewSize(cameraSize.f9682a, cameraSize.f9683b);
+        this.f9697i.setPictureSize(cameraSize.f9702a, cameraSize.f9703b);
+        this.f9697i.setPreviewSize(cameraSize.f9702a, cameraSize.f9703b);
     }
 
     private void h() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f9670b.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f9690b.getLayoutParams();
         layoutParams.height = this.o;
         layoutParams.width = this.p;
         Log.e("ocr-test", "设置preview尺寸： mPreviewHeight = " + this.o + "，mPreviewWidth = " + this.p + ",预览分辨率 / 屏幕 = " + this.s);
-        this.f9670b.setLayoutParams(layoutParams);
+        this.f9690b.setLayoutParams(layoutParams);
     }
 
     private void i() {
-        if (this.f9669a == null) {
-            this.f9669a = new CommonDialog.Builder(this).setTitle("开启摄像头权限").setMessage("为了使用正常拍照服务\n请开启摄像头权限").setPositiveBtn("去设置", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.4
+        if (this.f9689a == null) {
+            this.f9689a = new CommonDialog.Builder(this).setTitle("开启摄像头权限").setMessage("为了使用正常拍照服务\n请开启摄像头权限").setPositiveBtn("去设置", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -291,11 +291,11 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                 }
             }).build();
         }
-        this.f9669a.setCancelable(false);
-        if (isFinishing() || this.f9669a.isShowing()) {
+        this.f9689a.setCancelable(false);
+        if (isFinishing() || this.f9689a.isShowing()) {
             return;
         }
-        this.f9669a.show();
+        this.f9689a.show();
     }
 
     public int dp2px(float f2) {
@@ -313,7 +313,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Camera.Parameters parameters;
-        if (view.getId() != e.sapi_sdk_fl_take_photo || this.j == null || (parameters = this.f9677i) == null) {
+        if (view.getId() != e.sapi_sdk_fl_take_photo || this.j == null || (parameters = this.f9697i) == null) {
             return;
         }
         Camera.Size previewSize = parameters.getPreviewSize();
@@ -386,9 +386,9 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                 return;
             }
             if (z) {
-                this.f9672d.setVisibility(0);
+                this.f9692d.setVisibility(0);
             } else {
-                this.f9672d.setVisibility(8);
+                this.f9692d.setVisibility(8);
             }
         }
     }
@@ -410,7 +410,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public void onResume() {
         super.onResume();
         if (this.r) {
-            FrameLayout frameLayout = this.f9671c;
+            FrameLayout frameLayout = this.f9691c;
             if (frameLayout != null) {
                 frameLayout.setVisibility(0);
             }
@@ -422,14 +422,14 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public class CameraSize {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9682a;
+        public int f9702a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9683b;
+        public int f9703b;
 
         public CameraSize(int i2, int i3) {
-            this.f9682a = i2;
-            this.f9683b = i3;
+            this.f9702a = i2;
+            this.f9703b = i3;
         }
 
         public boolean equals(Object obj) {
@@ -440,16 +440,16 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                 return false;
             }
             CameraSize cameraSize = (CameraSize) obj;
-            return this.f9682a == cameraSize.f9682a && this.f9683b == cameraSize.f9683b;
+            return this.f9702a == cameraSize.f9702a && this.f9703b == cameraSize.f9703b;
         }
 
         public String toString() {
-            return "CameraSize{width=" + this.f9682a + ", height=" + this.f9683b + '}';
+            return "CameraSize{width=" + this.f9702a + ", height=" + this.f9703b + '}';
         }
 
         public CameraSize(Camera.Size size) {
-            this.f9682a = size.width;
-            this.f9683b = size.height;
+            this.f9702a = size.width;
+            this.f9703b = size.height;
         }
     }
 
@@ -471,7 +471,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             int[] iArr = new int[2];
             int identifier = getApplicationContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
             int dimensionPixelSize = identifier > 0 ? getApplicationContext().getResources().getDimensionPixelSize(identifier) : 0;
-            this.f9671c.getLocationInWindow(iArr);
+            this.f9691c.getLocationInWindow(iArr);
             int i2 = (int) ((iArr[1] - dimensionPixelSize) * this.s);
             int i3 = (int) (iArr[0] * this.s);
             int i4 = (int) (this.l * this.s);

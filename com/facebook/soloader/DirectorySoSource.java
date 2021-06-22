@@ -2,6 +2,7 @@ package com.facebook.soloader;
 
 import android.os.StrictMode;
 import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ public class DirectorySoSource extends SoSource {
 
     public static String[] getDependencies(File file) throws IOException {
         if (SoLoader.SYSTRACE_LIBRARY_LOADING) {
-            Api18TraceUtils.beginTraceSection("SoLoader.getElfDependencies[" + file.getName() + "]");
+            Api18TraceUtils.beginTraceSection("SoLoader.getElfDependencies[" + file.getName() + PreferencesUtil.RIGHT_MOUNT);
         }
         try {
             return MinElf.extract_DT_NEEDED(file);

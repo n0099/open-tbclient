@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.appcompat.widget.SearchView;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.util.LogUtil;
 /* loaded from: classes2.dex */
@@ -74,9 +75,9 @@ public class a extends SQLiteOpenHelper {
         contentValues.put("ug", aVar.f4575b);
         contentValues.put("sessioninfo", aVar.f4574a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
         contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f4576c);
-        contentValues.put("stm", aVar.f4578e.toString());
+        contentValues.put(ConstantHelper.LOG_STM, aVar.f4578e.toString());
         contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f4579f.toString());
-        contentValues.put("etm", aVar.f4580g.toString());
+        contentValues.put(ConstantHelper.LOG_ETM, aVar.f4580g.toString());
         contentValues.put("mg", aVar.f4581h.toString());
         contentValues.put(Config.EXCEPTION_PART, aVar.f4582i.toString());
         return contentValues;

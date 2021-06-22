@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public class gf {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41340a;
+    public String f41443a;
 
     public gf(String str) {
-        this.f41340a = str;
+        this.f41443a = str;
     }
 
     public String toString() {
-        return "stream:error (" + this.f41340a + SmallTailInfo.EMOTION_SUFFIX;
+        return "stream:error (" + this.f41443a + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

@@ -6,21 +6,21 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38181a;
+    public int f38279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38182b;
+    public String f38280b;
 
     public c(int i2, String str) {
-        this.f38181a = i2;
-        this.f38182b = str;
+        this.f38279a = i2;
+        this.f38280b = str;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("code", this.f38181a);
-            jSONObject.put("body", this.f38182b);
+            jSONObject.put("code", this.f38279a);
+            jSONObject.put("body", this.f38280b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.commontab;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.r0.l1.d;
+import d.a.o0.r0.l1.d;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes4.dex */

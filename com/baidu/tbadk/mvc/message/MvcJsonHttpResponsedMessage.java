@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.a.c.e.d.l;
 import d.a.c.e.j.a.e;
-import d.a.m0.g0.b.d;
-import d.a.m0.g0.b.h;
-import d.a.m0.r.r.a;
+import d.a.n0.g0.b.d;
+import d.a.n0.g0.b.h;
+import d.a.n0.r.r.a;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -86,7 +86,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                         return;
                     }
                     e2.g(cacheKey, bArr);
-                } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.m0.g0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
+                } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.n0.g0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
                 } else {
                     try {
                         h2.g(cacheKey, new String(bArr, "UTF-8"));

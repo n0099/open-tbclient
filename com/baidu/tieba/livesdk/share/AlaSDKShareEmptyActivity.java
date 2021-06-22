@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import d.a.n0.n1.d;
-import d.a.n0.n1.g;
+import d.a.o0.n1.d;
+import d.a.o0.n1.g;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     public String mContent;
@@ -26,7 +26,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public String mLinkUrl;
     public String mLiveExtInfo;
     public String mLiveId;
-    public d.a.n0.n1.l.a.a mSelectBarController;
+    public d.a.o0.n1.l.a.a mSelectBarController;
     public ShareItem mShareItem;
     public String mTitle;
     public String mYyAnchorBdUid;
@@ -86,7 +86,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
 
     /* JADX INFO: Access modifiers changed from: private */
     public void shareInBar() {
-        d.a.n0.n1.l.a.a aVar;
+        d.a.o0.n1.l.a.a aVar;
         if (!ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) || (aVar = this.mSelectBarController) == null) {
             return;
         }
@@ -111,7 +111,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             shareDialogConfig.addOutsideTextView(g.ala_share_to_tieba_frs_title, d.icon_pure_ala_share_morebar40_svg, new b());
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        d.a.n0.n1.l.a.a aVar = this.mSelectBarController;
+        d.a.o0.n1.l.a.a aVar = this.mSelectBarController;
         if (aVar != null) {
             aVar.c();
         }
@@ -130,7 +130,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.mSelectBarController = new d.a.n0.n1.l.a.a(getPageContext());
+        this.mSelectBarController = new d.a.o0.n1.l.a.a(getPageContext());
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
@@ -169,7 +169,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.a.n0.n1.l.a.a aVar = this.mSelectBarController;
+        d.a.o0.n1.l.a.a aVar = this.mSelectBarController;
         if (aVar != null) {
             aVar.d();
         }

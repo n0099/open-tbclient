@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.download.DownloadData;
-import d.a.n0.t2.c0.i;
+import d.a.o0.t2.c0.i;
 /* loaded from: classes5.dex */
 public class RecAppDownloadReceiver extends BroadcastReceiver {
     public static final String ACTION_CANCEL_DOWNLOAD = "action_cancel_download";

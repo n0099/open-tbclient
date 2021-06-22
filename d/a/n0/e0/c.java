@@ -1,33 +1,37 @@
 package d.a.n0.e0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import d.a.c.k.e.n;
-/* loaded from: classes4.dex */
-public class c implements n {
+import androidx.fragment.app.Fragment;
+/* loaded from: classes3.dex */
+public class c {
+    public static int j = 1;
+    public static int k = 2;
+    public static int l = 3;
+    public static int m = 4;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f56455f = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public Fragment f53115a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f53116b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f53117c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f53118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f56456e;
+    public int f53119e;
 
-    public FeatureCardCompetition b() {
-        return this.f56456e;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f53120f;
 
-    public void c(FeatureCardCompetition featureCardCompetition) {
-        if (featureCardCompetition == null) {
-            return;
-        }
-        this.f56456e = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public String f53121g;
 
-    @Override // d.a.c.k.e.n
-    public BdUniqueId getType() {
-        return f56455f;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public d.a.n0.e0.e.a f53122h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f53123i = j;
 }

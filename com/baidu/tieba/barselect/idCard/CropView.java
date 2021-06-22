@@ -21,19 +21,19 @@ import java.io.IOException;
 public class CropView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f14202e;
+    public float f14284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f14203f;
+    public float f14285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f14204g;
+    public float[] f14286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f14205h;
+    public Matrix f14287h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f14206i;
+    public Bitmap f14288i;
     public GestureDetector j;
     public ScaleGestureDetector k;
     public ScaleGestureDetector.OnScaleGestureListener l;
@@ -58,7 +58,7 @@ public class CropView extends View {
         @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
         public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
             float scaleFactor = scaleGestureDetector.getScaleFactor();
-            CropView.this.f14205h.postScale(scaleFactor, scaleFactor);
+            CropView.this.f14287h.postScale(scaleFactor, scaleFactor);
             CropView.this.invalidate();
         }
     }
@@ -100,10 +100,10 @@ public class CropView extends View {
 
     public CropView(Context context) {
         super(context);
-        this.f14202e = 0.2f;
-        this.f14203f = 4.0f;
-        this.f14204g = new float[9];
-        this.f14205h = new Matrix();
+        this.f14284e = 0.2f;
+        this.f14285f = 4.0f;
+        this.f14286g = new float[9];
+        this.f14287h = new Matrix();
         this.l = new a();
         f();
     }
@@ -113,30 +113,30 @@ public class CropView extends View {
     }
 
     private float getScale() {
-        this.f14205h.getValues(this.f14204g);
-        float f2 = this.f14204g[0];
+        this.f14287h.getValues(this.f14286g);
+        float f2 = this.f14286g[0];
         if (Math.abs(f2) <= 0.1d) {
-            f2 = this.f14204g[1];
+            f2 = this.f14286g[1];
         }
         return Math.abs(f2);
     }
 
     private void setBitmap(Bitmap bitmap) {
-        this.f14206i = bitmap;
-        this.f14205h.reset();
+        this.f14288i = bitmap;
+        this.f14287h.reset();
         d(getWidth(), getHeight());
         invalidate();
     }
 
     public final void d(int i2, int i3) {
         Bitmap bitmap;
-        if (i2 <= 0 || i3 <= 0 || (bitmap = this.f14206i) == null) {
+        if (i2 <= 0 || i3 <= 0 || (bitmap = this.f14288i) == null) {
             return;
         }
-        float min = Math.min((i3 * 1.0f) / bitmap.getHeight(), (i2 * 1.0f) / this.f14206i.getWidth());
-        this.f14205h.setTranslate(0.0f, 0.0f);
-        this.f14205h.setScale(min, min, this.f14206i.getWidth() / 2, this.f14206i.getHeight() / 2);
-        this.f14205h.postTranslate((i2 - this.f14206i.getWidth()) / 2, (i3 - this.f14206i.getHeight()) / 2);
+        float min = Math.min((i3 * 1.0f) / bitmap.getHeight(), (i2 * 1.0f) / this.f14288i.getWidth());
+        this.f14287h.setTranslate(0.0f, 0.0f);
+        this.f14287h.setScale(min, min, this.f14288i.getWidth() / 2, this.f14288i.getHeight() / 2);
+        this.f14287h.postTranslate((i2 - this.f14288i.getWidth()) / 2, (i3 - this.f14288i.getHeight()) / 2);
         invalidate();
     }
 
@@ -145,12 +145,12 @@ public class CropView extends View {
         float[] fArr = {rect.left, rect.top};
         float[] fArr2 = {0.0f, 0.0f};
         Matrix matrix = new Matrix();
-        this.f14205h.invert(matrix);
+        this.f14287h.invert(matrix);
         matrix.mapPoints(fArr2, fArr);
         Matrix matrix2 = new Matrix();
         Bitmap createBitmap = Bitmap.createBitmap((int) (rect.width() / scale), (int) (rect.height() / scale), Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(createBitmap);
-        Bitmap bitmap = this.f14206i;
+        Bitmap bitmap = this.f14288i;
         matrix2.postTranslate(-fArr2[0], -fArr2[1]);
         canvas.drawBitmap(bitmap, matrix2, null);
         return createBitmap;
@@ -162,20 +162,20 @@ public class CropView extends View {
     }
 
     public void g(int i2) {
-        if (this.f14206i == null) {
+        if (this.f14288i == null) {
             return;
         }
         Matrix matrix = new Matrix();
-        int width = this.f14206i.getWidth() / 2;
-        int height = this.f14206i.getHeight() / 2;
+        int width = this.f14288i.getWidth() / 2;
+        int height = this.f14288i.getHeight() / 2;
         matrix.postTranslate(-width, -height);
         matrix.postRotate(i2);
         matrix.postTranslate(height, width);
-        Bitmap bitmap = this.f14206i;
+        Bitmap bitmap = this.f14288i;
         Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.RGB_565);
-        new Canvas(createBitmap).drawBitmap(this.f14206i, matrix, null);
-        this.f14206i.recycle();
-        this.f14206i = createBitmap;
+        new Canvas(createBitmap).drawBitmap(this.f14288i, matrix, null);
+        this.f14288i.recycle();
+        this.f14288i = createBitmap;
         d(getWidth(), getHeight());
         invalidate();
     }
@@ -183,28 +183,28 @@ public class CropView extends View {
     public final void h(ScaleGestureDetector scaleGestureDetector) {
         float scaleFactor = scaleGestureDetector.getScaleFactor();
         float scale = getScale();
-        float f2 = this.f14202e;
+        float f2 = this.f14284e;
         if (scale * scaleFactor < f2) {
             scaleFactor = f2 / scale;
         }
-        float f3 = this.f14203f;
+        float f3 = this.f14285f;
         if (scale * scaleFactor > f3) {
             scaleFactor = f3 / scale;
         }
-        this.f14205h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+        this.f14287h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
         invalidate();
     }
 
     public final void i(float f2, float f3) {
-        this.f14205h.getValues(this.f14204g);
-        float[] fArr = this.f14204g;
+        this.f14287h.getValues(this.f14286g);
+        float[] fArr = this.f14286g;
         float f4 = fArr[2];
         float f5 = fArr[5];
         Rect restrictedBound = getRestrictedBound();
         if (restrictedBound != null) {
             float scale = getScale();
-            float width = ((int) (this.f14206i.getWidth() / scale)) + f4;
-            float height = ((int) (this.f14206i.getHeight() / scale)) + f5;
+            float width = ((int) (this.f14288i.getWidth() / scale)) + f4;
+            float height = ((int) (this.f14288i.getHeight() / scale)) + f5;
             int i2 = restrictedBound.left;
             if (f4 - f2 > i2) {
                 f2 = f4 - i2;
@@ -226,16 +226,16 @@ public class CropView extends View {
                 }
             }
         }
-        this.f14205h.postTranslate(-f2, -f3);
+        this.f14287h.postTranslate(-f2, -f3);
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Bitmap bitmap = this.f14206i;
+        Bitmap bitmap = this.f14288i;
         if (bitmap != null) {
-            canvas.drawBitmap(bitmap, this.f14205h, null);
+            canvas.drawBitmap(bitmap, this.f14287h, null);
         }
     }
 
@@ -252,9 +252,9 @@ public class CropView extends View {
     }
 
     public void setFilePath(String str) {
-        Bitmap bitmap = this.f14206i;
+        Bitmap bitmap = this.f14288i;
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f14206i.recycle();
+            this.f14288i.recycle();
         }
         if (str == null) {
             return;
@@ -280,22 +280,22 @@ public class CropView extends View {
             options.inTargetDensity = min2 * calculateInSampleSize;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             options.inJustDecodeBounds = false;
-            this.f14206i = BitmapFactory.decodeFile(str, options);
+            this.f14288i = BitmapFactory.decodeFile(str, options);
         } catch (IOException e2) {
             e2.printStackTrace();
-            this.f14206i = decodeFile;
+            this.f14288i = decodeFile;
         } catch (NullPointerException e3) {
             e3.printStackTrace();
         }
-        setBitmap(this.f14206i);
+        setBitmap(this.f14288i);
     }
 
     public void setMaximumScale(float f2) {
-        this.f14203f = f2;
+        this.f14285f = f2;
     }
 
     public void setMinimumScale(float f2) {
-        this.f14202e = f2;
+        this.f14284e = f2;
     }
 
     public void setRestrictBound(Rect rect) {
@@ -304,20 +304,20 @@ public class CropView extends View {
 
     public CropView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14202e = 0.2f;
-        this.f14203f = 4.0f;
-        this.f14204g = new float[9];
-        this.f14205h = new Matrix();
+        this.f14284e = 0.2f;
+        this.f14285f = 4.0f;
+        this.f14286g = new float[9];
+        this.f14287h = new Matrix();
         this.l = new a();
         f();
     }
 
     public CropView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f14202e = 0.2f;
-        this.f14203f = 4.0f;
-        this.f14204g = new float[9];
-        this.f14205h = new Matrix();
+        this.f14284e = 0.2f;
+        this.f14285f = 4.0f;
+        this.f14286g = new float[9];
+        this.f14287h = new Matrix();
         this.l = new a();
         f();
     }

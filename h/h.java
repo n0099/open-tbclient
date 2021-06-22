@@ -11,26 +11,26 @@ import rx.schedulers.Schedulers;
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c<T> f71682a;
+    public final c<T> f71786a;
 
     /* loaded from: classes8.dex */
     public class a extends i<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71683f;
+        public final /* synthetic */ h.n.b f71787f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71684g;
+        public final /* synthetic */ h.n.b f71788g;
 
         public a(h hVar, h.n.b bVar, h.n.b bVar2) {
-            this.f71683f = bVar;
-            this.f71684g = bVar2;
+            this.f71787f = bVar;
+            this.f71788g = bVar2;
         }
 
         @Override // h.i
         public final void b(Throwable th) {
             try {
-                this.f71683f.call(th);
+                this.f71787f.call(th);
             } finally {
                 unsubscribe();
             }
@@ -39,7 +39,7 @@ public class h<T> {
         @Override // h.i
         public final void c(T t) {
             try {
-                this.f71684g.call(t);
+                this.f71788g.call(t);
             } finally {
                 unsubscribe();
             }
@@ -50,17 +50,17 @@ public class h<T> {
     public class b implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71685e;
+        public final /* synthetic */ h.n.b f71789e;
 
         public b(h hVar, h.n.b bVar) {
-            this.f71685e = bVar;
+            this.f71789e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            this.f71685e.call(th);
+            this.f71789e.call(th);
         }
     }
 
@@ -69,11 +69,11 @@ public class h<T> {
     }
 
     public h(c<T> cVar) {
-        this.f71682a = h.r.c.i(cVar);
+        this.f71786a = h.r.c.i(cVar);
     }
 
     public static <T> d<T> a(h<T> hVar) {
-        return d.b(new a0(hVar.f71682a));
+        return d.b(new a0(hVar.f71786a));
     }
 
     public static <T> h<T> b(c<T> cVar) {
@@ -89,7 +89,7 @@ public class h<T> {
     }
 
     public final h<T> d(long j, TimeUnit timeUnit, g gVar) {
-        return b(new v(this.f71682a, j, timeUnit, gVar));
+        return b(new v(this.f71786a, j, timeUnit, gVar));
     }
 
     public final h<T> e(h.n.b<Throwable> bVar) {
@@ -111,7 +111,7 @@ public class h<T> {
             return ((h.o.d.g) this).n(gVar);
         }
         if (gVar != null) {
-            return b(new z(this.f71682a, gVar));
+            return b(new z(this.f71786a, gVar));
         }
         throw new NullPointerException("scheduler is null");
     }
@@ -123,7 +123,7 @@ public class h<T> {
     public final k j(i<? super T> iVar) {
         if (iVar != null) {
             try {
-                h.r.c.t(this, this.f71682a).call(iVar);
+                h.r.c.t(this, this.f71786a).call(iVar);
                 return h.r.c.s(iVar);
             } catch (Throwable th) {
                 h.m.a.e(th);

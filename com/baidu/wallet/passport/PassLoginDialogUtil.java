@@ -17,11 +17,11 @@ public class PassLoginDialogUtil implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PassLoginDialogUtil f25061a = new PassLoginDialogUtil();
+        public static PassLoginDialogUtil f25143a = new PassLoginDialogUtil();
     }
 
     public static PassLoginDialogUtil getInstance() {
-        return a.f25061a;
+        return a.f25143a;
     }
 
     public void showLoginTipDialog(Context context, final ILoginBackListener iLoginBackListener, final int i2, final String str) {

@@ -1,135 +1,78 @@
 package d.a.n0.v;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.SharedPreferences;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.c.e.p.j;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONObject f65111a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f65112b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f65113c = BdUniqueId.gen();
-
-    /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f65114d = BdUniqueId.gen();
-
-    /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f65115e = new b(2000994);
-
-    /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f65116f = new c(2921324);
-
-    /* renamed from: d.a.n0.v.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1695a extends HttpMessageListener {
-        public C1695a(int i2) {
-            super(i2);
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
+import d.a.o0.t2.c0.e;
+/* loaded from: classes3.dex */
+public class a implements c {
+    @Override // d.a.n0.v.c
+    public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
+        e n = e.n();
+        if (i2 == 3) {
+            n.v(downloadData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+        } else {
+            n.B(downloadData);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                a.this.f65111a = null;
-            }
-        }
+        e.n().y(downloadData);
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f65111a != null) {
-                a aVar = a.this;
-                aVar.h(aVar.f65111a, a.this.f65114d);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public c(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject)) {
-                return;
-            }
-            a.this.f((JSONObject) customResponsedMessage.getData());
-        }
-    }
-
-    public a(TbPageContext tbPageContext) {
-        if (this.f65112b == null) {
-            this.f65112b = new C1695a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        }
-        MessageManager.getInstance().registerListener(this.f65112b);
-        MessageManager.getInstance().registerListener(this.f65115e);
-        this.f65116f.setTag(tbPageContext.getUniqueId());
-        this.f65116f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f65116f);
-    }
-
-    public final void f(JSONObject jSONObject) {
-        if (jSONObject == null) {
+    @Override // d.a.n0.v.c
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        if (downloadData == null) {
             return;
         }
-        if (j.A()) {
-            h(jSONObject, this.f65113c);
-        } else {
-            this.f65111a = jSONObject;
+        String[] tag = downloadData.getTag();
+        if (tag != null && tag.length == 3) {
+            String str = tag[0];
+            String str2 = tag[1];
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", PrefetchEvent.STATE_CLICK, 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
+        }
+        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        e.n().y(downloadData);
+        if (downloadData.isNeedInvokeApk()) {
+            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
         }
     }
 
-    public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f65112b);
-        MessageManager.getInstance().unRegisterListener(this.f65115e);
-        MessageManager.getInstance().unRegisterListener(this.f65116f);
-        this.f65111a = null;
+    @Override // d.a.n0.v.c
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
     }
 
-    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
-        if (jSONObject == null) {
+    @Override // d.a.n0.v.c
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        if (downloadData == null) {
             return;
         }
-        String optString = jSONObject.optString("tid");
-        String optString2 = jSONObject.optString("fid");
-        String optString3 = jSONObject.optString("dislike_ids");
-        String optString4 = jSONObject.optString("type");
-        int i2 = 1;
-        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
-            i2 = 2;
-        } else {
-            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putLong(downloadData.getId(), downloadData.getSize());
+            edit.commit();
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        httpMessage.addParam("thread_id", optString);
-        httpMessage.addParam("forum_id", optString2);
-        httpMessage.addParam("dislike_reason_id", optString3);
-        httpMessage.addParam("reason_type", i2);
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        e.n().C(downloadData);
+        e.n().y(downloadData);
+    }
+
+    @Override // d.a.n0.v.c
+    public boolean onPreDownload(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
     }
 }

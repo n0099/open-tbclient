@@ -15,19 +15,19 @@ import d.a.c.e.p.l;
 public class ShadowLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21825e;
+    public int f21907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21826f;
+    public int f21908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21827g;
+    public float f21909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21828h;
+    public float f21910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21829i;
+    public float f21911i;
     public float j;
     public float k;
     public float l;
@@ -52,8 +52,8 @@ public class ShadowLinearLayout extends LinearLayout {
         this.k = l.g(context, R.dimen.ds20);
         float g2 = l.g(context, R.dimen.ds25);
         this.l = g2;
-        this.f21827g = g2;
-        this.f21828h = g2;
+        this.f21909g = g2;
+        this.f21910h = g2;
         this.n = new Path();
         setLayerType(1, this.m);
         b();
@@ -66,42 +66,42 @@ public class ShadowLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.f21825e <= 0 || this.f21826f <= 0) {
+        if (this.f21907e <= 0 || this.f21908f <= 0) {
             return;
         }
-        this.n.moveTo(this.f21827g, this.f21828h + this.k);
+        this.n.moveTo(this.f21909g, this.f21910h + this.k);
         if (this.o == null) {
-            float f2 = this.f21827g;
-            float f3 = this.f21828h;
+            float f2 = this.f21909g;
+            float f3 = this.f21910h;
             float f4 = this.k;
             this.o = new RectF(f2, f3, (f4 * 2.0f) + f2, (f4 * 2.0f) + f3);
         }
         this.n.arcTo(this.o, 180.0f, 90.0f, false);
-        this.n.lineTo(this.f21829i - this.k, this.f21828h);
+        this.n.lineTo(this.f21911i - this.k, this.f21910h);
         if (this.p == null) {
-            float f5 = this.f21829i;
+            float f5 = this.f21911i;
             float f6 = this.k;
-            float f7 = this.f21828h;
+            float f7 = this.f21910h;
             this.p = new RectF(f5 - (f6 * 2.0f), f7, f5, (f6 * 2.0f) + f7);
         }
         this.n.arcTo(this.p, 270.0f, 90.0f, false);
-        this.n.lineTo(this.f21829i, this.j - this.k);
+        this.n.lineTo(this.f21911i, this.j - this.k);
         if (this.q == null) {
-            float f8 = this.f21829i;
+            float f8 = this.f21911i;
             float f9 = this.k;
             float f10 = this.j;
             this.q = new RectF(f8 - (f9 * 2.0f), f10 - (f9 * 2.0f), f8, f10);
         }
         this.n.arcTo(this.q, 0.0f, 90.0f, false);
-        this.n.lineTo(this.f21827g + this.k, this.j);
+        this.n.lineTo(this.f21909g + this.k, this.j);
         if (this.r == null) {
-            float f11 = this.f21827g;
+            float f11 = this.f21909g;
             float f12 = this.j;
             float f13 = this.k;
             this.r = new RectF(f11, f12 - (f13 * 2.0f), (f13 * 2.0f) + f11, f12);
         }
         this.n.arcTo(this.r, 90.0f, 90.0f, false);
-        this.n.lineTo(this.f21827g, this.f21828h + this.k);
+        this.n.lineTo(this.f21909g, this.f21910h + this.k);
         canvas.drawPath(this.n, this.m);
         super.dispatchDraw(canvas);
     }
@@ -109,15 +109,15 @@ public class ShadowLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        this.f21825e = getMeasuredWidth();
+        this.f21907e = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        this.f21826f = measuredHeight;
-        int i4 = this.f21825e;
+        this.f21908f = measuredHeight;
+        int i4 = this.f21907e;
         if (i4 <= 0 || measuredHeight <= 0) {
             return;
         }
         float f2 = this.l;
-        this.f21829i = i4 - f2;
+        this.f21911i = i4 - f2;
         this.j = measuredHeight - f2;
     }
 

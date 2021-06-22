@@ -12,25 +12,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.n0.e2.i.b;
+import d.a.o0.e2.i.b;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class TextSizeSeekBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19648e;
+    public int f19730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19649f;
+    public int f19731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19650g;
+    public int f19732g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19651h;
+    public int f19733h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19652i;
+    public int f19734i;
     public int j;
     public Paint k;
     public int l;
@@ -69,13 +69,13 @@ public class TextSizeSeekBar extends View {
     public final void b(Canvas canvas) {
         this.k.setColor(this.r);
         this.k.setStrokeWidth(this.u);
-        int i2 = this.f19651h;
+        int i2 = this.f19733h;
         int i3 = this.j;
-        canvas.drawLine((float) (i2 / 2.0d), i3, (float) (this.f19648e - (i2 / 2.0d)), i3, this.k);
+        canvas.drawLine((float) (i2 / 2.0d), i3, (float) (this.f19730e - (i2 / 2.0d)), i3, this.k);
         this.k.setStrokeWidth(this.v);
         this.k.setStrokeCap(Paint.Cap.ROUND);
         for (int i4 = 0; i4 < 4; i4++) {
-            canvas.drawPoint((this.f19650g * i4) + (this.f19651h / 2), this.j, this.k);
+            canvas.drawPoint((this.f19732g * i4) + (this.f19733h / 2), this.j, this.k);
         }
     }
 
@@ -88,7 +88,7 @@ public class TextSizeSeekBar extends View {
             }
             this.k.setTextSize(this.l);
             this.k.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.o[i2], (this.f19650g * i2) + (this.f19651h / 2), this.j - this.w, this.k);
+            canvas.drawText(this.o[i2], (this.f19732g * i2) + (this.f19733h / 2), this.j - this.w, this.k);
         }
     }
 
@@ -100,8 +100,8 @@ public class TextSizeSeekBar extends View {
         this.k.setDither(true);
         this.k.setFilterBitmap(true);
         this.m = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
-        this.f19651h = dimensionPixelSize;
-        this.f19652i = dimensionPixelSize;
+        this.f19733h = dimensionPixelSize;
+        this.f19734i = dimensionPixelSize;
         this.l = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
         this.o = new String[]{context.getString(R.string.font_size_small), context.getString(R.string.font_size_mid), context.getString(R.string.font_size_big), context.getString(R.string.font_size_xlarge)};
         this.p = SkinManager.getColor(R.color.CAM_X0105);
@@ -152,20 +152,20 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        if (this.f19648e == 0 || this.f19649f == 0) {
-            this.f19648e = View.MeasureSpec.getSize(i2);
+        if (this.f19730e == 0 || this.f19731f == 0) {
+            this.f19730e = View.MeasureSpec.getSize(i2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds176);
-            this.f19649f = dimensionPixelSize;
-            this.f19650g = (this.f19648e - this.f19651h) / 3;
+            this.f19731f = dimensionPixelSize;
+            this.f19732g = (this.f19730e - this.f19733h) / 3;
             this.j = dimensionPixelSize / 2;
             for (int i4 = 0; i4 < 4; i4++) {
-                int i5 = this.f19650g;
+                int i5 = this.f19732g;
                 int i6 = this.j;
-                int i7 = this.f19652i;
-                this.t.add(new Rect(i5 * i4, i6 - (i7 / 2), (i5 * i4) + this.f19651h, i6 + (i7 / 2)));
+                int i7 = this.f19734i;
+                this.t.add(new Rect(i5 * i4, i6 - (i7 / 2), (i5 * i4) + this.f19733h, i6 + (i7 / 2)));
             }
         }
-        setMeasuredDimension(this.f19648e, this.f19649f);
+        setMeasuredDimension(this.f19730e, this.f19731f);
     }
 
     @Override // android.view.View

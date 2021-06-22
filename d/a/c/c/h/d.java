@@ -12,48 +12,48 @@ import java.util.LinkedList;
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
 
     /* renamed from: i  reason: collision with root package name */
-    public g f42050i;
+    public g f42153i;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.f42050i = null;
-        this.f42050i = new g(messageManager);
-        this.f42047e = d.a.c.c.j.c.c();
+        this.f42153i = null;
+        this.f42153i = new g(messageManager);
+        this.f42150e = d.a.c.c.j.c.c();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<SocketMessage> e(int i2, BdUniqueId bdUniqueId) {
-        return this.f42050i.e(i2, bdUniqueId);
+        return this.f42153i.e(i2, bdUniqueId);
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
-        this.f42050i.h(i2, bdUniqueId);
+        this.f42153i.h(i2, bdUniqueId);
     }
 
     public LinkedList<SocketMessage> v(BdUniqueId bdUniqueId) {
-        return this.f42050i.n(bdUniqueId);
+        return this.f42153i.n(bdUniqueId);
     }
 
     public g w() {
-        return this.f42050i;
+        return this.f42153i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.c.h.c
     /* renamed from: x */
     public SocketMessage l(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.f42043a.getController().m(socketMessage, socketMessageTask);
+        return this.f42146a.getController().m(socketMessage, socketMessageTask);
     }
 
     public void y(BdUniqueId bdUniqueId) {
-        this.f42050i.C(bdUniqueId);
+        this.f42153i.C(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.c.b
     /* renamed from: z */
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.f42050i.f(socketMessage, socketMessageTask);
+        this.f42153i.f(socketMessage, socketMessageTask);
     }
 }

@@ -1,4 +1,6 @@
 package com.baidu.android.imsdk.chatmessage.sync;
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public class DialogRecord {
     public static final int STATE_COMPLETE = 1;
@@ -77,6 +79,6 @@ public class DialogRecord {
     }
 
     public String toString() {
-        return "DialogRecord[category=" + this.category + ",contacter=" + this.contacter + ",maxMsgid=" + this.maxMsgid + ",state=" + this.state + ",updateTime=" + this.updateTime + ",jumpToRecent=" + this.jumpToRecent + ",dialogueMsgid=" + this.dialogueMsgid + "]";
+        return "DialogRecord[category=" + this.category + ",contacter=" + this.contacter + ",maxMsgid=" + this.maxMsgid + ",state=" + this.state + ",updateTime=" + this.updateTime + ",jumpToRecent=" + this.jumpToRecent + ",dialogueMsgid=" + this.dialogueMsgid + PreferencesUtil.RIGHT_MOUNT;
     }
 }

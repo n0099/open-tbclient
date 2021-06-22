@@ -25,20 +25,20 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
     public class a extends c1<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final c1<Map.Entry<K, V>> f31120e;
+        public final c1<Map.Entry<K, V>> f31218e;
 
         public a() {
-            this.f31120e = ImmutableMapValues.this.map.entrySet().iterator();
+            this.f31218e = ImmutableMapValues.this.map.entrySet().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31120e.hasNext();
+            return this.f31218e.hasNext();
         }
 
         @Override // java.util.Iterator
         public V next() {
-            return this.f31120e.next().getValue();
+            return this.f31218e.next().getValue();
         }
     }
 

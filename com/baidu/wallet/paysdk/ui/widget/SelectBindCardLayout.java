@@ -25,67 +25,67 @@ import java.util.ArrayList;
 public class SelectBindCardLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f26193a;
+    public BindFastRequest f26275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26194b;
+    public boolean f26276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f26195c;
+    public b f26277c;
 
     /* loaded from: classes5.dex */
     public class BindCardItemView extends LinearLayout {
 
         /* renamed from: b  reason: collision with root package name */
-        public NetImageView f26202b;
+        public NetImageView f26284b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f26203c;
+        public TextView f26285c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BorderTipTextView f26204d;
+        public BorderTipTextView f26286d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ProgressBar f26205e;
+        public ProgressBar f26287e;
 
         public BindCardItemView(Context context) {
             super(context);
             View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_select_bindcard_list_item_view"), this);
-            this.f26202b = (NetImageView) inflate.findViewById(ResUtils.id(getContext(), "ebpay_paytype_logo"));
-            this.f26203c = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_name"));
-            this.f26204d = (BorderTipTextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_tip"));
+            this.f26284b = (NetImageView) inflate.findViewById(ResUtils.id(getContext(), "ebpay_paytype_logo"));
+            this.f26285c = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_name"));
+            this.f26286d = (BorderTipTextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_tip"));
             ProgressBar progressBar = (ProgressBar) findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
-            this.f26205e = progressBar;
+            this.f26287e = progressBar;
             progressBar.setVisibility(8);
         }
 
         public void setData(CardData.BondCard bondCard) {
-            this.f26202b.setImageUrl(bondCard.bank_url);
+            this.f26284b.setImageUrl(bondCard.bank_url);
             findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(bondCard != null && "1".equals(bondCard.is_recommended) ? 0 : 4);
-            this.f26203c.setText(bondCard.getCardDesc(getContext(), true));
-            if (SelectBindCardLayout.this.f26193a.mBindFrom != 4 && SelectBindCardLayout.this.f26193a.mBindFrom != 5) {
+            this.f26285c.setText(bondCard.getCardDesc(getContext(), true));
+            if (SelectBindCardLayout.this.f26275a.mBindFrom != 4 && SelectBindCardLayout.this.f26275a.mBindFrom != 5) {
                 if ("1".equals(bondCard.card_state) && !TextUtils.isEmpty(bondCard.channelDiscountDesc)) {
                     TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
                     textView.setVisibility(0);
                     textView.setText(bondCard.channelDiscountDesc);
                 }
                 if (!TextUtils.isEmpty(bondCard.bank_card_msg)) {
-                    this.f26204d.setVisibility(0);
-                    this.f26204d.setText(bondCard.bank_card_msg);
-                    this.f26204d.setVisibility(0);
+                    this.f26286d.setVisibility(0);
+                    this.f26286d.setText(bondCard.bank_card_msg);
+                    this.f26286d.setVisibility(0);
                     return;
                 }
-                this.f26204d.setVisibility(8);
+                this.f26286d.setVisibility(8);
             } else if (!bondCard.getCanFindPWDBySms() && !TextUtils.isEmpty(bondCard.unsupport_find_pwd_msg)) {
-                this.f26204d.setVisibility(0);
-                this.f26204d.setText(bondCard.unsupport_find_pwd_msg);
+                this.f26286d.setVisibility(0);
+                this.f26286d.setText(bondCard.unsupport_find_pwd_msg);
             } else {
-                this.f26204d.setVisibility(8);
+                this.f26286d.setVisibility(8);
             }
         }
 
         public void setProgressBarVisible(boolean z) {
-            ProgressBar progressBar = this.f26205e;
+            ProgressBar progressBar = this.f26287e;
             if (progressBar != null) {
                 progressBar.setVisibility(z ? 0 : 8);
             }
@@ -124,12 +124,12 @@ public class SelectBindCardLayout extends LinearLayout {
 
     public void setAdaptetr(CardData.BondCard[] bondCardArr, boolean z) {
         CardData.BondCard[] a2 = a(bondCardArr);
-        this.f26194b = false;
+        this.f26276b = false;
         removeAllViews();
         if (a2 == null || a2.length <= 0) {
             return;
         }
-        if (this.f26193a.mBindFrom == 2) {
+        if (this.f26275a.mBindFrom == 2) {
             TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_title_left"), (ViewGroup) null);
             textView.setText(ResUtils.getString(getContext(), "wallet_bindcard_selectcard_tip"));
             int dimension = (int) ResUtils.getDimension(getContext(), "wallet_base_margin");
@@ -149,8 +149,8 @@ public class SelectBindCardLayout extends LinearLayout {
                 bindCardItemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.SelectBindCardLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (SelectBindCardLayout.this.f26195c != null) {
-                            SelectBindCardLayout.this.f26195c.enableCardClick(bindCardItemView, bondCard);
+                        if (SelectBindCardLayout.this.f26277c != null) {
+                            SelectBindCardLayout.this.f26277c.enableCardClick(bindCardItemView, bondCard);
                         }
                     }
                 });
@@ -169,15 +169,15 @@ public class SelectBindCardLayout extends LinearLayout {
     }
 
     public void setBindCardItemClickListener(b bVar) {
-        this.f26195c = bVar;
+        this.f26277c = bVar;
     }
 
     public void setBindFrom(int i2) {
-        this.f26193a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BindFastRequest.categoryToId(BindFastRequest.getCategory(i2)));
+        this.f26275a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BindFastRequest.categoryToId(BindFastRequest.getCategory(i2)));
     }
 
     private void a(ViewGroup viewGroup, final boolean z) {
-        if (this.f26194b) {
+        if (this.f26276b) {
             return;
         }
         a aVar = new a(getContext());
@@ -189,8 +189,8 @@ public class SelectBindCardLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (z) {
-                    if (SelectBindCardLayout.this.f26195c != null) {
-                        SelectBindCardLayout.this.f26195c.addNewCardClick();
+                    if (SelectBindCardLayout.this.f26277c != null) {
+                        SelectBindCardLayout.this.f26277c.addNewCardClick();
                         return;
                     }
                     return;
@@ -199,7 +199,7 @@ public class SelectBindCardLayout extends LinearLayout {
             }
         });
         viewGroup.addView(aVar);
-        this.f26194b = true;
+        this.f26276b = true;
     }
 
     private CardData.BondCard[] a(CardData.BondCard[] bondCardArr) {
@@ -222,7 +222,7 @@ public class SelectBindCardLayout extends LinearLayout {
     }
 
     private boolean a(CardData.BondCard bondCard) {
-        int i2 = this.f26193a.mBindFrom;
+        int i2 = this.f26275a.mBindFrom;
         if (i2 != 4 && i2 != 5) {
             if ("1".equals(bondCard.card_state)) {
                 return true;

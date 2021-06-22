@@ -5,10 +5,10 @@ import android.text.TextUtils;
 public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23885a = "PhoneNumberEditTextPasteFilter";
+    public static final String f23967a = "PhoneNumberEditTextPasteFilter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23886b = "86";
+    public static final String f23968b = "86";
 
     @Override // com.baidu.wallet.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

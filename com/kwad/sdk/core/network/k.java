@@ -1,14 +1,14 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34507a = b() + "ksad-android-3.3.9";
+    public static final String f34605a = b() + "ksad-android-3.3.9";
 
     public static String a() {
-        return f34507a;
+        return f34605a;
     }
 
     public static String b() {

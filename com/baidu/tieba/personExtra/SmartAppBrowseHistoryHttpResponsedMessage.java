@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.n0.i2.a;
+import d.a.o0.i2.a;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
 /* loaded from: classes5.dex */

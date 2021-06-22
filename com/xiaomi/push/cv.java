@@ -6,14 +6,14 @@ import java.util.List;
 public abstract class cv {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41096a;
+    public int f41199a;
 
     public cv(int i2) {
-        this.f41096a = i2;
+        this.f41199a = i2;
     }
 
     public int a() {
-        return this.f41096a;
+        return this.f41199a;
     }
 
     public abstract String a(Context context, String str, List<bf> list);

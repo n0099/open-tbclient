@@ -14,52 +14,52 @@ import java.util.Iterator;
 public class ImageProblemView extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageProblemActivity f17789a;
+    public ImageProblemActivity f17871a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f17790b;
+    public NavigationBar f17872b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScrollView f17791c;
+    public ScrollView f17873c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f17792d;
+    public View f17874d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f17793e;
+    public Button f17875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f17794f;
+    public LinearLayout f17876f;
 
     public ImageProblemView(ImageProblemActivity imageProblemActivity, ImageProblemAssistant imageProblemAssistant) {
         super(imageProblemActivity.getPageContext());
-        this.f17789a = imageProblemActivity;
+        this.f17871a = imageProblemActivity;
         imageProblemActivity.setContentView(R.layout.image_problem_activity);
-        this.f17792d = this.f17789a.findViewById(R.id.parent);
-        NavigationBar navigationBar = (NavigationBar) this.f17789a.findViewById(R.id.view_navigation_bar);
-        this.f17790b = navigationBar;
+        this.f17874d = this.f17871a.findViewById(R.id.parent);
+        NavigationBar navigationBar = (NavigationBar) this.f17871a.findViewById(R.id.view_navigation_bar);
+        this.f17872b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f17790b.setTitleText(this.f17789a.getPageContext().getString(R.string.image_problem));
-        this.f17791c = (ScrollView) this.f17789a.findViewById(R.id.scrollView);
-        Button button = (Button) this.f17789a.findViewById(R.id.check_btn);
-        this.f17793e = button;
+        this.f17872b.setTitleText(this.f17871a.getPageContext().getString(R.string.image_problem));
+        this.f17873c = (ScrollView) this.f17871a.findViewById(R.id.scrollView);
+        Button button = (Button) this.f17871a.findViewById(R.id.check_btn);
+        this.f17875e = button;
         button.setOnClickListener(imageProblemActivity);
-        LinearLayout linearLayout = new LinearLayout(this.f17789a.getPageContext().getPageActivity());
-        this.f17794f = linearLayout;
+        LinearLayout linearLayout = new LinearLayout(this.f17871a.getPageContext().getPageActivity());
+        this.f17876f = linearLayout;
         linearLayout.setOrientation(1);
-        this.f17791c.addView(this.f17794f);
-        Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.f17779d.iterator();
+        this.f17873c.addView(this.f17876f);
+        Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.f17861d.iterator();
         while (it.hasNext()) {
-            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.f17789a.getPageContext().getPageActivity());
+            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.f17871a.getPageContext().getPageActivity());
             imageProblemItemView.hideArrow();
-            imageProblemItemView.setText(it.next().f17781a);
-            this.f17794f.addView(imageProblemItemView);
+            imageProblemItemView.setText(it.next().f17863a);
+            this.f17876f.addView(imageProblemItemView);
         }
     }
 
     public void complete() {
-        for (int i2 = 0; i2 < this.f17794f.getChildCount(); i2++) {
-            View childAt = this.f17794f.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f17876f.getChildCount(); i2++) {
+            View childAt = this.f17876f.getChildAt(i2);
             if (childAt instanceof ImageProblemItemView) {
                 ((ImageProblemItemView) childAt).setStatus(1);
             }
@@ -67,34 +67,34 @@ public class ImageProblemView extends d {
     }
 
     public Button getCheckButton() {
-        return this.f17793e;
+        return this.f17875e;
     }
 
     public void onChangeSkinType(int i2) {
-        this.f17789a.getLayoutMode().k(i2 == 1);
-        this.f17789a.getLayoutMode().j(this.f17792d);
-        this.f17790b.onChangeSkinType(getPageContext(), i2);
+        this.f17871a.getLayoutMode().k(i2 == 1);
+        this.f17871a.getLayoutMode().j(this.f17874d);
+        this.f17872b.onChangeSkinType(getPageContext(), i2);
     }
 
     public void setValue(int i2, ArrayList<ImageProblemAssistant.TestTask> arrayList) {
         int i3 = i2 - 1;
         if (i3 >= 0) {
-            View childAt = this.f17794f.getChildAt(i3);
+            View childAt = this.f17876f.getChildAt(i3);
             if (childAt instanceof ImageProblemItemView) {
                 ImageProblemItemView imageProblemItemView = (ImageProblemItemView) childAt;
                 imageProblemItemView.setStatus(1);
                 imageProblemItemView.displayArrow();
-                if (arrayList.get(i3).f17782b == 0) {
+                if (arrayList.get(i3).f17864b == 0) {
                     imageProblemItemView.setHelpText("");
                     imageProblemItemView.setArrowImg(R.drawable.icon_diagnose_ok);
                 } else {
-                    imageProblemItemView.setHelpText(arrayList.get(i3).f17783c);
+                    imageProblemItemView.setHelpText(arrayList.get(i3).f17865c);
                     imageProblemItemView.setArrowImg(R.drawable.icon_error);
                 }
             }
         }
-        if (i2 < this.f17794f.getChildCount()) {
-            View childAt2 = this.f17794f.getChildAt(i2);
+        if (i2 < this.f17876f.getChildCount()) {
+            View childAt2 = this.f17876f.getChildAt(i2);
             if (childAt2 instanceof ImageProblemItemView) {
                 ((ImageProblemItemView) childAt2).setStatus(2);
             }
@@ -102,8 +102,8 @@ public class ImageProblemView extends d {
     }
 
     public void start() {
-        for (int i2 = 0; i2 < this.f17794f.getChildCount(); i2++) {
-            View childAt = this.f17794f.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f17876f.getChildCount(); i2++) {
+            View childAt = this.f17876f.getChildAt(i2);
             if (childAt instanceof ImageProblemItemView) {
                 ImageProblemItemView imageProblemItemView = (ImageProblemItemView) childAt;
                 imageProblemItemView.setStatus(3);

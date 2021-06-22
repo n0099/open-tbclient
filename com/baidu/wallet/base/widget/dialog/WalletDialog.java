@@ -12,16 +12,16 @@ import com.baidu.apollon.utils.ResUtils;
 public class WalletDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f23744a;
+    public ViewGroup f23826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Adapter f23745b;
+    public Adapter f23827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f23746c;
+    public LayoutInflater f23828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewHolder f23747d;
+    public ViewHolder f23829d;
     public Context mContext;
 
     /* loaded from: classes5.dex */
@@ -43,11 +43,11 @@ public class WalletDialog extends Dialog {
     public static abstract class ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public final View f23748a;
+        public final View f23830a;
 
         public ViewHolder(View view) {
             if (view != null) {
-                this.f23748a = view;
+                this.f23830a = view;
                 return;
             }
             throw new IllegalArgumentException("contentView may not be null");
@@ -64,13 +64,13 @@ public class WalletDialog extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         LayoutInflater from = LayoutInflater.from(this.mContext);
-        this.f23746c = from;
+        this.f23828c = from;
         ViewGroup viewGroup = (ViewGroup) from.inflate(ResUtils.layout(this.mContext, "wallet_base_layout_dialog"), (ViewGroup) null);
-        this.f23744a = viewGroup;
+        this.f23826a = viewGroup;
         setContentView(viewGroup);
-        ViewHolder createViewHolder = this.f23745b.createViewHolder(this.f23744a);
-        this.f23747d = createViewHolder;
-        this.f23744a.addView(createViewHolder.f23748a);
+        ViewHolder createViewHolder = this.f23827b.createViewHolder(this.f23826a);
+        this.f23829d = createViewHolder;
+        this.f23826a.addView(createViewHolder.f23830a);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
     }
@@ -79,15 +79,15 @@ public class WalletDialog extends Dialog {
     public void onStart() {
         ViewHolder viewHolder;
         super.onStart();
-        Adapter adapter = this.f23745b;
-        if (adapter == null || this.f23744a == null || (viewHolder = this.f23747d) == null) {
+        Adapter adapter = this.f23827b;
+        if (adapter == null || this.f23826a == null || (viewHolder = this.f23829d) == null) {
             return;
         }
         adapter.bindViewHolder(viewHolder);
     }
 
     public void setAdapter(Adapter adapter) {
-        this.f23745b = adapter;
+        this.f23827b = adapter;
     }
 
     public WalletDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {

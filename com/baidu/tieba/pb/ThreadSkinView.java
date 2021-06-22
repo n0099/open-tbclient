@@ -14,13 +14,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.n0.e3.j0.a;
+import d.a.o0.e3.j0.a;
 import tbclient.SkinInfo;
 /* loaded from: classes5.dex */
 public class ThreadSkinView extends TbImageView {
-    public TbPageContext w0;
-    public SkinInfo x0;
-    public a.b y0;
+    public TbPageContext B0;
+    public SkinInfo C0;
+    public a.b D0;
 
     public ThreadSkinView(Context context) {
         super(context);
@@ -33,32 +33,32 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        SkinInfo skinInfo = this.x0;
+        SkinInfo skinInfo = this.C0;
         if (skinInfo == null || StringUtils.isNull(skinInfo.url)) {
             return;
         }
-        a.b bVar = this.y0;
+        a.b bVar = this.D0;
         if (bVar != null) {
             bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.y0.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-            this.y0.f();
+            this.D0.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+            this.D0.f();
         }
-        UrlManager.getInstance().dealOneLink(this.w0, new String[]{this.x0.url});
+        UrlManager.getInstance().dealOneLink(this.B0, new String[]{this.C0.url});
     }
 
     public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.b bVar) {
         if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-            this.w0 = tbPageContext;
-            if (this.x0 != skinInfo && bVar != null) {
-                this.y0 = bVar;
+            this.B0 = tbPageContext;
+            if (this.C0 != skinInfo && bVar != null) {
+                this.D0 = bVar;
                 bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.y0.e("obj_id", skinInfo.obj_id);
-                this.y0.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                this.y0.e("obj_name", skinInfo.monitor_id);
-                this.y0.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-                this.y0.f();
+                this.D0.e("obj_id", skinInfo.obj_id);
+                this.D0.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                this.D0.e("obj_name", skinInfo.monitor_id);
+                this.D0.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+                this.D0.f();
             }
-            this.x0 = skinInfo;
+            this.C0 = skinInfo;
             int k = l.k(tbPageContext.getPageActivity());
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.width = k;

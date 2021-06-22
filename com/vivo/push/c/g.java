@@ -7,7 +7,7 @@ public final class g extends ab {
 
     @Override // com.vivo.push.v
     public final void a(com.vivo.push.y yVar) {
-        com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f40431a.getPackageName());
-        com.vivo.push.util.y.b(this.f40431a).a();
+        com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f40534a.getPackageName());
+        com.vivo.push.util.y.b(this.f40534a).a();
     }
 }

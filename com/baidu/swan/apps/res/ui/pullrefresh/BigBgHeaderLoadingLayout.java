@@ -12,15 +12,15 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import d.a.l0.a.d;
-import d.a.l0.a.f;
-import d.a.l0.a.g;
-import d.a.l0.a.h;
+import d.a.m0.a.d;
+import d.a.m0.a.f;
+import d.a.m0.a.g;
+import d.a.m0.a.h;
 /* loaded from: classes3.dex */
 public class BigBgHeaderLoadingLayout extends LoadingLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f11200i;
+    public RelativeLayout f11282i;
     public ImageView j;
     public ProgressBar k;
     public TextView l;
@@ -75,7 +75,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        RelativeLayout relativeLayout = this.f11200i;
+        RelativeLayout relativeLayout = this.f11282i;
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
@@ -111,7 +111,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.f11200i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+        this.f11282i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
         this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
         this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
         this.k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);

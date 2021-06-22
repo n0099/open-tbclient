@@ -15,22 +15,22 @@ import com.baidu.wallet.home.ui.widget.b;
 public class NHAssetItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24439a;
+    public MaskTextView f24521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24440b;
+    public MaskTextView f24522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24441c;
+    public NetImageView f24523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f24442d;
+    public LinearLayout f24524d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24443e;
+    public MaskTextView f24525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f24444f;
+    public MaskTextView f24526f;
 
     public NHAssetItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -39,42 +39,42 @@ public class NHAssetItem extends BaseItemView {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
         boolean isShowRedDot = isShowRedDot();
-        this.f24441c.setVisibility(isShowRedDot ? 0 : 8);
-        this.f24441c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+        this.f24523c.setVisibility(isShowRedDot ? 0 : 8);
+        this.f24523c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
         return isShowRedDot;
     }
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_asset_item"), this);
-        this.f24439a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
-        this.f24440b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
-        this.f24441c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
-        this.f24442d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
-        this.f24443e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
-        this.f24444f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
+        this.f24521a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
+        this.f24522b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
+        this.f24523c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
+        this.f24524d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
+        this.f24525e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
+        this.f24526f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
-        this.f24439a.resetMaskText();
-        this.f24440b.resetMaskText();
-        this.f24443e.resetMaskText();
-        this.f24444f.resetMaskText();
+        this.f24521a.resetMaskText();
+        this.f24522b.resetMaskText();
+        this.f24525e.resetMaskText();
+        this.f24526f.resetMaskText();
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        this.f24439a.setMaskText(getData().name);
-        this.f24440b.setMaskText(getData().value1);
+        this.f24521a.setMaskText(getData().name);
+        this.f24522b.setMaskText(getData().value1);
         if (TextUtils.isEmpty(getData().value3)) {
-            this.f24442d.setVisibility(8);
+            this.f24524d.setVisibility(8);
         } else {
-            this.f24442d.setVisibility(0);
-            this.f24443e.setMaskText(getData().value2);
-            this.f24444f.setMaskText(getData().value3);
+            this.f24524d.setVisibility(0);
+            this.f24525e.setMaskText(getData().value2);
+            this.f24526f.setMaskText(getData().value3);
         }
         handlePoint();
     }

@@ -9,21 +9,21 @@ import java.io.StringReader;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72353a;
+    public int f72457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f72354b;
+    public Reader f72458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f72355c;
+    public char f72459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72356d;
+    public boolean f72460d;
 
     public c(Reader reader) {
-        this.f72354b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f72356d = false;
-        this.f72353a = 0;
+        this.f72458b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f72460d = false;
+        this.f72457a = 0;
     }
 
     public c(String str) {
@@ -36,14 +36,14 @@ public final class c {
         }
         char[] cArr = new char[i2];
         int i3 = 0;
-        if (this.f72356d) {
-            this.f72356d = false;
-            cArr[0] = this.f72355c;
+        if (this.f72460d) {
+            this.f72460d = false;
+            cArr[0] = this.f72459c;
             i3 = 1;
         }
         while (i3 < i2) {
             try {
-                int read = this.f72354b.read(cArr, i3, i2 - i3);
+                int read = this.f72458b.read(cArr, i3, i2 - i3);
                 if (read == -1) {
                     break;
                 }
@@ -52,9 +52,9 @@ public final class c {
                 throw new JSONException(e2);
             }
         }
-        this.f72353a += i3;
+        this.f72457a += i3;
         if (i3 >= i2) {
-            this.f72355c = cArr[i2 - 1];
+            this.f72459c = cArr[i2 - 1];
             return new String(cArr);
         }
         throw a("Substring bounds error");
@@ -66,30 +66,30 @@ public final class c {
 
     public final void a() {
         int i2;
-        if (this.f72356d || (i2 = this.f72353a) <= 0) {
+        if (this.f72460d || (i2 = this.f72457a) <= 0) {
             throw new JSONException("Stepping back two steps is not supported");
         }
-        this.f72353a = i2 - 1;
-        this.f72356d = true;
+        this.f72457a = i2 - 1;
+        this.f72460d = true;
     }
 
     public final char b() {
-        if (this.f72356d) {
-            this.f72356d = false;
-            if (this.f72355c != 0) {
-                this.f72353a++;
+        if (this.f72460d) {
+            this.f72460d = false;
+            if (this.f72459c != 0) {
+                this.f72457a++;
             }
-            return this.f72355c;
+            return this.f72459c;
         }
         try {
-            int read = this.f72354b.read();
+            int read = this.f72458b.read();
             if (read <= 0) {
-                this.f72355c = (char) 0;
+                this.f72459c = (char) 0;
                 return (char) 0;
             }
-            this.f72353a++;
+            this.f72457a++;
             char c2 = (char) read;
-            this.f72355c = c2;
+            this.f72459c = c2;
             return c2;
         } catch (IOException e2) {
             throw new JSONException(e2);
@@ -177,7 +177,7 @@ public final class c {
                             return Boolean.FALSE;
                         }
                         if (trim.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                            return b.f72351a;
+                            return b.f72455a;
                         }
                         if ((c2 >= '0' && c2 <= '9') || c2 == '.' || c2 == '-' || c2 == '+') {
                             if (c2 == '0') {
@@ -241,6 +241,6 @@ public final class c {
     }
 
     public final String toString() {
-        return " at character " + this.f72353a;
+        return " at character " + this.f72457a;
     }
 }

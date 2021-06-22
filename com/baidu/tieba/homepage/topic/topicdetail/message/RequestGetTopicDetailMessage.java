@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.CommonReq;
 import tbclient.NewHottopic.DataReq;
 import tbclient.NewHottopic.NewHottopicReqIdl;
@@ -11,7 +11,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16643common;
+    public CommonReq f16725common;
     public long topicId;
 
     public RequestGetTopicDetailMessage() {
@@ -21,7 +21,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f72789common = this.f16643common;
+        builder.f72893common = this.f16725common;
         builder.topic_id = Long.valueOf(this.topicId);
         builder.call_from = this.callFrom;
         if (z) {
@@ -37,7 +37,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16643common = commonReq;
+        this.f16725common = commonReq;
     }
 
     public void setTopicId(long j) {

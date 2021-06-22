@@ -11,10 +11,10 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.p0.d;
-import d.a.p0.e0;
-import d.a.p0.r;
-import d.a.q0.a;
+import d.a.q0.d;
+import d.a.q0.e0;
+import d.a.q0.r;
+import d.a.r0.a;
 import java.util.Map;
 import org.json.JSONObject;
 @Autowired
@@ -68,7 +68,7 @@ public class UBC {
 
     @Inject
     public static final r getUBCContext() {
-        return d.a.n0.z2.r.a();
+        return d.a.o0.z2.r.a();
     }
 
     public static String getUploadType(String str) {

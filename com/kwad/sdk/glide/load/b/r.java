@@ -14,22 +14,22 @@ import java.util.Set;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f36033a = new c();
+    public static final c f36131a = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n<Object, Object> f36034b = new a();
+    public static final n<Object, Object> f36132b = new a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<b<?, ?>> f36035c;
+    public final List<b<?, ?>> f36133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c f36036d;
+    public final c f36134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<b<?, ?>> f36037e;
+    public final Set<b<?, ?>> f36135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Pools.Pool<List<Throwable>> f36038f;
+    public final Pools.Pool<List<Throwable>> f36136f;
 
     /* loaded from: classes7.dex */
     public static class a implements n<Object, Object> {
@@ -49,26 +49,26 @@ public class r {
     public static class b<Model, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<Data> f36039a;
+        public final Class<Data> f36137a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final o<? extends Model, ? extends Data> f36040b;
+        public final o<? extends Model, ? extends Data> f36138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<Model> f36041c;
+        public final Class<Model> f36139c;
 
         public b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar) {
-            this.f36041c = cls;
-            this.f36039a = cls2;
-            this.f36040b = oVar;
+            this.f36139c = cls;
+            this.f36137a = cls2;
+            this.f36138b = oVar;
         }
 
         public boolean a(@NonNull Class<?> cls) {
-            return this.f36041c.isAssignableFrom(cls);
+            return this.f36139c.isAssignableFrom(cls);
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return a(cls) && this.f36039a.isAssignableFrom(cls2);
+            return a(cls) && this.f36137a.isAssignableFrom(cls2);
         }
     }
 
@@ -81,30 +81,30 @@ public class r {
     }
 
     public r(@NonNull Pools.Pool<List<Throwable>> pool) {
-        this(pool, f36033a);
+        this(pool, f36131a);
     }
 
     @VisibleForTesting
     public r(@NonNull Pools.Pool<List<Throwable>> pool, @NonNull c cVar) {
-        this.f36035c = new ArrayList();
-        this.f36037e = new HashSet();
-        this.f36038f = pool;
-        this.f36036d = cVar;
+        this.f36133c = new ArrayList();
+        this.f36135e = new HashSet();
+        this.f36136f = pool;
+        this.f36134d = cVar;
     }
 
     @NonNull
     public static <Model, Data> n<Model, Data> a() {
-        return (n<Model, Data>) f36034b;
+        return (n<Model, Data>) f36132b;
     }
 
     @NonNull
     private <Model, Data> n<Model, Data> a(@NonNull b<?, ?> bVar) {
-        return (n) com.kwad.sdk.glide.g.j.a(bVar.f36040b.a(this));
+        return (n) com.kwad.sdk.glide.g.j.a(bVar.f36138b.a(this));
     }
 
     private <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar, boolean z) {
         b<?, ?> bVar = new b<>(cls, cls2, oVar);
-        List<b<?, ?>> list = this.f36035c;
+        List<b<?, ?>> list = this.f36133c;
         list.add(z ? list.size() : 0, bVar);
     }
 
@@ -114,17 +114,17 @@ public class r {
         try {
             ArrayList arrayList = new ArrayList();
             boolean z = false;
-            for (b<?, ?> bVar : this.f36035c) {
-                if (this.f36037e.contains(bVar)) {
+            for (b<?, ?> bVar : this.f36133c) {
+                if (this.f36135e.contains(bVar)) {
                     z = true;
                 } else if (bVar.a(cls, cls2)) {
-                    this.f36037e.add(bVar);
+                    this.f36135e.add(bVar);
                     arrayList.add(a(bVar));
-                    this.f36037e.remove(bVar);
+                    this.f36135e.remove(bVar);
                 }
             }
             if (arrayList.size() > 1) {
-                return this.f36036d.a(arrayList, this.f36038f);
+                return this.f36134d.a(arrayList, this.f36136f);
             } else if (arrayList.size() == 1) {
                 return (n) arrayList.get(0);
             } else if (z) {
@@ -133,7 +133,7 @@ public class r {
                 throw new Registry.NoModelLoaderAvailableException(cls, cls2);
             }
         } catch (Throwable th) {
-            this.f36037e.clear();
+            this.f36135e.clear();
             throw th;
         }
     }
@@ -144,15 +144,15 @@ public class r {
         ArrayList arrayList;
         try {
             arrayList = new ArrayList();
-            for (b<?, ?> bVar : this.f36035c) {
-                if (!this.f36037e.contains(bVar) && bVar.a(cls)) {
-                    this.f36037e.add(bVar);
+            for (b<?, ?> bVar : this.f36133c) {
+                if (!this.f36135e.contains(bVar) && bVar.a(cls)) {
+                    this.f36135e.add(bVar);
                     arrayList.add(a(bVar));
-                    this.f36037e.remove(bVar);
+                    this.f36135e.remove(bVar);
                 }
             }
         } catch (Throwable th) {
-            this.f36037e.clear();
+            this.f36135e.clear();
             throw th;
         }
         return arrayList;
@@ -166,9 +166,9 @@ public class r {
     public synchronized List<Class<?>> b(@NonNull Class<?> cls) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (b<?, ?> bVar : this.f36035c) {
-            if (!arrayList.contains(bVar.f36039a) && bVar.a(cls)) {
-                arrayList.add(bVar.f36039a);
+        for (b<?, ?> bVar : this.f36133c) {
+            if (!arrayList.contains(bVar.f36137a) && bVar.a(cls)) {
+                arrayList.add(bVar.f36137a);
             }
         }
         return arrayList;

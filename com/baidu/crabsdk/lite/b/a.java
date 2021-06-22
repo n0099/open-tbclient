@@ -1,6 +1,7 @@
 package com.baidu.crabsdk.lite.b;
 
 import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class a {
@@ -23,7 +24,7 @@ public final class a {
         if (stackTrace != null) {
             for (StackTraceElement stackTraceElement : stackTrace) {
                 if (!stackTraceElement.isNativeMethod() && !stackTraceElement.getClassName().equals(Thread.class.getName()) && !stackTraceElement.getClassName().equals("com.baidu.crabsdk.util.BLog")) {
-                    str2 = "[" + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + "): " + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber() + "]";
+                    str2 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + "): " + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber() + PreferencesUtil.RIGHT_MOUNT;
                     break;
                 }
             }

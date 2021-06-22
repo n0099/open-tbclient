@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.channel.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.n0.b1.b.a.a;
+import d.a.o0.b1.b.a.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMessage {

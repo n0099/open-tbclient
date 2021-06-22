@@ -10,7 +10,7 @@ import d.a.c.e.p.l;
 public class AutoLineWrapLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14640e;
+    public int f14722e;
 
     public AutoLineWrapLayout(Context context) {
         super(context);
@@ -18,7 +18,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     }
 
     public final void a() {
-        this.f14640e = l.g(getContext(), R.dimen.ds20);
+        this.f14722e = l.g(getContext(), R.dimen.ds20);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -31,8 +31,8 @@ public class AutoLineWrapLayout extends ViewGroup {
             View childAt = getChildAt(i6);
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f14640e + measuredWidth;
-            int i9 = this.f14640e;
+            i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f14722e + measuredWidth;
+            int i9 = this.f14722e;
             int i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
             if (i7 > i4) {
                 i7 = measuredWidth + i2;

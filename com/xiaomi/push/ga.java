@@ -7,7 +7,7 @@ import java.util.Map;
 public class ga extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f41301a;
+    public a f41404a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f420a;
@@ -16,19 +16,19 @@ public class ga extends gc {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41302a = new a("get");
+        public static final a f41405a = new a("get");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f41303b = new a("set");
+        public static final a f41406b = new a("set");
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f41304c = new a("result");
+        public static final a f41407c = new a("result");
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f41305d = new a("error");
+        public static final a f41408d = new a("error");
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f41306e = new a("command");
+        public static final a f41409e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
         public String f421a;
@@ -42,20 +42,20 @@ public class ga extends gc {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f41302a.toString().equals(lowerCase)) {
-                return f41302a;
+            if (f41405a.toString().equals(lowerCase)) {
+                return f41405a;
             }
-            if (f41303b.toString().equals(lowerCase)) {
-                return f41303b;
+            if (f41406b.toString().equals(lowerCase)) {
+                return f41406b;
             }
-            if (f41305d.toString().equals(lowerCase)) {
-                return f41305d;
+            if (f41408d.toString().equals(lowerCase)) {
+                return f41408d;
             }
-            if (f41304c.toString().equals(lowerCase)) {
-                return f41304c;
+            if (f41407c.toString().equals(lowerCase)) {
+                return f41407c;
             }
-            if (f41306e.toString().equals(lowerCase)) {
-                return f41306e;
+            if (f41409e.toString().equals(lowerCase)) {
+                return f41409e;
             }
             return null;
         }
@@ -66,23 +66,23 @@ public class ga extends gc {
     }
 
     public ga() {
-        this.f41301a = a.f41302a;
+        this.f41404a = a.f41405a;
         this.f420a = new HashMap();
     }
 
     public ga(Bundle bundle) {
         super(bundle);
-        this.f41301a = a.f41302a;
+        this.f41404a = a.f41405a;
         this.f420a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f41301a = a.a(bundle.getString("ext_iq_type"));
+            this.f41404a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gc
     public Bundle a() {
         Bundle a2 = super.a();
-        a aVar = this.f41301a;
+        a aVar = this.f41404a;
         if (aVar != null) {
             a2.putString("ext_iq_type", aVar.toString());
         }
@@ -91,7 +91,7 @@ public class ga extends gc {
 
     @Override // com.xiaomi.push.gc
     public a a() {
-        return this.f41301a;
+        return this.f41404a;
     }
 
     @Override // com.xiaomi.push.gc
@@ -123,7 +123,7 @@ public class ga extends gc {
             sb.append(gn.a(entry.getValue()));
             sb.append("\" ");
         }
-        if (this.f41301a == null) {
+        if (this.f41404a == null) {
             str = "type=\"get\">";
         } else {
             sb.append("type=\"");
@@ -146,9 +146,9 @@ public class ga extends gc {
 
     public void a(a aVar) {
         if (aVar == null) {
-            aVar = a.f41302a;
+            aVar = a.f41405a;
         }
-        this.f41301a = aVar;
+        this.f41404a = aVar;
     }
 
     public synchronized void a(Map<String, String> map) {

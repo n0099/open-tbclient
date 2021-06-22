@@ -12,34 +12,34 @@ import java.util.ArrayList;
 public final class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f10168a;
+    public ArrayList<b> f10224a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
-        this.f10168a = null;
+        this.f10224a = null;
         if (activityInfoArr == null || (length = activityInfoArr.length) <= 0) {
             return;
         }
-        this.f10168a = new ArrayList<>(length);
+        this.f10224a = new ArrayList<>(length);
         for (int i2 = 0; i2 < length; i2++) {
             if (activityInfoArr[i2] != null) {
                 b bVar = new b();
-                bVar.f10176h = activityInfoArr[i2].configChanges;
-                bVar.f10174f = activityInfoArr[i2].flags;
+                bVar.f10232h = activityInfoArr[i2].configChanges;
+                bVar.f10230f = activityInfoArr[i2].flags;
                 bVar.l = activityInfoArr[i2].labelRes;
-                bVar.f10170b = activityInfoArr[i2].launchMode;
+                bVar.f10226b = activityInfoArr[i2].launchMode;
                 if (activityInfoArr[i2].nonLocalizedLabel != null) {
                     bVar.m = activityInfoArr[i2].nonLocalizedLabel.toString();
                 }
                 bVar.j = activityInfoArr[i2].name;
                 bVar.k = activityInfoArr[i2].packageName;
-                bVar.f10171c = activityInfoArr[i2].permission;
-                bVar.f10175g = activityInfoArr[i2].screenOrientation;
-                bVar.f10177i = activityInfoArr[i2].softInputMode;
-                bVar.f10173e = activityInfoArr[i2].targetActivity;
-                bVar.f10172d = activityInfoArr[i2].taskAffinity;
-                bVar.f10169a = activityInfoArr[i2].theme;
-                this.f10168a.add(bVar);
+                bVar.f10227c = activityInfoArr[i2].permission;
+                bVar.f10231g = activityInfoArr[i2].screenOrientation;
+                bVar.f10233i = activityInfoArr[i2].softInputMode;
+                bVar.f10229e = activityInfoArr[i2].targetActivity;
+                bVar.f10228d = activityInfoArr[i2].taskAffinity;
+                bVar.f10225a = activityInfoArr[i2].theme;
+                this.f10224a.add(bVar);
             }
         }
     }
@@ -53,7 +53,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream.writeObject(this.f10168a);
+                    objectOutputStream.writeObject(this.f10224a);
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -61,7 +61,7 @@ public final class a implements Serializable {
                         objectOutputStream.close();
                         byteArrayOutputStream.close();
                     } catch (IOException unused) {
-                        com.baidu.sofire.g.d.a();
+                        com.baidu.sofire.utility.c.a();
                     }
                     return byteArray;
                 } catch (IOException unused2) {
@@ -69,7 +69,7 @@ public final class a implements Serializable {
                         try {
                             objectOutputStream.close();
                         } catch (IOException unused3) {
-                            com.baidu.sofire.g.d.a();
+                            com.baidu.sofire.utility.c.a();
                             return null;
                         }
                     }
@@ -83,7 +83,7 @@ public final class a implements Serializable {
                         try {
                             objectOutputStream.close();
                         } catch (IOException unused4) {
-                            com.baidu.sofire.g.d.a();
+                            com.baidu.sofire.utility.c.a();
                             throw th;
                         }
                     }
@@ -121,7 +121,7 @@ public final class a implements Serializable {
                         objectInputStream.close();
                         byteArrayInputStream.close();
                     } catch (IOException unused) {
-                        com.baidu.sofire.g.d.a();
+                        com.baidu.sofire.utility.c.a();
                     }
                     return arrayList;
                 } catch (Throwable unused2) {
@@ -129,7 +129,7 @@ public final class a implements Serializable {
                         try {
                             objectInputStream.close();
                         } catch (IOException unused3) {
-                            com.baidu.sofire.g.d.a();
+                            com.baidu.sofire.utility.c.a();
                             return null;
                         }
                     }

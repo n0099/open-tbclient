@@ -10,14 +10,14 @@ public class c extends com.baidu.platform.base.e {
     }
 
     private void a(String str) {
-        this.f9309a.a("qt", "ext");
-        this.f9309a.a("num", Constants.DEFAULT_UIN);
-        this.f9309a.a("l", "10");
-        this.f9309a.a("ie", "utf-8");
-        this.f9309a.a("oue", "1");
-        this.f9309a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
-        this.f9309a.a("fromproduct", "android_map_sdk");
-        this.f9309a.a("uid", str);
+        this.f9317a.a("qt", "ext");
+        this.f9317a.a("num", Constants.DEFAULT_UIN);
+        this.f9317a.a("l", "10");
+        this.f9317a.a("ie", "utf-8");
+        this.f9317a.a("oue", "1");
+        this.f9317a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
+        this.f9317a.a("fromproduct", "android_map_sdk");
+        this.f9317a.a("uid", str);
     }
 
     @Override // com.baidu.platform.base.e

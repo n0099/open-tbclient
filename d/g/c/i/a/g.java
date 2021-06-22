@@ -12,34 +12,34 @@ public final class g extends j {
     public static final class a<V> implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Future<V> f70085e;
+        public final Future<V> f70189e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final f<? super V> f70086f;
+        public final f<? super V> f70190f;
 
         public a(Future<V> future, f<? super V> fVar) {
-            this.f70085e = future;
-            this.f70086f = fVar;
+            this.f70189e = future;
+            this.f70190f = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f70086f.onSuccess(g.b(this.f70085e));
+                this.f70190f.onSuccess(g.b(this.f70189e));
             } catch (Error e2) {
                 e = e2;
-                this.f70086f.onFailure(e);
+                this.f70190f.onFailure(e);
             } catch (RuntimeException e3) {
                 e = e3;
-                this.f70086f.onFailure(e);
+                this.f70190f.onFailure(e);
             } catch (ExecutionException e4) {
-                this.f70086f.onFailure(e4.getCause());
+                this.f70190f.onFailure(e4.getCause());
             }
         }
 
         public String toString() {
             j.b b2 = d.g.c.a.j.b(this);
-            b2.h(this.f70086f);
+            b2.h(this.f70190f);
             return b2.toString();
         }
     }
@@ -61,7 +61,7 @@ public final class g extends j {
 
     public static <V> l<V> d(V v) {
         if (v == null) {
-            return k.b.f70089g;
+            return k.b.f70193g;
         }
         return new k.b(v);
     }

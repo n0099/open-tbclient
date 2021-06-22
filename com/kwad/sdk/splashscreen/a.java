@@ -13,20 +13,20 @@ import com.kwad.sdk.core.response.model.AdResultData;
 public class a extends AbstrackKsSplashScreenAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdResultData f37349a;
+    public AdResultData f37447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsScene f37350b;
+    public KsScene f37448b;
 
     public a(@NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
-        this.f37349a = adResultData;
-        this.f37350b = ksScene;
+        this.f37447a = adResultData;
+        this.f37448b = ksScene;
     }
 
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
     @NonNull
     public KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f37350b, this.f37349a);
+        KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f37448b, this.f37447a);
         a2.a(splashScreenAdInteractionListener);
         return a2;
     }
@@ -34,18 +34,18 @@ public class a extends AbstrackKsSplashScreenAd {
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
     @NonNull
     public View getView2(Context context, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        b a2 = b.a(context, this.f37350b, this.f37349a);
+        b a2 = b.a(context, this.f37448b, this.f37447a);
         a2.setSplashScreenAdListener(splashScreenAdInteractionListener);
         return a2;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public boolean isAdEnable() {
-        return SplashPreloadManager.b().a(this.f37349a) || SplashPreloadManager.b().b(this.f37349a);
+        return SplashPreloadManager.b().a(this.f37447a) || SplashPreloadManager.b().b(this.f37447a);
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public boolean isVideo() {
-        return com.kwad.sdk.core.response.b.a.J(com.kwad.sdk.core.response.b.c.j(this.f37349a.adTemplateList.get(0)));
+        return com.kwad.sdk.core.response.b.a.J(com.kwad.sdk.core.response.b.c.j(this.f37447a.adTemplateList.get(0)));
     }
 }

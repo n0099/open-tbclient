@@ -3,6 +3,7 @@ package androidx.constraintlayout.solver.widgets;
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 /* loaded from: classes.dex */
 public class ResolutionAnchor extends ResolutionNode {
@@ -108,9 +109,9 @@ public class ResolutionAnchor extends ResolutionNode {
     public String toString() {
         if (this.state == 1) {
             if (this.resolvedTarget == this) {
-                return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedOffset + "]  type: " + sType(this.type);
+                return PreferencesUtil.LEFT_MOUNT + this.myAnchor + ", RESOLVED: " + this.resolvedOffset + "]  type: " + sType(this.type);
             }
-            return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedTarget + ":" + this.resolvedOffset + "] type: " + sType(this.type);
+            return PreferencesUtil.LEFT_MOUNT + this.myAnchor + ", RESOLVED: " + this.resolvedTarget + ":" + this.resolvedOffset + "] type: " + sType(this.type);
         }
         return "{ " + this.myAnchor + " UNRESOLVED} type: " + sType(this.type);
     }

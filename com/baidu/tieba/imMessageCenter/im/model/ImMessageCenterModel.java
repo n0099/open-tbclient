@@ -10,8 +10,8 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import d.a.n0.f1.t.b;
-import d.a.n0.f1.t.e;
+import d.a.o0.f1.t.b;
+import d.a.o0.f1.t.e;
 /* loaded from: classes4.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public static final int TYPE_GROUP_MSG = 1;

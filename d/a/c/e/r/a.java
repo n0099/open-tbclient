@@ -8,24 +8,24 @@ import java.nio.ByteBuffer;
 public class a extends OutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f42566e;
+    public final int f42669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f42567f;
+    public final int f42670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f42568g;
+    public ByteBuffer f42671g;
 
     public a(int i2, int i3) {
-        this.f42566e = i2;
-        this.f42567f = i3;
+        this.f42669e = i2;
+        this.f42670f = i3;
         ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2);
-        this.f42568g = allocateDirect;
+        this.f42671g = allocateDirect;
         allocateDirect.clear();
     }
 
     public Buffer n() {
-        return this.f42568g.clear();
+        return this.f42671g.clear();
     }
 
     public synchronized void o() throws IOException {
@@ -34,27 +34,27 @@ public class a extends OutputStream {
     }
 
     public synchronized void p(int i2) {
-        if (i2 > this.f42568g.capacity()) {
-            ByteBuffer byteBuffer = this.f42568g;
-            int position = this.f42568g.position();
-            this.f42568g = ByteBuffer.allocateDirect(((i2 / this.f42567f) + 1) * this.f42567f);
+        if (i2 > this.f42671g.capacity()) {
+            ByteBuffer byteBuffer = this.f42671g;
+            int position = this.f42671g.position();
+            this.f42671g = ByteBuffer.allocateDirect(((i2 / this.f42670f) + 1) * this.f42670f);
             byteBuffer.clear();
-            this.f42568g.clear();
-            this.f42568g.put(byteBuffer);
-            this.f42568g.position(position);
+            this.f42671g.clear();
+            this.f42671g.put(byteBuffer);
+            this.f42671g.position(position);
         }
     }
 
     public Buffer q() {
-        return this.f42568g.flip();
+        return this.f42671g.flip();
     }
 
     public ByteBuffer r() {
-        return this.f42568g;
+        return this.f42671g;
     }
 
     public int s() {
-        return this.f42568g.remaining();
+        return this.f42671g.remaining();
     }
 
     public synchronized void t(String str) throws IOException {
@@ -63,18 +63,18 @@ public class a extends OutputStream {
 
     @Override // java.io.OutputStream
     public synchronized void write(int i2) throws IOException {
-        if (this.f42568g.position() + 1 > this.f42568g.capacity()) {
-            p(this.f42568g.capacity() + 1);
+        if (this.f42671g.position() + 1 > this.f42671g.capacity()) {
+            p(this.f42671g.capacity() + 1);
         }
-        this.f42568g.put((byte) i2);
+        this.f42671g.put((byte) i2);
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i2, int i3) throws IOException {
-        if (this.f42568g.position() + i3 > this.f42568g.capacity()) {
-            p(this.f42568g.capacity() + i3);
+        if (this.f42671g.position() + i3 > this.f42671g.capacity()) {
+            p(this.f42671g.capacity() + i3);
         }
-        this.f42568g.put(bArr, i2, i3);
+        this.f42671g.put(bArr, i2, i3);
     }
 
     @Override // java.io.OutputStream

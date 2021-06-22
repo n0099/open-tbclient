@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.util.Util;
 /* loaded from: classes6.dex */
 public class AttributeStrategy implements LruPoolStrategy {
@@ -101,7 +102,7 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     public static String getBitmapString(int i2, int i3, Bitmap.Config config) {
-        return "[" + i2 + "x" + i3 + "], " + config;
+        return PreferencesUtil.LEFT_MOUNT + i2 + "x" + i3 + "], " + config;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy

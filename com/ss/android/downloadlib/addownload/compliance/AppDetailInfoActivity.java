@@ -16,25 +16,25 @@ import java.util.List;
 public class AppDetailInfoActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f39467a;
+    public ImageView f39570a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f39468b;
+    public TextView f39571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f39469c;
+    public LinearLayout f39572c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f39470d;
+    public RecyclerView f39573d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39471e;
+    public long f39574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39472f;
+    public long f39575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Pair<String, String>> f39473g;
+    public List<Pair<String, String>> f39576g;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -43,7 +43,7 @@ public class AppDetailInfoActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_close", AppDetailInfoActivity.this.f39472f);
+            d.o.a.d.f.f.c.c("lp_app_detail_click_close", AppDetailInfoActivity.this.f39575f);
             AppDetailInfoActivity.this.finish();
         }
     }
@@ -55,8 +55,8 @@ public class AppDetailInfoActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_download", AppDetailInfoActivity.this.f39472f);
-            d.o.a.d.f.f.b.a().i(AppDetailInfoActivity.this.f39472f);
+            d.o.a.d.f.f.c.c("lp_app_detail_click_download", AppDetailInfoActivity.this.f39575f);
+            d.o.a.d.f.f.b.a().i(AppDetailInfoActivity.this.f39575f);
             d.o.a.e.a.d.q(AppDetailInfoActivity.this);
             d.o.a.e.a.d.q(d.o.a.d.f.f.b.a().h());
         }
@@ -73,26 +73,26 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void b() {
-        this.f39467a = (ImageView) findViewById(d.o.a.d.b.iv_detail_back);
-        this.f39468b = (TextView) findViewById(d.o.a.d.b.tv_empty);
-        this.f39470d = (RecyclerView) findViewById(d.o.a.d.b.permission_list);
-        this.f39469c = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
-        if (this.f39473g.isEmpty()) {
-            this.f39470d.setVisibility(8);
-            this.f39468b.setVisibility(0);
+        this.f39570a = (ImageView) findViewById(d.o.a.d.b.iv_detail_back);
+        this.f39571b = (TextView) findViewById(d.o.a.d.b.tv_empty);
+        this.f39573d = (RecyclerView) findViewById(d.o.a.d.b.permission_list);
+        this.f39572c = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
+        if (this.f39576g.isEmpty()) {
+            this.f39573d.setVisibility(8);
+            this.f39571b.setVisibility(0);
         } else {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             linearLayoutManager.setOrientation(1);
-            this.f39470d.setLayoutManager(linearLayoutManager);
-            this.f39470d.setAdapter(new c(this, null));
+            this.f39573d.setLayoutManager(linearLayoutManager);
+            this.f39573d.setAdapter(new c(this, null));
         }
-        this.f39467a.setOnClickListener(new a());
-        this.f39469c.setOnClickListener(new b());
+        this.f39570a.setOnClickListener(new a());
+        this.f39572c.setOnClickListener(new b());
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.o.a.d.f.f.c.c("lp_app_detail_click_close", this.f39472f);
+        d.o.a.d.f.f.c.c("lp_app_detail_click_close", this.f39575f);
         super.onBackPressed();
     }
 
@@ -111,9 +111,9 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void a() {
-        this.f39471e = getIntent().getLongExtra("app_info_id", 0L);
-        c.C1926c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f39471e);
-        this.f39472f = a2.f70523b;
-        this.f39473g = a2.f70528g;
+        this.f39574e = getIntent().getLongExtra("app_info_id", 0L);
+        c.C1929c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f39574e);
+        this.f39575f = a2.f70627b;
+        this.f39576g = a2.f70632g;
     }
 }

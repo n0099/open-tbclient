@@ -2,6 +2,7 @@ package com.baidu.clientupdate.download;
 
 import android.net.Uri;
 import android.util.Pair;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -102,31 +103,31 @@ public class Download implements Serializable {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[mUrl=");
         stringBuffer.append(this.mUrl);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mFileName=");
         stringBuffer.append(this.mFileName);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mSavedPath=");
         stringBuffer.append(this.mSavedPath);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mFileLength=");
         stringBuffer.append(this.mFileLength);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mCurrentLength=");
         stringBuffer.append(this.mCurrentLength);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mState=");
         stringBuffer.append(this.mState.toString());
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mFailReason=");
         stringBuffer.append(this.mFailReason);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mId=");
         stringBuffer.append(this.mId);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         stringBuffer.append("[mMimeType=");
         stringBuffer.append(this.mMimeType);
-        stringBuffer.append("]");
+        stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
         return stringBuffer.toString();
     }
 }

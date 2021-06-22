@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40949a;
+    public final /* synthetic */ Context f41052a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ e f90a;
@@ -16,7 +16,7 @@ public final class j implements Runnable {
 
     public j(String str, Context context, e eVar) {
         this.f91a = str;
-        this.f40949a = context;
+        this.f41052a = context;
         this.f90a = eVar;
     }
 
@@ -46,7 +46,7 @@ public final class j implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m56a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f40949a, this.f90a, str);
-        i.m116a(this.f40949a);
+        i.d(this.f41052a, this.f90a, str);
+        i.m116a(this.f41052a);
     }
 }

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.spswitch.R;
 import com.baidu.spswitch.utils.UIUtils;
 /* loaded from: classes2.dex */
@@ -29,10 +30,10 @@ public class PopupEmotionView extends FrameLayout {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
-        if (str.indexOf("[") == 0) {
+        if (str.indexOf(PreferencesUtil.LEFT_MOUNT) == 0) {
             str = str.substring(1);
         }
-        return str.indexOf("]") == str.length() - 1 ? str.substring(0, str.length() - 1) : str;
+        return str.indexOf(PreferencesUtil.RIGHT_MOUNT) == str.length() - 1 ? str.substring(0, str.length() - 1) : str;
     }
 
     private void init(Context context) {

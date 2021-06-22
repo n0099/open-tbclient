@@ -28,6 +28,6 @@ public final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lamb
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
         SVGAParser$decodeFromInputStream$1 sVGAParser$decodeFromInputStream$1 = this.this$0;
-        sVGAParser$decodeFromInputStream$1.f38747e.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.f38750h);
+        sVGAParser$decodeFromInputStream$1.f38845e.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.f38848h);
     }
 }

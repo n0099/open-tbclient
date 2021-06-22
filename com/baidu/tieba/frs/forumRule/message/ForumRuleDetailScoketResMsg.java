@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.forumRule.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.r0.q1.c.b;
+import d.a.o0.r0.q1.c.b;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 /* loaded from: classes4.dex */

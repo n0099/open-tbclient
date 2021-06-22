@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.square.message.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.square.message.ForumSquareSocketResponsedMessage;
-import d.a.n0.e3.d0.a;
+import d.a.o0.e3.d0.a;
 /* loaded from: classes5.dex */
 public class ForumSquareStatic {
     static {

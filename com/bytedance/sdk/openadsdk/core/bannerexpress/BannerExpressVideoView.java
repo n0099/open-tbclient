@@ -18,8 +18,8 @@ public class BannerExpressVideoView extends a {
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
     public void a() {
-        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27864a, this.f27867d, this.f27868e, this.j);
-        this.f27865b = nativeExpressVideoView;
+        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27946a, this.f27949d, this.f27950e, this.j);
+        this.f27947b = nativeExpressVideoView;
         addView(nativeExpressVideoView, new ViewGroup.LayoutParams(-1, -1));
     }
 
@@ -54,7 +54,7 @@ public class BannerExpressVideoView extends a {
     }
 
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        NativeExpressView nativeExpressView = this.f27865b;
+        NativeExpressView nativeExpressView = this.f27947b;
         if (nativeExpressView != null) {
             return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
         }
@@ -78,13 +78,13 @@ public class BannerExpressVideoView extends a {
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
     public void a(l lVar, AdSlot adSlot) {
-        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27864a, lVar, adSlot, this.j);
-        this.f27866c = nativeExpressVideoView;
+        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27946a, lVar, adSlot, this.j);
+        this.f27948c = nativeExpressVideoView;
         nativeExpressVideoView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressVideoView.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i2) {
                 BannerExpressVideoView bannerExpressVideoView = BannerExpressVideoView.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = bannerExpressVideoView.f27869f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = bannerExpressVideoView.f27951f;
                 if (expressAdInteractionListener != null) {
                     expressAdInteractionListener.onAdClicked(bannerExpressVideoView, i2);
                 }
@@ -104,7 +104,7 @@ public class BannerExpressVideoView extends a {
                 BannerExpressVideoView.this.f();
             }
         });
-        al.a((View) this.f27866c, 8);
-        addView(this.f27866c, new ViewGroup.LayoutParams(-1, -1));
+        al.a((View) this.f27948c, 8);
+        addView(this.f27948c, new ViewGroup.LayoutParams(-1, -1));
     }
 }

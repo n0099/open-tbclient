@@ -7,46 +7,46 @@ import android.util.Log;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f68447c = "b";
+    public static final String f68551c = "b";
 
     /* renamed from: a  reason: collision with root package name */
-    public a f68448a;
+    public a f68552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLSurface f68449b = EGL14.EGL_NO_SURFACE;
+    public EGLSurface f68553b = EGL14.EGL_NO_SURFACE;
 
     public b(a aVar) {
-        this.f68448a = aVar;
+        this.f68552a = aVar;
     }
 
     public void a(Object obj) {
-        if (this.f68449b == EGL14.EGL_NO_SURFACE) {
-            this.f68449b = this.f68448a.b(obj);
+        if (this.f68553b == EGL14.EGL_NO_SURFACE) {
+            this.f68553b = this.f68552a.b(obj);
             return;
         }
         throw new IllegalStateException("surface already created");
     }
 
     public void b(a aVar) {
-        if (aVar.d(this.f68449b)) {
+        if (aVar.d(this.f68553b)) {
             return;
         }
-        aVar.e(this.f68449b);
+        aVar.e(this.f68553b);
     }
 
     public void c() {
-        this.f68448a.g(this.f68449b);
-        this.f68449b = EGL14.EGL_NO_SURFACE;
+        this.f68552a.g(this.f68553b);
+        this.f68553b = EGL14.EGL_NO_SURFACE;
     }
 
     public void d(long j) {
-        this.f68448a.h(this.f68449b, j);
+        this.f68552a.h(this.f68553b, j);
     }
 
     public boolean e() {
-        boolean i2 = this.f68448a.i(this.f68449b);
+        boolean i2 = this.f68552a.i(this.f68553b);
         if (!i2) {
-            Log.d(f68447c, "WARNING: swapBuffers() failed");
+            Log.d(f68551c, "WARNING: swapBuffers() failed");
         }
         return i2;
     }

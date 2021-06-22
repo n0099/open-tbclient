@@ -3,26 +3,26 @@ package com.ksad.lottie.e;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f31931a;
+    public final float f32029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f31932b;
+    public final float f32030b;
 
     public d() {
         this(1.0f, 1.0f);
     }
 
     public d(float f2, float f3) {
-        this.f31931a = f2;
-        this.f31932b = f3;
+        this.f32029a = f2;
+        this.f32030b = f3;
     }
 
     public float a() {
-        return this.f31931a;
+        return this.f32029a;
     }
 
     public float b() {
-        return this.f31932b;
+        return this.f32030b;
     }
 
     public String toString() {

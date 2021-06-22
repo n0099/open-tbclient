@@ -7,18 +7,18 @@ import java.util.List;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f29511a;
+    public List<i.b> f29593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f29512b;
+    public f f29594b;
 
     public abstract int a();
 
     public i.b a(String str) {
         List<i.b> list;
-        if (str != null && (list = this.f29511a) != null && list.size() > 0) {
-            for (i.b bVar : this.f29511a) {
-                if (str.equals(bVar.f29589a)) {
+        if (str != null && (list = this.f29593a) != null && list.size() > 0) {
+            for (i.b bVar : this.f29593a) {
+                if (str.equals(bVar.f29671a)) {
                     return bVar;
                 }
             }
@@ -125,6 +125,6 @@ public abstract class a {
     public abstract String f();
 
     public f g() {
-        return this.f29512b;
+        return this.f29594b;
     }
 }

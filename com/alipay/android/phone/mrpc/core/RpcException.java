@@ -1,5 +1,6 @@
 package com.alipay.android.phone.mrpc.core;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes.dex */
 public class RpcException extends RuntimeException {
@@ -35,9 +36,9 @@ public class RpcException extends RuntimeException {
         StringBuilder sb = new StringBuilder();
         sb.append("RPCException: ");
         if (num != null) {
-            sb.append("[");
+            sb.append(PreferencesUtil.LEFT_MOUNT);
             sb.append(num);
-            sb.append("]");
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
         }
         sb.append(ZeusCrashHandler.NAME_SEPERATOR);
         if (str != null) {

@@ -18,19 +18,19 @@ import java.util.ArrayList;
 public class EmotionTabWidgetView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionTabHorizonScrollView f14414e;
+    public EmotionTabHorizonScrollView f14496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f14415f;
+    public ImageView f14497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f14416g;
+    public ImageView f14498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14417h;
+    public View f14499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditorTools f14418i;
+    public EditorTools f14500i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -39,8 +39,8 @@ public class EmotionTabWidgetView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (EmotionTabWidgetView.this.f14418i != null) {
-                EmotionTabWidgetView.this.f14418i.A(new d.a.m0.w.a(3, -1, null));
+            if (EmotionTabWidgetView.this.f14500i != null) {
+                EmotionTabWidgetView.this.f14500i.A(new d.a.n0.w.a(3, -1, null));
             }
         }
     }
@@ -66,74 +66,74 @@ public class EmotionTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(d.a.m0.w.p.c cVar) {
-        this.f14414e.j(cVar);
+    public void b(d.a.n0.w.p.c cVar) {
+        this.f14496e.j(cVar);
     }
 
     public final void c(Context context) {
         removeAllViews();
         LayoutInflater.from(context).inflate(R.layout.emotion_tab_widget, (ViewGroup) this, true);
-        this.f14414e = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
-        this.f14415f = (ImageView) findViewById(R.id.face_tab_delete);
-        this.f14416g = (ImageView) findViewById(R.id.face_tab_setting);
-        this.f14417h = findViewById(R.id.vertical_div_line);
-        this.f14415f.setOnClickListener(new a());
-        this.f14416g.setOnClickListener(new b());
-        this.f14416g.setVisibility(8);
+        this.f14496e = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
+        this.f14497f = (ImageView) findViewById(R.id.face_tab_delete);
+        this.f14498g = (ImageView) findViewById(R.id.face_tab_setting);
+        this.f14499h = findViewById(R.id.vertical_div_line);
+        this.f14497f.setOnClickListener(new a());
+        this.f14498g.setOnClickListener(new b());
+        this.f14498g.setVisibility(8);
     }
 
     public void d(int i2) {
         SkinManager.setBackgroundColor(this, R.color.common_color_10255, i2);
-        this.f14414e.n(i2);
-        SkinManager.setImageResource(this.f14415f, R.drawable.emotion_delete, i2);
-        SkinManager.setBackgroundColor(this.f14415f, R.color.common_color_10255, i2);
-        SkinManager.setImageResource(this.f14416g, R.drawable.icon_sett_s, i2);
-        SkinManager.setBackgroundColor(this.f14416g, R.color.common_color_10255, i2);
-        SkinManager.setBackgroundColor(this.f14417h, R.color.common_color_10288, i2);
+        this.f14496e.n(i2);
+        SkinManager.setImageResource(this.f14497f, R.drawable.emotion_delete, i2);
+        SkinManager.setBackgroundColor(this.f14497f, R.color.common_color_10255, i2);
+        SkinManager.setImageResource(this.f14498g, R.drawable.icon_sett_s, i2);
+        SkinManager.setBackgroundColor(this.f14498g, R.color.common_color_10255, i2);
+        SkinManager.setBackgroundColor(this.f14499h, R.color.common_color_10288, i2);
     }
 
     public void e() {
-        this.f14414e.o();
+        this.f14496e.o();
     }
 
     public void setCurrentTab(int i2) {
-        this.f14414e.setCurrentTab(i2);
+        this.f14496e.setCurrentTab(i2);
     }
 
-    public void setDatas(ArrayList<d.a.m0.w.p.c> arrayList) {
-        this.f14414e.setDatas(arrayList);
+    public void setDatas(ArrayList<d.a.n0.w.p.c> arrayList) {
+        this.f14496e.setDatas(arrayList);
     }
 
     public void setFrom(int i2) {
-        EmotionTabHorizonScrollView emotionTabHorizonScrollView = this.f14414e;
+        EmotionTabHorizonScrollView emotionTabHorizonScrollView = this.f14496e;
         if (emotionTabHorizonScrollView != null) {
             emotionTabHorizonScrollView.setFrom(i2);
         }
     }
 
     public void setOnDataSelected(EditorTools editorTools) {
-        this.f14418i = editorTools;
-        this.f14414e.setEditorTools(editorTools);
+        this.f14500i = editorTools;
+        this.f14496e.setEditorTools(editorTools);
     }
 
     public void setOnTabSelectedListener(c cVar) {
-        this.f14414e.setOnTabSelectedListener(cVar);
+        this.f14496e.setOnTabSelectedListener(cVar);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.f14415f.setVisibility(0);
+            this.f14497f.setVisibility(0);
         } else {
-            this.f14415f.setVisibility(8);
+            this.f14497f.setVisibility(8);
         }
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
-        this.f14414e.setTabWidgetBigEmontionVisibility(z);
+        this.f14496e.setTabWidgetBigEmontionVisibility(z);
     }
 
     public void setTabWidgetVisibility(int i2, boolean z) {
-        this.f14414e.setTabWidgetVisibility(i2, z);
+        this.f14496e.setTabWidgetVisibility(i2, z);
     }
 
     public EmotionTabWidgetView(Context context) {

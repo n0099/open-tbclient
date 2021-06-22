@@ -17,7 +17,7 @@ import org.xmlpull.v1.XmlSerializer;
 public class a implements XmlSerializer {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39813a = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
+    public static final String[] f39916a = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f2a;
@@ -29,7 +29,7 @@ public class a implements XmlSerializer {
     public CharsetEncoder f5a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39814b;
+    public boolean f39917b;
     public int mPos;
 
     /* renamed from: a  reason: collision with other field name */
@@ -103,7 +103,7 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer endTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39814b) {
+        if (this.f39917b) {
             append(" />\n");
         } else {
             append("</");
@@ -114,7 +114,7 @@ public class a implements XmlSerializer {
             append(str2);
             append(">\n");
         }
-        this.f39814b = false;
+        this.f39917b = false;
         return this;
     }
 
@@ -231,7 +231,7 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer startTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39814b) {
+        if (this.f39917b) {
             append(">\n");
         }
         append(Typography.less);
@@ -240,15 +240,15 @@ public class a implements XmlSerializer {
             append(':');
         }
         append(str2);
-        this.f39814b = true;
+        this.f39917b = true;
         return this;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer text(char[] cArr, int i2, int i3) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39814b) {
+        if (this.f39917b) {
             append(">");
-            this.f39814b = false;
+            this.f39917b = false;
         }
         a(cArr, i2, i3);
         return this;
@@ -256,9 +256,9 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer text(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39814b) {
+        if (this.f39917b) {
             append(">");
-            this.f39814b = false;
+            this.f39917b = false;
         }
         a(str);
         return this;
@@ -286,7 +286,7 @@ public class a implements XmlSerializer {
     private void a(String str) throws IOException {
         String str2;
         int length = str.length();
-        String[] strArr = f39813a;
+        String[] strArr = f39916a;
         char length2 = (char) strArr.length;
         int i2 = 0;
         int i3 = 0;
@@ -317,7 +317,7 @@ public class a implements XmlSerializer {
 
     private void a(char[] cArr, int i2, int i3) throws IOException {
         String str;
-        String[] strArr = f39813a;
+        String[] strArr = f39916a;
         char length = (char) strArr.length;
         int i4 = i3 + i2;
         int i5 = i2;

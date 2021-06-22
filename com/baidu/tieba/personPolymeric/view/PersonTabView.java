@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 public class PersonTabView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19993e;
+    public Context f20075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19994f;
+    public TextView f20076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19995g;
+    public TextView f20077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f19996h;
+    public View f20078h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f19997i;
+    public View f20079i;
     public View j;
     public View k;
     public int l;
@@ -66,16 +66,16 @@ public class PersonTabView extends LinearLayout {
     }
 
     public final void c(Context context) {
-        this.f19993e = context;
+        this.f20075e = context;
         LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
         TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-        this.f19994f = textView;
+        this.f20076f = textView;
         textView.setOnClickListener(this.p);
         TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-        this.f19995g = textView2;
+        this.f20077g = textView2;
         textView2.setOnClickListener(this.p);
-        this.f19996h = findViewById(R.id.main_thread_divider);
-        this.f19997i = findViewById(R.id.reply_btn_divider);
+        this.f20078h = findViewById(R.id.main_thread_divider);
+        this.f20079i = findViewById(R.id.reply_btn_divider);
         this.j = findViewById(R.id.main_thread_bottom_divider);
         this.k = findViewById(R.id.reply_btn_bottom_divider);
         setCurrentTab(0);
@@ -87,15 +87,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f19996h.setVisibility(0);
-            this.f19997i.setVisibility(4);
-            this.f19994f.setTextColor(this.m);
-            this.f19995g.setTextColor(this.n);
+            this.f20078h.setVisibility(0);
+            this.f20079i.setVisibility(4);
+            this.f20076f.setTextColor(this.m);
+            this.f20077g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f19996h.setVisibility(4);
-            this.f19997i.setVisibility(0);
-            this.f19994f.setTextColor(this.n);
-            this.f19995g.setTextColor(this.m);
+            this.f20078h.setVisibility(4);
+            this.f20079i.setVisibility(0);
+            this.f20076f.setTextColor(this.n);
+            this.f20077g.setTextColor(this.m);
         }
     }
 

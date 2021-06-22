@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.m0.c1.b.e;
+import d.a.n0.c1.b.e;
 /* loaded from: classes3.dex */
 public class PostSearchActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";

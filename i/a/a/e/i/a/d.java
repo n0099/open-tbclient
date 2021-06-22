@@ -32,31 +32,31 @@ import tv.athena.revenue.payui.activity.immersion.BarHide;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, i.a.a.e.i.a.b> f72064a = new HashMap();
+    public Map<String, i.a.a.e.i.a.b> f72168a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, i.a.a.e.i.a.b> f72065b = new HashMap();
+    public Map<String, i.a.a.e.i.a.b> f72169b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, ArrayList<String>> f72066c = new HashMap();
+    public Map<String, ArrayList<String>> f72170c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f72067d;
+    public Activity f72171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Window f72068e;
+    public Window f72172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f72069f;
+    public ViewGroup f72173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f72070g;
+    public ViewGroup f72174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Dialog f72071h;
+    public Dialog f72175h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i.a.a.e.i.a.b f72072i;
+    public i.a.a.e.i.a.b f72176i;
     public i.a.a.e.i.a.a j;
     public String k;
     public String l;
@@ -70,22 +70,22 @@ public class d {
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
-            if (Settings.System.getInt(d.this.f72067d.getContentResolver(), "navigationbar_is_min", 0) == 1) {
-                d.this.f72072i.t.setVisibility(8);
-                d.this.f72070g.setPadding(0, d.this.f72070g.getPaddingTop(), 0, 0);
+            if (Settings.System.getInt(d.this.f72171d.getContentResolver(), "navigationbar_is_min", 0) == 1) {
+                d.this.f72176i.t.setVisibility(8);
+                d.this.f72174g.setPadding(0, d.this.f72174g.getPaddingTop(), 0, 0);
                 return;
             }
-            d.this.f72072i.t.setVisibility(0);
-            if (!d.this.f72072i.B) {
+            d.this.f72176i.t.setVisibility(0);
+            if (!d.this.f72176i.B) {
                 if (d.this.j.l()) {
-                    d.this.f72070g.setPadding(0, d.this.f72070g.getPaddingTop(), 0, d.this.j.d());
+                    d.this.f72174g.setPadding(0, d.this.f72174g.getPaddingTop(), 0, d.this.j.d());
                     return;
                 } else {
-                    d.this.f72070g.setPadding(0, d.this.f72070g.getPaddingTop(), d.this.j.f(), 0);
+                    d.this.f72174g.setPadding(0, d.this.f72174g.getPaddingTop(), d.this.j.f(), 0);
                     return;
                 }
             }
-            d.this.f72070g.setPadding(0, d.this.f72070g.getPaddingTop(), 0, 0);
+            d.this.f72174g.setPadding(0, d.this.f72174g.getPaddingTop(), 0, 0);
         }
     }
 
@@ -93,25 +93,25 @@ public class d {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f72074a;
+        public static final /* synthetic */ int[] f72178a;
 
         static {
             int[] iArr = new int[BarHide.values().length];
-            f72074a = iArr;
+            f72178a = iArr;
             try {
                 iArr[BarHide.FLAG_HIDE_BAR.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f72074a[BarHide.FLAG_HIDE_STATUS_BAR.ordinal()] = 2;
+                f72178a[BarHide.FLAG_HIDE_STATUS_BAR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f72074a[BarHide.FLAG_HIDE_NAVIGATION_BAR.ordinal()] = 3;
+                f72178a[BarHide.FLAG_HIDE_NAVIGATION_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f72074a[BarHide.FLAG_SHOW_BAR.ordinal()] = 4;
+                f72178a[BarHide.FLAG_SHOW_BAR.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -119,8 +119,8 @@ public class d {
 
     public d(Activity activity) {
         Activity activity2 = (Activity) new WeakReference(activity).get();
-        this.f72067d = activity2;
-        this.f72068e = activity2.getWindow();
+        this.f72171d = activity2;
+        this.f72172e = activity2.getWindow();
         String name = activity.getClass().getName();
         this.k = name;
         this.m = name;
@@ -140,7 +140,7 @@ public class d {
     }
 
     public d A(@ColorInt int i2) {
-        this.f72072i.f72055e = i2;
+        this.f72176i.f72159e = i2;
         return this;
     }
 
@@ -150,61 +150,61 @@ public class d {
     }
 
     public d C(boolean z, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        i.a.a.e.i.a.b bVar = this.f72072i;
+        i.a.a.e.i.a.b bVar = this.f72176i;
         bVar.l = z;
         if (!z) {
             bVar.v = 0;
         }
         if (o()) {
-            this.f72072i.f72057g = 0.0f;
+            this.f72176i.f72161g = 0.0f;
         } else {
-            this.f72072i.f72057g = f2;
+            this.f72176i.f72161g = f2;
         }
         return this;
     }
 
     public final void D() {
         ViewGroup viewGroup;
-        if (Build.VERSION.SDK_INT < 21 || f.i() || (viewGroup = this.f72070g) == null) {
+        if (Build.VERSION.SDK_INT < 21 || f.i() || (viewGroup = this.f72174g) == null) {
             return;
         }
         int childCount = viewGroup.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.f72070g.getChildAt(i2);
+            View childAt = this.f72174g.getChildAt(i2);
             if (childAt instanceof ViewGroup) {
-                this.f72072i.B = childAt.getFitsSystemWindows();
-                if (this.f72072i.B) {
-                    this.f72070g.setPadding(0, 0, 0, 0);
+                this.f72176i.B = childAt.getFitsSystemWindows();
+                if (this.f72176i.B) {
+                    this.f72174g.setPadding(0, 0, 0, 0);
                     return;
                 }
             }
         }
-        i.a.a.e.i.a.b bVar = this.f72072i;
+        i.a.a.e.i.a.b bVar = this.f72176i;
         if (bVar.w) {
-            this.f72070g.setPadding(0, this.j.i() + this.j.a(), 0, 0);
+            this.f72174g.setPadding(0, this.j.i() + this.j.a(), 0, 0);
         } else if (bVar.r) {
-            this.f72070g.setPadding(0, this.j.i(), 0, 0);
+            this.f72174g.setPadding(0, this.j.i(), 0, 0);
         } else {
-            this.f72070g.setPadding(0, 0, 0, 0);
+            this.f72174g.setPadding(0, 0, 0, 0);
         }
     }
 
     public final void E() {
-        if (this.f72072i.p.size() != 0) {
-            for (Map.Entry<View, Map<Integer, Integer>> entry : this.f72072i.p.entrySet()) {
+        if (this.f72176i.p.size() != 0) {
+            for (Map.Entry<View, Map<Integer, Integer>> entry : this.f72176i.p.entrySet()) {
                 View key = entry.getKey();
-                Integer valueOf = Integer.valueOf(this.f72072i.f72055e);
-                Integer valueOf2 = Integer.valueOf(this.f72072i.n);
+                Integer valueOf = Integer.valueOf(this.f72176i.f72159e);
+                Integer valueOf2 = Integer.valueOf(this.f72176i.n);
                 for (Map.Entry<Integer, Integer> entry2 : entry.getValue().entrySet()) {
                     Integer key2 = entry2.getKey();
                     valueOf2 = entry2.getValue();
                     valueOf = key2;
                 }
                 if (key != null) {
-                    if (Math.abs(this.f72072i.q - 0.0f) == 0.0f) {
-                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.f72072i.f72057g));
+                    if (Math.abs(this.f72176i.q - 0.0f) == 0.0f) {
+                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.f72176i.f72161g));
                     } else {
-                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.f72072i.q));
+                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.f72176i.q));
                     }
                 }
             }
@@ -212,77 +212,77 @@ public class d {
     }
 
     public d F() {
-        this.f72072i.f72055e = 0;
+        this.f72176i.f72159e = 0;
         return this;
     }
 
     public final void G() {
         if ((f.i() || f.h()) && this.j.k()) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
+            i.a.a.e.i.a.b bVar = this.f72176i;
             if (!bVar.z || !bVar.A || bVar.E == null || bVar.t == null) {
                 return;
             }
-            this.f72067d.getContentResolver().unregisterContentObserver(this.f72072i.E);
+            this.f72171d.getContentResolver().unregisterContentObserver(this.f72176i.E);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: e */
     public i.a.a.e.i.a.b clone() {
-        return this.f72072i;
+        return this.f72176i;
     }
 
     public void f() {
         G();
-        i.a.a.e.i.a.b bVar = this.f72072i;
+        i.a.a.e.i.a.b bVar = this.f72176i;
         e eVar = bVar.C;
         if (eVar != null) {
             eVar.o(bVar.y);
-            this.f72072i.C = null;
+            this.f72176i.C = null;
         }
-        if (this.f72069f != null) {
-            this.f72069f = null;
+        if (this.f72173f != null) {
+            this.f72173f = null;
         }
-        if (this.f72070g != null) {
-            this.f72070g = null;
+        if (this.f72174g != null) {
+            this.f72174g = null;
         }
         if (this.j != null) {
             this.j = null;
         }
-        if (this.f72068e != null) {
-            this.f72068e = null;
+        if (this.f72172e != null) {
+            this.f72172e = null;
         }
-        if (this.f72071h != null) {
-            this.f72071h = null;
+        if (this.f72175h != null) {
+            this.f72175h = null;
         }
-        if (this.f72067d != null) {
-            this.f72067d = null;
+        if (this.f72171d != null) {
+            this.f72171d = null;
         }
         if (n(this.m)) {
             return;
         }
-        if (this.f72072i != null) {
-            this.f72072i = null;
+        if (this.f72176i != null) {
+            this.f72176i = null;
         }
-        ArrayList<String> arrayList = this.f72066c.get(this.k);
+        ArrayList<String> arrayList = this.f72170c.get(this.k);
         if (arrayList != null && arrayList.size() > 0) {
             Iterator<String> it = arrayList.iterator();
             while (it.hasNext()) {
-                this.f72065b.remove(it.next());
+                this.f72169b.remove(it.next());
             }
-            this.f72066c.remove(this.k);
+            this.f72170c.remove(this.k);
         }
-        this.f72064a.remove(this.m);
+        this.f72168a.remove(this.m);
     }
 
     public d g(boolean z) {
-        this.f72072i.r = z;
+        this.f72176i.r = z;
         return this;
     }
 
     public final int h(int i2) {
         if (Build.VERSION.SDK_INT >= 16) {
-            int i3 = b.f72074a[this.f72072i.k.ordinal()];
+            int i3 = b.f72178a[this.f72176i.k.ordinal()];
             if (i3 == 1) {
                 i2 |= UIMsg.m_AppUI.MSG_COMPASS_DISPLAY;
             } else if (i3 == 2) {
@@ -297,7 +297,7 @@ public class d {
     }
 
     public d i() {
-        this.f72064a.put(this.m, this.f72072i);
+        this.f72168a.put(this.m, this.f72176i);
         j();
         v();
         E();
@@ -317,95 +317,95 @@ public class d {
                 l();
                 y();
             }
-            this.f72068e.getDecorView().setSystemUiVisibility(h(i3));
+            this.f72172e.getDecorView().setSystemUiVisibility(h(i3));
         }
         if (f.m()) {
-            s(this.f72068e, this.f72072i.l);
+            s(this.f72172e, this.f72176i.l);
         } else if (f.k()) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
+            i.a.a.e.i.a.b bVar = this.f72176i;
             int i4 = bVar.v;
             if (i4 != 0) {
-                c.d(this.f72067d, i4);
+                c.d(this.f72171d, i4);
             } else if (Build.VERSION.SDK_INT < 23) {
-                c.e(this.f72067d, bVar.l);
+                c.e(this.f72171d, bVar.l);
             }
         } else if (f.n()) {
-            t(this.f72072i.l);
+            t(this.f72176i.l);
         }
     }
 
     @RequiresApi(api = 21)
     public final int k(int i2) {
         int i3 = i2 | 1024;
-        i.a.a.e.i.a.b bVar = this.f72072i;
-        if (bVar.f72059i && bVar.z) {
+        i.a.a.e.i.a.b bVar = this.f72176i;
+        if (bVar.f72163i && bVar.z) {
             i3 |= 512;
         }
-        this.f72068e.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        this.f72172e.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
         if (this.j.k()) {
-            this.f72068e.clearFlags(134217728);
+            this.f72172e.clearFlags(134217728);
         }
-        this.f72068e.addFlags(Integer.MIN_VALUE);
-        i.a.a.e.i.a.b bVar2 = this.f72072i;
+        this.f72172e.addFlags(Integer.MIN_VALUE);
+        i.a.a.e.i.a.b bVar2 = this.f72176i;
         if (bVar2.m) {
-            this.f72068e.setStatusBarColor(ColorUtils.blendARGB(bVar2.f72055e, bVar2.n, bVar2.f72057g));
+            this.f72172e.setStatusBarColor(ColorUtils.blendARGB(bVar2.f72159e, bVar2.n, bVar2.f72161g));
         } else {
-            this.f72068e.setStatusBarColor(ColorUtils.blendARGB(bVar2.f72055e, 0, bVar2.f72057g));
+            this.f72172e.setStatusBarColor(ColorUtils.blendARGB(bVar2.f72159e, 0, bVar2.f72161g));
         }
-        i.a.a.e.i.a.b bVar3 = this.f72072i;
+        i.a.a.e.i.a.b bVar3 = this.f72176i;
         if (bVar3.z) {
-            this.f72068e.setNavigationBarColor(ColorUtils.blendARGB(bVar3.f72056f, bVar3.o, bVar3.f72058h));
+            this.f72172e.setNavigationBarColor(ColorUtils.blendARGB(bVar3.f72160f, bVar3.o, bVar3.f72162h));
         }
         return i3;
     }
 
     public final void l() {
-        this.f72068e.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        this.f72172e.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
         x();
         if (this.j.k()) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
+            i.a.a.e.i.a.b bVar = this.f72176i;
             if (bVar.z && bVar.A) {
-                this.f72068e.addFlags(134217728);
+                this.f72172e.addFlags(134217728);
             } else {
-                this.f72068e.clearFlags(134217728);
+                this.f72172e.clearFlags(134217728);
             }
             w();
         }
     }
 
     public final void m() {
-        ViewGroup viewGroup = (ViewGroup) this.f72068e.getDecorView();
-        this.f72069f = viewGroup;
-        this.f72070g = (ViewGroup) viewGroup.findViewById(16908290);
-        this.j = new i.a.a.e.i.a.a(this.f72067d);
-        if (this.f72064a.get(this.m) == null) {
-            this.f72072i = new i.a.a.e.i.a.b();
+        ViewGroup viewGroup = (ViewGroup) this.f72172e.getDecorView();
+        this.f72173f = viewGroup;
+        this.f72174g = (ViewGroup) viewGroup.findViewById(16908290);
+        this.j = new i.a.a.e.i.a.a(this.f72171d);
+        if (this.f72168a.get(this.m) == null) {
+            this.f72176i = new i.a.a.e.i.a.b();
             if (!n(this.l)) {
-                if (this.f72064a.get(this.k) != null) {
+                if (this.f72168a.get(this.k) != null) {
                     if (Build.VERSION.SDK_INT == 19 || f.i()) {
-                        this.f72072i.s = this.f72064a.get(this.k).s;
-                        this.f72072i.t = this.f72064a.get(this.k).t;
+                        this.f72176i.s = this.f72168a.get(this.k).s;
+                        this.f72176i.t = this.f72168a.get(this.k).t;
                     }
-                    this.f72072i.C = this.f72064a.get(this.k).C;
+                    this.f72176i.C = this.f72168a.get(this.k).C;
                 } else {
                     throw new IllegalArgumentException("在Fragment里使用时，请先在加载Fragment的Activity里初始化！！！");
                 }
             }
-            this.f72064a.put(this.m, this.f72072i);
+            this.f72168a.put(this.m, this.f72176i);
             return;
         }
-        this.f72072i = this.f72064a.get(this.m);
+        this.f72176i = this.f72168a.get(this.m);
     }
 
     public final void p() {
         if (Build.VERSION.SDK_INT >= 19) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
+            i.a.a.e.i.a.b bVar = this.f72176i;
             if (bVar.C == null) {
-                bVar.C = e.q(this.f72067d, this.f72068e);
+                bVar.C = e.q(this.f72171d, this.f72172e);
             }
-            i.a.a.e.i.a.b bVar2 = this.f72072i;
+            i.a.a.e.i.a.b bVar2 = this.f72176i;
             bVar2.C.r(bVar2);
-            i.a.a.e.i.a.b bVar3 = this.f72072i;
+            i.a.a.e.i.a.b bVar3 = this.f72176i;
             if (bVar3.x) {
                 bVar3.C.p(bVar3.y);
             } else {
@@ -415,18 +415,18 @@ public class d {
     }
 
     public d q(boolean z) {
-        this.f72072i.z = z;
+        this.f72176i.z = z;
         return this;
     }
 
     public final void r() {
         if ((f.i() || f.h()) && this.j.k()) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
+            i.a.a.e.i.a.b bVar = this.f72176i;
             if (bVar.z && bVar.A) {
                 if (bVar.E == null && bVar.t != null) {
                     bVar.E = new a(new Handler());
                 }
-                this.f72067d.getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.f72072i.E);
+                this.f72171d.getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.f72176i.E);
             }
         }
     }
@@ -451,37 +451,37 @@ public class d {
 
     public final void t(boolean z) {
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f72068e.addFlags(Integer.MIN_VALUE);
+            this.f72172e.addFlags(Integer.MIN_VALUE);
         }
-        int systemUiVisibility = this.f72068e.getDecorView().getSystemUiVisibility();
+        int systemUiVisibility = this.f72172e.getDecorView().getSystemUiVisibility();
         int i2 = Build.VERSION.SDK_INT;
         if (i2 >= 23) {
             systemUiVisibility = z ? systemUiVisibility | 8192 : systemUiVisibility & (-8193);
         } else if (i2 >= 19) {
             systemUiVisibility = z ? systemUiVisibility | 16 : systemUiVisibility & (-17);
         }
-        this.f72068e.getDecorView().setSystemUiVisibility(systemUiVisibility);
+        this.f72172e.getDecorView().setSystemUiVisibility(systemUiVisibility);
     }
 
     public final int u(int i2) {
-        return (Build.VERSION.SDK_INT < 23 || !this.f72072i.l) ? i2 : i2 | 8192;
+        return (Build.VERSION.SDK_INT < 23 || !this.f72176i.l) ? i2 : i2 | 8192;
     }
 
     public final void v() {
         View view;
-        if (Build.VERSION.SDK_INT < 19 || (view = this.f72072i.u) == null) {
+        if (Build.VERSION.SDK_INT < 19 || (view = this.f72176i.u) == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = this.j.i();
-        this.f72072i.u.setLayoutParams(layoutParams);
+        this.f72176i.u.setLayoutParams(layoutParams);
     }
 
     public final void w() {
         FrameLayout.LayoutParams layoutParams;
-        i.a.a.e.i.a.b bVar = this.f72072i;
+        i.a.a.e.i.a.b bVar = this.f72176i;
         if (bVar.t == null) {
-            bVar.t = new View(this.f72067d);
+            bVar.t = new View(this.f72171d);
         }
         if (this.j.l()) {
             layoutParams = new FrameLayout.LayoutParams(-1, this.j.d());
@@ -490,143 +490,143 @@ public class d {
             layoutParams = new FrameLayout.LayoutParams(this.j.f(), -1);
             layoutParams.gravity = 8388613;
         }
-        this.f72072i.t.setLayoutParams(layoutParams);
-        i.a.a.e.i.a.b bVar2 = this.f72072i;
+        this.f72176i.t.setLayoutParams(layoutParams);
+        i.a.a.e.i.a.b bVar2 = this.f72176i;
         if (bVar2.z && bVar2.A) {
-            if (!bVar2.f72059i && bVar2.o == 0) {
-                bVar2.t.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72056f, -16777216, bVar2.f72058h));
+            if (!bVar2.f72163i && bVar2.o == 0) {
+                bVar2.t.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72160f, -16777216, bVar2.f72162h));
             } else {
-                i.a.a.e.i.a.b bVar3 = this.f72072i;
-                bVar3.t.setBackgroundColor(ColorUtils.blendARGB(bVar3.f72056f, bVar3.o, bVar3.f72058h));
+                i.a.a.e.i.a.b bVar3 = this.f72176i;
+                bVar3.t.setBackgroundColor(ColorUtils.blendARGB(bVar3.f72160f, bVar3.o, bVar3.f72162h));
             }
         } else {
-            this.f72072i.t.setBackgroundColor(0);
+            this.f72176i.t.setBackgroundColor(0);
         }
-        this.f72072i.t.setVisibility(0);
-        ViewGroup viewGroup = (ViewGroup) this.f72072i.t.getParent();
+        this.f72176i.t.setVisibility(0);
+        ViewGroup viewGroup = (ViewGroup) this.f72176i.t.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(this.f72072i.t);
+            viewGroup.removeView(this.f72176i.t);
         }
-        this.f72069f.addView(this.f72072i.t);
+        this.f72173f.addView(this.f72176i.t);
     }
 
     public final void x() {
-        i.a.a.e.i.a.b bVar = this.f72072i;
+        i.a.a.e.i.a.b bVar = this.f72176i;
         if (bVar.s == null) {
-            bVar.s = new View(this.f72067d);
+            bVar.s = new View(this.f72171d);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.j.i());
         layoutParams.gravity = 48;
-        this.f72072i.s.setLayoutParams(layoutParams);
-        i.a.a.e.i.a.b bVar2 = this.f72072i;
+        this.f72176i.s.setLayoutParams(layoutParams);
+        i.a.a.e.i.a.b bVar2 = this.f72176i;
         if (bVar2.m) {
-            bVar2.s.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72055e, bVar2.n, bVar2.f72057g));
+            bVar2.s.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72159e, bVar2.n, bVar2.f72161g));
         } else {
-            bVar2.s.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72055e, 0, bVar2.f72057g));
+            bVar2.s.setBackgroundColor(ColorUtils.blendARGB(bVar2.f72159e, 0, bVar2.f72161g));
         }
-        this.f72072i.s.setVisibility(0);
-        ViewGroup viewGroup = (ViewGroup) this.f72072i.s.getParent();
+        this.f72176i.s.setVisibility(0);
+        ViewGroup viewGroup = (ViewGroup) this.f72176i.s.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(this.f72072i.s);
+            viewGroup.removeView(this.f72176i.s);
         }
-        this.f72069f.addView(this.f72072i.s);
+        this.f72173f.addView(this.f72176i.s);
     }
 
     public final void y() {
-        int childCount = this.f72070g.getChildCount();
+        int childCount = this.f72174g.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.f72070g.getChildAt(i2);
+            View childAt = this.f72174g.getChildAt(i2);
             if (childAt instanceof ViewGroup) {
                 if (childAt instanceof DrawerLayout) {
                     View childAt2 = ((DrawerLayout) childAt).getChildAt(0);
                     if (childAt2 != null) {
-                        this.f72072i.B = childAt2.getFitsSystemWindows();
-                        if (this.f72072i.B) {
-                            this.f72070g.setPadding(0, 0, 0, 0);
+                        this.f72176i.B = childAt2.getFitsSystemWindows();
+                        if (this.f72176i.B) {
+                            this.f72174g.setPadding(0, 0, 0, 0);
                             return;
                         }
                     } else {
                         continue;
                     }
                 } else {
-                    this.f72072i.B = childAt.getFitsSystemWindows();
-                    if (this.f72072i.B) {
-                        this.f72070g.setPadding(0, 0, 0, 0);
+                    this.f72176i.B = childAt.getFitsSystemWindows();
+                    if (this.f72176i.B) {
+                        this.f72174g.setPadding(0, 0, 0, 0);
                         return;
                     }
                 }
             }
         }
         if (this.j.k()) {
-            i.a.a.e.i.a.b bVar = this.f72072i;
-            if (!bVar.j && !bVar.f72059i) {
+            i.a.a.e.i.a.b bVar = this.f72176i;
+            if (!bVar.j && !bVar.f72163i) {
                 if (this.j.l()) {
-                    i.a.a.e.i.a.b bVar2 = this.f72072i;
+                    i.a.a.e.i.a.b bVar2 = this.f72176i;
                     if (!bVar2.w) {
                         if (bVar2.z && bVar2.A) {
                             if (bVar2.r) {
-                                this.f72070g.setPadding(0, this.j.i(), 0, this.j.d());
+                                this.f72174g.setPadding(0, this.j.i(), 0, this.j.d());
                                 return;
                             } else {
-                                this.f72070g.setPadding(0, 0, 0, this.j.d());
+                                this.f72174g.setPadding(0, 0, 0, this.j.d());
                                 return;
                             }
-                        } else if (this.f72072i.r) {
-                            this.f72070g.setPadding(0, this.j.i(), 0, 0);
+                        } else if (this.f72176i.r) {
+                            this.f72174g.setPadding(0, this.j.i(), 0, 0);
                             return;
                         } else {
-                            this.f72070g.setPadding(0, 0, 0, 0);
+                            this.f72174g.setPadding(0, 0, 0, 0);
                             return;
                         }
                     } else if (bVar2.z && bVar2.A) {
-                        this.f72070g.setPadding(0, this.j.i() + this.j.a() + 10, 0, this.j.d());
+                        this.f72174g.setPadding(0, this.j.i() + this.j.a() + 10, 0, this.j.d());
                         return;
                     } else {
-                        this.f72070g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
+                        this.f72174g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
                         return;
                     }
                 }
-                i.a.a.e.i.a.b bVar3 = this.f72072i;
+                i.a.a.e.i.a.b bVar3 = this.f72176i;
                 if (!bVar3.w) {
                     if (bVar3.z && bVar3.A) {
                         if (bVar3.r) {
-                            this.f72070g.setPadding(0, this.j.i(), this.j.f(), 0);
+                            this.f72174g.setPadding(0, this.j.i(), this.j.f(), 0);
                             return;
                         } else {
-                            this.f72070g.setPadding(0, 0, this.j.f(), 0);
+                            this.f72174g.setPadding(0, 0, this.j.f(), 0);
                             return;
                         }
-                    } else if (this.f72072i.r) {
-                        this.f72070g.setPadding(0, this.j.i(), 0, 0);
+                    } else if (this.f72176i.r) {
+                        this.f72174g.setPadding(0, this.j.i(), 0, 0);
                         return;
                     } else {
-                        this.f72070g.setPadding(0, 0, 0, 0);
+                        this.f72174g.setPadding(0, 0, 0, 0);
                         return;
                     }
                 } else if (bVar3.z && bVar3.A) {
-                    this.f72070g.setPadding(0, this.j.i() + this.j.a() + 10, this.j.f(), 0);
+                    this.f72174g.setPadding(0, this.j.i() + this.j.a() + 10, this.j.f(), 0);
                     return;
                 } else {
-                    this.f72070g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
+                    this.f72174g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
                     return;
                 }
             }
         }
-        i.a.a.e.i.a.b bVar4 = this.f72072i;
+        i.a.a.e.i.a.b bVar4 = this.f72176i;
         if (!bVar4.w) {
             if (bVar4.r) {
-                this.f72070g.setPadding(0, this.j.i(), 0, 0);
+                this.f72174g.setPadding(0, this.j.i(), 0, 0);
                 return;
             } else {
-                this.f72070g.setPadding(0, 0, 0, 0);
+                this.f72174g.setPadding(0, 0, 0, 0);
                 return;
             }
         }
-        this.f72070g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
+        this.f72174g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
     }
 
     public d z(int i2) {
-        A(ContextCompat.getColor(this.f72067d, i2));
+        A(ContextCompat.getColor(this.f72171d, i2));
         return this;
     }
 }

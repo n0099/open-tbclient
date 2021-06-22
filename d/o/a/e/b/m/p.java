@@ -6,15 +6,15 @@ import d.o.a.e.b.g.r;
 public class p implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long[] f71199a;
+    public final long[] f71303a;
 
     public p(String str) {
-        this.f71199a = b(str);
+        this.f71303a = b(str);
     }
 
     @Override // d.o.a.e.b.g.r
     public long a(int i2, int i3) {
-        long[] jArr = this.f71199a;
+        long[] jArr = this.f71303a;
         if (jArr == null || jArr.length <= 0) {
             return 0L;
         }
@@ -22,11 +22,11 @@ public class p implements r {
         if (i4 < 0) {
             i4 = 0;
         }
-        long[] jArr2 = this.f71199a;
+        long[] jArr2 = this.f71303a;
         if (i4 > jArr2.length - 1) {
             i4 = jArr2.length - 1;
         }
-        return this.f71199a[i4];
+        return this.f71303a[i4];
     }
 
     public final long[] b(String str) {

@@ -17,17 +17,17 @@ import java.util.HashMap;
 public class BasePayResultAdapter implements IPayResultDataAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<BaseActivity> f25411a;
+    public WeakReference<BaseActivity> f25493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f25412b;
+    public PayRequest f25494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayResultContent f25413c;
+    public PayResultContent f25495c;
     public HashMap<String, String> contents = new HashMap<>();
 
     public BasePayResultAdapter(BaseActivity baseActivity) {
-        this.f25411a = new WeakReference<>(baseActivity);
+        this.f25493a = new WeakReference<>(baseActivity);
     }
 
     public void a(String str) {
@@ -48,26 +48,26 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getAuthorizeMsg() {
-        return this.f25413c.authorize_msg;
+        return this.f25495c.authorize_msg;
     }
 
     public ArrayList<String> getCouponContent() {
-        PayResultContent payResultContent = this.f25413c;
+        PayResultContent payResultContent = this.f25495c;
         if (payResultContent == null || TextUtils.isEmpty(payResultContent.coupon_msg)) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.f25413c.coupon_msg);
-        arrayList.add(this.f25413c.coupon_find_prompt);
+        arrayList.add(this.f25495c.coupon_msg);
+        arrayList.add(this.f25495c.coupon_find_prompt);
         return arrayList;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public ArrayList<String> getEventValue() {
         ArrayList<String> arrayList = new ArrayList<>();
-        PayRequest payRequest = this.f25412b;
+        PayRequest payRequest = this.f25494b;
         arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-        PayRequest payRequest2 = this.f25412b;
+        PayRequest payRequest2 = this.f25494b;
         arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
         return arrayList;
     }
@@ -78,45 +78,45 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     }
 
     public String getFpOpenMsg() {
-        return this.f25413c.fp_open_or_update_msg;
+        return this.f25495c.fp_open_or_update_msg;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getLBSPayText() {
-        return isShowLBSPayText() ? this.f25412b.mRemotePayHostName : "";
+        return isShowLBSPayText() ? this.f25494b.mRemotePayHostName : "";
     }
 
     public ArrayList<String> getOKBtnOnClickEventValue() {
         ArrayList<String> arrayList = new ArrayList<>();
-        PayRequest payRequest = this.f25412b;
+        PayRequest payRequest = this.f25494b;
         arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-        PayRequest payRequest2 = this.f25412b;
+        PayRequest payRequest2 = this.f25494b;
         arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
         return arrayList;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public PayResultContent getPayResultContent() {
-        return this.f25413c;
+        return this.f25495c;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPaySuccessContents() {
         PayRequest payRequest;
         this.contents.clear();
-        PayResultContent payResultContent = this.f25413c;
-        if (payResultContent == null || (payRequest = this.f25412b) == null) {
+        PayResultContent payResultContent = this.f25495c;
+        if (payResultContent == null || (payRequest = this.f25494b) == null) {
             return null;
         }
         if (payResultContent.isPaySuccess) {
-            if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f25412b.withholding_auth.equals("1")) {
+            if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f25494b.withholding_auth.equals("1")) {
                 this.contents.put("mainTip", "bd_wallet_withhold_success");
             } else {
                 this.contents.put("mainTip", "ebpay_pay_success");
             }
             this.contents.put("statusDrawableName", "wallet_base_result_main_success");
             this.contents.put("okBtnText", "ebpay_result_btn_success");
-            this.contents.put("payDetailInfo", this.f25413c.pay_detail_info);
+            this.contents.put("payDetailInfo", this.f25495c.pay_detail_info);
         }
         return this.contents;
     }
@@ -124,14 +124,14 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPayingContents() {
         this.contents.clear();
-        PayResultContent payResultContent = this.f25413c;
-        if (payResultContent == null || this.f25412b == null) {
+        PayResultContent payResultContent = this.f25495c;
+        if (payResultContent == null || this.f25494b == null) {
             return null;
         }
         if (!payResultContent.isPaySuccess) {
             this.contents.put("statusDrawableName", "wallet_base_result_paying");
             this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-            this.contents.put("errorMsg", this.f25413c.mErrorMsg);
+            this.contents.put("errorMsg", this.f25495c.mErrorMsg);
         }
         return this.contents;
     }
@@ -147,8 +147,8 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isPaySuccess() {
-        PayResultContent payResultContent = this.f25413c;
-        if (payResultContent == null || this.f25412b == null) {
+        PayResultContent payResultContent = this.f25495c;
+        if (payResultContent == null || this.f25494b == null) {
             return false;
         }
         return payResultContent.isPaySuccess;
@@ -156,43 +156,43 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isShowLBSPayText() {
-        return PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f25412b.mRemotePayHostName);
+        return PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f25494b.mRemotePayHostName);
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         if (bundle != null) {
-            this.f25413c = (PayResultContent) bundle.getSerializable("mPayModle");
-            this.f25412b = (PayRequest) bundle.getSerializable("mPayRequest");
+            this.f25495c = (PayResultContent) bundle.getSerializable("mPayModle");
+            this.f25494b = (PayRequest) bundle.getSerializable("mPayRequest");
             return true;
         }
-        this.f25413c = PayDataCache.getInstance().getPayStateContent();
-        this.f25412b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f25495c = PayDataCache.getInstance().getPayStateContent();
+        this.f25494b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         return true;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void onSaveInstanceState(Bundle bundle) {
-        PayResultContent payResultContent = this.f25413c;
+        PayResultContent payResultContent = this.f25495c;
         if (payResultContent != null) {
             bundle.putSerializable("mPayModle", payResultContent);
         }
-        PayRequest payRequest = this.f25412b;
+        PayRequest payRequest = this.f25494b;
         if (payRequest != null) {
             bundle.putSerializable("mPayRequest", payRequest);
         }
     }
 
     public boolean showCashbackDetail() {
-        PayResultContent payResultContent = this.f25413c;
+        PayResultContent payResultContent = this.f25495c;
         return (payResultContent == null || payResultContent.payResultCashbackDetail == null) ? false : true;
     }
 
     public boolean showMonkeylayout() {
-        PayResultContent payResultContent = this.f25413c;
+        PayResultContent payResultContent = this.f25495c;
         if (payResultContent != null) {
-            if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f25413c.cash_amount) && TextUtils.isEmpty(this.f25413c.discount_amount)) {
-                String[][] strArr = this.f25413c.paytype_info;
+            if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f25495c.cash_amount) && TextUtils.isEmpty(this.f25495c.discount_amount)) {
+                String[][] strArr = this.f25495c.paytype_info;
                 return strArr != null && strArr.length > 0;
             }
             return true;
@@ -202,7 +202,7 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean showResultPage() {
-        PayResultContent payResultContent = this.f25413c;
+        PayResultContent payResultContent = this.f25495c;
         return (payResultContent == null || "0".equalsIgnoreCase(payResultContent.redirect_sp_succpage_remain_time)) ? false : true;
     }
 

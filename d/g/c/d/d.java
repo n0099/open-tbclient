@@ -8,13 +8,13 @@ import java.nio.ByteOrder;
 public abstract class d extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f70044a;
+    public final ByteBuffer f70148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f70045b;
+    public final int f70149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f70046c;
+    public final int f70150c;
 
     public d(int i2) {
         this(i2, i2);
@@ -35,10 +35,10 @@ public abstract class d extends c {
     @Override // d.g.c.d.f
     public final HashCode e() {
         m();
-        this.f70044a.flip();
-        if (this.f70044a.remaining() > 0) {
-            p(this.f70044a);
-            ByteBuffer byteBuffer = this.f70044a;
+        this.f70148a.flip();
+        if (this.f70148a.remaining() > 0) {
+            p(this.f70148a);
+            ByteBuffer byteBuffer = this.f70148a;
             byteBuffer.position(byteBuffer.limit());
         }
         return l();
@@ -64,7 +64,7 @@ public abstract class d extends c {
 
     @Override // d.g.c.d.c
     public final f k(char c2) {
-        this.f70044a.putChar(c2);
+        this.f70148a.putChar(c2);
         n();
         return this;
     }
@@ -72,15 +72,15 @@ public abstract class d extends c {
     public abstract HashCode l();
 
     public final void m() {
-        this.f70044a.flip();
-        while (this.f70044a.remaining() >= this.f70046c) {
-            o(this.f70044a);
+        this.f70148a.flip();
+        while (this.f70148a.remaining() >= this.f70150c) {
+            o(this.f70148a);
         }
-        this.f70044a.compact();
+        this.f70148a.compact();
     }
 
     public final void n() {
-        if (this.f70044a.remaining() < 8) {
+        if (this.f70148a.remaining() < 8) {
             m();
         }
     }
@@ -90,40 +90,40 @@ public abstract class d extends c {
     public abstract void p(ByteBuffer byteBuffer);
 
     public final f q(ByteBuffer byteBuffer) {
-        if (byteBuffer.remaining() <= this.f70044a.remaining()) {
-            this.f70044a.put(byteBuffer);
+        if (byteBuffer.remaining() <= this.f70148a.remaining()) {
+            this.f70148a.put(byteBuffer);
             n();
             return this;
         }
-        int position = this.f70045b - this.f70044a.position();
+        int position = this.f70149b - this.f70148a.position();
         for (int i2 = 0; i2 < position; i2++) {
-            this.f70044a.put(byteBuffer.get());
+            this.f70148a.put(byteBuffer.get());
         }
         m();
-        while (byteBuffer.remaining() >= this.f70046c) {
+        while (byteBuffer.remaining() >= this.f70150c) {
             o(byteBuffer);
         }
-        this.f70044a.put(byteBuffer);
+        this.f70148a.put(byteBuffer);
         return this;
     }
 
     public d(int i2, int i3) {
         n.d(i3 % i2 == 0);
-        this.f70044a = ByteBuffer.allocate(i3 + 7).order(ByteOrder.LITTLE_ENDIAN);
-        this.f70045b = i3;
-        this.f70046c = i2;
+        this.f70148a = ByteBuffer.allocate(i3 + 7).order(ByteOrder.LITTLE_ENDIAN);
+        this.f70149b = i3;
+        this.f70150c = i2;
     }
 
     @Override // d.g.c.d.f, d.g.c.d.j
     public final f a(int i2) {
-        this.f70044a.putInt(i2);
+        this.f70148a.putInt(i2);
         n();
         return this;
     }
 
     @Override // d.g.c.d.f, d.g.c.d.j
     public final f b(long j) {
-        this.f70044a.putLong(j);
+        this.f70148a.putLong(j);
         n();
         return this;
     }

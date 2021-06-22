@@ -5,11 +5,11 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38000a;
+    public long f38098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38001b;
+    public String f38099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<j> f38002c;
+    public List<j> f38100c;
 }

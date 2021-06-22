@@ -87,6 +87,7 @@ public class LoginActivity extends BaseActivity {
             LoginActivity.this.a(false);
         }
     };
+    public boolean mNeedSetContentView = true;
     public AuthorizationListener C = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoginActivity.2
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void beforeSuccess(SapiAccount sapiAccount) {
@@ -243,7 +244,9 @@ public class LoginActivity extends BaseActivity {
         SapiWebView sapiWebView;
         super.onCreate(bundle);
         try {
-            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+            if (this.mNeedSetContentView) {
+                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+            }
             init();
             setupViews();
             a();
@@ -357,7 +360,7 @@ public class LoginActivity extends BaseActivity {
             webLoginDTO.preSetUname = this.x;
         }
         if (webLoginDTO != null) {
-            if ((!TextUtils.isEmpty(webLoginDTO.encryptedId) || !TextUtils.isEmpty(webLoginDTO.uid)) && !TextUtils.isEmpty(webLoginDTO.preSetUname)) {
+            if (!TextUtils.isEmpty(webLoginDTO.encryptedId) || !TextUtils.isEmpty(webLoginDTO.uid) || !TextUtils.isEmpty(webLoginDTO.preSetUname)) {
                 SapiJsCallBacks.DirectedLoginParams directedLoginParams = new SapiJsCallBacks.DirectedLoginParams();
                 directedLoginParams.uid = webLoginDTO.uid;
                 directedLoginParams.encryptedId = webLoginDTO.encryptedId;

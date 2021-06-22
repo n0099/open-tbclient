@@ -19,38 +19,38 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import d.a.c.e.p.l;
-import d.a.m0.r.u.c;
+import d.a.n0.r.u.c;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15422a;
+    public View f15504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f15423b;
+    public HeadImageView f15505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15424c;
+    public TextView f15506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15425d;
+    public TextView f15507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15426e;
+    public ImageView f15508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15427f;
+    public TextView f15509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15428g;
+    public TextView f15510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f15429h;
+    public TBSpecificationBtn f15511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f15430i;
+    public LinearLayout f15512i;
     public EMTextView j;
     public EMTextView k;
     public EMTextView l;
@@ -59,55 +59,55 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public ForumRuleDetailSelfVH(View view) {
         super(view);
         this.m = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        this.f15422a = view;
+        this.f15504a = view;
         b(view);
         e(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void b(View view) {
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.forum_rules_head_view_info_item);
-        this.f15423b = headImageView;
+        this.f15505b = headImageView;
         headImageView.setRadius(R.dimen.tbds47);
-        this.f15423b.setConrers(15);
-        this.f15424c = (TextView) view.findViewById(R.id.forum_rules_user_name_info_item);
-        this.f15425d = (TextView) view.findViewById(R.id.forum_rules_user_identity_info_item);
-        this.f15426e = (ImageView) view.findViewById(R.id.forum_rules_user_forum_level_info_item);
-        this.f15427f = (TextView) view.findViewById(R.id.forum_rules_bjh_author_auth_info_item);
-        this.f15428g = (TextView) view.findViewById(R.id.forum_rules_revise);
+        this.f15505b.setConrers(15);
+        this.f15506c = (TextView) view.findViewById(R.id.forum_rules_user_name_info_item);
+        this.f15507d = (TextView) view.findViewById(R.id.forum_rules_user_identity_info_item);
+        this.f15508e = (ImageView) view.findViewById(R.id.forum_rules_user_forum_level_info_item);
+        this.f15509f = (TextView) view.findViewById(R.id.forum_rules_bjh_author_auth_info_item);
+        this.f15510g = (TextView) view.findViewById(R.id.forum_rules_revise);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view.findViewById(R.id.forum_rules_edit_status);
-        this.f15429h = tBSpecificationBtn;
+        this.f15511h = tBSpecificationBtn;
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_compile));
         EMTextView eMTextView = (EMTextView) view.findViewById(R.id.forum_rules_check_status);
         this.l = eMTextView;
         eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_review));
-        this.f15430i = (LinearLayout) view.findViewById(R.id.forum_rules_preface_layout);
+        this.f15512i = (LinearLayout) view.findViewById(R.id.forum_rules_preface_layout);
         this.j = (EMTextView) view.findViewById(R.id.forum_rules_preface_title);
         this.k = (EMTextView) view.findViewById(R.id.forum_rules_preface);
     }
 
     public void c(int i2) {
         if (i2 > 0) {
-            SkinManager.setImageResource(this.f15426e, BitmapHelper.getGradeResourceIdInEnterForum(i2));
+            SkinManager.setImageResource(this.f15508e, BitmapHelper.getGradeResourceIdInEnterForum(i2));
         }
     }
 
     public void d(String str) {
-        if (this.k == null || this.f15430i == null) {
+        if (this.k == null || this.f15512i == null) {
             return;
         }
         if (StringUtils.isNull(str)) {
-            this.f15430i.setVisibility(8);
+            this.f15512i.setVisibility(8);
             return;
         }
         this.k.setText(str);
-        this.f15430i.setVisibility(0);
+        this.f15512i.setVisibility(0);
     }
 
     public void e(int i2) {
-        c d2 = c.d(this.f15424c);
+        c d2 = c.d(this.f15506c);
         d2.x(R.string.F_X01);
         d2.s(R.color.CAM_X0105);
-        c d3 = c.d(this.f15428g);
+        c d3 = c.d(this.f15510g);
         d3.x(R.string.F_X01);
         d3.s(R.color.CAM_X0109);
         c d4 = c.d(this.l);
@@ -117,30 +117,30 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         c d5 = c.d(this.j);
         d5.x(R.string.F_X02);
         d5.s(R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f15427f, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15509f, R.color.CAM_X0109);
         if (i2 != 1 && i2 != 4) {
-            this.f15423b.setIsNight(false);
+            this.f15505b.setIsNight(false);
         } else {
-            this.f15423b.setIsNight(true);
+            this.f15505b.setIsNight(true);
         }
-        this.f15429h.setTextSize(R.dimen.T_X08);
+        this.f15511h.setTextSize(R.dimen.T_X08);
     }
 
     public void f(int i2) {
         if (i2 == 1) {
-            this.f15429h.setVisibility(8);
+            this.f15511h.setVisibility(8);
             this.l.setVisibility(0);
             return;
         }
         this.l.setVisibility(8);
-        this.f15429h.setVisibility(0);
+        this.f15511h.setVisibility(0);
     }
 
     public void g(String str) {
         if (str != null && !str.isEmpty() && !str.equals(StringUtil.NULL_STRING)) {
-            this.f15428g.setText(i(str));
+            this.f15510g.setText(i(str));
         } else {
-            this.f15428g.setVisibility(8);
+            this.f15510g.setVisibility(8);
         }
     }
 
@@ -156,8 +156,8 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
             } else if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
-            this.f15425d.setBackgroundDrawable(layerDrawable);
-            SkinManager.setViewTextColor(this.f15425d, R.color.CAM_X0101);
+            this.f15507d.setBackgroundDrawable(layerDrawable);
+            SkinManager.setViewTextColor(this.f15507d, R.color.CAM_X0101);
         }
     }
 

@@ -20,25 +20,25 @@ import org.json.JSONObject;
 public class d extends g<Long, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Long, SoftReference<c>> f39485a;
+    public final Map<Long, SoftReference<c>> f39588a;
 
     /* loaded from: classes7.dex */
     public class a implements c.a<Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f39486a;
+        public final /* synthetic */ long f39589a;
 
         public a(long j) {
-            this.f39486a = j;
+            this.f39589a = j;
         }
 
         @Override // d.o.a.d.n.c.a
         public Object a(Object obj) {
-            SoftReference softReference = (SoftReference) d.this.f39485a.remove(Long.valueOf(this.f39486a));
+            SoftReference softReference = (SoftReference) d.this.f39588a.remove(Long.valueOf(this.f39589a));
             if (softReference == null || softReference.get() == null) {
                 return null;
             }
-            ((c) softReference.get()).a(d.this.get(Long.valueOf(this.f39486a)));
+            ((c) softReference.get()).a(d.this.get(Long.valueOf(this.f39589a)));
             return null;
         }
     }
@@ -47,18 +47,18 @@ public class d extends g<Long, Bitmap> {
     public class b implements c.a<Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f39488a;
+        public final /* synthetic */ String f39591a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f39489b;
+        public final /* synthetic */ long f39592b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f39490c;
+        public final /* synthetic */ long f39593c;
 
         public b(String str, long j, long j2) {
-            this.f39488a = str;
-            this.f39489b = j;
-            this.f39490c = j2;
+            this.f39591a = str;
+            this.f39592b = j;
+            this.f39593c = j2;
         }
 
         @Override // d.o.a.d.n.c.a
@@ -67,7 +67,7 @@ public class d extends g<Long, Bitmap> {
             Throwable th;
             k x;
             try {
-                x = d.o.a.e.b.g.d.x(true, 0, this.f39488a, null);
+                x = d.o.a.e.b.g.d.x(true, 0, this.f39591a, null);
             } catch (Exception e2) {
                 e = e2;
                 bufferedInputStream = null;
@@ -104,8 +104,8 @@ public class d extends g<Long, Bitmap> {
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
-                    j.c.a().s("ttd_pref_monitor", jSONObject, this.f39489b);
-                    d.this.put(Long.valueOf(this.f39490c), decodeStream);
+                    j.c.a().s("ttd_pref_monitor", jSONObject, this.f39592b);
+                    d.this.put(Long.valueOf(this.f39593c), decodeStream);
                     e.C(bufferedInputStream);
                 } catch (Exception e4) {
                     e = e4;
@@ -129,10 +129,10 @@ public class d extends g<Long, Bitmap> {
 
     /* renamed from: com.ss.android.downloadlib.addownload.compliance.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0477d {
+    public static class C0480d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f39492a = new d(null);
+        public static d f39595a = new d(null);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -148,24 +148,24 @@ public class d extends g<Long, Bitmap> {
 
     public d() {
         super(8, 8);
-        this.f39485a = new HashMap();
+        this.f39588a = new HashMap();
     }
 
     public static d a() {
-        return C0477d.f39492a;
+        return C0480d.f39595a;
     }
 
     public void a(long j, @NonNull c cVar) {
         if (get(Long.valueOf(j)) != null) {
             cVar.a(get(Long.valueOf(j)));
         } else {
-            this.f39485a.put(Long.valueOf(j), new SoftReference<>(cVar));
+            this.f39588a.put(Long.valueOf(j), new SoftReference<>(cVar));
         }
     }
 
     public void a(long j, long j2, String str) {
         if (get(Long.valueOf(j)) != null) {
-            SoftReference<c> remove = this.f39485a.remove(Long.valueOf(j));
+            SoftReference<c> remove = this.f39588a.remove(Long.valueOf(j));
             if (remove == null || remove.get() == null) {
                 return;
             }

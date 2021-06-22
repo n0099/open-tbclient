@@ -11,19 +11,19 @@ import java.nio.charset.Charset;
 public class b implements Closeable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final InputStream f43105e;
+    public final InputStream f43208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Charset f43106f;
+    public final Charset f43209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f43107g;
+    public byte[] f43210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43108h;
+    public int f43211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43109i;
+    public int f43212i;
 
     /* loaded from: classes2.dex */
     public class a extends ByteArrayOutputStream {
@@ -46,7 +46,7 @@ public class b implements Closeable {
             }
             i2 = ((ByteArrayOutputStream) this).count;
             try {
-                return new String(((ByteArrayOutputStream) this).buf, 0, i2, b.this.f43106f.name());
+                return new String(((ByteArrayOutputStream) this).buf, 0, i2, b.this.f43209f.name());
             } catch (UnsupportedEncodingException e2) {
                 throw new AssertionError(e2);
             }
@@ -59,59 +59,59 @@ public class b implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        synchronized (this.f43105e) {
-            if (this.f43107g != null) {
-                this.f43107g = null;
-                this.f43105e.close();
+        synchronized (this.f43208e) {
+            if (this.f43210g != null) {
+                this.f43210g = null;
+                this.f43208e.close();
             }
         }
     }
 
     public boolean n() {
-        return this.f43109i == -1;
+        return this.f43212i == -1;
     }
 
     public String q() {
         int i2;
         int i3;
-        synchronized (this.f43105e) {
-            if (this.f43107g != null) {
-                if (this.f43108h >= this.f43109i) {
+        synchronized (this.f43208e) {
+            if (this.f43210g != null) {
+                if (this.f43211h >= this.f43212i) {
                     r();
                 }
-                for (int i4 = this.f43108h; i4 != this.f43109i; i4++) {
-                    if (this.f43107g[i4] == 10) {
-                        if (i4 != this.f43108h) {
+                for (int i4 = this.f43211h; i4 != this.f43212i; i4++) {
+                    if (this.f43210g[i4] == 10) {
+                        if (i4 != this.f43211h) {
                             i3 = i4 - 1;
-                            if (this.f43107g[i3] == 13) {
-                                String str = new String(this.f43107g, this.f43108h, i3 - this.f43108h, this.f43106f.name());
-                                this.f43108h = i4 + 1;
+                            if (this.f43210g[i3] == 13) {
+                                String str = new String(this.f43210g, this.f43211h, i3 - this.f43211h, this.f43209f.name());
+                                this.f43211h = i4 + 1;
                                 return str;
                             }
                         }
                         i3 = i4;
-                        String str2 = new String(this.f43107g, this.f43108h, i3 - this.f43108h, this.f43106f.name());
-                        this.f43108h = i4 + 1;
+                        String str2 = new String(this.f43210g, this.f43211h, i3 - this.f43211h, this.f43209f.name());
+                        this.f43211h = i4 + 1;
                         return str2;
                     }
                 }
-                a aVar = new a((this.f43109i - this.f43108h) + 80);
+                a aVar = new a((this.f43212i - this.f43211h) + 80);
                 loop1: while (true) {
-                    aVar.write(this.f43107g, this.f43108h, this.f43109i - this.f43108h);
-                    this.f43109i = -1;
+                    aVar.write(this.f43210g, this.f43211h, this.f43212i - this.f43211h);
+                    this.f43212i = -1;
                     r();
-                    i2 = this.f43108h;
-                    while (i2 != this.f43109i) {
-                        if (this.f43107g[i2] == 10) {
+                    i2 = this.f43211h;
+                    while (i2 != this.f43212i) {
+                        if (this.f43210g[i2] == 10) {
                             break loop1;
                         }
                         i2++;
                     }
                 }
-                if (i2 != this.f43108h) {
-                    aVar.write(this.f43107g, this.f43108h, i2 - this.f43108h);
+                if (i2 != this.f43211h) {
+                    aVar.write(this.f43210g, this.f43211h, i2 - this.f43211h);
                 }
-                this.f43108h = i2 + 1;
+                this.f43211h = i2 + 1;
                 return aVar.toString();
             }
             throw new IOException("LineReader is closed");
@@ -119,12 +119,12 @@ public class b implements Closeable {
     }
 
     public final void r() {
-        InputStream inputStream = this.f43105e;
-        byte[] bArr = this.f43107g;
+        InputStream inputStream = this.f43208e;
+        byte[] bArr = this.f43210g;
         int read = inputStream.read(bArr, 0, bArr.length);
         if (read != -1) {
-            this.f43108h = 0;
-            this.f43109i = read;
+            this.f43211h = 0;
+            this.f43212i = read;
             return;
         }
         throw new EOFException();
@@ -135,10 +135,10 @@ public class b implements Closeable {
             throw null;
         }
         if (i2 >= 0) {
-            if (charset.equals(c.f43111a)) {
-                this.f43105e = inputStream;
-                this.f43106f = charset;
-                this.f43107g = new byte[i2];
+            if (charset.equals(c.f43214a)) {
+                this.f43208e = inputStream;
+                this.f43209f = charset;
+                this.f43210g = new byte[i2];
                 return;
             }
             throw new IllegalArgumentException("Unsupported encoding");

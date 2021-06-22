@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.n0.f1.f.e;
+import d.a.o0.f1.f.e;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,25 +57,25 @@ public class MsgActivityView extends e {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17054e;
+        public final /* synthetic */ String f17136e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17055f;
+        public final /* synthetic */ String f17137f;
 
         public c(String str, String str2) {
-            this.f17054e = str;
-            this.f17055f = str2;
+            this.f17136e = str;
+            this.f17137f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17054e, this.f17055f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17136e, this.f17137f)));
         }
     }
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
-        this.f58033h = (TextView) d(R.id.tex_msgitem_time);
+        this.f58158h = (TextView) d(R.id.tex_msgitem_time);
         this.u = (TextView) d(R.id.msg_msgactivity_title);
         this.v = (TextView) d(R.id.msg_msgactivity_time);
         this.w = (TextView) d(R.id.msg_msgactivity_address);
@@ -157,17 +157,17 @@ public class MsgActivityView extends e {
         }
     }
 
-    @Override // d.a.n0.f1.f.e
+    @Override // d.a.o0.f1.f.e
     public void q(d.a.c.e.h.a aVar) {
         this.y = aVar;
     }
 
-    @Override // d.a.n0.f1.f.e
+    @Override // d.a.o0.f1.f.e
     public void r(d.a.c.e.h.b bVar) {
         this.z = bVar;
     }
 
-    @Override // d.a.n0.f1.f.e
+    @Override // d.a.o0.f1.f.e
     public void s(int i2) {
         this.x = i2;
     }

@@ -20,7 +20,6 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.CommonUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.PtokenStat;
-import com.baidu.sapi2.utils.SafeService;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -28,6 +27,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sofire.ac.FH;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,7 +41,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_UID = "uid";
     public static final String TAG = "SapiAccountManager";
     public static final int VERSION_CODE = 250;
-    public static final String VERSION_NAME = "9.3.2.5";
+    public static final String VERSION_NAME = "9.3.6";
     public static CheckUrlIsAvailableListener checkUrlIsAvailablelister;
     public static GlobalCallback globalCallback;
     public static SapiAccountManager instance;
@@ -238,7 +238,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public String getVersionName() {
-        return "9.3.2.5";
+        return "9.3.6";
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -295,9 +295,9 @@ public final class SapiAccountManager implements ISAccountManager {
                             if (sapiConfiguration2.supportFaceLogin) {
                                 new PassBiometricCall().initPassBioSDK(SapiAccountManager.sapiConfiguration);
                             }
-                            SafeService safeService = SafeService.getInstance();
+                            FH.setFaceLicenseId("pass_auth_id_01");
                             SapiConfiguration sapiConfiguration3 = sapiConfiguration2;
-                            safeService.init(sapiConfiguration3.context, sapiConfiguration3.sofireAppKey, sapiConfiguration3.sofireSecKey, 1);
+                            FH.init(sapiConfiguration3.context, sapiConfiguration3.sofireAppKey, sapiConfiguration3.sofireSecKey, 1);
                             if (TextUtils.isEmpty(SapiUtils.getCookieBduss()) || TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
                                 SapiAccountManager.getInstance().getAccountService().webLogin(sapiConfiguration2.context);
                             }
@@ -337,7 +337,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiContext.getInstance().removeLoginAccount(sapiAccount);
         new ShareCallPacking().asyncMarkLoginState(3);
         try {
-            new OpenBdussService(getSapiConfiguration(), "9.3.2.5").logout();
+            new OpenBdussService(getSapiConfiguration(), "9.3.6").logout();
         } catch (Throwable unused) {
         }
         if (currentAccount == null || TextUtils.isEmpty(sapiAccount.uid) || !sapiAccount.uid.equals(currentAccount.uid)) {

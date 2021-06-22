@@ -1,7 +1,7 @@
 package com.baidubce.util;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BLog {
     public static String LOG_TAG = "BOS";
     public static boolean enableLog;

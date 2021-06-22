@@ -11,6 +11,7 @@ import android.system.Os;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.kwad.sdk.crash.model.message.DiskInfo;
@@ -52,15 +53,15 @@ import org.json.JSONObject;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f35141a = new File("/proc/self/fd");
+    public static final File f35239a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f35142b = new File("/proc/self/task");
+    public static final File f35240b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f35141a);
-        if (f35141a.exists() && f35141a.isDirectory() && (listFiles = f35141a.listFiles()) != null) {
+        Objects.requireNonNull(f35239a);
+        if (f35239a.exists() && f35239a.isDirectory() && (listFiles = f35239a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
@@ -211,17 +212,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f35137e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c2.f35133a = SystemUtil.a();
+        c2.f35235e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f35231a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f35136d = pss;
-        memoryInfo.mTotalMB = (int) (c2.f35133a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f35081a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f35137e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f35134b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f35135c / 1024);
+        c2.f35234d = pss;
+        memoryInfo.mTotalMB = (int) (c2.f35231a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f35179a / 1048576.0d);
+        memoryInfo.mJavaHeapMB = (int) (c2.f35235e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f35232b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f35233c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f35138f;
+        memoryInfo.mThreadsCount = c2.f35236f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.b(context) / 1048576);
@@ -230,7 +231,7 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f35141a.listFiles();
+            File[] listFiles = f35239a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
@@ -250,7 +251,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f35138f > 400) {
+        if (c2.f35236f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -267,7 +268,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f35142b.listFiles();
+        File[] listFiles = f35240b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -287,7 +288,7 @@ public final class f {
 
     public static void a(File file) {
         try {
-            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", "system", "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", "system", "-b", "events", "-d", "-f", file.getPath()}, 0);
+            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", ConstantHelper.LOG_OS, "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", ConstantHelper.LOG_OS, "-b", "events", "-d", "-f", file.getPath()}, 0);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
@@ -451,12 +452,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f35082b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f35083c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f35180b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f35181c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f35084d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f35085e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f35182d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f35183e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

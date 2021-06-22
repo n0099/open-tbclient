@@ -1,26 +1,40 @@
 package d.a.n0.e0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes4.dex */
-public class d extends BaseCardInfo {
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes3.dex */
+public class d {
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f56457f = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<b> f53124a = new ArrayList<>();
 
-    /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.r0.u1.c.b f56458e;
+    /* renamed from: b  reason: collision with root package name */
+    public Context f53125b;
 
-    public d.a.n0.r0.u1.c.b c() {
-        return this.f56458e;
+    public d(Context context) {
+        this.f53125b = context;
     }
 
-    public void g(d.a.n0.r0.u1.c.b bVar) {
-        this.f56458e = bVar;
+    public void a(b bVar) {
+        if (bVar == null || bVar.getFragmentTabStructure() == null) {
+            return;
+        }
+        Iterator<b> it = this.f53124a.iterator();
+        while (it.hasNext()) {
+            b next = it.next();
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f53119e == bVar.getFragmentTabStructure().f53119e) {
+                return;
+            }
+        }
+        this.f53124a.add(bVar);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
-    public BdUniqueId getType() {
-        return f56457f;
+    public Context b() {
+        return this.f53125b;
+    }
+
+    public ArrayList<b> c() {
+        return this.f53124a;
     }
 }

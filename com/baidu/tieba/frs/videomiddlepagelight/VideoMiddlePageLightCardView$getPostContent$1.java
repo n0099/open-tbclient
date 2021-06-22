@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.videomiddlepagelight;
 
 import com.baidu.tbadk.core.data.AbstractData;
-import d.a.m0.b1.m.e;
+import d.a.n0.b1.m.e;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;

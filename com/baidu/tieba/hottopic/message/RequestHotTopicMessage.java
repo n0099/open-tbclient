@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
@@ -11,7 +11,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16904common;
+    public CommonReq f16986common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -32,7 +32,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f72769common = getCommon();
+            builder.f72873common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.scr_w = getScrW();
@@ -61,7 +61,7 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f16904common;
+        return this.f16986common;
     }
 
     public Long getFid() {
@@ -113,7 +113,7 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16904common = commonReq;
+        this.f16986common = commonReq;
     }
 
     public void setFid(Long l) {

@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
 import d.a.c.e.p.l;
-import d.a.n0.t2.x;
+import d.a.o0.t2.x;
 /* loaded from: classes4.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public RelativeLayout r;
@@ -26,16 +26,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18000e;
+        public final /* synthetic */ LPBigImgCard f18082e;
 
         public a(LPBigImgCard lPBigImgCard) {
-            this.f18000e = lPBigImgCard;
+            this.f18082e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18000e.getBtnLink()});
-            x.p().m().c(this.f18000e.getsExtras(), LPBigImgCardView.this.f17982e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18082e.getBtnLink()});
+            x.p().m().c(this.f18082e.getsExtras(), LPBigImgCardView.this.f18064e);
         }
     }
 
@@ -43,16 +43,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18002e;
+        public final /* synthetic */ LPBigImgCard f18084e;
 
         public b(LPBigImgCard lPBigImgCard) {
-            this.f18002e = lPBigImgCard;
+            this.f18084e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18002e.getBtnLink()});
-            x.p().m().c(this.f18002e.getsExtras(), LPBigImgCardView.this.f17982e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18084e.getBtnLink()});
+            x.p().m().c(this.f18084e.getsExtras(), LPBigImgCardView.this.f18064e);
         }
     }
 
@@ -129,7 +129,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (lPBigImgCard.mHasShown) {
             return;
         }
-        x.p().m().d(lPBigImgCard.getShowExtra(), this.f17982e);
+        x.p().m().d(lPBigImgCard.getShowExtra(), this.f18064e);
         lPBigImgCard.mHasShown = true;
     }
 

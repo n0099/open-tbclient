@@ -14,7 +14,7 @@ import kotlin.reflect.KParameter;
 import kotlin.reflect.KType;
 import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KVisibility;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class CallableReference implements KCallable, Serializable {
     @SinceKotlin(version = "1.1")
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
@@ -31,7 +31,7 @@ public abstract class CallableReference implements KCallable, Serializable {
     public final String signature;
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NoReceiver implements Serializable {
         public static final NoReceiver INSTANCE = new NoReceiver();
 

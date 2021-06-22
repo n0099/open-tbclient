@@ -8,13 +8,13 @@ public enum VideoAdValidity {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39214a;
+    public String f39312a;
 
     VideoAdValidity(String str) {
-        this.f39214a = str;
+        this.f39312a = str;
     }
 
     public final String getMessage() {
-        return this.f39214a;
+        return this.f39312a;
     }
 }

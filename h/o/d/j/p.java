@@ -13,6 +13,6 @@ public abstract class p<E> extends l<E> {
     }
 
     public final void i(long j2) {
-        f0.f71971a.i(this, j, j2);
+        f0.f72075a.i(this, j, j2);
     }
 }

@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.yy.hiidostatis.defs.obj.Elem;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
@@ -86,12 +87,12 @@ public class Info<T extends Elem> implements Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         for (T t : this.elems) {
             sb.append(t.toString());
             sb.append(" ");
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 }

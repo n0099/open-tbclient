@@ -22,12 +22,12 @@ import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.i.q;
-import d.a.m0.g0.b.a;
-import d.a.m0.m.f;
-import d.a.m0.r.q.n;
-import d.a.m0.r.q.n1;
-import d.a.m0.r.q.o1;
-import d.a.m0.r.u.c;
+import d.a.n0.g0.b.a;
+import d.a.n0.m.f;
+import d.a.n0.r.q.n;
+import d.a.n0.r.q.n1;
+import d.a.n0.r.q.o1;
+import d.a.n0.r.u.c;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
@@ -64,8 +64,8 @@ public class RecommendForumLayout extends LinearLayout implements q {
 
     public void a(o1 o1Var) {
         this.k.setOnClickListener(this.s);
-        if (!TextUtils.isEmpty(o1Var.f53766h) && o1Var.f53767i != 0) {
-            this.j.setText(o1Var.f53766h);
+        if (!TextUtils.isEmpty(o1Var.f53873h) && o1Var.f53874i != 0) {
+            this.j.setText(o1Var.f53873h);
         } else {
             this.j.setText(R.string.recommend_forum_title_horizontal);
             if (this.f4515i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {

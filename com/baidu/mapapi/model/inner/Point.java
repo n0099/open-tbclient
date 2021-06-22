@@ -1,5 +1,6 @@
 package com.baidu.mapapi.model.inner;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class Point implements Serializable {
@@ -46,6 +47,6 @@ public class Point implements Serializable {
     }
 
     public String toString() {
-        return "Point [x=" + this.x + ", y=" + this.y + "]";
+        return "Point [x=" + this.x + ", y=" + this.y + PreferencesUtil.RIGHT_MOUNT;
     }
 }

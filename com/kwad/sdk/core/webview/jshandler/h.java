@@ -9,14 +9,14 @@ import androidx.annotation.Nullable;
 public class h implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f34996a = new Handler(Looper.getMainLooper());
+    public Handler f35094a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public a f34997b;
+    public a f35095b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f34998c;
+    public com.kwad.sdk.core.webview.a.c f35096c;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -25,12 +25,12 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     }
 
     public h(a aVar) {
-        this.f34997b = aVar;
+        this.f35095b = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        a aVar = this.f34997b;
+        a aVar = this.f35095b;
         if (aVar != null) {
             aVar.a();
         }
@@ -44,13 +44,13 @@ public class h implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f34998c = cVar;
-        this.f34996a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
+        this.f35096c = cVar;
+        this.f35094a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
             @Override // java.lang.Runnable
             public void run() {
                 h.this.c();
-                if (h.this.f34998c != null) {
-                    h.this.f34998c.a(null);
+                if (h.this.f35096c != null) {
+                    h.this.f35096c.a(null);
                 }
             }
         });
@@ -58,8 +58,8 @@ public class h implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f34997b = null;
-        this.f34998c = null;
-        this.f34996a.removeCallbacksAndMessages(null);
+        this.f35095b = null;
+        this.f35096c = null;
+        this.f35094a.removeCallbacksAndMessages(null);
     }
 }

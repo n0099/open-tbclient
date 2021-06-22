@@ -7,19 +7,19 @@ import java.nio.ByteBuffer;
 public class jh extends ix {
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41660b = 10000;
+    public static int f41763b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41661c = 10000;
+    public static int f41764c = 10000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41662d = 10000;
+    public static int f41765d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f41663e = 10485760;
+    public static int f41766e = 10485760;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f41664f = 104857600;
+    public static int f41767f = 104857600;
 
     /* loaded from: classes7.dex */
     public static class a extends ix.a {
@@ -33,8 +33,8 @@ public class jh extends ix {
 
         @Override // com.xiaomi.push.ix.a, com.xiaomi.push.jd
         public jb a(jl jlVar) {
-            jh jhVar = new jh(jlVar, ((ix.a) this).f805a, this.f41647b);
-            int i2 = ((ix.a) this).f41646a;
+            jh jhVar = new jh(jlVar, ((ix.a) this).f805a, this.f41750b);
+            int i2 = ((ix.a) this).f41749a;
             if (i2 != 0) {
                 jhVar.b(i2);
             }
@@ -50,7 +50,7 @@ public class jh extends ix {
     public iz a() {
         byte a2 = a();
         int a3 = a();
-        if (a3 <= f41661c) {
+        if (a3 <= f41764c) {
             return new iz(a2, a3);
         }
         throw new jc(3, "Thrift list size " + a3 + " out of range!");
@@ -61,7 +61,7 @@ public class jh extends ix {
         byte a2 = a();
         byte a3 = a();
         int a4 = a();
-        if (a4 <= f41660b) {
+        if (a4 <= f41763b) {
             return new ja(a2, a3, a4);
         }
         throw new jc(3, "Thrift map size " + a4 + " out of range!");
@@ -71,7 +71,7 @@ public class jh extends ix {
     public jf a() {
         byte a2 = a();
         int a3 = a();
-        if (a3 <= f41662d) {
+        if (a3 <= f41765d) {
             return new jf(a2, a3);
         }
         throw new jc(3, "Thrift set size " + a3 + " out of range!");
@@ -80,12 +80,12 @@ public class jh extends ix {
     @Override // com.xiaomi.push.ix, com.xiaomi.push.jb
     public String a() {
         int a2 = a();
-        if (a2 > f41663e) {
+        if (a2 > f41766e) {
             throw new jc(3, "Thrift string size " + a2 + " out of range!");
-        } else if (((jb) this).f41655a.b() >= a2) {
+        } else if (((jb) this).f41758a.b() >= a2) {
             try {
-                String str = new String(((jb) this).f41655a.m517a(), ((jb) this).f41655a.a(), a2, "UTF-8");
-                ((jb) this).f41655a.a(a2);
+                String str = new String(((jb) this).f41758a.m517a(), ((jb) this).f41758a.a(), a2, "UTF-8");
+                ((jb) this).f41758a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException unused) {
                 throw new iv("JVM DOES NOT SUPPORT UTF-8");
@@ -98,17 +98,17 @@ public class jh extends ix {
     @Override // com.xiaomi.push.ix, com.xiaomi.push.jb
     public ByteBuffer a() {
         int a2 = a();
-        if (a2 > f41664f) {
+        if (a2 > f41767f) {
             throw new jc(3, "Thrift binary size " + a2 + " out of range!");
         }
         c(a2);
-        if (((jb) this).f41655a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f41655a.m517a(), ((jb) this).f41655a.a(), a2);
-            ((jb) this).f41655a.a(a2);
+        if (((jb) this).f41758a.b() >= a2) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f41758a.m517a(), ((jb) this).f41758a.a(), a2);
+            ((jb) this).f41758a.a(a2);
             return wrap;
         }
         byte[] bArr = new byte[a2];
-        ((jb) this).f41655a.b(bArr, 0, a2);
+        ((jb) this).f41758a.b(bArr, 0, a2);
         return ByteBuffer.wrap(bArr);
     }
 }

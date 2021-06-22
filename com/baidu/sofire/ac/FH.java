@@ -1,14 +1,18 @@
 package com.baidu.sofire.ac;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import android.view.SurfaceHolder;
 import androidx.core.app.NotificationCompat;
+import com.baidu.sofire.b.a;
+import com.baidu.sofire.b.b;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.c;
 import com.baidu.sofire.core.d;
 import com.baidu.sofire.core.f;
-import com.baidu.sofire.g.s;
+import com.baidu.sofire.utility.c;
+import com.baidu.sofire.utility.t;
 import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
@@ -36,6 +40,22 @@ public class FH {
         return callSync(i2, str, null, new Object[0]);
     }
 
+    public static void cancelFaceProcess() {
+        a aVar;
+        b a2 = b.a();
+        if (a2 == null || (aVar = a2.f10208b) == null) {
+            return;
+        }
+        try {
+            aVar.f10182f = true;
+            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f10181e, Boolean.TRUE, "");
+            aVar.a(-6);
+        } catch (Throwable unused) {
+            c.a();
+        }
+        a2.f10208b = null;
+    }
+
     public static String gd(Context context) {
         return "";
     }
@@ -44,7 +64,7 @@ public class FH {
         f a2;
         List<ApkInfo> b2;
         try {
-            if (c.f10178b != null && s.a(c.f10178b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+            if (com.baidu.sofire.core.c.f10234b != null && t.a(com.baidu.sofire.core.c.f10234b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                 for (ApkInfo apkInfo : b2) {
                     if (apkInfo.key == i2) {
                         return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -53,13 +73,13 @@ public class FH {
             }
             return "";
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            c.a();
             return "";
         }
     }
 
     public static String getVersion(Context context) {
-        return "3.5.7.3";
+        return "3.5.8.6";
     }
 
     public static String gt(Context context, String str, String str2, int i2, String str3) {
@@ -86,7 +106,10 @@ public class FH {
         Method[] methods;
         Method method;
         try {
-            if (!s.a(context)) {
+            if (context == null) {
+                return new Pair<>(-1, "");
+            }
+            if (!t.a(context)) {
                 return new Pair<>(12, "");
             }
             try {
@@ -94,9 +117,9 @@ public class FH {
                 String optString = jSONObject.optString("f");
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
-                    if (optString.equals("callSync")) {
-                        if (c.f10178b == null && context != null) {
-                            c.f10178b = context.getApplicationContext();
+                    if ("callSync".equals(optString)) {
+                        if (com.baidu.sofire.core.c.f10234b == null && context != null) {
+                            com.baidu.sofire.core.c.f10234b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -105,7 +128,7 @@ public class FH {
                         } else {
                             return new Pair<>(-6, "");
                         }
-                    } else if (optString.equals("gzfi")) {
+                    } else if ("gzfi".equals(optString)) {
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("gzfi", Context.class, String.class, Integer.TYPE);
                         } else if (optJSONArray != null && optJSONArray.length() == 3) {
@@ -152,24 +175,24 @@ public class FH {
                 }
                 return new Pair<>(-3, "");
             } catch (Throwable unused) {
-                com.baidu.sofire.g.d.a();
+                c.a();
                 return new Pair<>(-2, "");
             }
         } catch (IllegalArgumentException unused2) {
-            com.baidu.sofire.g.d.a();
+            c.a();
             return new Pair<>(-6, "");
         } catch (Throwable unused3) {
-            com.baidu.sofire.g.d.a();
+            c.a();
             return new Pair<>(-1, "");
         }
     }
 
     public static boolean isInitSuc(int i2) {
-        Context context = c.f10178b;
-        if (context != null && s.a(context)) {
-            return com.baidu.sofire.g.d.a(i2);
+        Context context = com.baidu.sofire.core.c.f10234b;
+        if (context == null || !t.a(context)) {
+            return false;
         }
-        return false;
+        return c.a(i2);
     }
 
     public static boolean parseBoolean(String str) throws IllegalArgumentException {
@@ -267,8 +290,8 @@ public class FH {
                         if (cls.equals(Context.class)) {
                             if (context != null) {
                                 objArr[i4] = context;
-                            } else if (c.f10178b != null) {
-                                objArr[i4] = c.f10178b;
+                            } else if (com.baidu.sofire.core.c.f10234b != null) {
+                                objArr[i4] = com.baidu.sofire.core.c.f10234b;
                             } else {
                                 throw new IllegalArgumentException("method request context");
                             }
@@ -375,7 +398,7 @@ public class FH {
             }
             return objArr2;
         } catch (Throwable th) {
-            com.baidu.sofire.g.d.a();
+            c.a();
             throw new IllegalArgumentException(th.getMessage());
         }
     }
@@ -390,6 +413,62 @@ public class FH {
 
     public static void setDid(Context context, String str) {
         d.b(context, str);
+    }
+
+    public static void setFaceLicenseId(String str) {
+        b.f10205c = str;
+    }
+
+    public static void setSoundEnable(boolean z) {
+        a aVar;
+        b a2 = b.a();
+        if (a2 == null || (aVar = a2.f10208b) == null) {
+            return;
+        }
+        try {
+            if (aVar.f10177a && !aVar.f10182f) {
+                if (aVar.p != null) {
+                    aVar.p.setLivenessStrategySoundEnable(z);
+                }
+            } else if (aVar.q != null) {
+                aVar.q.setDetectStrategySoundEnable(z);
+            }
+        } catch (Throwable unused) {
+            c.a();
+        }
+    }
+
+    public static boolean startFaceCompare(Activity activity, SurfaceHolder surfaceHolder, FaceProcessCallback faceProcessCallback, int i2, FaceCompareInfo faceCompareInfo, boolean z) {
+        b a2 = b.a(activity.getApplicationContext());
+        if (a2.f10208b != null) {
+            a2.a(activity, faceProcessCallback, -1);
+            return false;
+        }
+        a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceCompareInfo, 2, z);
+        a2.f10208b = aVar;
+        aVar.a();
+        return true;
+    }
+
+    public static boolean startFaceVerify(Activity activity, SurfaceHolder surfaceHolder, FaceProcessCallback faceProcessCallback, int i2, FaceVerifyInfo faceVerifyInfo, boolean z) {
+        Context context;
+        b a2 = b.a(activity.getApplicationContext());
+        if (com.baidu.sofire.core.c.a() != null && (context = com.baidu.sofire.core.c.f10234b) != null) {
+            if (!t.a(context)) {
+                a2.a(activity, faceProcessCallback, -14);
+                return false;
+            } else if (a2.f10208b != null) {
+                a2.a(activity, faceProcessCallback, -1);
+                return false;
+            } else {
+                a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceVerifyInfo, 1, z);
+                a2.f10208b = aVar;
+                aVar.a();
+                return true;
+            }
+        }
+        a2.a(activity, faceProcessCallback, -13);
+        return false;
     }
 
     public static String xgz(Context context, String str) {

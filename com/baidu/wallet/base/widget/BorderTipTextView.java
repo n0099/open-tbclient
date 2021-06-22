@@ -10,31 +10,31 @@ import com.baidu.apollon.utils.ResUtils;
 public class BorderTipTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23450a;
+    public int f23532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23451b;
+    public int f23533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23452c;
+    public int f23534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23453d;
+    public int f23535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ColorStateList f23454e;
+    public ColorStateList f23536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f23455f;
+    public Drawable f23537f;
 
     public BorderTipTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23450a = getPaddingLeft();
-        this.f23451b = getPaddingRight();
-        this.f23452c = getPaddingTop();
-        this.f23453d = getPaddingBottom();
-        this.f23454e = getTextColors();
-        this.f23455f = getBackground();
+        this.f23532a = getPaddingLeft();
+        this.f23533b = getPaddingRight();
+        this.f23534c = getPaddingTop();
+        this.f23535d = getPaddingBottom();
+        this.f23536e = getTextColors();
+        this.f23537f = getBackground();
     }
 
     public void setText(CharSequence charSequence, boolean z) {
@@ -45,9 +45,9 @@ public class BorderTipTextView extends TextView {
             setPadding(6, 0, 6, 2);
             return;
         }
-        setBackgroundDrawable(this.f23455f);
-        setTextColor(this.f23454e);
+        setBackgroundDrawable(this.f23537f);
+        setTextColor(this.f23536e);
         setText(charSequence);
-        setPadding(this.f23450a, this.f23452c, this.f23451b, this.f23453d);
+        setPadding(this.f23532a, this.f23534c, this.f23533b, this.f23535d);
     }
 }

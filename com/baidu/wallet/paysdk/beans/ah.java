@@ -14,11 +14,11 @@ import java.util.List;
 public class ah extends PayBaseBean<VerifyCodeResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.d f25235a;
+    public com.baidu.wallet.paysdk.datamodel.d f25317a;
 
     public ah(Context context) {
         super(context);
-        this.f25235a = (com.baidu.wallet.paysdk.datamodel.d) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
+        this.f25317a = (com.baidu.wallet.paysdk.datamodel.d) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -29,10 +29,10 @@ public class ah extends PayBaseBean<VerifyCodeResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("mobile", this.f25235a.f25323a));
-        arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25235a.f25324b));
-        arrayList.add(new RestNameValuePair("order_no", this.f25235a.f25325c));
-        arrayList.add(new RestNameValuePair("pay_type", this.f25235a.f25326d));
+        arrayList.add(new RestNameValuePair("mobile", this.f25317a.f25405a));
+        arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25317a.f25406b));
+        arrayList.add(new RestNameValuePair("order_no", this.f25317a.f25407c));
+        arrayList.add(new RestNameValuePair("pay_type", this.f25317a.f25408d));
         if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
             arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
         }

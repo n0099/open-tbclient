@@ -4,6 +4,7 @@ import android.graphics.ImageFormat;
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.DisplayCompat;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
 import com.baidu.tbadk.TbConfig;
@@ -49,7 +50,7 @@ public class CameraEnumerationAndroid {
             }
 
             public String toString() {
-                return "[" + (this.min / 1000.0f) + ":" + (this.max / 1000.0f) + "]";
+                return PreferencesUtil.LEFT_MOUNT + (this.min / 1000.0f) + ":" + (this.max / 1000.0f) + PreferencesUtil.RIGHT_MOUNT;
             }
         }
 

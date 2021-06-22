@@ -84,7 +84,7 @@ public class g extends RequestParams.Channel {
 
             @Override // d.a.c.j.f
             public void a(String str, int i2, String str2) {
-                if (d.a.c.j.a.f42853a) {
+                if (d.a.c.j.a.f42956a) {
                     Log.d(TitanDownloadService.TAG, "install " + str + " result: " + i2);
                 }
             }

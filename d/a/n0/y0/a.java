@@ -1,57 +1,61 @@
 package d.a.n0.y0;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import d.a.c.e.p.l;
-import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
+import d.a.c.e.n.f;
+/* loaded from: classes3.dex */
 public class a {
 
+    /* renamed from: a  reason: collision with root package name */
+    public b f54753a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HttpMessageListener f54754b = new C1232a(CmdConfigHttp.CMD_TRACK_CONFIG);
+
     /* renamed from: d.a.n0.y0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class RunnableC1802a implements Runnable {
-        @Override // java.lang.Runnable
-        public void run() {
-            a.e();
+    /* loaded from: classes3.dex */
+    public class C1232a extends HttpMessageListener {
+        public C1232a(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
+                TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
+                if (a.this.f54753a != null) {
+                    a.this.f54753a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                }
+            }
         }
     }
 
-    public static boolean b(NetWork netWork) {
-        if (netWork == null) {
-            return false;
-        }
-        if ((netWork.isNetSuccess() ? netWork.getServerErrorCode() : netWork.getNetErrorCode()) == 1990055) {
-            d();
-            return true;
-        }
-        return false;
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, boolean z2);
     }
 
-    public static boolean c(int i2) {
-        switch (i2) {
-            case 202001:
-            case 205001:
-            case 309456:
-            case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                return true;
-            default:
-                return false;
-        }
+    public a() {
+        MessageManager.getInstance().registerListener(this.f54754b);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
+        tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        f.h(TbSingleton.getInstance().isIsOpenTrack());
     }
 
-    public static void d() {
-        if (!l.C()) {
-            TbadkCoreApplication.getInst().handler.post(new RunnableC1802a());
-        } else {
-            e();
-        }
+    public void b(b bVar) {
+        this.f54753a = bVar;
     }
 
-    public static final void e() {
-        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-        d.a.m0.l.a.q(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+    public void c() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
     }
 }

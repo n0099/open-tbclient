@@ -18,16 +18,16 @@ import java.util.List;
 public final class CSJNativeAdGroupImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f30721f;
+    public LinearLayout f30803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30722g;
+    public ImageView f30804g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f30723h;
+    public ImageView f30805h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f30724i;
+    public ImageView f30806i;
 
     public CSJNativeAdGroupImgView(Context context) {
         super(context);
@@ -52,7 +52,7 @@ public final class CSJNativeAdGroupImgView extends b {
         if (tTImage != null && tTImage.isValid()) {
             Context context = getContext();
             String imageUrl = tTImage.getImageUrl();
-            ImageView imageView = this.f30722g;
+            ImageView imageView = this.f30804g;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -70,7 +70,7 @@ public final class CSJNativeAdGroupImgView extends b {
         if (tTImage2 != null && tTImage2.isValid()) {
             Context context2 = getContext();
             String imageUrl2 = tTImage2.getImageUrl();
-            ImageView imageView2 = this.f30723h;
+            ImageView imageView2 = this.f30805h;
             if (context2 == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
             } else if (context2 instanceof Activity) {
@@ -90,7 +90,7 @@ public final class CSJNativeAdGroupImgView extends b {
         }
         Context context3 = getContext();
         String imageUrl3 = tTImage3.getImageUrl();
-        ImageView imageView3 = this.f30724i;
+        ImageView imageView3 = this.f30806i;
         if (context3 == null) {
             d.b("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
         } else if (context3 instanceof Activity) {
@@ -108,22 +108,22 @@ public final class CSJNativeAdGroupImgView extends b {
     @Override // a.a.a.a.u.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30721f = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30722g = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30723h = (ImageView) findViewById(R.id.ad_img_2);
-        this.f30724i = (ImageView) findViewById(R.id.ad_img_3);
+        this.f30803f = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f30804g = (ImageView) findViewById(R.id.ad_img_1);
+        this.f30805h = (ImageView) findViewById(R.id.ad_img_2);
+        this.f30806i = (ImageView) findViewById(R.id.ad_img_3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30721f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30803f.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30722g.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30723h.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30724i.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30804g.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30805h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30806i.getLayoutParams();
         layoutParams.width = i6;
         layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-        this.f30721f.setLayoutParams(layoutParams);
+        this.f30803f.setLayoutParams(layoutParams);
     }
 }

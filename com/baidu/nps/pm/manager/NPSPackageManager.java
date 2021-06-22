@@ -61,8 +61,8 @@ public class NPSPackageManager {
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 d.a.z.i.g a2 = j.a(uri);
-                if (a2.f68684b > 0 || a2.f68683a > 0) {
-                    a.this.f8947f.onProgress(a2.f68683a, a2.f68684b);
+                if (a2.f68788b > 0 || a2.f68787a > 0) {
+                    a.this.f8947f.onProgress(a2.f68787a, a2.f68788b);
                 }
             }
         }
@@ -109,8 +109,8 @@ public class NPSPackageManager {
             public void onChange(boolean z, Uri uri) {
                 d.a.z.i.g a2 = j.a(uri);
                 if (b.this.f8951e != null) {
-                    if (a2.f68684b > 0 || a2.f68683a > 0) {
-                        b.this.f8951e.onProgress(a2.f68683a, a2.f68684b);
+                    if (a2.f68788b > 0 || a2.f68787a > 0) {
+                        b.this.f8951e.onProgress(a2.f68787a, a2.f68788b);
                     }
                 }
             }
@@ -551,7 +551,7 @@ public class NPSPackageManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void killProcessesWithPluginsRunning() {
-        Intent intent = new Intent(d.a.z.i.a.f68681a);
+        Intent intent = new Intent(d.a.z.i.a.f68785a);
         intent.setPackage(ContextHolder.getApplicationContext().getPackageName());
         ContextHolder.getApplicationContext().sendBroadcast(intent);
     }

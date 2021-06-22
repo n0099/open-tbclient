@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
@@ -63,20 +64,20 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public static final int FLAG_PAY_SKD = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f25837a;
+    public f f25919a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f25838b;
+    public long f25920b;
 
     public static String a(LinkedList<BaseActivity> linkedList) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         Iterator<BaseActivity> it = linkedList.iterator();
         while (it.hasNext()) {
             sb.append(it.next().getClass().getSimpleName());
             sb.append(" ");
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 
@@ -112,10 +113,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     public f getBindCardFlagDelegate() {
-        if (this.f25837a == null) {
-            this.f25837a = new f(this);
+        if (this.f25919a == null) {
+            this.f25919a = new f(this);
         }
-        return this.f25837a;
+        return this.f25919a;
     }
 
     public ArrayList<String> getCancelPayEventValue(String str) {
@@ -141,7 +142,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
 
     @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f25838b = System.currentTimeMillis();
+        this.f25920b = System.currentTimeMillis();
         d.d.a.a.a.g(this, StatConfig.getInstance(this));
         d.d.a.a.a.x(new SensorsSyncHttpImpl());
         super.onCreate(bundle);

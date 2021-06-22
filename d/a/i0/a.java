@@ -1,105 +1,141 @@
 package d.a.i0;
+
+import com.baidu.smartcolor.utils.Tri;
 /* loaded from: classes2.dex */
-public final class a {
-    public static final int abc_ab_share_pack_mtrl_alpha = 2131230856;
-    public static final int abc_action_bar_item_background_material = 2131230857;
-    public static final int abc_btn_borderless_material = 2131230858;
-    public static final int abc_btn_check_material = 2131230859;
-    public static final int abc_btn_check_to_on_mtrl_000 = 2131230861;
-    public static final int abc_btn_check_to_on_mtrl_015 = 2131230862;
-    public static final int abc_btn_colored_material = 2131230863;
-    public static final int abc_btn_default_mtrl_shape = 2131230864;
-    public static final int abc_btn_radio_material = 2131230865;
-    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230867;
-    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230868;
-    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230869;
-    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230870;
-    public static final int abc_cab_background_internal_bg = 2131230871;
-    public static final int abc_cab_background_top_material = 2131230872;
-    public static final int abc_cab_background_top_mtrl_alpha = 2131230873;
-    public static final int abc_control_background_material = 2131230874;
-    public static final int abc_dialog_material_background = 2131230875;
-    public static final int abc_edit_text_material = 2131230876;
-    public static final int abc_ic_ab_back_material = 2131230877;
-    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230878;
-    public static final int abc_ic_clear_material = 2131230879;
-    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230880;
-    public static final int abc_ic_go_search_api_material = 2131230881;
-    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230882;
-    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230883;
-    public static final int abc_ic_menu_overflow_material = 2131230884;
-    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230885;
-    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230886;
-    public static final int abc_ic_menu_share_mtrl_alpha = 2131230887;
-    public static final int abc_ic_search_api_material = 2131230888;
-    public static final int abc_ic_star_black_16dp = 2131230889;
-    public static final int abc_ic_star_black_36dp = 2131230890;
-    public static final int abc_ic_star_black_48dp = 2131230891;
-    public static final int abc_ic_star_half_black_16dp = 2131230892;
-    public static final int abc_ic_star_half_black_36dp = 2131230893;
-    public static final int abc_ic_star_half_black_48dp = 2131230894;
-    public static final int abc_ic_voice_search_api_material = 2131230895;
-    public static final int abc_item_background_holo_dark = 2131230896;
-    public static final int abc_item_background_holo_light = 2131230897;
-    public static final int abc_list_divider_material = 2131230898;
-    public static final int abc_list_divider_mtrl_alpha = 2131230899;
-    public static final int abc_list_focused_holo = 2131230900;
-    public static final int abc_list_longpressed_holo = 2131230901;
-    public static final int abc_list_pressed_holo_dark = 2131230902;
-    public static final int abc_list_pressed_holo_light = 2131230903;
-    public static final int abc_list_selector_background_transition_holo_dark = 2131230904;
-    public static final int abc_list_selector_background_transition_holo_light = 2131230905;
-    public static final int abc_list_selector_disabled_holo_dark = 2131230906;
-    public static final int abc_list_selector_disabled_holo_light = 2131230907;
-    public static final int abc_list_selector_holo_dark = 2131230908;
-    public static final int abc_list_selector_holo_light = 2131230909;
-    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230910;
-    public static final int abc_popup_background_mtrl_mult = 2131230911;
-    public static final int abc_ratingbar_indicator_material = 2131230912;
-    public static final int abc_ratingbar_material = 2131230913;
-    public static final int abc_ratingbar_small_material = 2131230914;
-    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230915;
-    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230916;
-    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230917;
-    public static final int abc_scrubber_primary_mtrl_alpha = 2131230918;
-    public static final int abc_scrubber_track_mtrl_alpha = 2131230919;
-    public static final int abc_seekbar_thumb_material = 2131230920;
-    public static final int abc_seekbar_tick_mark_material = 2131230921;
-    public static final int abc_seekbar_track_material = 2131230922;
-    public static final int abc_spinner_mtrl_am_alpha = 2131230923;
-    public static final int abc_spinner_textfield_background_material = 2131230924;
-    public static final int abc_switch_thumb_material = 2131230925;
-    public static final int abc_switch_track_mtrl_alpha = 2131230926;
-    public static final int abc_tab_indicator_material = 2131230927;
-    public static final int abc_tab_indicator_mtrl_alpha = 2131230928;
-    public static final int abc_text_cursor_material = 2131230929;
-    public static final int abc_text_select_handle_left_mtrl_dark = 2131230930;
-    public static final int abc_text_select_handle_left_mtrl_light = 2131230931;
-    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230932;
-    public static final int abc_text_select_handle_middle_mtrl_light = 2131230933;
-    public static final int abc_text_select_handle_right_mtrl_dark = 2131230934;
-    public static final int abc_text_select_handle_right_mtrl_light = 2131230935;
-    public static final int abc_textfield_activated_mtrl_alpha = 2131230936;
-    public static final int abc_textfield_default_mtrl_alpha = 2131230937;
-    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230938;
-    public static final int abc_textfield_search_default_mtrl_alpha = 2131230939;
-    public static final int abc_textfield_search_material = 2131230940;
-    public static final int abc_vector_test = 2131230941;
-    public static final int bd_bg_square_round_corner_blue = 2131231334;
-    public static final int bd_progress_bar_horizontal_blue = 2131231349;
-    public static final int ic_stat_bd_notif_download = 2131233347;
-    public static final int notification_action_background = 2131235938;
-    public static final int notification_bg = 2131235939;
-    public static final int notification_bg_low = 2131235940;
-    public static final int notification_bg_low_normal = 2131235941;
-    public static final int notification_bg_low_pressed = 2131235942;
-    public static final int notification_bg_normal = 2131235943;
-    public static final int notification_bg_normal_pressed = 2131235944;
-    public static final int notification_icon_background = 2131235945;
-    public static final int notification_template_icon_bg = 2131235946;
-    public static final int notification_template_icon_low_bg = 2131235947;
-    public static final int notification_tile_bg = 2131235948;
-    public static final int notify_panel_notification_icon_bg = 2131235950;
-    public static final int tooltip_frame_dark = 2131237339;
-    public static final int tooltip_frame_light = 2131237340;
+public class a {
+    @Deprecated
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f43863a = 0;
+    @Deprecated
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f43864b = 0;
+    @Deprecated
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f43865c = 32;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f43866d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f43867e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Tri f43868f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Tri f43869g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Tri f43870h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Tri f43871i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+
+    /* renamed from: d.a.i0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0603a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final a f43872a = new a();
+
+        public a a() {
+            return this.f43872a;
+        }
+
+        public C0603a b(Tri tri) {
+            this.f43872a.f43869g = tri;
+            return this;
+        }
+
+        public C0603a c(Tri tri) {
+            this.f43872a.f43868f = tri;
+            return this;
+        }
+
+        public C0603a d(int i2, int i3) {
+            if (i2 > 0 && i3 <= 100 && i3 >= i2) {
+                this.f43872a.j = i2;
+                this.f43872a.k = i3;
+                return this;
+            }
+            throw new IllegalArgumentException("argument out of valid range!");
+        }
+
+        public C0603a e(int i2, int i3) {
+            if (i2 >= 10 && i3 <= 100 && i3 >= i2 && i2 % 10 == 0 && i3 % 10 == 0) {
+                this.f43872a.l = i2;
+                this.f43872a.m = i3;
+                return this;
+            }
+            throw new IllegalArgumentException("argument out of valid range!");
+        }
+    }
+
+    public a() {
+        Tri tri = Tri.UNDEFINED;
+        this.f43868f = tri;
+        this.f43869g = tri;
+        this.f43870h = tri;
+        this.f43871i = tri;
+    }
+
+    public Tri g() {
+        return this.f43871i;
+    }
+
+    public Tri h() {
+        return this.f43870h;
+    }
+
+    public int i() {
+        return this.f43864b;
+    }
+
+    public int j() {
+        return this.f43863a;
+    }
+
+    public String k() {
+        return this.f43867e;
+    }
+
+    public Tri l() {
+        return this.f43868f;
+    }
+
+    public Tri m() {
+        return this.f43869g;
+    }
+
+    @Deprecated
+    public int n() {
+        return this.f43865c;
+    }
+
+    public int o() {
+        return this.k;
+    }
+
+    public int p() {
+        return this.m;
+    }
+
+    public int q() {
+        return this.j;
+    }
+
+    public int r() {
+        return this.l;
+    }
+
+    public String s() {
+        return this.f43866d;
+    }
 }

@@ -1,19 +1,34 @@
 package d.a.m0.w;
+
+import android.annotation.SuppressLint;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54518a;
+    public static final String f52365a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f54519b;
+    static {
+        String str = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public Object f54520c;
+    public static boolean a() {
+        return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
+    }
 
-    public a(int i2, int i3, Object obj) {
-        this.f54518a = i2;
-        this.f54519b = i3;
-        this.f54520c = obj;
+    public static boolean b() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(f52365a);
+        sb.append(File.separator);
+        sb.append("libzeuswebviewchromium.so");
+        return new File(sb.toString()).exists() && a();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void c() {
+        PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
     }
 }

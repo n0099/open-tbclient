@@ -23,31 +23,31 @@ public class SuccessImageViewNew extends View {
     public static String TAG = "SuccessImageViewNew";
 
     /* renamed from: a  reason: collision with root package name */
-    public PathMeasure f26207a;
+    public PathMeasure f26289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PathMeasure f26208b;
+    public PathMeasure f26290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Animation f26209c;
+    public Animation f26291c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation f26210d;
+    public Animation f26292d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f26211e;
+    public Paint f26293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f26212f;
+    public float f26294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f26213g;
+    public float f26295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f26214h;
+    public float f26296h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f26215i;
+    public float f26297i;
     public final RectF j;
     public Path k;
     public Path l;
@@ -63,8 +63,8 @@ public class SuccessImageViewNew extends View {
 
     public SuccessImageViewNew(Context context) {
         super(context);
-        this.f26207a = new PathMeasure();
-        this.f26208b = new PathMeasure();
+        this.f26289a = new PathMeasure();
+        this.f26290b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -88,13 +88,13 @@ public class SuccessImageViewNew extends View {
     public void onDraw(Canvas canvas) {
         Path path;
         super.onDraw(canvas);
-        if (this.f26214h == 0.0f) {
+        if (this.f26296h == 0.0f) {
             return;
         }
         if (this.n == 1 && (path = this.m) != null) {
-            canvas.drawPath(path, this.f26211e);
+            canvas.drawPath(path, this.f26293e);
         }
-        canvas.drawPath(this.k, this.f26211e);
+        canvas.drawPath(this.k, this.f26293e);
         canvas.save();
     }
 
@@ -102,14 +102,14 @@ public class SuccessImageViewNew extends View {
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
         if (getMeasuredWidth() > getMeasuredHeight()) {
-            this.f26214h = getMeasuredHeight();
+            this.f26296h = getMeasuredHeight();
         } else {
-            this.f26214h = getMeasuredWidth();
+            this.f26296h = getMeasuredWidth();
         }
-        float f2 = this.f26214h;
-        this.f26212f = f2 / 2.0f;
-        this.f26213g = f2 / 2.0f;
-        this.f26215i = (f2 - dip2px(4.0f)) / 2.0f;
+        float f2 = this.f26296h;
+        this.f26294f = f2 / 2.0f;
+        this.f26295g = f2 / 2.0f;
+        this.f26297i = (f2 - dip2px(4.0f)) / 2.0f;
         b();
     }
 
@@ -124,15 +124,15 @@ public class SuccessImageViewNew extends View {
     }
 
     private void b() {
-        if (this.f26214h == 0.0f) {
+        if (this.f26296h == 0.0f) {
             return;
         }
         if (this.l == null) {
             RectF rectF = this.j;
-            float f2 = this.f26212f;
-            float f3 = this.f26215i;
+            float f2 = this.f26294f;
+            float f3 = this.f26297i;
             rectF.left = f2 - f3;
-            float f4 = this.f26213g;
+            float f4 = this.f26295g;
             rectF.top = f4 - f3;
             rectF.right = f2 + f3;
             rectF.bottom = f4 + f3;
@@ -140,7 +140,7 @@ public class SuccessImageViewNew extends View {
             this.l = path;
             path.addArc(this.j, 0.0f, 320.0f);
             this.l.rLineTo(0.0f, 0.0f);
-            this.f26208b = new PathMeasure(this.l, false);
+            this.f26290b = new PathMeasure(this.l, false);
         }
         if (this.m == null) {
             PathMeasure pathMeasure = new PathMeasure(this.l, true);
@@ -152,30 +152,30 @@ public class SuccessImageViewNew extends View {
             LogUtil.i(str2, "path1 pos" + fArr[0] + GlideException.IndentedAppendable.INDENT + fArr[1]);
             Path path2 = new Path();
             this.m = path2;
-            float f5 = (this.f26215i * 3.0f) / 7.0f;
-            path2.moveTo(this.f26212f - f5, this.f26213g - ((2.0f * f5) / 5.0f));
-            this.m.lineTo(this.f26212f, this.f26213g + ((f5 * 3.0f) / 5.0f));
+            float f5 = (this.f26297i * 3.0f) / 7.0f;
+            path2.moveTo(this.f26294f - f5, this.f26295g - ((2.0f * f5) / 5.0f));
+            this.m.lineTo(this.f26294f, this.f26295g + ((f5 * 3.0f) / 5.0f));
             this.m.rMoveTo(0.0f, 0.0f);
             this.m.lineTo(fArr[0], fArr[1]);
-            this.f26207a = new PathMeasure(this.m, false);
+            this.f26289a = new PathMeasure(this.m, false);
         }
     }
 
     private void a() {
         Paint paint = new Paint();
-        this.f26211e = paint;
+        this.f26293e = paint;
         paint.setAntiAlias(true);
-        this.f26211e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
-        this.f26211e.setStrokeWidth(dip2px(4.0f));
-        this.f26211e.setStyle(Paint.Style.STROKE);
-        this.f26211e.setStrokeJoin(Paint.Join.ROUND);
-        this.f26211e.setStrokeCap(Paint.Cap.ROUND);
+        this.f26293e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
+        this.f26293e.setStrokeWidth(dip2px(4.0f));
+        this.f26293e.setStyle(Paint.Style.STROKE);
+        this.f26293e.setStrokeJoin(Paint.Join.ROUND);
+        this.f26293e.setStrokeCap(Paint.Cap.ROUND);
     }
 
     public SuccessImageViewNew(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26207a = new PathMeasure();
-        this.f26208b = new PathMeasure();
+        this.f26289a = new PathMeasure();
+        this.f26290b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -189,12 +189,12 @@ public class SuccessImageViewNew extends View {
             @Override // android.view.animation.Animation
             public void applyTransformation(float f4, Transformation transformation) {
                 SuccessImageViewNew successImageViewNew = SuccessImageViewNew.this;
-                if (successImageViewNew.f26209c != null) {
+                if (successImageViewNew.f26291c != null) {
                     successImageViewNew.k.reset();
-                    float length = SuccessImageViewNew.this.f26207a.getLength();
+                    float length = SuccessImageViewNew.this.f26289a.getLength();
                     float f5 = f4 * length;
                     SuccessImageViewNew successImageViewNew2 = SuccessImageViewNew.this;
-                    successImageViewNew2.f26207a.getSegment(0.0f, f5, successImageViewNew2.k, true);
+                    successImageViewNew2.f26289a.getSegment(0.0f, f5, successImageViewNew2.k, true);
                     String str = SuccessImageViewNew.TAG;
                     LogUtil.i(str, "length " + length + "currentLength " + f5);
                     SuccessImageViewNew.this.k.rLineTo(0.0f, 0.0f);
@@ -202,7 +202,7 @@ public class SuccessImageViewNew extends View {
                 SuccessImageViewNew.this.invalidate();
             }
         };
-        this.f26209c = animation;
+        this.f26291c = animation;
         animation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation2) {
@@ -218,16 +218,16 @@ public class SuccessImageViewNew extends View {
             public void onAnimationStart(Animation animation2) {
             }
         });
-        this.f26209c.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.f26209c.setDuration(j);
-        this.f26209c.setRepeatCount(0);
-        startAnimation(this.f26209c);
+        this.f26291c.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.f26291c.setDuration(j);
+        this.f26291c.setRepeatCount(0);
+        startAnimation(this.f26291c);
     }
 
     public SuccessImageViewNew(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f26207a = new PathMeasure();
-        this.f26208b = new PathMeasure();
+        this.f26289a = new PathMeasure();
+        this.f26290b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -242,12 +242,12 @@ public class SuccessImageViewNew extends View {
             @Override // android.view.animation.Animation
             public void applyTransformation(float f4, Transformation transformation) {
                 SuccessImageViewNew successImageViewNew = SuccessImageViewNew.this;
-                if (successImageViewNew.f26210d != null) {
+                if (successImageViewNew.f26292d != null) {
                     successImageViewNew.k.reset();
-                    float length = SuccessImageViewNew.this.f26208b.getLength();
+                    float length = SuccessImageViewNew.this.f26290b.getLength();
                     float f5 = f4 * length;
                     SuccessImageViewNew successImageViewNew2 = SuccessImageViewNew.this;
-                    successImageViewNew2.f26208b.getSegment(length - f5, length, successImageViewNew2.k, true);
+                    successImageViewNew2.f26290b.getSegment(length - f5, length, successImageViewNew2.k, true);
                     String str = SuccessImageViewNew.TAG;
                     LogUtil.i(str, "length " + length + "currentLengthCircle " + f5);
                     SuccessImageViewNew.this.k.rLineTo(0.0f, 0.0f);
@@ -255,7 +255,7 @@ public class SuccessImageViewNew extends View {
                 SuccessImageViewNew.this.invalidate();
             }
         };
-        this.f26210d = animation;
+        this.f26292d = animation;
         animation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation2) {
@@ -273,9 +273,9 @@ public class SuccessImageViewNew extends View {
             public void onAnimationStart(Animation animation2) {
             }
         });
-        this.f26210d.setInterpolator(new LinearInterpolator());
-        this.f26210d.setDuration(j);
-        this.f26210d.setRepeatCount(0);
-        startAnimation(this.f26210d);
+        this.f26292d.setInterpolator(new LinearInterpolator());
+        this.f26292d.setDuration(j);
+        this.f26292d.setRepeatCount(0);
+        startAnimation(this.f26292d);
     }
 }

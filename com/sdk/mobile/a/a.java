@@ -1,6 +1,7 @@
 package com.sdk.mobile.a;
 
 import android.content.Context;
+import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
@@ -18,19 +19,19 @@ public final class a {
         com.sdk.mobile.c.a aVar2 = new com.sdk.mobile.c.a(context, aVar);
         if (c.a(str2).booleanValue()) {
             dataInfo = new DataInfo();
-            dataInfo.putData("accessCode", str);
-            str3 = aVar2.f39350b;
+            dataInfo.putData(YYInnerSSOLoginActivity.o, str);
+            str3 = aVar2.f39448b;
             a2 = aVar2.a();
-            jVar = j.f39301b;
+            jVar = j.f39399b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbt";
         } else {
             dataInfo = new DataInfo();
-            dataInfo.putData("accessCode", str);
+            dataInfo.putData(YYInnerSSOLoginActivity.o, str);
             dataInfo.putData("mobile", str2);
-            str3 = aVar2.f39350b;
+            str3 = aVar2.f39448b;
             a2 = aVar2.a();
-            jVar = j.f39301b;
+            jVar = j.f39399b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbv";
         }

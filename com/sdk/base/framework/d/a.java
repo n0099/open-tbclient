@@ -24,31 +24,31 @@ import java.util.TreeMap;
 public class a<T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39347d = "com.sdk.base.framework.d.a";
+    public static final String f39445d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f39348e = f.f39341b;
+    public static final boolean f39446e = f.f39439b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39349a;
+    public Context f39447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39350b;
+    public String f39448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39351c;
+    public String f39449c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f39352f;
+    public PInfo f39450f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f39353g;
+    public AInfo f39451g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f39354h;
+    public SInfo f39452h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<KInfo> f39355i;
+    public ArrayList<KInfo> f39453i;
     public com.sdk.base.framework.b.a<T> j;
     public e k;
 
@@ -56,7 +56,7 @@ public class a<T> {
     }
 
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
-        this.f39349a = context;
+        this.f39447a = context;
         this.j = aVar;
         this.k = eVar;
     }
@@ -74,10 +74,10 @@ public class a<T> {
             dataInfo2 = dataInfo;
         }
         TreeMap<String, Object> treeMap = new TreeMap<>();
-        String a2 = com.sdk.base.framework.f.i.a.a(this.f39349a);
+        String a2 = com.sdk.base.framework.f.i.a.a(this.f39447a);
         String a3 = com.sdk.base.framework.f.i.a.a(16);
-        String a4 = com.sdk.base.framework.f.a.a.a(this.f39349a, BaseConfig.apk);
-        String a5 = com.sdk.base.framework.f.b.a.a(this.f39349a, com.alipay.sdk.packet.e.m);
+        String a4 = com.sdk.base.framework.f.a.a.a(this.f39447a, BaseConfig.apk);
+        String a5 = com.sdk.base.framework.f.b.a.a(this.f39447a, com.alipay.sdk.packet.e.m);
         if ("/st/api/v1.0/ses".equals(str2)) {
             a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
         }
@@ -108,11 +108,11 @@ public class a<T> {
             kVar.a((ArrayList<File>) null);
             kVar.a(hashMap);
             if ("/dro/netm/v1.0/qc".equals(str2)) {
-                g gVar = g.f39376a;
+                g gVar = g.f39474a;
             } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                g gVar2 = g.f39377b;
+                g gVar2 = g.f39475b;
             }
-            h hVar = new h(this.f39349a, kVar);
+            h hVar = new h(this.f39447a, kVar);
             com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
             try {
                 fVar2.c(hVar);
@@ -122,13 +122,13 @@ public class a<T> {
                 fVar = fVar2;
                 com.sdk.base.framework.f.f.a.b(e.toString());
                 a(1, 302002, "网络访问异常");
-                c.b(f39347d, e.toString(), Boolean.valueOf(f39348e));
+                c.b(f39445d, e.toString(), Boolean.valueOf(f39446e));
                 return fVar;
             }
         } catch (Exception e4) {
             a(1, 101006, "公钥出错");
-            String str3 = f39347d;
-            c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f39348e));
+            String str3 = f39445d;
+            c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f39446e));
             return null;
         }
     }
@@ -136,17 +136,17 @@ public class a<T> {
     private String a(DataInfo dataInfo, String str) {
         String str2;
         try {
-            if (this.f39353g == null) {
-                this.f39353g = com.sdk.base.framework.c.a.a(this.f39349a);
+            if (this.f39451g == null) {
+                this.f39451g = com.sdk.base.framework.c.a.a(this.f39447a);
             }
-            if (this.f39354h == null) {
-                this.f39354h = com.sdk.base.framework.c.a.b();
+            if (this.f39452h == null) {
+                this.f39452h = com.sdk.base.framework.c.a.b();
             }
-            if (this.f39355i == null) {
-                this.f39355i = com.sdk.base.framework.c.a.a();
+            if (this.f39453i == null) {
+                this.f39453i = com.sdk.base.framework.c.a.a();
             }
             ArrayList arrayList = new ArrayList();
-            Iterator<KInfo> it = this.f39355i.iterator();
+            Iterator<KInfo> it = this.f39453i.iterator();
             while (it.hasNext()) {
                 KInfo next = it.next();
                 MobileKInfo mobileKInfo = new MobileKInfo();
@@ -156,15 +156,15 @@ public class a<T> {
                 mobileKInfo.setIdfd(next.isIdfd());
                 arrayList.add(mobileKInfo);
             }
-            if (this.f39352f == null) {
-                this.f39352f = com.sdk.base.framework.c.a.c();
+            if (this.f39450f == null) {
+                this.f39450f = com.sdk.base.framework.c.a.c();
             }
             StringBuilder sb = new StringBuilder("{app:");
-            sb.append(this.f39353g);
+            sb.append(this.f39451g);
             sb.append(",sdk:");
-            sb.append(this.f39354h);
+            sb.append(this.f39452h);
             sb.append(",device:");
-            sb.append(this.f39352f);
+            sb.append(this.f39450f);
             sb.append(",sim:");
             sb.append(arrayList);
             sb.append(",data:");
@@ -172,10 +172,10 @@ public class a<T> {
             sb.append("}");
             str2 = sb.toString();
         } catch (Exception e2) {
-            c.b(f39347d, e2.toString(), Boolean.valueOf(f39348e));
+            c.b(f39445d, e2.toString(), Boolean.valueOf(f39446e));
             str2 = null;
         }
-        return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f39349a, f.f39340a), str);
+        return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f39447a, f.f39438a), str);
     }
 
     public final com.sdk.base.framework.a.f<T> a(String str, String str2, DataInfo dataInfo, com.sdk.base.framework.b.b<T> bVar, int i2, j jVar) {

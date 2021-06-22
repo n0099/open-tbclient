@@ -14,25 +14,25 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public class y extends a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f29245h = !y.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f29327h = !y.class.desiredAssertionStatus();
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29246i;
+    public String f29328i;
     public WebView j;
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     public void b(j jVar) {
-        WebView webView = jVar.f29181a;
+        WebView webView = jVar.f29263a;
         this.j = webView;
-        this.f29246i = jVar.f29183c;
+        this.f29328i = jVar.f29265c;
         if (Build.VERSION.SDK_INT < 17 || jVar.n) {
             return;
         }
-        if (!f29245h && webView == null) {
+        if (!f29327h && webView == null) {
             throw new AssertionError();
         }
-        this.j.addJavascriptInterface(this, this.f29246i);
+        this.j.addJavascriptInterface(this, this.f29328i);
     }
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
@@ -44,11 +44,11 @@ public class y extends a {
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @NonNull
     public Context a(j jVar) {
-        Context context = jVar.f29185e;
+        Context context = jVar.f29267e;
         if (context != null) {
             return context;
         }
-        WebView webView = jVar.f29181a;
+        WebView webView = jVar.f29263a;
         if (webView != null) {
             return webView.getContext();
         }
@@ -62,8 +62,8 @@ public class y extends a {
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     public void a(String str, @Nullable p pVar) {
-        if (pVar != null && !TextUtils.isEmpty(pVar.f29197h)) {
-            String str2 = pVar.f29197h;
+        if (pVar != null && !TextUtils.isEmpty(pVar.f29279h)) {
+            String str2 = pVar.f29279h;
             a(str, String.format("javascript:(function(){   const iframe = document.querySelector('iframe[src=\"%s\"');   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, '%s');   }})()", str2, str, str2));
             return;
         }
@@ -72,17 +72,17 @@ public class y extends a {
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     public void a(String str) {
-        a(str, "javascript:" + this.f29246i + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        a(str, "javascript:" + this.f29328i + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     private void a(String str, final String str2) {
-        if (this.f29149f || TextUtils.isEmpty(str2)) {
+        if (this.f29231f || TextUtils.isEmpty(str2)) {
             return;
         }
         Runnable runnable = new Runnable() { // from class: com.bytedance.sdk.openadsdk.f.a.y.1
             @Override // java.lang.Runnable
             public void run() {
-                if (y.this.f29149f) {
+                if (y.this.f29231f) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
@@ -96,7 +96,7 @@ public class y extends a {
         };
         if (Looper.myLooper() != Looper.getMainLooper()) {
             i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f29147d.post(runnable);
+            this.f29229d.post(runnable);
             return;
         }
         runnable.run();

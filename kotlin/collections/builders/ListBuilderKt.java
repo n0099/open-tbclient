@@ -1,6 +1,7 @@
 package kotlin.collections.builders;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import java.util.Arrays;
 import java.util.List;
@@ -62,14 +63,14 @@ public final class ListBuilderKt {
 
     public static final <T> String subarrayContentToString(T[] tArr, int i2, int i3) {
         StringBuilder sb = new StringBuilder((i3 * 3) + 2);
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         for (int i4 = 0; i4 < i3; i4++) {
             if (i4 > 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append(tArr[i2 + i4]);
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         String sb2 = sb.toString();
         Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
         return sb2;

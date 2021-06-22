@@ -30,34 +30,34 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f32410a;
+    public View f32508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f32411b;
+    public AdBaseFrameLayout f32509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f32412c;
+    public FrameLayout f32510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WebView f32413d;
+    public WebView f32511d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f32414e;
+    public JSONObject f32512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32415f;
+    public int f32513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f32416g;
+    public AdTemplate f32514g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32417h;
+    public com.kwad.sdk.core.download.b.b f32515h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public a.b f32418i;
+    public a.b f32516i;
     public g j;
     public com.kwad.sdk.core.webview.a k;
     public n m;
@@ -80,12 +80,12 @@ public class c {
     }
 
     public c(@Nullable JSONObject jSONObject) {
-        this.f32414e = jSONObject;
+        this.f32512e = jSONObject;
     }
 
     private void a(g gVar) {
         gVar.a(new com.kwad.sdk.core.webview.jshandler.d());
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.k, this.f32417h, this.f32418i));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.k, this.f32515h, this.f32516i));
         gVar.a(new e(this.k));
         gVar.a(new f(this.k));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.c(this.k));
@@ -93,43 +93,43 @@ public class c {
         n nVar = new n();
         this.m = nVar;
         gVar.a(nVar);
-        gVar.a(new o(this.k, this.f32417h));
+        gVar.a(new o(this.k, this.f32515h));
         gVar.a(new h(this.n));
         gVar.a(new j(this.k));
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void j() {
-        this.f32412c.removeAllViews();
-        this.f32412c.setVisibility(4);
-        this.f32410a = ao.a((ViewGroup) this.f32412c, a(), true);
-        WebView webView = (WebView) this.f32412c.findViewById(R.id.ksad_web_card_webView);
-        this.f32413d = webView;
+        this.f32510c.removeAllViews();
+        this.f32510c.setVisibility(4);
+        this.f32508a = ao.a((ViewGroup) this.f32510c, a(), true);
+        WebView webView = (WebView) this.f32510c.findViewById(R.id.ksad_web_card_webView);
+        this.f32511d = webView;
         webView.setBackgroundColor(0);
-        this.f32413d.getBackground().setAlpha(0);
+        this.f32511d.getBackground().setAlpha(0);
     }
 
     private void k() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.k = aVar;
-        aVar.f34929b = this.f32416g;
-        aVar.f34928a = this.f32415f;
-        aVar.f34930c = this.f32411b;
-        aVar.f34932e = this.f32412c;
-        aVar.f34933f = this.f32413d;
-        aVar.f34931d = this.f32414e;
+        aVar.f35027b = this.f32514g;
+        aVar.f35026a = this.f32513f;
+        aVar.f35028c = this.f32509b;
+        aVar.f35030e = this.f32510c;
+        aVar.f35031f = this.f32511d;
+        aVar.f35029d = this.f32512e;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void l() {
         m();
-        WebSettings a2 = ar.a(this.f32413d);
+        WebSettings a2 = ar.a(this.f32511d);
         a2.setAllowContentAccess(false);
         a2.setAllowFileAccess(true);
-        g gVar = new g(this.f32413d);
+        g gVar = new g(this.f32511d);
         this.j = gVar;
         a(gVar);
-        this.f32413d.addJavascriptInterface(this.j, "KwaiAd");
+        this.f32511d.addJavascriptInterface(this.j, "KwaiAd");
     }
 
     private void m() {
@@ -167,17 +167,17 @@ public class c {
     }
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, int i2) {
-        this.f32417h = bVar;
-        this.f32411b = adBaseFrameLayout;
-        this.f32412c = frameLayout;
-        this.f32415f = i2;
-        this.f32416g = adTemplate;
+        this.f32515h = bVar;
+        this.f32509b = adBaseFrameLayout;
+        this.f32510c = frameLayout;
+        this.f32513f = i2;
+        this.f32514g = adTemplate;
         j();
         k();
     }
 
     public void a(a.b bVar) {
-        this.f32418i = bVar;
+        this.f32516i = bVar;
     }
 
     public boolean b() {
@@ -197,7 +197,7 @@ public class c {
         if (nVar != null) {
             nVar.c();
         }
-        this.f32412c.setVisibility(0);
+        this.f32510c.setVisibility(0);
         n nVar2 = this.m;
         if (nVar2 != null) {
             nVar2.d();
@@ -208,31 +208,31 @@ public class c {
 
     @Nullable
     public a.b e() {
-        return this.f32418i;
+        return this.f32516i;
     }
 
     public WebView f() {
-        return this.f32413d;
+        return this.f32511d;
     }
 
     public void g() {
-        this.f32412c.setVisibility(4);
+        this.f32510c.setVisibility(4);
         this.l = -1;
-        String a2 = a(this.f32416g);
+        String a2 = a(this.f32514g);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
         l();
-        this.f32413d.loadUrl(a2);
+        this.f32511d.loadUrl(a2);
     }
 
     public void h() {
-        if (ao.a((View) this.f32413d, 50, false)) {
+        if (ao.a((View) this.f32511d, 50, false)) {
             n nVar = this.m;
             if (nVar != null) {
                 nVar.e();
             }
-            this.f32412c.setVisibility(4);
+            this.f32510c.setVisibility(4);
             n nVar2 = this.m;
             if (nVar2 != null) {
                 nVar2.f();

@@ -5,17 +5,17 @@ import android.util.AttributeSet;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
-import d.a.n0.t2.d0.a;
+import d.a.o0.t2.d0.a;
 /* loaded from: classes5.dex */
 public class AdExportDownloadView extends ApkDownloadView {
-    public a.InterfaceC1675a l;
+    public a.InterfaceC1679a l;
 
     public AdExportDownloadView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
     }
 
     @Nullable
-    public a.InterfaceC1675a getRegisterListener() {
+    public a.InterfaceC1679a getRegisterListener() {
         return this.l;
     }
 
@@ -35,8 +35,8 @@ public class AdExportDownloadView extends ApkDownloadView {
         setTextColorInitSkin(i2);
     }
 
-    public void setRegisterListener(@Nullable a.InterfaceC1675a interfaceC1675a) {
-        this.l = interfaceC1675a;
+    public void setRegisterListener(@Nullable a.InterfaceC1679a interfaceC1679a) {
+        this.l = interfaceC1679a;
     }
 
     public AdExportDownloadView(Context context, AttributeSet attributeSet) {

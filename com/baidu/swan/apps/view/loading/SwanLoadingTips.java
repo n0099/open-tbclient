@@ -10,13 +10,13 @@ import kotlin.Metadata;
 public final class SwanLoadingTips {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lazy f11435a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
+    public final Lazy f11517a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11436b;
+    public int f11518b;
 
     public final String[] a() {
-        return (String[]) this.f11435a.getValue();
+        return (String[]) this.f11517a.getValue();
     }
 
     public final String b() {
@@ -25,9 +25,9 @@ public final class SwanLoadingTips {
             if (a2.length == 0) {
                 return "";
             }
-            int i2 = this.f11436b;
+            int i2 = this.f11518b;
             String str = a2[i2 % a2.length];
-            this.f11436b = i2 + 1;
+            this.f11518b = i2 + 1;
             return str;
         }
         return "";

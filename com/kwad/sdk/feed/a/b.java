@@ -14,11 +14,11 @@ import java.util.List;
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.feed.a.a.a.b> {
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.feed.a.b.b f35515c;
+    public com.kwad.sdk.feed.a.b.b f35613c;
 
     public b(KsFragment ksFragment, RecyclerView recyclerView, com.kwad.sdk.feed.a.b.b bVar) {
         super(ksFragment, recyclerView, new com.kwad.sdk.contentalliance.a());
-        this.f35515c = bVar;
+        this.f35613c = bVar;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -103,13 +103,13 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.feed.a.a.a.b bVar, int i2) {
         super.a((b) bVar, i2);
-        AdTemplate adTemplate = (AdTemplate) this.f36675a.get(i2);
+        AdTemplate adTemplate = (AdTemplate) this.f36773a.get(i2);
         if (com.kwad.sdk.core.response.b.c.b(adTemplate) || !com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(adTemplate))) {
-            bVar.f35454b = null;
+            bVar.f35552b = null;
         } else {
-            bVar.f35454b = new com.kwad.sdk.core.download.b.b(adTemplate);
+            bVar.f35552b = new com.kwad.sdk.core.download.b.b(adTemplate);
         }
-        bVar.f35453a = this.f35515c;
+        bVar.f35551a = this.f35613c;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -120,8 +120,8 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i2) {
         AdTemplate adTemplate;
-        List<M> list = this.f36675a;
-        if (list == 0 || i2 >= list.size() || (adTemplate = (AdTemplate) this.f36675a.get(i2)) == null) {
+        List<M> list = this.f36773a;
+        if (list == 0 || i2 >= list.size() || (adTemplate = (AdTemplate) this.f36773a.get(i2)) == null) {
             return -1;
         }
         int i3 = adTemplate.mPageInfo.pageType;

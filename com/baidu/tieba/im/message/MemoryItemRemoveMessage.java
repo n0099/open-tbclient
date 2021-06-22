@@ -8,10 +8,10 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17360a;
+        public int f17442a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17361b;
+        public String f17443b;
     }
 
     public MemoryItemRemoveMessage(a aVar) {

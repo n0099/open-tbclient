@@ -29,18 +29,18 @@ public class b extends a<d.b.d.b.c.a.a> {
     /* renamed from: e */
     public ContentValues a(d.b.d.b.c.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("path", aVar.f69607a);
-        contentValues.put(HostTB.INSERTTIME, Long.valueOf(aVar.f69608b));
+        contentValues.put("path", aVar.f69711a);
+        contentValues.put(HostTB.INSERTTIME, Long.valueOf(aVar.f69712b));
         return contentValues;
     }
 
     public void f(SQLiteDatabase sQLiteDatabase, d.b.d.b.c.a.a aVar) {
-        if (aVar == null || g(sQLiteDatabase, aVar.f69607a)) {
+        if (aVar == null || g(sQLiteDatabase, aVar.f69711a)) {
             return;
         }
         super.d(sQLiteDatabase, aVar);
         try {
-            sQLiteDatabase.execSQL("delete from " + this.f69612a + " where _id in (select _id from " + this.f69612a + " order by " + HostTB.INSERTTIME + " desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
+            sQLiteDatabase.execSQL("delete from " + this.f69716a + " where _id in (select _id from " + this.f69716a + " order by " + HostTB.INSERTTIME + " desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception e2) {
             l.k.c(e2);
         }
@@ -58,7 +58,7 @@ public class b extends a<d.b.d.b.c.a.a> {
             return false;
         }
         try {
-            query = sQLiteDatabase.query(this.f69612a, null, "path=?", new String[]{str}, null, null, null);
+            query = sQLiteDatabase.query(this.f69716a, null, "path=?", new String[]{str}, null, null, null);
             i2 = query.getCount();
         } catch (Exception e2) {
             e = e2;

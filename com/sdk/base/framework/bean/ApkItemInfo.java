@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.sdk.base.framework.f.c.a;
 import java.io.File;
 /* loaded from: classes7.dex */
@@ -124,6 +125,6 @@ public class ApkItemInfo {
     }
 
     public String toString() {
-        return "ApkItemInfo [icon=" + this.icon + ", pkName=" + this.pkName + ", lable=" + ((Object) this.lable) + ", versionName=" + this.versionName + ", versionCode=" + this.versionCode + ", apkfile=" + this.apkfile + ", packageInfo=" + this.packageInfo + "]";
+        return "ApkItemInfo [icon=" + this.icon + ", pkName=" + this.pkName + ", lable=" + ((Object) this.lable) + ", versionName=" + this.versionName + ", versionCode=" + this.versionCode + ", apkfile=" + this.apkfile + ", packageInfo=" + this.packageInfo + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -13,13 +13,13 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.e0.c;
-import d.a.m0.e0.d;
+import d.a.n0.e0.c;
+import d.a.n0.e0.d;
 /* loaded from: classes4.dex */
-public class RecommendFrsDelegateStatic extends d.a.m0.e0.b {
+public class RecommendFrsDelegateStatic extends d.a.n0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f16305a;
+    public MessageRedDotView f16387a;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -36,10 +36,10 @@ public class RecommendFrsDelegateStatic extends d.a.m0.e0.b {
             }
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
             ((d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f53008a.isAdded()) {
+            if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f53115a.isAdded()) {
                 return;
             }
-            fragmentTabStructure.f53008a.setArguments(new Bundle());
+            fragmentTabStructure.f53115a.setArguments(new Bundle());
         }
     }
 
@@ -61,11 +61,11 @@ public class RecommendFrsDelegateStatic extends d.a.m0.e0.b {
                 return;
             }
             if (intValue <= 0) {
-                RecommendFrsDelegateStatic.this.f16305a.setVisibility(8);
+                RecommendFrsDelegateStatic.this.f16387a.setVisibility(8);
                 return;
             }
-            RecommendFrsDelegateStatic.this.f16305a.f(0);
-            RecommendFrsDelegateStatic.this.f16305a.setVisibility(0);
+            RecommendFrsDelegateStatic.this.f16387a.f(0);
+            RecommendFrsDelegateStatic.this.f16387a.setVisibility(0);
             d2.b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -76,43 +76,43 @@ public class RecommendFrsDelegateStatic extends d.a.m0.e0.b {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f53008a = new RecommendFrsControlFragment();
-        cVar.f53012e = 2;
-        cVar.f53009b = R.string.home_recommend;
-        cVar.f53013f = R.raw.lottie_tab_home;
-        cVar.f53016i = c.l;
-        cVar.f53015h = d.a.m0.e0.e.c.d().c("homePage");
+        cVar.f53115a = new RecommendFrsControlFragment();
+        cVar.f53119e = 2;
+        cVar.f53116b = R.string.home_recommend;
+        cVar.f53120f = R.raw.lottie_tab_home;
+        cVar.f53123i = c.l;
+        cVar.f53122h = d.a.n0.e0.e.c.d().c("homePage");
         return cVar;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f16305a = new MessageRedDotView(context);
+        this.f16387a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f12937f = this.mIndicator;
-        aVar.f12934c = l.e(context, 12.0f);
-        MessageRedDotView messageRedDotView = this.f16305a;
-        aVar.f12932a = messageRedDotView;
+        aVar.f13019f = this.mIndicator;
+        aVar.f13016c = l.e(context, 12.0f);
+        MessageRedDotView messageRedDotView = this.f16387a;
+        aVar.f13014a = messageRedDotView;
         messageRedDotView.setVisibility(8);
         this.mIndicator.b("godFeed", aVar);
         return this.mIndicator;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public boolean isAvailable() {
         return true;
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public void onAdd() {
         new b(2016325);
     }
 
-    @Override // d.a.m0.e0.b
+    @Override // d.a.n0.e0.b
     public void onRemove() {
         super.onRemove();
     }

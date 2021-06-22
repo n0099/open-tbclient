@@ -27,7 +27,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72284d;
+        public Disposable f72388d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -41,8 +41,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             this.cancelled = true;
-            this.f72284d.dispose();
-            this.f72284d = DisposableHelper.DISPOSED;
+            this.f72388d.dispose();
+            this.f72388d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -148,14 +148,14 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f72284d = DisposableHelper.DISPOSED;
+            this.f72388d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72284d, disposable)) {
-                this.f72284d = disposable;
+            if (DisposableHelper.validate(this.f72388d, disposable)) {
+                this.f72388d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -136,6 +137,6 @@ public class MediaStream {
     }
 
     public String toString() {
-        return "[" + getId() + ":A=" + this.audioTracks.size() + ":V=" + this.videoTracks.size() + "]";
+        return PreferencesUtil.LEFT_MOUNT + getId() + ":A=" + this.audioTracks.size() + ":V=" + this.videoTracks.size() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

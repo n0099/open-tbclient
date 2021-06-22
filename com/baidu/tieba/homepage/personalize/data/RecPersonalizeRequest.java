@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.m0.r.q.e1;
-import d.a.m0.z0.w;
-import d.a.n0.t2.g0.a;
-import d.a.n0.t2.i0.b;
+import d.a.n0.r.q.e1;
+import d.a.n0.z0.w;
+import d.a.o0.t2.g0.a;
+import d.a.o0.t2.i0.b;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes4.dex */
@@ -59,10 +59,10 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.app_pos = a.e().c();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             e1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-            builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f53679a, 0L));
-            builder.query_eqid = pbToHomeUpdateData.f53680b;
-            builder.first_dir = pbToHomeUpdateData.f53681c;
-            builder.second_dir = pbToHomeUpdateData.f53682d;
+            builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f53786a, 0L));
+            builder.query_eqid = pbToHomeUpdateData.f53787b;
+            builder.first_dir = pbToHomeUpdateData.f53788c;
+            builder.second_dir = pbToHomeUpdateData.f53789d;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
         AdExtParam.a b2 = AdExtParam.a.b();

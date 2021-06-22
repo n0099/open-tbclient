@@ -3,7 +3,7 @@ package com.baidubce.auth;
 import android.annotation.SuppressLint;
 import com.baidubce.util.CheckUtils;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultBceCredentials implements BceCredentials {
     public final String accessKeyId;
     public final String secretKey;

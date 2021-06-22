@@ -19,6 +19,7 @@ import com.alibaba.fastjson.serializer.CalendarCodec;
 import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
@@ -845,7 +846,7 @@ public class TypeUtils {
     /* JADX WARN: Type inference failed for: r3v9, types: [java.lang.Class] */
     public static Type checkPrimitiveArray(GenericArrayType genericArrayType) {
         Type genericComponentType = genericArrayType.getGenericComponentType();
-        String str = "[";
+        String str = PreferencesUtil.LEFT_MOUNT;
         while (genericComponentType instanceof GenericArrayType) {
             genericComponentType = ((GenericArrayType) genericComponentType).getGenericComponentType();
             str = str + str;

@@ -4,29 +4,29 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import d.a.c.e.p.j;
-import d.a.n0.a3.c;
-import d.a.n0.a3.d;
-import d.a.n0.a3.e;
-import d.a.n0.a3.h;
+import d.a.o0.a3.c;
+import d.a.o0.a3.d;
+import d.a.o0.a3.e;
+import d.a.o0.a3.h;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20645e;
+    public b f20727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f20646f;
+    public h f20728f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f20647g;
+    public a f20729g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f20648h;
+    public c f20730h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f20649i;
+    public String f20731i;
     public boolean isRunning;
 
     /* loaded from: classes5.dex */
@@ -40,10 +40,10 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public class b extends BdAsyncTask<String, Integer, h> {
 
         /* renamed from: a  reason: collision with root package name */
-        public e f20650a = null;
+        public e f20732a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f20651b = false;
+        public boolean f20733b = false;
 
         public b() {
             setPriority(3);
@@ -57,8 +57,8 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             if (c() || !(strArr == null || strArr.length == 0 || strArr[0] == null)) {
                 if (c()) {
                     e eVar = new e();
-                    this.f20650a = eVar;
-                    eVar.d(SignAllForumModel.this.f20649i);
+                    this.f20732a = eVar;
+                    eVar.d(SignAllForumModel.this.f20731i);
                     if (j.z()) {
                         e();
                     }
@@ -76,49 +76,49 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                             }
                         }
                         e eVar2 = new e();
-                        this.f20650a = eVar2;
-                        eVar2.d(SignAllForumModel.this.f20649i);
+                        this.f20732a = eVar2;
+                        eVar2.d(SignAllForumModel.this.f20731i);
                         if (j.z()) {
                             d(sb.toString());
                         }
                     }
                 }
-                return SignAllForumModel.this.f20646f;
+                return SignAllForumModel.this.f20728f;
             }
             return null;
         }
 
         public boolean c() {
-            return this.f20651b;
+            return this.f20733b;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.f20650a.a();
-            this.f20650a = null;
-            SignAllForumModel.this.f20645e = null;
+            this.f20732a.a();
+            this.f20732a = null;
+            SignAllForumModel.this.f20727e = null;
             SignAllForumModel.this.isRunning = false;
         }
 
         public final h d(String str) {
-            String e2 = this.f20650a.e(str);
-            if (this.f20650a.c()) {
-                SignAllForumModel.this.f20646f.i(e2);
-                return SignAllForumModel.this.f20646f;
+            String e2 = this.f20732a.e(str);
+            if (this.f20732a.c()) {
+                SignAllForumModel.this.f20728f.i(e2);
+                return SignAllForumModel.this.f20728f;
             }
-            SignAllForumModel.this.f20646f = null;
+            SignAllForumModel.this.f20728f = null;
             AuthTokenData.parse(e2);
             return null;
         }
 
         public final h e() {
-            String f2 = this.f20650a.f();
-            if (this.f20650a.c()) {
-                SignAllForumModel.this.f20646f.i(f2);
-                return SignAllForumModel.this.f20646f;
+            String f2 = this.f20732a.f();
+            if (this.f20732a.c()) {
+                SignAllForumModel.this.f20728f.i(f2);
+                return SignAllForumModel.this.f20728f;
             }
-            SignAllForumModel.this.f20646f = null;
+            SignAllForumModel.this.f20728f = null;
             AuthTokenData.parse(f2);
             return null;
         }
@@ -129,19 +129,19 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public void onPostExecute(h hVar) {
             SignAllForumModel signAllForumModel = SignAllForumModel.this;
             signAllForumModel.isRunning = false;
-            signAllForumModel.f20645e = null;
-            if (SignAllForumModel.this.f20647g != null) {
-                if (SignAllForumModel.this.f20646f != null) {
-                    SignAllForumModel.this.f20647g.a(SignAllForumModel.this.f20646f);
+            signAllForumModel.f20727e = null;
+            if (SignAllForumModel.this.f20729g != null) {
+                if (SignAllForumModel.this.f20728f != null) {
+                    SignAllForumModel.this.f20729g.a(SignAllForumModel.this.f20728f);
                     return;
                 }
-                e eVar = this.f20650a;
-                SignAllForumModel.this.f20647g.onNetError(eVar != null ? eVar.b() : null);
+                e eVar = this.f20732a;
+                SignAllForumModel.this.f20729g.onNetError(eVar != null ? eVar.b() : null);
             }
         }
 
         public void g(boolean z) {
-            this.f20651b = z;
+            this.f20733b = z;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -153,23 +153,23 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     public SignAllForumModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.f20645e = null;
-        this.f20646f = null;
-        this.f20647g = null;
-        this.f20646f = new h();
+        this.f20727e = null;
+        this.f20728f = null;
+        this.f20729g = null;
+        this.f20728f = new h();
     }
 
     public final String B() {
-        ArrayList<d> x = this.f20648h.x();
+        ArrayList<d> x = this.f20730h.x();
         if (x == null) {
             return "";
         }
-        if (!this.f20648h.B()) {
+        if (!this.f20730h.B()) {
             ArrayList arrayList = new ArrayList();
             Iterator<d> it = x.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.i() < this.f20648h.l()) {
+                if (next.i() < this.f20730h.l()) {
                     arrayList.add(next);
                 }
             }
@@ -193,33 +193,33 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     }
 
     public c C() {
-        return this.f20648h;
+        return this.f20730h;
     }
 
     public void D(c cVar) {
-        this.f20648h = cVar;
+        this.f20730h = cVar;
     }
 
     public void E(a aVar) {
-        this.f20647g = aVar;
+        this.f20729g = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f20645e != null) {
+        if (this.f20727e != null) {
             return false;
         }
-        this.f20645e = new b();
-        boolean n = this.f20648h.n();
+        this.f20727e = new b();
+        boolean n = this.f20730h.n();
         String B = n ? null : B();
-        this.f20645e.g(n);
-        this.f20645e.execute(B);
+        this.f20727e.g(n);
+        this.f20727e.execute(B);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f20645e;
+        b bVar = this.f20727e;
         if (bVar != null) {
             bVar.cancel();
             return true;

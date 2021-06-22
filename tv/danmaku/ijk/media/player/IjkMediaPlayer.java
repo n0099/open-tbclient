@@ -67,28 +67,28 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static volatile boolean u = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceHolder f72991a;
+    public SurfaceHolder f73095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f72992b;
+    public b f73096b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72994d;
+    public boolean f73098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f72995e;
+    public boolean f73099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72996f;
+    public int f73100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72997g;
+    public int f73101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72998h;
+    public int f73102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72999i;
+    public int f73103i;
     public long j;
     public long k;
     public String l;
@@ -112,14 +112,14 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public d x;
 
     /* renamed from: c  reason: collision with root package name */
-    public PowerManager.WakeLock f72993c = null;
+    public PowerManager.WakeLock f73097c = null;
     public volatile boolean p = false;
 
     /* loaded from: classes8.dex */
     public static class a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f73000a = new a();
+        public static final a f73104a = new a();
 
         @Override // tv.danmaku.ijk.media.player.IjkMediaPlayer.d
         @TargetApi(16)
@@ -132,11 +132,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IjkMediaPlayer> f73001a;
+        public final WeakReference<IjkMediaPlayer> f73105a;
 
         public b(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f73001a = new WeakReference<>(ijkMediaPlayer);
+            this.f73105a = new WeakReference<>(ijkMediaPlayer);
         }
 
         private String a(String str) {
@@ -178,7 +178,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         public void handleMessage(Message message) {
             int i2;
             String str;
-            IjkMediaPlayer ijkMediaPlayer = this.f73001a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f73105a.get();
             if (ijkMediaPlayer != null) {
                 if (ijkMediaPlayer.mNativeMediaPlayer != 0) {
                     int i3 = message.what;
@@ -205,9 +205,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                             ijkMediaPlayer.d();
                             return;
                         } else if (i3 == 5) {
-                            ijkMediaPlayer.f72996f = message.arg1;
-                            ijkMediaPlayer.f72997g = message.arg2;
-                            ijkMediaPlayer.a(ijkMediaPlayer.f72996f, ijkMediaPlayer.f72997g, ijkMediaPlayer.f72998h, ijkMediaPlayer.f72999i);
+                            ijkMediaPlayer.f73100f = message.arg1;
+                            ijkMediaPlayer.f73101g = message.arg2;
+                            ijkMediaPlayer.a(ijkMediaPlayer.f73100f, ijkMediaPlayer.f73101g, ijkMediaPlayer.f73102h, ijkMediaPlayer.f73103i);
                             ijkMediaPlayer.b(10006, 0, (Object) null);
                             return;
                         } else if (i3 == 99) {
@@ -236,9 +236,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                             } else if (i3 != 953) {
                                 switch (i3) {
                                     case IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL /* 60001 */:
-                                        ijkMediaPlayer.f72998h = message.arg1;
-                                        ijkMediaPlayer.f72999i = message.arg2;
-                                        ijkMediaPlayer.a(ijkMediaPlayer.f72996f, ijkMediaPlayer.f72997g, ijkMediaPlayer.f72998h, ijkMediaPlayer.f72999i);
+                                        ijkMediaPlayer.f73102h = message.arg1;
+                                        ijkMediaPlayer.f73103i = message.arg2;
+                                        ijkMediaPlayer.a(ijkMediaPlayer.f73100f, ijkMediaPlayer.f73101g, ijkMediaPlayer.f73102h, ijkMediaPlayer.f73103i);
                                         return;
                                     case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:
                                         ijkMediaPlayer.b(message.arg1 | (message.arg2 << 32));
@@ -319,16 +319,16 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class f extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IjkMediaPlayer> f73002a;
+        public final WeakReference<IjkMediaPlayer> f73106a;
 
         public f(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f73002a = new WeakReference<>(ijkMediaPlayer);
+            this.f73106a = new WeakReference<>(ijkMediaPlayer);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IjkMediaPlayer ijkMediaPlayer = this.f73002a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f73106a.get();
             if (ijkMediaPlayer == null || (ijkMediaPlayer.mNativeMediaPlayer == 0 && message.what != 12)) {
                 CyberLog.w("IjkMediaPlayer", "IjkMediaPlayer went away with unhandled events msg.what:" + message.what);
                 return;
@@ -683,15 +683,15 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"Wakelock"})
     public void e(boolean z) {
-        PowerManager.WakeLock wakeLock = this.f72993c;
+        PowerManager.WakeLock wakeLock = this.f73097c;
         if (wakeLock != null) {
             if (z && !wakeLock.isHeld()) {
-                this.f72993c.acquire();
-            } else if (!z && this.f72993c.isHeld()) {
-                this.f72993c.release();
+                this.f73097c.acquire();
+            } else if (!z && this.f73097c.isHeld()) {
+                this.f73097c.release();
             }
         }
-        this.f72995e = z;
+        this.f73099e = z;
         x();
     }
 
@@ -896,7 +896,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         d dVar = ijkMediaPlayer.x;
         if (dVar == null) {
-            dVar = a.f73000a;
+            dVar = a.f73104a;
         }
         return dVar.a(ijkMediaPlayer, str, i2, i3);
     }
@@ -935,9 +935,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (i2 == 200 && i3 == 2) {
             ijkMediaPlayer.h();
         }
-        b bVar = ijkMediaPlayer.f72992b;
+        b bVar = ijkMediaPlayer.f73096b;
         if (bVar != null) {
-            ijkMediaPlayer.f72992b.sendMessage(bVar.obtainMessage(i2, i3, i4, obj2));
+            ijkMediaPlayer.f73096b.sendMessage(bVar.obtainMessage(i2, i3, i4, obj2));
             return 0;
         }
         return 0;
@@ -959,7 +959,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         } else {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper == null) {
-                this.f72992b = null;
+                this.f73096b = null;
                 this.q = false;
                 if (Utils.r(CyberPlayerManager.getApplicationContext()) || Thread.currentThread() == Looper.getMainLooper().getThread()) {
                     obtain = DuplayerHandlerThreadPool.getInstance().obtain();
@@ -985,7 +985,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             }
             bVar = new b(this, mainLooper);
         }
-        this.f72992b = bVar;
+        this.f73096b = bVar;
         this.q = false;
         if (Utils.r(CyberPlayerManager.getApplicationContext())) {
         }
@@ -1000,10 +1000,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     private void w() {
-        this.f72996f = 0;
-        this.f72997g = 0;
-        this.f72998h = 1;
-        this.f72999i = 1;
+        this.f73100f = 0;
+        this.f73101g = 0;
+        this.f73102h = 1;
+        this.f73103i = 1;
         this.j = 0L;
         this.k = 0L;
         if (!d(13)) {
@@ -1013,9 +1013,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     private void x() {
-        SurfaceHolder surfaceHolder = this.f72991a;
+        SurfaceHolder surfaceHolder = this.f73095a;
         if (surfaceHolder != null) {
-            surfaceHolder.setKeepScreenOn(this.f72994d && this.f72995e);
+            surfaceHolder.setKeepScreenOn(this.f73098d && this.f73099e);
         }
     }
 
@@ -1112,23 +1112,23 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     @SuppressLint({"Wakelock"})
     public void a(Context context, int i2) {
         boolean z;
-        PowerManager.WakeLock wakeLock = this.f72993c;
+        PowerManager.WakeLock wakeLock = this.f73097c;
         if (wakeLock != null) {
             if (wakeLock.isHeld()) {
                 z = true;
-                this.f72993c.release();
+                this.f73097c.release();
             } else {
                 z = false;
             }
-            this.f72993c = null;
+            this.f73097c = null;
         } else {
             z = false;
         }
         PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i2 | 536870912, "duplayer");
-        this.f72993c = newWakeLock;
+        this.f73097c = newWakeLock;
         newWakeLock.setReferenceCounted(false);
         if (z) {
-            this.f72993c.acquire();
+            this.f73097c.acquire();
         }
     }
 
@@ -1157,10 +1157,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(Surface surface) {
-        if (this.f72994d && surface != null) {
+        if (this.f73098d && surface != null) {
             CyberLog.w("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective for Surface");
         }
-        this.f72991a = null;
+        this.f73095a = null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
         }
@@ -1168,7 +1168,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(SurfaceHolder surfaceHolder) {
-        this.f72991a = surfaceHolder;
+        this.f73095a = surfaceHolder;
         Surface surface = surfaceHolder != null ? surfaceHolder.getSurface() : null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
@@ -1253,11 +1253,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(boolean z) {
-        if (this.f72994d != z) {
-            if (z && this.f72991a == null) {
+        if (this.f73098d != z) {
+            if (z && this.f73095a == null) {
                 CyberLog.i("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective without a SurfaceHolder");
             }
-            this.f72994d = z;
+            this.f73098d = z;
             x();
         }
     }
@@ -1399,11 +1399,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public int k() {
-        return this.f72996f;
+        return this.f73100f;
     }
 
     public int l() {
-        return this.f72997g;
+        return this.f73101g;
     }
 
     public long m() {
@@ -1426,7 +1426,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             if (this.p && this.o != null) {
                 this.o.removeCallbacksAndMessages(null);
             }
-            this.f72992b.removeCallbacksAndMessages(null);
+            this.f73096b.removeCallbacksAndMessages(null);
             if (d(2)) {
                 this.p = false;
                 this.o = null;
@@ -1447,7 +1447,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (!d(3)) {
             _reset();
         }
-        this.f72992b.removeCallbacksAndMessages(null);
+        this.f73096b.removeCallbacksAndMessages(null);
         w();
     }
 

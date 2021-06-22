@@ -21,14 +21,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.m0.b1.j.d;
-import d.a.m0.r.k;
-import d.a.m0.r.q.a2;
-import d.a.n0.z.b0;
+import d.a.n0.b1.j.d;
+import d.a.n0.r.k;
+import d.a.n0.r.q.a2;
+import d.a.o0.z.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
+public class MultiImgLayout extends LinearLayout implements p<d.a.n0.r.q.a> {
     public static final int n;
 
     /* renamed from: e  reason: collision with root package name */
@@ -46,8 +46,8 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     /* renamed from: i  reason: collision with root package name */
     public String f4425i;
     public boolean j;
-    public b0<d.a.m0.r.q.a> k;
-    public d.a.m0.r.q.a l;
+    public b0<d.a.n0.r.q.a> k;
+    public d.a.n0.r.q.a l;
     public boolean m;
 
     /* loaded from: classes.dex */
@@ -57,7 +57,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.m0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+            b0<d.a.n0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MultiImgLayout.this.l);
@@ -75,14 +75,14 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
             this.f4427a = linkedList;
         }
 
-        @Override // d.a.m0.b1.j.d
+        @Override // d.a.n0.b1.j.d
         public void a(View view, int i2, boolean z) {
             if (MultiImgLayout.this.k == null || !MultiImgLayout.this.k.c(view, MultiImgLayout.this.l, "")) {
-                b0<d.a.m0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+                b0<d.a.n0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("1");
                     MultiImgLayout.this.l.objType = 2;
-                    subClickListener.f67163a = Boolean.valueOf(z);
+                    subClickListener.f67288a = Boolean.valueOf(z);
                     subClickListener.a(view, MultiImgLayout.this.l);
                     MultiImgLayout.this.l.objType = 1;
                 }
@@ -163,7 +163,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
         playVoiceBntNew.setAfterClickListener(new a());
         this.f4424h = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
         this.f4424h.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-        d.a.m0.b1.j.a aVar = new d.a.m0.b1.j.a(3);
+        d.a.n0.b1.j.a aVar = new d.a.n0.b1.j.a(3);
         aVar.d(1.0d);
         this.f4424h.setImageProcessor(aVar);
     }
@@ -171,7 +171,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: g */
-    public void a(d.a.m0.r.q.a aVar) {
+    public void a(d.a.n0.r.q.a aVar) {
         this.l = aVar;
         a2 i2 = aVar.i();
         ThreadCardUtils.setTitle(this.f4421e, i2, this.m);
@@ -190,7 +190,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
         setVoiceData(i2);
     }
 
-    public b0<d.a.m0.r.q.a> getSubClickListener() {
+    public b0<d.a.n0.r.q.a> getSubClickListener() {
         return this.k;
     }
 
@@ -241,7 +241,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
         }
     }
 
-    public void setSubClickListener(b0<d.a.m0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.n0.r.q.a> b0Var) {
         this.k = b0Var;
     }
 

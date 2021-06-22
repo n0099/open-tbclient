@@ -1,0 +1,78 @@
+package d.a.o0.r0.u1.b;
+
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import d.a.o0.z.b0;
+import d.a.o0.z.m;
+/* loaded from: classes4.dex */
+public class c extends d.a.c.k.e.a<d.a.o0.e0.b, CardViewHolder<d.a.o0.z.e>> {
+    public TbPageContext<?> m;
+    public d.a.o0.z.e n;
+    public b0 o;
+    public String p;
+
+    /* loaded from: classes4.dex */
+    public class a extends b0<d.a.o0.e0.b> {
+        public a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.o0.z.b0
+        /* renamed from: d */
+        public void a(View view, d.a.o0.e0.b bVar) {
+            TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 3).param("fid", c.this.p));
+            c.this.h0(view, bVar);
+        }
+    }
+
+    public c(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), d.a.o0.e0.b.f56578f);
+        this.m = tbPageContext;
+        this.p = str;
+    }
+
+    public final void h0(View view, d.a.o0.e0.b bVar) {
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(bVar.c(), null, m.g(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.c().c0()));
+        createFromThreadCfg.setForumName(bVar.c().i0());
+        createFromThreadCfg.setStartFrom(0);
+        m.a(bVar.c().z1());
+        this.m.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
+        b0 b0Var = this.o;
+        if (b0Var != null) {
+            b0Var.a(view, bVar);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.o0.z.e> Q(ViewGroup viewGroup) {
+        this.n = new d.a.o0.z.e(this.m);
+        return new CardViewHolder<>(this.n);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.o0.e0.b bVar, CardViewHolder<d.a.o0.z.e> cardViewHolder) {
+        if (cardViewHolder.b() == null) {
+            return null;
+        }
+        cardViewHolder.b().n(bVar);
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().p(new a());
+        return cardViewHolder.b().m();
+    }
+
+    public void k0(b0 b0Var) {
+        this.o = b0Var;
+    }
+}

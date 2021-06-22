@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.b;
 import com.baidu.sofire.core.ApkInfo;
+import com.baidu.sofire.core.b;
 import com.baidu.sofire.core.f;
-import com.baidu.sofire.g.d;
+import com.baidu.sofire.utility.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,100 +20,91 @@ import java.util.Map;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f10141d;
+    public static a f10167d;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10142a = 5;
+    public int f10168a = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10143b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+    public String f10169b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
 
     /* renamed from: c  reason: collision with root package name */
-    public SQLiteDatabase f10144c;
+    public SQLiteDatabase f10170c;
 
     /* renamed from: e  reason: collision with root package name */
-    public C0138a f10145e;
+    public C0139a f10171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f10146f;
+    public Context f10172f;
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0138a extends SQLiteOpenHelper {
-        public C0138a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f10142a);
-            new StringBuilder().append(a.this.f10142a);
-            b.a();
+    public class C0139a extends SQLiteOpenHelper {
+        public C0139a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f10168a);
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(a.this.f10143b);
+                sQLiteDatabase.execSQL(a.this.f10169b);
             } catch (Throwable unused) {
-                d.a();
+                c.a();
             }
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-            try {
-                StringBuilder sb = new StringBuilder("o=");
-                sb.append(i2);
-                sb.append(", n=");
-                sb.append(i3);
-                b.a();
-                if (i2 < 3 && i3 >= 3) {
+            if (i2 < 3 && i3 >= 3) {
+                try {
                     sQLiteDatabase.beginTransaction();
                     try {
                         sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pr INTEGER  DEFAULT -1");
                         sQLiteDatabase.setTransactionSuccessful();
                     } catch (Throwable unused) {
-                        d.a();
+                        c.a();
                     }
                     sQLiteDatabase.endTransaction();
-                }
-                if (i2 < 5 && i3 >= 5) {
-                    sQLiteDatabase.beginTransaction();
-                    try {
-                        sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pdld INTEGER  DEFAULT -1");
-                        sQLiteDatabase.setTransactionSuccessful();
-                    } catch (Throwable unused2) {
-                        d.a();
-                    }
-                    sQLiteDatabase.endTransaction();
-                }
-                if (i2 >= 4 || i3 < 4) {
+                } catch (Throwable unused2) {
+                    c.a();
                     return;
                 }
-                sQLiteDatabase.execSQL("drop table if exists tbch");
-            } catch (Throwable unused3) {
-                d.a();
             }
+            if (i2 < 5 && i3 >= 5) {
+                sQLiteDatabase.beginTransaction();
+                try {
+                    sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pdld INTEGER  DEFAULT -1");
+                    sQLiteDatabase.setTransactionSuccessful();
+                } catch (Throwable unused3) {
+                    c.a();
+                }
+                sQLiteDatabase.endTransaction();
+            }
+            if (i2 >= 4 || i3 < 4) {
+                return;
+            }
+            sQLiteDatabase.execSQL("drop table if exists tbch");
         }
     }
 
     public a(Context context) {
-        b.a();
-        this.f10146f = context.getApplicationContext();
-        C0138a c0138a = new C0138a(context.getApplicationContext());
-        this.f10145e = c0138a;
+        this.f10172f = context.getApplicationContext();
+        C0139a c0139a = new C0139a(context.getApplicationContext());
+        this.f10171e = c0139a;
         try {
-            this.f10144c = c0138a.getWritableDatabase();
+            this.f10170c = c0139a.getWritableDatabase();
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            new StringBuilder("i=").append(f10141d);
-            b.a();
-            if (f10141d == null) {
-                f10141d = new a(context);
+            if (f10167d == null) {
+                f10167d = new a(context);
             }
-            aVar = f10141d;
+            aVar = f10167d;
         }
         return aVar;
     }
@@ -135,7 +126,7 @@ public final class a {
         HashMap hashMap = new HashMap();
         try {
             try {
-                cursor = this.f10144c.query("pgn", null, "n=1", null, null, null, null);
+                cursor = this.f10170c.query("pgn", null, "n=1", null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -145,7 +136,7 @@ public final class a {
                             hashMap.put(valueOf, "'" + string + "'");
                         } catch (Throwable unused) {
                             try {
-                                d.a();
+                                c.a();
                                 if (cursor != null) {
                                 }
                                 return hashMap;
@@ -156,7 +147,7 @@ public final class a {
                                             cursor.close();
                                         }
                                     } catch (Throwable unused2) {
-                                        d.a();
+                                        c.a();
                                     }
                                 }
                                 throw th;
@@ -167,7 +158,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -192,7 +183,7 @@ public final class a {
         HashMap hashMap = new HashMap();
         try {
             try {
-                cursor = this.f10144c.query("pgn", null, "n=1", null, null, null, null);
+                cursor = this.f10170c.query("pgn", null, "n=1", null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -200,7 +191,7 @@ public final class a {
                             hashMap.put(Integer.valueOf(i2), cursor.getString(cursor.getColumnIndex("p")));
                         } catch (Throwable unused) {
                             try {
-                                d.a();
+                                c.a();
                                 if (cursor != null) {
                                 }
                                 return hashMap;
@@ -211,7 +202,7 @@ public final class a {
                                             cursor.close();
                                         }
                                     } catch (Throwable unused2) {
-                                        d.a();
+                                        c.a();
                                     }
                                 }
                                 throw th;
@@ -222,7 +213,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -234,7 +225,7 @@ public final class a {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
             for (ApkInfo apkInfo : a()) {
-                if (!d.c(apkInfo.pkgPath) && f.f10220b != null && !f.f10220b.contains(Integer.valueOf(apkInfo.key))) {
+                if (!c.c(apkInfo.pkgPath) && f.f10275b != null && !f.f10275b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
@@ -243,19 +234,15 @@ public final class a {
                 if (a2 != null) {
                     a2.b(apkInfo2.packageName);
                 }
-                SQLiteDatabase sQLiteDatabase = this.f10144c;
-                int delete = sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
-                StringBuilder sb = new StringBuilder();
-                sb.append(apkInfo2.packageName);
-                sb.append(delete);
-                b.a();
-                d.d(this.f10146f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
-                if (this.f10146f != null) {
-                    d.d(this.f10146f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                SQLiteDatabase sQLiteDatabase = this.f10170c;
+                sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
+                c.d(this.f10172f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
+                if (this.f10172f != null) {
+                    c.d(this.f10172f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
                 }
             }
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
@@ -276,7 +263,7 @@ public final class a {
         boolean z = false;
         try {
             try {
-                cursor = this.f10144c.query("pgn", new String[]{"s"}, "k=" + i2, null, null, null, null);
+                cursor = this.f10170c.query("pgn", new String[]{"s"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -286,7 +273,7 @@ public final class a {
                         }
                     } catch (Throwable unused) {
                         try {
-                            d.a();
+                            c.a();
                             if (cursor != null) {
                             }
                             return z;
@@ -297,7 +284,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable unused2) {
-                                    d.a();
+                                    c.a();
                                 }
                             }
                             throw th;
@@ -307,7 +294,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -319,10 +306,10 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", (Integer) (-1));
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
             sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
@@ -343,7 +330,7 @@ public final class a {
         int i3 = 0;
         try {
             try {
-                cursor = this.f10144c.query("pgn", new String[]{"pdld"}, "k=" + i2, null, null, null, null);
+                cursor = this.f10170c.query("pgn", new String[]{"pdld"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -351,7 +338,7 @@ public final class a {
                         }
                     } catch (Throwable unused) {
                         try {
-                            d.a();
+                            c.a();
                             if (cursor != null) {
                             }
                             return i3;
@@ -362,7 +349,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable unused2) {
-                                    d.a();
+                                    c.a();
                                 }
                             }
                             throw th;
@@ -375,23 +362,20 @@ public final class a {
                 cursor = null;
             }
         } catch (Throwable unused4) {
-            d.a();
+            c.a();
         }
         return i3;
     }
 
     public final void h(int i2) {
-        new StringBuilder().append(i2);
-        b.a();
         if (i2 <= 0) {
             return;
         }
         try {
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
-            new StringBuilder().append(sQLiteDatabase.delete("pgn", "k=" + i2, null));
-            b.a();
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
+            sQLiteDatabase.delete("pgn", "k=" + i2, null);
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
@@ -420,10 +404,10 @@ public final class a {
         }
         try {
             if (b(apkInfo.key)) {
-                j = this.f10144c.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                j = this.f10170c.update("pgn", contentValues, "k=" + apkInfo.key, null);
             } else {
                 contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
-                j = this.f10144c.insert("pgn", null, contentValues);
+                j = this.f10170c.insert("pgn", null, contentValues);
             }
         } catch (Throwable unused) {
         }
@@ -447,7 +431,7 @@ public final class a {
         boolean z = false;
         try {
             try {
-                cursor = this.f10144c.query("pgn", new String[]{"p"}, "k=" + i2, null, null, null, null);
+                cursor = this.f10170c.query("pgn", new String[]{"p"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.getCount() > 0) {
@@ -455,7 +439,7 @@ public final class a {
                         }
                     } catch (Throwable unused) {
                         try {
-                            d.a();
+                            c.a();
                             if (cursor != null) {
                             }
                             return z;
@@ -466,7 +450,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable unused2) {
-                                    d.a();
+                                    c.a();
                                 }
                             }
                             throw th;
@@ -476,7 +460,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -501,7 +485,7 @@ public final class a {
         int i3 = 0;
         try {
             try {
-                cursor = this.f10144c.query("pgn", new String[]{"n"}, "k=" + i2, null, null, null, null);
+                cursor = this.f10170c.query("pgn", new String[]{"n"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -509,7 +493,7 @@ public final class a {
                         }
                     } catch (Throwable unused) {
                         try {
-                            d.a();
+                            c.a();
                             if (cursor != null) {
                             }
                             return i3;
@@ -520,7 +504,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable unused2) {
-                                    d.a();
+                                    c.a();
                                 }
                             }
                             throw th;
@@ -533,7 +517,7 @@ public final class a {
                 cursor = null;
             }
         } catch (Throwable unused4) {
-            d.a();
+            c.a();
         }
         return i3;
     }
@@ -555,7 +539,7 @@ public final class a {
         boolean z = false;
         try {
             try {
-                cursor = this.f10144c.query("pgn", new String[]{"u"}, "k=" + i2, null, null, null, null);
+                cursor = this.f10170c.query("pgn", new String[]{"u"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -565,7 +549,7 @@ public final class a {
                         }
                     } catch (Throwable unused) {
                         try {
-                            d.a();
+                            c.a();
                             if (cursor != null) {
                             }
                             return z;
@@ -576,7 +560,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable unused2) {
-                                    d.a();
+                                    c.a();
                                 }
                             }
                             throw th;
@@ -586,7 +570,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -611,7 +595,7 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         try {
             try {
-                cursor = this.f10144c.query("pgn", null, null, null, null, null, null);
+                cursor = this.f10170c.query("pgn", null, null, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -627,7 +611,7 @@ public final class a {
                             arrayList.add(apkInfo);
                         } catch (Throwable unused) {
                             try {
-                                d.a();
+                                c.a();
                                 if (cursor != null) {
                                 }
                                 return arrayList;
@@ -638,7 +622,7 @@ public final class a {
                                             cursor.close();
                                         }
                                     } catch (Throwable unused2) {
-                                        d.a();
+                                        c.a();
                                     }
                                 }
                                 throw th;
@@ -649,7 +633,7 @@ public final class a {
                 if (cursor != null) {
                 }
             } catch (Throwable unused3) {
-                d.a();
+                c.a();
             }
         } catch (Throwable unused4) {
             cursor = null;
@@ -661,10 +645,10 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("pdld", Integer.valueOf(i3));
         try {
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
             sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
@@ -672,16 +656,16 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i3));
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
             sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
     public final ApkInfo b(String str) {
         ApkInfo apkInfo;
-        ArrayList<com.baidu.sofire.core.b> a2;
+        ArrayList<b> a2;
         int size;
         Cursor cursor = null;
         r1 = null;
@@ -690,7 +674,7 @@ public final class a {
             return null;
         }
         try {
-            Cursor query = this.f10144c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
+            Cursor query = this.f10170c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -715,19 +699,19 @@ public final class a {
                                 apkInfo.activities = new ActivityInfo[size];
                                 for (int i2 = 0; i2 < size; i2++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i2).f10169a;
+                                    activityInfo.theme = a2.get(i2).f10225a;
                                     activityInfo.name = a2.get(i2).j;
-                                    activityInfo.configChanges = a2.get(i2).f10176h;
-                                    activityInfo.flags = a2.get(i2).f10174f;
+                                    activityInfo.configChanges = a2.get(i2).f10232h;
+                                    activityInfo.flags = a2.get(i2).f10230f;
                                     activityInfo.labelRes = a2.get(i2).l;
-                                    activityInfo.launchMode = a2.get(i2).f10170b;
+                                    activityInfo.launchMode = a2.get(i2).f10226b;
                                     activityInfo.nonLocalizedLabel = a2.get(i2).m;
                                     activityInfo.packageName = a2.get(i2).k;
-                                    activityInfo.permission = a2.get(i2).f10171c;
-                                    activityInfo.screenOrientation = a2.get(i2).f10175g;
-                                    activityInfo.softInputMode = a2.get(i2).f10177i;
-                                    activityInfo.targetActivity = a2.get(i2).f10173e;
-                                    activityInfo.taskAffinity = a2.get(i2).f10172d;
+                                    activityInfo.permission = a2.get(i2).f10227c;
+                                    activityInfo.screenOrientation = a2.get(i2).f10231g;
+                                    activityInfo.softInputMode = a2.get(i2).f10233i;
+                                    activityInfo.targetActivity = a2.get(i2).f10229e;
+                                    activityInfo.taskAffinity = a2.get(i2).f10228d;
                                     apkInfo.activities[i2] = activityInfo;
                                 }
                             }
@@ -735,7 +719,7 @@ public final class a {
                         } catch (Throwable unused) {
                             cursor = query;
                             try {
-                                d.a();
+                                c.a();
                                 return apkInfo;
                             } finally {
                                 if (cursor != null) {
@@ -744,7 +728,7 @@ public final class a {
                                             cursor.close();
                                         }
                                     } catch (Throwable unused2) {
-                                        d.a();
+                                        c.a();
                                     }
                                 }
                             }
@@ -762,7 +746,7 @@ public final class a {
                     query.close();
                     return apkInfo2;
                 } catch (Throwable unused4) {
-                    d.a();
+                    c.a();
                     return apkInfo2;
                 }
             }
@@ -774,13 +758,13 @@ public final class a {
 
     public final ApkInfo a(int i2) {
         ApkInfo apkInfo;
-        ArrayList<com.baidu.sofire.core.b> a2;
+        ArrayList<b> a2;
         int size;
         Cursor cursor = null;
         r0 = null;
         ApkInfo apkInfo2 = null;
         try {
-            Cursor query = this.f10144c.query("pgn", null, "k=" + i2, null, null, null, null);
+            Cursor query = this.f10170c.query("pgn", null, "k=" + i2, null, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -805,19 +789,19 @@ public final class a {
                                 apkInfo.activities = new ActivityInfo[size];
                                 for (int i3 = 0; i3 < size; i3++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i3).f10169a;
+                                    activityInfo.theme = a2.get(i3).f10225a;
                                     activityInfo.name = a2.get(i3).j;
-                                    activityInfo.configChanges = a2.get(i3).f10176h;
-                                    activityInfo.flags = a2.get(i3).f10174f;
+                                    activityInfo.configChanges = a2.get(i3).f10232h;
+                                    activityInfo.flags = a2.get(i3).f10230f;
                                     activityInfo.labelRes = a2.get(i3).l;
-                                    activityInfo.launchMode = a2.get(i3).f10170b;
+                                    activityInfo.launchMode = a2.get(i3).f10226b;
                                     activityInfo.nonLocalizedLabel = a2.get(i3).m;
                                     activityInfo.packageName = a2.get(i3).k;
-                                    activityInfo.permission = a2.get(i3).f10171c;
-                                    activityInfo.screenOrientation = a2.get(i3).f10175g;
-                                    activityInfo.softInputMode = a2.get(i3).f10177i;
-                                    activityInfo.targetActivity = a2.get(i3).f10173e;
-                                    activityInfo.taskAffinity = a2.get(i3).f10172d;
+                                    activityInfo.permission = a2.get(i3).f10227c;
+                                    activityInfo.screenOrientation = a2.get(i3).f10231g;
+                                    activityInfo.softInputMode = a2.get(i3).f10233i;
+                                    activityInfo.targetActivity = a2.get(i3).f10229e;
+                                    activityInfo.taskAffinity = a2.get(i3).f10228d;
                                     apkInfo.activities[i3] = activityInfo;
                                 }
                             }
@@ -825,7 +809,7 @@ public final class a {
                         } catch (Throwable unused) {
                             cursor = query;
                             try {
-                                d.a();
+                                c.a();
                                 return apkInfo;
                             } finally {
                                 if (cursor != null) {
@@ -834,7 +818,7 @@ public final class a {
                                             cursor.close();
                                         }
                                     } catch (Throwable unused2) {
-                                        d.a();
+                                        c.a();
                                     }
                                 }
                             }
@@ -852,7 +836,7 @@ public final class a {
                     query.close();
                     return apkInfo2;
                 } catch (Throwable unused4) {
-                    d.a();
+                    c.a();
                     return apkInfo2;
                 }
             }
@@ -863,15 +847,13 @@ public final class a {
     }
 
     public final void a(String str) {
-        new StringBuilder().append(str);
-        b.a();
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            this.f10144c.delete("pgn", "p=?", new String[]{str});
+            this.f10170c.delete("pgn", "p=?", new String[]{str});
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 
@@ -879,7 +861,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("u", Integer.valueOf(i3));
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
             return sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
         } catch (Throwable unused) {
             return 0;
@@ -887,20 +869,14 @@ public final class a {
     }
 
     public final void a(int i2, String str) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(i2);
-        sb.append(" v = ");
-        sb.append(str);
-        b.a();
         if (i2 <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            SQLiteDatabase sQLiteDatabase = this.f10144c;
+            SQLiteDatabase sQLiteDatabase = this.f10170c;
             sQLiteDatabase.delete("pgn", "k=" + i2 + " and v=?", new String[]{str});
-            b.a();
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
     }
 }

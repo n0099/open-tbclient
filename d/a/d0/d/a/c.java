@@ -6,28 +6,28 @@ import com.baidu.prologue.service.network.Request;
 public final class c extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f43370b;
+    public static e f43473b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f43371a;
+    public final e f43474a;
 
     public c(Context context) {
-        this.f43371a = new g(context);
+        this.f43474a = new g(context);
     }
 
     public static e c(Context context) {
-        if (f43370b == null) {
+        if (f43473b == null) {
             synchronized (e.class) {
-                if (f43370b == null) {
-                    f43370b = new c(context);
+                if (f43473b == null) {
+                    f43473b = new c(context);
                 }
             }
         }
-        return f43370b;
+        return f43473b;
     }
 
     @Override // d.a.d0.d.a.e
     public void a(Request request, k kVar) {
-        this.f43371a.a(request, kVar);
+        this.f43474a.a(request, kVar);
     }
 }

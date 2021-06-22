@@ -9,38 +9,41 @@ import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes2.dex */
 public class a {
 
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f9214a = "Security";
+
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0116a {
+    public static class C0117a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f9218a = "UTF-8";
+        public static final String f9215a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f9219b = "AES/CBC/NoPadding";
+        public static final String f9216b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f9220c = "AES";
+        public static final String f9217c = "AES";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9221d;
+        public String f9218d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f9222e;
+        public String f9219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9223f;
+        public String f9220f;
 
-        public C0116a() {
+        public C0117a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
             if (str != null && str.length() != 0) {
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9221d));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9223f);
-                    Cipher cipher = Cipher.getInstance(this.f9222e);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9218d));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9220f);
+                    Cipher cipher = Cipher.getInstance(this.f9219e);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException e2) {
@@ -54,22 +57,22 @@ public class a {
             throw new Exception("Empty string");
         }
 
-        public C0116a(String str, String str2, String str3) {
-            this.f9221d = "UTF-8";
-            this.f9222e = "AES/CBC/NoPadding";
-            this.f9223f = "AES";
-            this.f9223f = str;
-            this.f9222e = str2;
-            this.f9221d = str3;
+        public C0117a(String str, String str2, String str3) {
+            this.f9218d = "UTF-8";
+            this.f9219e = "AES/CBC/NoPadding";
+            this.f9220f = "AES";
+            this.f9220f = str;
+            this.f9219e = str2;
+            this.f9218d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
             if (bArr != null && bArr.length != 0) {
                 byte[] bArr2 = new byte[0];
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9221d));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9223f);
-                    Cipher cipher = Cipher.getInstance(this.f9222e);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9218d));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9220f);
+                    Cipher cipher = Cipher.getInstance(this.f9219e);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable th) {
@@ -102,16 +105,20 @@ public class a {
 
     private String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
+        try {
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString);
-            sb.append(str);
+        } catch (Exception unused) {
+            Log.e(f9214a, "toHexString is error");
         }
         return sb.toString();
     }

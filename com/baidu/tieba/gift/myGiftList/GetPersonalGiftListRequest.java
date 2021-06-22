@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.GetMyGift.DataReq;
 import tbclient.GetMyGift.GetMyGiftReqIdl;
 /* loaded from: classes4.dex */

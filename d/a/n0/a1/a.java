@@ -1,33 +1,26 @@
 package d.a.n0.a1;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import d.a.n0.b1.d.c;
-/* loaded from: classes4.dex */
-public class a extends CustomMessageTask {
-
-    /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<c> {
-        public b() {
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
-            d.a.n0.k1.s.a c2;
-            if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
-                c data = customMessage.getData();
-                if (data.d() == null && (c2 = d.a.n0.k1.r.b.d().c(data.c(), data.f())) != null) {
-                    c2.b(new d.a.n0.a1.b(data.e()));
-                    data.i(c2);
-                }
-            }
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes3.dex */
+public class a {
+    public static String a(String str) {
+        int i2;
+        if (StringUtils.isNull(str)) {
             return null;
         }
+        int indexOf = str.indexOf("(");
+        int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+        if (indexOf == -1 || indexOf2 == -1 || (i2 = indexOf + 1) >= indexOf2) {
+            return null;
+        }
+        return str.substring(i2, indexOf2);
     }
 
-    public a() {
-        super(2001406, new b());
-        setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+    public static boolean b(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        return str.equals("4") || str.equals("5");
     }
 }

@@ -438,7 +438,7 @@ public final class BDLocation implements Parcelable {
     /* JADX WARN: Removed duplicated region for block: B:320:0x05c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:343:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r2v46 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

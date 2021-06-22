@@ -1,0 +1,13 @@
+package d.a.o0.r1.s;
+
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+/* loaded from: classes4.dex */
+public class a extends d.a.f0.b.b.a<ShareChannelService> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.f0.b.b.a
+    /* renamed from: a */
+    public ShareChannelService createService() throws ServiceNotFoundException {
+        return new b();
+    }
+}

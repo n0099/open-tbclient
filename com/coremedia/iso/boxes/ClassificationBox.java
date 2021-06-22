@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -13,15 +14,15 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class ClassificationBox extends AbstractFullBox {
     public static final String TYPE = "clsf";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_8 = null;
     public String classificationEntity;
     public String classificationInfo;
     public int classificationTableIndex;
@@ -115,6 +116,6 @@ public class ClassificationBox extends AbstractFullBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_8, this, this));
-        return "ClassificationBox[language=" + getLanguage() + "classificationEntity=" + getClassificationEntity() + ";classificationTableIndex=" + getClassificationTableIndex() + ";language=" + getLanguage() + ";classificationInfo=" + getClassificationInfo() + "]";
+        return "ClassificationBox[language=" + getLanguage() + "classificationEntity=" + getClassificationEntity() + ";classificationTableIndex=" + getClassificationTableIndex() + ";language=" + getLanguage() + ";classificationInfo=" + getClassificationInfo() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -10,7 +10,7 @@ public class h extends a {
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a(String str) {
-        return this.f30590b + this.f30591c + this.f30592d + this.f30593e + this.f30594f + this.f30595g + this.f30596h + this.f30597i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
+        return this.f30672b + this.f30673c + this.f30674d + this.f30675e + this.f30676f + this.f30677g + this.f30678h + this.f30679i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
     }
 
     @Override // com.cmic.sso.sdk.b.b.a
@@ -22,15 +22,15 @@ public class h extends a {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ver", this.f30589a);
-            jSONObject.put(BaseStatisContent.SDKVER, this.f30590b);
-            jSONObject.put("appid", this.f30591c);
-            jSONObject.put(BaseStatisContent.IMSI, this.f30592d);
-            jSONObject.put("operatortype", this.f30593e);
-            jSONObject.put("networktype", this.f30594f);
-            jSONObject.put("mobilebrand", this.f30595g);
-            jSONObject.put("mobilemodel", this.f30596h);
-            jSONObject.put("mobilesystem", this.f30597i);
+            jSONObject.put("ver", this.f30671a);
+            jSONObject.put(BaseStatisContent.SDKVER, this.f30672b);
+            jSONObject.put("appid", this.f30673c);
+            jSONObject.put(BaseStatisContent.IMSI, this.f30674d);
+            jSONObject.put("operatortype", this.f30675e);
+            jSONObject.put("networktype", this.f30676f);
+            jSONObject.put("mobilebrand", this.f30677g);
+            jSONObject.put("mobilemodel", this.f30678h);
+            jSONObject.put("mobilesystem", this.f30679i);
             jSONObject.put("clienttype", this.j);
             jSONObject.put("interfacever", this.k);
             jSONObject.put("expandparams", this.l);
@@ -54,7 +54,7 @@ public class h extends a {
     }
 
     public String toString() {
-        return this.f30589a + "&" + this.f30590b + "&" + this.f30591c + "&" + this.f30592d + "&" + this.f30593e + "&" + this.f30594f + "&" + this.f30595g + "&" + this.f30596h + "&" + this.f30597i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
+        return this.f30671a + "&" + this.f30672b + "&" + this.f30673c + "&" + this.f30674d + "&" + this.f30675e + "&" + this.f30676f + "&" + this.f30677g + "&" + this.f30678h + "&" + this.f30679i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
     }
 
     public void x(String str) {

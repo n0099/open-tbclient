@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ScreenLockActivityConfig;
-import d.a.n0.v2.a;
+import d.a.o0.v2.a;
 /* loaded from: classes5.dex */
 public class ScreenLockActivityStatic {
     static {

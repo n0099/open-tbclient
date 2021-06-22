@@ -5,26 +5,26 @@ import android.opengl.Matrix;
 public class b implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f68480e;
+    public float[] f68584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f68481f;
+    public float[] f68585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f68482g;
+    public boolean f68586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68483h;
+    public boolean f68587h;
 
     public b() {
         float[] fArr = new float[16];
-        this.f68480e = fArr;
+        this.f68584e = fArr;
         Matrix.setIdentityM(fArr, 0);
         float[] fArr2 = new float[16];
-        this.f68481f = fArr2;
+        this.f68585f = fArr2;
         Matrix.setIdentityM(fArr2, 0);
-        this.f68482g = false;
-        this.f68483h = false;
+        this.f68586g = false;
+        this.f68587h = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,34 +38,34 @@ public class b implements Cloneable {
             bVar = null;
         }
         if (bVar != null) {
-            bVar.g((float[]) this.f68480e.clone());
-            bVar.h((float[]) this.f68481f.clone());
+            bVar.g((float[]) this.f68584e.clone());
+            bVar.h((float[]) this.f68585f.clone());
         }
         return bVar;
     }
 
     public float[] c() {
-        return this.f68480e;
+        return this.f68584e;
     }
 
     public float[] d() {
-        return this.f68481f;
+        return this.f68585f;
     }
 
     public boolean e() {
-        return this.f68483h;
+        return this.f68587h;
     }
 
     public boolean f() {
-        return this.f68482g;
+        return this.f68586g;
     }
 
     public void g(float[] fArr) {
-        this.f68480e = fArr;
+        this.f68584e = fArr;
     }
 
     public void h(float[] fArr) {
-        this.f68481f = fArr;
+        this.f68585f = fArr;
     }
 
     public void i(long j) {

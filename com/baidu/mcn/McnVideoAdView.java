@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.n0.t2.y;
+import d.a.o0.t2.y;
 /* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
     public static final int r = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
@@ -102,14 +102,14 @@ public class McnVideoAdView extends FrameLayout {
             return;
         }
         this.n = aVar;
-        this.f7998f.U(aVar.f68560a, 10, false);
-        if (!StringUtils.isNull(aVar.f68561b)) {
-            this.f7999g.setText(aVar.f68561b);
+        this.f7998f.U(aVar.f68664a, 10, false);
+        if (!StringUtils.isNull(aVar.f68665b)) {
+            this.f7999g.setText(aVar.f68665b);
         }
-        if (StringUtils.isNull(aVar.f68562c)) {
+        if (StringUtils.isNull(aVar.f68666c)) {
             return;
         }
-        this.f8000h.setText(aVar.f68562c);
+        this.f8000h.setText(aVar.f68666c);
     }
 
     public final void d() {
@@ -120,7 +120,7 @@ public class McnVideoAdView extends FrameLayout {
         d.a.x.a aVar;
         String str;
         Context context = this.f7997e;
-        if (context == null || (aVar = this.n) == null || (str = aVar.f68563d) == null) {
+        if (context == null || (aVar = this.n) == null || (str = aVar.f68667d) == null) {
             return;
         }
         y.d(context, str, null, null);

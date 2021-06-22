@@ -13,10 +13,10 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public ProfileHomeParam f33451a;
+    public ProfileHomeParam f33549a;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f33451a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f33549a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, ProfileHomeParam profileHomeParam) {
@@ -33,9 +33,9 @@ public class a extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_PROFILE_HOME_PARAM");
         if (serializableExtra instanceof ProfileHomeParam) {
-            this.f33451a = (ProfileHomeParam) serializableExtra;
+            this.f33549a = (ProfileHomeParam) serializableExtra;
         }
-        return this.f33451a != null;
+        return this.f33549a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy

@@ -21,15 +21,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     public class a implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f72521e;
+        public final /* synthetic */ c f72625e;
 
         public a(c cVar) {
-            this.f72521e = cVar;
+            this.f72625e = cVar;
         }
 
         @Override // h.n.a
         public void call() {
-            SubjectSubscriptionManager.this.remove(this.f72521e);
+            SubjectSubscriptionManager.this.remove(this.f72625e);
         }
     }
 
@@ -37,46 +37,46 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     public static final class b<T> {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c[] f72523c;
+        public static final c[] f72627c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f72524d;
+        public static final b f72628d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f72525e;
+        public static final b f72629e;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f72526a;
+        public final boolean f72630a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c[] f72527b;
+        public final c[] f72631b;
 
         static {
             c[] cVarArr = new c[0];
-            f72523c = cVarArr;
-            f72524d = new b(true, cVarArr);
-            f72525e = new b(false, f72523c);
+            f72627c = cVarArr;
+            f72628d = new b(true, cVarArr);
+            f72629e = new b(false, f72627c);
         }
 
         public b(boolean z, c[] cVarArr) {
-            this.f72526a = z;
-            this.f72527b = cVarArr;
+            this.f72630a = z;
+            this.f72631b = cVarArr;
         }
 
         public b a(c cVar) {
-            c[] cVarArr = this.f72527b;
+            c[] cVarArr = this.f72631b;
             int length = cVarArr.length;
             c[] cVarArr2 = new c[length + 1];
             System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
             cVarArr2[length] = cVar;
-            return new b(this.f72526a, cVarArr2);
+            return new b(this.f72630a, cVarArr2);
         }
 
         public b b(c cVar) {
-            c[] cVarArr = this.f72527b;
+            c[] cVarArr = this.f72631b;
             int length = cVarArr.length;
             if (length == 1 && cVarArr[0] == cVar) {
-                return f72525e;
+                return f72629e;
             }
             if (length == 0) {
                 return this;
@@ -94,14 +94,14 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                 }
             }
             if (i3 == 0) {
-                return f72525e;
+                return f72629e;
             }
             if (i3 < i2) {
                 c[] cVarArr3 = new c[i3];
                 System.arraycopy(cVarArr2, 0, cVarArr3, 0, i3);
                 cVarArr2 = cVarArr3;
             }
-            return new b(this.f72526a, cVarArr2);
+            return new b(this.f72630a, cVarArr2);
         }
     }
 
@@ -109,35 +109,35 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     public static final class c<T> implements e<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f72528e;
+        public final j<? super T> f72632e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f72529f = true;
+        public boolean f72633f = true;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f72530g;
+        public boolean f72634g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<Object> f72531h;
+        public List<Object> f72635h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f72532i;
+        public boolean f72636i;
 
         public c(j<? super T> jVar) {
-            this.f72528e = jVar;
+            this.f72632e = jVar;
         }
 
         public void a(Object obj) {
             if (obj != null) {
-                NotificationLite.a(this.f72528e, obj);
+                NotificationLite.a(this.f72632e, obj);
             }
         }
 
         public void b(Object obj) {
             synchronized (this) {
-                if (this.f72529f && !this.f72530g) {
-                    this.f72529f = false;
-                    this.f72530g = obj != null;
+                if (this.f72633f && !this.f72634g) {
+                    this.f72633f = false;
+                    this.f72634g = obj != null;
                     if (obj != null) {
                         c(null, obj);
                     }
@@ -173,10 +173,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                 try {
                     synchronized (this) {
                         try {
-                            list = this.f72531h;
-                            this.f72531h = null;
+                            list = this.f72635h;
+                            this.f72635h = null;
                             if (list == null) {
-                                this.f72530g = false;
+                                this.f72634g = false;
                                 return;
                             }
                         } catch (Throwable th2) {
@@ -193,7 +193,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     th = th4;
                     if (!z) {
                         synchronized (this) {
-                            this.f72530g = false;
+                            this.f72634g = false;
                         }
                     }
                     throw th;
@@ -202,40 +202,40 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         }
 
         public void d(Object obj) {
-            if (!this.f72532i) {
+            if (!this.f72636i) {
                 synchronized (this) {
-                    this.f72529f = false;
-                    if (this.f72530g) {
-                        if (this.f72531h == null) {
-                            this.f72531h = new ArrayList();
+                    this.f72633f = false;
+                    if (this.f72634g) {
+                        if (this.f72635h == null) {
+                            this.f72635h = new ArrayList();
                         }
-                        this.f72531h.add(obj);
+                        this.f72635h.add(obj);
                         return;
                     }
-                    this.f72532i = true;
+                    this.f72636i = true;
                 }
             }
-            NotificationLite.a(this.f72528e, obj);
+            NotificationLite.a(this.f72632e, obj);
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f72528e.onCompleted();
+            this.f72632e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f72528e.onError(th);
+            this.f72632e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f72528e.onNext(t);
+            this.f72632e.onNext(t);
         }
     }
 
     public SubjectSubscriptionManager() {
-        super(b.f72525e);
+        super(b.f72629e);
         this.active = true;
         this.onStart = Actions.a();
         this.onAdded = Actions.a();
@@ -246,7 +246,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         b<T> bVar;
         do {
             bVar = get();
-            if (bVar.f72526a) {
+            if (bVar.f72630a) {
                 this.onTerminated.call(cVar);
                 return false;
             }
@@ -270,11 +270,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
 
     public c<T>[] next(Object obj) {
         setLatest(obj);
-        return get().f72527b;
+        return get().f72631b;
     }
 
     public c<T>[] observers() {
-        return get().f72527b;
+        return get().f72631b;
     }
 
     public void remove(c<T> cVar) {
@@ -282,7 +282,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         b<T> b2;
         do {
             bVar = get();
-            if (bVar.f72526a || (b2 = bVar.b(cVar)) == bVar) {
+            if (bVar.f72630a || (b2 = bVar.b(cVar)) == bVar) {
                 return;
             }
         } while (!compareAndSet(bVar, b2));
@@ -295,10 +295,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     public c<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        if (get().f72526a) {
-            return b.f72523c;
+        if (get().f72630a) {
+            return b.f72627c;
         }
-        return getAndSet(b.f72524d).f72527b;
+        return getAndSet(b.f72628d).f72631b;
     }
 
     public void call(j<? super T> jVar) {

@@ -12,54 +12,54 @@ import com.zui.deviceidservice.a;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f26888c = "OpenDeviceId library";
+    public static String f26970c = "OpenDeviceId library";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f26889d = false;
+    public static boolean f26971d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26890a;
+    public Context f26972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.zui.deviceidservice.a f26891b;
+    public com.zui.deviceidservice.a f26973b;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f26892e;
+    public ServiceConnection f26974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bun.miitmdid.supplier.c.a f26893f;
+    public com.bun.miitmdid.supplier.c.a f26975f;
 
     public a(Context context, com.bun.miitmdid.supplier.c.a aVar) {
-        this.f26890a = null;
+        this.f26972a = null;
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f26890a = context;
-        this.f26893f = aVar;
-        this.f26892e = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
+        this.f26972a = context;
+        this.f26975f = aVar;
+        this.f26974e = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.f26891b = a.AbstractBinderC0529a.a(iBinder);
-                if (a.this.f26893f != null) {
-                    a.this.f26893f.a(true);
+                a.this.f26973b = a.AbstractBinderC0532a.a(iBinder);
+                if (a.this.f26975f != null) {
+                    a.this.f26975f.a(true);
                 }
                 a.this.a("Service onServiceConnected");
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.f26891b = null;
+                a.this.f26973b = null;
                 a.this.a("Service onServiceDisconnected");
             }
         };
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        if (this.f26890a.bindService(intent, this.f26892e, 1)) {
+        if (this.f26972a.bindService(intent, this.f26974e, 1)) {
             a("bindService Successful!");
             return;
         }
         a("bindService Failed!");
-        com.bun.miitmdid.supplier.c.a aVar2 = this.f26893f;
+        com.bun.miitmdid.supplier.c.a aVar2 = this.f26975f;
         if (aVar2 != null) {
             aVar2.a();
         }
@@ -67,25 +67,25 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (f26889d) {
-            Log.i(f26888c, str);
+        if (f26971d) {
+            Log.i(f26970c, str);
         }
     }
 
     private void b(String str) {
-        if (f26889d) {
-            Log.e(f26888c, str);
+        if (f26971d) {
+            Log.e(f26970c, str);
         }
     }
 
     public String a() {
-        if (this.f26890a == null) {
+        if (this.f26972a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.f26891b != null) {
-                return this.f26891b.a();
+            if (this.f26973b != null) {
+                return this.f26973b.a();
             }
             return null;
         } catch (RemoteException e2) {
@@ -96,13 +96,13 @@ public class a {
     }
 
     public String b() {
-        if (this.f26890a == null) {
+        if (this.f26972a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.f26891b != null) {
-                return this.f26891b.b();
+            if (this.f26973b != null) {
+                return this.f26973b.b();
             }
             return null;
         } catch (RemoteException e2) {
@@ -114,9 +114,9 @@ public class a {
 
     public boolean c() {
         try {
-            if (this.f26891b != null) {
+            if (this.f26973b != null) {
                 a("Device support opendeviceid");
-                return this.f26891b.c();
+                return this.f26973b.c();
             }
             return false;
         } catch (RemoteException unused) {
@@ -126,7 +126,7 @@ public class a {
     }
 
     public String d() {
-        Context context = this.f26890a;
+        Context context = this.f26972a;
         if (context == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
@@ -138,8 +138,8 @@ public class a {
             return null;
         }
         try {
-            if (this.f26891b != null) {
-                return this.f26891b.a(packageName);
+            if (this.f26973b != null) {
+                return this.f26973b.a(packageName);
             }
             return null;
         } catch (RemoteException e2) {
@@ -150,7 +150,7 @@ public class a {
     }
 
     public String e() {
-        Context context = this.f26890a;
+        Context context = this.f26972a;
         if (context == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
@@ -162,8 +162,8 @@ public class a {
             return null;
         }
         try {
-            if (this.f26891b != null) {
-                return this.f26891b.b(packageName);
+            if (this.f26973b != null) {
+                return this.f26973b.b(packageName);
             }
             return null;
         } catch (RemoteException unused) {
@@ -174,11 +174,11 @@ public class a {
 
     public void f() {
         try {
-            this.f26890a.unbindService(this.f26892e);
+            this.f26972a.unbindService(this.f26974e);
             a("unBind Service successful");
         } catch (IllegalArgumentException unused) {
             b("unBind Service exception");
         }
-        this.f26891b = null;
+        this.f26973b = null;
     }
 }

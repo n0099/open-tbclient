@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class d extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29256a;
+    public WeakReference<x> f29338a;
 
     public d(x xVar) {
-        this.f29256a = new WeakReference<>(xVar);
+        this.f29338a = new WeakReference<>(xVar);
     }
 
     public JSONObject c() {
         x xVar;
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f29256a == null || (xVar = this.f29256a.get()) == null) {
+            if (this.f29338a == null || (xVar = this.f29338a.get()) == null) {
                 return jSONObject;
             }
             jSONObject = xVar.k();

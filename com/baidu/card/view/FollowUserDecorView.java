@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.R;
-import d.a.m0.r.f0.m.b;
-import d.a.m0.r.f0.q.c;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.f0.m.b;
+import d.a.n0.r.f0.q.c;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public BdUniqueId v;

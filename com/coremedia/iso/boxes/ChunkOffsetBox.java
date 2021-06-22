@@ -1,12 +1,13 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 /* loaded from: classes6.dex */
 public abstract class ChunkOffsetBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -25,6 +26,6 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
 
     public String toString() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
-        return String.valueOf(getClass().getSimpleName()) + "[entryCount=" + getChunkOffsets().length + "]";
+        return String.valueOf(getClass().getSimpleName()) + "[entryCount=" + getChunkOffsets().length + PreferencesUtil.RIGHT_MOUNT;
     }
 }

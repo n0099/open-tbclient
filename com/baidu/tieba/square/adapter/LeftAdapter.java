@@ -18,30 +18,30 @@ import java.util.List;
 public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20673a;
+    public Context f20755a;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f20675c;
+    public List<String> f20757c;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f20674b = null;
+    public b f20756b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20676d = 0;
+    public int f20758d = 0;
 
     /* loaded from: classes5.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f20677a;
+        public TextView f20759a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f20678b;
+        public View f20760b;
 
         public ViewHolder(@NonNull LeftAdapter leftAdapter, View view) {
             super(view);
-            this.f20677a = (TextView) view.findViewById(R.id.tv_class_name);
-            this.f20678b = view.findViewById(R.id.tv_line);
+            this.f20759a = (TextView) view.findViewById(R.id.tv_class_name);
+            this.f20760b = view.findViewById(R.id.tv_line);
         }
     }
 
@@ -49,28 +49,28 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f20679e;
+        public final /* synthetic */ int f20761e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f20680f;
+        public final /* synthetic */ ViewHolder f20762f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f20681g;
+        public final /* synthetic */ String f20763g;
 
         public a(int i2, ViewHolder viewHolder, String str) {
-            this.f20679e = i2;
-            this.f20680f = viewHolder;
-            this.f20681g = str;
+            this.f20761e = i2;
+            this.f20762f = viewHolder;
+            this.f20763g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            LeftAdapter.this.r(this.f20679e);
-            if (LeftAdapter.this.f20674b != null) {
-                LeftAdapter.this.f20674b.a(this.f20680f.itemView, this.f20679e, this.f20681g);
+            LeftAdapter.this.r(this.f20761e);
+            if (LeftAdapter.this.f20756b != null) {
+                LeftAdapter.this.f20756b.a(this.f20762f.itemView, this.f20761e, this.f20763g);
             }
             StatisticItem statisticItem = new StatisticItem("c13649");
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f20681g);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f20763g);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -81,16 +81,16 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public LeftAdapter(Context context) {
-        this.f20673a = context;
+        this.f20755a = context;
     }
 
     public String g(int i2) {
-        return (String) ListUtils.getItem(this.f20675c, i2);
+        return (String) ListUtils.getItem(this.f20757c, i2);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<String> list = this.f20675c;
+        List<String> list = this.f20757c;
         if (list == null) {
             return 0;
         }
@@ -98,29 +98,29 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public int h(String str) {
-        return ListUtils.getPosition(this.f20675c, str);
+        return ListUtils.getPosition(this.f20757c, str);
     }
 
     public String m() {
-        return g(this.f20676d);
+        return g(this.f20758d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
-        String str = this.f20675c.get(i2);
+        String str = this.f20757c.get(i2);
         viewHolder.itemView.setTag(Integer.valueOf(i2));
-        viewHolder.f20677a.setText(str);
-        if (this.f20676d == i2) {
-            viewHolder.f20678b.setVisibility(0);
-            SkinManager.setBackgroundColor(viewHolder.f20678b, R.color.CAM_X0302);
+        viewHolder.f20759a.setText(str);
+        if (this.f20758d == i2) {
+            viewHolder.f20760b.setVisibility(0);
+            SkinManager.setBackgroundColor(viewHolder.f20760b, R.color.CAM_X0302);
             SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(viewHolder.f20677a, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(viewHolder.f20759a, R.color.CAM_X0105);
         } else {
-            viewHolder.f20678b.setVisibility(8);
+            viewHolder.f20760b.setVisibility(8);
             SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(viewHolder.f20677a, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(viewHolder.f20759a, R.color.CAM_X0107);
         }
         if ("推荐".equals(m())) {
             StatisticItem statisticItem = new StatisticItem("c13641");
@@ -136,21 +136,21 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     @NonNull
     /* renamed from: o */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
-        return new ViewHolder(this, LayoutInflater.from(this.f20673a).inflate(R.layout.left_item_layout, viewGroup, false));
+        return new ViewHolder(this, LayoutInflater.from(this.f20755a).inflate(R.layout.left_item_layout, viewGroup, false));
     }
 
     public void p(int i2, List<String> list) {
-        this.f20676d = i2;
-        this.f20675c = list;
+        this.f20758d = i2;
+        this.f20757c = list;
         notifyDataSetChanged();
     }
 
     public void q(b bVar) {
-        this.f20674b = bVar;
+        this.f20756b = bVar;
     }
 
     public void r(int i2) {
-        this.f20676d = i2;
+        this.f20758d = i2;
         notifyDataSetChanged();
     }
 }

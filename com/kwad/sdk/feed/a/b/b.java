@@ -10,11 +10,11 @@ import java.util.Map;
 public class b extends com.kwad.sdk.lib.a.a.b<AdResultData, AdTemplate> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f35517a;
+    public SceneImpl f35615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f35518b;
+    public com.kwad.sdk.core.i.a f35616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, e.a> f35519c = new LinkedHashMap();
+    public Map<String, e.a> f35617c = new LinkedHashMap();
 }

@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class n extends com.kwad.sdk.core.network.d {
     public n(boolean z) {
         a("showAllTrend", z);

@@ -41,7 +41,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TextView mTransmitTitle;
     public List<d.a.c.k.e.a> mAdapters = new ArrayList();
     public View.OnClickListener mOnClickListener = new a();
-    public d.a.n0.w3.q.a mTransmitForumCallback = new b();
+    public d.a.o0.w3.q.a mTransmitForumCallback = new b();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -70,21 +70,21 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements d.a.n0.w3.q.a {
+    public class b implements d.a.o0.w3.q.a {
         public b() {
         }
 
-        @Override // d.a.n0.w3.q.a
+        @Override // d.a.o0.w3.q.a
         public void a() {
             TransmitForumActivity.this.setTransmitConfirmButtonText();
         }
 
-        @Override // d.a.n0.w3.q.a
+        @Override // d.a.o0.w3.q.a
         public void b() {
             TransmitForumActivity.this.showToast(R.string.transmit_max_commit);
         }
 
-        @Override // d.a.n0.w3.q.a
+        @Override // d.a.o0.w3.q.a
         public boolean c() {
             return ListUtils.getCount(TransmitForumActivity.this.getSelectedList()) >= 3;
         }
@@ -234,9 +234,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         } else {
             arrayList = null;
         }
-        this.mDataList.add(new d.a.n0.w3.q.c());
+        this.mDataList.add(new d.a.o0.w3.q.c());
         this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.n0.w3.q.c.f66632e, getUniqueId(), arrayList);
+        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.o0.w3.q.c.f66757e, getUniqueId(), arrayList);
         this.mForumAdapter.i0(this.mTransmitForumCallback);
         this.mAdapters.add(this.mForumAdapter);
         this.mAdapters.add(this.mSelectAdapter);

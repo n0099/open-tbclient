@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.m0.r.l.c;
-import d.a.n0.s1.g.a;
+import d.a.n0.r.l.c;
+import d.a.o0.s1.g.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public a mData;
 
@@ -35,12 +35,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         AccountData currentAccountObj;
         super.afterDispatchInBackGround(i2, (int) bArr);
         a aVar = this.mData;
-        if (aVar == null || (eVar = aVar.f64266a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f64280a)) {
+        if (aVar == null || (eVar = aVar.f64391a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f64405a)) {
             return;
         }
-        a.b bVar = eVar.f64283d;
-        if (bVar != null && bVar.f64273b > bVar.f64274c && !StringUtils.isNull(bVar.f64275d)) {
-            currentAccountObj.setMemberIconUrl(bVar.f64275d);
+        a.b bVar = eVar.f64408d;
+        if (bVar != null && bVar.f64398b > bVar.f64399c && !StringUtils.isNull(bVar.f64400d)) {
+            currentAccountObj.setMemberIconUrl(bVar.f64400d);
         } else {
             currentAccountObj.setMemberIconUrl(null);
         }

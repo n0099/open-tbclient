@@ -1,5 +1,6 @@
 package io.reactivex;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -82,8 +83,8 @@ public final class Notification<T> {
             return "OnCompleteNotification";
         }
         if (NotificationLite.isError(obj)) {
-            return "OnErrorNotification[" + NotificationLite.getError(obj) + "]";
+            return "OnErrorNotification[" + NotificationLite.getError(obj) + PreferencesUtil.RIGHT_MOUNT;
         }
-        return "OnNextNotification[" + this.value + "]";
+        return "OnNextNotification[" + this.value + PreferencesUtil.RIGHT_MOUNT;
     }
 }

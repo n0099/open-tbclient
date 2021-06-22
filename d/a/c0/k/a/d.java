@@ -5,25 +5,25 @@ import java.util.Map;
 public abstract class d<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<K, V> f43037a = d.a.c0.n.e.a();
+    public Map<K, V> f43140a = d.a.c0.n.e.a();
 
     public void a(Map<K, V> map) {
-        this.f43037a = map;
+        this.f43140a = map;
     }
 
     public V b(K k) {
-        return this.f43037a.get(k);
+        return this.f43140a.get(k);
     }
 
     public Map<K, V> c() {
-        return this.f43037a;
+        return this.f43140a;
     }
 
     public Map<K, V> d() {
-        return this.f43037a;
+        return this.f43140a;
     }
 
     public void e(K k, V v) {
-        this.f43037a.put(k, v);
+        this.f43140a.put(k, v);
     }
 }

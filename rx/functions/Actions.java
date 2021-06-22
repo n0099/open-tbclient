@@ -7,7 +7,7 @@ import rx.exceptions.OnErrorNotImplementedException;
 public final class Actions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f72368a = new a();
+    public static final a f72472a = new a();
 
     /* loaded from: classes8.dex */
     public enum NotImplemented implements b<Throwable> {
@@ -36,7 +36,7 @@ public final class Actions {
     }
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
-        return f72368a;
+        return f72472a;
     }
 
     public static b<Throwable> b() {

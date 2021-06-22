@@ -4,16 +4,16 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import d.a.l0.f.i.c;
+import d.a.m0.f.i.c;
 /* loaded from: classes3.dex */
 public class AdScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11589e;
+    public int f11671e;
 
     public AdScrollView(Context context) {
         super(context);
-        this.f11589e = -1;
+        this.f11671e = -1;
     }
 
     private int getLimitHeight() {
@@ -35,7 +35,7 @@ public class AdScrollView extends ScrollView {
         super.onMeasure(i2, i3);
         int size = View.MeasureSpec.getSize(i3);
         int size2 = View.MeasureSpec.getSize(i2);
-        int i4 = this.f11589e;
+        int i4 = this.f11671e;
         if (i4 > 0) {
             size = Math.min(size, i4);
         }
@@ -55,16 +55,16 @@ public class AdScrollView extends ScrollView {
     }
 
     public void setMaxHeight(int i2) {
-        this.f11589e = i2;
+        this.f11671e = i2;
     }
 
     public AdScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11589e = -1;
+        this.f11671e = -1;
     }
 
     public AdScrollView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11589e = -1;
+        this.f11671e = -1;
     }
 }

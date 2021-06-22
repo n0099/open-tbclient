@@ -7,31 +7,31 @@ import java.util.Arrays;
 public abstract class b implements f, Closeable {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f36816d = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f36914d = !b.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36817a;
+    public boolean f36915a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36818b;
+    public boolean f36916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36819c;
+    public boolean f36917c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final byte[] f36820e;
+    public final byte[] f36918e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f36821f;
+    public final int f36919f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f36822g;
+    public byte[] f36920g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36823h;
+    public int f36921h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36824i;
+    public int f36922i;
     public long j;
     public DeflatedChunksSet k;
     public ChunkReader l;
@@ -43,18 +43,18 @@ public abstract class b implements f, Closeable {
     }
 
     public b(byte[] bArr) {
-        this.f36822g = new byte[8];
-        this.f36823h = 0;
-        this.f36817a = false;
-        this.f36818b = false;
-        this.f36819c = false;
-        this.f36824i = 0;
+        this.f36920g = new byte[8];
+        this.f36921h = 0;
+        this.f36915a = false;
+        this.f36916b = false;
+        this.f36917c = false;
+        this.f36922i = 0;
         this.j = 0L;
         this.n = ErrorBehaviour.STRICT;
-        this.f36820e = bArr;
+        this.f36918e = bArr;
         int length = bArr == null ? 0 : bArr.length;
-        this.f36821f = length;
-        this.f36817a = length <= 0;
+        this.f36919f = length;
+        this.f36915a = length <= 0;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -62,7 +62,7 @@ public abstract class b implements f, Closeable {
         int i4;
         long j;
         long j2;
-        if (this.f36819c) {
+        if (this.f36917c) {
             return -1;
         }
         if (i3 == 0) {
@@ -71,22 +71,22 @@ public abstract class b implements f, Closeable {
         if (i3 < 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("This should not happen. Bad length: " + i3));
         }
-        if (this.f36817a) {
+        if (this.f36915a) {
             ChunkReader chunkReader = this.l;
             if (chunkReader == null || chunkReader.b()) {
-                int i5 = 8 - this.f36823h;
+                int i5 = 8 - this.f36921h;
                 if (i5 <= i3) {
                     i3 = i5;
                 }
-                System.arraycopy(bArr, i2, this.f36822g, this.f36823h, i3);
-                int i6 = this.f36823h + i3;
-                this.f36823h = i6;
+                System.arraycopy(bArr, i2, this.f36920g, this.f36921h, i3);
+                int i6 = this.f36921h + i3;
+                this.f36921h = i6;
                 i4 = 0 + i3;
                 this.j += i3;
                 if (i6 == 8) {
-                    this.f36824i++;
-                    a(n.c(this.f36822g, 0), com.kwad.sdk.pngencrypt.chunk.b.a(this.f36822g, 4), this.j - 8);
-                    this.f36823h = 0;
+                    this.f36922i++;
+                    a(n.c(this.f36920g, 0), com.kwad.sdk.pngencrypt.chunk.b.a(this.f36920g, 4), this.j - 8);
+                    this.f36921h = 0;
                 }
                 return i4;
             }
@@ -98,17 +98,17 @@ public abstract class b implements f, Closeable {
             j = this.j;
             j2 = a2;
         } else {
-            int i7 = this.f36821f - this.f36823h;
+            int i7 = this.f36919f - this.f36921h;
             if (i7 <= i3) {
                 i3 = i7;
             }
-            System.arraycopy(bArr, i2, this.f36822g, this.f36823h, i3);
-            int i8 = this.f36823h + i3;
-            this.f36823h = i8;
-            if (i8 == this.f36821f) {
-                a(this.f36822g);
-                this.f36823h = 0;
-                this.f36817a = true;
+            System.arraycopy(bArr, i2, this.f36920g, this.f36921h, i3);
+            int i8 = this.f36921h + i3;
+            this.f36921h = i8;
+            if (i8 == this.f36919f) {
+                a(this.f36920g);
+                this.f36921h = 0;
+                this.f36915a = true;
             }
             i4 = 0 + i3;
             j = this.j;
@@ -140,7 +140,7 @@ public abstract class b implements f, Closeable {
 
     public void a(int i2, String str, long j) {
         com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "New chunk: " + str + " " + i2 + " off:" + j);
-        if (str.length() != 4 || !com.kwad.sdk.pngencrypt.chunk.b.f36854e.matcher(str).matches()) {
+        if (str.length() != 4 || !com.kwad.sdk.pngencrypt.chunk.b.f36952e.matcher(str).matches()) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk id: " + str));
         }
         if (i2 < 0) {
@@ -181,18 +181,18 @@ public abstract class b implements f, Closeable {
 
     public void a(ChunkReader chunkReader) {
         String d2;
-        if (this.f36824i == 1 && (d2 = d()) != null && !d2.equals(chunkReader.a().f36858c)) {
-            String str = "Bad first chunk: " + chunkReader.a().f36858c + " expected: " + d();
-            if (this.n.f36807c < ErrorBehaviour.SUPER_LENIENT.f36807c) {
+        if (this.f36922i == 1 && (d2 = d()) != null && !d2.equals(chunkReader.a().f36956c)) {
+            String str = "Bad first chunk: " + chunkReader.a().f36956c + " expected: " + d();
+            if (this.n.f36905c < ErrorBehaviour.SUPER_LENIENT.f36905c) {
                 com.kwad.sdk.core.d.a.a(new PngjException(str));
             } else {
                 com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", str);
             }
         }
-        if (e() == null || !chunkReader.a().f36858c.equals(e())) {
+        if (e() == null || !chunkReader.a().f36956c.equals(e())) {
             return;
         }
-        this.f36818b = true;
+        this.f36916b = true;
         close();
     }
 
@@ -209,7 +209,7 @@ public abstract class b implements f, Closeable {
 
     @Override // com.kwad.sdk.pngencrypt.f
     public boolean b() {
-        return this.f36818b;
+        return this.f36916b;
     }
 
     public boolean b(int i2, String str) {
@@ -230,7 +230,7 @@ public abstract class b implements f, Closeable {
         if (deflatedChunksSet != null) {
             deflatedChunksSet.f();
         }
-        this.f36819c = true;
+        this.f36917c = true;
     }
 
     public String d() {

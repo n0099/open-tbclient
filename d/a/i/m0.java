@@ -6,7 +6,7 @@ import com.baidu.tieba.R;
 public class m0 {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f43730i = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    public static final int f43823i = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
     public static final int j = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
     public static final int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
     public static final int l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
@@ -14,46 +14,46 @@ public class m0 {
     public static final int n = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43731a = false;
+    public boolean f43824a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43732b = l;
+    public int f43825b = l;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43733c = n;
+    public int f43826c = n;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43734d = f43730i;
+    public int f43827d = f43823i;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43735e = 0;
+    public int f43828e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43736f = j;
+    public int f43829f = j;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43737g = k;
+    public int f43830g = k;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43738h = R.color.CAM_X0205;
+    public int f43831h = R.color.CAM_X0205;
 
     public void a(int i2) {
-        this.f43735e = i2;
+        this.f43828e = i2;
     }
 
     public void b(int i2) {
-        this.f43736f = i2;
+        this.f43829f = i2;
     }
 
     public void c(int i2) {
-        this.f43737g = i2;
+        this.f43830g = i2;
     }
 
     public void d(int i2) {
-        this.f43732b = i2;
+        this.f43825b = i2;
     }
 
     public void e(int i2) {
-        this.f43734d = i2;
+        this.f43827d = i2;
     }
 }

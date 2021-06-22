@@ -42,14 +42,14 @@ public class j0 extends z {
     @Override // d.b.b.z
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f68873e);
-        jSONObject.put("tea_event_index", this.f68874f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        jSONObject.put("local_time_ms", this.f68977e);
+        jSONObject.put("tea_event_index", this.f68978f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68979g);
         jSONObject.put("stop_timestamp", this.n);
         jSONObject.put("duration", this.m / 1000);
         jSONObject.put("datetime", this.k);
-        if (!TextUtils.isEmpty(this.f68877i)) {
-            jSONObject.put("ab_version", this.f68877i);
+        if (!TextUtils.isEmpty(this.f68981i)) {
+            jSONObject.put("ab_version", this.f68981i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             jSONObject.put("ab_sdk_version", this.j);

@@ -23,13 +23,13 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TubeEpisodeDetailParam f33839a;
+    public TubeEpisodeDetailParam f33937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33840b;
+    public ImageView f33938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f33841c;
+    public SceneImpl f33939c;
 
     public static void a(Context context, TubeEpisodeDetailParam tubeEpisodeDetailParam) {
         if (tubeEpisodeDetailParam == null) {
@@ -44,42 +44,42 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_EPISODE_DETAIL_PARAM");
         if (serializableExtra instanceof TubeEpisodeDetailParam) {
             TubeEpisodeDetailParam tubeEpisodeDetailParam = (TubeEpisodeDetailParam) serializableExtra;
-            this.f33839a = tubeEpisodeDetailParam;
-            this.f33841c = new SceneImpl(tubeEpisodeDetailParam.mEntryScene);
+            this.f33937a = tubeEpisodeDetailParam;
+            this.f33939c = new SceneImpl(tubeEpisodeDetailParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 5);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33839a.mTubeId);
-            this.f33841c.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33937a.mTubeId);
+            this.f33939c.setUrlPackage(uRLPackage);
         }
-        TubeEpisodeDetailParam tubeEpisodeDetailParam2 = this.f33839a;
+        TubeEpisodeDetailParam tubeEpisodeDetailParam2 = this.f33937a;
         return (tubeEpisodeDetailParam2 == null || tubeEpisodeDetailParam2.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f33840b = (ImageView) findViewById(R.id.ksad_tube_episode_detail_back);
+        this.f33938b = (ImageView) findViewById(R.id.ksad_tube_episode_detail_back);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33840b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33938b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f33840b.setLayoutParams(marginLayoutParams);
+            this.f33938b.setLayoutParams(marginLayoutParams);
         }
-        this.f33840b.setOnClickListener(this);
+        this.f33938b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f33839a.mEntryScene).build());
-        a2.getArguments().putSerializable("KEY_TUBE_EPISODE_DETAIL_PARAM", this.f33839a);
+        g a2 = g.a(new KsScene.Builder(this.f33937a.mEntryScene).build());
+        a2.getArguments().putSerializable("KEY_TUBE_EPISODE_DETAIL_PARAM", this.f33937a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, a2).commitAllowingStateLoss();
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        e.d(this.f33841c);
+        e.d(this.f33939c);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f33840b == view) {
-            e.d(this.f33841c);
+        if (this.f33938b == view) {
+            e.d(this.f33939c);
             onBackPressed();
         }
     }

@@ -8,7 +8,7 @@ public final class gv {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f41372a;
+        public ew f41475a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f452a;
@@ -33,12 +33,12 @@ public final class gv {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         int a2 = fn.a(exc2);
         if (a2 != 0) {
-            aVar.f41372a = ew.a(ew.GSLB_REQUEST_SUCCESS.a() + a2);
+            aVar.f41475a = ew.a(ew.GSLB_REQUEST_SUCCESS.a() + a2);
         }
-        if (aVar.f41372a == null) {
-            aVar.f41372a = ew.GSLB_TCP_ERR_OTHER;
+        if (aVar.f41475a == null) {
+            aVar.f41475a = ew.GSLB_TCP_ERR_OTHER;
         }
-        if (aVar.f41372a == ew.GSLB_TCP_ERR_OTHER) {
+        if (aVar.f41475a == ew.GSLB_TCP_ERR_OTHER) {
             aVar.f452a = str;
         }
         return aVar;
@@ -74,19 +74,19 @@ public final class gv {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         if (a2 != 0) {
             ew a3 = ew.a(ew.CONN_SUCCESS.a() + a2);
-            aVar.f41372a = a3;
+            aVar.f41475a = a3;
             if (a3 == ew.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
                 ewVar = ew.CONN_BOSH_UNKNOWNHOST;
             }
-            ewVar2 = aVar.f41372a;
+            ewVar2 = aVar.f41475a;
             if (ewVar2 != ew.CONN_TCP_ERR_OTHER || ewVar2 == ew.CONN_XMPP_ERR || ewVar2 == ew.CONN_BOSH_ERR) {
                 aVar.f452a = str;
             }
             return aVar;
         }
         ewVar = ew.CONN_XMPP_ERR;
-        aVar.f41372a = ewVar;
-        ewVar2 = aVar.f41372a;
+        aVar.f41475a = ewVar;
+        ewVar2 = aVar.f41475a;
         if (ewVar2 != ew.CONN_TCP_ERR_OTHER) {
         }
         aVar.f452a = str;
@@ -118,11 +118,11 @@ public final class gv {
         } else if (a2 == 199) {
             ewVar = ew.BIND_TCP_ERR;
         } else if (a2 == 499) {
-            aVar.f41372a = ew.BIND_BOSH_ERR;
+            aVar.f41475a = ew.BIND_BOSH_ERR;
             if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                 ewVar = ew.BIND_BOSH_ITEM_NOT_FOUND;
             }
-            ewVar2 = aVar.f41372a;
+            ewVar2 = aVar.f41475a;
             if (ewVar2 != ew.BIND_TCP_ERR || ewVar2 == ew.BIND_XMPP_ERR || ewVar2 == ew.BIND_BOSH_ERR) {
                 aVar.f452a = str;
             }
@@ -130,8 +130,8 @@ public final class gv {
         } else {
             ewVar = a2 != 109 ? a2 != 110 ? ew.BIND_XMPP_ERR : ew.BIND_TCP_BROKEN_PIPE : ew.BIND_TCP_CONNRESET;
         }
-        aVar.f41372a = ewVar;
-        ewVar2 = aVar.f41372a;
+        aVar.f41475a = ewVar;
+        ewVar2 = aVar.f41475a;
         if (ewVar2 != ew.BIND_TCP_ERR) {
         }
         aVar.f452a = str;
@@ -160,11 +160,11 @@ public final class gv {
         } else if (a2 == 199) {
             ewVar = ew.CHANNEL_TCP_ERR;
         } else if (a2 == 499) {
-            aVar.f41372a = ew.CHANNEL_BOSH_EXCEPTION;
+            aVar.f41475a = ew.CHANNEL_BOSH_EXCEPTION;
             if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                 ewVar = ew.CHANNEL_BOSH_ITEMNOTFIND;
             }
-            ewVar2 = aVar.f41372a;
+            ewVar2 = aVar.f41475a;
             if (ewVar2 != ew.CHANNEL_TCP_ERR || ewVar2 == ew.CHANNEL_XMPPEXCEPTION || ewVar2 == ew.CHANNEL_BOSH_EXCEPTION) {
                 aVar.f452a = str;
             }
@@ -172,8 +172,8 @@ public final class gv {
         } else {
             ewVar = a2 != 109 ? a2 != 110 ? ew.CHANNEL_XMPPEXCEPTION : ew.CHANNEL_TCP_BROKEN_PIPE : ew.CHANNEL_TCP_CONNRESET;
         }
-        aVar.f41372a = ewVar;
-        ewVar2 = aVar.f41372a;
+        aVar.f41475a = ewVar;
+        ewVar2 = aVar.f41475a;
         if (ewVar2 != ew.CHANNEL_TCP_ERR) {
         }
         aVar.f452a = str;

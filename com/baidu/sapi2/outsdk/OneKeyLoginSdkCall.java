@@ -16,7 +16,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import d.a.j0.a;
+import d.a.k0.a;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -72,42 +72,47 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0605a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-            @Override // d.a.j0.a.InterfaceC0605a
-            public void onFinish(String str) {
-                Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
-                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
-                String extraStr = formatOptResult.getExtraStr();
-                SapiStatUtil.statOneKeyOauthToken(formatOptResult.getCode(), formatOptResult.getSubCode(), 1 ^ (TextUtils.isEmpty(extraStr) ? 1 : 0));
-                final JSONObject jSONObject = new JSONObject();
-                if (OneKeyLoginOptResult.isValid(formatOptResult)) {
-                    try {
-                        jSONObject.put("errno", 0);
-                        jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
-                        jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
-                        jSONObject.put("token", extraStr);
-                        jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
-                    } catch (Exception e2) {
-                        Log.e(OneKeyLoginSdkCall.TAG, e2);
-                    }
-                } else {
-                    try {
-                        jSONObject.put("errno", 0);
-                        jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
-                    } catch (JSONException e3) {
-                        Log.e(OneKeyLoginSdkCall.TAG, e3);
-                    }
-                }
-                if (tokenListener != null) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            tokenListener.onGetTokenComplete(jSONObject);
+        try {
+            a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0609a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                @Override // d.a.k0.a.InterfaceC0609a
+                public void onFinish(String str) {
+                    Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
+                    OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
+                    String extraStr = formatOptResult.getExtraStr();
+                    SapiStatUtil.statOneKeyOauthToken(formatOptResult.getCode(), formatOptResult.getSubCode(), 1 ^ (TextUtils.isEmpty(extraStr) ? 1 : 0));
+                    final JSONObject jSONObject = new JSONObject();
+                    if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                        try {
+                            jSONObject.put("errno", 0);
+                            jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
+                            jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
+                            jSONObject.put("token", extraStr);
+                            jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                        } catch (Exception e2) {
+                            Log.e(OneKeyLoginSdkCall.TAG, e2);
                         }
-                    });
+                    } else {
+                        try {
+                            jSONObject.put("errno", 0);
+                            jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
+                        } catch (JSONException e3) {
+                            Log.e(OneKeyLoginSdkCall.TAG, e3);
+                        }
+                    }
+                    if (tokenListener != null) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                tokenListener.onGetTokenComplete(jSONObject);
+                            }
+                        });
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception e2) {
+            Log.e(TAG, e2.getMessage());
+            tokenListener.onGetTokenComplete(new JSONObject());
+        }
     }
 
     public String getOperatorType() {
@@ -132,8 +137,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getToken(final SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0605a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-            @Override // d.a.j0.a.InterfaceC0605a
+        a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0609a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            @Override // d.a.k0.a.InterfaceC0609a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -240,8 +245,8 @@ public class OneKeyLoginSdkCall {
                 return;
             }
             final String networkClass = SapiUtils.getNetworkClass(sapiConfiguration.context);
-            a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0605a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                @Override // d.a.j0.a.InterfaceC0605a
+            a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0609a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                @Override // d.a.k0.a.InterfaceC0609a
                 public void onFinish(String str2) {
                     Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
                     final OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);

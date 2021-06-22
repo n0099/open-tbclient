@@ -11,25 +11,25 @@ import android.widget.ListView;
 public class IndexableListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f23545a;
+    public boolean f23627a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IndexScroller f23546b;
+    public IndexScroller f23628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GestureDetector f23547c;
+    public GestureDetector f23629c;
 
     public IndexableListView(Context context) {
         super(context);
-        this.f23545a = false;
-        this.f23546b = null;
-        this.f23547c = null;
+        this.f23627a = false;
+        this.f23628b = null;
+        this.f23629c = null;
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        IndexScroller indexScroller = this.f23546b;
+        IndexScroller indexScroller = this.f23628b;
         if (indexScroller != null) {
             indexScroller.draw(canvas);
         }
@@ -37,12 +37,12 @@ public class IndexableListView extends ListView {
 
     @Override // android.widget.AbsListView
     public boolean isFastScrollEnabled() {
-        return this.f23545a;
+        return this.f23627a;
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f23546b.contains(motionEvent.getX(), motionEvent.getY())) {
+        if (this.f23628b.contains(motionEvent.getX(), motionEvent.getY())) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -51,7 +51,7 @@ public class IndexableListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        IndexScroller indexScroller = this.f23546b;
+        IndexScroller indexScroller = this.f23628b;
         if (indexScroller != null) {
             indexScroller.onSizeChanged(i2, i3, i4, i5);
         }
@@ -59,20 +59,20 @@ public class IndexableListView extends ListView {
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        IndexScroller indexScroller = this.f23546b;
+        IndexScroller indexScroller = this.f23628b;
         if (indexScroller == null || !indexScroller.onTouchEvent(motionEvent)) {
-            if (this.f23547c == null) {
-                this.f23547c = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.wallet.base.widget.IndexableListView.1
+            if (this.f23629c == null) {
+                this.f23629c = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.wallet.base.widget.IndexableListView.1
                     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
                     public boolean onFling(MotionEvent motionEvent2, MotionEvent motionEvent3, float f2, float f3) {
-                        if (IndexableListView.this.f23546b != null) {
-                            IndexableListView.this.f23546b.show();
+                        if (IndexableListView.this.f23628b != null) {
+                            IndexableListView.this.f23628b.show();
                         }
                         return super.onFling(motionEvent2, motionEvent3, f2, f3);
                     }
                 });
             }
-            this.f23547c.onTouchEvent(motionEvent);
+            this.f23629c.onTouchEvent(motionEvent);
             return super.onTouchEvent(motionEvent);
         }
         return true;
@@ -80,18 +80,18 @@ public class IndexableListView extends ListView {
 
     @Override // android.widget.AbsListView
     public void setFastScrollEnabled(boolean z) {
-        this.f23545a = z;
+        this.f23627a = z;
         if (z) {
-            if (this.f23546b == null) {
-                this.f23546b = new IndexScroller(getContext(), this);
+            if (this.f23628b == null) {
+                this.f23628b = new IndexScroller(getContext(), this);
                 return;
             }
             return;
         }
-        IndexScroller indexScroller = this.f23546b;
+        IndexScroller indexScroller = this.f23628b;
         if (indexScroller != null) {
             indexScroller.hide();
-            this.f23546b = null;
+            this.f23628b = null;
         }
     }
 
@@ -99,7 +99,7 @@ public class IndexableListView extends ListView {
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
-        IndexScroller indexScroller = this.f23546b;
+        IndexScroller indexScroller = this.f23628b;
         if (indexScroller != null) {
             indexScroller.setAdapter(listAdapter);
         }
@@ -107,15 +107,15 @@ public class IndexableListView extends ListView {
 
     public IndexableListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23545a = false;
-        this.f23546b = null;
-        this.f23547c = null;
+        this.f23627a = false;
+        this.f23628b = null;
+        this.f23629c = null;
     }
 
     public IndexableListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f23545a = false;
-        this.f23546b = null;
-        this.f23547c = null;
+        this.f23627a = false;
+        this.f23628b = null;
+        this.f23629c = null;
     }
 }

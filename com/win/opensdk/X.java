@@ -5,18 +5,18 @@ import com.win.opensdk.image.gif2.GifImageView;
 public class X implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f40652a;
+    public final /* synthetic */ GifImageView f40755a;
 
     public X(GifImageView gifImageView) {
-        this.f40652a = gifImageView;
+        this.f40755a = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        GifImageView gifImageView = this.f40652a;
-        gifImageView.f40743b = null;
-        gifImageView.f40742a = null;
-        gifImageView.f40748g = null;
-        gifImageView.f40747f = false;
+        GifImageView gifImageView = this.f40755a;
+        gifImageView.f40846b = null;
+        gifImageView.f40845a = null;
+        gifImageView.f40851g = null;
+        gifImageView.f40850f = false;
     }
 }

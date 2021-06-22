@@ -1,7 +1,7 @@
 package com.baidubce;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum Protocol {
     HTTP("http", 80),
     HTTPS("https", Constants.SOCKET_PORT_SSL);

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
-import d.a.l0.a.g1.f;
-import d.a.l0.a.h;
-import d.a.l0.a.h0.g.g;
-import d.a.l0.a.z1.b.f.e;
+import d.a.m0.a.g1.f;
+import d.a.m0.a.h;
+import d.a.m0.a.h0.g.g;
+import d.a.m0.a.z1.b.f.e;
 /* loaded from: classes3.dex */
 public class OpenSettingButton extends ApiButton {
     public OpenSettingButton(Context context) {
@@ -26,7 +26,7 @@ public class OpenSettingButton extends ApiButton {
             return;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(g.f45752g, g.f45754i);
+        i2.n(g.f45860g, g.f45862i);
         i2.k("authority", null).a();
     }
 }

@@ -13,13 +13,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f43632b;
+    public static b f43697b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f43631a = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f43696a = new ConcurrentHashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f43633c = false;
+    public static volatile boolean f43698c = false;
 
     /* loaded from: classes.dex */
     public static class b extends Handler {
@@ -29,7 +29,7 @@ public final class f {
                 return;
             }
             f.d();
-            f.f43632b.sendEmptyMessageDelayed(0, 15000L);
+            f.f43697b.sendEmptyMessageDelayed(0, 15000L);
         }
 
         public b(Looper looper) {
@@ -39,7 +39,7 @@ public final class f {
 
     static {
         b bVar = new b(d.a.h.a.i.b.a("PreferenceQueue").getLooper());
-        f43632b = bVar;
+        f43697b = bVar;
         bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
@@ -47,16 +47,16 @@ public final class f {
         if (str == null) {
             return;
         }
-        if (!f43631a.containsKey(str)) {
+        if (!f43696a.containsKey(str)) {
             if (obj == null || str2 == null) {
                 return;
             }
             ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
             concurrentHashMap.put(str2, obj);
-            f43631a.put(str, concurrentHashMap);
+            f43696a.put(str, concurrentHashMap);
             return;
         }
-        ConcurrentHashMap<String, Object> concurrentHashMap2 = f43631a.get(str);
+        ConcurrentHashMap<String, Object> concurrentHashMap2 = f43696a.get(str);
         if (concurrentHashMap2 != null) {
             if (obj != null) {
                 concurrentHashMap2.put(str2, obj);
@@ -67,22 +67,22 @@ public final class f {
         } else {
             ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
             concurrentHashMap3.put(str2, obj);
-            f43631a.put(str, concurrentHashMap3);
+            f43696a.put(str, concurrentHashMap3);
         }
     }
 
     public static void d() {
         int i2;
-        if (f43633c) {
+        if (f43698c) {
             return;
         }
-        f43633c = true;
+        f43698c = true;
         try {
             try {
                 Context baseContext = d.a.h.a.b.a().getBaseContext();
-                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f43631a.size());
-                for (String str : f43631a.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = f43631a.get(str);
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f43696a.size());
+                for (String str : f43696a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = f43696a.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i2 = 0;
                     } else {
@@ -118,28 +118,28 @@ public final class f {
                 e2.printStackTrace();
             }
         } finally {
-            f43633c = false;
+            f43698c = false;
         }
     }
 
     public static void e(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
-        if (str == null || (concurrentHashMap = f43631a.get(str)) == null) {
+        if (str == null || (concurrentHashMap = f43696a.get(str)) == null) {
             return;
         }
         concurrentHashMap.clear();
     }
 
     public static void f() {
-        if (f43632b.hasMessages(0)) {
+        if (f43697b.hasMessages(0)) {
             return;
         }
-        f43632b.sendEmptyMessageDelayed(0, 15000L);
+        f43697b.sendEmptyMessageDelayed(0, 15000L);
     }
 
     public static void g() {
         Log.d("BdPreferenceQueueWorker", "wait to finish");
-        f43632b.removeMessages(0);
+        f43697b.removeMessages(0);
         d();
         f();
     }

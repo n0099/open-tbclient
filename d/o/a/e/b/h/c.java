@@ -7,21 +7,21 @@ import java.io.InputStream;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f71037a;
+    public final InputStream f71141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.o.a.e.b.i.a f71038b;
+    public final d.o.a.e.b.i.a f71142b;
 
     public c(InputStream inputStream, int i2) {
-        this.f71037a = inputStream;
-        this.f71038b = new d.o.a.e.b.i.a(i2);
+        this.f71141a = inputStream;
+        this.f71142b = new d.o.a.e.b.i.a(i2);
     }
 
     @Override // d.o.a.e.b.h.b
     public d.o.a.e.b.i.a a() throws IOException {
-        d.o.a.e.b.i.a aVar = this.f71038b;
-        aVar.f71041c = this.f71037a.read(aVar.f71039a);
-        return this.f71038b;
+        d.o.a.e.b.i.a aVar = this.f71142b;
+        aVar.f71145c = this.f71141a.read(aVar.f71143a);
+        return this.f71142b;
     }
 
     @Override // d.o.a.e.b.h.b
@@ -30,6 +30,6 @@ public class c implements b {
 
     @Override // d.o.a.e.b.h.b
     public void b() {
-        e.C(this.f71037a);
+        e.C(this.f71141a);
     }
 }

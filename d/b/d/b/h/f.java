@@ -16,19 +16,19 @@ public class f {
     public static class a extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public InputStream f69663e;
+        public InputStream f69767e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f69664f;
+        public List<String> f69768f;
 
         public a(InputStream inputStream, List<String> list) {
-            this.f69663e = inputStream;
-            this.f69664f = list;
+            this.f69767e = inputStream;
+            this.f69768f = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f69663e));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f69767e));
             int i2 = 32768;
             while (true) {
                 try {
@@ -40,7 +40,7 @@ public class f {
                         if (i2 < 0) {
                             break;
                         }
-                        this.f69664f.add(readLine);
+                        this.f69768f.add(readLine);
                     }
                 } catch (IOException unused) {
                 } catch (Throwable th) {
@@ -56,24 +56,24 @@ public class f {
     public static class b extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public Process f69665e;
+        public Process f69769e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f69666f;
+        public long f69770f;
 
         public b(Process process, long j) {
-            this.f69665e = process;
-            this.f69666f = j;
+            this.f69769e = process;
+            this.f69770f = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                Thread.sleep(this.f69666f);
+                Thread.sleep(this.f69770f);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            Process process = this.f69665e;
+            Process process = this.f69769e;
             if (process != null) {
                 process.destroy();
             }

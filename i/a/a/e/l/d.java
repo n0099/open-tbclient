@@ -3,21 +3,21 @@ package i.a.a.e.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f72162a;
+    public String f72266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72163b;
+    public String f72267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72164c;
+    public String f72268c;
 
     public d(String str, String str2, String str3) {
-        this.f72162a = str;
-        this.f72163b = str2;
-        this.f72164c = str3;
+        this.f72266a = str;
+        this.f72267b = str2;
+        this.f72268c = str3;
     }
 
     public String toString() {
-        return "TopUiParams{title='" + this.f72162a + "', rightTitle='" + this.f72163b + "', rightUrl='" + this.f72164c + "'}";
+        return "TopUiParams{title='" + this.f72266a + "', rightTitle='" + this.f72267b + "', rightUrl='" + this.f72268c + "'}";
     }
 }

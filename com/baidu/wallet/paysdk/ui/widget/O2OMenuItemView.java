@@ -9,10 +9,10 @@ import com.baidu.apollon.utils.ResUtils;
 public class O2OMenuItemView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f26164a;
+    public TextView f26246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26165b;
+    public String f26247b;
 
     public O2OMenuItemView(Context context) {
         super(context);
@@ -21,18 +21,18 @@ public class O2OMenuItemView extends RelativeLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_o2o_menu_item_view"), this);
-        this.f26164a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_o2o_menu_item_text"));
+        this.f26246a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_o2o_menu_item_text"));
     }
 
     public String getString() {
-        return this.f26165b;
+        return this.f26247b;
     }
 
     public void updateItem(String str) {
         if (str == null) {
             return;
         }
-        this.f26165b = str;
-        this.f26164a.setText(str);
+        this.f26247b = str;
+        this.f26246a.setText(str);
     }
 }

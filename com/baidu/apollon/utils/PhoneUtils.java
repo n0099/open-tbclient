@@ -30,6 +30,7 @@ import com.baidu.android.util.devices.IDevices;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.permission.PermissionManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.service.AsInstallService;
@@ -251,7 +252,7 @@ public final class PhoneUtils {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
                 }
-                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
+                String[] split = cellLocation.toString().replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "").split(",");
                 return split.length > 5 ? String.format("%s_%s_%s", split[0], split[3], split[4]) : format;
             }
             return format;

@@ -2,6 +2,7 @@ package com.baidu.searchbox.bddownload.core.download;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -174,7 +175,7 @@ public class DownloadChain implements Runnable {
     public synchronized void releaseConnection() {
         if (this.connection != null) {
             this.connection.release();
-            Util.d(TAG, "release connection " + this.connection + " task[" + this.task.getId() + "] block[" + this.blockIndex + "]");
+            Util.d(TAG, "release connection " + this.connection + " task[" + this.task.getId() + "] block[" + this.blockIndex + PreferencesUtil.RIGHT_MOUNT);
         }
         this.connection = null;
     }

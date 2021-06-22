@@ -18,16 +18,16 @@ import java.util.concurrent.Future;
 public class ApkCacheManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f34082a;
+    public Future f34180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f34083b;
+    public File f34181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f34084c;
+    public final ExecutorService f34182c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Callable<Void> f34085d;
+    public final Callable<Void> f34183d;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -44,15 +44,15 @@ public class ApkCacheManager {
     }
 
     public ApkCacheManager() {
-        this.f34084c = Executors.newSingleThreadExecutor();
-        this.f34085d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.f34182c = Executors.newSingleThreadExecutor();
+        this.f34183d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.f34083b != null && ApkCacheManager.this.f34083b.exists() && !ApkCacheManager.this.c()) {
-                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f34083b)) {
+                    if (ApkCacheManager.this.f34181b != null && ApkCacheManager.this.f34181b.exists() && !ApkCacheManager.this.c()) {
+                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f34181b)) {
                             if (file.getName().endsWith(".apk")) {
                                 ApkCacheManager.this.c(file);
                                 if (ApkCacheManager.this.c()) {
@@ -70,7 +70,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f34083b = ad.c(KsAdSDKImpl.get().getContext());
+            this.f34181b = ad.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             a.a(th);
         }
@@ -131,12 +131,12 @@ public class ApkCacheManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        File file = this.f34083b;
+        File file = this.f34181b;
         if (file == null || !file.exists()) {
             return false;
         }
-        File[] listFiles = this.f34083b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f34083b) <= 400);
+        File[] listFiles = this.f34181b.listFiles();
+        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f34181b) <= 400);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,13 +152,13 @@ public class ApkCacheManager {
     }
 
     public void b() {
-        File file = this.f34083b;
+        File file = this.f34181b;
         if (file == null || !file.exists()) {
             return;
         }
-        Future future = this.f34082a;
+        Future future = this.f34180a;
         if (future == null || future.isDone()) {
-            this.f34082a = this.f34084c.submit(this.f34085d);
+            this.f34180a = this.f34182c.submit(this.f34183d);
         }
     }
 }

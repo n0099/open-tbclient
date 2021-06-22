@@ -24,16 +24,16 @@ import java.util.Set;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f68589a;
+    public static e f68693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68590b;
+    public static String f68694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f68591c;
+    public static String f68695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f68592d = new LinkedHashSet();
+    public static final Set<String> f68696d = new LinkedHashSet();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -44,10 +44,10 @@ public class e {
         public void run() {
             File[] listFiles;
             try {
-                for (File file : new File(e.f68591c).listFiles()) {
+                for (File file : new File(e.f68695c).listFiles()) {
                     if (file.isFile()) {
                         e.this.h(file);
-                    } else if (file.getName().equals(e.f68590b)) {
+                    } else if (file.getName().equals(e.f68694b)) {
                         e.this.n(file);
                     } else {
                         Utils.e(file);
@@ -61,11 +61,11 @@ public class e {
     public static synchronized e b() {
         e eVar;
         synchronized (e.class) {
-            if (f68589a == null) {
-                f68590b = Utils.s();
-                f68589a = new e();
+            if (f68693a == null) {
+                f68694b = Utils.s();
+                f68693a = new e();
             }
-            eVar = f68589a;
+            eVar = f68693a;
         }
         return eVar;
     }
@@ -118,7 +118,7 @@ public class e {
                 return "apk_internal_jar";
             }
             sb = new StringBuilder();
-            sb.append(f68591c);
+            sb.append(f68695c);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
@@ -135,9 +135,9 @@ public class e {
                 return str2;
             }
             sb = new StringBuilder();
-            sb.append(f68591c);
+            sb.append(f68695c);
             sb.append(File.separator);
-            sb.append(f68590b);
+            sb.append(f68694b);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
@@ -227,7 +227,7 @@ public class e {
     }
 
     public final void k(Context context, String str) {
-        f68591c = str + File.separator + "libs";
+        f68695c = str + File.separator + "libs";
         for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String c2 = c(context, dVar);
             dVar.e(c2);
@@ -236,7 +236,7 @@ public class e {
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
                 }
-                f68592d.add(parentFile.getAbsolutePath());
+                f68696d.add(parentFile.getAbsolutePath());
             }
         }
     }
@@ -258,7 +258,7 @@ public class e {
         boolean z;
         try {
             for (File file2 : file.listFiles()) {
-                Iterator<String> it = f68592d.iterator();
+                Iterator<String> it = f68696d.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         if (it.next().contains(file2.getAbsolutePath())) {
@@ -279,12 +279,12 @@ public class e {
     }
 
     public String[] o() {
-        Set<String> set = f68592d;
+        Set<String> set = f68696d;
         return (String[]) set.toArray(new String[set.size()]);
     }
 
     public String p() {
-        return f68590b;
+        return f68694b;
     }
 
     public String q(int i2) {
@@ -292,7 +292,7 @@ public class e {
         if (a2 == null) {
             return null;
         }
-        return f68590b + "_" + a2.a() + "_" + a2.d() + ".zip";
+        return f68694b + "_" + a2.a() + "_" + a2.d() + ".zip";
     }
 
     public final boolean r(com.baidu.media.duplayer.d dVar) {
@@ -329,7 +329,7 @@ public class e {
             if (!parentFile.exists() || parentFile.isFile()) {
                 parentFile.mkdirs();
             }
-            f68592d.add(parentFile.getAbsolutePath());
+            f68696d.add(parentFile.getAbsolutePath());
         } catch (Exception unused) {
         }
     }

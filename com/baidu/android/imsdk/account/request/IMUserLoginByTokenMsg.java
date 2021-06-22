@@ -149,7 +149,7 @@ public class IMUserLoginByTokenMsg extends Message {
                         }
                     }
                 }
-                if (!a.f68181e) {
+                if (!a.f68195e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {

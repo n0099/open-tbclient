@@ -27,7 +27,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72303d;
+        public Disposable f72407d;
         public final Consumer<? super D> disposer;
         public final boolean eager;
 
@@ -40,8 +40,8 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72303d.dispose();
-            this.f72303d = DisposableHelper.DISPOSED;
+            this.f72407d.dispose();
+            this.f72407d = DisposableHelper.DISPOSED;
             disposeResourceAfter();
         }
 
@@ -59,12 +59,12 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72303d.isDisposed();
+            return this.f72407d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f72303d = DisposableHelper.DISPOSED;
+            this.f72407d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {
@@ -87,7 +87,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f72303d = DisposableHelper.DISPOSED;
+            this.f72407d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {
@@ -109,15 +109,15 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72303d, disposable)) {
-                this.f72303d = disposable;
+            if (DisposableHelper.validate(this.f72407d, disposable)) {
+                this.f72407d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
-            this.f72303d = DisposableHelper.DISPOSED;
+            this.f72407d = DisposableHelper.DISPOSED;
             if (this.eager) {
                 Object andSet = getAndSet(this);
                 if (andSet == this) {

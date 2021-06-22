@@ -10,48 +10,48 @@ import java.util.LinkedList;
 public class a extends c<CustomMessage<?>, CustomMessageTask, d.a.c.c.f.b, CustomResponsedMessage<?>> {
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.e.b f42040i;
+    public d.a.c.c.e.b f42143i;
 
     public a(MessageManager messageManager) {
         super(messageManager);
-        this.f42040i = null;
-        this.f42040i = new d.a.c.c.e.b(messageManager);
-        this.f42047e = d.a.c.c.j.a.c();
+        this.f42143i = null;
+        this.f42143i = new d.a.c.c.e.b(messageManager);
+        this.f42150e = d.a.c.c.j.a.c();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<CustomMessage<?>> e(int i2, BdUniqueId bdUniqueId) {
-        return this.f42040i.e(i2, bdUniqueId);
+        return this.f42143i.e(i2, bdUniqueId);
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
-        this.f42040i.h(i2, bdUniqueId);
+        this.f42143i.h(i2, bdUniqueId);
     }
 
     public LinkedList<CustomMessage<?>> v(BdUniqueId bdUniqueId) {
-        return this.f42040i.i(bdUniqueId);
+        return this.f42143i.i(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.c.h.c
     /* renamed from: w */
     public CustomMessage<?> l(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return this.f42043a.getController().g(customMessage, customMessageTask);
+        return this.f42146a.getController().g(customMessage, customMessageTask);
     }
 
     public void x(BdUniqueId bdUniqueId) {
-        this.f42040i.j(bdUniqueId);
+        this.f42143i.j(bdUniqueId);
     }
 
     public <T> CustomResponsedMessage<T> y(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        return this.f42040i.k(customMessage, customMessageTask, cls);
+        return this.f42143i.k(customMessage, customMessageTask, cls);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.c.b
     /* renamed from: z */
     public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        this.f42040i.f(customMessage, customMessageTask);
+        this.f42143i.f(customMessage, customMessageTask);
     }
 }

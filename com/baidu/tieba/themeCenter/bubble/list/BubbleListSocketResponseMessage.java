@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.squareup.wire.Wire;
-import d.a.n0.k3.h.e;
+import d.a.o0.k3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;

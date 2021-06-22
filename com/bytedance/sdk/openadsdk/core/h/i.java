@@ -3,46 +3,46 @@ package com.bytedance.sdk.openadsdk.core.h;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28261a;
+    public String f28343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28262b;
+    public String f28344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28263c;
+    public String f28345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28264d;
+    public String f28346d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28265e;
+    public String f28347e;
 
     public static i a() {
         return new i();
     }
 
     public i b(String str) {
-        this.f28262b = str;
+        this.f28344b = str;
         return this;
     }
 
     public i c(String str) {
-        this.f28263c = str;
+        this.f28345c = str;
         return this;
     }
 
     public i d(String str) {
-        this.f28264d = str;
+        this.f28346d = str;
         return this;
     }
 
     public i e(String str) {
-        this.f28265e = str;
+        this.f28347e = str;
         return this;
     }
 
     public i a(String str) {
-        this.f28261a = str;
+        this.f28343a = str;
         return this;
     }
 }

@@ -6,13 +6,13 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.CommentResponse;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f34402a = new Handler(Looper.getMainLooper());
+    public static final Handler f34500a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         @MainThread
         void a(int i2, String str);
@@ -45,7 +45,7 @@ public class g {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull b bVar, final int i2, final String str) {
-                g.f34402a.post(new Runnable() { // from class: com.kwad.sdk.core.g.g.2.2
+                g.f34500a.post(new Runnable() { // from class: com.kwad.sdk.core.g.g.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.d("PhotoCommentRequestManager", "load onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
@@ -57,7 +57,7 @@ public class g {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull b bVar, @NonNull final CommentResponse commentResponse) {
-                g.f34402a.post(new Runnable() { // from class: com.kwad.sdk.core.g.g.2.1
+                g.f34500a.post(new Runnable() { // from class: com.kwad.sdk.core.g.g.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         aVar.a(commentResponse);

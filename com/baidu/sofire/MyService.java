@@ -8,20 +8,21 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.g.t;
+import com.baidu.sofire.core.f;
+import com.baidu.sofire.utility.x;
 import com.yy.gslbsdk.db.DelayTB;
 /* loaded from: classes2.dex */
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10129b;
+    public static long f10162b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f10130a = 0;
+    public volatile int f10163a = 0;
 
     public static /* synthetic */ int a(MyService myService) {
-        int i2 = myService.f10130a;
-        myService.f10130a = i2 + 1;
+        int i2 = myService.f10163a;
+        myService.f10163a = i2 + 1;
         return i2;
     }
 
@@ -34,7 +35,7 @@ public class MyService extends Service {
     public int onStartCommand(final Intent intent, int i2, int i3) {
         try {
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
         if (intent == null) {
             return super.onStartCommand(intent, i2, i3);
@@ -53,27 +54,17 @@ public class MyService extends Service {
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f10129b;
+            long j = f10162b;
             if ("teac".equals(intent.getAction())) {
-                f10129b = System.currentTimeMillis();
+                f10162b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < 3000) {
                     return super.onStartCommand(intent, i2, i3);
                 }
-                if (com.baidu.sofire.g.d.j != 0 && f10129b - com.baidu.sofire.g.d.j > 5000) {
-                    StringBuilder sb = new StringBuilder("persist process alive now:");
-                    sb.append(f10129b);
-                    sb.append("init:");
-                    sb.append(com.baidu.sofire.g.d.j);
-                    b.b();
+                if (com.baidu.sofire.utility.c.j != 0 && f10162b - com.baidu.sofire.utility.c.j > 5000) {
                     return super.onStartCommand(intent, i2, i3);
                 }
             }
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append(intent.getAction());
-            sb2.append(" ");
-            sb2.append(stringExtra);
-            b.a();
-            t.a(getApplicationContext()).a(new Runnable() { // from class: com.baidu.sofire.MyService.1
+            x.a(getApplicationContext()).a(new Runnable() { // from class: com.baidu.sofire.MyService.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
@@ -89,21 +80,14 @@ public class MyService extends Service {
                                 return;
                             }
                             com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, intent);
-                            StringBuilder sb3 = new StringBuilder("MyService#onStart2 intent=");
-                            sb3.append(intent);
-                            sb3.append(", extra=");
-                            sb3.append(intent.getExtras());
-                            b.a();
                             MyService.this.a();
                         } else {
-                            com.baidu.sofire.core.f a2 = com.baidu.sofire.core.f.a();
+                            f a2 = f.a();
                             if (a2 == null) {
                                 MyService.this.a();
                                 return;
                             }
                             ApkInfo d2 = a2.d(stringExtra);
-                            new StringBuilder("i=").append(d2);
-                            b.a();
                             if (d2 == null) {
                                 MyService.this.a();
                                 return;
@@ -112,7 +96,7 @@ public class MyService extends Service {
                             MyService.this.a();
                         }
                     } catch (Throwable unused2) {
-                        com.baidu.sofire.g.d.a();
+                        com.baidu.sofire.utility.c.a();
                         MyService.this.a();
                     }
                 }
@@ -124,34 +108,21 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f10130a--;
-            if (this.f10130a <= 0) {
-                this.f10130a = 0;
-                b.a();
+            this.f10163a--;
+            if (this.f10163a <= 0) {
+                this.f10163a = 0;
                 stopSelf();
             }
         } catch (Throwable unused) {
-            com.baidu.sofire.g.d.a();
+            com.baidu.sofire.utility.c.a();
         }
     }
 
     public static /* synthetic */ void a(MyService myService, ClassLoader classLoader, Intent intent) {
         try {
-            String stringExtra = intent.getStringExtra("target_class");
-            Class<?> loadClass = classLoader.loadClass(stringExtra);
-            Object newInstance = loadClass.newInstance();
-            StringBuilder sb = new StringBuilder();
-            sb.append(stringExtra);
-            sb.append("-");
-            sb.append(newInstance);
-            b.a();
-            String stringExtra2 = intent.getStringExtra("target_method");
-            new StringBuilder().append(stringExtra2);
-            b.a();
-            loadClass.getDeclaredMethod(stringExtra2, Context.class, Intent.class).invoke(newInstance, myService.getApplicationContext(), intent);
-        } catch (Throwable th) {
-            th.getMessage();
-            b.c();
+            Class<?> loadClass = classLoader.loadClass(intent.getStringExtra("target_class"));
+            loadClass.getDeclaredMethod(intent.getStringExtra("target_method"), Context.class, Intent.class).invoke(loadClass.newInstance(), myService.getApplicationContext(), intent);
+        } catch (Throwable unused) {
         }
     }
 }

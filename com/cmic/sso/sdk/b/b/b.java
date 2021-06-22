@@ -6,43 +6,43 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30598a;
+    public String f30680a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30599b;
+    public String f30681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30600c;
+    public String f30682c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30601d;
+    public String f30683d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30602e;
+    public String f30684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30603f;
+    public String f30685f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30604g;
+    public String f30686g;
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30603f;
+        return this.f30685f;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f30598a);
-            jSONObject.put("apptype", this.f30599b);
-            jSONObject.put("phone_ID", this.f30600c);
-            jSONObject.put("certflag", this.f30601d);
-            jSONObject.put("sdkversion", this.f30602e);
-            jSONObject.put("appid", this.f30603f);
+            jSONObject.put("version", this.f30680a);
+            jSONObject.put("apptype", this.f30681b);
+            jSONObject.put("phone_ID", this.f30682c);
+            jSONObject.put("certflag", this.f30683d);
+            jSONObject.put("sdkversion", this.f30684e);
+            jSONObject.put("appid", this.f30685f);
             jSONObject.put("expandparams", "");
-            jSONObject.put("sign", this.f30604g);
+            jSONObject.put("sign", this.f30686g);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -50,35 +50,35 @@ public class b extends g {
     }
 
     public void c(String str) {
-        this.f30599b = str;
+        this.f30681b = str;
     }
 
     public void d(String str) {
-        this.f30600c = str;
+        this.f30682c = str;
     }
 
     public void e(String str) {
-        this.f30601d = str;
+        this.f30683d = str;
     }
 
     public void f(String str) {
-        this.f30602e = str;
+        this.f30684e = str;
     }
 
     public void g(String str) {
-        this.f30603f = str;
+        this.f30685f = str;
     }
 
     public void h(String str) {
-        this.f30604g = str;
+        this.f30686g = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a(String str) {
-        return this.f30598a + this.f30602e + this.f30603f + "iYm0HAnkxQtpvN44";
+        return this.f30680a + this.f30684e + this.f30685f + "iYm0HAnkxQtpvN44";
     }
 
     public void b(String str) {
-        this.f30598a = str;
+        this.f30680a = str;
     }
 }

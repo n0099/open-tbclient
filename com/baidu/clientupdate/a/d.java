@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.clientupdate.d.j;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.util.Base64Encoder;
 import com.baidu.util.LogUtil;
 import java.io.ByteArrayOutputStream;
@@ -94,9 +95,9 @@ public final class d {
             aVar.f4576c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
             aVar.f4574a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
             aVar.f4577d = cursor.getString(cursor.getColumnIndex("flag"));
-            aVar.f4578e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
+            aVar.f4578e = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_STM)));
             aVar.f4579f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
-            aVar.f4580g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
+            aVar.f4580g = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_ETM)));
             aVar.f4581h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
             aVar.f4582i = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.EXCEPTION_PART)));
         } catch (JSONException e2) {

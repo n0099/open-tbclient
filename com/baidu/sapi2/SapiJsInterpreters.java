@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.SapiWebView;
@@ -1573,6 +1574,38 @@ public class SapiJsInterpreters {
     }
 
     /* loaded from: classes2.dex */
+    public class SapiActionJumpToUri extends AbstractInterpreter {
+        public SapiActionJumpToUri() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            if (SapiJsInterpreters.this.jsCallBacks == null) {
+                return null;
+            }
+            if (SapiJsInterpreters.this.jsCallBacks.jumpToUriCallBack == null) {
+                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
+            } else {
+                try {
+                    SapiJsInterpreters.this.jsCallBacks.jumpToUriCallBack.onJumpTo(new JSONObject(command.getActionParams().get(0)).optString("url"));
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("errno", 0);
+                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
+                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
+                        SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
+                    }
+                }
+            }
+            return null;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public class SapiActionLastLoginType extends AbstractInterpreter {
         public SapiActionLastLoginType() {
             super();
@@ -2410,7 +2443,7 @@ public class SapiJsInterpreters {
                     }
                     String optString4 = jSONObject.optString("trace_id");
                     String optString5 = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm("finish");
+                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(ConstantHelper.LOG_FINISH);
                     SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback.onClick(optString2, optString, optString4, optString5, optString3);
                 } catch (Exception e2) {
                     Log.e(e2);

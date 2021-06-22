@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public class GroupMember implements Parcelable, NoProGuard {
     public static final int ADDSTATUSFAIL = 1;
@@ -138,7 +139,7 @@ public class GroupMember implements Parcelable, NoProGuard {
     }
 
     public String toString() {
-        return "GroupMember [groupid=" + this.groupid + ", mUk=" + this.mUk + ", mName=" + this.mName + ", mBduid=" + this.mBduid + ", role=" + this.role + ", jointime=" + this.jointime + ", addStatus=" + this.addStatus + ", valid=" + this.valid + ", mPortrait=" + getPortrait() + "]";
+        return "GroupMember [groupid=" + this.groupid + ", mUk=" + this.mUk + ", mName=" + this.mName + ", mBduid=" + this.mBduid + ", role=" + this.role + ", jointime=" + this.jointime + ", addStatus=" + this.addStatus + ", valid=" + this.valid + ", mPortrait=" + getPortrait() + PreferencesUtil.RIGHT_MOUNT;
     }
 
     @Override // android.os.Parcelable

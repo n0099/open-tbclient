@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -11,8 +12,8 @@ import java.nio.ByteBuffer;
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
     public long[] trackIds;
 
     static {
@@ -66,7 +67,7 @@ public class TrackReferenceTypeBox extends AbstractBox {
             sb.append("=");
             sb.append(this.trackIds[i2]);
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 }

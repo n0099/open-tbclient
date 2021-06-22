@@ -8,14 +8,14 @@ import com.kwad.sdk.glide.load.engine.s;
 public class c<DataType> implements com.kwad.sdk.glide.load.f<DataType, FrameSequenceDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.f<DataType, FrameSequence> f35860a;
+    public final com.kwad.sdk.glide.load.f<DataType, FrameSequence> f35958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FrameSequenceDrawable.a f35861b;
+    public final FrameSequenceDrawable.a f35959b;
 
     public c(final com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.f<DataType, FrameSequence> fVar) {
-        this.f35860a = fVar;
-        this.f35861b = new FrameSequenceDrawable.a() { // from class: com.kwad.sdk.glide.framesequence.c.1
+        this.f35958a = fVar;
+        this.f35959b = new FrameSequenceDrawable.a() { // from class: com.kwad.sdk.glide.framesequence.c.1
             @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
             public Bitmap a(int i2, int i3) {
                 return eVar.a(i2, i3, Bitmap.Config.ARGB_8888);
@@ -31,15 +31,15 @@ public class c<DataType> implements com.kwad.sdk.glide.load.f<DataType, FrameSeq
     @Override // com.kwad.sdk.glide.load.f
     @Nullable
     public s<FrameSequenceDrawable> a(DataType datatype, int i2, int i3, com.kwad.sdk.glide.load.e eVar) {
-        s<FrameSequence> a2 = this.f35860a.a(datatype, i2, i3, eVar);
+        s<FrameSequence> a2 = this.f35958a.a(datatype, i2, i3, eVar);
         if (a2 == null) {
             return null;
         }
-        return new d(new FrameSequenceDrawable(a2.e(), this.f35861b));
+        return new d(new FrameSequenceDrawable(a2.e(), this.f35959b));
     }
 
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(DataType datatype, com.kwad.sdk.glide.load.e eVar) {
-        return this.f35860a.a(datatype, eVar);
+        return this.f35958a.a(datatype, eVar);
     }
 }

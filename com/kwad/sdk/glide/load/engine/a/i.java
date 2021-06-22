@@ -12,60 +12,60 @@ import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f36117a;
+    public final int f36215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f36118b;
+    public final int f36216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f36119c;
+    public final Context f36217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f36120d;
+    public final int f36218d;
 
     /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f36121a;
+        public static final int f36219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Context f36122b;
+        public final Context f36220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ActivityManager f36123c;
+        public ActivityManager f36221c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c f36124d;
+        public c f36222d;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f36126f;
+        public float f36224f;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f36125e = 2.0f;
+        public float f36223e = 2.0f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f36127g = 0.4f;
+        public float f36225g = 0.4f;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f36128h = 0.33f;
+        public float f36226h = 0.33f;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f36129i = 4194304;
+        public int f36227i = 4194304;
 
         static {
-            f36121a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
+            f36219a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
         }
 
         public a(Context context) {
-            this.f36126f = f36121a;
-            this.f36122b = context;
-            this.f36123c = (ActivityManager) context.getSystemService("activity");
-            this.f36124d = new b(context.getResources().getDisplayMetrics());
-            if (Build.VERSION.SDK_INT < 26 || !i.a(this.f36123c)) {
+            this.f36224f = f36219a;
+            this.f36220b = context;
+            this.f36221c = (ActivityManager) context.getSystemService("activity");
+            this.f36222d = new b(context.getResources().getDisplayMetrics());
+            if (Build.VERSION.SDK_INT < 26 || !i.a(this.f36221c)) {
                 return;
             }
-            this.f36126f = 0.0f;
+            this.f36224f = 0.0f;
         }
 
         public i a() {
@@ -77,20 +77,20 @@ public final class i {
     public static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final DisplayMetrics f36130a;
+        public final DisplayMetrics f36228a;
 
         public b(DisplayMetrics displayMetrics) {
-            this.f36130a = displayMetrics;
+            this.f36228a = displayMetrics;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int a() {
-            return this.f36130a.widthPixels;
+            return this.f36228a.widthPixels;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int b() {
-            return this.f36130a.heightPixels;
+            return this.f36228a.heightPixels;
         }
     }
 
@@ -102,41 +102,41 @@ public final class i {
     }
 
     public i(a aVar) {
-        this.f36119c = aVar.f36122b;
-        this.f36120d = a(aVar.f36123c) ? aVar.f36129i / 2 : aVar.f36129i;
-        int a2 = a(aVar.f36123c, aVar.f36127g, aVar.f36128h);
-        float a3 = aVar.f36124d.a() * aVar.f36124d.b() * 4;
-        int round = Math.round(aVar.f36126f * a3);
-        int round2 = Math.round(a3 * aVar.f36125e);
-        int i2 = a2 - this.f36120d;
+        this.f36217c = aVar.f36220b;
+        this.f36218d = a(aVar.f36221c) ? aVar.f36227i / 2 : aVar.f36227i;
+        int a2 = a(aVar.f36221c, aVar.f36225g, aVar.f36226h);
+        float a3 = aVar.f36222d.a() * aVar.f36222d.b() * 4;
+        int round = Math.round(aVar.f36224f * a3);
+        int round2 = Math.round(a3 * aVar.f36223e);
+        int i2 = a2 - this.f36218d;
         int i3 = round2 + round;
         if (i3 <= i2) {
-            this.f36118b = round2;
-            this.f36117a = round;
+            this.f36216b = round2;
+            this.f36215a = round;
         } else {
             float f2 = i2;
-            float f3 = aVar.f36126f;
-            float f4 = aVar.f36125e;
+            float f3 = aVar.f36224f;
+            float f4 = aVar.f36223e;
             float f5 = f2 / (f3 + f4);
-            this.f36118b = Math.round(f4 * f5);
-            this.f36117a = Math.round(f5 * aVar.f36126f);
+            this.f36216b = Math.round(f4 * f5);
+            this.f36215a = Math.round(f5 * aVar.f36224f);
         }
         if (Log.isLoggable(MemorySizeCalculator.TAG, 3)) {
             StringBuilder sb = new StringBuilder();
             sb.append("Calculation complete, Calculated memory cache size: ");
-            sb.append(a(this.f36118b));
+            sb.append(a(this.f36216b));
             sb.append(", pool size: ");
-            sb.append(a(this.f36117a));
+            sb.append(a(this.f36215a));
             sb.append(", byte array size: ");
-            sb.append(a(this.f36120d));
+            sb.append(a(this.f36218d));
             sb.append(", memory class limited? ");
             sb.append(i3 > a2);
             sb.append(", max size: ");
             sb.append(a(a2));
             sb.append(", memoryClass: ");
-            sb.append(aVar.f36123c.getMemoryClass());
+            sb.append(aVar.f36221c.getMemoryClass());
             sb.append(", isLowMemoryDevice: ");
-            sb.append(a(aVar.f36123c));
+            sb.append(a(aVar.f36221c));
             Log.d(MemorySizeCalculator.TAG, sb.toString());
         }
     }
@@ -151,7 +151,7 @@ public final class i {
     }
 
     private String a(int i2) {
-        return Formatter.formatFileSize(this.f36119c, i2);
+        return Formatter.formatFileSize(this.f36217c, i2);
     }
 
     @TargetApi(19)
@@ -163,14 +163,14 @@ public final class i {
     }
 
     public int a() {
-        return this.f36118b;
+        return this.f36216b;
     }
 
     public int b() {
-        return this.f36117a;
+        return this.f36215a;
     }
 
     public int c() {
-        return this.f36120d;
+        return this.f36218d;
     }
 }

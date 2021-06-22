@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class u extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68839e;
+    public final Context f68943e;
 
     public u(Context context) {
         super(true, false);
-        this.f68839e = context;
+        this.f68943e = context;
     }
 
     @Override // d.b.b.h2
@@ -22,7 +22,7 @@ public class u extends h2 {
         Signature signature;
         String str = null;
         try {
-            packageInfo = this.f68839e.getPackageManager().getPackageInfo(this.f68839e.getPackageName(), 64);
+            packageInfo = this.f68943e.getPackageManager().getPackageInfo(this.f68943e.getPackageName(), 64);
         } catch (Throwable th) {
             r0.b(th);
             packageInfo = null;

@@ -11,26 +11,26 @@ import android.webkit.WebViewClient;
 public class J extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40523a;
+    public String f40626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40524b;
+    public String f40627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ K f40525c;
+    public final /* synthetic */ K f40628c;
 
     public J(K k) {
-        this.f40525c = k;
+        this.f40628c = k;
     }
 
     public final boolean a(String str) {
-        K k = this.f40525c;
-        if (k.f40531d) {
-            k.f40531d = false;
-            K k2 = this.f40525c;
-            V1 v1 = k2.f40529b;
+        K k = this.f40628c;
+        if (k.f40634d) {
+            k.f40634d = false;
+            K k2 = this.f40628c;
+            V1 v1 = k2.f40632b;
             if (v1 != null) {
-                return v1.a(str, k2.f40532e);
+                return v1.a(str, k2.f40635e);
             }
         }
         return false;
@@ -39,9 +39,9 @@ public class J extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        if (TextUtils.isEmpty(this.f40524b)) {
-            this.f40524b = str;
-            X1 x1 = this.f40525c.f40528a;
+        if (TextUtils.isEmpty(this.f40627b)) {
+            this.f40627b = str;
+            X1 x1 = this.f40628c.f40631a;
             if (x1 != null) {
                 x1.onLoaded();
             }
@@ -51,13 +51,13 @@ public class J extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         super.onPageStarted(webView, str, bitmap);
-        this.f40523a = webView.getUrl();
+        this.f40626a = webView.getUrl();
     }
 
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         super.onReceivedError(webView, webResourceRequest, webResourceError);
-        if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f40523a)) && Build.VERSION.SDK_INT >= 23) {
+        if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f40626a)) && Build.VERSION.SDK_INT >= 23) {
             webResourceError.getDescription().toString();
             webResourceError.getErrorCode();
         }

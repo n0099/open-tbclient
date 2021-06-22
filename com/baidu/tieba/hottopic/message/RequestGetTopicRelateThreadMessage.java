@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
@@ -10,7 +10,7 @@ import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16902common;
+    public CommonReq f16984common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -32,7 +32,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f72735common = getCommon();
+            builder.f72839common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();
@@ -57,7 +57,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f16902common;
+        return this.f16984common;
     }
 
     public Long getLastId() {
@@ -109,7 +109,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16902common = commonReq;
+        this.f16984common = commonReq;
     }
 
     public void setLastId(Long l) {

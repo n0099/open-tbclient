@@ -13,19 +13,19 @@ import java.util.regex.Pattern;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f38353a = new byte[0];
+    public static final byte[] f38451a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f38354b = new String[0];
+    public static final String[] f38452b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f38355c = Charset.forName("UTF-8");
+    public static final Charset f38453c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f38356d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f38454d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f38357e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f38455e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i2, int i3) {
         while (i2 < i3) {

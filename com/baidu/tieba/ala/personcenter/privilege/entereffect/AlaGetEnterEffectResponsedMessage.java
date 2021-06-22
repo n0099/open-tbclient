@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import d.a.c.k.e.n;
-import d.a.n0.v.j.g.d.d.a;
+import d.a.o0.v.j.g.d.d.a;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;

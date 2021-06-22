@@ -15,30 +15,30 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public c f31683c;
+    public c f31781c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, DownloadTask> f31681a = new ConcurrentHashMap();
+    public final Map<Integer, DownloadTask> f31779a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f31682b = new ConcurrentHashMap();
+    public final Map<String, Integer> f31780b = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31684d = false;
+    public boolean f31782d = false;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f31685a = new d();
+        public static final d f31783a = new d();
     }
 
     public static d a() {
-        return a.f31685a;
+        return a.f31783a;
     }
 
     private void a(int i2, DownloadTask.DownloadRequest downloadRequest) {
-        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31779a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.resume(downloadRequest);
         }
@@ -65,28 +65,28 @@ public class d {
         DownloadTask downloadTask = new DownloadTask(downloadRequest);
         if (downloadRequest.getDownloadUrl().contains("downali.game.uc.cn")) {
             b();
-        } else if (this.f31684d) {
+        } else if (this.f31782d) {
             c();
         }
-        if (this.f31681a.get(Integer.valueOf(downloadTask.getId())) != null) {
+        if (this.f31779a.get(Integer.valueOf(downloadTask.getId())) != null) {
             a(downloadTask.getId(), downloadRequest);
             b(downloadTask.getId());
-            a(downloadTask.getId(), cVar, this.f31683c);
+            a(downloadTask.getId(), cVar, this.f31781c);
         } else {
-            this.f31681a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-            this.f31682b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+            this.f31779a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
+            this.f31780b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
             downloadTask.submit();
-            a(downloadTask.getId(), cVar, this.f31683c);
+            a(downloadTask.getId(), cVar, this.f31781c);
         }
         return downloadTask.getId();
     }
 
     public DownloadTask a(int i2) {
-        return this.f31681a.get(Integer.valueOf(i2));
+        return this.f31779a.get(Integer.valueOf(i2));
     }
 
     public void a(int i2, c... cVarArr) {
-        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31779a.get(Integer.valueOf(i2));
         if (downloadTask == null || cVarArr == null) {
             return;
         }
@@ -99,12 +99,12 @@ public class d {
     }
 
     public void a(@NonNull DownloadTask downloadTask) {
-        this.f31681a.remove(Integer.valueOf(downloadTask.getId()));
-        this.f31682b.remove(downloadTask.getUrl());
+        this.f31779a.remove(Integer.valueOf(downloadTask.getId()));
+        this.f31780b.remove(downloadTask.getUrl());
     }
 
     public void a(c cVar) {
-        this.f31683c = cVar;
+        this.f31781c = cVar;
     }
 
     public void b() {
@@ -117,12 +117,12 @@ public class d {
         }
         if (aVar != null) {
             com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
-            this.f31684d = true;
+            this.f31782d = true;
         }
     }
 
     public void b(int i2) {
-        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31779a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.clearListener();
         }
@@ -142,7 +142,7 @@ public class d {
     }
 
     public void c(int i2) {
-        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31779a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.cancel();
             a(downloadTask);
@@ -150,7 +150,7 @@ public class d {
     }
 
     public void d(int i2) {
-        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31779a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.userPause();
         }
@@ -159,7 +159,7 @@ public class d {
     public boolean d() {
         while (true) {
             boolean z = false;
-            for (Map.Entry<Integer, DownloadTask> entry : this.f31681a.entrySet()) {
+            for (Map.Entry<Integer, DownloadTask> entry : this.f31779a.entrySet()) {
                 DownloadTask value = entry.getValue();
                 if (value != null) {
                     int status = value.getStatus();

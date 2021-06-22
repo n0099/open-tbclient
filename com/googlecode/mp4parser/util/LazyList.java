@@ -14,22 +14,22 @@ public class LazyList<E> extends AbstractList<E> {
     public class a implements Iterator<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31591e = 0;
+        public int f31689e = 0;
 
         public a() {
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31591e < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
+            return this.f31689e < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.f31591e < LazyList.this.underlying.size()) {
+            if (this.f31689e < LazyList.this.underlying.size()) {
                 List<E> list = LazyList.this.underlying;
-                int i2 = this.f31591e;
-                this.f31591e = i2 + 1;
+                int i2 = this.f31689e;
+                this.f31689e = i2 + 1;
                 return list.get(i2);
             }
             LazyList lazyList = LazyList.this;

@@ -22,8 +22,8 @@ import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
 import d.a.c.a.b;
 import d.a.c.e.p.l;
-import d.a.m0.a.c;
-import d.a.m0.a.d;
+import d.a.n0.a.c;
+import d.a.n0.a.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */

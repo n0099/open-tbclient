@@ -11,36 +11,36 @@ public class a {
 
     /* renamed from: d.a.c0.k.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0560a implements Runnable {
+    public static class RunnableC0563a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.c0.l.a f43066e;
+        public final /* synthetic */ d.a.c0.l.a f43169e;
 
         /* renamed from: d.a.c0.k.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0561a extends d.a.c0.l.a {
+        public class C0564a extends d.a.c0.l.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONArray f43067a;
+            public final /* synthetic */ JSONArray f43170a;
 
-            public C0561a(JSONArray jSONArray) {
-                this.f43067a = jSONArray;
+            public C0564a(JSONArray jSONArray) {
+                this.f43170a = jSONArray;
             }
 
             @Override // d.a.c0.l.a
             public void a(int i2, String str) {
-                d.a.c0.l.a aVar = RunnableC0560a.this.f43066e;
+                d.a.c0.l.a aVar = RunnableC0563a.this.f43169e;
                 if (aVar != null) {
                     aVar.a(i2, str);
                 }
                 if (i2 == 1) {
-                    a.d(this.f43067a);
+                    a.d(this.f43170a);
                 }
             }
         }
 
-        public RunnableC0560a(d.a.c0.l.a aVar) {
-            this.f43066e = aVar;
+        public RunnableC0563a(d.a.c0.l.a aVar) {
+            this.f43169e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -49,12 +49,12 @@ public class a {
             if (f2 == null) {
                 return;
             }
-            d.a.c0.k.b.a.a(f2, new C0561a(f2));
+            d.a.c0.k.b.a.a(f2, new C0564a(f2));
         }
     }
 
     public static void a(d.a.c0.l.a aVar) {
-        d.a.c0.m.a.a(new RunnableC0560a(aVar));
+        d.a.c0.m.a.a(new RunnableC0563a(aVar));
     }
 
     public static synchronized void d(JSONArray jSONArray) {

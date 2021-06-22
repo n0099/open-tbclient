@@ -4,13 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FaceImageLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18650e;
+    public a f18732e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
@@ -21,7 +21,7 @@ public class FaceImageLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.f18650e;
+        a aVar = this.f18732e;
         if (aVar != null) {
             aVar.a();
         }
@@ -29,7 +29,7 @@ public class FaceImageLayout extends FrameLayout {
     }
 
     public void setListener(a aVar) {
-        this.f18650e = aVar;
+        this.f18732e = aVar;
     }
 
     public FaceImageLayout(Context context, AttributeSet attributeSet) {

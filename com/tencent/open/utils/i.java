@@ -15,41 +15,41 @@ import java.util.concurrent.TimeUnit;
 public final class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f40161c;
+    public static Handler f40264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f40162d;
+    public static HandlerThread f40265d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f40160b = new Object();
+    public static Object f40263b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f40159a = c();
+    public static final Executor f40262a = c();
 
     /* loaded from: classes7.dex */
     public static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<Runnable> f40163a;
+        public final Queue<Runnable> f40266a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f40164b;
+        public Runnable f40267b;
 
         public a() {
-            this.f40163a = new LinkedList();
+            this.f40266a = new LinkedList();
         }
 
         public synchronized void a() {
-            Runnable poll = this.f40163a.poll();
-            this.f40164b = poll;
+            Runnable poll = this.f40266a.poll();
+            this.f40267b = poll;
             if (poll != null) {
-                i.f40159a.execute(poll);
+                i.f40262a.execute(poll);
             }
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f40163a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f40266a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -59,22 +59,22 @@ public final class i {
                     }
                 }
             });
-            if (this.f40164b == null) {
+            if (this.f40267b == null) {
                 a();
             }
         }
     }
 
     public static Handler a() {
-        if (f40161c == null) {
+        if (f40264c == null) {
             synchronized (i.class) {
                 HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                f40162d = handlerThread;
+                f40265d = handlerThread;
                 handlerThread.start();
-                f40161c = new Handler(f40162d.getLooper());
+                f40264c = new Handler(f40265d.getLooper());
             }
         }
-        return f40161c;
+        return f40264c;
     }
 
     public static Executor b() {

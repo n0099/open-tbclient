@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
@@ -169,7 +170,7 @@ public class H264TrackImpl extends AbstractTrack {
                                     break;
                             }
                             for (int i6 = 0; i6 < i2; i6++) {
-                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i6 + "]");
+                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i6 + PreferencesUtil.RIGHT_MOUNT);
                                 this.clock_timestamp_flag = readBool;
                                 if (readBool) {
                                     this.ct_type = cAVLCReader.readU(2, "pic_timing SEI: ct_type");
@@ -336,73 +337,73 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f31564a = 0;
+        public long f31662a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31565b = 0;
+        public int f31663b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public DataSource f31566c;
+        public DataSource f31664c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ByteBuffer f31567d;
+        public ByteBuffer f31665d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31568e;
+        public long f31666e;
 
         public a(DataSource dataSource) throws IOException {
-            this.f31566c = dataSource;
+            this.f31664c = dataSource;
             c();
         }
 
         public void a() {
-            this.f31565b++;
+            this.f31663b++;
         }
 
         public void b() {
-            int i2 = this.f31565b + 3;
-            this.f31565b = i2;
-            this.f31568e = this.f31564a + i2;
+            int i2 = this.f31663b + 3;
+            this.f31663b = i2;
+            this.f31666e = this.f31662a + i2;
         }
 
         public void c() throws IOException {
-            DataSource dataSource = this.f31566c;
-            this.f31567d = dataSource.map(this.f31564a, Math.min(dataSource.size() - this.f31564a, H264TrackImpl.BUFFER));
+            DataSource dataSource = this.f31664c;
+            this.f31665d = dataSource.map(this.f31662a, Math.min(dataSource.size() - this.f31662a, H264TrackImpl.BUFFER));
         }
 
         public ByteBuffer d() {
-            long j = this.f31568e;
-            long j2 = this.f31564a;
+            long j = this.f31666e;
+            long j2 = this.f31662a;
             if (j >= j2) {
-                this.f31567d.position((int) (j - j2));
-                ByteBuffer slice = this.f31567d.slice();
-                slice.limit((int) (this.f31565b - (this.f31568e - this.f31564a)));
+                this.f31665d.position((int) (j - j2));
+                ByteBuffer slice = this.f31665d.slice();
+                slice.limit((int) (this.f31663b - (this.f31666e - this.f31662a)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
         }
 
         public boolean e() throws IOException {
-            int limit = this.f31567d.limit();
-            int i2 = this.f31565b;
+            int limit = this.f31665d.limit();
+            int i2 = this.f31663b;
             if (limit - i2 >= 3) {
-                return this.f31567d.get(i2) == 0 && this.f31567d.get(this.f31565b + 1) == 0 && (this.f31567d.get(this.f31565b + 2) == 0 || this.f31567d.get(this.f31565b + 2) == 1);
-            } else if (this.f31564a + i2 + 3 > this.f31566c.size()) {
-                return this.f31564a + ((long) this.f31565b) == this.f31566c.size();
+                return this.f31665d.get(i2) == 0 && this.f31665d.get(this.f31663b + 1) == 0 && (this.f31665d.get(this.f31663b + 2) == 0 || this.f31665d.get(this.f31663b + 2) == 1);
+            } else if (this.f31662a + i2 + 3 > this.f31664c.size()) {
+                return this.f31662a + ((long) this.f31663b) == this.f31664c.size();
             } else {
-                this.f31564a = this.f31568e;
-                this.f31565b = 0;
+                this.f31662a = this.f31666e;
+                this.f31663b = 0;
                 c();
                 return e();
             }
         }
 
         public boolean f() throws IOException {
-            int limit = this.f31567d.limit();
-            int i2 = this.f31565b;
+            int limit = this.f31665d.limit();
+            int i2 = this.f31663b;
             if (limit - i2 >= 3) {
-                return this.f31567d.get(i2) == 0 && this.f31567d.get(this.f31565b + 1) == 0 && this.f31567d.get(this.f31565b + 2) == 1;
-            } else if (this.f31564a + i2 != this.f31566c.size()) {
+                return this.f31665d.get(i2) == 0 && this.f31665d.get(this.f31663b + 1) == 0 && this.f31665d.get(this.f31663b + 2) == 1;
+            } else if (this.f31662a + i2 != this.f31664c.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {

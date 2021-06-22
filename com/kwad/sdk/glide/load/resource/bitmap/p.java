@@ -12,44 +12,44 @@ import java.io.File;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f36374a = new File("/proc/self/fd");
+    public static final File f36472a = new File("/proc/self/fd");
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile p f36375d;
+    public static volatile p f36473d;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f36376b;
+    public volatile int f36474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f36377c = true;
+    public volatile boolean f36475c = true;
 
     public static p a() {
-        if (f36375d == null) {
+        if (f36473d == null) {
             synchronized (p.class) {
-                if (f36375d == null) {
-                    f36375d = new p();
+                if (f36473d == null) {
+                    f36473d = new p();
                 }
             }
         }
-        return f36375d;
+        return f36473d;
     }
 
     private synchronized boolean b() {
         boolean z = true;
-        int i2 = this.f36376b + 1;
-        this.f36376b = i2;
+        int i2 = this.f36474b + 1;
+        this.f36474b = i2;
         if (i2 >= 50) {
-            this.f36376b = 0;
-            int length = f36374a.list().length;
+            this.f36474b = 0;
+            int length = f36472a.list().length;
             if (length >= 700) {
                 z = false;
             }
-            this.f36377c = z;
-            if (!this.f36377c && Log.isLoggable(Downsampler.TAG, 5)) {
+            this.f36475c = z;
+            if (!this.f36475c && Log.isLoggable(Downsampler.TAG, 5)) {
                 Log.w(Downsampler.TAG, "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
             }
         }
-        return this.f36377c;
+        return this.f36475c;
     }
 
     @TargetApi(26)

@@ -1,6 +1,7 @@
 package kotlin.collections;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Collection;
 import java.util.Iterator;
 import kotlin.Metadata;
@@ -90,7 +91,7 @@ public abstract class AbstractCollection<E> implements Collection<E>, KMappedMar
     }
 
     public String toString() {
-        return CollectionsKt___CollectionsKt.joinToString$default(this, StringUtil.ARRAY_ELEMENT_SEPARATOR, "[", "]", 0, null, new AbstractCollection$toString$1(this), 24, null);
+        return CollectionsKt___CollectionsKt.joinToString$default(this, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, new AbstractCollection$toString$1(this), 24, null);
     }
 
     @Override // java.util.Collection

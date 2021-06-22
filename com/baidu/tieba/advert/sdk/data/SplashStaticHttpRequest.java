@@ -10,8 +10,8 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.n0.t.a.i.b;
-import d.a.n0.t.a.i.c;
+import d.a.o0.t.a.i.b;
+import d.a.o0.t.a.i.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */

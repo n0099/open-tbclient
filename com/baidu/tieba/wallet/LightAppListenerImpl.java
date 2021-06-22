@@ -41,7 +41,7 @@ public class LightAppListenerImpl implements ILightAppListener {
         if (iLocationCallback == null) {
             return false;
         }
-        a.l().i(true, new a.c() { // from class: com.baidu.tieba.wallet.LightAppListenerImpl.1
+        a.k().h(true, new a.c() { // from class: com.baidu.tieba.wallet.LightAppListenerImpl.1
             @Override // d.a.c.e.i.a.c
             public void onLocationGeted(int i2, String str, Address address) {
                 if (i2 != 0) {

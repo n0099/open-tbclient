@@ -3,6 +3,7 @@ package androidx.arch.core.internal;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -325,7 +326,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         Iterator<Map.Entry<K, V>> it = iterator();
         while (it.hasNext()) {
             sb.append(it.next().toString());
@@ -333,7 +334,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 }

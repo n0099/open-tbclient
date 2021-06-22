@@ -2,6 +2,7 @@ package com.baidu.searchbox.bddownload.core.interceptor;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
@@ -65,7 +66,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
                 long exactContentLengthRangeFrom0 = getExactContentLengthRangeFrom0(processConnect);
                 long totalLength = info.getTotalLength();
                 if (exactContentLengthRangeFrom0 > 0 && exactContentLengthRangeFrom0 != totalLength) {
-                    Util.d(TAG, "SingleBlock special check: the response instance-length[" + exactContentLengthRangeFrom0 + "] isn't equal to the instance length from trial-connection[" + totalLength + "]");
+                    Util.d(TAG, "SingleBlock special check: the response instance-length[" + exactContentLengthRangeFrom0 + "] isn't equal to the instance length from trial-connection[" + totalLength + PreferencesUtil.RIGHT_MOUNT);
                     boolean z = info.getBlock(0).getRangeLeft() != 0;
                     BlockInfo blockInfo = new BlockInfo(0L, exactContentLengthRangeFrom0);
                     info.resetBlockInfos();

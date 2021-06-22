@@ -6,9 +6,9 @@ import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import d.a.n0.r0.o1.a;
-import d.a.n0.r0.o1.b;
-import d.a.n0.r0.o1.d;
+import d.a.o0.r0.o1.a;
+import d.a.o0.r0.o1.b;
+import d.a.o0.r0.o1.d;
 /* loaded from: classes4.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public a mEvaluationView;

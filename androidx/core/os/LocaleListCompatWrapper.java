@@ -5,6 +5,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -241,7 +242,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         int i2 = 0;
         while (true) {
             Locale[] localeArr = this.mList;
@@ -252,7 +253,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
                 }
                 i2++;
             } else {
-                sb.append("]");
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
                 return sb.toString();
             }
         }

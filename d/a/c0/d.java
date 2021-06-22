@@ -26,8 +26,8 @@ public final class d {
     public static final int pay_loading_icon_size = 2131166390;
     public static final int pay_money_layout_height = 2131166391;
     public static final int real_pay_money_size = 2131166419;
-    public static final int title_height = 2131167379;
-    public static final int title_size = 2131167380;
-    public static final int title_top_margin = 2131167381;
-    public static final int total_pay_money_size = 2131167390;
+    public static final int title_height = 2131167380;
+    public static final int title_size = 2131167381;
+    public static final int title_top_margin = 2131167382;
+    public static final int total_pay_money_size = 2131167391;
 }

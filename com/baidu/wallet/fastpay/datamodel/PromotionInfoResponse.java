@@ -2,6 +2,7 @@ package com.baidu.wallet.fastpay.datamodel;
 
 import android.content.Context;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes5.dex */
 public class PromotionInfoResponse implements IBeanResponse {
     public MoreServiceItemInfo[] additional_services;
@@ -28,6 +29,6 @@ public class PromotionInfoResponse implements IBeanResponse {
     }
 
     public String toString() {
-        return "PromotionInfoResponse [promotion_img_url=" + this.promotion_img_url + ", promotion_txt=" + this.promotion_txt + ", promotion_desc=" + this.promotion_desc + ", promotion_detail_url=" + this.promotion_detail_url + ", promotion_bigimg_url=" + this.promotion_bigimg_url + "]";
+        return "PromotionInfoResponse [promotion_img_url=" + this.promotion_img_url + ", promotion_txt=" + this.promotion_txt + ", promotion_desc=" + this.promotion_desc + ", promotion_detail_url=" + this.promotion_detail_url + ", promotion_bigimg_url=" + this.promotion_bigimg_url + PreferencesUtil.RIGHT_MOUNT;
     }
 }

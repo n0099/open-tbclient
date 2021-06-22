@@ -48,9 +48,9 @@ public class UpdateInfoService extends BdBaseService {
             if (i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                d.a.n0.t2.g0.a.e().j(String.valueOf(longitude));
-                d.a.n0.t2.g0.a.e().i(String.valueOf(latitude));
-                d.a.n0.t2.g0.a.e().k(System.currentTimeMillis());
+                d.a.o0.t2.g0.a.e().j(String.valueOf(longitude));
+                d.a.o0.t2.g0.a.e().i(String.valueOf(latitude));
+                d.a.o0.t2.g0.a.e().k(System.currentTimeMillis());
                 if (UpdateInfoService.this.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     UpdateInfoService.this.mModel.z(1, longitude, latitude);
                     UpdateInfoService.this.mModel.A();
@@ -60,11 +60,11 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        d.a.c.e.i.a.l().i(true, this.locationCallBack);
+        d.a.c.e.i.a.k().h(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        d.a.c.e.i.a.l().q(this.locationCallBack);
+        d.a.c.e.i.a.k().p(this.locationCallBack);
     }
 
     @Override // android.app.Service

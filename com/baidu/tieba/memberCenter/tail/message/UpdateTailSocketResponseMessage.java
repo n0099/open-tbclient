@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.s1.h.a.g;
+import d.a.o0.s1.h.a.g;
 import tbclient.Error;
 import tbclient.UpdateTail.UpdateTailResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<g> {
     public g resultData;
 

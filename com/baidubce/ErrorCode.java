@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum ErrorCode {
     ACCESS_DENIED("AccessDenied"),
     INAPPROPRIATE_JSON("InappropriateJSON"),

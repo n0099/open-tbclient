@@ -1,5 +1,6 @@
 package d.g.c.i.a;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import d.g.c.i.a.e;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -11,8 +12,8 @@ public abstract class a<I, O, F, T> extends e.a<O> implements Runnable {
 
     /* renamed from: d.g.c.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1912a<I, O> extends a<I, O, d.g.c.a.g<? super I, ? extends O>, O> {
-        public C1912a(l<? extends I> lVar, d.g.c.a.g<? super I, ? extends O> gVar) {
+    public static final class C1915a<I, O> extends a<I, O, d.g.c.a.g<? super I, ? extends O>, O> {
+        public C1915a(l<? extends I> lVar, d.g.c.a.g<? super I, ? extends O> gVar) {
             super(lVar, gVar);
         }
 
@@ -40,9 +41,9 @@ public abstract class a<I, O, F, T> extends e.a<O> implements Runnable {
 
     public static <I, O> l<O> F(l<I> lVar, d.g.c.a.g<? super I, ? extends O> gVar, Executor executor) {
         d.g.c.a.n.p(gVar);
-        C1912a c1912a = new C1912a(lVar, gVar);
-        lVar.a(c1912a, n.b(executor, c1912a));
-        return c1912a;
+        C1915a c1915a = new C1915a(lVar, gVar);
+        lVar.a(c1915a, n.b(executor, c1915a));
+        return c1915a;
     }
 
     public abstract T G(F f2, I i2) throws Exception;
@@ -105,7 +106,7 @@ public abstract class a<I, O, F, T> extends e.a<O> implements Runnable {
             str = "";
         }
         if (f2 != null) {
-            return str + "function=[" + f2 + "]";
+            return str + "function=[" + f2 + PreferencesUtil.RIGHT_MOUNT;
         } else if (x != null) {
             return str + x;
         } else {

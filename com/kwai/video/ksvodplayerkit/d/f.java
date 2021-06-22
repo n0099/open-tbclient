@@ -15,44 +15,44 @@ public class f extends b {
     }
 
     private void a(List<String> list, String str, int i2) {
-        this.f38063a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
-        this.f38068f = i.a().t();
+        this.f38161a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
+        this.f38166f = i.a().t();
         String str2 = list.get(0);
-        this.f38066d = str2;
-        this.f38065c = i2;
-        this.f38069g = str;
+        this.f38164d = str2;
+        this.f38163c = i2;
+        this.f38167g = str;
         String b2 = com.kwai.video.ksvodplayerkit.c.a.b(str2);
-        if (this.f38063a.b() != null && !TextUtils.isEmpty(this.f38063a.b().f37965b)) {
-            this.f38066d = this.f38063a.b().f37965b;
-            b2 = this.f38063a.d();
+        if (this.f38161a.b() != null && !TextUtils.isEmpty(this.f38161a.b().f38063b)) {
+            this.f38164d = this.f38161a.b().f38063b;
+            b2 = this.f38161a.d();
         }
-        this.f38065c = i2;
-        String str3 = this.f38066d;
-        this.f38067e = MediaPreloadPriorityTask.newTaskWithHttpDns(str3, b2, com.kwai.video.ksvodplayerkit.c.c.c(str3));
+        this.f38163c = i2;
+        String str3 = this.f38164d;
+        this.f38165e = MediaPreloadPriorityTask.newTaskWithHttpDns(str3, b2, com.kwai.video.ksvodplayerkit.c.c.c(str3));
     }
 
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f38063a.a(false);
-        if (this.f38063a.f() <= 0 || this.f38063a.e() || this.f38064b.get() >= i.a().e() || !this.f38063a.a()) {
+        this.f38161a.a(false);
+        if (this.f38161a.f() <= 0 || this.f38161a.e() || this.f38162b.get() >= i.a().e() || !this.f38161a.a()) {
             return null;
         }
-        if (this.f38063a.b() != null && !TextUtils.isEmpty(this.f38063a.b().f37965b)) {
-            this.f38066d = this.f38063a.b().f37965b;
-            String d2 = this.f38063a.d();
-            String str = this.f38066d;
-            this.f38067e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
+        if (this.f38161a.b() != null && !TextUtils.isEmpty(this.f38161a.b().f38063b)) {
+            this.f38164d = this.f38161a.b().f38063b;
+            String d2 = this.f38161a.d();
+            String str = this.f38164d;
+            this.f38165e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
         }
-        return this.f38067e;
+        return this.f38165e;
     }
 
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask b() {
-        if (this.f38067e == null) {
-            String d2 = this.f38063a.d() != null ? this.f38063a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.f38066d);
-            String str = this.f38066d;
-            this.f38067e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
+        if (this.f38165e == null) {
+            String d2 = this.f38161a.d() != null ? this.f38161a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.f38164d);
+            String str = this.f38164d;
+            this.f38165e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
         }
-        return this.f38067e;
+        return this.f38165e;
     }
 }

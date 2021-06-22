@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class d extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9331b = "d";
+    public static final String f9339b = "d";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9332c = false;
+    public boolean f9340c = false;
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -41,9 +41,9 @@ public class d extends com.baidu.platform.base.d {
             if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                 return false;
             }
-            return this.f9332c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+            return this.f9340c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
         } catch (JSONException e2) {
-            Log.e(f9331b, "Parse detail search result error", e2);
+            Log.e(f9339b, "Parse detail search result error", e2);
             return false;
         }
     }
@@ -133,12 +133,12 @@ public class d extends com.baidu.platform.base.d {
     public SearchResult a(String str) {
         SearchResult.ERRORNO errorno;
         JSONObject jSONObject;
-        SearchResult poiDetailSearchResult = this.f9332c ? new PoiDetailSearchResult() : new PoiDetailResult();
+        SearchResult poiDetailSearchResult = this.f9340c ? new PoiDetailSearchResult() : new PoiDetailResult();
         if (str != null && !str.isEmpty()) {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                Log.e(f9331b, "Parse detail search result failed", e2);
+                Log.e(f9339b, "Parse detail search result failed", e2);
             }
             if (jSONObject.length() == 0) {
                 poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -184,7 +184,7 @@ public class d extends com.baidu.platform.base.d {
             return;
         }
         OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-        if (this.f9332c) {
+        if (this.f9340c) {
             onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
         } else {
             onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -192,6 +192,6 @@ public class d extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f9332c = z;
+        this.f9340c = z;
     }
 }

@@ -1,15 +1,15 @@
 package d.a.m0.d;
-
-import android.app.Activity;
 /* loaded from: classes3.dex */
-public class a {
+public interface a {
+    String b();
 
-    /* renamed from: a  reason: collision with root package name */
-    public Activity f52933a;
+    String c();
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f52934b;
+    String e();
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f52935c;
+    String h();
+
+    String i();
+
+    boolean isDebug();
 }

@@ -11,19 +11,19 @@ import android.widget.OverScroller;
 public class WebViewContainer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f20372e;
+    public OverScroller f20454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20373f;
+    public float f20455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20374g;
+    public float f20456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f20375h;
+    public GestureDetector f20457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VelocityTracker f20376i;
+    public VelocityTracker f20458i;
     public OnScrollChangedCallback j;
     public int k;
     public int l;
@@ -38,26 +38,26 @@ public class WebViewContainer extends FrameLayout {
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WebViewContainer f20377e;
+        public final WebViewContainer f20459e;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.f20377e = webViewContainer;
+            this.f20459e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.f20377e.f20374g = motionEvent.getRawY();
+            this.f20459e.f20456g = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             WebViewContainer webViewContainer;
-            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20377e) != null) {
+            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20459e) != null) {
                 if (f3 > 0.0f) {
                     return webViewContainer.k > 0;
-                } else if (webViewContainer.k < this.f20377e.l) {
-                    return this.f20377e.k > 0 || this.f20377e.m != 1;
+                } else if (webViewContainer.k < this.f20459e.l) {
+                    return this.f20459e.k > 0 || this.f20459e.m != 1;
                 }
             }
             return false;
@@ -74,10 +74,10 @@ public class WebViewContainer extends FrameLayout {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.f20372e.computeScrollOffset()) {
-            int e2 = e(this.f20372e.getCurrY());
+        if (this.f20454e.computeScrollOffset()) {
+            int e2 = e(this.f20454e.getCurrY());
             scrollBy(0, e2);
-            this.f20374g -= e2;
+            this.f20456g -= e2;
             invalidate();
         }
     }
@@ -100,17 +100,17 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public final void f(int i2) {
-        OverScroller overScroller = this.f20372e;
+        OverScroller overScroller = this.f20454e;
         if (overScroller == null) {
             return;
         }
-        overScroller.fling(0, (int) this.f20374g, 0, i2, 0, 0, -500, 10000);
+        overScroller.fling(0, (int) this.f20456g, 0, i2, 0, 0, -500, 10000);
         invalidate();
     }
 
     public final void g(Context context) {
-        this.f20372e = new OverScroller(context);
-        this.f20375h = new GestureDetector(context, new YScrollDetector(this));
+        this.f20454e = new OverScroller(context);
+        this.f20457h = new GestureDetector(context, new YScrollDetector(this));
     }
 
     @Override // android.view.ViewGroup
@@ -118,7 +118,7 @@ public class WebViewContainer extends FrameLayout {
         if (this.m == 2) {
             return false;
         }
-        if (this.k <= ((int) motionEvent.getY()) && this.f20375h.onTouchEvent(motionEvent)) {
+        if (this.k <= ((int) motionEvent.getY()) && this.f20457h.onTouchEvent(motionEvent)) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -145,29 +145,29 @@ public class WebViewContainer extends FrameLayout {
             return false;
         }
         super.onTouchEvent(motionEvent);
-        if (this.f20376i == null) {
-            this.f20376i = VelocityTracker.obtain();
+        if (this.f20458i == null) {
+            this.f20458i = VelocityTracker.obtain();
         }
-        this.f20376i.addMovement(motionEvent);
+        this.f20458i.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action != 0) {
             if (action == 1) {
-                this.f20376i.computeCurrentVelocity(1000);
-                int yVelocity = (int) this.f20376i.getYVelocity();
+                this.f20458i.computeCurrentVelocity(1000);
+                int yVelocity = (int) this.f20458i.getYVelocity();
                 if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.k < this.l) || (yVelocity < 0 && this.k > 0))) {
                     f(-yVelocity);
                 }
-                this.f20376i.recycle();
-                this.f20376i = null;
+                this.f20458i.recycle();
+                this.f20458i = null;
             } else if (action == 2) {
                 float rawY = motionEvent.getRawY();
-                this.f20373f = rawY;
-                int e2 = e((int) (this.f20374g - rawY));
+                this.f20455f = rawY;
+                int e2 = e((int) (this.f20456g - rawY));
                 scrollBy(0, e2);
-                this.f20374g -= e2;
+                this.f20456g -= e2;
             }
-        } else if (!this.f20372e.isFinished()) {
-            this.f20372e.abortAnimation();
+        } else if (!this.f20454e.isFinished()) {
+            this.f20454e.abortAnimation();
         }
         return true;
     }

@@ -15,16 +15,16 @@ import java.util.List;
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f32713a;
+    public h f32811a;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32719g;
+    public boolean f32817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32720h;
+    public boolean f32818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f32721i;
+    public int f32819i;
     @NonNull
     public AdTemplate j;
     public KsFragment k;
@@ -40,19 +40,19 @@ public class c extends com.kwad.sdk.core.e.b {
     public com.kwad.sdk.live.slide.detail.a.a r;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.a.a> f32714b = new LinkedList();
+    public List<com.kwad.sdk.contentalliance.a.a> f32812b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.a.c> f32715c = new ArrayList();
+    public List<com.kwad.sdk.contentalliance.a.c> f32813c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<e> f32716d = new ArrayList();
+    public List<e> f32814d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.home.swipe.a> f32717e = new LinkedList();
+    public List<com.kwad.sdk.contentalliance.home.swipe.a> f32815e = new LinkedList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f.a> f32718f = new ArrayList();
+    public List<f.a> f32816f = new ArrayList();
     public boolean n = false;
 
     @Override // com.kwad.sdk.core.e.b
@@ -73,21 +73,21 @@ public class c extends com.kwad.sdk.core.e.b {
 
     public void a(com.kwad.sdk.contentalliance.trends.view.c cVar) {
         h hVar;
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32713a) == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32811a) == null) {
             return;
         }
-        hVar.f33383e.add(cVar);
+        hVar.f33481e.add(cVar);
     }
 
     public void b(com.kwad.sdk.contentalliance.trends.view.c cVar) {
         h hVar;
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32713a) == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32811a) == null) {
             return;
         }
-        hVar.f33383e.remove(cVar);
+        hVar.f33481e.remove(cVar);
     }
 
     public boolean b() {
-        return this.f32719g;
+        return this.f32817g;
     }
 }

@@ -5,37 +5,37 @@ import com.xiaomi.push.hf;
 public /* synthetic */ class am {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40915a;
+    public static final /* synthetic */ int[] f41018a;
 
     static {
         int[] iArr = new int[hf.values().length];
-        f40915a = iArr;
+        f41018a = iArr;
         try {
             iArr[hf.SendMessage.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40915a[hf.Registration.ordinal()] = 2;
+            f41018a[hf.Registration.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40915a[hf.UnRegistration.ordinal()] = 3;
+            f41018a[hf.UnRegistration.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40915a[hf.Subscription.ordinal()] = 4;
+            f41018a[hf.Subscription.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40915a[hf.UnSubscription.ordinal()] = 5;
+            f41018a[hf.UnSubscription.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f40915a[hf.Command.ordinal()] = 6;
+            f41018a[hf.Command.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f40915a[hf.Notification.ordinal()] = 7;
+            f41018a[hf.Notification.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
     }

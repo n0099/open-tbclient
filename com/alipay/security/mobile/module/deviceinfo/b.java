@@ -25,6 +25,7 @@ import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
@@ -442,7 +443,7 @@ public class b {
             int streamVolume5 = audioManager.getStreamVolume(4);
             jSONObject.put("ringermode", String.valueOf(i2));
             jSONObject.put(NotificationCompat.CATEGORY_CALL, String.valueOf(streamVolume));
-            jSONObject.put("system", String.valueOf(streamVolume2));
+            jSONObject.put(ConstantHelper.LOG_OS, String.valueOf(streamVolume2));
             jSONObject.put("ring", String.valueOf(streamVolume3));
             jSONObject.put("music", String.valueOf(streamVolume4));
             jSONObject.put(NotificationCompat.CATEGORY_ALARM, String.valueOf(streamVolume5));

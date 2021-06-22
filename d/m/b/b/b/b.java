@@ -13,43 +13,43 @@ import java.util.List;
 public final class b implements SensorEventListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f70285f;
+    public static b f70389f;
 
     /* renamed from: a  reason: collision with root package name */
-    public SensorManager f70286a;
+    public SensorManager f70390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70287b;
+    public int f70391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70288c = 0;
+    public int f70392c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f70289d = new float[3];
+    public float[] f70393d = new float[3];
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f70290e = new ArrayList();
+    public List<String> f70394e = new ArrayList();
 
     public b(Context context) {
-        this.f70286a = null;
+        this.f70390a = null;
         Context applicationContext = context.getApplicationContext();
         if (applicationContext != null) {
             try {
-                this.f70286a = (SensorManager) applicationContext.getSystemService("sensor");
+                this.f70390a = (SensorManager) applicationContext.getSystemService("sensor");
             } catch (Throwable unused) {
             }
         }
     }
 
     public static b a(Context context) {
-        if (f70285f == null) {
+        if (f70389f == null) {
             synchronized (b.class) {
-                if (f70285f == null) {
-                    f70285f = new b(context);
+                if (f70389f == null) {
+                    f70389f = new b(context);
                 }
             }
         }
-        return f70285f;
+        return f70389f;
     }
 
     public String b() {
@@ -58,17 +58,17 @@ public final class b implements SensorEventListener {
             e();
             synchronized (this) {
                 int i2 = 0;
-                while (this.f70288c == 0 && i2 < 10) {
+                while (this.f70392c == 0 && i2 < 10) {
                     i2++;
                     wait(100L);
                 }
             }
             DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
-            str = decimalFormat.format(this.f70289d[0]) + "," + decimalFormat.format(this.f70289d[1]) + "," + decimalFormat.format(this.f70289d[2]);
+            str = decimalFormat.format(this.f70393d[0]) + "," + decimalFormat.format(this.f70393d[1]) + "," + decimalFormat.format(this.f70393d[2]);
         } catch (Throwable unused) {
         }
         f();
-        this.f70288c = 0;
+        this.f70392c = 0;
         return str;
     }
 
@@ -77,13 +77,13 @@ public final class b implements SensorEventListener {
         if (b2 == null) {
             return;
         }
-        this.f70290e.add(b2);
+        this.f70394e.add(b2);
         try {
-            int size = this.f70290e.size();
+            int size = this.f70394e.size();
             if (size > 20) {
-                ArrayList arrayList = new ArrayList(this.f70290e.subList(size - 10, size));
-                this.f70290e.clear();
-                this.f70290e = arrayList;
+                ArrayList arrayList = new ArrayList(this.f70394e.subList(size - 10, size));
+                this.f70394e.clear();
+                this.f70394e = arrayList;
             }
         } catch (Throwable unused) {
         }
@@ -91,15 +91,15 @@ public final class b implements SensorEventListener {
 
     public synchronized String d() {
         String str = "";
-        int size = this.f70290e.size();
+        int size = this.f70394e.size();
         if (size <= 0) {
             return "";
         }
         if (size == 1) {
-            return this.f70290e.get(0);
+            return this.f70394e.get(0);
         }
         try {
-            List<String> list = this.f70290e;
+            List<String> list = this.f70394e;
             int i2 = size - 10;
             if (i2 <= 0) {
                 i2 = 0;
@@ -116,13 +116,13 @@ public final class b implements SensorEventListener {
 
     public final synchronized void e() {
         try {
-            if (this.f70286a != null) {
-                if (this.f70287b == 0) {
-                    if (!this.f70286a.registerListener(this, this.f70286a.getDefaultSensor(1), 3)) {
+            if (this.f70390a != null) {
+                if (this.f70391b == 0) {
+                    if (!this.f70390a.registerListener(this, this.f70390a.getDefaultSensor(1), 3)) {
                         return;
                     }
                 }
-                this.f70287b++;
+                this.f70391b++;
             }
         } catch (Exception unused) {
         }
@@ -130,11 +130,11 @@ public final class b implements SensorEventListener {
 
     public final synchronized void f() {
         try {
-            if (this.f70286a != null) {
-                int i2 = this.f70287b - 1;
-                this.f70287b = i2;
+            if (this.f70390a != null) {
+                int i2 = this.f70391b - 1;
+                this.f70391b = i2;
                 if (i2 == 0) {
-                    this.f70286a.unregisterListener(this);
+                    this.f70390a.unregisterListener(this);
                 }
             }
         } catch (Exception unused) {
@@ -147,7 +147,7 @@ public final class b implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        this.f70289d = sensorEvent.values;
-        this.f70288c = 1;
+        this.f70393d = sensorEvent.values;
+        this.f70392c = 1;
     }
 }

@@ -24,6 +24,7 @@ import com.baidu.mapapi.utils.poi.PoiParaOption;
 import com.baidu.mapapi.utils.route.RouteParaOption;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -353,7 +354,7 @@ public class b {
         sb.append("&show_type=");
         sb.append("detail_page");
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -405,7 +406,7 @@ public class b {
                 sb.append("&target=");
                 sb.append("1");
                 sb.append("&src=");
-                sb.append("sdk_[" + f7459g + "]");
+                sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(intent);
@@ -422,7 +423,7 @@ public class b {
             sb.append("&target=");
             sb.append("1");
             sb.append("&src=");
-            sb.append("sdk_[" + f7459g + "]");
+            sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent2);
@@ -447,7 +448,7 @@ public class b {
         sb.append("&target=");
         sb.append("1");
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent22 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent22.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent22);
@@ -472,7 +473,7 @@ public class b {
         sb.append("&radius=");
         sb.append(s);
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -498,7 +499,7 @@ public class b {
         sb.append(",");
         sb.append(l.longitude);
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -524,7 +525,7 @@ public class b {
         sb.append(",");
         sb.append(l.longitude);
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -550,7 +551,7 @@ public class b {
         sb.append(",");
         sb.append(l.longitude);
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -606,7 +607,7 @@ public class b {
         bundle2.putString("end_uid", "");
         bundle.putBundle("base_params", bundle2);
         Bundle bundle3 = new Bundle();
-        bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+        bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         bundle.putBundle("ext_params", bundle3);
         return f7457e.a("map.android.baidu.mainmap", a2, bundle);
     }
@@ -633,7 +634,7 @@ public class b {
         sb.append("&mode=");
         sb.append("walking_ar");
         sb.append("&src=");
-        sb.append("sdk_[" + f7459g + "]");
+        sb.append("sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         Log.e("test", sb.toString());
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -654,7 +655,7 @@ public class b {
             bundle2.putString("uid", p != null ? p : "");
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+            bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
             return f7457e.a("map.android.baidu.mainmap", a2, bundle);
         } catch (RemoteException e2) {
@@ -702,7 +703,7 @@ public class b {
                     bundle2.putInt("count", i2);
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+                    bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
                     return f7457e.a("map.android.baidu.mainmap", a2, bundle);
                 }
@@ -751,7 +752,7 @@ public class b {
         bundle2.putString("destination", stringBuffer2.toString());
         bundle.putBundle("base_params", bundle2);
         Bundle bundle3 = new Bundle();
-        bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+        bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         bundle.putBundle("ext_params", bundle3);
         return f7457e.a("map.android.baidu.mainmap", a2, bundle);
     }
@@ -792,7 +793,7 @@ public class b {
         bundle2.putString("destination", stringBuffer2.toString());
         bundle.putBundle("base_params", bundle2);
         Bundle bundle3 = new Bundle();
-        bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+        bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         bundle.putBundle("ext_params", bundle3);
         return f7457e.a("map.android.baidu.mainmap", a2, bundle);
     }
@@ -833,7 +834,7 @@ public class b {
         bundle2.putString("destination", stringBuffer2.toString());
         bundle.putBundle("base_params", bundle2);
         Bundle bundle3 = new Bundle();
-        bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+        bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
         bundle.putBundle("ext_params", bundle3);
         return f7457e.a("map.android.baidu.mainmap", a2, bundle);
     }
@@ -869,7 +870,7 @@ public class b {
             bundle2.putBoolean("is_direct_area_search", true);
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f7459g + "]");
+            bundle3.putString("launch_from", "sdk_[" + f7459g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
             return f7457e.a("map.android.baidu.mainmap", a2, bundle);
         } catch (RemoteException e2) {

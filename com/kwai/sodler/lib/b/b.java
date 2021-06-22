@@ -6,33 +6,33 @@ import java.util.HashMap;
 public class b implements Comparable<b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37910a;
+    public String f38008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37911b;
+    public String f38009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37912c;
+    public String f38010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37913d;
+    public long f38011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37914e;
+    public boolean f38012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37915f;
+    public String f38013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37916g = false;
+    public boolean f38014g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, String> f37917h = new HashMap<>(10);
+    public HashMap<String, String> f38015h = new HashMap<>(10);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull b bVar) {
-        return -this.f37911b.compareTo(bVar.f37911b);
+        return -this.f38009b.compareTo(bVar.f38009b);
     }
 }

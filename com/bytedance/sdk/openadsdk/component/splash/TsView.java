@@ -22,31 +22,31 @@ import com.bytedance.sdk.openadsdk.utils.z;
 public class TsView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f27691a;
+    public final Context f27773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GifView f27692b;
+    public GifView f27774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTCountdownView f27693c;
+    public TTCountdownView f27775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f27694d;
+    public ImageView f27776d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f27695e;
+    public FrameLayout f27777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f27696f;
+    public FrameLayout f27778f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f27697g;
+    public ImageView f27779g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f27698h;
+    public RelativeLayout f27780h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f27699i;
+    public TextView f27781i;
     public NativeExpressView j;
     public int k;
     public int l;
@@ -55,24 +55,24 @@ public class TsView extends FrameLayout {
 
     public TsView(@NonNull Context context) {
         super(context);
-        this.f27691a = context;
+        this.f27773a = context;
         a();
     }
 
     public TTCountdownView getCountDownView() {
-        return this.f27693c;
+        return this.f27775c;
     }
 
     public View getDislikeView() {
-        return this.f27693c;
+        return this.f27775c;
     }
 
     public View getFullClickBarView() {
-        return this.f27698h;
+        return this.f27780h;
     }
 
     public FrameLayout getVideoContainer() {
-        return this.f27695e;
+        return this.f27777e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -81,7 +81,7 @@ public class TsView extends FrameLayout {
         post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.splash.TsView.1
             @Override // java.lang.Runnable
             public void run() {
-                al.h(TsView.this.f27693c);
+                al.h(TsView.this.f27775c);
             }
         });
     }
@@ -95,7 +95,7 @@ public class TsView extends FrameLayout {
         } else {
             i6 = this.n;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f27698h.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f27780h.getLayoutParams();
         if (layoutParams == null) {
             return;
         }
@@ -110,30 +110,30 @@ public class TsView extends FrameLayout {
         layoutParams.width = al.c(p.a(), this.k);
         layoutParams.bottomMargin = al.c(p.a(), i6);
         layoutParams.gravity = 81;
-        this.f27698h.setLayoutParams(layoutParams);
+        this.f27780h.setLayoutParams(layoutParams);
     }
 
     public void setAdlogoViewVisibility(int i2) {
-        al.a((View) this.f27697g, i2);
+        al.a((View) this.f27779g, i2);
     }
 
     public void setClickBarDesc(String str) {
-        TextView textView = this.f27699i;
+        TextView textView = this.f27781i;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void setCountDownTime(int i2) {
-        TTCountdownView tTCountdownView = this.f27693c;
+        TTCountdownView tTCountdownView = this.f27775c;
         if (tTCountdownView != null) {
             tTCountdownView.setCountDownTime(i2);
         }
     }
 
     public void setDrawable(Drawable drawable) {
-        this.f27692b.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f27692b.setImageDrawable(drawable);
+        this.f27774b.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f27774b.setImageDrawable(drawable);
     }
 
     public void setExpressView(NativeExpressView nativeExpressView) {
@@ -141,23 +141,23 @@ public class TsView extends FrameLayout {
             return;
         }
         this.j = nativeExpressView;
-        this.f27696f.addView(nativeExpressView);
+        this.f27778f.addView(nativeExpressView);
         setExpressViewVisibility(0);
         setVideoViewVisibility(8);
         setImageViewVisibility(8);
     }
 
     public void setExpressViewVisibility(int i2) {
-        al.a((View) this.f27696f, i2);
+        al.a((View) this.f27778f, i2);
     }
 
     public void setGifView(byte[] bArr) {
-        this.f27692b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f27692b.a(bArr, false);
+        this.f27774b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f27774b.a(bArr, false);
     }
 
     public void setImageViewVisibility(int i2) {
-        al.a((View) this.f27692b, i2);
+        al.a((View) this.f27774b, i2);
     }
 
     @Override // android.view.View
@@ -180,30 +180,30 @@ public class TsView extends FrameLayout {
     }
 
     public void setSkipIconVisibility(int i2) {
-        al.a((View) this.f27693c, i2);
+        al.a((View) this.f27775c, i2);
     }
 
     public final void setSkipListener(View.OnClickListener onClickListener) {
-        TTCountdownView tTCountdownView = this.f27693c;
+        TTCountdownView tTCountdownView = this.f27775c;
         if (tTCountdownView != null) {
             tTCountdownView.setOnClickListener(onClickListener);
         }
     }
 
     public void setVideoViewVisibility(int i2) {
-        al.a((View) this.f27695e, i2);
-        al.a((View) this.f27694d, i2);
+        al.a((View) this.f27777e, i2);
+        al.a((View) this.f27776d, i2);
     }
 
     public final void setVoiceViewImageResource(@DrawableRes int i2) {
-        ImageView imageView = this.f27694d;
+        ImageView imageView = this.f27776d;
         if (imageView != null) {
             imageView.setImageResource(i2);
         }
     }
 
     public final void setVoiceViewListener(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f27694d;
+        ImageView imageView = this.f27776d;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
@@ -211,20 +211,20 @@ public class TsView extends FrameLayout {
 
     private void a() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Context context = this.f27691a;
+        Context context = this.f27773a;
         View inflate = FrameLayout.inflate(context, ad.f(context, "tt_splash_view"), this);
-        this.f27692b = (GifView) inflate.findViewById(ad.e(this.f27691a, "tt_splash_ad_gif"));
-        this.f27693c = (TTCountdownView) inflate.findViewById(ad.e(this.f27691a, "tt_splash_skip_btn"));
-        this.f27694d = (ImageView) inflate.findViewById(ad.e(this.f27691a, "tt_splash_video_ad_mute"));
-        this.f27695e = (FrameLayout) inflate.findViewById(ad.e(this.f27691a, "tt_splash_video_container"));
-        this.f27696f = (FrameLayout) inflate.findViewById(ad.e(this.f27691a, "tt_splash_express_container"));
-        this.f27697g = (ImageView) inflate.findViewById(ad.e(this.f27691a, "tt_ad_logo"));
-        this.f27698h = (RelativeLayout) inflate.findViewById(ad.e(this.f27691a, "tt_full_splash_bar_layout"));
-        this.f27699i = (TextView) inflate.findViewById(ad.e(this.f27691a, "tt_splash_bar_text"));
+        this.f27774b = (GifView) inflate.findViewById(ad.e(this.f27773a, "tt_splash_ad_gif"));
+        this.f27775c = (TTCountdownView) inflate.findViewById(ad.e(this.f27773a, "tt_splash_skip_btn"));
+        this.f27776d = (ImageView) inflate.findViewById(ad.e(this.f27773a, "tt_splash_video_ad_mute"));
+        this.f27777e = (FrameLayout) inflate.findViewById(ad.e(this.f27773a, "tt_splash_video_container"));
+        this.f27778f = (FrameLayout) inflate.findViewById(ad.e(this.f27773a, "tt_splash_express_container"));
+        this.f27779g = (ImageView) inflate.findViewById(ad.e(this.f27773a, "tt_ad_logo"));
+        this.f27780h = (RelativeLayout) inflate.findViewById(ad.e(this.f27773a, "tt_full_splash_bar_layout"));
+        this.f27781i = (TextView) inflate.findViewById(ad.e(this.f27773a, "tt_splash_bar_text"));
     }
 
     public void a(int i2, int i3, int i4, int i5, int i6) {
-        RelativeLayout relativeLayout = this.f27698h;
+        RelativeLayout relativeLayout = this.f27780h;
         if (relativeLayout == null) {
             return;
         }

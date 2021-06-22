@@ -12,32 +12,32 @@ import java.util.Arrays;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f35753b;
+    public ByteBuffer f35851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f35754c;
+    public c f35852c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f35752a = new byte[256];
+    public final byte[] f35850a = new byte[256];
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35755d = 0;
+    public int f35853d = 0;
 
     private void a(int i2) {
         boolean z = false;
-        while (!z && !o() && this.f35754c.f35745c <= i2) {
+        while (!z && !o() && this.f35852c.f35843c <= i2) {
             int m = m();
             if (m == 33) {
                 int m2 = m();
                 if (m2 != 1) {
                     if (m2 == 249) {
-                        this.f35754c.f35746d = new b();
+                        this.f35852c.f35844d = new b();
                         e();
                     } else if (m2 != 254 && m2 == 255) {
                         l();
                         StringBuilder sb = new StringBuilder();
                         for (int i3 = 0; i3 < 11; i3++) {
-                            sb.append((char) this.f35752a[i3]);
+                            sb.append((char) this.f35850a[i3]);
                         }
                         if (sb.toString().equals("NETSCAPE2.0")) {
                             g();
@@ -46,13 +46,13 @@ public class d {
                 }
                 k();
             } else if (m == 44) {
-                c cVar = this.f35754c;
-                if (cVar.f35746d == null) {
-                    cVar.f35746d = new b();
+                c cVar = this.f35852c;
+                if (cVar.f35844d == null) {
+                    cVar.f35844d = new b();
                 }
                 f();
             } else if (m != 59) {
-                this.f35754c.f35744b = 1;
+                this.f35852c.f35842b = 1;
             } else {
                 z = true;
             }
@@ -64,7 +64,7 @@ public class d {
         byte[] bArr = new byte[i2 * 3];
         int[] iArr = null;
         try {
-            this.f35753b.get(bArr);
+            this.f35851b.get(bArr);
             iArr = new int[256];
             int i3 = 0;
             int i4 = 0;
@@ -81,16 +81,16 @@ public class d {
             if (Log.isLoggable(GifHeaderParser.TAG, 3)) {
                 Log.d(GifHeaderParser.TAG, "Format Error Reading Color Table", e2);
             }
-            this.f35754c.f35744b = 1;
+            this.f35852c.f35842b = 1;
         }
         return iArr;
     }
 
     private void c() {
-        this.f35753b = null;
-        Arrays.fill(this.f35752a, (byte) 0);
-        this.f35754c = new c();
-        this.f35755d = 0;
+        this.f35851b = null;
+        Arrays.fill(this.f35850a, (byte) 0);
+        this.f35852c = new c();
+        this.f35853d = 0;
     }
 
     private void d() {
@@ -100,56 +100,56 @@ public class d {
     private void e() {
         m();
         int m = m();
-        b bVar = this.f35754c.f35746d;
+        b bVar = this.f35852c.f35844d;
         int i2 = (m & 28) >> 2;
-        bVar.f35740g = i2;
+        bVar.f35838g = i2;
         if (i2 == 0) {
-            bVar.f35740g = 1;
+            bVar.f35838g = 1;
         }
-        this.f35754c.f35746d.f35739f = (m & 1) != 0;
+        this.f35852c.f35844d.f35837f = (m & 1) != 0;
         int n = n();
         if (n < 2) {
             n = 10;
         }
-        b bVar2 = this.f35754c.f35746d;
-        bVar2.f35742i = n * 10;
-        bVar2.f35741h = m();
+        b bVar2 = this.f35852c.f35844d;
+        bVar2.f35840i = n * 10;
+        bVar2.f35839h = m();
         m();
     }
 
     private void f() {
-        this.f35754c.f35746d.f35734a = n();
-        this.f35754c.f35746d.f35735b = n();
-        this.f35754c.f35746d.f35736c = n();
-        this.f35754c.f35746d.f35737d = n();
+        this.f35852c.f35844d.f35832a = n();
+        this.f35852c.f35844d.f35833b = n();
+        this.f35852c.f35844d.f35834c = n();
+        this.f35852c.f35844d.f35835d = n();
         int m = m();
         boolean z = (m & 128) != 0;
         int pow = (int) Math.pow(2.0d, (m & 7) + 1);
-        this.f35754c.f35746d.f35738e = (m & 64) != 0;
-        b bVar = this.f35754c.f35746d;
+        this.f35852c.f35844d.f35836e = (m & 64) != 0;
+        b bVar = this.f35852c.f35844d;
         if (z) {
             bVar.k = b(pow);
         } else {
             bVar.k = null;
         }
-        this.f35754c.f35746d.j = this.f35753b.position();
+        this.f35852c.f35844d.j = this.f35851b.position();
         j();
         if (o()) {
             return;
         }
-        c cVar = this.f35754c;
-        cVar.f35745c++;
-        cVar.f35747e.add(cVar.f35746d);
+        c cVar = this.f35852c;
+        cVar.f35843c++;
+        cVar.f35845e.add(cVar.f35844d);
     }
 
     private void g() {
         do {
             l();
-            byte[] bArr = this.f35752a;
+            byte[] bArr = this.f35850a;
             if (bArr[0] == 1) {
-                this.f35754c.m = ((bArr[2] & 255) << 8) | (bArr[1] & 255);
+                this.f35852c.m = ((bArr[2] & 255) << 8) | (bArr[1] & 255);
             }
-            if (this.f35755d <= 0) {
+            if (this.f35853d <= 0) {
                 return;
             }
         } while (!o());
@@ -161,27 +161,27 @@ public class d {
             sb.append((char) m());
         }
         if (!sb.toString().startsWith("GIF")) {
-            this.f35754c.f35744b = 1;
+            this.f35852c.f35842b = 1;
             return;
         }
         i();
-        if (!this.f35754c.f35750h || o()) {
+        if (!this.f35852c.f35848h || o()) {
             return;
         }
-        c cVar = this.f35754c;
-        cVar.f35743a = b(cVar.f35751i);
-        c cVar2 = this.f35754c;
-        cVar2.l = cVar2.f35743a[cVar2.j];
+        c cVar = this.f35852c;
+        cVar.f35841a = b(cVar.f35849i);
+        c cVar2 = this.f35852c;
+        cVar2.l = cVar2.f35841a[cVar2.j];
     }
 
     private void i() {
-        this.f35754c.f35748f = n();
-        this.f35754c.f35749g = n();
+        this.f35852c.f35846f = n();
+        this.f35852c.f35847g = n();
         int m = m();
-        this.f35754c.f35750h = (m & 128) != 0;
-        this.f35754c.f35751i = (int) Math.pow(2.0d, (m & 7) + 1);
-        this.f35754c.j = m();
-        this.f35754c.k = m();
+        this.f35852c.f35848h = (m & 128) != 0;
+        this.f35852c.f35849i = (int) Math.pow(2.0d, (m & 7) + 1);
+        this.f35852c.j = m();
+        this.f35852c.k = m();
     }
 
     private void j() {
@@ -193,26 +193,26 @@ public class d {
         int m;
         do {
             m = m();
-            this.f35753b.position(Math.min(this.f35753b.position() + m, this.f35753b.limit()));
+            this.f35851b.position(Math.min(this.f35851b.position() + m, this.f35851b.limit()));
         } while (m > 0);
     }
 
     private void l() {
         int m = m();
-        this.f35755d = m;
+        this.f35853d = m;
         if (m > 0) {
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.f35755d) {
+            while (i2 < this.f35853d) {
                 try {
-                    i3 = this.f35755d - i2;
-                    this.f35753b.get(this.f35752a, i2, i3);
+                    i3 = this.f35853d - i2;
+                    this.f35851b.get(this.f35850a, i2, i3);
                     i2 += i3;
                 } catch (Exception e2) {
                     if (Log.isLoggable(GifHeaderParser.TAG, 3)) {
-                        Log.d(GifHeaderParser.TAG, "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.f35755d, e2);
+                        Log.d(GifHeaderParser.TAG, "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.f35853d, e2);
                     }
-                    this.f35754c.f35744b = 1;
+                    this.f35852c.f35842b = 1;
                     return;
                 }
             }
@@ -221,50 +221,50 @@ public class d {
 
     private int m() {
         try {
-            return this.f35753b.get() & 255;
+            return this.f35851b.get() & 255;
         } catch (Exception unused) {
-            this.f35754c.f35744b = 1;
+            this.f35852c.f35842b = 1;
             return 0;
         }
     }
 
     private int n() {
-        return this.f35753b.getShort();
+        return this.f35851b.getShort();
     }
 
     private boolean o() {
-        return this.f35754c.f35744b != 0;
+        return this.f35852c.f35842b != 0;
     }
 
     public d a(@NonNull ByteBuffer byteBuffer) {
         c();
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
-        this.f35753b = asReadOnlyBuffer;
+        this.f35851b = asReadOnlyBuffer;
         asReadOnlyBuffer.position(0);
-        this.f35753b.order(ByteOrder.LITTLE_ENDIAN);
+        this.f35851b.order(ByteOrder.LITTLE_ENDIAN);
         return this;
     }
 
     public void a() {
-        this.f35753b = null;
-        this.f35754c = null;
+        this.f35851b = null;
+        this.f35852c = null;
     }
 
     @NonNull
     public c b() {
-        if (this.f35753b != null) {
+        if (this.f35851b != null) {
             if (o()) {
-                return this.f35754c;
+                return this.f35852c;
             }
             h();
             if (!o()) {
                 d();
-                c cVar = this.f35754c;
-                if (cVar.f35745c < 0) {
-                    cVar.f35744b = 1;
+                c cVar = this.f35852c;
+                if (cVar.f35843c < 0) {
+                    cVar.f35842b = 1;
                 }
             }
-            return this.f35754c;
+            return this.f35852c;
         }
         throw new IllegalStateException("You must call setData() before parseHeader()");
     }

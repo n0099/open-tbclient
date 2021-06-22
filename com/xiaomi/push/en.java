@@ -14,11 +14,11 @@ import java.util.Map;
 public class en extends Notification.Builder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41205a;
+    public Context f41308a;
 
     public en(Context context) {
         super(context);
-        this.f41205a = context;
+        this.f41308a = context;
     }
 
     public int a(Resources resources, String str, String str2, String str3) {
@@ -29,7 +29,7 @@ public class en extends Notification.Builder {
     }
 
     public Context a() {
-        return this.f41205a;
+        return this.f41308a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

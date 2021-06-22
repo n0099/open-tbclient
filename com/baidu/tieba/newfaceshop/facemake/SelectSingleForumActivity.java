@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.n0.z1.g.i;
+import d.a.o0.z1.g.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
     public i mAdapter;
     public View mBackView;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public View.OnClickListener mOnClickListener = new a();
     public AdapterView.OnItemClickListener mOnItemClickListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -61,7 +61,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements AdapterView.OnItemClickListener {
         public b() {
         }

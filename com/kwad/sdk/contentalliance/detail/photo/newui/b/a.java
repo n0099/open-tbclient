@@ -12,10 +12,10 @@ import com.kwad.sdk.R;
 public class a extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f32990a;
+    public ImageView f33088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f32991b;
+    public TextView f33089b;
 
     public a(Context context) {
         this(context, null);
@@ -23,22 +23,22 @@ public class a extends LinearLayout {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f32990a = null;
-        this.f32991b = null;
+        this.f33088a = null;
+        this.f33089b = null;
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_func_button_2, (ViewGroup) this, true);
-        this.f32990a = (ImageView) findViewById(R.id.ksad_photo_func_button_image);
-        this.f32991b = (TextView) findViewById(R.id.ksad_photo_func_button_text);
+        this.f33088a = (ImageView) findViewById(R.id.ksad_photo_func_button_image);
+        this.f33089b = (TextView) findViewById(R.id.ksad_photo_func_button_text);
     }
 
     public void setButtonImageResource(int i2) {
-        this.f32990a.setImageResource(i2);
+        this.f33088a.setImageResource(i2);
     }
 
     public void setButtonText(String str) {
-        this.f32991b.setText(str);
+        this.f33089b.setText(str);
     }
 }

@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f34392a = new Handler(Looper.getMainLooper());
+    public static final Handler f34490a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         @MainThread
         void a(int i2, String str);
@@ -30,7 +30,7 @@ public class f {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f34277a);
+                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f34375a);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -46,7 +46,7 @@ public class f {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, final int i2, final String str) {
-                f.f34392a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
+                f.f34490a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("PatchAdRequestManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
@@ -59,7 +59,7 @@ public class f {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, @NonNull final AdResultData adResultData) {
                 if (!adResultData.isAdResultDataEmpty()) {
-                    f.f34392a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
+                    f.f34490a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
@@ -68,7 +68,7 @@ public class f {
                     });
                     return;
                 }
-                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34499c;
+                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34597c;
                 a(aVar2, fVar2.k, fVar2.l);
             }
         });

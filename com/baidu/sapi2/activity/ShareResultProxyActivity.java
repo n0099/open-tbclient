@@ -28,53 +28,53 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f9761h = "ShareResultProxyActivity";
+    public static final String f9781h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f9762i = "key_launch_share_activity_status";
+    public static final String f9782i = "key_launch_share_activity_status";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9763a;
+    public String f9783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9764b;
+    public String f9784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9765c;
+    public String f9785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9766d;
+    public String f9786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f9767e;
+    public ArrayList<PassNameValuePair> f9787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9768f;
+    public String f9788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9769g;
+    public boolean f9789g;
 
     private void a() {
-        this.f9769g = true;
-        this.f9763a = getIntent().getStringExtra(KEY_PKG);
-        if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f9763a)) {
-            Log.d(f9761h, "openShareLogin: is meet share_v4");
-            ShareLoginModel.getInstance().openV4ShareLogin(this, this.f9763a, "product");
+        this.f9789g = true;
+        this.f9783a = getIntent().getStringExtra(KEY_PKG);
+        if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f9783a)) {
+            Log.d(f9781h, "openShareLogin: is meet share_v4");
+            ShareLoginModel.getInstance().openV4ShareLogin(this, this.f9783a, "product");
             return;
         }
-        Log.d(f9761h, "openShareLogin: is not share_v4");
+        Log.d(f9781h, "openShareLogin: is not share_v4");
         b();
     }
 
     private void b() {
         Intent intent = getIntent();
-        this.f9763a = intent.getStringExtra(KEY_PKG);
-        this.f9764b = intent.getStringExtra("key_url");
-        this.f9765c = intent.getStringExtra(KEY_TRACE_ID);
-        this.f9766d = intent.getStringExtra("key_session_id");
-        this.f9767e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-        this.f9768f = intent.getStringExtra("key_version");
-        new ShareCallPacking().startLoginShareActivityForResult(this, this.f9763a, this.f9764b, this.f9765c, this.f9766d, this.f9767e, this.f9768f, "product");
+        this.f9783a = intent.getStringExtra(KEY_PKG);
+        this.f9784b = intent.getStringExtra("key_url");
+        this.f9785c = intent.getStringExtra(KEY_TRACE_ID);
+        this.f9786d = intent.getStringExtra("key_session_id");
+        this.f9787e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+        this.f9788f = intent.getStringExtra("key_version");
+        new ShareCallPacking().startLoginShareActivityForResult(this, this.f9783a, this.f9784b, this.f9785c, this.f9786d, this.f9787e, this.f9788f, "product");
     }
 
     @Override // android.app.Activity
@@ -121,9 +121,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         attributes.flags = 32;
         window.setAttributes(attributes);
         if (bundle != null) {
-            this.f9769g = bundle.getBoolean(f9762i, false);
+            this.f9789g = bundle.getBoolean(f9782i, false);
         }
-        if (this.f9769g) {
+        if (this.f9789g) {
             return;
         }
         a();
@@ -131,7 +131,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putBoolean(f9762i, this.f9769g);
+        bundle.putBoolean(f9782i, this.f9789g);
         super.onSaveInstanceState(bundle);
     }
 }

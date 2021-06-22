@@ -18,37 +18,37 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int OFFSET = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f21099h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
+    public static final String f21181h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21100e;
+    public boolean f21182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterestFrsData f21101f;
+    public InterestFrsData f21183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f21102g;
+    public a f21184g;
 
     /* loaded from: classes5.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21103a;
+        public int f21185a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21104b;
+        public int f21186b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f21105c;
+        public int f21187c;
 
         /* renamed from: d  reason: collision with root package name */
-        public WeakReference<b> f21106d;
+        public WeakReference<b> f21188d;
 
         public a(int i2, int i3, int i4, b bVar) {
-            this.f21103a = i2;
-            this.f21104b = i3;
-            this.f21105c = i4;
-            this.f21106d = new WeakReference<>(bVar);
+            this.f21185a = i2;
+            this.f21186b = i3;
+            this.f21187c = i4;
+            this.f21188d = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -56,10 +56,10 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public InterestFrsData doInBackground(Void... voidArr) {
-            NetWork netWork = new NetWork(NewUserGuideModel.f21099h);
-            netWork.addPostData("user_type", String.valueOf(this.f21103a));
-            netWork.addPostData("offset", String.valueOf(this.f21104b));
-            netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f21105c));
+            NetWork netWork = new NetWork(NewUserGuideModel.f21181h);
+            netWork.addPostData("user_type", String.valueOf(this.f21185a));
+            netWork.addPostData("offset", String.valueOf(this.f21186b));
+            netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f21187c));
             String postNetData = netWork.postNetData();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                 try {
@@ -83,7 +83,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: c */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.f21106d.get();
+            b bVar = this.f21188d.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);
@@ -107,16 +107,16 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void A(int i2, int i3, int i4, b bVar) {
         a aVar = new a(i2, i3, i4, bVar);
-        this.f21102g = aVar;
+        this.f21184g = aVar;
         aVar.execute(new Void[0]);
     }
 
     public void B(InterestFrsData interestFrsData) {
-        this.f21101f = interestFrsData;
+        this.f21183f = interestFrsData;
     }
 
     public void C(boolean z) {
-        this.f21100e = z;
+        this.f21182e = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -130,17 +130,17 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void x() {
-        a aVar = this.f21102g;
+        a aVar = this.f21184g;
         if (aVar != null) {
             aVar.cancel();
         }
     }
 
     public InterestFrsData y() {
-        return this.f21101f;
+        return this.f21183f;
     }
 
     public boolean z() {
-        return this.f21100e;
+        return this.f21182e;
     }
 }

@@ -6,15 +6,15 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 public abstract class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f72253e;
+    public static long f72357e;
 
     public abstract void a(View view);
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f72253e >= 1000) {
-            f72253e = currentTimeMillis;
+        if (currentTimeMillis - f72357e >= 1000) {
+            f72357e = currentTimeMillis;
             a(view);
             return;
         }

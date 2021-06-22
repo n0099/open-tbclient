@@ -29,6 +29,7 @@ public final class f {
     public static final int abc_search_view = 2131492889;
     public static final int abc_select_dialog_material = 2131492890;
     public static final int abc_tooltip = 2131492891;
+    public static final int custom_dialog = 2131493392;
     public static final int layout_activity_ocr_id_card = 2131494013;
     public static final int layout_pass_liveness_alert_dialog = 2131494032;
     public static final int layout_pass_liveness_constrast_loading = 2131494033;
@@ -46,16 +47,17 @@ public final class f {
     public static final int layout_sapi_sdk_sweep_light_loading_view = 2131494102;
     public static final int layout_sapi_sdk_title_bar = 2131494103;
     public static final int layout_sapi_sdk_webview_with_title_bar = 2131494104;
-    public static final int notification_action = 2131494313;
-    public static final int notification_action_tombstone = 2131494314;
-    public static final int notification_template_custom_big = 2131494322;
-    public static final int notification_template_icon_group = 2131494323;
-    public static final int notification_template_part_chronometer = 2131494327;
-    public static final int notification_template_part_time = 2131494328;
-    public static final int pass_bio_toast_tips = 2131494363;
-    public static final int pass_sdk_base_ui_common_dialog = 2131494364;
-    public static final int select_dialog_item_material = 2131494608;
-    public static final int select_dialog_multichoice_material = 2131494609;
-    public static final int select_dialog_singlechoice_material = 2131494610;
-    public static final int support_simple_spinner_dropdown_item = 2131494696;
+    public static final int layout_sapi_sdk_youth_style_login_activity = 2131494105;
+    public static final int notification_action = 2131494314;
+    public static final int notification_action_tombstone = 2131494315;
+    public static final int notification_template_custom_big = 2131494323;
+    public static final int notification_template_icon_group = 2131494324;
+    public static final int notification_template_part_chronometer = 2131494328;
+    public static final int notification_template_part_time = 2131494329;
+    public static final int pass_bio_toast_tips = 2131494364;
+    public static final int pass_sdk_base_ui_common_dialog = 2131494365;
+    public static final int select_dialog_item_material = 2131494609;
+    public static final int select_dialog_multichoice_material = 2131494610;
+    public static final int select_dialog_singlechoice_material = 2131494611;
+    public static final int support_simple_spinner_dropdown_item = 2131494697;
 }

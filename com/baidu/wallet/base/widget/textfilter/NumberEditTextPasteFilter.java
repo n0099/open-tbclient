@@ -6,7 +6,7 @@ import java.util.List;
 public class NumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23884a = "NumberEditTextPasteFilter";
+    public static final String f23966a = "NumberEditTextPasteFilter";
 
     @Override // com.baidu.wallet.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

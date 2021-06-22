@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayAuto;
-import d.a.n0.n0.a.a.i;
+import d.a.o0.n0.a.a.i;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 /* loaded from: classes4.dex */
 public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPlay {

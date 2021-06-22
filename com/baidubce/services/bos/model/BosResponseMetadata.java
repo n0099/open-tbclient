@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.BceResponseMetadata;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BosResponseMetadata extends BceResponseMetadata {
     public String debugId;
     public Long nextAppendOffset;

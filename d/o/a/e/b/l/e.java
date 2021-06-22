@@ -62,41 +62,41 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f71139a = "e";
+    public static final String f71243a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71140b;
+    public static String f71244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SparseArray<Boolean> f71141c;
+    public static volatile SparseArray<Boolean> f71245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SparseArray<List<j>> f71142d;
+    public static volatile SparseArray<List<j>> f71246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f71143e;
+    public static final char[] f71247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Pattern f71144f;
+    public static Pattern f71248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Pattern f71145g;
+    public static Pattern f71249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static ConnectivityManager f71146h;
+    public static ConnectivityManager f71250h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Boolean f71147i;
+    public static Boolean f71251i;
     public static Boolean j;
 
     static {
         Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
-        f71140b = null;
-        f71141c = new SparseArray<>();
-        f71142d = new SparseArray<>();
-        f71143e = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f71144f = null;
-        f71145g = null;
+        f71244b = null;
+        f71245c = new SparseArray<>();
+        f71246d = new SparseArray<>();
+        f71247e = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f71248f = null;
+        f71249g = null;
     }
 
     public static void A(Throwable th, String str) throws BaseException {
@@ -191,17 +191,17 @@ public class e {
     }
 
     public static boolean D() {
-        Boolean bool = f71147i;
+        Boolean bool = f71251i;
         if (bool != null) {
             return bool.booleanValue();
         }
         String x0 = x0(d.o.a.e.b.g.d.l());
         if (x0 == null || !x0.contains(":")) {
-            f71147i = Boolean.valueOf(x0 != null && x0.equals(d.o.a.e.b.g.d.l().getPackageName()));
+            f71251i = Boolean.valueOf(x0 != null && x0.equals(d.o.a.e.b.g.d.l().getPackageName()));
         } else {
-            f71147i = Boolean.FALSE;
+            f71251i = Boolean.FALSE;
         }
-        return f71147i.booleanValue();
+        return f71251i.booleanValue();
     }
 
     public static com.ss.android.socialbase.downloader.constants.g D0(int i2) {
@@ -410,7 +410,7 @@ public class e {
                 if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
                     throw new BaseException(1053, "Destination '" + parentFile + "' directory cannot be created");
                 }
-                String str = f71139a;
+                String str = f71243a;
                 Log.e(str, "copyFile: srcFile:" + file.getPath() + " destFile:" + file2.getPath());
                 if (file2.exists() && !file2.canWrite() && !file2.delete()) {
                     throw new IOException("Destination '" + file2 + "' exists but is read-only and delete failed");
@@ -519,19 +519,19 @@ public class e {
             return null;
         }
         try {
-            if (f71144f == null) {
-                f71144f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+            if (f71248f == null) {
+                f71248f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
             }
-            matcher = f71144f.matcher(str);
+            matcher = f71248f.matcher(str);
         } catch (Exception unused) {
         }
         if (matcher.find()) {
             return matcher.group(1);
         }
-        if (f71145g == null) {
-            f71145g = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+        if (f71249g == null) {
+            f71249g = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
         }
-        Matcher matcher2 = f71145g.matcher(str);
+        Matcher matcher2 = f71249g.matcher(str);
         if (matcher2.find()) {
             return matcher2.group(1);
         }
@@ -568,14 +568,14 @@ public class e {
                 return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
             }
         } catch (Exception e2) {
-            String str = f71139a;
+            String str = f71243a;
             d.o.a.e.b.c.a.i(str, "parse content-length from content-range failed " + e2);
         }
         return -1L;
     }
 
     public static boolean S0(String str) {
-        String str2 = f71139a;
+        String str2 = f71243a;
         Log.w(str2, "deleteDirIfEmpty on thread: " + Thread.currentThread());
         if (!TextUtils.isEmpty(str)) {
             File file = new File(str);
@@ -583,7 +583,7 @@ public class e {
                 if (file.delete()) {
                     return true;
                 }
-                Log.w(f71139a, "deleteDirIfEmpty return false");
+                Log.w(f71243a, "deleteDirIfEmpty return false");
                 return false;
             }
         }
@@ -599,7 +599,7 @@ public class e {
             try {
                 return Long.parseLong(split[1]);
             } catch (NumberFormatException unused) {
-                String str2 = f71139a;
+                String str2 = f71243a;
                 d.o.a.e.b.c.a.i(str2, "parse instance length failed with " + str);
             }
         }
@@ -814,10 +814,10 @@ public class e {
     }
 
     public static ConnectivityManager e(Context context) {
-        ConnectivityManager connectivityManager = f71146h;
+        ConnectivityManager connectivityManager = f71250h;
         if (connectivityManager == null) {
             ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
-            f71146h = connectivityManager2;
+            f71250h = connectivityManager2;
             return connectivityManager2;
         }
         return connectivityManager;
@@ -872,13 +872,13 @@ public class e {
     }
 
     public static boolean g0(File file, File file2) throws BaseException {
-        String str = f71139a;
+        String str = f71243a;
         Log.e(str, "moveFile1: src:" + file.getPath() + " dest:" + file2.getPath());
         boolean renameTo = file.renameTo(file2);
         if (!renameTo) {
             renameTo = M(file, file2);
             try {
-                String str2 = f71139a;
+                String str2 = f71243a;
                 Log.e(str2, "moveFile2: src:" + file.getPath() + " dest:" + file2.getPath());
                 file.delete();
             } catch (Throwable th) {
@@ -1009,7 +1009,7 @@ public class e {
         }
         File file = new File(str, str2);
         if (file.exists()) {
-            String str3 = f71139a;
+            String str3 = f71243a;
             Log.e(str3, "deleteFile: " + str + "/" + str2);
             file.delete();
         }
@@ -1024,7 +1024,7 @@ public class e {
                 for (int i6 = 0; i6 < i3; i6++) {
                     int i7 = bArr[i6 + i2] & 255;
                     int i8 = i5 + 1;
-                    char[] cArr2 = f71143e;
+                    char[] cArr2 = f71247e;
                     cArr[i5] = cArr2[i7 >> 4];
                     i5 = i8 + 1;
                     cArr[i8] = cArr2[i7 & 15];
@@ -1139,7 +1139,7 @@ public class e {
         arrayList.add(new com.ss.android.socialbase.downloader.model.c("Accept-Encoding", "identity"));
         String format = j3 <= 0 ? String.format("bytes=%s-", String.valueOf(j2)) : String.format("bytes=%s-%s", String.valueOf(j2), String.valueOf(j3));
         arrayList.add(new com.ss.android.socialbase.downloader.model.c("Range", format));
-        String str2 = f71139a;
+        String str2 = f71243a;
         d.o.a.e.b.c.a.g(str2, " range CurrentOffset:" + j2 + " EndOffset:" + j3 + ", range = " + format);
         return arrayList;
     }
@@ -1160,8 +1160,8 @@ public class e {
     }
 
     public static void s(int i2, boolean z, BaseException baseException) {
-        synchronized (f71141c) {
-            List<j> list = f71142d.get(i2);
+        synchronized (f71245c) {
+            List<j> list = f71246d.get(i2);
             if (list != null) {
                 for (j jVar : list) {
                     if (jVar != null) {
@@ -1173,9 +1173,9 @@ public class e {
                     }
                 }
             }
-            String str = f71139a;
+            String str = f71243a;
             d.o.a.e.b.c.a.g(str, "handleTempSaveCallback id:" + i2);
-            f71141c.remove(i2);
+            f71245c.remove(i2);
         }
     }
 
@@ -1217,17 +1217,17 @@ public class e {
         int b2;
         BaseException baseException;
         boolean z;
-        d.o.a.e.b.c.a.g(f71139a, "saveFileAsTargetName targetName is " + downloadInfo.K0());
+        d.o.a.e.b.c.a.g(f71243a, "saveFileAsTargetName targetName is " + downloadInfo.K0());
         try {
             File file = new File(downloadInfo.N0(), downloadInfo.M0());
             File file2 = new File(downloadInfo.F0(), downloadInfo.q0());
             DownloadInfo f2 = d.o.a.e.b.g.a.l(d.o.a.e.b.g.d.l()).f(downloadInfo.c0());
             if (!file.exists()) {
-                d.o.a.e.b.c.a.g(f71139a, "tempFile not exist");
+                d.o.a.e.b.c.a.g(f71243a, "tempFile not exist");
                 if (file2.exists()) {
-                    d.o.a.e.b.c.a.g(f71139a, "targetFile exist");
+                    d.o.a.e.b.c.a.g(f71243a, "targetFile exist");
                     if (h0(file2, downloadInfo.l0())) {
-                        d.o.a.e.b.c.a.g(f71139a, "tempFile not exist , targetFile exists and md5 check valid");
+                        d.o.a.e.b.c.a.g(f71243a, "tempFile not exist , targetFile exists and md5 check valid");
                         if (jVar != null) {
                             jVar.a();
                             return;
@@ -1238,16 +1238,16 @@ public class e {
                         return;
                     }
                 } else {
-                    d.o.a.e.b.c.a.g(f71139a, "targetFile not exist");
+                    d.o.a.e.b.c.a.g(f71243a, "targetFile not exist");
                     if (f2 != null && f2.P1()) {
                         f2.Y1(jVar);
                         return;
                     }
                 }
             } else if (file2.exists()) {
-                d.o.a.e.b.c.a.g(f71139a, "targetFile exist");
+                d.o.a.e.b.c.a.g(f71243a, "targetFile exist");
                 if (E(b(file2, downloadInfo.l0()))) {
-                    d.o.a.e.b.c.a.g(f71139a, "tempFile exist , targetFile exists and md5 check valid");
+                    d.o.a.e.b.c.a.g(f71243a, "tempFile exist , targetFile exists and md5 check valid");
                     if (jVar != null) {
                         jVar.a();
                         return;
@@ -1260,7 +1260,7 @@ public class e {
                     if (f2 != null) {
                         f2.F2(true);
                     }
-                    Log.e(f71139a, "saveFileAsTargetName: " + file2.getPath());
+                    Log.e(f71243a, "saveFileAsTargetName: " + file2.getPath());
                     if (!file2.delete()) {
                         BaseException baseException2 = new BaseException(1037, "delete targetPath file existed with md5 check invalid status:" + V(b2));
                         if (jVar != null) {
@@ -1316,7 +1316,7 @@ public class e {
                 f2.V0(true, null);
             }
         } catch (Throwable th) {
-            d.o.a.e.b.c.a.g(f71139a, "saveFileAsTargetName throwable " + th.getMessage());
+            d.o.a.e.b.c.a.g(f71243a, "saveFileAsTargetName throwable " + th.getMessage());
             if (jVar != null) {
                 jVar.a(new BaseException(1038, Y(th, "saveFileAsTargetName")));
             }
@@ -1352,35 +1352,35 @@ public class e {
         boolean z;
         BaseException baseException;
         boolean z2;
-        d.o.a.e.b.c.a.g(f71139a, "saveFileAsTargetName targetName is " + downloadInfo.K0());
+        d.o.a.e.b.c.a.g(f71243a, "saveFileAsTargetName targetName is " + downloadInfo.K0());
         try {
         } catch (Throwable th) {
-            d.o.a.e.b.c.a.g(f71139a, "saveFileAsTargetName throwable " + th.getMessage());
+            d.o.a.e.b.c.a.g(f71243a, "saveFileAsTargetName throwable " + th.getMessage());
             if (jVar == null) {
             }
         }
-        synchronized (f71141c) {
-            if (f71141c.get(downloadInfo.c0()) == Boolean.TRUE) {
-                d.o.a.e.b.c.a.g(f71139a, "has another same task is saving temp file");
+        synchronized (f71245c) {
+            if (f71245c.get(downloadInfo.c0()) == Boolean.TRUE) {
+                d.o.a.e.b.c.a.g(f71243a, "has another same task is saving temp file");
                 if (jVar != null) {
-                    List<j> list = f71142d.get(downloadInfo.c0());
+                    List<j> list = f71246d.get(downloadInfo.c0());
                     if (list == null) {
                         list = new ArrayList<>();
-                        f71142d.put(downloadInfo.c0(), list);
+                        f71246d.put(downloadInfo.c0(), list);
                     }
                     list.add(jVar);
                 }
                 return;
             }
-            d.o.a.e.b.c.a.g(f71139a, "saveTempFileStatusMap put id:" + downloadInfo.c0());
-            f71141c.put(downloadInfo.c0(), Boolean.TRUE);
+            d.o.a.e.b.c.a.g(f71243a, "saveTempFileStatusMap put id:" + downloadInfo.c0());
+            f71245c.put(downloadInfo.c0(), Boolean.TRUE);
             File file = new File(downloadInfo.N0(), downloadInfo.M0());
             File file2 = new File(downloadInfo.F0(), downloadInfo.q0());
             if (file2.exists()) {
-                d.o.a.e.b.c.a.g(f71139a, "targetFile exist");
+                d.o.a.e.b.c.a.g(f71243a, "targetFile exist");
                 int b2 = b(file2, downloadInfo.l0());
                 if (E(b2)) {
-                    d.o.a.e.b.c.a.g(f71139a, "tempFile not exist , targetFile exists and md5 check valid");
+                    d.o.a.e.b.c.a.g(f71243a, "tempFile not exist , targetFile exists and md5 check valid");
                     downloadInfo.e3(b2);
                     if (jVar != null) {
                         jVar.a();
@@ -1470,7 +1470,7 @@ public class e {
                 if (z) {
                 }
             }
-            d.o.a.e.b.c.a.g(f71139a, "saveFileAsTargetName throwable " + th.getMessage());
+            d.o.a.e.b.c.a.g(f71243a, "saveFileAsTargetName throwable " + th.getMessage());
             if (jVar == null) {
                 jVar.a(new BaseException(1038, Y(th, "saveFileAsTargetName")));
             }
@@ -1497,7 +1497,7 @@ public class e {
         }
         File file = new File(downloadInfo.F0(), str);
         File file2 = new File(downloadInfo.F0(), downloadInfo.q0());
-        String str2 = f71139a;
+        String str2 = f71243a;
         Log.e(str2, "copyFileFromExistFileWithSameName: existFile:" + file.getPath() + " targetFile:" + file2.getPath());
         if (file2.exists() && !file2.delete()) {
             throw new BaseException(1037, "targetPath file exists but can't delete");
@@ -1508,7 +1508,7 @@ public class e {
     }
 
     public static String x0(Context context) {
-        String str = f71140b;
+        String str = f71244b;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -1520,7 +1520,7 @@ public class e {
                                 d.o.a.e.b.c.a.g("Process", "processName = " + runningAppProcessInfo.processName);
                             }
                             String str2 = runningAppProcessInfo.processName;
-                            f71140b = str2;
+                            f71244b = str2;
                             return str2;
                         }
                     }
@@ -1529,7 +1529,7 @@ public class e {
                 e2.printStackTrace();
             }
             String O0 = O0();
-            f71140b = O0;
+            f71244b = O0;
             return O0;
         }
         return str;

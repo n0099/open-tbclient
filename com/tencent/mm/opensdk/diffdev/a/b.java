@@ -10,19 +10,19 @@ import java.util.List;
 public final class b implements OAuthListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a f39977f;
+    public final /* synthetic */ a f40080f;
 
     public b(a aVar) {
-        this.f39977f = aVar;
+        this.f40080f = aVar;
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.OAuthListener
     public final void onAuthFinish(OAuthErrCode oAuthErrCode, String str) {
         List list;
         Log.d("MicroMsg.SDK.ListenerWrapper", String.format("onAuthFinish, errCode = %s, authCode = %s", oAuthErrCode.toString(), str));
-        this.f39977f.f39975d = null;
+        this.f40080f.f40078d = null;
         ArrayList<OAuthListener> arrayList = new ArrayList();
-        list = this.f39977f.f39974c;
+        list = this.f40080f.f40077c;
         arrayList.addAll(list);
         for (OAuthListener oAuthListener : arrayList) {
             oAuthListener.onAuthFinish(oAuthErrCode, str);
@@ -34,7 +34,7 @@ public final class b implements OAuthListener {
         List list;
         Log.d("MicroMsg.SDK.ListenerWrapper", "onAuthGotQrcode, qrcodeImgPath = " + str);
         ArrayList<OAuthListener> arrayList = new ArrayList();
-        list = this.f39977f.f39974c;
+        list = this.f40080f.f40077c;
         arrayList.addAll(list);
         for (OAuthListener oAuthListener : arrayList) {
             oAuthListener.onAuthGotQrcode(str, bArr);
@@ -46,9 +46,9 @@ public final class b implements OAuthListener {
         Handler handler;
         Handler handler2;
         Log.d("MicroMsg.SDK.ListenerWrapper", "onQrcodeScanned");
-        handler = this.f39977f.handler;
+        handler = this.f40080f.handler;
         if (handler != null) {
-            handler2 = this.f39977f.handler;
+            handler2 = this.f40080f.handler;
             handler2.post(new c(this));
         }
     }

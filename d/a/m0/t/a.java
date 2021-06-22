@@ -1,73 +1,89 @@
 package d.a.m0.t;
 
-import org.json.JSONObject;
-import tbclient.Advertisement;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes3.dex */
-public class a implements Comparable<a> {
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f54445e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f54446f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f54447g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f54448h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f54449i;
-    public int j;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(a aVar) {
-        return g() > aVar.g() ? -1 : 1;
+public class a {
+    public static int a() {
+        DisplayMetrics c2 = c();
+        if (c2 != null) {
+            return c2.densityDpi;
+        }
+        return 0;
     }
 
-    public String b() {
-        return this.f54449i;
+    public static int b() {
+        DisplayMetrics c2 = c();
+        if (c2 != null) {
+            return c2.heightPixels;
+        }
+        return 0;
     }
 
-    public int c() {
-        return this.j;
+    public static DisplayMetrics c() {
+        Context appContext = AppRuntime.getAppContext();
+        if (appContext == null) {
+            return null;
+        }
+        return appContext.getResources().getDisplayMetrics();
     }
 
-    public String d() {
-        return this.f54448h;
+    public static int d() {
+        DisplayMetrics c2 = c();
+        if (c2 != null) {
+            return c2.widthPixels;
+        }
+        return 0;
     }
 
-    public String e() {
-        return this.f54446f;
+    public static String e() {
+        NetworkInfo activeNetworkInfo;
+        ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+        if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+            return "no";
+        }
+        if (activeNetworkInfo.getType() == 1) {
+            return "WiFi";
+        }
+        if (activeNetworkInfo.getType() == 0) {
+            switch (activeNetworkInfo.getSubtype()) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return "2G";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return com.baidu.apollon.statistics.g.f3985b;
+                case 13:
+                    return "4G";
+                default:
+                    return "unknown";
+            }
+        }
+        return "unknown";
     }
 
-    public String f() {
-        return this.f54447g;
+    public static String f() {
+        return "Android";
     }
 
-    public long g() {
-        return this.f54445e;
-    }
-
-    public void h(Advertisement advertisement) {
-        this.f54445e = advertisement.time.longValue();
-        this.f54446f = advertisement.pic;
-        this.f54447g = advertisement.pic_click;
-        this.f54448h = advertisement.jump_link;
-        this.f54449i = advertisement.advertisement_id;
-    }
-
-    public void i(JSONObject jSONObject) {
-        this.f54446f = jSONObject.optString("pic");
-        this.f54447g = jSONObject.optString("pic_click");
-        this.f54448h = jSONObject.optString("jump_link");
-        this.f54449i = jSONObject.optString("advertisement_id");
-    }
-
-    public void j(int i2) {
-        this.j = i2;
+    public static String g() {
+        String str = Build.VERSION.RELEASE;
+        return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
     }
 }

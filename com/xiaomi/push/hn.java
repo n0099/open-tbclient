@@ -23,13 +23,13 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static final jg f495a = new jg("DataCollectionItem");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41435a = new iy("", (byte) 10, 1);
+    public static final iy f41538a = new iy("", (byte) 10, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41436b = new iy("", (byte) 8, 2);
+    public static final iy f41539b = new iy("", (byte) 8, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41437c = new iy("", (byte) 11, 3);
+    public static final iy f41540c = new iy("", (byte) 11, 3);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -100,7 +100,7 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         jbVar.m510a();
         while (true) {
             iy m506a = jbVar.m506a();
-            byte b2 = m506a.f41648a;
+            byte b2 = m506a.f41751a;
             if (b2 == 0) {
                 break;
             }
@@ -168,16 +168,16 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         m371a();
         jbVar.a(f495a);
-        jbVar.a(f41435a);
+        jbVar.a(f41538a);
         jbVar.a(this.f496a);
         jbVar.b();
         if (this.f497a != null) {
-            jbVar.a(f41436b);
+            jbVar.a(f41539b);
             jbVar.a(this.f497a.a());
             jbVar.b();
         }
         if (this.f498a != null) {
-            jbVar.a(f41437c);
+            jbVar.a(f41540c);
             jbVar.a(this.f498a);
             jbVar.b();
         }

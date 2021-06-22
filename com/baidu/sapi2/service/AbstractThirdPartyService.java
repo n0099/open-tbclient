@@ -32,5 +32,7 @@ public interface AbstractThirdPartyService {
 
     void loadWechatLogin(Context context, int i2);
 
+    void loadYYSSOLogin(Context context, String str);
+
     void socialBind(Activity activity, SocialType socialType, int i2, String str);
 }

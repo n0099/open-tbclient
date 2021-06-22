@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BubbleView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18265e;
+    public Context f18347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f18266f;
+    public ViewGroup f18348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18267g;
+    public TbImageView f18349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f18268h;
+    public ImageView f18350h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f18269i;
+    public ImageView f18351i;
     public ImageView j;
     public ImageView k;
     public ImageView l;
@@ -45,7 +45,7 @@ public class BubbleView extends RelativeLayout {
 
     public BubbleView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f18265e = context;
+        this.f18347e = context;
         b();
     }
 
@@ -55,11 +55,11 @@ public class BubbleView extends RelativeLayout {
     }
 
     public final void b() {
-        View inflate = LayoutInflater.from(this.f18265e).inflate(getXmlLayoutResId(), this);
-        this.f18266f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-        this.f18267g = (TbImageView) inflate.findViewById(R.id.bubble_image);
-        this.f18268h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-        this.f18269i = (ImageView) inflate.findViewById(R.id.free_tip);
+        View inflate = LayoutInflater.from(this.f18347e).inflate(getXmlLayoutResId(), this);
+        this.f18348f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+        this.f18349g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+        this.f18350h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+        this.f18351i = (ImageView) inflate.findViewById(R.id.free_tip);
         this.j = (ImageView) inflate.findViewById(R.id.defualt_tip);
         this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
         this.l = (ImageView) inflate.findViewById(R.id.bubble_round_up);
@@ -77,9 +77,9 @@ public class BubbleView extends RelativeLayout {
     }
 
     public void setCurrentNotUse() {
-        this.f18266f.setVisibility(8);
+        this.f18348f.setVisibility(8);
         this.k.setVisibility(0);
-        this.f18269i.setVisibility(8);
+        this.f18351i.setVisibility(8);
         if (!this.t) {
             this.n.setVisibility(8);
             this.o.setVisibility(8);
@@ -93,7 +93,7 @@ public class BubbleView extends RelativeLayout {
         this.m.setVisibility(8);
         this.p.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(this.f18265e.getString(R.string.bubble_notuse_text));
+        this.s.setText(this.f18347e.getString(R.string.bubble_notuse_text));
     }
 
     public void setData(BubbleListData.BubbleData bubbleData, boolean z) {
@@ -103,26 +103,26 @@ public class BubbleView extends RelativeLayout {
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
             this.j.setVisibility(z ? 0 : 8);
-            this.f18268h.setVisibility(z ? 0 : 8);
+            this.f18350h.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f18266f.setVisibility(0);
+        this.f18348f.setVisibility(0);
         this.k.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f18268h.setVisibility(0);
+            this.f18350h.setVisibility(0);
             this.j.setVisibility(0);
         } else {
-            this.f18268h.setVisibility(8);
+            this.f18350h.setVisibility(8);
             this.j.setVisibility(8);
         }
         if (bubbleData.isFree()) {
-            this.f18269i.setVisibility(0);
+            this.f18351i.setVisibility(0);
         } else {
-            this.f18269i.setVisibility(8);
+            this.f18351i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f18267g.setTag(bubbleData.getB_url());
-            this.f18267g.U(bubbleData.getB_url(), 10, false);
+            this.f18349g.setTag(bubbleData.getB_url());
+            this.f18349g.U(bubbleData.getB_url(), 10, false);
         }
         if (!this.t) {
             this.n.setVisibility(8);
@@ -154,13 +154,13 @@ public class BubbleView extends RelativeLayout {
 
     public BubbleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18265e = context;
+        this.f18347e = context;
         b();
     }
 
     public BubbleView(Context context) {
         super(context);
-        this.f18265e = context;
+        this.f18347e = context;
         b();
     }
 }

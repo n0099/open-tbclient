@@ -8,10 +8,10 @@ import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import d.a.c.e.p.c;
 import d.a.d.d;
-import d.a.n0.k1.o.h.b;
-import d.a.n0.k1.o.l.i;
-import d.a.n0.t2.f0.b.a;
-import d.a.n0.t2.f0.b.f;
+import d.a.o0.k1.o.h.b;
+import d.a.o0.k1.o.l.i;
+import d.a.o0.t2.f0.b.a;
+import d.a.o0.t2.f0.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
@@ -67,8 +67,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f64750a)) {
-            this.operateData.f64750a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f64875a)) {
+            this.operateData.f64875a = this.userName;
         }
     }
 
@@ -96,7 +96,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
             jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
             jSONObject.put("operate", this.operateData.b());
             if (this.adFacadeData != null && this.adFacadeData.g() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.g().f43219b);
+                jSONObject.put("extraparams", this.adFacadeData.g().f43322b);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -122,13 +122,13 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
 
     public String getButtonScheme() {
         a aVar = this.operateData;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f64752c)) {
-            return this.operateData.f64752c;
+        if (aVar != null && !TextUtils.isEmpty(aVar.f64877c)) {
+            return this.operateData.f64877c;
         }
         return this.scheme;
     }
 
-    @Override // d.a.n0.k1.o.h.b
+    @Override // d.a.o0.k1.o.h.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
     }
@@ -147,12 +147,12 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
         this.adFacadeData = dVar;
     }
 
-    @Override // d.a.n0.k1.o.l.i
+    @Override // d.a.o0.k1.o.l.i
     public void setAutoPlay(boolean z) {
         this.autoPlay = z;
     }
 
-    @Override // d.a.n0.k1.o.l.i
+    @Override // d.a.o0.k1.o.l.i
     public void setWaitConfirm(boolean z) {
         this.waitConfirm = z;
     }

@@ -3,26 +3,26 @@ package com.kwai.video.ksvodplayerkit.d;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38088a;
+    public boolean f38186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38089b;
+    public String f38187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f38090c;
+    public long f38188c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38091d;
+    public long f38189d;
 
     public g() {
-        this.f38088a = false;
+        this.f38186a = false;
     }
 
     public g(boolean z, String str, long j, long j2) {
-        this.f38088a = false;
-        this.f38088a = z;
-        this.f38089b = str;
-        this.f38091d = j;
-        this.f38090c = j2;
+        this.f38186a = false;
+        this.f38186a = z;
+        this.f38187b = str;
+        this.f38189d = j;
+        this.f38188c = j2;
     }
 }

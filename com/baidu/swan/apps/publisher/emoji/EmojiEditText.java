@@ -13,26 +13,26 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import androidx.appcompat.widget.AppCompatEditText;
-import d.a.l0.a.v2.r0;
+import d.a.m0.a.v2.r0;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class EmojiEditText extends AppCompatEditText {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f11064e;
+    public e f11146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f11065f;
+    public f f11147f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11066g;
+    public String f11148g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r0 f11067h;
+    public r0 f11149h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f11068i;
+    public Runnable f11150i;
     public int j;
 
     /* loaded from: classes3.dex */
@@ -56,17 +56,17 @@ public class EmojiEditText extends AppCompatEditText {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Editable f11070e;
+        public final /* synthetic */ Editable f11152e;
 
         public b(Editable editable) {
-            this.f11070e = editable;
+            this.f11152e = editable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int selectionStart = EmojiEditText.this.getSelectionStart();
             if (selectionStart > 0) {
-                this.f11070e.delete(selectionStart - 1, selectionStart);
+                this.f11152e.delete(selectionStart - 1, selectionStart);
             }
             EmojiEditText.this.f();
         }
@@ -148,23 +148,23 @@ public class EmojiEditText extends AppCompatEditText {
     public void c() {
         Editable editableText = getEditableText();
         if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
-            getEditableText().replace(0, editableText.length(), d.a.l0.a.w1.h.b.c().g(getContext(), editableText, this));
+            getEditableText().replace(0, editableText.length(), d.a.m0.a.w1.h.b.c().g(getContext(), editableText, this));
         }
     }
 
     public final void d() {
-        this.f11067h = r0.b(getContext());
+        this.f11149h = r0.b(getContext());
         setText(getText());
         setOnTouchListener(new a());
         addTextChangedListener(new d(this, null));
     }
 
     public void e() {
-        this.f11064e = null;
+        this.f11146e = null;
     }
 
     public void f() {
-        this.f11067h.c(this.f11066g);
+        this.f11149h.c(this.f11148g);
     }
 
     @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
@@ -179,7 +179,7 @@ public class EmojiEditText extends AppCompatEditText {
     @Override // android.widget.TextView, android.view.View
     public boolean onKeyPreIme(int i2, KeyEvent keyEvent) {
         e eVar;
-        if (i2 != 4 || (eVar = this.f11064e) == null) {
+        if (i2 != 4 || (eVar = this.f11146e) == null) {
             return false;
         }
         eVar.onBack();
@@ -189,7 +189,7 @@ public class EmojiEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     public void onSelectionChanged(int i2, int i3) {
         super.onSelectionChanged(i2, i3);
-        f fVar = this.f11065f;
+        f fVar = this.f11147f;
         if (fVar != null) {
             fVar.a(i2, i3);
         }
@@ -206,14 +206,14 @@ public class EmojiEditText extends AppCompatEditText {
         }
         int length = charSequence2.length() + i5;
         if (length <= this.j) {
-            e eVar = this.f11064e;
+            e eVar = this.f11146e;
             if (eVar != null) {
                 eVar.b(length);
                 return;
             }
             return;
         }
-        e eVar2 = this.f11064e;
+        e eVar2 = this.f11146e;
         if (eVar2 != null) {
             eVar2.a(length);
         }
@@ -222,25 +222,25 @@ public class EmojiEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     public boolean onTextContextMenuItem(int i2) {
         if (i2 == 16908322) {
-            CharSequence a2 = this.f11067h.a();
+            CharSequence a2 = this.f11149h.a();
             if (a2 == null) {
                 return super.onTextContextMenuItem(i2);
             }
-            this.f11066g = a2.toString();
-            this.f11067h.c(" ");
-            SpannableString g2 = d.a.l0.a.w1.h.b.c().g(getContext(), this.f11066g, this);
+            this.f11148g = a2.toString();
+            this.f11149h.c(" ");
+            SpannableString g2 = d.a.m0.a.w1.h.b.c().g(getContext(), this.f11148g, this);
             int selectionStart = getSelectionStart();
             Editable editableText = getEditableText();
             editableText.insert(selectionStart, g2);
             b bVar = new b(editableText);
-            this.f11068i = bVar;
+            this.f11150i = bVar;
             post(bVar);
         }
         return super.onTextContextMenuItem(i2);
     }
 
     public void setListener(e eVar) {
-        this.f11064e = eVar;
+        this.f11146e = eVar;
     }
 
     public void setMaxSize(int i2) {
@@ -248,7 +248,7 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     public void setSelectListener(f fVar) {
-        this.f11065f = fVar;
+        this.f11147f = fVar;
     }
 
     public EmojiEditText(Context context, AttributeSet attributeSet) {

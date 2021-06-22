@@ -116,10 +116,10 @@ public final class Synchronized {
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Set<V> f31375e;
+        public transient Set<V> f31473e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient k<V, K> f31376f;
+        public transient k<V, K> f31474f;
 
         @Override // d.g.c.c.k
         public V forcePut(K k, V v) {
@@ -134,17 +134,17 @@ public final class Synchronized {
         public k<V, K> inverse() {
             k<V, K> kVar;
             synchronized (this.mutex) {
-                if (this.f31376f == null) {
-                    this.f31376f = new SynchronizedBiMap(delegate().inverse(), this.mutex, this);
+                if (this.f31474f == null) {
+                    this.f31474f = new SynchronizedBiMap(delegate().inverse(), this.mutex, this);
                 }
-                kVar = this.f31376f;
+                kVar = this.f31474f;
             }
             return kVar;
         }
 
         public SynchronizedBiMap(k<K, V> kVar, Object obj, k<V, K> kVar2) {
             super(kVar, obj);
-            this.f31376f = kVar2;
+            this.f31474f = kVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -152,10 +152,10 @@ public final class Synchronized {
         public Set<V> values() {
             Set<V> set;
             synchronized (this.mutex) {
-                if (this.f31375e == null) {
-                    this.f31375e = Synchronized.n(delegate().values(), this.mutex);
+                if (this.f31473e == null) {
+                    this.f31473e = Synchronized.n(delegate().values(), this.mutex);
                 }
-                set = this.f31375e;
+                set = this.f31473e;
             }
             return set;
         }
@@ -1638,27 +1638,27 @@ public final class Synchronized {
 
             /* renamed from: com.google.common.collect.Synchronized$SynchronizedAsMapEntries$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0346a extends v<K, Collection<V>> {
+            public class C0349a extends v<K, Collection<V>> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f31372e;
+                public final /* synthetic */ Map.Entry f31470e;
 
-                public C0346a(Map.Entry entry) {
-                    this.f31372e = entry;
+                public C0349a(Map.Entry entry) {
+                    this.f31470e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // d.g.c.c.y
                 /* renamed from: b */
                 public Map.Entry<K, Collection<V>> delegate() {
-                    return this.f31372e;
+                    return this.f31470e;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // d.g.c.c.v, java.util.Map.Entry
                 /* renamed from: c */
                 public Collection<V> getValue() {
-                    return Synchronized.q((Collection) this.f31372e.getValue(), SynchronizedAsMapEntries.this.mutex);
+                    return Synchronized.q((Collection) this.f31470e.getValue(), SynchronizedAsMapEntries.this.mutex);
                 }
             }
 
@@ -1670,7 +1670,7 @@ public final class Synchronized {
             @Override // d.g.c.c.a1
             /* renamed from: b */
             public Map.Entry<K, Collection<V>> a(Map.Entry<K, Collection<V>> entry) {
-                return new C0346a(entry);
+                return new C0349a(entry);
             }
         }
 

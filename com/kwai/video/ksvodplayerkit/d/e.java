@@ -14,15 +14,15 @@ public final class e {
             return null;
         }
         d dVar = new d();
-        dVar.f38079a = jSONObject.optInt("maxConcurrentCount", dVar.f38079a);
-        dVar.f38080b = jSONObject.optLong("playerLoadThreshold", dVar.f38080b);
-        dVar.f38081c = jSONObject.optInt("speedKbpsThreshold", dVar.f38081c);
-        dVar.f38082d = jSONObject.optLong("preloadBytesWifi", dVar.f38082d);
-        dVar.f38083e = jSONObject.optLong("preloadBytes4G", dVar.f38083e);
-        dVar.f38084f = jSONObject.optInt("preloadMsWifi", dVar.f38084f);
-        dVar.f38085g = jSONObject.optInt("preloadMs4G", dVar.f38085g);
-        dVar.f38086h = jSONObject.optDouble("vodBufferLowRatio", dVar.f38086h);
-        dVar.f38087i = jSONObject.optInt("vodPausePreloadMaxCount", dVar.f38087i);
+        dVar.f38177a = jSONObject.optInt("maxConcurrentCount", dVar.f38177a);
+        dVar.f38178b = jSONObject.optLong("playerLoadThreshold", dVar.f38178b);
+        dVar.f38179c = jSONObject.optInt("speedKbpsThreshold", dVar.f38179c);
+        dVar.f38180d = jSONObject.optLong("preloadBytesWifi", dVar.f38180d);
+        dVar.f38181e = jSONObject.optLong("preloadBytes4G", dVar.f38181e);
+        dVar.f38182f = jSONObject.optInt("preloadMsWifi", dVar.f38182f);
+        dVar.f38183g = jSONObject.optInt("preloadMs4G", dVar.f38183g);
+        dVar.f38184h = jSONObject.optDouble("vodBufferLowRatio", dVar.f38184h);
+        dVar.f38185i = jSONObject.optInt("vodPausePreloadMaxCount", dVar.f38185i);
         dVar.j = jSONObject.optInt("maxSpeedKbps", dVar.j);
         dVar.k = jSONObject.optInt("vodCacheKbThresholdKb", dVar.k);
         return dVar;

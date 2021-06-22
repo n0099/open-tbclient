@@ -6,6 +6,6 @@ public final class a {
     public static final int alert_msg_force_update = 2131690126;
     public static final int alert_title_force_update = 2131690128;
     public static final int app_name = 2131690176;
-    public static final int predownload_net_error_msg = 2131693318;
-    public static final int predownload_no_available_msg = 2131693319;
+    public static final int predownload_net_error_msg = 2131693367;
+    public static final int predownload_no_available_msg = 2131693368;
 }

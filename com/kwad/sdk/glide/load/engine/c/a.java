@@ -9,20 +9,20 @@ import com.kwad.sdk.glide.load.engine.bitmap_recycle.e;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f36203a;
+    public final h f36301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f36204b;
+    public final e f36302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DecodeFormat f36205c;
+    public final DecodeFormat f36303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f36206d = new Handler(Looper.getMainLooper());
+    public final Handler f36304d = new Handler(Looper.getMainLooper());
 
     public a(h hVar, e eVar, DecodeFormat decodeFormat) {
-        this.f36203a = hVar;
-        this.f36204b = eVar;
-        this.f36205c = decodeFormat;
+        this.f36301a = hVar;
+        this.f36302b = eVar;
+        this.f36303c = decodeFormat;
     }
 }

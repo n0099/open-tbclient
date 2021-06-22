@@ -80,23 +80,23 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.q.f42671a = (BitmapDrawable) getDrawable();
-        this.q.f42672b = getBdImage();
+        this.q.f42774a = (BitmapDrawable) getDrawable();
+        this.q.f42775b = getBdImage();
         if (this.q.e()) {
-            this.q.f42672b = null;
+            this.q.f42775b = null;
             c();
-            this.q.f42673c = false;
+            this.q.f42776c = false;
             this.u = this.t;
         } else if (this.q.d()) {
-            this.q.f42671a = null;
+            this.q.f42774a = null;
             c();
-            this.q.f42673c = false;
+            this.q.f42776c = false;
             this.u = this.t;
         } else {
             d dVar = this.q;
-            dVar.f42671a = null;
-            dVar.f42672b = getDefaultBdImage();
-            this.q.f42673c = true;
+            dVar.f42774a = null;
+            dVar.f42775b = getDefaultBdImage();
+            this.q.f42776c = true;
             if (this.q.d()) {
                 scaleType = this.f2201f;
             }
@@ -132,7 +132,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public final void c() {
-        if (this.q.f42673c) {
+        if (this.q.f42776c) {
             this.l = true;
             if (!this.r && this.m == 1073741824 && this.n == 1073741824) {
                 return;
@@ -170,7 +170,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public abstract d.a.c.k.d.a getDefaultBdImage();
 
     public boolean getDrawBorder() {
-        return this.f2203h.f42676c;
+        return this.f2203h.f42779c;
     }
 
     public int getImageHeight() {
@@ -198,13 +198,13 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public void i(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-            this.f2203h.f42674a = j(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.e(getContext(), 4.0f)));
-            this.f2203h.f42675b = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.f2203h.f42676c = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
-            this.f2203h.f42677d = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.e(getContext(), 1.0f));
-            this.f2203h.f42678e = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
-            this.f2203h.f42680g = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.f2203h.f42682i = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.f2203h.f42777a = j(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.e(getContext(), 4.0f)));
+            this.f2203h.f42778b = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.f2203h.f42779c = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.f2203h.f42780d = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.e(getContext(), 1.0f));
+            this.f2203h.f42781e = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
+            this.f2203h.f42783g = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.f2203h.f42785i = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
             this.f2203h.m = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.f2200e = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.o = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, Integer.MAX_VALUE);
@@ -212,9 +212,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
             this.r = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_adjustViewBounds, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.f2203h.f42674a = j(l.e(getContext(), 4.0f));
-            this.f2203h.f42677d = l.e(getContext(), 1.0f);
-            this.f2203h.f42678e = 201326592;
+            this.f2203h.f42777a = j(l.e(getContext(), 4.0f));
+            this.f2203h.f42780d = l.e(getContext(), 1.0f);
+            this.f2203h.f42781e = 201326592;
         }
         a a2 = f.b().a(this.f2200e);
         this.f2204i = a2;
@@ -274,7 +274,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         int paddingTop = getPaddingTop() + getPaddingBottom();
         int max = Math.max(b2 + paddingLeft, getSuggestedMinimumWidth());
         int max2 = Math.max(a2 + paddingTop, getSuggestedMinimumHeight());
-        if (max <= paddingLeft || max2 <= paddingTop || this.q.f42673c || !this.r) {
+        if (max <= paddingLeft || max2 <= paddingTop || this.q.f42776c || !this.r) {
             max = k(max, this.o, i2);
             max2 = k(max2, this.p, i3);
         }
@@ -309,16 +309,16 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setBorderColor(int i2) {
         e eVar = this.f2203h;
-        if (eVar.f42678e != i2) {
-            eVar.f42678e = i2;
+        if (eVar.f42781e != i2) {
+            eVar.f42781e = i2;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42680g != z) {
-            eVar.f42680g = z;
+        if (eVar.f42783g != z) {
+            eVar.f42783g = z;
             this.l = true;
             invalidate();
         }
@@ -326,8 +326,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setBorderWidth(int i2) {
         e eVar = this.f2203h;
-        if (eVar.f42677d != i2) {
-            eVar.f42677d = i2;
+        if (eVar.f42780d != i2) {
+            eVar.f42780d = i2;
             invalidate();
         }
     }
@@ -346,8 +346,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setDrawBorder(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42676c != z) {
-            eVar.f42676c = z;
+        if (eVar.f42779c != z) {
+            eVar.f42779c = z;
             this.l = true;
             invalidate();
         }
@@ -386,8 +386,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setGifIconSupport(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42682i != z) {
-            eVar.f42682i = z;
+        if (eVar.f42785i != z) {
+            eVar.f42785i = z;
             invalidate();
         }
     }
@@ -418,8 +418,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setIsNight(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42679f != z) {
-            eVar.f42679f = z;
+        if (eVar.f42782f != z) {
+            eVar.f42782f = z;
             invalidate();
         }
     }
@@ -434,35 +434,35 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setIsRound(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42675b != z) {
-            eVar.f42675b = z;
+        if (eVar.f42778b != z) {
+            eVar.f42778b = z;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
         e eVar = this.f2203h;
-        if (eVar.f42681h != z) {
-            eVar.f42681h = z;
+        if (eVar.f42784h != z) {
+            eVar.f42784h = z;
             invalidate();
         }
     }
 
     public void setRadius(int i2) {
         float[] j = j(i2);
-        if (Arrays.equals(this.f2203h.f42674a, j)) {
+        if (Arrays.equals(this.f2203h.f42777a, j)) {
             return;
         }
-        this.f2203h.f42674a = j;
+        this.f2203h.f42777a = j;
         invalidate();
     }
 
     public void setRadiusById(int i2) {
         float[] h2 = h(i2);
-        if (Arrays.equals(this.f2203h.f42674a, h2)) {
+        if (Arrays.equals(this.f2203h.f42777a, h2)) {
             return;
         }
-        this.f2203h.f42674a = h2;
+        this.f2203h.f42777a = h2;
         invalidate();
     }
 

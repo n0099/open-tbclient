@@ -13,10 +13,10 @@ import java.util.List;
 public class a extends BaseBean<ApplyCouponResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26326a;
+    public String f26408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26327b;
+    public String f26409b;
 
     public a(Context context) {
         super(context);
@@ -30,8 +30,8 @@ public class a extends BaseBean<ApplyCouponResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("activity_id", this.f26326a));
-        arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f26327b));
+        arrayList.add(new RestNameValuePair("activity_id", this.f26408a));
+        arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f26409b));
         return arrayList;
     }
 

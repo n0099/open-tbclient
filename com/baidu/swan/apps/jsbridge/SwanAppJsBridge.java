@@ -11,10 +11,10 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import d.a.l0.a.d1.a;
-import d.a.l0.a.h0.l.g.f;
-import d.a.l0.a.o0.d.d;
-import d.a.l0.a.r1.g;
+import d.a.m0.a.d1.a;
+import d.a.m0.a.h0.l.g.f;
+import d.a.m0.a.o0.d.d;
+import d.a.m0.a.r1.g;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     public static final String TAG = "SwanAppJsBridge";
 
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, d.a.l0.a.h0.f.a aVar) {
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, d.a.m0.a.h0.f.a aVar) {
         super(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
     }
 
@@ -54,7 +54,7 @@ public class SwanAppJsBridge extends a {
         if (a.DEBUG) {
             Log.d(TAG, "slave id: " + str + " data: " + str2);
         }
-        d.a.l0.a.h0.f.a aVar = this.mJsContainer;
+        d.a.m0.a.h0.f.a aVar = this.mJsContainer;
         if (f.a(aVar, "setData - " + str2)) {
             return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
         }
@@ -65,7 +65,7 @@ public class SwanAppJsBridge extends a {
         } else {
             d dVar = new d(str, str2);
             g.a("postMessage", "PostMsg setData start");
-            d.a.l0.a.g1.f.V().z(dVar, false);
+            d.a.m0.a.g1.f.V().z(dVar, false);
             g.a("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i2).toString();

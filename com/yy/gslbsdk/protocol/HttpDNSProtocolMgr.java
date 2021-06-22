@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
@@ -168,7 +169,7 @@ public class HttpDNSProtocolMgr {
         String str3 = GlobalTools.APP_LOCALIZE_CODE;
         str3 = (str3 == null || str3.trim().length() < 1) ? "" : "";
         if (IpVersionController.tellIpVer(str) == 6) {
-            str = "[" + str + "]";
+            str = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
         }
         if (z2) {
             String str4 = "https://" + str + "/dns_query_v3?usercfg=" + str3 + "&requestId=" + str2;

@@ -1,417 +1,586 @@
 package d.a.m0.r;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.tencent.connect.common.Constants;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.HashSet;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
 
-    /* renamed from: f  reason: collision with root package name */
-    public static boolean f53324f = false;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f53325g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f53326h;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Resources f53329c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Resources f53330d;
-
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53327a = false;
+    public Context f52143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b> f53328b = new HashMap();
+    public a f52144b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public b f52145c;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53331e = false;
+    public long f52147e;
 
-    public static int g(Resources resources, Resources resources2, int i2) {
-        int i3;
-        if (f53324f) {
-            String resourceName = resources.getResourceName(i2);
-            if (TextUtils.isEmpty(resourceName)) {
-                i3 = i2;
-            } else {
-                if (f53326h == 0) {
-                    String packageName = BdBaseApplication.getInst().getPackageName();
-                    f53325g = packageName;
-                    f53326h = packageName.length();
-                }
-                int length = resourceName.length();
-                int i4 = f53326h;
-                if (length > i4 && resourceName.charAt(i4) != ':' && resourceName.startsWith(f53325g)) {
-                    resourceName = f53325g + resourceName.substring(resourceName.indexOf(":"));
-                }
-                i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
-                if (i3 <= 0) {
-                    resourceName = SkinManager.PLUGIN_NIGHT_RESOURCE + resourceName.substring(resourceName.indexOf(":"));
-                    i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
-                }
-            }
-            if (i3 == 0) {
-                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
-                return i2;
-            }
-            return i3;
-        }
-        return i2;
+    /* renamed from: f  reason: collision with root package name */
+    public long f52148f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f52149g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f52150h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public SparseArray<ArrayList> f52151i;
+    public HashMap<String, Long> j;
+    public d l;
+    public m k = e.h().m();
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<i> f52146d = new ArrayList(20);
+
+    public c(Context context) {
+        this.f52143a = context;
+        this.f52144b = new a(context);
+        this.f52145c = new b(context);
+        t g2 = t.g();
+        this.f52147e = g2.getLong("ubc_last_upload_all_time", 0L);
+        this.f52148f = g2.getLong("ubc_last_upload_non_real", 0L);
+        this.f52149g = g2.getLong("ubc_reset_real_time_count_time", 0L);
+        this.f52150h = g2.getInt("ubc_real_time_count", 0);
+        d g3 = d.g();
+        this.l = g3;
+        g3.k(this, context);
     }
 
-    public final void a(View view) {
-        Drawable f2;
-        Drawable f3;
-        Drawable f4;
-        int q;
-        String str = "@" + view.getId();
-        Map<String, b> map = this.f53328b;
-        if (map == null || !map.containsKey(str)) {
-            return;
-        }
-        b bVar = this.f53328b.get(str);
-        if (view instanceof TextView) {
-            if (bVar.v() != 0) {
-                ((TextView) view).setTextColor(e(this.f53327a, bVar.u(), bVar.v()));
-            }
-            if (bVar.t() != 0) {
-                ((TextView) view).setHintTextColor(e(this.f53327a, bVar.s(), bVar.t()));
-            }
-            if (bVar.r() != 0) {
-                TextView textView = (TextView) view;
-                Context context = view.getContext();
-                if (this.f53327a) {
-                    q = bVar.r();
+    public final boolean A(i iVar) {
+        if (g(this.f52143a) && c()) {
+            j();
+            u uVar = new u();
+            uVar.f52269g = true;
+            JSONObject jSONObject = iVar.f52184e;
+            try {
+                if (jSONObject != null && jSONObject.has("bizId")) {
+                    r.a(jSONObject);
+                    uVar.a(jSONObject);
+                    long j = iVar.f52185f;
+                    uVar.g(j, j);
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                    JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
+                    if (jSONObject2 != null && jSONObject3 != null) {
+                        jSONObject2.put(DI.APP_INFO_NAME, jSONObject3);
+                        jSONObject.remove(DI.APP_INFO_NAME);
+                    }
                 } else {
-                    q = bVar.q();
+                    JSONObject e2 = new r(iVar.a()).e();
+                    e2.put("bizId", iVar.f52180a);
+                    e2.put("timestamp", Long.toString(iVar.f52185f));
+                    if (iVar.f52184e != null) {
+                        e2.put("content", iVar.f52184e);
+                    } else {
+                        e2.put("content", iVar.f52183d);
+                    }
+                    e2.put("eventType", "0");
+                    if (!TextUtils.isEmpty(iVar.f52187h)) {
+                        e2.put("abtest", iVar.f52187h);
+                        uVar.f52268f = "1";
+                    }
+                    if (!TextUtils.isEmpty(iVar.f52188i)) {
+                        e2.put("c", iVar.f52188i);
+                    }
+                    if (iVar.j) {
+                        e2.put("of", "1");
+                    }
+                    e2.put(Constant.ID_TYPE, this.l.j(iVar.f52180a));
+                    uVar.a(e2);
+                    uVar.g(iVar.f52185f, iVar.f52185f);
                 }
-                textView.setTextAppearance(context, q);
+            } catch (JSONException unused) {
             }
-            if (bVar.k() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f53327a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
+            if (this.f52151i == null) {
+                f();
             }
-            if (bVar.g() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f53327a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+            if (this.f52151i.size() > 0) {
+                this.f52144b.m(this.f52151i.valueAt(0), uVar);
             }
-            if (bVar.i() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f53327a, bVar.h(), bVar.i()), (Drawable) null);
-            }
-        } else if (view instanceof ImageButton) {
-            if (bVar.n() != 0 && (f4 = f(this.f53327a, bVar.m(), bVar.n())) != null) {
-                ((ImageView) view).setImageDrawable(f4);
-            }
-        } else if (view instanceof ImageView) {
-            if (bVar.n() != 0 && (f3 = f(this.f53327a, bVar.m(), bVar.n())) != null) {
-                ((ImageView) view).setImageDrawable(f3);
-            }
-        } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f53327a, bVar.o(), bVar.p())) != null) {
-            ((ProgressBar) view).setProgressDrawable(f2);
+            q(uVar);
+            i();
+            return true;
         }
-        if (bVar.c() != 0) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingTop = view.getPaddingTop();
-            int paddingRight = view.getPaddingRight();
-            int paddingBottom = view.getPaddingBottom();
-            String resourceTypeName = this.f53329c.getResourceTypeName(bVar.b());
-            if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                view.setBackgroundColor(d(this.f53327a, bVar.b(), bVar.c()));
-            } else {
-                view.setBackgroundDrawable(f(this.f53327a, bVar.b(), bVar.c()));
+        return false;
+    }
+
+    public final void B() {
+        if (g(this.f52143a) && c()) {
+            u uVar = new u();
+            uVar.f52269g = true;
+            if (this.f52151i == null) {
+                f();
             }
-            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            if (this.f52151i.size() > 0) {
+                if (e.h().s()) {
+                    this.f52144b.l(uVar);
+                } else {
+                    this.f52144b.m(this.f52151i.valueAt(0), uVar);
+                }
+            }
+            q(uVar);
+            i();
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
-        String str = "@" + viewGroup.getId();
-        Map<String, b> map = this.f53328b;
-        if (map == null || !map.containsKey(str)) {
+    public void a(String str, int i2) {
+        j();
+        this.f52144b.d(str, i2);
+        if (Math.abs(System.currentTimeMillis() - this.f52148f) >= d.g().h()) {
+            z();
+        }
+    }
+
+    public final void b() {
+        n(true);
+        n(false);
+    }
+
+    public final boolean c() {
+        if (e.h().s()) {
+            return true;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (Math.abs(currentTimeMillis - this.f52149g) > 86400000) {
+            this.f52150h = 0;
+            this.f52149g = currentTimeMillis;
+            t.g().putLong("ubc_reset_real_time_count_time", this.f52149g);
+            t.g().putInt("ubc_real_time_count", this.f52150h);
+        }
+        int i2 = this.f52150h;
+        if (i2 >= 1000) {
+            if (i2 == 1000) {
+                this.f52150h = i2 + 1;
+                e.i(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "realLimit");
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public void d(String str, int i2, long j, JSONArray jSONArray) {
+        j();
+        this.f52144b.j(str, i2, j, jSONArray);
+        if (this.l.b(str)) {
+            B();
+        }
+        if (Math.abs(System.currentTimeMillis() - this.f52148f) >= d.g().h()) {
+            z();
+        }
+    }
+
+    public a e() {
+        return this.f52144b;
+    }
+
+    public final void f() {
+        if (this.f52151i != null) {
             return;
         }
-        b bVar = this.f53328b.get(str);
-        if (viewGroup instanceof AdapterView) {
-            if ((viewGroup instanceof ListView) && bVar.e() != 0) {
-                ListView listView = (ListView) viewGroup;
-                int dividerHeight = listView.getDividerHeight();
-                listView.setDivider(f(this.f53327a, bVar.d(), bVar.e()));
-                listView.setDividerHeight(dividerHeight);
+        SparseArray<ArrayList> sparseArray = new SparseArray<>();
+        this.f52151i = sparseArray;
+        this.f52144b.v(sparseArray);
+        this.j = new HashMap<>();
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.f52151i.size(); i3++) {
+            int keyAt = this.f52151i.keyAt(i3);
+            if (keyAt != 0 && i2 == 0) {
+                i2 = keyAt;
             }
-            Adapter adapter = ((AdapterView) viewGroup).getAdapter();
-            if (adapter != null && (adapter instanceof BaseAdapter)) {
-                ((BaseAdapter) adapter).notifyDataSetChanged();
-            }
+            HashMap<String, Long> hashMap = this.j;
+            hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
         }
-        if (bVar.c() != 0) {
-            int paddingLeft = viewGroup.getPaddingLeft();
-            int paddingTop = viewGroup.getPaddingTop();
-            int paddingRight = viewGroup.getPaddingRight();
-            int paddingBottom = viewGroup.getPaddingBottom();
-            String resourceTypeName = this.f53329c.getResourceTypeName(bVar.b());
-            if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                viewGroup.setBackgroundColor(d(this.f53327a, bVar.b(), bVar.c()));
-            } else {
-                viewGroup.setBackgroundDrawable(f(this.f53327a, bVar.b(), bVar.c()));
-            }
-            viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
+        this.l.p(i2);
     }
 
-    public void c() {
-        Map<String, b> map = this.f53328b;
-        if (map != null) {
-            map.clear();
-            this.f53328b = null;
+    @SuppressLint({"MissingPermission"})
+    public final boolean g(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+        if (connectivityManager == null) {
+            return false;
         }
-    }
-
-    public final int d(boolean z, int i2, int i3) {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
-            return SkinManager.getColor(i2);
-        }
-        if (!z) {
-            return this.f53329c.getColor(i2);
-        }
-        if (i2 == i3) {
-            Resources resources = this.f53329c;
-            this.f53330d = resources;
-            i3 = g(resources, resources, i2);
-        }
-        Resources resources2 = this.f53330d;
-        if (resources2 == null) {
-            return this.f53329c.getColor(i2);
-        }
+        NetworkInfo networkInfo = null;
         try {
-            return resources2.getColor(i3);
-        } catch (Resources.NotFoundException unused) {
-            return this.f53329c.getColor(i2);
+            networkInfo = connectivityManager.getActiveNetworkInfo();
+        } catch (Exception unused) {
         }
+        return networkInfo != null && networkInfo.isAvailable();
     }
 
-    public final ColorStateList e(boolean z, int i2, int i3) {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
-            return SkinManager.getColorList(i2);
-        }
-        if (!z) {
-            return this.f53329c.getColorStateList(i2);
-        }
-        if (i2 == i3) {
-            Resources resources = this.f53329c;
-            this.f53330d = resources;
-            i3 = g(resources, resources, i2);
-        }
-        Resources resources2 = this.f53330d;
-        if (resources2 == null) {
-            return this.f53329c.getColorStateList(i2);
-        }
-        try {
-            return resources2.getColorStateList(i3);
-        } catch (Resources.NotFoundException unused) {
-            return this.f53329c.getColorStateList(i2);
-        }
-    }
-
-    public final Drawable f(boolean z, int i2, int i3) {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
-            return SkinManager.getDrawable(i2);
-        }
-        if (!z) {
-            try {
-                return this.f53329c.getDrawable(i2);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        if (i2 == i3) {
-            Resources resources = this.f53329c;
-            this.f53330d = resources;
-            i3 = g(resources, resources, i2);
-        }
-        Resources resources2 = this.f53330d;
-        if (resources2 == null) {
-            try {
-                return this.f53329c.getDrawable(i2);
-            } catch (Throwable unused2) {
-                return null;
-            }
-        }
-        try {
-            try {
-                return resources2.getDrawable(i3);
-            } catch (Throwable unused3) {
-                return null;
-            }
-        } catch (Resources.NotFoundException unused4) {
-            return this.f53329c.getDrawable(i2);
-        } catch (ArrayIndexOutOfBoundsException unused5) {
-            return null;
-        }
-    }
-
-    public final int[] h(String str) {
-        int parseInt;
-        if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-            return new int[]{parseInt, g(this.f53329c, this.f53330d, parseInt)};
-        }
-        return null;
-    }
-
-    public void i(String str, Context context, AttributeSet attributeSet) {
-        int[] h2;
-        int d2;
-        try {
-            Resources resources = context.getResources();
-            this.f53329c = resources;
-            this.f53330d = resources;
-            int attributeCount = attributeSet.getAttributeCount();
-            b bVar = new b();
-            bVar.R(str);
-            boolean z = false;
-            for (int i2 = 0; i2 < attributeCount; i2++) {
-                String attributeName = attributeSet.getAttributeName(i2);
-                String attributeValue = attributeSet.getAttributeValue(i2);
-                if (attributeName.equals("id")) {
-                    bVar.G(attributeValue);
-                } else if (attributeName.equals("tb_background")) {
-                    int[] h3 = h(attributeValue);
-                    if (h3 != null) {
-                        bVar.w(h3[0]);
-                        bVar.x(h3[1]);
-                        z = true;
+    public void h() {
+        File[] listFiles;
+        if (g(this.f52143a)) {
+            File file = new File(this.f52143a.getFilesDir() + File.separator + "statistics_data");
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                if (listFiles.length > 50) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", "del_file");
+                        jSONObject.put("del_file_size", listFiles.length);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                } else if (attributeName.equals("tb_src")) {
-                    int[] h4 = h(attributeValue);
-                    if (h4 != null) {
-                        bVar.H(h4[0]);
-                        bVar.I(h4[1]);
-                        z = true;
+                    e.i(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
+                    for (File file2 : listFiles) {
+                        file2.delete();
                     }
-                } else if (attributeName.equals("tb_textColor")) {
-                    int[] h5 = h(attributeValue);
-                    if (h5 != null) {
-                        bVar.P(h5[0]);
-                        bVar.Q(h5[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_style")) {
-                    int[] h6 = h(attributeValue);
-                    if (h6 != null) {
-                        bVar.L(h6[0]);
-                        bVar.M(h6[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_divider")) {
-                    int[] h7 = h(attributeValue);
-                    if (h7 != null) {
-                        bVar.y(h7[0]);
-                        bVar.z(h7[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_drawableTop")) {
-                    int[] h8 = h(attributeValue);
-                    if (h8 != null) {
-                        bVar.E(h8[0]);
-                        bVar.F(h8[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_drawableLeft")) {
-                    int[] h9 = h(attributeValue);
-                    if (h9 != null) {
-                        bVar.A(h9[0]);
-                        bVar.B(h9[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_drawableRight")) {
-                    int[] h10 = h(attributeValue);
-                    if (h10 != null) {
-                        bVar.C(h10[0]);
-                        bVar.D(h10[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_progressDrawable")) {
-                    int[] h11 = h(attributeValue);
-                    if (h11 != null) {
-                        bVar.J(h11[0]);
-                        bVar.K(h11[1]);
-                        z = true;
-                    }
-                } else if (attributeName.equals("tb_textColorHint") && (h2 = h(attributeValue)) != null) {
-                    bVar.N(h2[0]);
-                    bVar.O(h2[1]);
-                    z = true;
+                    this.f52144b.h();
                 }
-                if (z && TbConfig.getDebugSwitch() && (d2 = d.a.c.e.m.b.d(attributeValue.substring(1), 0)) != 0) {
-                    String resourceName = this.f53329c.getResourceName(d2);
-                    bVar.a(attributeName + "=" + resourceName);
+                for (int i2 = 0; i2 < listFiles.length; i2++) {
+                    j u = this.f52144b.u(listFiles[i2].getName());
+                    if (u != null && TextUtils.equals("0", u.a())) {
+                        s.a("processFailedData file, no need to send");
+                    } else if (u != null && TextUtils.equals("1", u.a())) {
+                        s.a("processFailedData file, send");
+                        this.f52144b.G(listFiles[i2].getName(), "0");
+                        v(listFiles[i2].getName());
+                    } else {
+                        s.a("processFailedData file, data in db, delete file");
+                        listFiles[i2].delete();
+                    }
                 }
             }
+        }
+    }
+
+    public final void i() {
+        this.f52150h++;
+        t.g().putInt("ubc_real_time_count", this.f52150h);
+    }
+
+    public final void j() {
+        List<i> list = this.f52146d;
+        if (list == null || list.size() == 0) {
+            return;
+        }
+        this.f52144b.z(this.f52146d);
+        this.f52146d.clear();
+    }
+
+    public void k(i iVar) {
+        boolean z = TextUtils.equals(iVar.f52180a, iVar.f52181b) && this.l.b(iVar.f52180a) && (iVar.f52186g & 64) == 0;
+        if (z && !A(iVar)) {
+            this.f52144b.y(iVar);
+        } else if (Math.abs(System.currentTimeMillis() - this.f52148f) >= d.g().h()) {
+            if (!z) {
+                this.f52146d.add(iVar);
+            }
+            z();
+        } else if ((1 & iVar.f52186g) != 0) {
             if (z) {
-                if (!TextUtils.isEmpty(bVar.l()) && this.f53328b != null && !this.f53328b.containsKey(bVar.l())) {
-                    this.f53328b.put(bVar.l(), bVar);
-                } else if (!TextUtils.isEmpty(bVar.l())) {
-                    this.f53328b.containsKey(bVar.l());
-                }
+                return;
             }
-        } catch (Resources.NotFoundException unused) {
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            this.f52144b.y(iVar);
+        } else {
+            if (!z) {
+                this.f52146d.add(iVar);
+            }
+            if (this.f52146d.size() >= 20) {
+                j();
+            }
         }
     }
 
-    public void j(View view) {
-        if (view == null) {
+    public void l(i iVar) {
+        this.f52145c.d(iVar, this.l.b(iVar.f52180a));
+    }
+
+    public final void m(String str, String str2) {
+        OutputStream fileOutputStream;
+        String str3 = this.f52143a.getFilesDir() + File.separator + "statistics_data";
+        File file = new File(str3);
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        File file2 = new File(str3, str2);
+        if (file2.exists()) {
             return;
         }
-        Stack stack = new Stack();
-        stack.push(view);
-        while (!stack.isEmpty()) {
-            View view2 = (View) stack.pop();
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                b(viewGroup);
-                if (!(view2 instanceof AdapterView)) {
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        stack.push(viewGroup.getChildAt(i2));
-                    }
-                }
-            } else {
-                a(view2);
+        OutputStream outputStream = null;
+        try {
+            try {
+                fileOutputStream = new FileOutputStream(file2);
+            } catch (Exception e2) {
+                e = e2;
             }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            outputStream = new Base64OutputStream(fileOutputStream, 0);
+            outputStream.write(str.getBytes());
+            outputStream.flush();
+            s.a("save to file suc");
+        } catch (Exception e3) {
+            e = e3;
+            outputStream = fileOutputStream;
+            e.printStackTrace();
+            d.a.m0.t.d.d(outputStream);
+        } catch (Throwable th2) {
+            th = th2;
+            outputStream = fileOutputStream;
+            d.a.m0.t.d.d(outputStream);
+            throw th;
+        }
+        d.a.m0.t.d.d(outputStream);
+    }
+
+    public final void n(boolean z) {
+        u uVar = new u();
+        uVar.f52269g = z;
+        if (this.f52145c.c(uVar, z)) {
+            JSONArray jSONArray = uVar.f52263a;
+            this.f52145c.b(z);
+            n.f().s(jSONArray);
         }
     }
 
-    public void k(boolean z) {
-        this.f53327a = z;
+    public void o() {
+        this.f52144b.C();
     }
 
-    public void l(Resources resources) {
-        this.f53330d = resources;
+    public void p(k kVar) {
+        this.f52144b.B(kVar);
+    }
+
+    public final void q(u uVar) {
+        if (uVar.d()) {
+            return;
+        }
+        JSONArray jSONArray = uVar.f52263a;
+        String d2 = d.a.m0.t.f.d(jSONArray.toString().getBytes(), true);
+        m(jSONArray.toString(), d2);
+        this.f52144b.A(d2, uVar.f52269g);
+        if (!this.f52144b.g(uVar.f52264b, uVar.f52265c, uVar.f52269g, d2)) {
+            uVar.c();
+            File file = new File(this.f52143a.getFilesDir() + File.separator + "statistics_data", d2);
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "db fail deleteUploadFile file suc");
+            }
+            this.f52144b.i(d2);
+            return;
+        }
+        n.f().r(jSONArray, d2);
+        uVar.c();
+    }
+
+    public void r(q qVar) {
+        this.l.q(qVar.a());
+        this.l.n(qVar.d() * 86400000);
+        this.l.o(qVar.c());
+        t.g().putString("ubc_version_md5", qVar.b());
+        this.f52144b.D(qVar.a());
+        qVar.a().clear();
+        if (this.f52151i == null) {
+            this.f52151i = new SparseArray<>();
+        }
+        this.f52151i.clear();
+        if (this.j == null) {
+            this.j = new HashMap<>();
+        }
+        this.j.clear();
+        this.f52144b.v(this.f52151i);
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.f52151i.size(); i3++) {
+            int keyAt = this.f52151i.keyAt(i3);
+            if (keyAt != 0 && i2 == 0) {
+                i2 = keyAt;
+            }
+            HashMap<String, Long> hashMap = this.j;
+            hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+        }
+        this.l.p(i2);
+    }
+
+    public void s(String str, int i2, String str2) {
+        this.f52144b.E(str, i2, str2);
+    }
+
+    public void t() {
+        if (g(this.f52143a) && Math.abs(System.currentTimeMillis() - this.f52147e) >= 3600000) {
+            this.f52144b.f();
+            u uVar = new u();
+            if (this.f52144b.l(uVar) == 0) {
+                return;
+            }
+            u uVar2 = new u();
+            uVar2.g(uVar.f52266d, uVar.f52267e);
+            uVar2.f52268f = uVar.f52268f;
+            uVar2.f52269g = true;
+            u uVar3 = new u();
+            uVar3.g(uVar.f52266d, uVar.f52267e);
+            uVar3.f52268f = uVar.f52268f;
+            uVar3.f52269g = false;
+            SparseIntArray sparseIntArray = uVar.f52264b;
+            int size = sparseIntArray.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (this.l.b(String.valueOf(sparseIntArray.valueAt(i2)))) {
+                    uVar2.f(sparseIntArray.keyAt(i2), sparseIntArray.valueAt(i2));
+                } else {
+                    uVar3.f(sparseIntArray.keyAt(i2), sparseIntArray.valueAt(i2));
+                }
+            }
+            ArrayList<String> arrayList = uVar.f52265c;
+            int size2 = arrayList.size();
+            for (int i3 = 0; i3 < size2; i3++) {
+                String str = arrayList.get(i3);
+                if (this.l.b(str)) {
+                    uVar2.e(str);
+                } else {
+                    uVar3.e(str);
+                }
+            }
+            JSONArray jSONArray = uVar.f52263a;
+            int length = jSONArray.length();
+            for (int i4 = 0; i4 < length; i4++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i4);
+                if (optJSONObject.has("bizId")) {
+                    String str2 = null;
+                    try {
+                        str2 = optJSONObject.getString("bizId");
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (this.l.b(str2)) {
+                            uVar2.a(optJSONObject);
+                        } else {
+                            uVar3.a(optJSONObject);
+                        }
+                    }
+                }
+            }
+            if (uVar2.f52263a.length() > 0) {
+                q(uVar2);
+            }
+            if (uVar3.f52263a.length() > 0) {
+                q(uVar3);
+            }
+            this.f52147e = System.currentTimeMillis();
+            t.g().putLong("ubc_last_upload_all_time", this.f52147e);
+            this.f52148f = this.f52147e;
+            t.g().putLong("ubc_last_upload_non_real", this.f52148f);
+        }
+    }
+
+    public final void u(JSONArray jSONArray, String str) {
+        n.f().t(str, this.k.a(jSONArray));
+    }
+
+    public void v(String str) {
+        File file = new File(this.f52143a.getFilesDir() + File.separator + "statistics_data", str);
+        InputStream inputStream = null;
+        try {
+            InputStream fileInputStream = new FileInputStream(file);
+            try {
+                if (fileInputStream.available() > 0) {
+                    inputStream = new Base64InputStream(fileInputStream, 0);
+                    n.f().r(new JSONArray(d.a.m0.t.h.c(inputStream)), str);
+                    fileInputStream = inputStream;
+                }
+                d.a.m0.t.d.d(fileInputStream);
+            } catch (Exception unused) {
+                inputStream = fileInputStream;
+                d.a.m0.t.d.d(inputStream);
+            } catch (Throwable th) {
+                th = th;
+                inputStream = fileInputStream;
+                d.a.m0.t.d.d(inputStream);
+                throw th;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public void w(JSONArray jSONArray) {
+        if (this.k.a(jSONArray)) {
+            return;
+        }
+        e.i(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "sendFail");
+    }
+
+    public void x(String str) {
+        s.a("upload file fail");
+        this.f52144b.F(str);
+    }
+
+    public void y(String str) {
+        File file = new File(this.f52143a.getFilesDir() + File.separator + "statistics_data", str);
+        s.a("delete file");
+        if (file.exists() && file.delete()) {
+            Log.d("CeresBehaviorModel", "deleteUploadFile file suc");
+            s.a("delete file suc");
+        }
+        this.f52144b.i(str);
+    }
+
+    public final void z() {
+        if (g(this.f52143a)) {
+            this.f52148f = System.currentTimeMillis();
+            t.g().putLong("ubc_last_upload_non_real", this.f52148f);
+            b();
+            j();
+            this.f52144b.f();
+            HashSet hashSet = new HashSet();
+            if (this.f52151i == null) {
+                f();
+            }
+            u uVar = new u();
+            uVar.f52269g = false;
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.f52151i.size(); i3++) {
+                int keyAt = this.f52151i.keyAt(i3);
+                if (keyAt != 0) {
+                    HashMap<String, Long> hashMap = this.j;
+                    long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
+                        i2 |= this.f52144b.m(this.f52151i.valueAt(i3), uVar);
+                        HashMap<String, Long> hashMap2 = this.j;
+                        hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                        hashSet.add(Integer.valueOf(keyAt));
+                    }
+                }
+            }
+            if (i2 == 0) {
+                return;
+            }
+            for (int i4 = 0; i4 < this.f52151i.size(); i4++) {
+                int keyAt2 = this.f52151i.keyAt(i4);
+                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
+                    if (uVar.b(51200)) {
+                        break;
+                    }
+                    this.f52144b.m(this.f52151i.valueAt(i4), uVar);
+                }
+            }
+            q(uVar);
+        }
     }
 }

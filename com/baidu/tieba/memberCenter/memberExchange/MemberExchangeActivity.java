@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener = new a(CmdConfigHttp.CMD_GET_TCODE_INFO_CMD);
-    public d.a.n0.s1.d.a mView;
+    public d.a.o0.s1.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i2) {
             super(i2);
@@ -38,7 +38,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f64160a.equals("0")) {
+                        if (getTCodeResMessage.getTCodeInfo().f64285a.equals("0")) {
                             MemberExchangeActivity.this.showToast(R.string.exchange_success);
                             return;
                         } else {
@@ -104,7 +104,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         }
         initTask();
         initListener();
-        d.a.n0.s1.d.a aVar = new d.a.n0.s1.d.a(this);
+        d.a.o0.s1.d.a aVar = new d.a.o0.s1.d.a(this);
         this.mView = aVar;
         aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
     }

@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.n0.z.b0;
-import d.a.n0.z.e0.h;
+import d.a.o0.z.b0;
+import d.a.o0.z.e0.h;
 /* loaded from: classes4.dex */
 public class GodSquareHotGodAdapter extends d.a.c.k.e.a<h, ViewHolder> {
     public TbPageContext<?> m;
-    public d.a.n0.w0.d.a n;
+    public d.a.o0.w0.d.a n;
     public b0 o;
 
     /* loaded from: classes4.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.n0.w0.d.a f16150a;
+        public d.a.o0.w0.d.a f16232a;
 
-        public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, d.a.n0.w0.d.a aVar) {
+        public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, d.a.o0.w0.d.a aVar) {
             super(aVar.m());
-            this.f16150a = aVar;
+            this.f16232a = aVar;
         }
     }
 
@@ -34,26 +34,26 @@ public class GodSquareHotGodAdapter extends d.a.c.k.e.a<h, ViewHolder> {
         public a() {
         }
 
-        @Override // d.a.n0.z.b0
+        @Override // d.a.o0.z.b0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareHotGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f67193e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareHotGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f67318e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareHotGodAdapter.this.n.m.getId()) {
                 if (view.getId() == GodSquareHotGodAdapter.this.n.m().getId() || view.getId() == GodSquareHotGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f67193e.getUserId()));
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f67318e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f67193e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f67318e.getUserId()));
         }
     }
 
     public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f67191h);
+        super(tbPageContext.getPageActivity(), h.f67316h);
         this.o = new a();
         this.m = tbPageContext;
     }
@@ -62,7 +62,7 @@ public class GodSquareHotGodAdapter extends d.a.c.k.e.a<h, ViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public ViewHolder Q(ViewGroup viewGroup) {
-        d.a.n0.w0.d.a aVar = new d.a.n0.w0.d.a(this.m);
+        d.a.o0.w0.d.a aVar = new d.a.o0.w0.d.a(this.m);
         this.n = aVar;
         aVar.u(this.m.getUniqueId());
         this.n.p(this.o);
@@ -73,8 +73,8 @@ public class GodSquareHotGodAdapter extends d.a.c.k.e.a<h, ViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: h0 */
     public View X(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
-        d.a.n0.w0.d.a aVar;
-        if (viewHolder == null || (aVar = viewHolder.f16150a) == null) {
+        d.a.o0.w0.d.a aVar;
+        if (viewHolder == null || (aVar = viewHolder.f16232a) == null) {
             return null;
         }
         aVar.n(hVar);

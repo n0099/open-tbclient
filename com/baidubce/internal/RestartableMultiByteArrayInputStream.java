@@ -4,7 +4,7 @@ import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RestartableMultiByteArrayInputStream extends RestartableInputStream {
     public int blockSize;
     public List<byte[]> byteArrayList;

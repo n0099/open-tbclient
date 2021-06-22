@@ -4,8 +4,8 @@ import GetSugTopic.GetSugTopicResIdl;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.a.m0.r.r.a;
-import d.a.n0.e1.c;
+import d.a.n0.r.r.a;
+import d.a.o0.e1.c;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {

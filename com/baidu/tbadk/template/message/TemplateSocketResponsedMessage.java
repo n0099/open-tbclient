@@ -2,7 +2,7 @@ package com.baidu.tbadk.template.message;
 
 import android.util.Log;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import d.a.m0.x0.c.b;
+import d.a.n0.x0.c.b;
 /* loaded from: classes3.dex */
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public b mIResp;

@@ -7,29 +7,29 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34710a;
+    public long f34808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34711b;
+    public int f34809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34712c;
+    public boolean f34810c;
 
     public void a(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f34710a = jSONObject.optLong("posId");
-        this.f34711b = jSONObject.optInt("adPhotoCountForMedia");
-        this.f34712c = jSONObject.optBoolean("enablePreload");
+        this.f34808a = jSONObject.optLong("posId");
+        this.f34809b = jSONObject.optInt("adPhotoCountForMedia");
+        this.f34810c = jSONObject.optBoolean("enablePreload");
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "posId", this.f34710a);
-        o.a(jSONObject, "adPhotoCountForMedia", this.f34711b);
-        o.a(jSONObject, "enablePreload", this.f34712c);
+        o.a(jSONObject, "posId", this.f34808a);
+        o.a(jSONObject, "adPhotoCountForMedia", this.f34809b);
+        o.a(jSONObject, "enablePreload", this.f34810c);
         return jSONObject;
     }
 }

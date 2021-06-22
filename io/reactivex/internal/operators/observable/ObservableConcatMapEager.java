@@ -33,7 +33,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public InnerQueuedObserver<R> current;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72306d;
+        public Disposable f72410d;
         public volatile boolean done;
         public final ErrorMode errorMode;
         public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
@@ -112,7 +112,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                             i3++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f72306d.dispose();
+                            this.f72410d.dispose();
                             simpleQueue.clear();
                             disposeAll();
                             this.error.addThrowable(th);
@@ -206,7 +206,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public void innerError(InnerQueuedObserver<R> innerQueuedObserver, Throwable th) {
             if (this.error.addThrowable(th)) {
                 if (this.errorMode == ErrorMode.IMMEDIATE) {
-                    this.f72306d.dispose();
+                    this.f72410d.dispose();
                 }
                 innerQueuedObserver.setDone();
                 drain();
@@ -252,8 +252,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72306d, disposable)) {
-                this.f72306d = disposable;
+            if (DisposableHelper.validate(this.f72410d, disposable)) {
+                this.f72410d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);

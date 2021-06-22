@@ -28,25 +28,25 @@ public class h {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f27586a;
+    public static volatile h f27668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27587b;
+    public Context f27669b;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f27589d = new AtomicBoolean(false);
+    public AtomicBoolean f27671d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f27590e = Collections.synchronizedList(new ArrayList());
+    public List<a> f27672e = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: f  reason: collision with root package name */
-    public final BroadcastReceiver f27591f = new BroadcastReceiver() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.3
+    public final BroadcastReceiver f27673f = new BroadcastReceiver() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.3
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (!"android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) || x.c(h.this.f27587b) == 0) {
+            if (!"android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) || x.c(h.this.f27669b) == 0) {
                 return;
             }
-            Iterator it = h.this.f27590e.iterator();
+            Iterator it = h.this.f27672e.iterator();
             while (it.hasNext()) {
                 com.bytedance.sdk.openadsdk.l.e.a((com.bytedance.sdk.openadsdk.l.g) it.next(), 1);
                 it.remove();
@@ -55,32 +55,32 @@ public class h {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f27588c = p.f();
+    public final q f27670c = p.f();
 
     /* loaded from: classes6.dex */
     public class a extends com.bytedance.sdk.openadsdk.l.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public l f27608a;
+        public l f27690a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AdSlot f27609b;
+        public AdSlot f27691b;
 
         public a(l lVar, AdSlot adSlot) {
             super("Reward Task");
-            this.f27608a = lVar;
-            this.f27609b = adSlot;
+            this.f27690a = lVar;
+            this.f27691b = adSlot;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.a(h.this.f27587b).a(this.f27608a, new f.a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.a.1
+            f.a(h.this.f27669b).a(this.f27690a, new f.a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.a.1
                 @Override // com.bytedance.sdk.openadsdk.component.reward.f.a
                 public void a(boolean z, Object obj) {
                     if (z) {
-                        f a2 = f.a(h.this.f27587b);
+                        f a2 = f.a(h.this.f27669b);
                         a aVar = a.this;
-                        a2.a(aVar.f27609b, aVar.f27608a);
+                        a2.a(aVar.f27691b, aVar.f27690a);
                     }
                 }
             });
@@ -88,28 +88,28 @@ public class h {
     }
 
     public h(Context context) {
-        this.f27587b = context == null ? p.a() : context.getApplicationContext();
+        this.f27669b = context == null ? p.a() : context.getApplicationContext();
         c();
     }
 
     private void c() {
-        if (this.f27589d.get()) {
+        if (this.f27671d.get()) {
             return;
         }
-        this.f27589d.set(true);
+        this.f27671d.set(true);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         try {
-            this.f27587b.registerReceiver(this.f27591f, intentFilter);
+            this.f27669b.registerReceiver(this.f27673f, intentFilter);
         } catch (Exception unused) {
         }
     }
 
     private void d() {
-        if (this.f27589d.get()) {
-            this.f27589d.set(false);
+        if (this.f27671d.get()) {
+            this.f27671d.set(false);
             try {
-                this.f27587b.unregisterReceiver(this.f27591f);
+                this.f27669b.unregisterReceiver(this.f27673f);
             } catch (Exception unused) {
             }
         }
@@ -122,20 +122,20 @@ public class h {
 
     public void b() {
         try {
-            f.a(this.f27587b).a();
+            f.a(this.f27669b).a();
         } catch (Throwable unused) {
         }
     }
 
     public static h a(Context context) {
-        if (f27586a == null) {
+        if (f27668a == null) {
             synchronized (h.class) {
-                if (f27586a == null) {
-                    f27586a = new h(context);
+                if (f27668a == null) {
+                    f27668a = new h(context);
                 }
             }
         }
-        return f27586a;
+        return f27668a;
     }
 
     public void b(AdSlot adSlot) {
@@ -149,25 +149,25 @@ public class h {
 
     @Nullable
     public AdSlot b(String str) {
-        return f.a(this.f27587b).b(str);
+        return f.a(this.f27669b).b(str);
     }
 
     public void a() {
-        AdSlot b2 = f.a(this.f27587b).b();
-        if (b2 == null || TextUtils.isEmpty(b2.getCodeId()) || f.a(this.f27587b).c(b2.getCodeId()) != null) {
+        AdSlot b2 = f.a(this.f27669b).b();
+        if (b2 == null || TextUtils.isEmpty(b2.getCodeId()) || f.a(this.f27669b).c(b2.getCodeId()) != null) {
             return;
         }
         b(b2);
     }
 
     public void a(AdSlot adSlot) {
-        f.a(this.f27587b).b(adSlot);
+        f.a(this.f27669b).b(adSlot);
     }
 
     public void a(AdSlot adSlot, TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
         u.b("RewardVideoLoadManager", "load reward vide: " + String.valueOf(adSlot));
         u.b("bidding", "load reward vide: BidAdm->MD5->" + com.bytedance.sdk.openadsdk.k.g.b.a(adSlot.getBidAdm()));
-        f.a(this.f27587b).a(adSlot);
+        f.a(this.f27669b).a(adSlot);
         a(adSlot, false, rewardVideoAdListener);
     }
 
@@ -182,27 +182,27 @@ public class h {
                 return;
             }
         }
-        final l c2 = f.a(this.f27587b).c(adSlot.getCodeId());
+        final l c2 = f.a(this.f27669b).c(adSlot.getCodeId());
         if (c2 != null && adSlot.getExtraSmartLookParam() == null) {
-            k kVar = new k(this.f27587b, c2, adSlot);
+            k kVar = new k(this.f27669b, c2, adSlot);
             if (!c2.D()) {
-                kVar.a(f.a(this.f27587b).a(c2));
+                kVar.a(f.a(this.f27669b).a(c2));
             }
             com.bytedance.sdk.openadsdk.c.d.a(c2);
             if (rewardVideoAdListener != null) {
                 rewardVideoAdListener.onRewardVideoAdLoad(kVar);
                 if (!c2.D()) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.f27587b, c2, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
+                    com.bytedance.sdk.openadsdk.c.d.a(this.f27669b, c2, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
                     rewardVideoAdListener.onRewardVideoCached();
                 }
             }
-            com.bytedance.sdk.openadsdk.core.g.a.a().a(c2, new a.InterfaceC0295a() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.1
-                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC0295a
+            com.bytedance.sdk.openadsdk.core.g.a.a().a(c2, new a.InterfaceC0298a() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.1
+                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC0298a
                 public void a(boolean z2) {
                     if (rewardVideoAdListener == null || !c2.D()) {
                         return;
                     }
-                    com.bytedance.sdk.openadsdk.c.d.a(h.this.f27587b, c2, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
+                    com.bytedance.sdk.openadsdk.c.d.a(h.this.f27669b, c2, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
                     rewardVideoAdListener.onRewardVideoCached();
                 }
             });
@@ -216,11 +216,11 @@ public class h {
     private void a(final AdSlot adSlot, final boolean z, final TTAdNative.RewardVideoAdListener rewardVideoAdListener, final long j) {
         u.b("bidding", "reward video doNetwork 获取新物料:BidAdm->MD5->" + com.bytedance.sdk.openadsdk.k.g.b.a(adSlot.getBidAdm()));
         m mVar = new m();
-        mVar.f28013b = z ? 2 : 1;
+        mVar.f28095b = z ? 2 : 1;
         if (p.h().i(adSlot.getCodeId()) || adSlot.getExpressViewAcceptedWidth() > 0.0f) {
-            mVar.f28016e = 2;
+            mVar.f28098e = 2;
         }
-        this.f27588c.a(adSlot, mVar, 7, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2
+        this.f27670c.a(adSlot, mVar, 7, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i2, String str) {
                 TTAdNative.RewardVideoAdListener rewardVideoAdListener2;
@@ -251,41 +251,41 @@ public class h {
                         }
                     } catch (Throwable unused) {
                     }
-                    final k kVar = new k(h.this.f27587b, lVar, adSlot);
+                    final k kVar = new k(h.this.f27669b, lVar, adSlot);
                     if (!z && (rewardVideoAdListener4 = rewardVideoAdListener) != null) {
                         rewardVideoAdListener4.onRewardVideoAdLoad(kVar);
                     }
-                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC0295a() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2.1
-                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC0295a
+                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC0298a() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2.1
+                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC0298a
                         public void a(boolean z2) {
                             l lVar2;
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                             if (z || rewardVideoAdListener == null || (lVar2 = lVar) == null || !lVar2.D()) {
                                 return;
                             }
-                            com.bytedance.sdk.openadsdk.c.d.a(h.this.f27587b, lVar, ak.b(adSlot.getDurationSlotType()), j);
+                            com.bytedance.sdk.openadsdk.c.d.a(h.this.f27669b, lVar, ak.b(adSlot.getDurationSlotType()), j);
                             rewardVideoAdListener.onRewardVideoCached();
                         }
                     });
                     if (lVar.aH()) {
-                        if (z && !lVar.D() && p.h().q(adSlot.getCodeId()).f28220d == 1) {
-                            if (x.d(h.this.f27587b)) {
+                        if (z && !lVar.D() && p.h().q(adSlot.getCodeId()).f28302d == 1) {
+                            if (x.d(h.this.f27669b)) {
                                 return;
                             }
                             h hVar = h.this;
                             hVar.a(new a(lVar, adSlot));
                         } else if (!lVar.D()) {
-                            f.a(h.this.f27587b).a(lVar, new f.a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2.2
+                            f.a(h.this.f27669b).a(lVar, new f.a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.h.2.2
                                 @Override // com.bytedance.sdk.openadsdk.component.reward.f.a
                                 public void a(boolean z2, Object obj) {
                                     u.b("RewardVideoLoadManager", "download video file: " + z2 + ", preload: " + z);
                                     if (z2) {
-                                        kVar.a(f.a(h.this.f27587b).a(lVar));
+                                        kVar.a(f.a(h.this.f27669b).a(lVar));
                                     }
                                     AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                                     if (z) {
                                         if (z2) {
-                                            f.a(h.this.f27587b).a(adSlot, lVar);
+                                            f.a(h.this.f27669b).a(adSlot, lVar);
                                             return;
                                         }
                                         return;
@@ -294,14 +294,14 @@ public class h {
                                     if (z2) {
                                         AnonymousClass2 anonymousClass22 = AnonymousClass2.this;
                                         if (rewardVideoAdListener != null) {
-                                            com.bytedance.sdk.openadsdk.c.d.a(h.this.f27587b, lVar, ak.b(adSlot.getDurationSlotType()), j);
+                                            com.bytedance.sdk.openadsdk.c.d.a(h.this.f27669b, lVar, ak.b(adSlot.getDurationSlotType()), j);
                                             rewardVideoAdListener.onRewardVideoCached();
                                         }
                                     }
                                 }
                             });
                         } else {
-                            f.a(h.this.f27587b).a(adSlot, lVar);
+                            f.a(h.this.f27669b).a(adSlot, lVar);
                         }
                     } else if (z || (rewardVideoAdListener3 = rewardVideoAdListener) == null) {
                     } else {
@@ -316,7 +316,7 @@ public class h {
     }
 
     public void a(String str) {
-        f.a(this.f27587b).a(str);
+        f.a(this.f27669b).a(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -324,9 +324,9 @@ public class h {
         if (aVar == null) {
             return;
         }
-        if (this.f27590e.size() >= 1) {
-            this.f27590e.remove(0);
+        if (this.f27672e.size() >= 1) {
+            this.f27672e.remove(0);
         }
-        this.f27590e.add(aVar);
+        this.f27672e.add(aVar);
     }
 }

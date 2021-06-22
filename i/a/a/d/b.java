@@ -12,26 +12,26 @@ import tv.athena.revenue.api.pay.IMiddlePayService;
 public final class b implements IMiddleRevenue {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f72046a;
+    public final a f72150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IRevenue f72047b;
+    public final IRevenue f72151b;
 
     public b(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
-        this.f72047b = iRevenue;
-        IAppPayService appPayService = this.f72047b.getAppPayService();
+        this.f72151b = iRevenue;
+        IAppPayService appPayService = this.f72151b.getAppPayService();
         Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.f72046a = new a(middleRevenueConfig, appPayService);
+        this.f72150a = new a(middleRevenueConfig, appPayService);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public IAppPayService getAppPayService() {
-        return this.f72046a;
+        return this.f72150a;
     }
 
     @Override // tv.athena.revenue.api.IMiddleRevenue
     public IMiddlePayService getMiddlePayService() {
-        return this.f72046a;
+        return this.f72150a;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
@@ -41,6 +41,6 @@ public final class b implements IMiddleRevenue {
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public void updateConfig(RevenueConfig revenueConfig) {
-        this.f72047b.updateConfig(revenueConfig);
+        this.f72151b.updateConfig(revenueConfig);
     }
 }

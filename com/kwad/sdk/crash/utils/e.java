@@ -1,6 +1,7 @@
 package com.kwad.sdk.crash.utils;
 
 import android.os.Build;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -23,21 +24,21 @@ public class e {
     public static class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f35140a;
+        public final PrintWriter f35238a;
 
         public b(PrintWriter printWriter) {
             super();
-            this.f35140a = printWriter;
+            this.f35238a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public Object a() {
-            return this.f35140a;
+            return this.f35238a;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public void a(Object obj) {
-            this.f35140a.println(obj);
+            this.f35238a.println(obj);
         }
     }
 
@@ -64,7 +65,7 @@ public class e {
 
     public static void a(Throwable th, a aVar, String str, String str2, Set<Throwable> set) {
         if (set.contains(th)) {
-            aVar.a("\t[CIRCULAR REFERENCE:" + th + "]");
+            aVar.a("\t[CIRCULAR REFERENCE:" + th + PreferencesUtil.RIGHT_MOUNT);
             return;
         }
         set.add(th);

@@ -15,29 +15,29 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public static String PAGE_HOME = "2";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24245a;
+    public String f24327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24246b;
+    public String f24328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24247c;
+    public String f24329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24248d;
+    public boolean f24330d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24249e;
+    public String f24331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24250f;
+    public String f24332f;
 
     public <T> HomeCfgBean(Context context) {
         super(context.getApplicationContext());
-        this.f24245a = "";
-        this.f24246b = "";
-        this.f24247c = "";
-        this.f24248d = false;
+        this.f24327a = "";
+        this.f24328b = "";
+        this.f24329c = "";
+        this.f24330d = false;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -48,11 +48,11 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("cate[layout_content]", this.f24245a));
-        arrayList.add(new RestNameValuePair("cate[layout_title]", this.f24246b));
-        arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f24247c));
-        arrayList.add(new RestNameValuePair("page", this.f24250f));
-        arrayList.add(new RestNameValuePair("changedSign", this.f24249e));
+        arrayList.add(new RestNameValuePair("cate[layout_content]", this.f24327a));
+        arrayList.add(new RestNameValuePair("cate[layout_title]", this.f24328b));
+        arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f24329c));
+        arrayList.add(new RestNameValuePair("page", this.f24332f));
+        arrayList.add(new RestNameValuePair("changedSign", this.f24331e));
         return arrayList;
     }
 
@@ -70,31 +70,31 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public String getUrl() {
         StringBuilder sb = new StringBuilder();
         sb.append(DomainConfig.getInstance().getAppHost());
-        sb.append(this.f24248d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
+        sb.append(this.f24330d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
         return sb.toString();
     }
 
     public void setAbtypeHomePage(boolean z) {
-        this.f24248d = z;
+        this.f24330d = z;
     }
 
     public void setAllFingerPrint(String str) {
-        this.f24245a = str;
+        this.f24327a = str;
     }
 
     public void setChangeSign(String str) {
-        this.f24249e = str;
+        this.f24331e = str;
     }
 
     public void setFooterFingerPrint(String str) {
-        this.f24247c = str;
+        this.f24329c = str;
     }
 
     public void setPageId(String str) {
-        this.f24250f = str;
+        this.f24332f = str;
     }
 
     public void setTitleFingerPrint(String str) {
-        this.f24246b = str;
+        this.f24328b = str;
     }
 }

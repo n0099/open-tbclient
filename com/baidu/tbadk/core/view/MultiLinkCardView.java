@@ -18,28 +18,28 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.m0.b.d;
-import d.a.m0.z0.j0;
-import d.a.n0.z.e0.c;
+import d.a.n0.b.d;
+import d.a.n0.z0.j0;
+import d.a.o0.z.e0.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MultiLinkCardView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12298e;
+    public TextView f12380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12299f;
+    public TextView f12381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12300g;
+    public TextView f12382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f12301h;
+    public RelativeLayout f12383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f12302i;
+    public RelativeLayout f12384i;
     public RelativeLayout j;
     public TbImageView k;
     public TbImageView l;
@@ -71,8 +71,8 @@ public class MultiLinkCardView extends RelativeLayout {
         if (d.V()) {
             TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(l.g(getContext(), R.dimen.tbds10)).into(this.n);
         }
-        this.f12301h.setVisibility(8);
-        this.f12302i.setVisibility(8);
+        this.f12383h.setVisibility(8);
+        this.f12384i.setVisibility(8);
         this.j.setVisibility(8);
         this.n.setVisibility(8);
         int size = a2.size() > 3 ? 3 : a2.size();
@@ -119,12 +119,12 @@ public class MultiLinkCardView extends RelativeLayout {
     public MultiLinkCardView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f12301h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f12302i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.f12383h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f12384i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
         this.j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f12298e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f12299f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f12300g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f12380e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f12381f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f12382g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
         this.k = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -151,22 +151,22 @@ public class MultiLinkCardView extends RelativeLayout {
         this.m.setRadius(l.g(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.n = textView;
-        d.a.m0.r.u.c.d(textView).v(R.array.S_O_X001);
+        d.a.n0.r.u.c.d(textView).v(R.array.S_O_X001);
         this.o = (TextView) findViewById(R.id.tv_multi_link_count);
         this.p = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.s = new ArrayList();
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f12301h);
-        this.q.add(this.f12302i);
+        arrayList.add(this.f12383h);
+        this.q.add(this.f12384i);
         this.q.add(this.j);
         this.r.add(this.k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f12298e);
-        this.s.add(this.f12299f);
-        this.s.add(this.f12300g);
+        this.s.add(this.f12380e);
+        this.s.add(this.f12381f);
+        this.s.add(this.f12382g);
         b();
     }
 }

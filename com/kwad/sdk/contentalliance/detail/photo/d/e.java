@@ -11,16 +11,16 @@ import com.kwad.sdk.contentalliance.detail.photo.d.b;
 public class e extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a f32846a;
+    public b.a f32944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f32847b;
+    public b f32945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f32848c;
+    public d f32946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f32849d;
+    public a f32947d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -31,7 +31,7 @@ public class e extends Dialog {
 
     public e(Context context, d dVar) {
         super(context);
-        this.f32846a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
+        this.f32944a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
             @Override // com.kwad.sdk.contentalliance.detail.photo.d.b.a
             public void a() {
                 e.this.dismiss();
@@ -43,17 +43,17 @@ public class e extends Dialog {
             }
         };
         setOwnerActivity((Activity) (context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context));
-        this.f32848c = dVar;
+        this.f32946c = dVar;
     }
 
     public void a(a aVar) {
-        this.f32849d = aVar;
+        this.f32947d = aVar;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        a aVar = this.f32849d;
+        a aVar = this.f32947d;
         if (aVar != null) {
             aVar.b();
         }
@@ -64,10 +64,10 @@ public class e extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         b bVar = new b(getContext());
-        this.f32847b = bVar;
-        bVar.a(this.f32848c);
-        setContentView(this.f32847b);
-        this.f32847b.a(this.f32846a);
+        this.f32945b = bVar;
+        bVar.a(this.f32946c);
+        setContentView(this.f32945b);
+        this.f32945b.a(this.f32944a);
         setCanceledOnTouchOutside(true);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         getWindow().setLayout(-1, -1);
@@ -76,14 +76,14 @@ public class e extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f32847b.b(this.f32846a);
-        this.f32847b.a();
+        this.f32945b.b(this.f32944a);
+        this.f32945b.a();
     }
 
     @Override // android.app.Dialog
     public void onStart() {
         super.onStart();
-        a aVar = this.f32849d;
+        a aVar = this.f32947d;
         if (aVar != null) {
             aVar.a();
         }

@@ -23,18 +23,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import d.a.c.e.m.e;
 import d.a.c.e.m.h;
-import d.a.m0.b.d;
-import d.a.m0.r.l.a;
+import d.a.n0.b.d;
+import d.a.n0.r.l.a;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.a {
+public class LoginDialogActivity extends SuspendedActivity implements d.a.n0.t0.a {
     public ViewGroup contentView;
-    public d.a.n0.c2.c.a dialogControl;
+    public d.a.o0.c2.c.a dialogControl;
     public String dialogType;
     public String locate;
     public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final a.InterfaceC1197a mReLoginCallback = new a();
+    public final a.InterfaceC1200a mReLoginCallback = new a();
     public String operator;
     public String phoneNum;
     public String searchUrl;
@@ -42,22 +42,22 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     public String sign;
 
     /* loaded from: classes5.dex */
-    public class a implements a.InterfaceC1197a {
+    public class a implements a.InterfaceC1200a {
         public a() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void a(String str, int i2, String str2) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.showToast(str2);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void b(String str) {
             LoginDialogActivity.this.showLoading();
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void c(AccountData accountData) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.onLoginSuccess(accountData);
@@ -82,16 +82,16 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f18829e;
+        public final /* synthetic */ AccountData f18911e;
 
         public c(AccountData accountData) {
-            this.f18829e = accountData;
+            this.f18911e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f18829e);
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            d.a.n0.r.l.c.g(this.f18911e);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
@@ -116,20 +116,20 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     /* JADX INFO: Access modifiers changed from: private */
     public void onLoginSuccess(AccountData accountData) {
         saveAccountInfo(accountData);
-        d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+        d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
         finishForResult(-1);
         if (d.f()) {
-            d.a.m0.a.d.y().r();
+            d.a.n0.a.d.y().r();
         }
         continueDoSearchProcess();
     }
 
     private void saveAccountInfo(AccountData accountData) {
         h.a().c(new c(accountData));
-        d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+        d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        d.a.m0.l.a.f(TbadkCoreApplication.getInst());
+        d.a.n0.l.a.f(TbadkCoreApplication.getInst());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
     }
 
@@ -161,9 +161,9 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
         return this.loginListener;
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public Intent getResultIntent() {
-        d.a.n0.c2.c.a aVar = this.dialogControl;
+        d.a.o0.c2.c.a aVar = this.dialogControl;
         if (aVar != null) {
             return aVar.getResultIntent();
         }
@@ -171,7 +171,7 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.m0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.n0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         this.contentView = linearLayout;
         navigationBar.setVisibility(8);
         if (getIntent() == null) {
@@ -180,20 +180,20 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
         }
         initData();
         if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-            this.dialogControl = new d.a.n0.c2.c.b(this.phoneNum, this.operator, this.sign);
+            this.dialogControl = new d.a.o0.c2.c.b(this.phoneNum, this.operator, this.sign);
         } else {
-            this.dialogControl = new d.a.n0.c2.c.c(this.shareModelJSONStr);
+            this.dialogControl = new d.a.o0.c2.c.c(this.shareModelJSONStr);
         }
         this.dialogControl.a(this, linearLayout);
         return this;
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public boolean isOnViewCancel() {
         return false;
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public boolean isOnViewTop() {
         return false;
     }
@@ -203,10 +203,10 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
         super.onActivityResult(i2, i3, intent);
     }
 
-    @Override // d.a.m0.t0.a
+    @Override // d.a.n0.t0.a
     public void onViewChangeSkinType(int i2) {
         this.contentView.setBackgroundResource(R.color.transparent);
-        d.a.n0.c2.c.a aVar = this.dialogControl;
+        d.a.o0.c2.c.a aVar = this.dialogControl;
         if (aVar != null) {
             aVar.onViewChangeSkinType(i2);
         }
@@ -232,7 +232,7 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            this.mAccountLoginTask = d.a.m0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+            this.mAccountLoginTask = d.a.n0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
             return;
         }
         closeLoadingDialog();

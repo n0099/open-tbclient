@@ -9,15 +9,15 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import d.a.f0.a.k.h;
+import d.a.g0.a.k.h;
 /* loaded from: classes2.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10057h;
+    public int f10089h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10058i;
+    public int f10090i;
     public ColorStateList j;
     public int k;
     public int l;
@@ -40,17 +40,17 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10059a;
+        public static final /* synthetic */ int[] f10091a;
 
         static {
             int[] iArr = new int[ProgressType.values().length];
-            f10059a = iArr;
+            f10091a = iArr;
             try {
                 iArr[ProgressType.COUNT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10059a[ProgressType.COUNT_BACK.ordinal()] = 2;
+                f10091a[ProgressType.COUNT_BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -73,7 +73,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void d() {
-        int i2 = a.f10059a[this.r.ordinal()];
+        int i2 = a.f10091a[this.r.ordinal()];
         if (i2 == 1) {
             this.q++;
         } else if (i2 == 2) {
@@ -81,7 +81,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
         int i3 = this.q;
         if (i3 >= 0 && i3 <= this.p) {
-            AbsCountDownView.b bVar = this.f10040f;
+            AbsCountDownView.b bVar = this.f10072f;
             if (bVar != null) {
                 bVar.onProgress(i3);
             }
@@ -89,7 +89,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
             return;
         }
         this.q = i(this.q);
-        AbsCountDownView.b bVar2 = this.f10040f;
+        AbsCountDownView.b bVar2 = this.f10072f;
         if (bVar2 != null) {
             bVar2.onEnd();
         }
@@ -124,7 +124,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     public final void g() {
-        int i2 = a.f10059a[this.r.ordinal()];
+        int i2 = a.f10091a[this.r.ordinal()];
         if (i2 == 1) {
             this.q = 0;
         } else if (i2 != 2) {
@@ -171,11 +171,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
         getDrawingRect(this.t);
         float width = (this.t.height() > this.t.width() ? this.t.width() : this.t.height()) / 2;
         this.n.setStyle(Paint.Style.FILL);
-        this.n.setColor(this.f10057h);
+        this.n.setColor(this.f10089h);
         this.n.setAlpha(127);
-        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f10058i, this.n);
+        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f10090i, this.n);
         this.n.setStyle(Paint.Style.STROKE);
-        this.n.setColor(this.f10057h);
+        this.n.setColor(this.f10089h);
         this.n.setStrokeWidth(this.m);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setAlpha(204);
@@ -203,12 +203,12 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     public void setOutLineColor(int i2) {
-        this.f10057h = i2;
+        this.f10089h = i2;
         invalidate();
     }
 
     public void setOutLineWidth(int i2) {
-        this.f10058i = i2;
+        this.f10090i = i2;
         invalidate();
     }
 
@@ -250,8 +250,8 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f10057h = -16777216;
-        this.f10058i = 2;
+        this.f10089h = -16777216;
+        this.f10090i = 2;
         this.j = ColorStateList.valueOf(0);
         this.l = -16776961;
         this.m = 8;

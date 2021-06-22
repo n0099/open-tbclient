@@ -1,0 +1,46 @@
+package d.a.n0.b.f;
+
+import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public abstract class a {
+    public static void d(List<d.a.c.k.e.n> list) {
+        if (list == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap(d.a.n0.b.d.c());
+        for (d.a.c.k.e.n nVar : list) {
+            if (nVar instanceof d.a.n0.r.q.a) {
+                d.a.n0.r.q.a aVar = (d.a.n0.r.q.a) nVar;
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    aVar.b((BdUniqueId) entry.getKey(), (d.a.n0.b.e) entry.getValue());
+                }
+            }
+        }
+    }
+
+    public static void e(l... lVarArr) {
+        if (lVarArr == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap(d.a.n0.b.d.c());
+        for (l lVar : lVarArr) {
+            if (lVar != null) {
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    lVar.b((BdUniqueId) entry.getKey(), (d.a.n0.b.e) entry.getValue());
+                }
+            }
+        }
+    }
+
+    public abstract ArrayList<String> a();
+
+    public abstract d.a.n0.b.e b();
+
+    public abstract BdUniqueId c();
+
+    public abstract void f(d.a.n0.b.e eVar);
+}

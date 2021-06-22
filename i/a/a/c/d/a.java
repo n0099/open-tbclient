@@ -9,13 +9,13 @@ import okhttp3.Response;
 public class a implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72041a;
+    public int f72145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72042b = 0;
+    public int f72146b = 0;
 
     public a(int i2) {
-        this.f72041a = i2;
+        this.f72145a = i2;
     }
 
     @Override // okhttp3.Interceptor
@@ -23,10 +23,10 @@ public class a implements Interceptor {
         int i2;
         Request request = chain.request();
         Response proceed = chain.proceed(request);
-        while (!proceed.isSuccessful() && (i2 = this.f72042b) < this.f72041a) {
-            this.f72042b = i2 + 1;
+        while (!proceed.isSuccessful() && (i2 = this.f72146b) < this.f72145a) {
+            this.f72146b = i2 + 1;
             proceed = chain.proceed(request);
-            RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72041a), Integer.valueOf(this.f72042b));
+            RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72145a), Integer.valueOf(this.f72146b));
         }
         return proceed;
     }

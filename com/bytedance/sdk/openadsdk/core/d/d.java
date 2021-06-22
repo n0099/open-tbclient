@@ -7,35 +7,35 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27933a;
+    public String f28015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27934b;
+    public String f28016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f27935c;
+    public Map<String, String> f28017c;
 
     public void a(String str) {
-        this.f27933a = str;
+        this.f28015a = str;
     }
 
     public void b(String str) {
-        this.f27934b = str;
+        this.f28016b = str;
     }
 
     public void a(Map<String, String> map) {
-        this.f27935c = map;
+        this.f28017c = map;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(this.f27933a) && !TextUtils.isEmpty(this.f27934b)) {
+        if (!TextUtils.isEmpty(this.f28015a) && !TextUtils.isEmpty(this.f28016b)) {
             try {
-                jSONObject.put("url", this.f27933a);
-                jSONObject.put("html", this.f27934b);
+                jSONObject.put("url", this.f28015a);
+                jSONObject.put("html", this.f28016b);
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f27935c != null && this.f27935c.size() > 0) {
-                    for (Map.Entry<String, String> entry : this.f27935c.entrySet()) {
+                if (this.f28017c != null && this.f28017c.size() > 0) {
+                    for (Map.Entry<String, String> entry : this.f28017c.entrySet()) {
                         jSONObject2.put(entry.getKey(), entry.getValue());
                     }
                 }

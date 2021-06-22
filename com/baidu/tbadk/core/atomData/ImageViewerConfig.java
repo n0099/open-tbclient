@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import d.a.m0.c1.b.e;
-import d.a.m0.r.q.a2;
+import d.a.n0.c1.b.e;
+import d.a.n0.r.q.a2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -71,22 +71,22 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12084a;
+        public ArrayList<String> f12166a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12086c;
+        public String f12168c;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12089f;
+        public boolean f12171f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12090g;
+        public String f12172g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12091h;
+        public boolean f12173h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f12092i;
+        public ConcurrentHashMap<String, ImageUrlData> f12174i;
         public boolean j;
         public boolean k;
         public a2 m;
@@ -98,13 +98,13 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean u;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12085b = 0;
+        public int f12167b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12087d = "";
+        public String f12169d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12088e = "";
+        public String f12170e = "";
         public boolean l = false;
         public boolean p = true;
         public boolean s = true;
@@ -115,12 +115,12 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b B(int i2) {
-            this.f12085b = i2;
+            this.f12167b = i2;
             return this;
         }
 
         public b C(boolean z) {
-            this.f12089f = z;
+            this.f12171f = z;
             return this;
         }
 
@@ -135,7 +135,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b F(boolean z) {
-            this.f12091h = z;
+            this.f12173h = z;
             return this;
         }
 
@@ -155,7 +155,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b J(String str) {
-            this.f12090g = str;
+            this.f12172g = str;
             return this;
         }
 
@@ -181,7 +181,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b O(String str) {
-            this.f12088e = str;
+            this.f12170e = str;
             return this;
         }
 
@@ -190,22 +190,22 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.f12092i = concurrentHashMap;
+            this.f12174i = concurrentHashMap;
             return this;
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f12084a = arrayList;
+            this.f12166a = arrayList;
             return this;
         }
 
         public b y(String str) {
-            this.f12087d = str;
+            this.f12169d = str;
             return this;
         }
 
         public b z(String str) {
-            this.f12086c = str;
+            this.f12168c = str;
             return this;
         }
     }
@@ -217,27 +217,27 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12084a != null && bVar.f12084a.size() > 0) {
+        if (bVar.f12166a != null && bVar.f12166a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12084a);
-            intent.putExtra("index", bVar.f12085b);
+            intent.putStringArrayListExtra("url", bVar.f12166a);
+            intent.putExtra("index", bVar.f12167b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12089f);
-            intent.putExtra("fname", bVar.f12086c);
-            intent.putExtra("fid", bVar.f12087d);
-            intent.putExtra("tid", bVar.f12088e);
-            intent.putExtra(LAST_ID, bVar.f12090g);
-            intent.putExtra(REVERSE_MODE, bVar.f12091h);
-            intent.putExtra(ASSIST_URLS, bVar.f12092i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12171f);
+            intent.putExtra("fname", bVar.f12168c);
+            intent.putExtra("fid", bVar.f12169d);
+            intent.putExtra("tid", bVar.f12170e);
+            intent.putExtra(LAST_ID, bVar.f12172g);
+            intent.putExtra(REVERSE_MODE, bVar.f12173h);
+            intent.putExtra(ASSIST_URLS, bVar.f12174i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12084a.size();
+            int size = bVar.f12166a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                String str = (String) bVar.f12084a.get(i2);
+                String str = (String) bVar.f12166a.get(i2);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f12092i != null ? (ImageUrlData) bVar.f12092i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12174i != null ? (ImageUrlData) bVar.f12174i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;

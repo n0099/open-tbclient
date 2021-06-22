@@ -274,7 +274,7 @@ public class MessageParser {
     /* JADX WARN: Type inference failed for: r0v9, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -538,7 +538,7 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f68181e) {
+                if (a.f68195e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.f6365a = 2L;
                     bLCPRequest.f6366b = 95L;

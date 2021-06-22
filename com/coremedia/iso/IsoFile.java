@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.MovieBox;
 import com.googlecode.mp4parser.BasicContainer;
@@ -67,7 +68,7 @@ public class IsoFile extends BasicContainer implements Closeable {
 
     @Override // com.googlecode.mp4parser.BasicContainer
     public String toString() {
-        return "IsoFile[" + this.dataSource.toString() + "]";
+        return "IsoFile[" + this.dataSource.toString() + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public IsoFile(DataSource dataSource) throws IOException {

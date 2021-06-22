@@ -11,8 +11,8 @@ public class h extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        Intent intent = new Intent(d.o.a.e.b.d.c.f70966c + ".intent.action.OPEN_FILEMANAGER");
-        intent.putExtra("CurrentDir", this.f70797c);
+        Intent intent = new Intent(d.o.a.e.b.d.c.f71070c + ".intent.action.OPEN_FILEMANAGER");
+        intent.putExtra("CurrentDir", this.f70901c);
         intent.putExtra("first_position", 1);
         intent.putExtra("CurrentMode", 1);
         intent.putExtra("com.iqoo.secure", true);

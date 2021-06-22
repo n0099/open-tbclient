@@ -6,18 +6,18 @@ import android.content.SharedPreferences;
 public final class x implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40415a = "SpCache";
+    public static String f40518a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40416b = "com.vivo.push.cache";
+    public static String f40519b = "com.vivo.push.cache";
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f40417c;
+    public SharedPreferences f40520c;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
-        if (this.f40417c == null) {
-            this.f40417c = context.getSharedPreferences(f40416b, 0);
+        if (this.f40520c == null) {
+            this.f40520c = context.getSharedPreferences(f40519b, 0);
             return true;
         }
         return true;
@@ -25,32 +25,32 @@ public final class x implements c {
 
     @Override // com.vivo.push.util.c
     public final void b(String str, String str2) {
-        SharedPreferences.Editor edit = this.f40417c.edit();
+        SharedPreferences.Editor edit = this.f40520c.edit();
         if (edit != null) {
             edit.putString(str, str2);
             a.a(edit);
-            String str3 = f40415a;
+            String str3 = f40518a;
             p.d(str3, "putString by " + str);
             return;
         }
-        String str4 = f40415a;
+        String str4 = f40518a;
         p.b(str4, "putString error by " + str);
     }
 
     @Override // com.vivo.push.util.c
     public final String a(String str, String str2) {
-        String string = this.f40417c.getString(str, str2);
-        String str3 = f40415a;
+        String string = this.f40520c.getString(str, str2);
+        String str3 = f40518a;
         p.d(str3, "getString " + str + " is " + string);
         return string;
     }
 
     public final void a() {
-        SharedPreferences.Editor edit = this.f40417c.edit();
+        SharedPreferences.Editor edit = this.f40520c.edit();
         if (edit != null) {
             edit.clear();
             a.a(edit);
         }
-        p.d(f40415a, "system cache is cleared");
+        p.d(f40518a, "system cache is cleared");
     }
 }

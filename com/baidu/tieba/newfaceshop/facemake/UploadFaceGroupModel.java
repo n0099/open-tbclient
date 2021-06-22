@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import d.a.n0.z1.g.e;
+import d.a.o0.z1.g.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18671e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+    public final HttpMessageListener f18753e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public a(int i2) {
             super(i2);
@@ -95,9 +95,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18671e.setTag(getUniqueId());
-        this.f18671e.setSelfListener(true);
-        registerListener(this.f18671e);
+        this.f18753e.setTag(getUniqueId());
+        this.f18753e.setSelfListener(true);
+        registerListener(this.f18753e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f18671e);
+        MessageManager.getInstance().unRegisterListener(this.f18753e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         return true;
     }

@@ -35,28 +35,28 @@ import java.io.Serializable;
 public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25383a;
+    public TextView f25465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f25384b;
+    public TextView f25466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f25385c;
+    public Button f25467c;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25386e;
+    public TextView f25468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f25387f;
+    public TextView f25469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f25388g;
+    public TextView f25470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25389h;
+    public TextView f25471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PayController.PayResultWrapper f25390i;
+    public PayController.PayResultWrapper f25472i;
 
     @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity
     public void addContentView() {
@@ -74,7 +74,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
         if (CheckUtils.isFastDoubleClick()) {
             return;
         }
-        if (view == this.f25385c) {
+        if (view == this.f25467c) {
             final PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             final IFingerprintPay fingerprintPay = WalletFingerprint.getInstance(getActivity()).getFingerprintPay(WalletFingerprint.FpType.SYSTEM_FINGERPRINT);
             if (payRequest == null || fingerprintPay == null) {
@@ -95,13 +95,13 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                             GlobalUtils.toast(FingerprintOpenGuideActivity.this.getActivity(), ResUtils.getString(FingerprintOpenGuideActivity.this.getActivity(), "wallet_fp_upgrade_success"));
                             StatisticManager.onEvent(StatServiceEvent.EVENT_FP_UPGRADE_SUCCESS);
                         }
-                        FingerprintOpenGuideActivity.this.f25385c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.1
+                        FingerprintOpenGuideActivity.this.f25467c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 FingerprintOpenGuideActivity.this.c();
                             }
                         }, 2000L);
-                        FingerprintOpenGuideActivity.this.f25385c.setClickable(false);
+                        FingerprintOpenGuideActivity.this.f25467c.setClickable(false);
                         FingerprintOpenGuideActivity.this.mRightTxt.setClickable(false);
                     } else if (i2 == 2) {
                         if (TextUtils.isEmpty(str)) {
@@ -120,13 +120,13 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                             }
                         }
                         GlobalUtils.toast(FingerprintOpenGuideActivity.this.getActivity(), str);
-                        FingerprintOpenGuideActivity.this.f25385c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.2
+                        FingerprintOpenGuideActivity.this.f25467c.postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 FingerprintOpenGuideActivity.this.c();
                             }
                         }, 2000L);
-                        FingerprintOpenGuideActivity.this.f25385c.setClickable(false);
+                        FingerprintOpenGuideActivity.this.f25467c.setClickable(false);
                         FingerprintOpenGuideActivity.this.mRightTxt.setClickable(false);
                     } else if (i2 == 1) {
                         int i5 = payRequest.FP_Guide_Strategy;
@@ -152,15 +152,15 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
         if (bundle != null) {
             Serializable serializable = bundle.getSerializable("payresultwrapper");
             if (serializable instanceof PayController.PayResultWrapper) {
-                this.f25390i = (PayController.PayResultWrapper) serializable;
+                this.f25472i = (PayController.PayResultWrapper) serializable;
             }
         } else {
             Intent intent = getIntent();
             if (intent != null && (intent.getSerializableExtra("payresultwrapper") instanceof PayController.PayResultWrapper)) {
-                this.f25390i = (PayController.PayResultWrapper) intent.getSerializableExtra("payresultwrapper");
+                this.f25472i = (PayController.PayResultWrapper) intent.getSerializableExtra("payresultwrapper");
             }
         }
-        if (this.f25390i == null) {
+        if (this.f25472i == null) {
             PayBaseBeanActivity.exitEbpay();
             finish();
         }
@@ -171,7 +171,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("payresultwrapper", this.f25390i);
+        bundle.putSerializable("payresultwrapper", this.f25472i);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
@@ -180,18 +180,18 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
 
     private void a() {
         this.mLeftImg.setVisibility(4);
-        this.f25383a = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_title"));
-        this.f25384b = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_subtitle"));
-        this.f25386e = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint1"));
-        this.f25387f = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint2"));
+        this.f25465a = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_title"));
+        this.f25466b = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_subtitle"));
+        this.f25468e = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint1"));
+        this.f25469f = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint2"));
         this.mRightTxt.setTextColor(ResUtils.getColor(this, "wallet_base_primary_color"));
         this.mRightTxt.setText(ResUtils.getString(this, "wallet_base_skip"));
         this.mRightTxt.setOnClickListener(this);
         Button button = (Button) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_open_btn"));
-        this.f25385c = button;
+        this.f25467c = button;
         button.setOnClickListener(this);
-        this.f25388g = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_prefix"));
-        this.f25389h = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_msg"));
+        this.f25470g = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_prefix"));
+        this.f25471h = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_msg"));
     }
 
     private void b() {
@@ -222,19 +222,19 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                 String string4 = ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_btn");
                 String[] strArr2 = fingerprintMsg != null ? fingerprintMsg.getOpen().hints : new String[]{ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"), ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1")};
                 if (fingerprintMsg != null && fingerprintMsg.getOpen() != null && fingerprintMsg.getOpen().getFingerprintProtocol() != null && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix()) && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg()) && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolUrl())) {
-                    this.f25388g.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix());
-                    this.f25389h.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg());
-                    this.f25389h.setVisibility(0);
-                    this.f25388g.setVisibility(0);
-                    this.f25389h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.1
+                    this.f25470g.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix());
+                    this.f25471h.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg());
+                    this.f25471h.setVisibility(0);
+                    this.f25470g.setVisibility(0);
+                    this.f25471h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             BaiduWalletDelegate.getInstance().openH5Module(FingerprintOpenGuideActivity.this, fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
                         }
                     });
                 } else {
-                    this.f25389h.setVisibility(8);
-                    this.f25388g.setVisibility(8);
+                    this.f25471h.setVisibility(8);
+                    this.f25470g.setVisibility(8);
                 }
                 str2 = string4;
                 strArr = strArr2;
@@ -253,19 +253,19 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                 }
                 String string5 = ResUtils.getString(this, "bd_wallet_fingerprint_reopen_guide_btn");
                 if (fingerprintMsg != null && fingerprintMsg.getReopen() != null && fingerprintMsg.getReopen().getFingerprintProtocol() != null && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix()) && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg()) && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolUrl())) {
-                    this.f25388g.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix());
-                    this.f25389h.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg());
-                    this.f25389h.setVisibility(0);
-                    this.f25388g.setVisibility(0);
-                    this.f25389h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.2
+                    this.f25470g.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix());
+                    this.f25471h.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg());
+                    this.f25471h.setVisibility(0);
+                    this.f25470g.setVisibility(0);
+                    this.f25471h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             BaiduWalletDelegate.getInstance().openH5Module(FingerprintOpenGuideActivity.this, fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
                         }
                     });
                 } else {
-                    this.f25389h.setVisibility(8);
-                    this.f25388g.setVisibility(8);
+                    this.f25471h.setVisibility(8);
+                    this.f25470g.setVisibility(8);
                 }
                 str2 = string5;
             } else if (i2 == 3) {
@@ -286,32 +286,32 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                 str = "";
                 str2 = str;
             }
-            this.f25383a.setText(str3);
-            this.f25384b.setText(str);
-            this.f25385c.setText(str2);
+            this.f25465a.setText(str3);
+            this.f25466b.setText(str);
+            this.f25467c.setText(str2);
             if (strArr != null && strArr.length > 0) {
-                this.f25386e.setVisibility(0);
-                this.f25387f.setVisibility(0);
+                this.f25468e.setVisibility(0);
+                this.f25469f.setVisibility(0);
                 if (strArr.length == 1) {
-                    this.f25386e.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
-                    this.f25387f.setText(ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
+                    this.f25468e.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
+                    this.f25469f.setText(ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
                     return;
                 } else if (strArr.length >= 2) {
-                    this.f25386e.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
-                    this.f25387f.setText(!TextUtils.isEmpty(strArr[1]) ? strArr[1] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
+                    this.f25468e.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
+                    this.f25469f.setText(!TextUtils.isEmpty(strArr[1]) ? strArr[1] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
                     return;
                 } else {
                     return;
                 }
             }
-            this.f25386e.setVisibility(8);
-            this.f25387f.setVisibility(8);
+            this.f25468e.setVisibility(8);
+            this.f25469f.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        PayController.PayResultWrapper payResultWrapper = this.f25390i;
+        PayController.PayResultWrapper payResultWrapper = this.f25472i;
         if (payResultWrapper.payResult == 0) {
             PayResultContent payResultContent = payResultWrapper.payResultContent;
             if (payResultContent != null) {
@@ -327,7 +327,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
             }
             PayDataCache.getInstance().setPayReslutContent(payResultContent);
             Bundle bundle = new Bundle();
-            bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, this.f25390i.payResultType);
+            bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, this.f25472i.payResultType);
             startActivityWithExtras(bundle, WalletPayResultCommonActivity.class);
             PayBaseBeanActivity.exitEbpay();
         }

@@ -16,7 +16,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f40015a = new HashMap<>();
+    public HashMap<String, b> f40118a = new HashMap<>();
 
     /* loaded from: classes7.dex */
     public static class b {
@@ -29,7 +29,7 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C0516a c0516a) {
+        public void call(String str, List<String> list, C0519a c0519a) {
             Method method;
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
@@ -47,8 +47,8 @@ public class a {
                 i2++;
             }
             if (method == null) {
-                if (c0516a != null) {
-                    c0516a.a();
+                if (c0519a != null) {
+                    c0519a.a();
                     return;
                 }
                 return;
@@ -63,15 +63,15 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                    if (c0516a == null || !customCallback()) {
+                    if (c0519a == null || !customCallback()) {
                         return;
                     }
-                    c0516a.a(invoke != null ? invoke.toString() : null);
+                    c0519a.a(invoke != null ? invoke.toString() : null);
                 }
             } catch (Exception e2) {
                 f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e2);
-                if (c0516a != null) {
-                    c0516a.a();
+                if (c0519a != null) {
+                    c0519a.a();
                 }
             }
         }
@@ -82,10 +82,10 @@ public class a {
     }
 
     public void a(b bVar, String str) {
-        this.f40015a.put(str, bVar);
+        this.f40118a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0516a c0516a) {
+    public void a(String str, String str2, List<String> list, C0519a c0519a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i2 = 0; i2 < size; i2++) {
@@ -95,40 +95,40 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        b bVar = this.f40015a.get(str);
+        b bVar = this.f40118a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0516a);
+            bVar.call(str2, list, c0519a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0516a != null) {
-            c0516a.a();
+        if (c0519a != null) {
+            c0519a.a();
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0516a {
+    public static class C0519a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<WebView> f40025a;
+        public WeakReference<WebView> f40128a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f40026b;
+        public long f40129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40027c;
+        public String f40130c;
 
-        public C0516a(WebView webView, long j, String str) {
-            this.f40025a = new WeakReference<>(webView);
-            this.f40026b = j;
-            this.f40027c = str;
+        public C0519a(WebView webView, long j, String str) {
+            this.f40128a = new WeakReference<>(webView);
+            this.f40129b = j;
+            this.f40130c = str;
         }
 
         public void a(Object obj) {
             String obj2;
-            WebView webView = this.f40025a.get();
+            WebView webView = this.f40128a.get();
             if (webView == null) {
                 return;
             }
@@ -140,19 +140,19 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f40026b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f40129b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
-            WebView webView = this.f40025a.get();
+            WebView webView = this.f40128a.get();
             if (webView == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f40026b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f40129b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
-            WebView webView = this.f40025a.get();
+            WebView webView = this.f40128a.get();
             if (webView != null) {
                 webView.loadUrl("javascript:" + str);
             }
@@ -167,9 +167,9 @@ public class a {
                 return false;
             }
             List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-            C0516a c0516a = new C0516a(webView, 4L, str);
+            C0519a c0519a = new C0519a(webView, 4L, str);
             webView.getUrl();
-            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0516a);
+            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0519a);
             return true;
         }
         return false;

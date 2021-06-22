@@ -6,7 +6,7 @@ import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import d.a.g0.a.d.c;
+import d.a.h0.a.d.c;
 import d.a.w.c.a;
 import org.json.JSONArray;
 @NotProguard
@@ -68,7 +68,7 @@ public interface AREngineDelegate {
 
     void setGameRecordCallback(d.a.w.c.c cVar);
 
-    void setOnStuckScreenListener(d.a.g0.a.d.a aVar);
+    void setOnStuckScreenListener(d.a.h0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 

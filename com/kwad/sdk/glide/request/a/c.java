@@ -7,14 +7,14 @@ import androidx.annotation.Nullable;
 public abstract class c<T> implements j<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f36471a;
+    public final int f36569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f36472b;
+    public final int f36570b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.glide.request.c f36473c;
+    public com.kwad.sdk.glide.request.c f36571c;
 
     public c() {
         this(Integer.MIN_VALUE, Integer.MIN_VALUE);
@@ -22,8 +22,8 @@ public abstract class c<T> implements j<T> {
 
     public c(int i2, int i3) {
         if (com.kwad.sdk.glide.g.k.a(i2, i3)) {
-            this.f36471a = i2;
-            this.f36472b = i3;
+            this.f36569a = i2;
+            this.f36570b = i3;
             return;
         }
         throw new IllegalArgumentException("Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: " + i2 + " and height: " + i3);
@@ -31,18 +31,18 @@ public abstract class c<T> implements j<T> {
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@NonNull i iVar) {
-        iVar.a(this.f36471a, this.f36472b);
+        iVar.a(this.f36569a, this.f36570b);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@Nullable com.kwad.sdk.glide.request.c cVar) {
-        this.f36473c = cVar;
+        this.f36571c = cVar;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     @Nullable
     public final com.kwad.sdk.glide.request.c b() {
-        return this.f36473c;
+        return this.f36571c;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

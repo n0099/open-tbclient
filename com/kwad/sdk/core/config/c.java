@@ -28,49 +28,49 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f34057a;
+    public static volatile SdkConfigData.TemplateConfig f34155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f34058b;
+    public static volatile SdkConfigData.TemplateConfig f34156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f34059c;
+    public static volatile SdkConfigData.TemplateConfig f34157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f34060d;
+    public static volatile SdkConfigData.TemplateConfig f34158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f34061e;
+    public static volatile SdkConfigData.TemplateConfig f34159e;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f34066a = new e("toolbarSwitch", 1);
+        public static e f34164a = new e("toolbarSwitch", 1);
 
         /* renamed from: b  reason: collision with root package name */
-        public static e f34067b = new e("likeButtonSwitch", 1);
+        public static e f34165b = new e("likeButtonSwitch", 1);
 
         /* renamed from: c  reason: collision with root package name */
-        public static e f34068c = new e("moreButtonSwitch", 1);
+        public static e f34166c = new e("moreButtonSwitch", 1);
 
         /* renamed from: d  reason: collision with root package name */
-        public static e f34069d = new e("commentButtonSwitch", 1);
+        public static e f34167d = new e("commentButtonSwitch", 1);
 
         /* renamed from: e  reason: collision with root package name */
-        public static e f34070e = new e("seekBarSwitch", 59);
+        public static e f34168e = new e("seekBarSwitch", 59);
 
         /* renamed from: f  reason: collision with root package name */
-        public static e f34071f = new e("videoCacheSwitch", 0);
+        public static e f34169f = new e("videoCacheSwitch", 0);
 
         /* renamed from: g  reason: collision with root package name */
-        public static e f34072g = new e("trendDynamicEffect", 0);
+        public static e f34170g = new e("trendDynamicEffect", 0);
 
         /* renamed from: h  reason: collision with root package name */
-        public static e f34073h = new e("homePlaySpeedTime", 90);
+        public static e f34171h = new e("homePlaySpeedTime", 90);
 
         /* renamed from: i  reason: collision with root package name */
-        public static e f34074i = new e("homePlayCompleteType", 0);
+        public static e f34172i = new e("homePlayCompleteType", 0);
         public static e j = new e("replayTubeEpisode", 0);
         public static e k = new e("batchReportCatchLimit", 20);
         public static e l = new e("preloadSwitch", 1);
@@ -186,7 +186,7 @@ public class c {
     }
 
     public static SdkConfigData.TemplateConfig M() {
-        return f34061e;
+        return f34159e;
     }
 
     public static boolean N() {
@@ -247,15 +247,15 @@ public class c {
 
     public static int a(long j) {
         for (com.kwad.sdk.core.response.model.b bVar : a.aa.b()) {
-            if (bVar != null && bVar.f34710a == j) {
-                return bVar.f34711b;
+            if (bVar != null && bVar.f34808a == j) {
+                return bVar.f34809b;
             }
         }
         return 0;
     }
 
     public static SdkConfigData.TemplateConfig a() {
-        return f34057a;
+        return f34155a;
     }
 
     public static SdkConfigData.TemplateConfig a(Context context, String str) {
@@ -280,18 +280,18 @@ public class c {
         com.kwad.sdk.core.d.a.a("SdkConfigManager", "load");
         a.a();
         b.b(context);
-        f34057a = a(context, "ksadsdk_template_config");
-        f34058b = a(context, "ksadsdk_splash_template_config");
-        f34059c = a(context, "ksadsdk_mini_card_template_config");
+        f34155a = a(context, "ksadsdk_template_config");
+        f34156b = a(context, "ksadsdk_splash_template_config");
+        f34157c = a(context, "ksadsdk_mini_card_template_config");
     }
 
     @WorkerThread
     public static void a(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
-            if ((f34061e == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34061e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34159e == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34159e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_reward_middle_endcard_template_config", "reward_middle_endcard.html");
             }
-            f34061e = templateConfig;
+            f34159e = templateConfig;
         }
     }
 
@@ -396,15 +396,15 @@ public class c {
     }
 
     public static int am() {
-        return a.f34066a.b().intValue();
+        return a.f34164a.b().intValue();
     }
 
     public static int an() {
-        return a.f34067b.b().intValue();
+        return a.f34165b.b().intValue();
     }
 
     public static SdkConfigData.TemplateConfig b() {
-        return f34058b;
+        return f34156b;
     }
 
     public static synchronized File b(Context context) {
@@ -418,15 +418,15 @@ public class c {
     @WorkerThread
     public static void b(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
-            if ((f34057a == null || !c(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34057a.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34155a == null || !c(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34155a.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_template_config", "feed.html");
             }
-            f34057a = templateConfig;
+            f34155a = templateConfig;
         }
     }
 
     public static SdkConfigData.TemplateConfig c() {
-        return f34059c != null ? f34059c : new SdkConfigData.TemplateConfig();
+        return f34157c != null ? f34157c : new SdkConfigData.TemplateConfig();
     }
 
     public static synchronized File c(Context context) {
@@ -439,14 +439,14 @@ public class c {
 
     @WorkerThread
     public static void c(Context context, SdkConfigData.TemplateConfig templateConfig) {
-        if (templateConfig != null && ((f34058b == null || !d(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34058b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+        if (templateConfig != null && ((f34156b == null || !d(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34156b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
             a(context, templateConfig, "ksadsdk_splash_template_config", "feed_splash.html");
         }
-        f34058b = templateConfig;
+        f34156b = templateConfig;
     }
 
     public static SdkConfigData.TemplateConfig d() {
-        return f34060d;
+        return f34158d;
     }
 
     public static synchronized File d(Context context) {
@@ -459,10 +459,10 @@ public class c {
 
     @WorkerThread
     public static void d(Context context, SdkConfigData.TemplateConfig templateConfig) {
-        if (templateConfig != null && ((f34059c == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34059c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+        if (templateConfig != null && ((f34157c == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34157c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
             a(context, templateConfig, "ksadsdk_mini_card_template_config", "mini_card.html");
         }
-        f34059c = templateConfig;
+        f34157c = templateConfig;
     }
 
     public static synchronized File e(Context context) {
@@ -477,11 +477,11 @@ public class c {
     public static void e(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = b(context).exists();
-            if ((f34060d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34060d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34158d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34158d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_download_pop_window_config", "pop_wind.html");
             }
         }
-        f34060d = templateConfig;
+        f34158d = templateConfig;
     }
 
     public static boolean e() {
@@ -501,7 +501,7 @@ public class c {
     }
 
     public static int g() {
-        return a.f34068c.b().intValue();
+        return a.f34166c.b().intValue();
     }
 
     public static boolean h() {
@@ -509,7 +509,7 @@ public class c {
     }
 
     public static int i() {
-        return a.f34069d.b().intValue();
+        return a.f34167d.b().intValue();
     }
 
     public static boolean j() {
@@ -521,7 +521,7 @@ public class c {
     }
 
     public static boolean l() {
-        return a.f34071f.b().intValue() == 2;
+        return a.f34169f.b().intValue() == 2;
     }
 
     public static boolean m() {
@@ -537,7 +537,7 @@ public class c {
     }
 
     public static boolean p() {
-        if (com.kwad.sdk.d.f35162a == 1) {
+        if (com.kwad.sdk.d.f35260a == 1) {
             return false;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_PLAYER_TYPE");
@@ -549,7 +549,7 @@ public class c {
     }
 
     public static int r() {
-        return a.f34073h.b().intValue();
+        return a.f34171h.b().intValue();
     }
 
     public static int s() {
@@ -561,7 +561,7 @@ public class c {
     }
 
     public static int t() {
-        return a.f34074i.b().intValue();
+        return a.f34172i.b().intValue();
     }
 
     public static int u() {
@@ -581,7 +581,7 @@ public class c {
 
     public static int x() {
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_TREND_UI_TYPE");
-        return ((Integer) (a2 != null ? a2.getValue() : a.f34072g.b())).intValue();
+        return ((Integer) (a2 != null ? a2.getValue() : a.f34170g.b())).intValue();
     }
 
     public static boolean y() {

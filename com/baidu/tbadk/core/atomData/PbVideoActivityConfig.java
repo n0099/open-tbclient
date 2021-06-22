@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 /* loaded from: classes3.dex */
 public class PbVideoActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;

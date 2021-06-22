@@ -6,7 +6,7 @@ import android.util.JsonReader;
 public class x implements aj<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f31873a = new x();
+    public static final x f31971a = new x();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

@@ -14,22 +14,22 @@ import java.util.List;
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f30092a;
+    public static volatile b f30174a;
 
     public b(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
     }
 
     public static b a(Context context) {
-        if (f30092a == null) {
+        if (f30174a == null) {
             synchronized (b.class) {
-                if (f30092a == null) {
+                if (f30174a == null) {
                     Context applicationContext = context.getApplicationContext();
-                    f30092a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                    f30174a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                 }
             }
         }
-        return f30092a;
+        return f30174a;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

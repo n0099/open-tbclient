@@ -5,31 +5,31 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f69446a = false;
+    public boolean f69550a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69447b = true;
+    public boolean f69551b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f69448c = null;
+    public Map<String, Integer> f69552c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f69449d = null;
+    public Map<String, String> f69553d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f69450e = 10;
+    public int f69554e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69451f = 1;
+    public int f69555f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69452g = 1;
+    public int f69556g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f69453h = 10;
+    public int f69557h = 10;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f69454i = 1;
+    public int f69558i = 1;
     public int j = 1;
     public int k = 900;
     public int l = 120;
@@ -38,25 +38,25 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(" localEnable: ");
-        sb.append(this.f69446a);
+        sb.append(this.f69550a);
         sb.append(" probeEnable: ");
-        sb.append(this.f69447b);
+        sb.append(this.f69551b);
         sb.append(" hostFilter: ");
-        Map<String, Integer> map = this.f69448c;
+        Map<String, Integer> map = this.f69552c;
         sb.append(map != null ? map.size() : 0);
         sb.append(" hostMap: ");
-        Map<String, String> map2 = this.f69449d;
+        Map<String, String> map2 = this.f69553d;
         sb.append(map2 != null ? map2.size() : 0);
         sb.append(" reqTo: ");
-        sb.append(this.f69450e);
+        sb.append(this.f69554e);
         sb.append("#");
-        sb.append(this.f69451f);
+        sb.append(this.f69555f);
         sb.append("#");
-        sb.append(this.f69452g);
+        sb.append(this.f69556g);
         sb.append(" reqErr: ");
-        sb.append(this.f69453h);
+        sb.append(this.f69557h);
         sb.append("#");
-        sb.append(this.f69454i);
+        sb.append(this.f69558i);
         sb.append("#");
         sb.append(this.j);
         sb.append(" updateInterval: ");

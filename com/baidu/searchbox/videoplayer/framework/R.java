@@ -21,7 +21,7 @@ public final class R {
         public static final int layout_dodgeInsetEdges = 0x7f04032f;
         public static final int layout_insetEdge = 0x7f040334;
         public static final int layout_keyline = 0x7f040335;
-        public static final int statusBarBackground = 0x7f0404f3;
+        public static final int statusBarBackground = 0x7f0404f7;
     }
 
     /* loaded from: classes2.dex */
@@ -65,30 +65,30 @@ public final class R {
         public static final int notification_subtext_size = 0x7f07049d;
         public static final int notification_top_pad = 0x7f0704ae;
         public static final int notification_top_pad_large_text = 0x7f0704af;
-        public static final int videoplayer_dimens_0dp = 0x7f0708a9;
-        public static final int videoplayer_dimens_102dp = 0x7f0708aa;
-        public static final int videoplayer_dimens_103dp = 0x7f0708ab;
-        public static final int videoplayer_dimens_11dp = 0x7f0708ac;
-        public static final int videoplayer_dimens_12dp = 0x7f0708ad;
-        public static final int videoplayer_dimens_13dp = 0x7f0708ae;
-        public static final int videoplayer_dimens_14dp = 0x7f0708af;
-        public static final int videoplayer_dimens_16dp = 0x7f0708b0;
-        public static final int videoplayer_dimens_17_5dp = 0x7f0708b1;
-        public static final int videoplayer_dimens_23dp = 0x7f0708b2;
-        public static final int videoplayer_dimens_24_33dp = 0x7f0708b3;
-        public static final int videoplayer_dimens_24dp = 0x7f0708b4;
-        public static final int videoplayer_dimens_2dp = 0x7f0708b5;
-        public static final int videoplayer_dimens_31_5dp = 0x7f0708b6;
-        public static final int videoplayer_dimens_31dp = 0x7f0708b7;
-        public static final int videoplayer_dimens_32dp = 0x7f0708b8;
-        public static final int videoplayer_dimens_33dp = 0x7f0708b9;
-        public static final int videoplayer_dimens_42dp = 0x7f0708ba;
-        public static final int videoplayer_dimens_47dp = 0x7f0708bb;
-        public static final int videoplayer_dimens_4dp = 0x7f0708bc;
-        public static final int videoplayer_dimens_5dp = 0x7f0708bd;
-        public static final int videoplayer_dimens_66dp = 0x7f0708be;
-        public static final int videoplayer_dimens_78dp = 0x7f0708bf;
-        public static final int videoplayer_dimens_7dp = 0x7f0708c0;
+        public static final int videoplayer_dimens_0dp = 0x7f0708aa;
+        public static final int videoplayer_dimens_102dp = 0x7f0708ab;
+        public static final int videoplayer_dimens_103dp = 0x7f0708ac;
+        public static final int videoplayer_dimens_11dp = 0x7f0708ad;
+        public static final int videoplayer_dimens_12dp = 0x7f0708ae;
+        public static final int videoplayer_dimens_13dp = 0x7f0708af;
+        public static final int videoplayer_dimens_14dp = 0x7f0708b0;
+        public static final int videoplayer_dimens_16dp = 0x7f0708b1;
+        public static final int videoplayer_dimens_17_5dp = 0x7f0708b2;
+        public static final int videoplayer_dimens_23dp = 0x7f0708b3;
+        public static final int videoplayer_dimens_24_33dp = 0x7f0708b4;
+        public static final int videoplayer_dimens_24dp = 0x7f0708b5;
+        public static final int videoplayer_dimens_2dp = 0x7f0708b6;
+        public static final int videoplayer_dimens_31_5dp = 0x7f0708b7;
+        public static final int videoplayer_dimens_31dp = 0x7f0708b8;
+        public static final int videoplayer_dimens_32dp = 0x7f0708b9;
+        public static final int videoplayer_dimens_33dp = 0x7f0708ba;
+        public static final int videoplayer_dimens_42dp = 0x7f0708bb;
+        public static final int videoplayer_dimens_47dp = 0x7f0708bc;
+        public static final int videoplayer_dimens_4dp = 0x7f0708bd;
+        public static final int videoplayer_dimens_5dp = 0x7f0708be;
+        public static final int videoplayer_dimens_66dp = 0x7f0708bf;
+        public static final int videoplayer_dimens_78dp = 0x7f0708c0;
+        public static final int videoplayer_dimens_7dp = 0x7f0708c1;
     }
 
     /* loaded from: classes2.dex */
@@ -105,13 +105,13 @@ public final class R {
         public static final int notification_template_icon_low_bg = 0x7f08146b;
         public static final int notification_tile_bg = 0x7f08146c;
         public static final int notify_panel_notification_icon_bg = 0x7f08146e;
-        public static final int videoplayer_btn_net_error_retry_selector = 0x7f081ae1;
-        public static final int videoplayer_net_error_retry_bg = 0x7f081ae2;
-        public static final int videoplayer_net_error_retry_bg_pressed = 0x7f081ae3;
-        public static final int videoplayer_quick_share_item = 0x7f081ae4;
-        public static final int videoplayer_zeus_full_refresh_enable = 0x7f081ae5;
-        public static final int videoplayer_zeus_full_refresh_normal = 0x7f081ae6;
-        public static final int videoplayer_zeus_full_refresh_selector = 0x7f081ae7;
+        public static final int videoplayer_btn_net_error_retry_selector = 0x7f081ae2;
+        public static final int videoplayer_net_error_retry_bg = 0x7f081ae3;
+        public static final int videoplayer_net_error_retry_bg_pressed = 0x7f081ae4;
+        public static final int videoplayer_quick_share_item = 0x7f081ae5;
+        public static final int videoplayer_zeus_full_refresh_enable = 0x7f081ae6;
+        public static final int videoplayer_zeus_full_refresh_normal = 0x7f081ae7;
+        public static final int videoplayer_zeus_full_refresh_selector = 0x7f081ae8;
     }
 
     /* loaded from: classes2.dex */
@@ -135,28 +135,28 @@ public final class R {
         public static final int icon_group = 0x7f090fdc;
         public static final int info = 0x7f0910b9;
         public static final int italic = 0x7f09110a;
-        public static final int left = 0x7f091424;
-        public static final int line1 = 0x7f09146c;
-        public static final int line3 = 0x7f09146e;
-        public static final int media_actions = 0x7f0915a5;
-        public static final int none = 0x7f09175a;
-        public static final int normal = 0x7f091763;
-        public static final int notification_background = 0x7f091772;
-        public static final int notification_main_column = 0x7f091774;
-        public static final int notification_main_column_container = 0x7f091775;
-        public static final int play_error_layout_retry = 0x7f091a6e;
-        public static final int right = 0x7f091c9b;
-        public static final int right_icon = 0x7f091caf;
-        public static final int right_side = 0x7f091cb5;
-        public static final int start = 0x7f091fe9;
-        public static final int status_bar_latest_event_content = 0x7f091ff7;
-        public static final int tag_transition_group = 0x7f0920e0;
-        public static final int text = 0x7f092160;
-        public static final int text2 = 0x7f092161;
-        public static final int time = 0x7f092238;
-        public static final int title = 0x7f09226b;
-        public static final int top = 0x7f0922fd;
-        public static final int tv_error = 0x7f0924d1;
+        public static final int left = 0x7f091425;
+        public static final int line1 = 0x7f09146d;
+        public static final int line3 = 0x7f09146f;
+        public static final int media_actions = 0x7f0915a6;
+        public static final int none = 0x7f09175b;
+        public static final int normal = 0x7f091764;
+        public static final int notification_background = 0x7f091773;
+        public static final int notification_main_column = 0x7f091775;
+        public static final int notification_main_column_container = 0x7f091776;
+        public static final int play_error_layout_retry = 0x7f091a6f;
+        public static final int right = 0x7f091c9c;
+        public static final int right_icon = 0x7f091cb0;
+        public static final int right_side = 0x7f091cb6;
+        public static final int start = 0x7f091feb;
+        public static final int status_bar_latest_event_content = 0x7f091ff9;
+        public static final int tag_transition_group = 0x7f0920e2;
+        public static final int text = 0x7f092162;
+        public static final int text2 = 0x7f092163;
+        public static final int time = 0x7f09223a;
+        public static final int title = 0x7f09226d;
+        public static final int top = 0x7f0922ff;
+        public static final int tv_error = 0x7f0924d3;
     }
 
     /* loaded from: classes2.dex */
@@ -167,48 +167,48 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class layout {
-        public static final int notification_action = 0x7f0c05a9;
-        public static final int notification_action_tombstone = 0x7f0c05aa;
-        public static final int notification_media_action = 0x7f0c05ab;
-        public static final int notification_media_cancel_action = 0x7f0c05ac;
-        public static final int notification_template_big_media = 0x7f0c05ae;
-        public static final int notification_template_big_media_custom = 0x7f0c05af;
-        public static final int notification_template_big_media_narrow = 0x7f0c05b0;
-        public static final int notification_template_big_media_narrow_custom = 0x7f0c05b1;
-        public static final int notification_template_custom_big = 0x7f0c05b2;
-        public static final int notification_template_icon_group = 0x7f0c05b3;
-        public static final int notification_template_lines_media = 0x7f0c05b4;
-        public static final int notification_template_media = 0x7f0c05b5;
-        public static final int notification_template_media_custom = 0x7f0c05b6;
-        public static final int notification_template_part_chronometer = 0x7f0c05b7;
-        public static final int notification_template_part_time = 0x7f0c05b8;
-        public static final int videoplayer_layout_kernel_error = 0x7f0c0827;
-        public static final int videoplayer_layout_net_error = 0x7f0c0828;
+        public static final int notification_action = 0x7f0c05aa;
+        public static final int notification_action_tombstone = 0x7f0c05ab;
+        public static final int notification_media_action = 0x7f0c05ac;
+        public static final int notification_media_cancel_action = 0x7f0c05ad;
+        public static final int notification_template_big_media = 0x7f0c05af;
+        public static final int notification_template_big_media_custom = 0x7f0c05b0;
+        public static final int notification_template_big_media_narrow = 0x7f0c05b1;
+        public static final int notification_template_big_media_narrow_custom = 0x7f0c05b2;
+        public static final int notification_template_custom_big = 0x7f0c05b3;
+        public static final int notification_template_icon_group = 0x7f0c05b4;
+        public static final int notification_template_lines_media = 0x7f0c05b5;
+        public static final int notification_template_media = 0x7f0c05b6;
+        public static final int notification_template_media_custom = 0x7f0c05b7;
+        public static final int notification_template_part_chronometer = 0x7f0c05b8;
+        public static final int notification_template_part_time = 0x7f0c05b9;
+        public static final int videoplayer_layout_kernel_error = 0x7f0c0828;
+        public static final int videoplayer_layout_net_error = 0x7f0c0829;
     }
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int status_bar_notification_info_overflow = 0x7f0f1298;
-        public static final int videoplayer_btn_net_error_retry = 0x7f0f15b6;
-        public static final int videoplayer_tip_kernel_error = 0x7f0f15b7;
-        public static final int videoplayer_tip_net_error = 0x7f0f15b8;
+        public static final int status_bar_notification_info_overflow = 0x7f0f12d6;
+        public static final int videoplayer_btn_net_error_retry = 0x7f0f15f4;
+        public static final int videoplayer_tip_kernel_error = 0x7f0f15f5;
+        public static final int videoplayer_tip_net_error = 0x7f0f15f6;
     }
 
     /* loaded from: classes2.dex */
     public static final class style {
-        public static final int TextAppearance_Compat_Notification = 0x7f1001d7;
-        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001d8;
-        public static final int TextAppearance_Compat_Notification_Info_Media = 0x7f1001d9;
-        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001da;
-        public static final int TextAppearance_Compat_Notification_Line2_Media = 0x7f1001db;
-        public static final int TextAppearance_Compat_Notification_Media = 0x7f1001dc;
-        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001dd;
-        public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f1001de;
-        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001df;
-        public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f1001e0;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f10031b;
-        public static final int Widget_Compat_NotificationActionText = 0x7f10031c;
-        public static final int Widget_Support_CoordinatorLayout = 0x7f10038d;
+        public static final int TextAppearance_Compat_Notification = 0x7f1001d8;
+        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001d9;
+        public static final int TextAppearance_Compat_Notification_Info_Media = 0x7f1001da;
+        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001db;
+        public static final int TextAppearance_Compat_Notification_Line2_Media = 0x7f1001dc;
+        public static final int TextAppearance_Compat_Notification_Media = 0x7f1001dd;
+        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001de;
+        public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f1001df;
+        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001e0;
+        public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f1001e1;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f10031c;
+        public static final int Widget_Compat_NotificationActionText = 0x7f10031d;
+        public static final int Widget_Support_CoordinatorLayout = 0x7f10038e;
     }
 
     /* loaded from: classes2.dex */

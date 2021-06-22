@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-import d.a.o0.a.a;
+import d.a.p0.a.a;
 /* loaded from: classes5.dex */
 public class BuildInfo {
     @CalledByNative

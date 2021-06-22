@@ -3,41 +3,41 @@ package com.baidu.sofire.rp;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.sofire.e;
-import com.baidu.sofire.g.d;
-import com.baidu.sofire.g.r;
+import com.baidu.sofire.utility.c;
+import com.baidu.sofire.utility.g;
+import com.baidu.sofire.utility.s;
 /* loaded from: classes2.dex */
 public final class a {
     public static String a(Context context) {
-        e eVar;
-        String o;
+        com.baidu.sofire.h.a a2;
+        String n;
         String str = "";
         try {
-            eVar = new e(context);
-            if (!TextUtils.isEmpty(eVar.f10252b.getString("rpiiem", ""))) {
-                eVar.f10254d.putString("rpiiem", "");
-                eVar.f10254d.commit();
+            a2 = com.baidu.sofire.h.a.a(context);
+            if (!TextUtils.isEmpty(a2.f10323c.getString("rpiiem", ""))) {
+                a2.f10324d.putString("rpiiem", "");
+                a2.f10324d.commit();
             }
-            o = eVar.o();
+            n = a2.n();
         } catch (Throwable unused) {
         }
         try {
-            if (TextUtils.isEmpty(o)) {
-                o = r.h(context);
-                if (!TextUtils.isEmpty(o)) {
-                    if (TextUtils.isEmpty(o)) {
-                        eVar.f10254d.putString("rpiiemn", "");
-                        eVar.f10254d.commit();
+            if (TextUtils.isEmpty(n)) {
+                n = s.h(context);
+                if (!TextUtils.isEmpty(n)) {
+                    if (TextUtils.isEmpty(n)) {
+                        a2.f10324d.putString("rpiiemn", "");
+                        a2.f10324d.commit();
                     } else {
-                        eVar.f10254d.putString("rpiiemn", new String(Base64.encode(com.baidu.sofire.g.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), o.getBytes("UTF-8")), 10), "UTF-8"));
-                        eVar.f10254d.commit();
+                        a2.f10324d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.f10324d.commit();
                     }
                 }
             }
-            return o;
+            return n;
         } catch (Throwable unused2) {
-            str = o;
-            d.a();
+            str = n;
+            c.a();
             return str;
         }
     }
@@ -45,17 +45,17 @@ public final class a {
     public static String b(Context context) {
         String str = "";
         try {
-            e eVar = new e(context);
-            str = eVar.f10252b.getString("rpandid", "");
+            com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
+            str = a2.f10323c.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
-                str = r.i(context);
+                str = s.i(context);
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.f10254d.putString("rpandid", str);
-                    eVar.f10254d.commit();
+                    a2.f10324d.putString("rpandid", str);
+                    a2.f10324d.commit();
                 }
             }
         } catch (Throwable unused) {
-            d.a();
+            c.a();
         }
         return str;
     }

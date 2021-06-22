@@ -3,7 +3,7 @@ package com.baidu.tieba.videoplay.model;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.video.VideoItemData;
 import com.squareup.wire.Wire;
-import d.a.m0.r.q.a2;
+import d.a.n0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Feed.FeedResIdl;

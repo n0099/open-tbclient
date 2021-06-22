@@ -6,19 +6,19 @@ import java.lang.ref.WeakReference;
 public class c implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<SurfaceHolder.Callback> f28612a;
+    public final WeakReference<SurfaceHolder.Callback> f28694a;
 
     public c(SurfaceHolder.Callback callback) {
-        this.f28612a = new WeakReference<>(callback);
+        this.f28694a = new WeakReference<>(callback);
     }
 
     public SurfaceHolder.Callback a() {
-        return this.f28612a.get();
+        return this.f28694a.get();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        SurfaceHolder.Callback callback = this.f28612a.get();
+        SurfaceHolder.Callback callback = this.f28694a.get();
         if (callback != null) {
             callback.surfaceChanged(surfaceHolder, i2, i3, i4);
         }
@@ -26,7 +26,7 @@ public class c implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        SurfaceHolder.Callback callback = this.f28612a.get();
+        SurfaceHolder.Callback callback = this.f28694a.get();
         if (callback != null) {
             callback.surfaceCreated(surfaceHolder);
         }
@@ -34,7 +34,7 @@ public class c implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        SurfaceHolder.Callback callback = this.f28612a.get();
+        SurfaceHolder.Callback callback = this.f28694a.get();
         if (callback != null) {
             callback.surfaceDestroyed(surfaceHolder);
         }

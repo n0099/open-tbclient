@@ -2,9 +2,9 @@ package com.baidu.tieba.h5power;
 
 import com.baidu.tbadk.browser.SearchJsBridge;
 import d.a.c.e.p.k;
-import d.a.n0.e3.l0.d.a;
-import d.a.n0.e3.l0.d.c;
-import d.a.n0.e3.l0.d.e;
+import d.a.o0.e3.l0.d.a;
+import d.a.o0.e3.l0.d.c;
+import d.a.o0.e3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class SearchJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // d.a.n0.e3.l0.d.a
+    @Override // d.a.o0.e3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         if (cVar == null) {
             cVar = new c();
@@ -77,7 +77,7 @@ public class SearchJsBridge_Proxy extends a {
         return cVar;
     }
 
-    @Override // d.a.n0.e3.l0.d.a
+    @Override // d.a.o0.e3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
             return null;

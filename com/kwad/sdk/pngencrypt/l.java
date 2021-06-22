@@ -3,10 +3,10 @@ package com.kwad.sdk.pngencrypt;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f36925a;
+    public final k f37023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f36926b;
+    public final int[] f37024b;
 
     public static h<l> a() {
         return new h<l>() { // from class: com.kwad.sdk.pngencrypt.l.1
@@ -14,6 +14,6 @@ public class l {
     }
 
     public String toString() {
-        return " cols=" + this.f36925a.f36916a + " bpc=" + this.f36925a.f36918c + " size=" + this.f36926b.length;
+        return " cols=" + this.f37023a.f37014a + " bpc=" + this.f37023a.f37016c + " size=" + this.f37024b.length;
     }
 }

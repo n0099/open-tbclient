@@ -1,6 +1,7 @@
 package com.baidu.wallet.fastpay.datamodel;
 
 import android.text.TextUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
@@ -82,6 +83,6 @@ public class TrafficFaceModel implements NoProguard, Serializable {
     }
 
     public String toString() {
-        return "TrafficFaceModel [id=" + this.id + ", denomination=" + this.denomination + ", original_price=" + this.originalPrice + ", actualPrice=" + this.actualPrice + ", latitude=" + this.latitude + ", modelId=" + this.modelId + ", extInfoMap=" + this.extInfoMap + "]";
+        return "TrafficFaceModel [id=" + this.id + ", denomination=" + this.denomination + ", original_price=" + this.originalPrice + ", actualPrice=" + this.actualPrice + ", latitude=" + this.latitude + ", modelId=" + this.modelId + ", extInfoMap=" + this.extInfoMap + PreferencesUtil.RIGHT_MOUNT;
     }
 }

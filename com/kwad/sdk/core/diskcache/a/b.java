@@ -11,19 +11,19 @@ import java.nio.charset.Charset;
 public class b implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f34119a;
+    public final InputStream f34217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Charset f34120b;
+    public final Charset f34218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f34121c;
+    public byte[] f34219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34122d;
+    public int f34220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34123e;
+    public int f34221e;
 
     public b(InputStream inputStream, int i2, Charset charset) {
         if (inputStream == null || charset == null) {
@@ -32,12 +32,12 @@ public class b implements Closeable {
         if (i2 < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
-        if (!charset.equals(c.f34125a)) {
+        if (!charset.equals(c.f34223a)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
-        this.f34119a = inputStream;
-        this.f34120b = charset;
-        this.f34121c = new byte[i2];
+        this.f34217a = inputStream;
+        this.f34218b = charset;
+        this.f34219c = new byte[i2];
     }
 
     public b(InputStream inputStream, Charset charset) {
@@ -45,67 +45,67 @@ public class b implements Closeable {
     }
 
     private void c() {
-        InputStream inputStream = this.f34119a;
-        byte[] bArr = this.f34121c;
+        InputStream inputStream = this.f34217a;
+        byte[] bArr = this.f34219c;
         int read = inputStream.read(bArr, 0, bArr.length);
         if (read == -1) {
             throw new EOFException();
         }
-        this.f34122d = 0;
-        this.f34123e = read;
+        this.f34220d = 0;
+        this.f34221e = read;
     }
 
     public String a() {
         int i2;
         int i3;
-        synchronized (this.f34119a) {
-            if (this.f34121c != null) {
-                if (this.f34122d >= this.f34123e) {
+        synchronized (this.f34217a) {
+            if (this.f34219c != null) {
+                if (this.f34220d >= this.f34221e) {
                     c();
                 }
-                for (int i4 = this.f34122d; i4 != this.f34123e; i4++) {
-                    if (this.f34121c[i4] == 10) {
-                        if (i4 != this.f34122d) {
+                for (int i4 = this.f34220d; i4 != this.f34221e; i4++) {
+                    if (this.f34219c[i4] == 10) {
+                        if (i4 != this.f34220d) {
                             i3 = i4 - 1;
-                            if (this.f34121c[i3] == 13) {
-                                String str = new String(this.f34121c, this.f34122d, i3 - this.f34122d, this.f34120b.name());
-                                this.f34122d = i4 + 1;
+                            if (this.f34219c[i3] == 13) {
+                                String str = new String(this.f34219c, this.f34220d, i3 - this.f34220d, this.f34218b.name());
+                                this.f34220d = i4 + 1;
                                 return str;
                             }
                         }
                         i3 = i4;
-                        String str2 = new String(this.f34121c, this.f34122d, i3 - this.f34122d, this.f34120b.name());
-                        this.f34122d = i4 + 1;
+                        String str2 = new String(this.f34219c, this.f34220d, i3 - this.f34220d, this.f34218b.name());
+                        this.f34220d = i4 + 1;
                         return str2;
                     }
                 }
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.f34123e - this.f34122d) + 80) { // from class: com.kwad.sdk.core.diskcache.a.b.1
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.f34221e - this.f34220d) + 80) { // from class: com.kwad.sdk.core.diskcache.a.b.1
                     @Override // java.io.ByteArrayOutputStream
                     public String toString() {
                         int i5 = ((ByteArrayOutputStream) this).count;
                         try {
-                            return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, b.this.f34120b.name());
+                            return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, b.this.f34218b.name());
                         } catch (UnsupportedEncodingException e2) {
                             throw new AssertionError(e2);
                         }
                     }
                 };
                 loop1: while (true) {
-                    byteArrayOutputStream.write(this.f34121c, this.f34122d, this.f34123e - this.f34122d);
-                    this.f34123e = -1;
+                    byteArrayOutputStream.write(this.f34219c, this.f34220d, this.f34221e - this.f34220d);
+                    this.f34221e = -1;
                     c();
-                    i2 = this.f34122d;
-                    while (i2 != this.f34123e) {
-                        if (this.f34121c[i2] == 10) {
+                    i2 = this.f34220d;
+                    while (i2 != this.f34221e) {
+                        if (this.f34219c[i2] == 10) {
                             break loop1;
                         }
                         i2++;
                     }
                 }
-                if (i2 != this.f34122d) {
-                    byteArrayOutputStream.write(this.f34121c, this.f34122d, i2 - this.f34122d);
+                if (i2 != this.f34220d) {
+                    byteArrayOutputStream.write(this.f34219c, this.f34220d, i2 - this.f34220d);
                 }
-                this.f34122d = i2 + 1;
+                this.f34220d = i2 + 1;
                 return byteArrayOutputStream.toString();
             }
             throw new IOException("LineReader is closed");
@@ -113,15 +113,15 @@ public class b implements Closeable {
     }
 
     public boolean b() {
-        return this.f34123e == -1;
+        return this.f34221e == -1;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        synchronized (this.f34119a) {
-            if (this.f34121c != null) {
-                this.f34121c = null;
-                this.f34119a.close();
+        synchronized (this.f34217a) {
+            if (this.f34219c != null) {
+                this.f34219c = null;
+                this.f34217a.close();
             }
         }
     }

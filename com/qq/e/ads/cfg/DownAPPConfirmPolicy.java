@@ -6,13 +6,13 @@ public enum DownAPPConfirmPolicy {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38855a;
+    public final int f38953a;
 
     DownAPPConfirmPolicy(int i2) {
-        this.f38855a = i2;
+        this.f38953a = i2;
     }
 
     public final int value() {
-        return this.f38855a;
+        return this.f38953a;
     }
 }

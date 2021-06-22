@@ -13,75 +13,75 @@ import org.json.JSONObject;
 public class b extends Thread implements d.m.b.b.d.b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38794c = false;
+    public static boolean f38892c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f38795d = false;
+    public static boolean f38893d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile b f38796e = null;
+    public static volatile b f38894e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f38797f = false;
+    public static boolean f38895f = false;
     public static boolean m = false;
     public static Map<String, Object> n;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38799b;
+    public Context f38897b;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38800g;
+    public String f38898g;
     public d.m.b.b.d.a l;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38798a = false;
+    public boolean f38896a = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38801h = "";
+    public String f38899h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38802i = "";
+    public String f38900i = "";
     public String j = "";
     public boolean k = false;
 
     public b(Context context, String str, d.m.b.b.d.a aVar) {
-        this.f38799b = null;
-        this.f38800g = "";
+        this.f38897b = null;
+        this.f38898g = "";
         this.l = null;
         setName("CZL-00");
-        this.f38799b = context;
-        this.f38800g = str;
+        this.f38897b = context;
+        this.f38898g = str;
         this.l = aVar;
     }
 
     public static b a() {
-        return f38796e;
+        return f38894e;
     }
 
     public static b a(Context context, String str, int i2, d.m.b.b.d.a aVar) {
-        if (f38796e == null) {
+        if (f38894e == null) {
             synchronized (b.class) {
-                if (f38796e == null) {
+                if (f38894e == null) {
                     if (context == null) {
                         context = d.m.b.b.a.a.d().getApplicationContext();
                     }
                     if (context == null) {
                         return null;
                     }
-                    f38796e = new b(context, str, aVar);
+                    f38894e = new b(context, str, aVar);
                 }
                 d.m.a.a.a.b(i2);
                 e.c(context, "nms");
                 a(context);
             }
         }
-        return f38796e;
+        return f38894e;
     }
 
     public static void a(Context context) {
         synchronized (b.class) {
             if (context != null) {
-                if (!f38797f) {
+                if (!f38895f) {
                     try {
                         a.meta(101, null, "0");
                         a.meta(1020, null, "" + b());
@@ -91,7 +91,7 @@ public class b extends Thread implements d.m.b.b.d.b {
                         a.meta(108, null, "" + d.m.b.b.a.a.h(context));
                         a.meta(109, null, "" + d.m.b.b.a.a.e());
                         a.meta(110, null, "" + d.m.b.b.a.a.g());
-                        f38797f = true;
+                        f38895f = true;
                     } catch (Throwable unused) {
                     }
                 }
@@ -103,22 +103,22 @@ public class b extends Thread implements d.m.b.b.d.b {
         new Thread("CZL-" + str) { // from class: com.pgl.sys.ces.b.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                d.f38807a = 0;
-                d.a(b.this.f38799b);
+                d.f38905a = 0;
+                d.a(b.this.f38897b);
             }
         }.start();
     }
 
     public static String b() {
-        return a().f38800g;
+        return a().f38898g;
     }
 
     public static String c() {
-        return a().f38802i;
+        return a().f38900i;
     }
 
     public static String d() {
-        return a().f38801h;
+        return a().f38899h;
     }
 
     public static d.m.b.b.d.a e() {
@@ -138,7 +138,7 @@ public class b extends Thread implements d.m.b.b.d.b {
     }
 
     private void h() {
-        d.m.b.a.b.b(this.f38799b, b(), new d.m.b.a.a.a() { // from class: com.pgl.sys.ces.b.2
+        d.m.b.a.b.b(this.f38897b, b(), new d.m.b.a.a.a() { // from class: com.pgl.sys.ces.b.2
             @Override // d.m.b.a.a.a
             public void a(String str) {
                 boolean unused = b.m = true;
@@ -154,37 +154,37 @@ public class b extends Thread implements d.m.b.b.d.b {
         String trim;
         String str = null;
         if (i2 == 123) {
-            return d.m.b.b.a.e.a(this.f38799b);
+            return d.m.b.b.a.e.a(this.f38897b);
         }
         if (i2 == 121) {
-            return d.m.b.b.a.c.e(this.f38799b);
+            return d.m.b.b.a.c.e(this.f38897b);
         }
         if (i2 == 122) {
             return d.m.b.b.a.c.a();
         }
         if (i2 == 126) {
-            return d.m.b.b.a.c.g(this.f38799b);
+            return d.m.b.b.a.c.g(this.f38897b);
         }
         if (i2 == 127) {
-            return d.m.b.b.a.c.b(this.f38799b);
+            return d.m.b.b.a.c.b(this.f38897b);
         }
         if (i2 == 128) {
-            return d.m.b.b.a.c.d(this.f38799b);
+            return d.m.b.b.a.c.d(this.f38897b);
         }
         if (i2 == 120) {
             return d.m.b.b.a.b.a();
         }
         if (i2 == 124) {
-            return f.b(this.f38799b);
+            return f.b(this.f38897b);
         }
         if (i2 == 130) {
-            return f.a(this.f38799b);
+            return f.a(this.f38897b);
         }
         if (i2 == 125) {
-            return f.c(this.f38799b);
+            return f.c(this.f38897b);
         }
         if (i2 == 129) {
-            return d.m.b.b.a.d.a(this.f38799b);
+            return d.m.b.b.a.d.a(this.f38897b);
         }
         if (i2 == 131) {
             return d.m.b.a.b.a();
@@ -193,10 +193,10 @@ public class b extends Thread implements d.m.b.b.d.b {
             reportNow((String) obj);
             return null;
         } else if (i2 == 134) {
-            return d.m.b.b.b.b.a(this.f38799b).d();
+            return d.m.b.b.b.b.a(this.f38897b).d();
         } else {
             if (i2 == 140) {
-                return d.m.b.b.b.a.b(this.f38799b).f();
+                return d.m.b.b.b.a.b(this.f38897b).f();
             }
             if (i2 == 133) {
                 try {
@@ -215,13 +215,13 @@ public class b extends Thread implements d.m.b.b.d.b {
             } else if (i2 != 135) {
                 if (i2 == 136) {
                     try {
-                        return this.f38799b.getPackageManager().getPackageInfo(this.f38799b.getPackageName(), 64).signatures[0].toByteArray();
+                        return this.f38897b.getPackageManager().getPackageInfo(this.f38897b.getPackageName(), 64).signatures[0].toByteArray();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;
                     }
                 } else if (i2 == 201) {
-                    return d.m.b.b.a.c.f(this.f38799b);
+                    return d.m.b.b.a.c.f(this.f38897b);
                 } else {
                     if (i2 == 202) {
                         return d.m.b.b.a.c.c();
@@ -269,16 +269,16 @@ public class b extends Thread implements d.m.b.b.d.b {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        long timeInMillis = b.a().f38798a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        byte[] bArr = (byte[]) a.meta(222, b.this.f38799b, str);
-                        long timeInMillis2 = b.a().f38798a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        if (b.a().f38798a) {
+                        long timeInMillis = b.a().f38896a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        byte[] bArr = (byte[]) a.meta(222, b.this.f38897b, str);
+                        long timeInMillis2 = b.a().f38896a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        if (b.a().f38896a) {
                             Log.d("CZL_Efficient", "[Efficient] report : " + (timeInMillis2 - timeInMillis));
                         }
                         if (bArr == null || bArr.length <= 0) {
                             throw new NullPointerException("NullPointerException");
                         }
-                        new d.m.b.b.c.a(b.this.f38799b, b.this.f38801h).d(1, 2, bArr);
+                        new d.m.b.b.c.a(b.this.f38897b, b.this.f38899h).d(1, 2, bArr);
                     } catch (Throwable unused) {
                     }
                 }
@@ -299,8 +299,8 @@ public class b extends Thread implements d.m.b.b.d.b {
         while (true) {
             int i2 = 0;
             do {
-                d.m.b.b.b.b.a(this.f38799b).c();
-                d.m.b.b.b.a.b(this.f38799b).e();
+                d.m.b.b.b.b.a(this.f38897b).c();
+                d.m.b.b.b.a.b(this.f38897b).e();
                 if (i2 == 10) {
                     reportNow("CZL-LLP");
                 }
@@ -319,13 +319,13 @@ public class b extends Thread implements d.m.b.b.d.b {
     }
 
     public void setEfficientDebug(boolean z) {
-        this.f38798a = z;
+        this.f38896a = z;
     }
 
     @Override // d.m.b.b.d.b
     public void setParams(String str, String str2) {
         if (str != null && str.length() > 0) {
-            this.f38802i = str;
+            this.f38900i = str;
             a.meta(103, null, str);
         }
         if (str2 != null && str2.length() > 0) {

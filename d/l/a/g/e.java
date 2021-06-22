@@ -5,9 +5,9 @@ import android.graphics.Path;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Path f70237a = new Path();
+    public static final Path f70341a = new Path();
 
     public static final Path a() {
-        return f70237a;
+        return f70341a;
     }
 }

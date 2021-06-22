@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
-import d.a.l0.a.k;
-import d.a.l0.f.j.o.a;
+import d.a.m0.a.k;
+import d.a.m0.f.j.o.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -194,7 +194,7 @@ public class GameGuideConfigInfo implements Serializable {
 
     public static GameGuideConfigInfo parseData(JSONObject jSONObject) {
         if (jSONObject == null) {
-            if (k.f46875a) {
+            if (k.f46983a) {
                 Log.d(TAG, "data 为空");
             }
             return null;
@@ -216,7 +216,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
         gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
         if (optInt == 0) {
-            if (k.f46875a) {
+            if (k.f46983a) {
                 Log.d(TAG, "配置数据标明不展示");
             }
             return gameGuideConfigInfo;

@@ -14,19 +14,19 @@ import java.io.InputStream;
 public class g extends DynamicDrawableSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f43008e;
+    public Drawable f43111e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f43009f;
+    public Uri f43112f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43010g;
+    public int f43113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f43011h;
+    public Context f43114h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f43012i;
+    public a f43115i;
     public Rect j;
 
     /* loaded from: classes.dex */
@@ -37,12 +37,12 @@ public class g extends DynamicDrawableSpan {
     public g(a aVar, int i2, int i3) {
         super(i3);
         this.j = new Rect();
-        this.f43010g = i2;
-        this.f43012i = aVar;
+        this.f43113g = i2;
+        this.f43115i = aVar;
     }
 
     public void a(Drawable drawable) {
-        this.f43008e = drawable;
+        this.f43111e = drawable;
     }
 
     public void b(int i2, int i3, int i4, int i5) {
@@ -67,18 +67,18 @@ public class g extends DynamicDrawableSpan {
 
     @Override // android.text.style.DynamicDrawableSpan
     public Drawable getDrawable() {
-        Drawable drawable = this.f43008e;
+        Drawable drawable = this.f43111e;
         if (drawable == null) {
-            a aVar = this.f43012i;
+            a aVar = this.f43115i;
             drawable = aVar != null ? aVar.a(this) : null;
         }
         if (drawable != null) {
             return drawable;
         }
         try {
-            if (this.f43009f != null) {
-                InputStream openInputStream = this.f43011h.getContentResolver().openInputStream(this.f43009f);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f43011h.getResources(), BitmapFactory.decodeStream(openInputStream));
+            if (this.f43112f != null) {
+                InputStream openInputStream = this.f43114h.getContentResolver().openInputStream(this.f43112f);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f43114h.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                     openInputStream.close();
@@ -87,7 +87,7 @@ public class g extends DynamicDrawableSpan {
                     drawable = bitmapDrawable;
                 }
             } else {
-                drawable = this.f43011h.getResources().getDrawable(this.f43010g);
+                drawable = this.f43114h.getResources().getDrawable(this.f43113g);
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
         } catch (Exception unused2) {
@@ -97,7 +97,7 @@ public class g extends DynamicDrawableSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.f43008e == null && this.f43012i != null) {
+        if (this.f43111e == null && this.f43115i != null) {
             if (fontMetricsInt != null) {
                 int i4 = -this.j.bottom;
                 fontMetricsInt.ascent = i4;

@@ -10,7 +10,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
 import d.a.c.k.e.n;
-import d.a.m0.r.f0.r.b;
+import d.a.n0.r.f0.r.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,35 +18,35 @@ import java.util.List;
 public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapter implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12592e;
+    public Context f12674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<BdUniqueId, b<T, V>> f12593f = new HashMap<>();
+    public HashMap<BdUniqueId, b<T, V>> f12675f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f12594g = new ArrayList();
+    public List<n> f12676g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<View> f12595h = new ArrayList();
+    public List<View> f12677h = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12596i = 0;
+    public int f12678i = 0;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: f  reason: collision with root package name */
-        public View f12598f;
+        public View f12680f;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12597e = 3;
+        public int f12679e = 3;
 
         /* renamed from: g  reason: collision with root package name */
-        public n f12599g = null;
+        public n f12681g = null;
 
         public a(View view) {
-            this.f12598f = null;
-            this.f12598f = view;
+            this.f12680f = null;
+            this.f12680f = view;
             if (view != null) {
                 view.setTag(this);
                 return;
@@ -55,24 +55,24 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         }
 
         public n a() {
-            return this.f12599g;
+            return this.f12681g;
         }
 
         public View b() {
-            return this.f12598f;
+            return this.f12680f;
         }
 
         public void c(n nVar) {
-            this.f12599g = nVar;
+            this.f12681g = nVar;
         }
     }
 
     public BdBaseViewPagerAdapter(Context context) {
-        this.f12592e = context;
+        this.f12674e = context;
     }
 
     public final View a(n nVar) {
-        b<T, V> bVar = this.f12593f.get(nVar.getType());
+        b<T, V> bVar = this.f12675f.get(nVar.getType());
         if (bVar != null) {
             V c2 = bVar.c(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -90,7 +90,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         View view;
-        if (this.f12595h.size() <= 0 || i2 < 0 || i2 >= this.f12595h.size() || (view = this.f12595h.get(i2)) == null) {
+        if (this.f12677h.size() <= 0 || i2 < 0 || i2 >= this.f12677h.size() || (view = this.f12677h.get(i2)) == null) {
             return;
         }
         viewGroup.removeView(view);
@@ -98,18 +98,18 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
 
     public void e() {
         b<T, V> bVar;
-        List<View> list = this.f12595h;
+        List<View> list = this.f12677h;
         if (list != null) {
             for (View view : list) {
                 a j = j(view);
-                if (j != null && j.a() != null && (bVar = this.f12593f.get(j.a().getType())) != null) {
+                if (j != null && j.a() != null && (bVar = this.f12675f.get(j.a().getType())) != null) {
                     bVar.d(j, j.a());
                 }
             }
-            this.f12595h.clear();
-            this.f12595h = null;
+            this.f12677h.clear();
+            this.f12677h = null;
         }
-        List<n> list2 = this.f12594g;
+        List<n> list2 = this.f12676g;
         if (list2 != null) {
             list2.clear();
         }
@@ -117,7 +117,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
 
     public final void f(a aVar, n nVar) {
         b<T, V> bVar;
-        if (aVar == null || nVar == null || (bVar = this.f12593f.get(nVar.getType())) == null) {
+        if (aVar == null || nVar == null || (bVar = this.f12675f.get(nVar.getType())) == null) {
             return;
         }
         aVar.c(nVar);
@@ -126,34 +126,34 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f12594g.size();
+        return this.f12676g.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(Object obj) {
-        int i2 = this.f12596i;
+        int i2 = this.f12678i;
         if (i2 > 0) {
-            this.f12596i = i2 - 1;
+            this.f12678i = i2 - 1;
             return -2;
         }
         return super.getItemPosition(obj);
     }
 
     public View i(int i2) {
-        if (i2 >= this.f12595h.size() || i2 >= this.f12594g.size()) {
+        if (i2 >= this.f12677h.size() || i2 >= this.f12676g.size()) {
             return null;
         }
-        View view = this.f12595h.get(i2);
+        View view = this.f12677h.get(i2);
         a j = j(view);
         if (j != null && j.a() == null) {
-            f((a) view.getTag(), this.f12594g.get(i2));
+            f((a) view.getTag(), this.f12676g.get(i2));
         }
         return view;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        if (i2 >= this.f12594g.size()) {
+        if (i2 >= this.f12676g.size()) {
             return null;
         }
         View i3 = i(i2);
@@ -179,7 +179,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         if (bVar == null || bVar.b() == null) {
             return;
         }
-        this.f12593f.put(bVar.b(), bVar);
+        this.f12675f.put(bVar.b(), bVar);
     }
 
     public void l(List<n> list) {
@@ -187,23 +187,23 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
             return;
         }
         e();
-        this.f12594g = list;
-        if (this.f12595h == null) {
-            this.f12595h = new ArrayList();
+        this.f12676g = list;
+        if (this.f12677h == null) {
+            this.f12677h = new ArrayList();
         }
-        for (int i2 = 0; i2 < this.f12594g.size(); i2++) {
-            n nVar = this.f12594g.get(i2);
+        for (int i2 = 0; i2 < this.f12676g.size(); i2++) {
+            n nVar = this.f12676g.get(i2);
             if (nVar != null) {
                 View a2 = a(nVar);
                 a2.setOnClickListener(this);
-                this.f12595h.add(a2);
+                this.f12677h.add(a2);
             }
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void notifyDataSetChanged() {
-        this.f12596i = getCount();
+        this.f12678i = getCount();
         super.notifyDataSetChanged();
     }
 
@@ -211,7 +211,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public void onClick(View view) {
         b<T, V> bVar;
         a j = j(view);
-        if (j == null || j.a() == null || j.a().getType() == null || (bVar = this.f12593f.get(j.a().getType())) == null || bVar.a() == null) {
+        if (j == null || j.a() == null || j.a().getType() == null || (bVar = this.f12675f.get(j.a().getType())) == null || bVar.a() == null) {
             return;
         }
         bVar.a().a(j, j.a());

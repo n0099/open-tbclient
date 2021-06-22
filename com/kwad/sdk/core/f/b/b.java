@@ -4,17 +4,17 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f34249a;
+        public IBinder f34347a;
 
         public a(IBinder iBinder) {
-            this.f34249a = iBinder;
+            this.f34347a = iBinder;
         }
 
         public String a() {
@@ -23,7 +23,7 @@ public interface b extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f34249a.transact(1, obtain, obtain2, 0);
+                    this.f34347a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } catch (Exception e2) {
@@ -40,7 +40,7 @@ public interface b extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f34249a;
+            return this.f34347a;
         }
 
         public boolean b() {
@@ -50,7 +50,7 @@ public interface b extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f34249a.transact(1, obtain, obtain2, 0);
+                    this.f34347a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() == 0) {
                         z = true;

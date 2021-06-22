@@ -3,41 +3,41 @@ package com.kwad.sdk.pngencrypt;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f36903a;
+    public final k f37001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36904b;
+    public int f37002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36905c;
+    public int f37003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36906d;
+    public int f37004d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36907e;
+    public int f37005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36908f;
+    public int f37006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36909g;
+    public int f37007g;
     public int j;
     public int k;
     public boolean o;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36911i = 0;
+    public int f37009i = 0;
     public int l = -1;
     public int m = -1;
     public int n = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36910h = 0;
+    public int f37008h = 0;
 
     public e(k kVar) {
         this.o = false;
-        this.f36903a = kVar;
+        this.f37001a = kVar;
         this.o = false;
         a(1);
         c(0);
@@ -66,32 +66,32 @@ public class e {
 
     private void c(int i2) {
         this.l = i2;
-        int i3 = (i2 * this.f36904b) + this.f36906d;
+        int i3 = (i2 * this.f37002b) + this.f37004d;
         this.m = i3;
-        if (i3 < 0 || i3 >= this.f36903a.f36917b) {
+        if (i3 < 0 || i3 >= this.f37001a.f37015b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
 
     public void a(int i2) {
         int i3;
-        if (this.f36911i == i2) {
+        if (this.f37009i == i2) {
             return;
         }
-        this.f36911i = i2;
+        this.f37009i = i2;
         byte[] b2 = b(i2);
-        this.f36905c = b2[0];
+        this.f37003c = b2[0];
         byte b3 = b2[1];
-        this.f36904b = b3;
-        this.f36907e = b2[2];
+        this.f37002b = b3;
+        this.f37005e = b2[2];
         byte b4 = b2[3];
-        this.f36906d = b4;
-        int i4 = this.f36903a.f36917b;
+        this.f37004d = b4;
+        int i4 = this.f37001a.f37015b;
         this.j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
-        int i5 = this.f36903a.f36916a;
-        int i6 = this.f36907e;
+        int i5 = this.f37001a.f37014a;
+        int i6 = this.f37005e;
         if (i5 > i6) {
-            int i7 = this.f36905c;
+            int i7 = this.f37003c;
             i3 = (((i5 + i7) - 1) - i6) / i7;
         } else {
             i3 = 0;
@@ -100,10 +100,10 @@ public class e {
         if (i3 == 0) {
             this.j = 0;
         }
-        int i8 = this.f36905c;
-        int i9 = this.f36903a.f36919d;
-        this.f36909g = i8 * i9;
-        this.f36908f = this.f36907e * i9;
+        int i8 = this.f37003c;
+        int i9 = this.f37001a.f37017d;
+        this.f37007g = i8 * i9;
+        this.f37006f = this.f37005e * i9;
     }
 
     public boolean a() {
@@ -111,7 +111,7 @@ public class e {
         this.n++;
         int i3 = this.j;
         if (i3 == 0 || (i2 = this.l) >= i3 - 1) {
-            int i4 = this.f36911i;
+            int i4 = this.f37009i;
             if (i4 == 7) {
                 this.o = true;
                 return false;
@@ -137,7 +137,7 @@ public class e {
     }
 
     public int d() {
-        return this.f36911i;
+        return this.f37009i;
     }
 
     public int e() {
@@ -153,6 +153,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.f36903a.f36924i * g()) + 7) / 8;
+        return ((this.f37001a.f37022i * g()) + 7) / 8;
     }
 }

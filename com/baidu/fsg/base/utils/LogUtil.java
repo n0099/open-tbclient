@@ -5,6 +5,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.fsg.base.ApollonConstants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -68,13 +69,13 @@ public final class LogUtil {
                 Log.d("apollon_rest", str2);
                 return;
             }
-            Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 
     public static void e(String str) {
         if (f5347f) {
-            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT, str);
         }
     }
 
@@ -107,7 +108,7 @@ public final class LogUtil {
                 Log.i("apollon_rest", str2);
                 return;
             }
-            Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 
@@ -170,7 +171,7 @@ public final class LogUtil {
                 Log.v("apollon_rest", str2);
                 return;
             }
-            Log.v("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.v("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 
@@ -183,7 +184,7 @@ public final class LogUtil {
                 Log.w("apollon_rest", str2);
                 return;
             }
-            Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 
@@ -207,25 +208,25 @@ public final class LogUtil {
 
     public static void e(String str, String str2) {
         if (f5347f) {
-            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 
     public static void d(String str) {
         if (f5345d) {
-            Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+            Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT, str);
         }
     }
 
     public static void i(String str) {
         if (f5345d) {
-            Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+            Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT, str);
         }
     }
 
     public static void w(String str) {
         if (f5346e) {
-            Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+            Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT, str);
         }
     }
 
@@ -238,7 +239,7 @@ public final class LogUtil {
                 Log.e("apollon_rest", str2, th);
                 return;
             }
-            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
+            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str, str2);
         }
     }
 }

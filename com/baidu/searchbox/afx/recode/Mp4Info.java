@@ -1,4 +1,6 @@
 package com.baidu.searchbox.afx.recode;
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes2.dex */
 public final class Mp4Info {
     public final int mBitrate;
@@ -36,6 +38,6 @@ public final class Mp4Info {
     }
 
     public String toString() {
-        return "[" + this.mWidth + "x" + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
+        return PreferencesUtil.LEFT_MOUNT + this.mWidth + "x" + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
     }
 }

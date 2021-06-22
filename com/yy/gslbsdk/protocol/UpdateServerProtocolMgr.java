@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
 import com.yy.gslbsdk.network.HTTPMgr;
@@ -17,7 +18,7 @@ public class UpdateServerProtocolMgr {
         String str2 = GlobalTools.APP_LOCALIZE_CODE;
         str2 = (str2 == null || str2.trim().length() < 1) ? "" : "";
         if (IpVersionController.tellIpVer(str) == 6) {
-            str = "[" + str + "]";
+            str = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
         }
         String str3 = str + "/srv_query_v2?usercfg=" + str2;
         HashMap hashMap = new HashMap();

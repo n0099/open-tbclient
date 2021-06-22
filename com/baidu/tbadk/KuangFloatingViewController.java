@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.n0.q3.c;
+import d.a.o0.q3.c;
 /* loaded from: classes3.dex */
 public class KuangFloatingViewController {
     public static String STORY_PACKAGE = "com.baidu.tieba.story";

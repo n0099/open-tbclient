@@ -7,31 +7,31 @@ public class al {
     public static volatile al l;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f37476a = false;
+    public volatile boolean f37574a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f37477b = false;
+    public volatile boolean f37575b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f37478c = false;
+    public volatile boolean f37576c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f37479d = false;
+    public volatile boolean f37577d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f37480e = false;
+    public volatile boolean f37578e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f37481f = false;
+    public volatile boolean f37579f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f37482g = 0;
+    public volatile long f37580g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f37483h = 0;
+    public volatile long f37581h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f37484i = 0;
+    public volatile long f37582i = 0;
     public volatile long j = -1;
     public volatile boolean k = false;
 
@@ -47,35 +47,35 @@ public class al {
     }
 
     private void e(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f37477b) {
-            this.f37477b = true;
-            this.f37483h = System.currentTimeMillis();
+        if (this.k && !this.f37575b) {
+            this.f37575b = true;
+            this.f37581h = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(66L, adTemplate);
-            aVar.l = this.f37483h - this.f37482g;
+            aVar.l = this.f37581h - this.f37580g;
             com.kwad.sdk.core.report.g.c(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(@NonNull AdTemplate adTemplate) {
-        if (!this.k || this.f37478c || this.f37480e) {
+        if (!this.k || this.f37576c || this.f37578e) {
             return;
         }
-        this.f37478c = true;
+        this.f37576c = true;
         com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(67L, adTemplate);
-        aVar.m = System.currentTimeMillis() - this.f37482g;
+        aVar.m = System.currentTimeMillis() - this.f37580g;
         aVar.n = this.j;
         com.kwad.sdk.core.report.g.c(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(@NonNull AdTemplate adTemplate) {
-        if (!this.k || this.f37479d || this.f37480e) {
+        if (!this.k || this.f37577d || this.f37578e) {
             return;
         }
-        this.f37479d = true;
+        this.f37577d = true;
         com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(68L, adTemplate);
-        aVar.m = System.currentTimeMillis() - this.f37482g;
+        aVar.m = System.currentTimeMillis() - this.f37580g;
         aVar.n = this.j;
         aVar.b();
         com.kwad.sdk.core.report.g.c(aVar);
@@ -87,36 +87,36 @@ public class al {
 
     public void a(@NonNull AdTemplate adTemplate) {
         this.k = com.kwad.sdk.core.config.c.U();
-        if (this.k && !this.f37476a) {
-            this.f37476a = true;
-            this.f37482g = System.currentTimeMillis();
+        if (this.k && !this.f37574a) {
+            this.f37574a = true;
+            this.f37580g = System.currentTimeMillis();
             com.kwad.sdk.core.report.g.c(new com.kwad.sdk.core.report.a(65L, adTemplate));
         }
     }
 
     public void b(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f37480e) {
-            this.f37480e = true;
-            this.f37484i = System.currentTimeMillis();
+        if (this.k && !this.f37578e) {
+            this.f37578e = true;
+            this.f37582i = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(69L, adTemplate);
-            aVar.l = this.f37484i - this.f37483h;
-            aVar.m = this.f37484i - this.f37482g;
+            aVar.l = this.f37582i - this.f37581h;
+            aVar.m = this.f37582i - this.f37580g;
             aVar.n = this.j;
             com.kwad.sdk.core.report.g.c(aVar);
         }
     }
 
     public boolean b() {
-        return this.f37481f;
+        return this.f37579f;
     }
 
     public void c(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f37481f) {
-            this.f37481f = true;
+        if (this.k && !this.f37579f) {
+            this.f37579f = true;
             long currentTimeMillis = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(70L, adTemplate);
-            aVar.l = currentTimeMillis - this.f37484i;
-            aVar.m = currentTimeMillis - this.f37482g;
+            aVar.l = currentTimeMillis - this.f37582i;
+            aVar.m = currentTimeMillis - this.f37580g;
             aVar.n = this.j;
             com.kwad.sdk.core.report.g.c(aVar);
         }

@@ -41,8 +41,8 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import d.a.c.e.m.g;
 import d.a.c.e.m.h;
 import d.a.c.e.p.k;
-import d.a.m0.r.l.a;
-import d.a.m0.s.i.b;
+import d.a.n0.r.l.a;
+import d.a.n0.s.i.b;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
@@ -57,7 +57,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public String mActivityId;
     public String mCustomLoginCssUrl;
     public String mFromUrl;
-    public d.a.m0.s.i.b mInputUserNameDialog;
+    public d.a.n0.s.i.b mInputUserNameDialog;
     public Activity mPassActivity;
     public int mSocialType;
     public WebAuthResult mWebAuthResult;
@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public boolean isAutoLogin = false;
     public String mScheme = null;
     public int mTab = -1;
-    public final a.InterfaceC1197a mReLoginCallback = new d();
+    public final a.InterfaceC1200a mReLoginCallback = new d();
 
     /* loaded from: classes5.dex */
     public class a extends WebAuthListener {
@@ -88,7 +88,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
             LoginActivity.this.loginResult = -1;
             LoginActivity.this.finishForResult(0);
         }
@@ -98,7 +98,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onSuccess(WebAuthResult webAuthResult) {
             LoginActivity.this.mWebAuthResult = webAuthResult;
             LoginActivity.this.mPassActivity = webAuthResult.activity;
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
             LoginActivity.this.passLoginSucc();
             LoginActivity.this.loginResult = 0;
         }
@@ -121,7 +121,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
             LoginActivity.this.loginResult = -1;
             LoginActivity.this.finishForResult(0);
         }
@@ -131,7 +131,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onSuccess(WebAuthResult webAuthResult) {
             LoginActivity.this.mWebAuthResult = webAuthResult;
             LoginActivity.this.mPassActivity = webAuthResult.activity;
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
             LoginActivity.this.passLoginSucc();
             LoginActivity.this.loginResult = 0;
         }
@@ -169,7 +169,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.InterfaceC1197a {
+    public class d implements a.InterfaceC1200a {
 
         /* loaded from: classes5.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -185,9 +185,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public d() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void a(String str, int i2, String str2) {
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
             LoginActivity.this.showToast(str2);
             if (LoginActivity.this.mPassActivity instanceof BaseSSOLoginActivity) {
@@ -196,7 +196,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.finishForResult(0);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void b(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
                 LoginActivity loginActivity = LoginActivity.this;
@@ -204,15 +204,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1197a
+        @Override // d.a.n0.r.l.a.InterfaceC1200a
         public void c(AccountData accountData) {
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
             LoginActivity.this.closeLoadingDialog();
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 LoginActivity.this.goToMainEntrance(accountData);
-                if (d.a.m0.b.d.f()) {
-                    d.a.m0.a.d.y().r();
+                if (d.a.n0.b.d.f()) {
+                    d.a.n0.a.d.y().r();
                     return;
                 }
                 return;
@@ -225,16 +225,16 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f18824e;
+        public final /* synthetic */ AccountData f18906e;
 
         public e(AccountData accountData) {
-            this.f18824e = accountData;
+            this.f18906e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f18824e);
-            d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            d.a.n0.r.l.c.g(this.f18906e);
+            d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
@@ -243,7 +243,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public f() {
         }
 
-        @Override // d.a.m0.s.i.b.e
+        @Override // d.a.n0.s.i.b.e
         public void a(AccountData accountData) {
             TbadkCoreApplication.getInst().setTbs(LoginActivity.this.mOldTbs);
             if (LoginActivity.this.mWebAuthResult != null) {
@@ -307,7 +307,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMainEntrance(AccountData accountData) {
         saveAccountInfo(accountData);
-        d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+        d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
         if (this.mClose) {
             WebAuthResult webAuthResult = this.mWebAuthResult;
@@ -320,17 +320,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         this.mTab = intExtra;
         if (intExtra == -1) {
-            d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
+            d.a.n0.r.d0.b j = d.a.n0.r.d0.b.j();
             if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 this.mTab = 2;
-                d.a.m0.r.d0.b j2 = d.a.m0.r.d0.b.j();
+                d.a.n0.r.d0.b j2 = d.a.n0.r.d0.b.j();
                 j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             } else {
                 this.mTab = 2;
             }
         }
-        if (d.a.m0.r.a0.b.b() != null) {
-            d.a.m0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
+        if (d.a.n0.r.a0.b.b() != null) {
+            d.a.n0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
         } else {
             sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mTab)));
         }
@@ -413,7 +413,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            this.mAccountLoginTask = d.a.m0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+            this.mAccountLoginTask = d.a.n0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
             return;
         }
         finish();
@@ -421,9 +421,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
 
     private void saveAccountInfo(AccountData accountData) {
         h.a().c(new e(accountData));
-        d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+        d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        d.a.m0.l.a.f(TbadkCoreApplication.getInst());
+        d.a.n0.l.a.f(TbadkCoreApplication.getInst());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
     }
 
@@ -431,7 +431,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void showInputDialog(AccountData accountData) {
         this.mOldTbs = TbadkCoreApplication.getCurrentTbs();
         if (this.mInputUserNameDialog == null) {
-            d.a.m0.s.i.b bVar = new d.a.m0.s.i.b(this.mPassActivity);
+            d.a.n0.s.i.b bVar = new d.a.n0.s.i.b(this.mPassActivity);
             this.mInputUserNameDialog = bVar;
             bVar.x(this.mReLoginCallback);
             this.mInputUserNameDialog.v(new f());
@@ -503,13 +503,13 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 i2 = 2;
             }
             this.mTab = i2;
-            d.a.m0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
+            d.a.n0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
         }
         BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
         if (bdAsyncTask != null) {
             bdAsyncTask.cancel();
         }
-        d.a.m0.s.i.b bVar = this.mInputUserNameDialog;
+        d.a.n0.s.i.b bVar = this.mInputUserNameDialog;
         if (bVar != null) {
             bVar.s();
         }
@@ -530,7 +530,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (str == null) {
                 str = getString(R.string.Waiting);
             }
-            d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(this.mPassActivity);
+            d.a.n0.r.f0.a aVar = new d.a.n0.r.f0.a(this.mPassActivity);
             this.mWaitingDialog = aVar;
             aVar.j(str);
             this.mWaitingDialog.e(onCancelListener);

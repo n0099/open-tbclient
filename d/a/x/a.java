@@ -3,23 +3,23 @@ package d.a.x;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68560a;
+    public String f68664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68561b;
+    public String f68665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68562c;
+    public String f68666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68563d;
+    public String f68667d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68564e;
+    public String f68668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68565f;
+    public String f68669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68566g;
+    public int f68670g;
 }

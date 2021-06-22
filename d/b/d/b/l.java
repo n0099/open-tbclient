@@ -23,6 +23,7 @@ import androidx.loader.content.ModernAsyncTask;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statusbar.ImmersiveOSUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
@@ -53,28 +54,28 @@ import org.json.JSONObject;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f69682a;
+    public static boolean f69786a;
 
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f69683e;
+        public final /* synthetic */ Context f69787e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f69684f;
+        public final /* synthetic */ boolean f69788f;
 
         public a(Context context, boolean z) {
-            this.f69683e = context;
-            this.f69684f = z;
+            this.f69787e = context;
+            this.f69788f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.d.b.c.b.a().b(this.f69683e);
-            d.b.d.b.n.c.a(this.f69683e);
-            if (this.f69684f) {
-                d.b.d.b.a.f.a(this.f69683e).b();
+            d.b.d.b.c.b.a().b(this.f69787e);
+            d.b.d.b.n.c.a(this.f69787e);
+            if (this.f69788f) {
+                d.b.d.b.a.f.a(this.f69787e).b();
             }
         }
     }
@@ -83,22 +84,22 @@ public final class l {
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f69685a = null;
+        public static String f69789a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f69686b = null;
+        public static String f69790b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Class<?> f69687c = null;
+        public static Class<?> f69791c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static Field f69688d = null;
+        public static Field f69792d = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public static Field f69689e = null;
+        public static Field f69793e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static boolean f69690f = false;
+        public static boolean f69794f = false;
 
         public static long a(int i2) {
             if (i2 < 0) {
@@ -260,22 +261,22 @@ public final class l {
 
         public static boolean j(Context context) {
             String k = k(context);
-            if (f69686b == null) {
+            if (f69790b == null) {
                 try {
                     String str = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
-                    f69686b = str;
-                    f69686b = str.substring(str.lastIndexOf(":"));
+                    f69790b = str;
+                    f69790b = str.substring(str.lastIndexOf(":"));
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    f69686b = ":npth";
+                    f69790b = ":npth";
                 }
             }
-            return k != null && k.endsWith(f69686b);
+            return k != null && k.endsWith(f69790b);
         }
 
         @Nullable
         public static String k(Context context) {
-            String str = f69685a;
+            String str = f69789a;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -284,7 +285,7 @@ public final class l {
                         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
                             if (runningAppProcessInfo.pid == myPid) {
                                 String str2 = runningAppProcessInfo.processName;
-                                f69685a = str2;
+                                f69789a = str2;
                                 return str2;
                             }
                         }
@@ -293,7 +294,7 @@ public final class l {
                     k.c(th);
                 }
                 String c2 = c();
-                f69685a = c2;
+                f69789a = c2;
                 return c2 == null ? "" : c2;
             }
             return str;
@@ -302,13 +303,13 @@ public final class l {
         @NonNull
         public static String l(Context context) {
             Class<?> n = n(context);
-            if (f69688d == null && n != null) {
+            if (f69792d == null && n != null) {
                 try {
-                    f69688d = n.getDeclaredField("VERSION_NAME");
+                    f69792d = n.getDeclaredField("VERSION_NAME");
                 } catch (NoSuchFieldException unused) {
                 }
             }
-            Field field = f69688d;
+            Field field = f69792d;
             if (field != null) {
                 try {
                     return (String) field.get(null);
@@ -321,13 +322,13 @@ public final class l {
 
         public static int m(Context context) {
             Class<?> n = n(context);
-            if (f69689e == null && n != null) {
+            if (f69793e == null && n != null) {
                 try {
-                    f69689e = n.getDeclaredField("VERSION_CODE");
+                    f69793e = n.getDeclaredField("VERSION_CODE");
                 } catch (NoSuchFieldException unused) {
                 }
             }
-            Field field = f69689e;
+            Field field = f69793e;
             if (field != null) {
                 try {
                     return ((Integer) field.get(null)).intValue();
@@ -340,14 +341,14 @@ public final class l {
 
         @Nullable
         public static Class<?> n(Context context) {
-            if (f69687c == null && !f69690f) {
+            if (f69791c == null && !f69794f) {
                 try {
-                    f69687c = Class.forName(context.getPackageName() + ".BuildConfig");
+                    f69791c = Class.forName(context.getPackageName() + ".BuildConfig");
                 } catch (ClassNotFoundException unused) {
                 }
-                f69690f = true;
+                f69794f = true;
             }
-            return f69687c;
+            return f69791c;
         }
     }
 
@@ -355,7 +356,7 @@ public final class l {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f69691a;
+        public static final b f69795a;
 
         /* loaded from: classes6.dex */
         public static class b {
@@ -378,8 +379,8 @@ public final class l {
         @TargetApi(19)
         /* renamed from: d.b.d.b.l$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C1900c extends b {
-            public C1900c() {
+        public static class C1903c extends b {
+            public C1903c() {
                 super();
             }
 
@@ -401,22 +402,22 @@ public final class l {
 
         static {
             if (Build.VERSION.SDK_INT >= 19) {
-                f69691a = new C1900c();
+                f69795a = new C1903c();
             } else {
-                f69691a = new b();
+                f69795a = new b();
             }
         }
 
         public static int a(Debug.MemoryInfo memoryInfo) {
-            return f69691a.a(memoryInfo);
+            return f69795a.a(memoryInfo);
         }
 
         public static int b(Debug.MemoryInfo memoryInfo) {
-            return f69691a.b(memoryInfo);
+            return f69795a.b(memoryInfo);
         }
 
         public static int c(Debug.MemoryInfo memoryInfo) {
-            return f69691a.c(memoryInfo);
+            return f69795a.c(memoryInfo);
         }
     }
 
@@ -424,7 +425,7 @@ public final class l {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static boolean f69692a = false;
+        public static boolean f69796a = false;
 
         public static String a() {
             return c("ro.build.version.emui");
@@ -476,18 +477,18 @@ public final class l {
         }
 
         public static boolean e() {
-            if (!f69692a) {
+            if (!f69796a) {
                 try {
                     if (Class.forName("miui.os.Build") != null) {
-                        com.bytedance.tea.crash.upload.b.f30402a = true;
-                        f69692a = true;
+                        com.bytedance.tea.crash.upload.b.f30484a = true;
+                        f69796a = true;
                         return true;
                     }
                 } catch (Exception unused) {
                 }
-                f69692a = true;
+                f69796a = true;
             }
-            return com.bytedance.tea.crash.upload.b.f30402a;
+            return com.bytedance.tea.crash.upload.b.f30484a;
         }
 
         public static boolean f() {
@@ -695,48 +696,48 @@ public final class l {
     public final class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Set<String> f69693a;
+        public static final Set<String> f69797a;
 
         static {
             HashSet hashSet = new HashSet();
-            f69693a = hashSet;
+            f69797a = hashSet;
             hashSet.add("HeapTaskDaemon");
-            f69693a.add("ThreadPlus");
-            f69693a.add("ApiDispatcher");
-            f69693a.add("ApiLocalDispatcher");
-            f69693a.add("AsyncLoader");
-            f69693a.add(ModernAsyncTask.LOG_TAG);
-            f69693a.add("Binder");
-            f69693a.add("PackageProcessor");
-            f69693a.add("SettingsObserver");
-            f69693a.add("WifiManager");
-            f69693a.add("JavaBridge");
-            f69693a.add("Compiler");
-            f69693a.add("Signal Catcher");
-            f69693a.add("GC");
-            f69693a.add("ReferenceQueueDaemon");
-            f69693a.add("FinalizerDaemon");
-            f69693a.add("FinalizerWatchdogDaemon");
-            f69693a.add("CookieSyncManager");
-            f69693a.add("RefQueueWorker");
-            f69693a.add("CleanupReference");
-            f69693a.add("VideoManager");
-            f69693a.add("DBHelper-AsyncOp");
-            f69693a.add("InstalledAppTracker2");
-            f69693a.add("AppData-AsyncOp");
-            f69693a.add("IdleConnectionMonitor");
-            f69693a.add("LogReaper");
-            f69693a.add("ActionReaper");
-            f69693a.add("Okio Watchdog");
-            f69693a.add("CheckWaitingQueue");
-            f69693a.add("NPTH-CrashTimer");
-            f69693a.add("NPTH-JavaCallback");
-            f69693a.add("NPTH-LocalParser");
-            f69693a.add("ANR_FILE_MODIFY");
+            f69797a.add("ThreadPlus");
+            f69797a.add("ApiDispatcher");
+            f69797a.add("ApiLocalDispatcher");
+            f69797a.add("AsyncLoader");
+            f69797a.add(ModernAsyncTask.LOG_TAG);
+            f69797a.add("Binder");
+            f69797a.add("PackageProcessor");
+            f69797a.add("SettingsObserver");
+            f69797a.add("WifiManager");
+            f69797a.add("JavaBridge");
+            f69797a.add("Compiler");
+            f69797a.add("Signal Catcher");
+            f69797a.add("GC");
+            f69797a.add("ReferenceQueueDaemon");
+            f69797a.add("FinalizerDaemon");
+            f69797a.add("FinalizerWatchdogDaemon");
+            f69797a.add("CookieSyncManager");
+            f69797a.add("RefQueueWorker");
+            f69797a.add("CleanupReference");
+            f69797a.add("VideoManager");
+            f69797a.add("DBHelper-AsyncOp");
+            f69797a.add("InstalledAppTracker2");
+            f69797a.add("AppData-AsyncOp");
+            f69797a.add("IdleConnectionMonitor");
+            f69797a.add("LogReaper");
+            f69797a.add("ActionReaper");
+            f69797a.add("Okio Watchdog");
+            f69797a.add("CheckWaitingQueue");
+            f69797a.add("NPTH-CrashTimer");
+            f69797a.add("NPTH-JavaCallback");
+            f69797a.add("NPTH-LocalParser");
+            f69797a.add("ANR_FILE_MODIFY");
         }
 
         public static Set<String> a() {
-            return f69693a;
+            return f69797a;
         }
     }
 
@@ -756,7 +757,7 @@ public final class l {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f69694a;
+        public static final b f69798a;
 
         /* loaded from: classes6.dex */
         public static class b {
@@ -783,14 +784,14 @@ public final class l {
 
         static {
             if (Build.VERSION.SDK_INT >= 16) {
-                f69694a = new c();
+                f69798a = new c();
             } else {
-                f69694a = new b();
+                f69798a = new b();
             }
         }
 
         public static long a(ActivityManager.MemoryInfo memoryInfo) {
-            return f69694a.a(memoryInfo);
+            return f69798a.a(memoryInfo);
         }
     }
 
@@ -837,29 +838,29 @@ public final class l {
         public static /* synthetic */ class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final /* synthetic */ int[] f69695a;
+            public static final /* synthetic */ int[] f69799a;
 
             static {
-                int[] iArr = new int[b.EnumC0326b.values().length];
-                f69695a = iArr;
+                int[] iArr = new int[b.EnumC0329b.values().length];
+                f69799a = iArr;
                 try {
-                    iArr[b.EnumC0326b.WIFI.ordinal()] = 1;
+                    iArr[b.EnumC0329b.WIFI.ordinal()] = 1;
                 } catch (NoSuchFieldError unused) {
                 }
                 try {
-                    f69695a[b.EnumC0326b.MOBILE_2G.ordinal()] = 2;
+                    f69799a[b.EnumC0329b.MOBILE_2G.ordinal()] = 2;
                 } catch (NoSuchFieldError unused2) {
                 }
                 try {
-                    f69695a[b.EnumC0326b.MOBILE_3G.ordinal()] = 3;
+                    f69799a[b.EnumC0329b.MOBILE_3G.ordinal()] = 3;
                 } catch (NoSuchFieldError unused3) {
                 }
                 try {
-                    f69695a[b.EnumC0326b.MOBILE_4G.ordinal()] = 4;
+                    f69799a[b.EnumC0329b.MOBILE_4G.ordinal()] = 4;
                 } catch (NoSuchFieldError unused4) {
                 }
                 try {
-                    f69695a[b.EnumC0326b.MOBILE.ordinal()] = 5;
+                    f69799a[b.EnumC0329b.MOBILE.ordinal()] = 5;
                 } catch (NoSuchFieldError unused5) {
                 }
             }
@@ -869,10 +870,10 @@ public final class l {
             return b(d(context));
         }
 
-        public static String b(b.EnumC0326b enumC0326b) {
+        public static String b(b.EnumC0329b enumC0329b) {
             String str;
             try {
-                int i2 = a.f69695a[enumC0326b.ordinal()];
+                int i2 = a.f69799a[enumC0329b.ordinal()];
                 if (i2 == 1) {
                     str = "wifi";
                 } else if (i2 == 2) {
@@ -905,17 +906,17 @@ public final class l {
             }
         }
 
-        public static b.EnumC0326b d(Context context) {
+        public static b.EnumC0329b d(Context context) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return b.EnumC0326b.NONE;
+                    return b.EnumC0329b.NONE;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return b.EnumC0326b.WIFI;
+                        return b.EnumC0329b.WIFI;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -928,21 +929,21 @@ public final class l {
                             case 12:
                             case 14:
                             case 15:
-                                return b.EnumC0326b.MOBILE_3G;
+                                return b.EnumC0329b.MOBILE_3G;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return b.EnumC0326b.MOBILE;
+                                return b.EnumC0329b.MOBILE;
                             case 13:
-                                return b.EnumC0326b.MOBILE_4G;
+                                return b.EnumC0329b.MOBILE_4G;
                         }
                     }
-                    return b.EnumC0326b.MOBILE;
+                    return b.EnumC0329b.MOBILE;
                 }
-                return b.EnumC0326b.NONE;
+                return b.EnumC0329b.NONE;
             } catch (Throwable unused) {
-                return b.EnumC0326b.MOBILE;
+                return b.EnumC0329b.MOBILE;
             }
         }
     }
@@ -970,7 +971,7 @@ public final class l {
 
     /* renamed from: d.b.d.b.l$l  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C1901l {
+    public final class C1904l {
         public static String a(String str) {
             Map<String, Object> a2;
             if (d.b.d.b.m.a() == null || (a2 = d.b.d.b.m.a().a()) == null) {
@@ -1026,10 +1027,10 @@ public final class l {
     public class m {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final CharSequence f69696a = "amigo";
+        public static final CharSequence f69800a = "amigo";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CharSequence f69697b = "funtouch";
+        public static final CharSequence f69801b = "funtouch";
 
         public static String a() {
             if (d.e()) {
@@ -1098,11 +1099,11 @@ public final class l {
 
         public static boolean f() {
             String b2 = b("ro.vivo.os.build.display.id");
-            return !TextUtils.isEmpty(b2) && b2.toLowerCase(Locale.getDefault()).contains(f69697b);
+            return !TextUtils.isEmpty(b2) && b2.toLowerCase(Locale.getDefault()).contains(f69801b);
         }
 
         public static boolean g() {
-            return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f69696a);
+            return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f69800a);
         }
 
         public static String h() {
@@ -1163,18 +1164,18 @@ public final class l {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final PrintWriter f69698a;
+            public final PrintWriter f69802a;
 
             public a(PrintWriter printWriter) {
-                this.f69698a = printWriter;
+                this.f69802a = printWriter;
             }
 
             public Object a() {
-                return this.f69698a;
+                return this.f69802a;
             }
 
             public void b(Object obj) {
-                this.f69698a.println(obj);
+                this.f69802a.println(obj);
             }
         }
 
@@ -1270,7 +1271,7 @@ public final class l {
         /* JADX WARN: Multi-variable type inference failed */
         public static void e(Throwable th, a aVar, StackTraceElement[] stackTraceElementArr, String str, String str2, Set<Throwable> set) {
             if (set.contains(th)) {
-                aVar.b("\t[CIRCULAR REFERENCE:" + th + "]");
+                aVar.b("\t[CIRCULAR REFERENCE:" + th + PreferencesUtil.RIGHT_MOUNT);
                 return;
             }
             set.add(th);
@@ -1526,7 +1527,7 @@ public final class l {
 
     public static synchronized void c(@NonNull Context context, @NonNull d.b.d.b.g gVar, boolean z, boolean z2, boolean z3, boolean z4) {
         synchronized (l.class) {
-            if (f69682a) {
+            if (f69786a) {
                 return;
             }
             if (context == null) {
@@ -1547,7 +1548,7 @@ public final class l {
                         a2.c(new d.b.d.b.f.c(context));
                     }
                 }
-                f69682a = true;
+                f69786a = true;
                 d.b.d.b.h.i.b().post(new a(context, z4));
                 return;
             }

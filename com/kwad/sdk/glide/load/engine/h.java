@@ -6,7 +6,7 @@ import com.kwad.sdk.glide.load.EncodeStrategy;
 public abstract class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f36224a = new h() { // from class: com.kwad.sdk.glide.load.engine.h.1
+    public static final h f36322a = new h() { // from class: com.kwad.sdk.glide.load.engine.h.1
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;
@@ -29,7 +29,7 @@ public abstract class h {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f36225b = new h() { // from class: com.kwad.sdk.glide.load.engine.h.2
+    public static final h f36323b = new h() { // from class: com.kwad.sdk.glide.load.engine.h.2
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return false;
@@ -52,7 +52,7 @@ public abstract class h {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f36226c = new h() { // from class: com.kwad.sdk.glide.load.engine.h.3
+    public static final h f36324c = new h() { // from class: com.kwad.sdk.glide.load.engine.h.3
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return false;
@@ -75,7 +75,7 @@ public abstract class h {
     };
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f36227d = new h() { // from class: com.kwad.sdk.glide.load.engine.h.4
+    public static final h f36325d = new h() { // from class: com.kwad.sdk.glide.load.engine.h.4
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;
@@ -98,7 +98,7 @@ public abstract class h {
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f36228e = new h() { // from class: com.kwad.sdk.glide.load.engine.h.5
+    public static final h f36326e = new h() { // from class: com.kwad.sdk.glide.load.engine.h.5
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;

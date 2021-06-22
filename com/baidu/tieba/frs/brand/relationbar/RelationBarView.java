@@ -19,42 +19,42 @@ import tbclient.OriForumInfo;
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15323e;
+    public int f15405e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15324f;
+    public RecyclerView f15406f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelationBarAdapter f15325g;
+    public RelationBarAdapter f15407g;
 
     public RelationBarView(Context context) {
         super(context);
-        this.f15323e = 3;
+        this.f15405e = 3;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
-        this.f15324f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
+        this.f15406f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
         RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-        this.f15325g = relationBarAdapter;
-        this.f15324f.setAdapter(relationBarAdapter);
-        this.f15324f.setLayoutManager(new LinearLayoutManager(context, 0, false));
-        this.f15324f.setItemAnimator(new DefaultItemAnimator());
+        this.f15407g = relationBarAdapter;
+        this.f15406f.setAdapter(relationBarAdapter);
+        this.f15406f.setLayoutManager(new LinearLayoutManager(context, 0, false));
+        this.f15406f.setItemAnimator(new DefaultItemAnimator());
         int g2 = l.g(context, R.dimen.tbds44);
-        this.f15324f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
+        this.f15406f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
         b();
     }
 
     public void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f15323e) {
+        if (skinType == this.f15405e) {
             return;
         }
-        this.f15323e = skinType;
+        this.f15405e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f15325g.notifyDataSetChanged();
+        this.f15407g.notifyDataSetChanged();
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -63,19 +63,19 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             return;
         }
         setVisibility(0);
-        this.f15325g.setData(list);
-        this.f15325g.notifyDataSetChanged();
+        this.f15407g.setData(list);
+        this.f15407g.notifyDataSetChanged();
     }
 
     public RelationBarView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15323e = 3;
+        this.f15405e = 3;
         a(context);
     }
 
     public RelationBarView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15323e = 3;
+        this.f15405e = 3;
         a(context);
     }
 }

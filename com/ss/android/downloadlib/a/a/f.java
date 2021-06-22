@@ -8,21 +8,21 @@ public class f extends a {
     @c(b = 1)
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39440a;
+    public String f39543a;
     @c(b = 2)
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39441b;
+    public String f39544b;
     @c(b = 3)
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39442c;
+    public String f39545c;
     @c(b = 5)
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39443d;
+    public int f39546d;
     @c(b = 7)
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39444e;
+    public int f39547e;
 }

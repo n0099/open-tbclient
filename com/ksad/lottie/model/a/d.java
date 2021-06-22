@@ -13,7 +13,7 @@ public class d extends n<Integer, Integer> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<Integer, Integer> a() {
-        return new com.ksad.lottie.a.b.e(this.f31998a);
+        return new com.ksad.lottie.a.b.e(this.f32096a);
     }
 
     @Override // com.ksad.lottie.model.a.n

@@ -7,16 +7,16 @@ import d.b.d.b.l;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f69631a;
+    public Context f69735a;
 
     public c(Context context) {
-        this.f69631a = context;
+        this.f69735a = context;
     }
 
     @Override // d.b.d.b.f.b
     public void a(long j, Thread thread, Throwable th) {
-        d.b.d.b.e.a c2 = d.b.d.b.e.a.c(j, this.f69631a, thread, th);
-        l.e.d(this.f69631a, com.bytedance.tea.crash.c.JAVA.a(), Thread.currentThread().getName());
+        d.b.d.b.e.a c2 = d.b.d.b.e.a.c(j, this.f69735a, thread, th);
+        l.e.d(this.f69735a, com.bytedance.tea.crash.c.JAVA.a(), Thread.currentThread().getName());
         d.b.d.b.n.a.a().b(e.c().a(com.bytedance.tea.crash.c.JAVA, c2).j());
     }
 

@@ -17,7 +17,7 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
         public static final long serialVersionUID = 7603343402964826922L;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72300d;
+        public Disposable f72404d;
 
         public MaybeToFlowableSubscriber(Subscriber<? super T> subscriber) {
             super(subscriber);
@@ -26,7 +26,7 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
         @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
         public void cancel() {
             super.cancel();
-            this.f72300d.dispose();
+            this.f72404d.dispose();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -41,8 +41,8 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72300d, disposable)) {
-                this.f72300d = disposable;
+            if (DisposableHelper.validate(this.f72404d, disposable)) {
+                this.f72404d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

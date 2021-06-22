@@ -7,7 +7,7 @@ import com.vivo.push.c.ai;
 public final class o implements IPushClientFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public ai f40332a = new ai();
+    public ai f40435a = new ai();
 
     @Override // com.vivo.push.IPushClientFactory
     public final ab createReceiveTask(y yVar) {

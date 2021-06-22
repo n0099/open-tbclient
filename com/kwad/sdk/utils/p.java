@@ -13,10 +13,10 @@ import com.kwad.sdk.R;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f37542a = new Handler(Looper.getMainLooper());
+    public static Handler f37640a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f37543b = false;
+    public static volatile boolean f37641b = false;
 
     public static void a(Context context) {
         a(context, q.c(context));
@@ -31,10 +31,10 @@ public class p {
     }
 
     public static void a(Context context, String str, int i2, long j) {
-        if (f37543b) {
+        if (f37641b) {
             return;
         }
-        f37543b = true;
+        f37641b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -42,10 +42,10 @@ public class p {
         toast.setDuration(0);
         toast.setView(inflate);
         toast.show();
-        f37542a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
+        f37640a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean unused = p.f37543b = false;
+                boolean unused = p.f37641b = false;
             }
         }, j);
     }

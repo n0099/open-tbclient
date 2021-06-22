@@ -16,24 +16,24 @@ import d.a.c.e.p.l;
 public class PersonalCardItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21209e;
+    public Context f21291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21210f;
+    public View f21292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21211g;
+    public TbImageView f21293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21212h;
+    public TextView f21294h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f21213i;
+    public TbImageView f21295i;
     public TbImageView j;
     public ImageView k;
     public TextView l;
     public View m;
-    public d.a.n0.k3.a n;
+    public d.a.o0.k3.a n;
     public b o;
     public int p;
     public int q;
@@ -54,35 +54,35 @@ public class PersonalCardItemView extends LinearLayout {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(d.a.n0.k3.a aVar);
+        void a(d.a.o0.k3.a aVar);
     }
 
     public PersonalCardItemView(Context context) {
         super(context);
-        this.f21209e = context;
+        this.f21291e = context;
         d();
     }
 
-    public void c(d.a.n0.k3.a aVar) {
+    public void c(d.a.o0.k3.a aVar) {
         if (aVar == null) {
             return;
         }
         this.n = aVar;
-        if (aVar.a() == d.a.n0.k3.a.k) {
-            this.f21211g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            SkinManager.setBackgroundColor(this.f21211g, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f21211g, R.drawable.icon_bubble_choose_no);
-            this.f21212h.setVisibility(0);
+        if (aVar.a() == d.a.o0.k3.a.k) {
+            this.f21293g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.f21293g, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f21293g, R.drawable.icon_bubble_choose_no);
+            this.f21294h.setVisibility(0);
             this.j.setVisibility(8);
-            this.f21213i.setVisibility(8);
+            this.f21295i.setVisibility(8);
         } else {
-            this.f21212h.setVisibility(8);
+            this.f21294h.setVisibility(8);
             this.j.setVisibility(0);
-            this.f21213i.setVisibility(0);
-            this.f21211g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f21211g.setImageBitmap(null);
-            this.f21211g.setDefaultResource(R.drawable.img_default_100);
-            this.f21211g.U(aVar.e(), 10, false);
+            this.f21295i.setVisibility(0);
+            this.f21293g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f21293g.setImageBitmap(null);
+            this.f21293g.setDefaultResource(R.drawable.img_default_100);
+            this.f21293g.U(aVar.e(), 10, false);
         }
         if (aVar.g() == 1) {
             this.k.setVisibility(0);
@@ -90,7 +90,7 @@ public class PersonalCardItemView extends LinearLayout {
         } else {
             this.k.setVisibility(8);
         }
-        this.f21213i.U(aVar.i(), 10, false);
+        this.f21295i.U(aVar.i(), 10, false);
         this.j.U(aVar.b(), 10, false);
         this.l.setText(aVar.j());
         setVisibility(0);
@@ -98,30 +98,30 @@ public class PersonalCardItemView extends LinearLayout {
 
     public final void d() {
         setOrientation(1);
-        int k = (l.k(this.f21209e) - l.g(this.f21209e, R.dimen.ds88)) / 3;
+        int k = (l.k(this.f21291e) - l.g(this.f21291e, R.dimen.ds88)) / 3;
         this.p = k;
         this.q = (int) (k * 0.57d);
-        View inflate = LayoutInflater.from(this.f21209e).inflate(R.layout.personal_card_item_layout, this);
-        this.f21210f = inflate;
-        this.f21211g = (TbImageView) inflate.findViewById(R.id.image_bg);
-        TbImageView tbImageView = (TbImageView) this.f21210f.findViewById(R.id.permission_icon);
-        this.f21213i = tbImageView;
+        View inflate = LayoutInflater.from(this.f21291e).inflate(R.layout.personal_card_item_layout, this);
+        this.f21292f = inflate;
+        this.f21293g = (TbImageView) inflate.findViewById(R.id.image_bg);
+        TbImageView tbImageView = (TbImageView) this.f21292f.findViewById(R.id.permission_icon);
+        this.f21295i = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f21213i.setDefaultBgResource(R.drawable.transparent_bg);
-        TbImageView tbImageView2 = (TbImageView) this.f21210f.findViewById(R.id.state_icon);
+        this.f21295i.setDefaultBgResource(R.drawable.transparent_bg);
+        TbImageView tbImageView2 = (TbImageView) this.f21292f.findViewById(R.id.state_icon);
         this.j = tbImageView2;
         tbImageView2.setDefaultResource(R.drawable.transparent_bg);
         this.j.setDefaultBgResource(R.drawable.transparent_bg);
-        this.k = (ImageView) this.f21210f.findViewById(R.id.choosed_icon);
-        this.f21212h = (TextView) this.f21210f.findViewById(R.id.txt_default);
-        this.l = (TextView) this.f21210f.findViewById(R.id.view_card_name);
-        this.m = this.f21210f.findViewById(R.id.black_stroke);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21211g.getLayoutParams();
+        this.k = (ImageView) this.f21292f.findViewById(R.id.choosed_icon);
+        this.f21294h = (TextView) this.f21292f.findViewById(R.id.txt_default);
+        this.l = (TextView) this.f21292f.findViewById(R.id.view_card_name);
+        this.m = this.f21292f.findViewById(R.id.black_stroke);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21293g.getLayoutParams();
         layoutParams.height = this.q;
         layoutParams.width = this.p;
-        this.f21211g.setLayoutParams(layoutParams);
+        this.f21293g.setLayoutParams(layoutParams);
         this.m.setLayoutParams(layoutParams);
-        this.f21211g.setOnClickListener(new a());
+        this.f21293g.setOnClickListener(new a());
     }
 
     public b getCardViewController() {
@@ -134,13 +134,13 @@ public class PersonalCardItemView extends LinearLayout {
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21209e = context;
+        this.f21291e = context;
         d();
     }
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21209e = context;
+        this.f21291e = context;
         d();
     }
 }

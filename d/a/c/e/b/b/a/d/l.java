@@ -5,14 +5,14 @@ import java.util.List;
 public class l implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Object> f42141a;
+    public List<Object> f42244a;
 
     public l(List<Object> list) {
-        this.f42141a = list;
+        this.f42244a = list;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return d.a.c.e.b.b.a.e.b.c(this.f42141a, cVar);
+        return d.a.c.e.b.b.a.e.b.c(this.f42244a, cVar);
     }
 }

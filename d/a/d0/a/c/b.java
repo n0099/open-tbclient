@@ -16,17 +16,17 @@ public class b {
     public class a implements LottieListener<Throwable> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f43272a;
+        public final /* synthetic */ f f43375a;
 
         public a(b bVar, f fVar) {
-            this.f43272a = fVar;
+            this.f43375a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.airbnb.lottie.LottieListener
         /* renamed from: a */
         public void onResult(Throwable th) {
-            f fVar = this.f43272a;
+            f fVar = this.f43375a;
             if (fVar != null) {
                 fVar.b();
             }
@@ -35,16 +35,16 @@ public class b {
 
     /* renamed from: d.a.d0.a.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0575b implements LottieListener<LottieComposition> {
+    public class C0578b implements LottieListener<LottieComposition> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f43273a;
+        public final /* synthetic */ f f43376a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f43274b;
+        public final /* synthetic */ LottieAnimationView f43377b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f43275c;
+        public final /* synthetic */ Animator.AnimatorListener f43378c;
 
         /* renamed from: d.a.d0.a.c.b$b$a */
         /* loaded from: classes2.dex */
@@ -54,7 +54,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                Animator.AnimatorListener animatorListener = C0575b.this.f43275c;
+                Animator.AnimatorListener animatorListener = C0578b.this.f43378c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationCancel(animator);
                 }
@@ -62,7 +62,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                Animator.AnimatorListener animatorListener = C0575b.this.f43275c;
+                Animator.AnimatorListener animatorListener = C0578b.this.f43378c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationEnd(animator);
                 }
@@ -70,7 +70,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                Animator.AnimatorListener animatorListener = C0575b.this.f43275c;
+                Animator.AnimatorListener animatorListener = C0578b.this.f43378c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationRepeat(animator);
                 }
@@ -78,17 +78,17 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                Animator.AnimatorListener animatorListener = C0575b.this.f43275c;
+                Animator.AnimatorListener animatorListener = C0578b.this.f43378c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationStart(animator);
                 }
             }
         }
 
-        public C0575b(b bVar, f fVar, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener) {
-            this.f43273a = fVar;
-            this.f43274b = lottieAnimationView;
-            this.f43275c = animatorListener;
+        public C0578b(b bVar, f fVar, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener) {
+            this.f43376a = fVar;
+            this.f43377b = lottieAnimationView;
+            this.f43378c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,14 +96,14 @@ public class b {
         /* renamed from: a */
         public void onResult(LottieComposition lottieComposition) {
             if (lottieComposition != null) {
-                f fVar = this.f43273a;
+                f fVar = this.f43376a;
                 if (fVar != null) {
                     fVar.a();
                 }
-                this.f43274b.setVisibility(0);
-                this.f43274b.setComposition(lottieComposition);
-                this.f43274b.playAnimation();
-                this.f43274b.addAnimatorListener(new a());
+                this.f43377b.setVisibility(0);
+                this.f43377b.setComposition(lottieComposition);
+                this.f43377b.playAnimation();
+                this.f43377b.addAnimatorListener(new a());
             }
         }
     }
@@ -112,17 +112,17 @@ public class b {
     public class c implements LottieListener<Throwable> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f43277a;
+        public final /* synthetic */ f f43380a;
 
         public c(b bVar, f fVar) {
-            this.f43277a = fVar;
+            this.f43380a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.airbnb.lottie.LottieListener
         /* renamed from: a */
         public void onResult(Throwable th) {
-            f fVar = this.f43277a;
+            f fVar = this.f43380a;
             if (fVar != null) {
                 fVar.b();
             }
@@ -133,13 +133,13 @@ public class b {
     public class d implements LottieListener<LottieComposition> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f43278a;
+        public final /* synthetic */ f f43381a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f43279b;
+        public final /* synthetic */ LottieAnimationView f43382b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f43280c;
+        public final /* synthetic */ Animator.AnimatorListener f43383c;
 
         /* loaded from: classes2.dex */
         public class a implements Animator.AnimatorListener {
@@ -148,7 +148,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                Animator.AnimatorListener animatorListener = d.this.f43280c;
+                Animator.AnimatorListener animatorListener = d.this.f43383c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationCancel(animator);
                 }
@@ -156,7 +156,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                Animator.AnimatorListener animatorListener = d.this.f43280c;
+                Animator.AnimatorListener animatorListener = d.this.f43383c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationEnd(animator);
                 }
@@ -164,7 +164,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                Animator.AnimatorListener animatorListener = d.this.f43280c;
+                Animator.AnimatorListener animatorListener = d.this.f43383c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationRepeat(animator);
                 }
@@ -172,7 +172,7 @@ public class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                Animator.AnimatorListener animatorListener = d.this.f43280c;
+                Animator.AnimatorListener animatorListener = d.this.f43383c;
                 if (animatorListener != null) {
                     animatorListener.onAnimationStart(animator);
                 }
@@ -180,9 +180,9 @@ public class b {
         }
 
         public d(b bVar, f fVar, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener) {
-            this.f43278a = fVar;
-            this.f43279b = lottieAnimationView;
-            this.f43280c = animatorListener;
+            this.f43381a = fVar;
+            this.f43382b = lottieAnimationView;
+            this.f43383c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -190,14 +190,14 @@ public class b {
         /* renamed from: a */
         public void onResult(LottieComposition lottieComposition) {
             if (lottieComposition != null) {
-                f fVar = this.f43278a;
+                f fVar = this.f43381a;
                 if (fVar != null) {
                     fVar.a();
                 }
-                this.f43279b.setVisibility(0);
-                this.f43279b.setComposition(lottieComposition);
-                this.f43279b.playAnimation();
-                this.f43279b.addAnimatorListener(new a());
+                this.f43382b.setVisibility(0);
+                this.f43382b.setComposition(lottieComposition);
+                this.f43382b.playAnimation();
+                this.f43382b.addAnimatorListener(new a());
             }
         }
     }
@@ -206,7 +206,7 @@ public class b {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f43282a = new b(null);
+        public static b f43385a = new b(null);
     }
 
     /* loaded from: classes2.dex */
@@ -221,7 +221,7 @@ public class b {
     }
 
     public static b c() {
-        return e.f43282a;
+        return e.f43385a;
     }
 
     public void a(File file, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener, f fVar) {
@@ -229,7 +229,7 @@ public class b {
             return;
         }
         try {
-            LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0575b(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new a(this, fVar));
+            LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0578b(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new a(this, fVar));
         } catch (Exception unused) {
             lottieAnimationView.setVisibility(8);
             if (fVar != null) {
@@ -248,7 +248,7 @@ public class b {
             return;
         }
         try {
-            LottieCompositionFactory.fromUrl(d.a.d0.a.b.a.f43271a.get().o(), str).addListener(new d(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new c(this, fVar));
+            LottieCompositionFactory.fromUrl(d.a.d0.a.b.a.f43374a.get().o(), str).addListener(new d(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new c(this, fVar));
         } catch (Exception unused) {
             lottieAnimationView.setVisibility(8);
             if (fVar != null) {

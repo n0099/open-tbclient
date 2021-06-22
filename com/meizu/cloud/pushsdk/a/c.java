@@ -16,28 +16,28 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38192a = "c";
+    public static final String f38290a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f38193b;
+    public HashMap<String, String> f38291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f38194c;
+    public HashMap<String, String> f38292c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f38195d;
+    public HashMap<String, Object> f38293d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Object> f38196e;
+    public HashMap<String, Object> f38294e;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f38197a = null;
+        public Context f38295a = null;
 
         public a a(Context context) {
-            this.f38197a = context;
+            this.f38295a = context;
             return this;
         }
 
@@ -47,15 +47,15 @@ public class c {
     }
 
     public c(a aVar) {
-        this.f38193b = new HashMap<>();
-        this.f38194c = new HashMap<>();
-        this.f38195d = new HashMap<>();
-        this.f38196e = new HashMap<>();
+        this.f38291b = new HashMap<>();
+        this.f38292c = new HashMap<>();
+        this.f38293d = new HashMap<>();
+        this.f38294e = new HashMap<>();
         e();
-        if (aVar.f38197a != null) {
-            a(aVar.f38197a);
+        if (aVar.f38295a != null) {
+            a(aVar.f38295a);
         }
-        d.j.a.a.a.d(f38192a, "Subject created successfully.");
+        d.j.a.a.a.d(f38290a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -66,28 +66,28 @@ public class c {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f38195d.put(str, obj);
+        this.f38293d.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f38193b.put(str, str2);
+        this.f38291b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f38196e.put(str, obj);
+        this.f38294e.put(str, obj);
     }
 
     private void b(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f38194c.put(str, str2);
+        this.f38292c.put(str, str2);
     }
 
     private long c(Context context) {
@@ -106,8 +106,8 @@ public class c {
     }
 
     private void e() {
-        b(b.f38189g, Build.BRAND);
-        b(b.f38190h, Build.MODEL);
+        b(b.f38287g, Build.BRAND);
+        b(b.f38288h, Build.MODEL);
         b(b.j, Build.VERSION.RELEASE);
         b(b.k, Build.DISPLAY);
         b(b.m, MzSystemUtils.getCurrentLanguage());
@@ -116,7 +116,7 @@ public class c {
     private void e(Context context) {
         Location c2 = e.c(context);
         if (c2 == null) {
-            d.j.a.a.a.b(f38192a, "Location information not available.");
+            d.j.a.a.a.b(f38290a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c2.getLongitude()));
@@ -125,26 +125,26 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f38184b, MzSystemUtils.getDeviceId(context));
-        a(b.f38185c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
-        a(b.f38186d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
-        a(b.f38187e, MzSystemUtils.getLineNumber(context));
+        a(b.f38282b, MzSystemUtils.getDeviceId(context));
+        a(b.f38283c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
+        a(b.f38284d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
+        a(b.f38285e, MzSystemUtils.getLineNumber(context));
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
     private void g(Context context) {
-        b(b.f38191i, com.meizu.cloud.pushsdk.base.c.b(context));
+        b(b.f38289i, com.meizu.cloud.pushsdk.base.c.b(context));
         b(b.z, (Object) MzSystemUtils.getNetWorkType(context));
         b(b.A, (Object) MzSystemUtils.getBSSID(context));
         b(b.E, MzSystemUtils.getWifiList(context));
     }
 
     public Map<String, String> a() {
-        return this.f38193b;
+        return this.f38291b;
     }
 
     public void a(int i2, int i3) {
-        this.f38194c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
+        this.f38292c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
     }
 
     public void a(Context context) {
@@ -156,7 +156,7 @@ public class c {
     }
 
     public Map<String, String> b() {
-        return this.f38194c;
+        return this.f38292c;
     }
 
     @TargetApi(19)
@@ -169,20 +169,20 @@ public class c {
             display.getSize(point);
             a(point.x, point.y);
         } catch (Exception unused) {
-            d.j.a.a.a.b(f38192a, "Display.getSize isn't available on older devices.");
+            d.j.a.a.a.b(f38290a, "Display.getSize isn't available on older devices.");
             if (display != null) {
                 a(display.getWidth(), display.getHeight());
             } else {
-                d.j.a.a.a.b(f38192a, "error get display");
+                d.j.a.a.a.b(f38290a, "error get display");
             }
         }
     }
 
     public Map<String, Object> c() {
-        return this.f38195d;
+        return this.f38293d;
     }
 
     public Map<String, Object> d() {
-        return this.f38196e;
+        return this.f38294e;
     }
 }

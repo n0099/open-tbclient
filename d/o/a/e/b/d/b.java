@@ -5,20 +5,20 @@ import com.baidu.searchbox.pms.db.PackageTable;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f70958a = {"_id", "url", "savePath", "tempPath", "name", "chunkCount", "status", "curBytes", "totalBytes", "eTag", "onlyWifi", "force", "retryCount", "extra", "mimeType", "title", "notificationEnable", "notificationVisibility", "isFirstDownload", "isFirstSuccess", "needHttpsToHttpRetry", "downloadTime", "packageName", PackageTable.MD5, "retryDelay", "curRetryTime", "retryDelayStatus", "defaultHttpServiceBackUp", "chunkRunnableReuse", "retryDelayTimeArray", "chunkDowngradeRetry", "backUpUrlsStr", "backUpUrlRetryCount", "realDownloadTime", "retryScheduleMinutes", "independentProcess", "auxiliaryJsonobjectString", "iconUrl", "appVersionCode"};
+    public static final String[] f71062a = {"_id", "url", "savePath", "tempPath", "name", "chunkCount", "status", "curBytes", "totalBytes", "eTag", "onlyWifi", "force", "retryCount", "extra", "mimeType", "title", "notificationEnable", "notificationVisibility", "isFirstDownload", "isFirstSuccess", "needHttpsToHttpRetry", "downloadTime", "packageName", PackageTable.MD5, "retryDelay", "curRetryTime", "retryDelayStatus", "defaultHttpServiceBackUp", "chunkRunnableReuse", "retryDelayTimeArray", "chunkDowngradeRetry", "backUpUrlsStr", "backUpUrlRetryCount", "realDownloadTime", "retryScheduleMinutes", "independentProcess", "auxiliaryJsonobjectString", "iconUrl", "appVersionCode"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f70959b = {"_id"};
+    public static final String[] f71063b = {"_id"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f70960c = {"_id", "chunkIndex", "startOffset", "curOffset", "endOffset", "chunkContentLen", "hostChunkIndex"};
+    public static final String[] f71064c = {"_id", "chunkIndex", "startOffset", "curOffset", "endOffset", "chunkContentLen", "hostChunkIndex"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f70961d = {"_id"};
+    public static final String[] f71065d = {"_id"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f70962e = {"_id", "info"};
+    public static final String[] f71066e = {"_id", "info"};
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f70963f = {"_id"};
+    public static final String[] f71067f = {"_id"};
 }

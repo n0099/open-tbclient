@@ -11,34 +11,34 @@ import java.util.Set;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f28175a = "e";
+    public static final String f28257a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f28176b = new HashSet(1);
+    public final Set<String> f28258b = new HashSet(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public Looper f28177c = Looper.getMainLooper();
+    public Looper f28259c = Looper.getMainLooper();
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.f.e$5  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass5 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f28184a;
+        public static final /* synthetic */ int[] f28266a;
 
         static {
             int[] iArr = new int[c.values().length];
-            f28184a = iArr;
+            f28266a = iArr;
             try {
                 iArr[c.GRANTED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f28184a[c.DENIED.ordinal()] = 2;
+                f28266a[c.DENIED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f28184a[c.NOT_FOUND.ordinal()] = 3;
+                f28266a[c.NOT_FOUND.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -56,17 +56,17 @@ public abstract class e {
     }
 
     public synchronized boolean b(String str) {
-        String str2 = f28175a;
+        String str2 = f28257a;
         Log.d(str2, "Permission not found: " + str);
         return true;
     }
 
     public final synchronized boolean a(@NonNull final String str, c cVar) {
-        this.f28176b.remove(str);
-        int i2 = AnonymousClass5.f28184a[cVar.ordinal()];
+        this.f28258b.remove(str);
+        int i2 = AnonymousClass5.f28266a[cVar.ordinal()];
         if (i2 != 1) {
             if (i2 == 2) {
-                new Handler(this.f28177c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.2
+                new Handler(this.f28259c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.2
                     @Override // java.lang.Runnable
                     public void run() {
                         e.this.a(str);
@@ -75,8 +75,8 @@ public abstract class e {
                 return true;
             } else if (i2 == 3) {
                 if (b(str)) {
-                    if (this.f28176b.isEmpty()) {
-                        new Handler(this.f28177c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.3
+                    if (this.f28258b.isEmpty()) {
+                        new Handler(this.f28259c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.3
                             @Override // java.lang.Runnable
                             public void run() {
                                 e.this.a();
@@ -85,7 +85,7 @@ public abstract class e {
                         return true;
                     }
                 } else {
-                    new Handler(this.f28177c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.4
+                    new Handler(this.f28259c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.4
                         @Override // java.lang.Runnable
                         public void run() {
                             e.this.a(str);
@@ -94,8 +94,8 @@ public abstract class e {
                     return true;
                 }
             }
-        } else if (this.f28176b.isEmpty()) {
-            new Handler(this.f28177c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.1
+        } else if (this.f28258b.isEmpty()) {
+            new Handler(this.f28259c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.1
                 @Override // java.lang.Runnable
                 public void run() {
                     e.this.a();
@@ -107,6 +107,6 @@ public abstract class e {
     }
 
     public final synchronized void a(@NonNull String[] strArr) {
-        Collections.addAll(this.f28176b, strArr);
+        Collections.addAll(this.f28258b, strArr);
     }
 }

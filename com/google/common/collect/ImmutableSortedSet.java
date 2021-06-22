@@ -47,11 +47,11 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
     public static final class a<E> extends ImmutableSet.a<E> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f31163f;
+        public final Comparator<? super E> f31261f;
 
         public a(Comparator<? super E> comparator) {
             n.p(comparator);
-            this.f31163f = comparator;
+            this.f31261f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -95,9 +95,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         @Override // com.google.common.collect.ImmutableSet.a
         /* renamed from: p */
         public ImmutableSortedSet<E> l() {
-            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f31163f, this.f31104b, this.f31103a);
-            this.f31104b = construct.size();
-            this.f31105c = true;
+            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f31261f, this.f31202b, this.f31201a);
+            this.f31202b = construct.size();
+            this.f31203c = true;
             return construct;
         }
     }

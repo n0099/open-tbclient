@@ -16,7 +16,7 @@ public class d extends e {
         if (b2 == null) {
             return;
         }
-        SceneImpl sceneImpl = ((e) this).f33357a.f33362e;
+        SceneImpl sceneImpl = ((e) this).f33455a.f33460e;
         ArrayList arrayList = new ArrayList(b2.size());
         for (AdTemplate adTemplate : b2) {
             if (adTemplate != null) {
@@ -26,7 +26,7 @@ public class d extends e {
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.contentalliance.tube.episode.b.a().c();
-        f fVar = ((e) this).f33357a;
-        fVar.f33360c.setInitStartPosition(fVar.j);
+        f fVar = ((e) this).f33455a;
+        fVar.f33458c.setInitStartPosition(fVar.j);
     }
 }

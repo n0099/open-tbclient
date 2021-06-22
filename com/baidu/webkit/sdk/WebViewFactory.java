@@ -93,8 +93,8 @@ public final class WebViewFactory {
         if (Build.VERSION.SDK_INT != 19) {
             return;
         }
-        if (c.a(mContext).f26679a.a()) {
-            String str = aVar.f26687d + "libzeuswebviewchromium.so";
+        if (c.a(mContext).f26761a.a()) {
+            String str = aVar.f26769d + "libzeuswebviewchromium.so";
             try {
                 j = new File(str).length();
             } catch (Throwable th) {
@@ -122,7 +122,7 @@ public final class WebViewFactory {
             if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                 return;
             }
-            SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f26679a.f26687d);
+            SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f26761a.f26769d);
             throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -425,7 +425,7 @@ public final class WebViewFactory {
         try {
             ApplicationInfo applicationInfo2 = context.getApplicationInfo();
             c a2 = c.a(context);
-            c.a aVar = a2.f26679a;
+            c.a aVar = a2.f26761a;
             mIsInstallUpdate = false;
             String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
             String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -436,7 +436,7 @@ public final class WebViewFactory {
                     str2 = str3;
                 }
             }
-            if (!a2.f26679a.a() && !EngineManager.getInstance().isInstalled()) {
+            if (!a2.f26761a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
             packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -450,7 +450,7 @@ public final class WebViewFactory {
                         applicationInfo.nativeLibraryDir = str;
                     }
                     applicationInfo = packageInfo.applicationInfo;
-                    str = aVar.f26687d + ":" + applicationInfo2.nativeLibraryDir;
+                    str = aVar.f26769d + ":" + applicationInfo2.nativeLibraryDir;
                     applicationInfo.nativeLibraryDir = str;
                 } catch (Throwable th2) {
                     th = th2;
@@ -547,16 +547,16 @@ public final class WebViewFactory {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:105:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x029d A[Catch: all -> 0x0355, TryCatch #4 {all -> 0x0355, blocks: (B:129:0x0297, B:131:0x029d, B:133:0x02b6, B:135:0x02d1, B:137:0x02e0, B:138:0x02e9, B:140:0x02ef, B:142:0x02f5, B:145:0x02fe, B:146:0x0305, B:147:0x0306, B:149:0x0321, B:151:0x0327, B:134:0x02bb, B:152:0x0335, B:153:0x0354), top: B:208:0x0297 }] */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x0335 A[Catch: all -> 0x0355, TryCatch #4 {all -> 0x0355, blocks: (B:129:0x0297, B:131:0x029d, B:133:0x02b6, B:135:0x02d1, B:137:0x02e0, B:138:0x02e9, B:140:0x02ef, B:142:0x02f5, B:145:0x02fe, B:146:0x0305, B:147:0x0306, B:149:0x0321, B:151:0x0327, B:134:0x02bb, B:152:0x0335, B:153:0x0354), top: B:208:0x0297 }] */
-    /* JADX WARN: Removed duplicated region for block: B:158:0x036e  */
-    /* JADX WARN: Removed duplicated region for block: B:188:0x03e3  */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x0410  */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x0421  */
-    /* JADX WARN: Removed duplicated region for block: B:199:0x0450  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01cf  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x023d  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x0252  */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x029c A[Catch: all -> 0x0354, TryCatch #4 {all -> 0x0354, blocks: (B:129:0x0296, B:131:0x029c, B:133:0x02b5, B:135:0x02d0, B:137:0x02df, B:138:0x02e8, B:140:0x02ee, B:142:0x02f4, B:145:0x02fd, B:146:0x0304, B:147:0x0305, B:149:0x0320, B:151:0x0326, B:134:0x02ba, B:152:0x0334, B:153:0x0353), top: B:208:0x0296 }] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0334 A[Catch: all -> 0x0354, TryCatch #4 {all -> 0x0354, blocks: (B:129:0x0296, B:131:0x029c, B:133:0x02b5, B:135:0x02d0, B:137:0x02df, B:138:0x02e8, B:140:0x02ee, B:142:0x02f4, B:145:0x02fd, B:146:0x0304, B:147:0x0305, B:149:0x0320, B:151:0x0326, B:134:0x02ba, B:152:0x0334, B:153:0x0353), top: B:208:0x0296 }] */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x036d  */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x03e2  */
+    /* JADX WARN: Removed duplicated region for block: B:193:0x040f  */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0420  */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x044f  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01ce  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1167,7 +1167,7 @@ public final class WebViewFactory {
         try {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             c a2 = c.a(context);
-            c.a aVar = a2.f26679a;
+            c.a aVar = a2.f26761a;
             mIsInstallUpdate = false;
             String str2 = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
             String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -1178,7 +1178,7 @@ public final class WebViewFactory {
                     str2 = str3;
                 }
             }
-            if (!a2.f26679a.a() && !EngineManager.getInstance().isInstalled()) {
+            if (!a2.f26761a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
             if (str2 != null && new File(str2).exists()) {
@@ -1189,7 +1189,7 @@ public final class WebViewFactory {
                     sPackageInfoType = 1;
                     z = true;
                 }
-                str = aVar.f26687d + ":" + applicationInfo.nativeLibraryDir;
+                str = aVar.f26769d + ":" + applicationInfo.nativeLibraryDir;
                 sZeusNativeLibraryDir = str;
                 sPackageInfoType = 1;
                 z = true;
@@ -1393,30 +1393,30 @@ public final class WebViewFactory {
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         final c a2 = c.a(context);
-        a2.f26679a.a(z);
+        a2.f26761a.a(z);
         if (!z || isRendererProcess()) {
             return;
         }
-        synchronized (c.f26676e) {
+        synchronized (c.f26758e) {
             if (context != null) {
-                if (a2.f26679a != null && a2.f26680b == null) {
-                    a2.f26680b = new c.b(context);
+                if (a2.f26761a != null && a2.f26762b == null) {
+                    a2.f26762b = new c.b(context);
                 }
             }
         }
-        synchronized (c.f26676e) {
-            if (a2.f26681c != webKitUnzipCallback) {
-                a2.f26681c = webKitUnzipCallback;
-                if (a2.f26682d == null) {
-                    a2.f26682d = new Handler(Looper.getMainLooper());
+        synchronized (c.f26758e) {
+            if (a2.f26763c != webKitUnzipCallback) {
+                a2.f26763c = webKitUnzipCallback;
+                if (a2.f26764d == null) {
+                    a2.f26764d = new Handler(Looper.getMainLooper());
                 }
-                a2.f26682d.postDelayed(new Runnable() { // from class: com.baidu.webkit.internal.blink.c.1
+                a2.f26764d.postDelayed(new Runnable() { // from class: com.baidu.webkit.internal.blink.c.1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        synchronized (c.f26678g) {
-                            if (c.this.f26681c != null) {
-                                c.this.f26681c.unzipFinished();
-                                c.this.f26681c = null;
+                        synchronized (c.f26760g) {
+                            if (c.this.f26763c != null) {
+                                c.this.f26763c.unzipFinished();
+                                c.this.f26763c = null;
                             }
                         }
                     }

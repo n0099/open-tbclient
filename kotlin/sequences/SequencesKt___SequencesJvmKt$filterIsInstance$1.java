@@ -22,7 +22,7 @@ public final class SequencesKt___SequencesJvmKt$filterIsInstance$1 extends Lambd
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Boolean, boolean] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [boolean, java.lang.Boolean] */
     @Override // kotlin.jvm.functions.Function1
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {

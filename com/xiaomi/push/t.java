@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f41854a;
+    public static Context f41957a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f982a;
@@ -26,7 +26,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static Context m622a() {
-        return f41854a;
+        return f41957a;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -83,7 +83,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static void m624a(Context context) {
-        f41854a = context.getApplicationContext();
+        f41957a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */

@@ -20,10 +20,10 @@ import java.util.Enumeration;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39366a = "com.sdk.base.framework.f.d.a";
+    public static final String f39464a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f39367b = Boolean.valueOf(f.f39341b);
+    public static final Boolean f39465b = Boolean.valueOf(f.f39439b);
 
     public static String a() {
         try {
@@ -132,7 +132,7 @@ public class a {
                     }
                 }
             } catch (Throwable th) {
-                c.b(f39366a, th.getMessage(), f39367b);
+                c.b(f39464a, th.getMessage(), f39465b);
             }
         }
         return null;

@@ -16,16 +16,16 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f37231a;
+    public TextView f37329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f37232b;
+    public TextView f37330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f37233c;
+    public AdTemplate f37331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f37234d;
+    public a f37332d;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -49,26 +49,26 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-        this.f37231a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-        this.f37232b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        this.f37329a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+        this.f37330b = (TextView) findViewById(R.id.ksad_h5_open_btn);
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f37233c = adTemplate;
-        this.f37234d = aVar;
+        this.f37331c = adTemplate;
+        this.f37332d = aVar;
         AdInfo j = c.j(adTemplate);
-        this.f37231a.setText(com.kwad.sdk.core.response.b.a.n(j));
-        this.f37232b.setText(com.kwad.sdk.core.response.b.a.w(j));
+        this.f37329a.setText(com.kwad.sdk.core.response.b.a.n(j));
+        this.f37330b.setText(com.kwad.sdk.core.response.b.a.w(j));
         setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f37233c, new a.InterfaceC0379a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f37331c, new a.InterfaceC0382a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0382a
             public void a() {
-                if (ActionBarH5.this.f37234d != null) {
-                    ActionBarH5.this.f37234d.a();
+                if (ActionBarH5.this.f37332d != null) {
+                    ActionBarH5.this.f37332d.a();
                 }
             }
         }, null);

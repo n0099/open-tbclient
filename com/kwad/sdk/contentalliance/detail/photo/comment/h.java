@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView;
 public class h extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f32825a;
+    public a f32923a;
 
     public h(View view) {
         super(view);
-        this.f32825a = (a) view;
+        this.f32923a = (a) view;
     }
 
     public void a(b bVar) {
-        a aVar = this.f32825a;
+        a aVar = this.f32923a;
         if (aVar != null) {
             aVar.setData(bVar);
         }

@@ -9,15 +9,15 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import d.a.l0.a.k;
-import d.a.l0.a.s1.d;
-import d.a.l0.a.v2.n0;
-import d.a.l0.a.v2.q0;
-import d.a.l0.a.v2.v;
+import d.a.m0.a.k;
+import d.a.m0.a.s1.d;
+import d.a.m0.a.v2.n0;
+import d.a.m0.a.v2.q0;
+import d.a.m0.a.v2.v;
 @Autowired
 /* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
-    public static final boolean DEBUG = k.f46875a;
+    public static final boolean DEBUG = k.f46983a;
     public static final String SWAN_APP_LAUNCH_ACTION = "com.baidu.searchbox.action.aiapps.LAUNCH";
     public static final String TAG = "SwanAppLauncherActivity";
     public Object mPermissionDialog;
@@ -42,17 +42,17 @@ public class SwanAppLauncherActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void handleIntent() {
         SwanLauncher.j().m(getIntent().getExtras());
-        d.a.l0.a.a2.d.i().post(new b());
+        d.a.m0.a.a2.d.i().post(new b());
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, d.a.l0.a.f1.e.b bVar, String str) {
+    public static void startSwanApp(Context context, d.a.m0.a.f1.e.b bVar, String str) {
         SwanLauncher.j().n(bVar, null);
     }
 
     @Inject(force = false)
     public d getPermissionDialogIOC() {
-        return d.f48358a;
+        return d.f48466a;
     }
 
     @Override // android.app.Activity

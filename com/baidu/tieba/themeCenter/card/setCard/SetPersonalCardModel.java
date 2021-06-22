@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.k3.c;
+import d.a.o0.k3.c;
 import tbclient.T;
 /* loaded from: classes5.dex */
 public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
@@ -14,19 +14,19 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21222e;
+    public long f21304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21223f;
+    public int f21305f;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f21226i;
+    public b f21308i;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21224g = false;
+    public boolean f21306g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21225h = false;
+    public boolean f21307h = false;
     public d.a.c.c.g.a j = new a(CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
 
     /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            SetPersonalCardModel.this.f21225h = false;
+            SetPersonalCardModel.this.f21307h = false;
             if (responsedMessage == null) {
                 return;
             }
@@ -57,12 +57,12 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
                     SetPersonalCardModel.this.setCardId(setPersonalCardSocketResponse.getCardId());
                     SetPersonalCardModel.this.setType(setPersonalCardSocketResponse.getType());
                 }
-                if (SetPersonalCardModel.this.f21226i != null) {
-                    int i2 = c.f60647b;
-                    if (responsedMessage.getError() == c.f60648c) {
-                        i2 = c.f60646a;
+                if (SetPersonalCardModel.this.f21308i != null) {
+                    int i2 = c.f60772b;
+                    if (responsedMessage.getError() == c.f60773c) {
+                        i2 = c.f60771a;
                     }
-                    SetPersonalCardModel.this.f21226i.a(SetPersonalCardModel.this.f21224g, SetPersonalCardModel.this.f21222e, SetPersonalCardModel.this.f21223f, responsedMessage.getErrorString(), i2);
+                    SetPersonalCardModel.this.f21308i.a(SetPersonalCardModel.this.f21306g, SetPersonalCardModel.this.f21304e, SetPersonalCardModel.this.f21305f, responsedMessage.getErrorString(), i2);
                 }
             }
         }
@@ -74,20 +74,20 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public SetPersonalCardModel() {
-        d.a.n0.e3.d0.a.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        d.a.n0.e3.d0.a.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        d.a.o0.e3.d0.a.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        d.a.o0.e3.d0.a.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.j);
     }
 
     public void B(b bVar) {
-        this.f21226i = bVar;
+        this.f21308i = bVar;
     }
 
     public void C(long j, int i2) {
-        if (this.f21225h) {
+        if (this.f21307h) {
             return;
         }
-        this.f21225h = true;
+        this.f21307h = true;
         SetPersonalCardRequest setPersonalCardRequest = new SetPersonalCardRequest();
         setPersonalCardRequest.setCardId(j);
         setPersonalCardRequest.setType(i2);
@@ -95,7 +95,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void D(boolean z) {
-        this.f21224g = z;
+        this.f21306g = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,10 +113,10 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void setCardId(long j) {
-        this.f21222e = j;
+        this.f21304e = j;
     }
 
     public void setType(int i2) {
-        this.f21223f = i2;
+        this.f21305f = i2;
     }
 }

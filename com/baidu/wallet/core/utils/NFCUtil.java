@@ -12,13 +12,13 @@ import com.baidu.wallet.router.LocalRouter;
 public final class NFCUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static NFCUtil f24014a;
+    public static NFCUtil f24096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f24015b;
+    public NfcAdapter f24097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f24016c;
+    public PendingIntent f24098c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
@@ -26,7 +26,7 @@ public final class NFCUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f24017a = new NFCUtil();
+        public static NFCUtil f24099a = new NFCUtil();
     }
 
     private void a(Activity activity) {
@@ -36,7 +36,7 @@ public final class NFCUtil {
     }
 
     public static NFCUtil getInstance() {
-        return a.f24017a;
+        return a.f24099a;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {

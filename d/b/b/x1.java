@@ -16,19 +16,19 @@ public class x1 implements Handler.Callback, Comparator<z> {
     public static x1 o;
 
     /* renamed from: e  reason: collision with root package name */
-    public t1 f68863e;
+    public t1 f68967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68864f;
+    public boolean f68968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Application f68865g;
+    public Application f68969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f68866h;
+    public i f68970h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<z> f68867i = new ArrayList<>(32);
+    public final ArrayList<z> f68971i = new ArrayList<>(32);
     public a0 j;
     public j k;
     public Handler l;
@@ -51,15 +51,15 @@ public class x1 implements Handler.Callback, Comparator<z> {
             g2.b(zVar);
             return;
         }
-        if (zVar.f68873e == 0) {
+        if (zVar.f68977e == 0) {
             r0.b(null);
         }
         if (zVar instanceof i0) {
-            ((i0) zVar).o = x1Var.f68866h.E();
+            ((i0) zVar).o = x1Var.f68970h.E();
         }
-        synchronized (x1Var.f68867i) {
-            size = x1Var.f68867i.size();
-            x1Var.f68867i.add(zVar);
+        synchronized (x1Var.f68971i) {
+            size = x1Var.f68971i.size();
+            x1Var.f68971i.add(zVar);
         }
         if (size % 10 != 0 || (handler = x1Var.n) == null) {
             return;
@@ -93,7 +93,7 @@ public class x1 implements Handler.Callback, Comparator<z> {
     }
 
     public static String h() {
-        return i().f68735e;
+        return i().f68839e;
     }
 
     public static e2 i() {
@@ -109,7 +109,7 @@ public class x1 implements Handler.Callback, Comparator<z> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(z zVar, z zVar2) {
-        int i2 = ((zVar.f68873e - zVar2.f68873e) > 0L ? 1 : ((zVar.f68873e - zVar2.f68873e) == 0L ? 0 : -1));
+        int i2 = ((zVar.f68977e - zVar2.f68977e) > 0L ? 1 : ((zVar.f68977e - zVar2.f68977e) == 0L ? 0 : -1));
         if (i2 < 0) {
             return -1;
         }
@@ -117,12 +117,12 @@ public class x1 implements Handler.Callback, Comparator<z> {
     }
 
     public void c(Application application, i iVar, j jVar, s1 s1Var) {
-        this.f68865g = application;
+        this.f68969g = application;
         this.j = new a0(application, jVar, iVar);
-        this.f68866h = iVar;
+        this.f68970h = iVar;
         this.k = jVar;
         this.m = new e2(jVar, iVar);
-        this.f68865g.registerActivityLifecycleCallbacks(s1Var);
+        this.f68969g.registerActivityLifecycleCallbacks(s1Var);
         HandlerThread handlerThread = new HandlerThread("bd_tracker_w");
         handlerThread.start();
         Handler handler = new Handler(handlerThread.getLooper(), this);
@@ -133,9 +133,9 @@ public class x1 implements Handler.Callback, Comparator<z> {
 
     public final void g(String[] strArr) {
         ArrayList<z> arrayList;
-        synchronized (this.f68867i) {
-            arrayList = (ArrayList) this.f68867i.clone();
-            this.f68867i.clear();
+        synchronized (this.f68971i) {
+            arrayList = (ArrayList) this.f68971i.clone();
+            this.f68971i.clear();
         }
         int i2 = 0;
         if (strArr != null) {
@@ -144,12 +144,12 @@ public class x1 implements Handler.Callback, Comparator<z> {
                 arrayList.add(z.b(str));
             }
         }
-        boolean v = this.f68866h.v(arrayList);
+        boolean v = this.f68970h.v(arrayList);
         if (arrayList.size() > 0) {
-            if (this.f68866h.N()) {
+            if (this.f68970h.N()) {
                 if (!v && arrayList.size() <= 100) {
-                    synchronized (this.f68867i) {
-                        this.f68867i.addAll(arrayList);
+                    synchronized (this.f68971i) {
+                        this.f68971i.addAll(arrayList);
                     }
                     return;
                 }
@@ -171,17 +171,17 @@ public class x1 implements Handler.Callback, Comparator<z> {
                     if (z) {
                         this.n.removeMessages(7);
                     } else {
-                        this.n.sendEmptyMessageDelayed(7, this.f68866h.T());
+                        this.n.sendEmptyMessageDelayed(7, this.f68970h.T());
                     }
                 }
                 this.j.j(arrayList2);
-                if (this.f68864f || !this.m.h() || this.l == null || !a.e()) {
+                if (this.f68968f || !this.m.h() || this.l == null || !a.e()) {
                     return;
                 }
                 j();
                 return;
             }
-            Intent intent = new Intent(this.f68865g, Collector.class);
+            Intent intent = new Intent(this.f68969g, Collector.class);
             int size = arrayList.size();
             String[] strArr2 = new String[size];
             int i3 = 0;
@@ -195,7 +195,7 @@ public class x1 implements Handler.Callback, Comparator<z> {
             }
             intent.putExtra("EMBED_K_DATA", strArr2);
             try {
-                this.f68865g.sendBroadcast(intent);
+                this.f68969g.sendBroadcast(intent);
             } catch (Exception e2) {
                 r0.b(e2);
             }
@@ -206,15 +206,15 @@ public class x1 implements Handler.Callback, Comparator<z> {
     public boolean handleMessage(Message message) {
         int i2 = message.what;
         if (i2 == 1) {
-            r0.f68822a = this.f68866h.S();
+            r0.f68926a = this.f68970h.S();
             if (this.k.o()) {
-                if (this.f68866h.N()) {
+                if (this.f68970h.N()) {
                     HandlerThread handlerThread = new HandlerThread("bd_tracker_n");
                     handlerThread.start();
                     Handler handler = new Handler(handlerThread.getLooper(), this);
                     this.l = handler;
                     handler.sendEmptyMessage(2);
-                    if (this.f68867i.size() > 0) {
+                    if (this.f68971i.size() > 0) {
                         this.n.removeMessages(4);
                         this.n.sendEmptyMessageDelayed(4, 1000L);
                     }
@@ -227,10 +227,10 @@ public class x1 implements Handler.Callback, Comparator<z> {
             g2.a();
         } else if (i2 == 2) {
             ArrayList arrayList = new ArrayList(4);
-            arrayList.add(new b2(this.f68865g, this.k, this.m));
-            arrayList.add(new w1(this.f68865g, this.k, this.f68866h));
-            arrayList.add(new a2(this.f68865g, this.k, this.j));
-            arrayList.add(new d2(this.f68865g, this.j, this.f68866h, this.k));
+            arrayList.add(new b2(this.f68969g, this.k, this.m));
+            arrayList.add(new w1(this.f68969g, this.k, this.f68970h));
+            arrayList.add(new a2(this.f68969g, this.k, this.j));
+            arrayList.add(new d2(this.f68969g, this.j, this.f68970h, this.k));
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 v1 v1Var = (v1) it.next();
@@ -256,8 +256,8 @@ public class x1 implements Handler.Callback, Comparator<z> {
         } else if (i2 != 7) {
             r0.b(null);
         } else {
-            synchronized (this.f68867i) {
-                this.f68867i.add(e2.j());
+            synchronized (this.f68971i) {
+                this.f68971i.add(e2.j());
             }
             g(null);
         }
@@ -265,8 +265,8 @@ public class x1 implements Handler.Callback, Comparator<z> {
     }
 
     public boolean j() {
-        this.f68864f = true;
-        u1 u1Var = new u1(this.f68865g, this.k);
+        this.f68968f = true;
+        u1 u1Var = new u1(this.f68969g, this.k);
         Handler handler = this.l;
         if (handler != null) {
             handler.obtainMessage(6, u1Var).sendToTarget();
@@ -276,30 +276,30 @@ public class x1 implements Handler.Callback, Comparator<z> {
     }
 
     public final void k() {
-        if (this.f68866h.R()) {
-            if (this.f68863e == null) {
-                t1 t1Var = new t1(this.f68865g, this.k, this.f68866h);
-                this.f68863e = t1Var;
+        if (this.f68970h.R()) {
+            if (this.f68967e == null) {
+                t1 t1Var = new t1(this.f68969g, this.k, this.f68970h);
+                this.f68967e = t1Var;
                 this.l.obtainMessage(6, t1Var).sendToTarget();
                 return;
             }
             return;
         }
-        t1 t1Var2 = this.f68863e;
+        t1 t1Var2 = this.f68967e;
         if (t1Var2 != null) {
             t1Var2.f();
-            this.f68863e = null;
+            this.f68967e = null;
         }
     }
 
     public final void l() {
-        if (r0.f68823b) {
-            r0.a("packAndSend once, " + this.m.f68735e + ", hadUI:" + this.m.h(), null);
+        if (r0.f68927b) {
+            r0.a("packAndSend once, " + this.m.f68839e + ", hadUI:" + this.m.h(), null);
         }
         Handler handler = this.l;
         if (handler != null) {
-            handler.sendMessage(this.n.obtainMessage(6, new y1(this.f68865g, this.k, this.j)));
-            this.l.sendMessage(this.n.obtainMessage(6, new z1(this.f68865g, this.j, this.f68866h, this.k)));
+            handler.sendMessage(this.n.obtainMessage(6, new y1(this.f68969g, this.k, this.j)));
+            this.l.sendMessage(this.n.obtainMessage(6, new z1(this.f68969g, this.j, this.f68970h, this.k)));
         }
     }
 }

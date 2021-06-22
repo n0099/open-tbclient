@@ -16,50 +16,50 @@ import java.util.List;
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.home.c.a.b> {
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f33318c;
+    public SlidePlayViewPager f33416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f33319d;
+    public c f33417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33320e;
+    public int f33418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f33321f;
+    public List<a> f33419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f33322g;
+    public AdTemplate f33420g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f33323h;
+    public com.kwad.sdk.contentalliance.detail.video.b f33421h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public View f33324i;
+    public View f33422i;
 
     public b(KsFragment ksFragment, RecyclerView recyclerView, SlidePlayViewPager slidePlayViewPager) {
         super(ksFragment, recyclerView);
-        this.f33321f = new LinkedList();
-        this.f33318c = slidePlayViewPager;
+        this.f33419f = new LinkedList();
+        this.f33416c = slidePlayViewPager;
     }
 
     private void b(AdTemplate adTemplate, @Nullable View view, boolean z) {
-        int indexOf = this.f36675a.indexOf(adTemplate);
+        int indexOf = this.f36773a.indexOf(adTemplate);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyVideoStateChange selectedPosition:" + indexOf);
         if (indexOf != -1) {
-            for (a aVar : this.f33321f) {
+            for (a aVar : this.f33419f) {
                 aVar.a(indexOf, view, z);
             }
         }
     }
 
     private void l() {
-        int indexOf = this.f36675a.indexOf(this.f33322g);
+        int indexOf = this.f36773a.indexOf(this.f33420g);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyOnSelectChanged selectedPosition:" + indexOf);
         if (indexOf != -1) {
-            for (a aVar : this.f33321f) {
-                aVar.a(indexOf, this.f33322g);
+            for (a aVar : this.f33419f) {
+                aVar.a(indexOf, this.f33420g);
             }
         }
     }
@@ -70,7 +70,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     public AdTemplate a() {
-        return this.f33322g;
+        return this.f33420g;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -83,20 +83,20 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     public void a(View view) {
-        this.f33324i = view;
+        this.f33422i = view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.home.c.a.b bVar, int i2) {
         super.a((b) bVar, i2);
-        bVar.f33315a = this.f33318c;
-        bVar.f33316b = this.f33324i;
-        bVar.f33317c = this;
+        bVar.f33413a = this.f33416c;
+        bVar.f33414b = this.f33422i;
+        bVar.f33415c = this;
     }
 
     public void a(c cVar) {
-        this.f33319d = cVar;
+        this.f33417d = cVar;
     }
 
     public void a(AdTemplate adTemplate, View view, boolean z) {
@@ -104,29 +104,29 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     public void a(AdTemplate adTemplate, @Nullable com.kwad.sdk.contentalliance.detail.video.b bVar) {
-        this.f33322g = adTemplate;
-        this.f33323h = bVar;
+        this.f33420g = adTemplate;
+        this.f33421h = bVar;
         l();
     }
 
     public void b(int i2) {
-        this.f33320e = i2;
+        this.f33418e = i2;
     }
 
     public com.kwad.sdk.contentalliance.detail.video.b c() {
-        return this.f33323h;
+        return this.f33421h;
     }
 
     public List<a> d() {
-        return this.f33321f;
+        return this.f33419f;
     }
 
     public c e() {
-        return this.f33319d;
+        return this.f33417d;
     }
 
     public int f() {
-        return this.f33320e;
+        return this.f33418e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

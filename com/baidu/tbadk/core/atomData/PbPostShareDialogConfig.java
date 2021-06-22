@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import d.a.n0.e2.h.m;
+import d.a.o0.e2.h.m;
 /* loaded from: classes3.dex */
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public m mPbPostData;

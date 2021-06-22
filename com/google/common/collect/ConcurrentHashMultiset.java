@@ -30,18 +30,18 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
     public class b extends AbstractIterator<i0.a<E>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final Iterator<Map.Entry<E, AtomicInteger>> f31059g;
+        public final Iterator<Map.Entry<E, AtomicInteger>> f31157g;
 
         public b() {
-            this.f31059g = ConcurrentHashMultiset.this.countMap.entrySet().iterator();
+            this.f31157g = ConcurrentHashMultiset.this.countMap.entrySet().iterator();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.AbstractIterator
         /* renamed from: d */
         public i0.a<E> a() {
-            while (this.f31059g.hasNext()) {
-                Map.Entry<E, AtomicInteger> next = this.f31059g.next();
+            while (this.f31157g.hasNext()) {
+                Map.Entry<E, AtomicInteger> next = this.f31157g.next();
                 int i2 = next.getValue().get();
                 if (i2 != 0) {
                     return Multisets.g(next.getKey(), i2);
@@ -55,20 +55,20 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
     public class c extends t<i0.a<E>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public i0.a<E> f31061e;
+        public i0.a<E> f31159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31062f;
+        public final /* synthetic */ Iterator f31160f;
 
         public c(Iterator it) {
-            this.f31062f = it;
+            this.f31160f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.y
         /* renamed from: b */
         public Iterator<i0.a<E>> delegate() {
-            return this.f31062f;
+            return this.f31160f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,15 +76,15 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
         /* renamed from: c */
         public i0.a<E> next() {
             i0.a<E> aVar = (i0.a) super.next();
-            this.f31061e = aVar;
+            this.f31159e = aVar;
             return aVar;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31061e != null);
-            ConcurrentHashMultiset.this.setCount(this.f31061e.getElement(), 0);
-            this.f31061e = null;
+            m.e(this.f31159e != null);
+            ConcurrentHashMultiset.this.setCount(this.f31159e.getElement(), 0);
+            this.f31159e = null;
         }
     }
 
@@ -126,7 +126,7 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ConcurrentHashMultiset> f31065a = r0.a(ConcurrentHashMultiset.class, "countMap");
+        public static final r0.b<ConcurrentHashMultiset> f31163a = r0.a(ConcurrentHashMultiset.class, "countMap");
     }
 
     public ConcurrentHashMultiset(ConcurrentMap<E, AtomicInteger> concurrentMap) {
@@ -140,7 +140,7 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         objectInputStream.defaultReadObject();
-        e.f31065a.b(this, (ConcurrentMap) objectInputStream.readObject());
+        e.f31163a.b(this, (ConcurrentMap) objectInputStream.readObject());
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: java.util.ArrayList */
@@ -375,15 +375,15 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
     public class a extends a0<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f31058e;
+        public final /* synthetic */ Set f31156e;
 
         public a(ConcurrentHashMultiset concurrentHashMultiset, Set set) {
-            this.f31058e = set;
+            this.f31156e = set;
         }
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return obj != null && d.g.c.c.n.d(this.f31058e, obj);
+            return obj != null && d.g.c.c.n.d(this.f31156e, obj);
         }
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
@@ -393,7 +393,7 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            return obj != null && d.g.c.c.n.e(this.f31058e, obj);
+            return obj != null && d.g.c.c.n.e(this.f31156e, obj);
         }
 
         @Override // d.g.c.c.r, java.util.Collection, java.util.Set
@@ -404,7 +404,7 @@ public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Ser
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public Set<E> delegate() {
-            return this.f31058e;
+            return this.f31156e;
         }
     }
 

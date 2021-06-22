@@ -6,7 +6,7 @@ import com.baidubce.ErrorCode;
 import com.baidubce.util.BLog;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultRetryPolicy implements RetryPolicy {
     public static final int SCALE_FACTOR = 300;
     public long maxDelayInMillis;

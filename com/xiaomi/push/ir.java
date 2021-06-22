@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public final class ir {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator f41635a = new a();
+    public static final Comparator f41738a = new a();
 
     /* loaded from: classes7.dex */
     public static class a implements Comparator {
@@ -76,7 +76,7 @@ public final class ir {
             return a2;
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
-            int compare = f41635a.compare(list.get(i2), list2.get(i2));
+            int compare = f41738a.compare(list.get(i2), list2.get(i2));
             if (compare != 0) {
                 return compare;
             }
@@ -89,20 +89,20 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        TreeMap treeMap = new TreeMap(f41635a);
+        TreeMap treeMap = new TreeMap(f41738a);
         treeMap.putAll(map);
         Iterator it = treeMap.entrySet().iterator();
-        TreeMap treeMap2 = new TreeMap(f41635a);
+        TreeMap treeMap2 = new TreeMap(f41738a);
         treeMap2.putAll(map2);
         Iterator it2 = treeMap2.entrySet().iterator();
         while (it.hasNext() && it2.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             Map.Entry entry2 = (Map.Entry) it2.next();
-            int compare = f41635a.compare(entry.getKey(), entry2.getKey());
+            int compare = f41738a.compare(entry.getKey(), entry2.getKey());
             if (compare != 0) {
                 return compare;
             }
-            int compare2 = f41635a.compare(entry.getValue(), entry2.getValue());
+            int compare2 = f41738a.compare(entry.getValue(), entry2.getValue());
             if (compare2 != 0) {
                 return compare2;
             }
@@ -115,14 +115,14 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        TreeSet treeSet = new TreeSet(f41635a);
+        TreeSet treeSet = new TreeSet(f41738a);
         treeSet.addAll(set);
-        TreeSet treeSet2 = new TreeSet(f41635a);
+        TreeSet treeSet2 = new TreeSet(f41738a);
         treeSet2.addAll(set2);
         Iterator it = treeSet.iterator();
         Iterator it2 = treeSet2.iterator();
         while (it.hasNext() && it2.hasNext()) {
-            int compare = f41635a.compare(it.next(), it2.next());
+            int compare = f41738a.compare(it.next(), it2.next());
             if (compare != 0) {
                 return compare;
             }

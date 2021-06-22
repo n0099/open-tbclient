@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.n0.v.d.f.c.g;
-import d.a.n0.z.b;
+import d.a.o0.v.d.f.c.g;
+import d.a.o0.z.b;
 /* loaded from: classes4.dex */
 public class ConcernTabRecommendTitleView extends b<g> {
     public ViewHolder m;
@@ -18,19 +18,19 @@ public class ConcernTabRecommendTitleView extends b<g> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13943a;
+        public View f14025a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13944b;
+        public TextView f14026b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f13945c;
+        public View f14027c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f13943a = view;
-            this.f13944b = (TextView) view.findViewById(R.id.title);
-            this.f13945c = this.f13943a.findViewById(R.id.divider);
+            this.f14025a = view;
+            this.f14026b = (TextView) view.findViewById(R.id.title);
+            this.f14027c = this.f14025a.findViewById(R.id.divider);
         }
     }
 
@@ -40,14 +40,14 @@ public class ConcernTabRecommendTitleView extends b<g> {
         o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     public int h() {
         return R.layout.special_bar_concern_recommend_title;
     }
 
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     public void o(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setViewTextColor(this.m.f13944b, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m.f14026b, R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
@@ -55,15 +55,15 @@ public class ConcernTabRecommendTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.z.b
+    @Override // d.a.o0.z.b
     /* renamed from: t */
     public void n(g gVar) {
         ViewHolder viewHolder = this.m;
         if (viewHolder != null) {
-            if (gVar.f65444e) {
-                viewHolder.f13945c.setVisibility(0);
+            if (gVar.f65569e) {
+                viewHolder.f14027c.setVisibility(0);
             } else {
-                viewHolder.f13945c.setVisibility(8);
+                viewHolder.f14027c.setVisibility(8);
             }
         }
     }

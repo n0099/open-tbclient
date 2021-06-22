@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.googlecode.mp4parser.authoring.Movie;
 import com.googlecode.mp4parser.authoring.Track;
@@ -123,12 +124,12 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                 long longValue = l.longValue();
                 str = String.valueOf(str) + String.format("%10d,", Long.valueOf(longValue));
             }
-            LOG.warning(String.valueOf(str) + "]");
+            LOG.warning(String.valueOf(str) + PreferencesUtil.RIGHT_MOUNT);
             String str2 = "" + String.format("%5d - In    :  [", Integer.valueOf(jArr.length));
             for (long j2 : jArr) {
                 str2 = String.valueOf(str2) + String.format("%10d,", Long.valueOf(j2));
             }
-            LOG.warning(String.valueOf(str2) + "]");
+            LOG.warning(String.valueOf(str2) + PreferencesUtil.RIGHT_MOUNT);
             LOG.warning("There are less than 25% of common sync samples in the given track.");
             throw new RuntimeException("There are less than 25% of common sync samples in the given track.");
         }

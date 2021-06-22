@@ -3,11 +3,11 @@ package d.g.b.a;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f69954a = 1;
+    public static final int f70058a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f69955b = 2;
+    public static final int f70059b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f69956c = 3;
+    public static final int f70060c = 3;
 }

@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.h264.model;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.googlecode.mp4parser.h264.model.VUIParameters;
 import com.googlecode.mp4parser.h264.read.CAVLCReader;
 import com.googlecode.mp4parser.h264.write.CAVLCWriter;
@@ -161,7 +162,7 @@ public class SeqParameterSet extends BitstreamElement {
             seqParameterSet.offsetForRefFrame = new int[readUE2];
             for (int i3 = 0; i3 < seqParameterSet.num_ref_frames_in_pic_order_cnt_cycle; i3++) {
                 int[] iArr = seqParameterSet.offsetForRefFrame;
-                iArr[i3] = cAVLCReader.readSE("SPS: offsetForRefFrame [" + i3 + "]");
+                iArr[i3] = cAVLCReader.readSE("SPS: offsetForRefFrame [" + i3 + PreferencesUtil.RIGHT_MOUNT);
             }
         }
         seqParameterSet.num_ref_frames = cAVLCReader.readUE("SPS: num_ref_frames");

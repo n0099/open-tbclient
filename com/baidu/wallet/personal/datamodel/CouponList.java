@@ -53,7 +53,7 @@ public class CouponList implements NoProguard, Serializable {
         public static class AppSceneService implements NoProguard, Serializable {
 
             /* renamed from: android  reason: collision with root package name */
-            public int f26354android;
+            public int f26436android;
             public String url;
         }
     }

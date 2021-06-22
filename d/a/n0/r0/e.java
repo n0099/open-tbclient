@@ -1,48 +1,32 @@
 package d.a.n0.r0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.a.m0.r.q.a2;
-import d.a.m0.r.q.z1;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
-public class e implements n0 {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<n0> f62135a = new AtomicReference<>(null);
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final n0 f62136b = new e();
-
-    public static n0 e() {
-        n0 n0Var = f62135a.get();
-        return n0Var == null ? f62136b : n0Var;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+/* loaded from: classes3.dex */
+public class e extends d.a.c.c.f.c {
+    public e(int i2) {
+        super(i2);
     }
 
-    @Override // d.a.n0.r0.n0
-    public d.a.c.k.e.a<? extends z1, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // d.a.n0.r0.n0
-    public k<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // d.a.n0.r0.n0
-    public d.a.c.k.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // d.a.n0.r0.n0
-    public d.a.c.k.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.c.f.g
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+            HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+            ReloginManager g2 = ReloginManager.g();
+            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                if (httpMessage.removeParam("reloin_key") == null) {
+                    httpMessage.addParam("reloin_key", "reloin_value");
+                    g2.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                } else {
+                    g2.f(null);
+                }
+                return null;
+            }
+        }
+        return httpResponsedMessage;
     }
 }

@@ -11,29 +11,29 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
-import d.a.m0.r.q.a2;
-import d.a.n0.b1.j.e;
-import d.a.n0.b1.j.f;
+import d.a.n0.r.q.a2;
+import d.a.o0.b1.j.e;
+import d.a.o0.b1.j.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TabFeedNetFeedModel extends BdBaseModel implements f {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16602e;
+    public boolean f16684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f16603f;
+    public boolean f16685f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16604g;
+    public int f16686g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16605h;
+    public String f16687h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f16606i;
+    public String f16688i;
     public e j;
-    public d.a.n0.b1.j.j.a k;
+    public d.a.o0.b1.j.j.a k;
     public d.a.c.c.g.a l;
 
     /* loaded from: classes4.dex */
@@ -44,11 +44,11 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            TabFeedNetFeedModel.this.f16603f = false;
+            TabFeedNetFeedModel.this.f16685f = false;
             if (responsedMessage == null) {
                 return;
             }
-            d.a.n0.b1.j.h.a aVar = null;
+            d.a.o0.b1.j.h.a aVar = null;
             if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
                 aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
             } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
@@ -72,39 +72,39 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
 
     public TabFeedNetFeedModel(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
-        this.f16602e = true;
-        this.f16603f = false;
-        this.f16604g = 1;
+        this.f16684e = true;
+        this.f16685f = false;
+        this.f16686g = 1;
         this.l = new a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        d.a.n0.e3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        d.a.n0.e3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.k = new d.a.n0.b1.j.j.a();
+        d.a.o0.e3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        d.a.o0.e3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.k = new d.a.o0.b1.j.j.a();
         this.j = eVar;
     }
 
     public final void E(int i2) {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
         tabFeedListRequestMessage.loadType = i2;
-        tabFeedListRequestMessage.tabCode = this.f16606i;
-        tabFeedListRequestMessage.tabName = this.f16605h;
+        tabFeedListRequestMessage.tabCode = this.f16688i;
+        tabFeedListRequestMessage.tabName = this.f16687h;
         if (i2 == 2) {
-            tabFeedListRequestMessage.pn = this.f16604g + 1;
+            tabFeedListRequestMessage.pn = this.f16686g + 1;
         } else if (i2 != 1) {
             return;
         } else {
             tabFeedListRequestMessage.pn = 1;
         }
-        this.f16603f = true;
+        this.f16685f = true;
         tabFeedListRequestMessage.setTag(getUniqueId());
         sendMessage(tabFeedListRequestMessage);
     }
 
-    public final void F(d.a.n0.b1.j.h.a aVar) {
+    public final void F(d.a.o0.b1.j.h.a aVar) {
         if (aVar != null) {
-            this.f16604g = aVar.b();
+            this.f16686g = aVar.b();
         }
         if (this.j != null) {
-            this.j.N(this.k.a(this.f16602e, aVar));
+            this.j.N(this.k.a(this.f16684e, aVar));
         }
     }
 
@@ -113,16 +113,16 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         return false;
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public boolean b() {
-        d.a.n0.b1.j.j.a aVar = this.k;
+        d.a.o0.b1.j.j.a aVar = this.k;
         if (aVar == null) {
             return false;
         }
         return aVar.c();
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public void c(BdUniqueId bdUniqueId) {
         setUniqueId(bdUniqueId);
         MessageManager.getInstance().unRegisterListener(this.l);
@@ -140,46 +140,46 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f16603f = false;
+        this.f16685f = false;
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public void destory() {
         MessageManager.getInstance().unRegisterListener(this.l);
-        this.f16603f = false;
-        this.f16602e = true;
+        this.f16685f = false;
+        this.f16684e = true;
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public List<a2> i() {
-        d.a.n0.b1.j.j.a aVar = this.k;
+        d.a.o0.b1.j.j.a aVar = this.k;
         if (aVar == null) {
             return null;
         }
         return aVar.b();
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public void loadMore() {
-        if (this.f16603f) {
+        if (this.f16685f) {
             return;
         }
-        this.f16602e = false;
+        this.f16684e = false;
         E(2);
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public void o(String str, String str2, int i2) {
-        this.f16606i = str;
-        this.f16605h = str2;
+        this.f16688i = str;
+        this.f16687h = str2;
     }
 
-    @Override // d.a.n0.b1.j.f
+    @Override // d.a.o0.b1.j.f
     public void refresh() {
-        if (this.f16603f) {
+        if (this.f16685f) {
             return;
         }
-        this.f16602e = true;
+        this.f16684e = true;
         E(1);
     }
 }

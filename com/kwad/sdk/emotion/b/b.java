@@ -8,37 +8,37 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f35329a;
+    public static volatile b f35427a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f35330b = new ConcurrentHashMap();
+    public Map<String, String> f35428b = new ConcurrentHashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f35331c = new ConcurrentHashMap();
+    public Map<String, String> f35429c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35332d;
+    public String f35430d;
 
     public static b a() {
-        if (f35329a == null) {
+        if (f35427a == null) {
             synchronized (b.class) {
-                if (f35329a == null) {
-                    f35329a = new b();
+                if (f35427a == null) {
+                    f35427a = new b();
                 }
             }
         }
-        return f35329a;
+        return f35427a;
     }
 
     public String a(String str, boolean z) {
-        return (z ? this.f35331c : this.f35330b).get(str);
+        return (z ? this.f35429c : this.f35428b).get(str);
     }
 
     public void a(String str) {
         File[] listFiles;
         File[] listFiles2;
-        this.f35332d = str + File.separator + "message_emoji_resource";
-        File file = new File(this.f35332d);
+        this.f35430d = str + File.separator + "message_emoji_resource";
+        File file = new File(this.f35430d);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -47,7 +47,7 @@ public final class b {
             for (File file3 : listFiles2) {
                 int lastIndexOf = file3.getName().lastIndexOf(46);
                 if (lastIndexOf > 0) {
-                    this.f35330b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
+                    this.f35428b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
                 }
             }
         }
@@ -56,7 +56,7 @@ public final class b {
             for (File file5 : listFiles) {
                 int lastIndexOf2 = file5.getName().lastIndexOf(46);
                 if (lastIndexOf2 > 0) {
-                    this.f35331c.put(file5.getName().substring(0, lastIndexOf2), file5.getAbsolutePath());
+                    this.f35429c.put(file5.getName().substring(0, lastIndexOf2), file5.getAbsolutePath());
                 }
             }
         }
@@ -67,11 +67,11 @@ public final class b {
         StringBuilder sb;
         String b2;
         if (z) {
-            map = this.f35331c;
+            map = this.f35429c;
             sb = new StringBuilder();
             b2 = c();
         } else {
-            map = this.f35330b;
+            map = this.f35428b;
             sb = new StringBuilder();
             b2 = b();
         }
@@ -82,20 +82,20 @@ public final class b {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f35332d)) {
+        if (TextUtils.isEmpty(this.f35430d)) {
             return "";
         }
-        return this.f35332d + File.separator + "small";
+        return this.f35430d + File.separator + "small";
     }
 
     public boolean b(String str, boolean z) {
-        return (z ? this.f35331c : this.f35330b).containsKey(str);
+        return (z ? this.f35429c : this.f35428b).containsKey(str);
     }
 
     public String c() {
-        if (TextUtils.isEmpty(this.f35332d)) {
+        if (TextUtils.isEmpty(this.f35430d)) {
             return "";
         }
-        return this.f35332d + File.separator + "big";
+        return this.f35430d + File.separator + "big";
     }
 }

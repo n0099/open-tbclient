@@ -20,24 +20,24 @@ import java.io.File;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42877a = d.a.c.j.a.f42853a;
+    public static final boolean f42980a = d.a.c.j.a.f42956a;
 
     /* loaded from: classes.dex */
     public static class a implements PatchManager.PatchInstallObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f42878a;
+        public final /* synthetic */ f f42981a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PackageInfo f42879b;
+        public final /* synthetic */ PackageInfo f42982b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f42880c;
+        public final /* synthetic */ boolean f42983c;
 
         public a(f fVar, PackageInfo packageInfo, boolean z) {
-            this.f42878a = fVar;
-            this.f42879b = packageInfo;
-            this.f42880c = z;
+            this.f42981a = fVar;
+            this.f42982b = packageInfo;
+            this.f42983c = z;
         }
 
         @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
@@ -46,15 +46,15 @@ public class j {
             PatchMetaInfo createFromPatch;
             int i3 = (i2 == 0 || i2 == 1) ? 0 : -1;
             String str = "install-resut:" + i2;
-            f fVar = this.f42878a;
+            f fVar = this.f42981a;
             if (fVar != null) {
-                fVar.a(this.f42879b.packageName, i3, str);
+                fVar.a(this.f42982b.packageName, i3, str);
             }
             Log.d(TitanDownloadService.TAG, "patch install result code = " + i3);
             if (i3 == 0) {
-                j.c(this.f42879b);
+                j.c(this.f42982b);
             }
-            if (this.f42880c) {
+            if (this.f42983c) {
                 return;
             }
             int loadState = LoaderManager.getInstance().getLoadState();
@@ -69,7 +69,7 @@ public class j {
     }
 
     public static void b(Context context, f fVar, PackageInfo packageInfo, boolean z) {
-        if (f42877a) {
+        if (f42980a) {
             Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
         }
         PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(fVar, packageInfo, z));

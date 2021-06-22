@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.load.model.Model;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -107,7 +108,7 @@ public final class Util {
             }
             return bitmap.getHeight() * bitmap.getRowBytes();
         }
-        throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig());
+        throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + PreferencesUtil.LEFT_MOUNT + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig());
     }
 
     public static int getBytesPerPixel(@Nullable Bitmap.Config config) {

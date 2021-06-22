@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CopyObjectResponseWithExceptionInfo extends CopyObjectResponse {
     public String code;
     public String message;

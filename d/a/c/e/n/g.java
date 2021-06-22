@@ -16,31 +16,31 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42413a;
+    public c f42516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42414b;
+    public String f42517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42415c;
+    public String f42518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42416d;
+    public String f42519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42417e;
+    public String f42520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42418f;
+    public String f42521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42419g;
+    public String f42522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42420h;
+    public String f42523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f42421i;
+    public Map<String, String> f42524i;
 
     public static String d() {
         return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? com.baidu.apollon.statistics.g.f3985b : (j.v() || j.z()) ? "4G" : "NONE";
@@ -48,8 +48,8 @@ public class g {
 
     public void a(String str) {
         String[] split;
-        if (this.f42421i == null) {
-            this.f42421i = new HashMap();
+        if (this.f42524i == null) {
+            this.f42524i = new HashMap();
         }
         String[] split2 = str.split("&");
         if (split2 == null || split2.length == 0) {
@@ -58,7 +58,7 @@ public class g {
         for (String str2 : split2) {
             if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                 try {
-                    this.f42421i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
+                    this.f42524i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                 } catch (UnsupportedEncodingException e2) {
                     BdLog.e(e2);
                 }
@@ -67,23 +67,23 @@ public class g {
     }
 
     public void b(String str, String str2) {
-        if (this.f42421i == null) {
-            this.f42421i = new HashMap();
+        if (this.f42524i == null) {
+            this.f42524i = new HashMap();
         }
-        this.f42421i.put(str, str2);
+        this.f42524i.put(str, str2);
     }
 
     public JSONObject c() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            if (this.f42413a != null) {
-                jSONObject2.put("app_version", this.f42413a.f42390c);
+            if (this.f42516a != null) {
+                jSONObject2.put("app_version", this.f42516a.f42493c);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                jSONObject2.put("cuid", this.f42413a.f42394g);
-                jSONObject2.put("shoubai_cuid", this.f42413a.f42395h);
-                jSONObject2.put("from", this.f42413a.f42391d);
-                jSONObject2.put("uid", this.f42413a.l);
+                jSONObject2.put("cuid", this.f42516a.f42497g);
+                jSONObject2.put("shoubai_cuid", this.f42516a.f42498h);
+                jSONObject2.put("from", this.f42516a.f42494d);
+                jSONObject2.put("uid", this.f42516a.l);
             }
             jSONObject2.put("client_ip", f.b());
             jSONObject2.put("network", d());
@@ -95,21 +95,21 @@ public class g {
             jSONObject2.put("mission_id", f.c());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.f42414b != null) {
-                jSONObject3.put("module", this.f42414b);
+            if (this.f42517b != null) {
+                jSONObject3.put("module", this.f42517b);
             }
-            if (this.f42415c != null) {
-                jSONObject3.put("action", this.f42415c);
+            if (this.f42518c != null) {
+                jSONObject3.put("action", this.f42518c);
             }
-            if (this.f42416d != null) {
-                jSONObject3.put("error_code", this.f42416d);
+            if (this.f42519d != null) {
+                jSONObject3.put("error_code", this.f42519d);
             }
-            if (this.f42417e != null) {
-                jSONObject3.put("error_message", this.f42417e);
+            if (this.f42520e != null) {
+                jSONObject3.put("error_message", this.f42520e);
             }
-            if (this.f42421i != null) {
+            if (this.f42524i != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.f42421i.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f42524i.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -120,14 +120,14 @@ public class g {
                 }
                 jSONObject3.put("ext1", sb);
             }
-            if (this.f42418f != null) {
-                jSONObject3.put("id", this.f42418f);
+            if (this.f42521f != null) {
+                jSONObject3.put("id", this.f42521f);
             }
-            if (this.f42419g != null) {
-                jSONObject3.put("title", this.f42419g);
+            if (this.f42522g != null) {
+                jSONObject3.put("title", this.f42522g);
             }
-            if (this.f42420h != null) {
-                jSONObject3.put("abstract", this.f42420h);
+            if (this.f42523h != null) {
+                jSONObject3.put("abstract", this.f42523h);
             }
             jSONObject.put("debug_info", jSONObject3);
             jSONObject.put("kpi", new JSONObject());
@@ -138,22 +138,22 @@ public class g {
     }
 
     public void e(String str) {
-        this.f42415c = str;
+        this.f42518c = str;
     }
 
     public void f(c cVar) {
-        this.f42413a = cVar;
+        this.f42516a = cVar;
     }
 
     public void g(String str) {
-        this.f42416d = str;
+        this.f42519d = str;
     }
 
     public void h(String str) {
-        this.f42417e = str;
+        this.f42520e = str;
     }
 
     public void i(String str) {
-        this.f42414b = str;
+        this.f42517b = str;
     }
 }

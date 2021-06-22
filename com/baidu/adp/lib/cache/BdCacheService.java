@@ -202,24 +202,24 @@ public class BdCacheService extends CustomMessageListener {
         c2 = g3.c(str);
         if (c2 == null) {
             c2 = new h();
-            c2.f42183a = str;
-            c2.f42187e = g2;
-            c2.f42186d = str2;
-            c2.f42185c = i2;
-            c2.f42188f = System.currentTimeMillis();
-            c2.f42184b = cVar.l(str);
+            c2.f42286a = str;
+            c2.f42290e = g2;
+            c2.f42289d = str2;
+            c2.f42288c = i2;
+            c2.f42291f = System.currentTimeMillis();
+            c2.f42287b = cVar.l(str);
             g3.a(c2);
-        } else if (str2.equalsIgnoreCase(c2.f42186d)) {
-            c2.f42185c = i2;
-            c2.f42188f = System.currentTimeMillis();
-            if (g2 != c2.f42187e) {
-                cVar.k(str, c2.f42184b, g2, c2.f42187e);
+        } else if (str2.equalsIgnoreCase(c2.f42289d)) {
+            c2.f42288c = i2;
+            c2.f42291f = System.currentTimeMillis();
+            if (g2 != c2.f42290e) {
+                cVar.k(str, c2.f42287b, g2, c2.f42290e);
             }
             g3.a(c2);
         } else {
-            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + c2.f42186d);
+            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + c2.f42289d);
         }
-        return c2.f42184b;
+        return c2.f42287b;
     }
 
     public boolean i() {

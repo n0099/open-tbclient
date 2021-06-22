@@ -34,24 +34,24 @@ public class d {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f40046a;
+        public File f40149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f40047b;
+        public long f40150b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f40048c;
+        public long f40151c;
 
         public File a() {
-            return this.f40046a;
+            return this.f40149a;
         }
 
         public long b() {
-            return this.f40047b;
+            return this.f40150b;
         }
 
         public long c() {
-            return this.f40048c;
+            return this.f40151c;
         }
 
         public String toString() {
@@ -59,11 +59,11 @@ public class d {
         }
 
         public void a(File file) {
-            this.f40046a = file;
+            this.f40149a = file;
         }
 
         public void b(long j) {
-            this.f40048c = j;
+            this.f40151c = j;
         }
 
         public static c b(File file) {
@@ -77,13 +77,13 @@ public class d {
         }
 
         public void a(long j) {
-            this.f40047b = j;
+            this.f40150b = j;
         }
     }
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0517d {
+    public static final class C0520d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);

@@ -32,31 +32,31 @@ public final class UnsignedLongs {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long[] f31469a = new long[37];
+        public static final long[] f31567a = new long[37];
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f31470b = new int[37];
+        public static final int[] f31568b = new int[37];
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f31471c = new int[37];
+        public static final int[] f31569c = new int[37];
 
         static {
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i2 = 2; i2 <= 36; i2++) {
                 long j = i2;
-                f31469a[i2] = UnsignedLongs.b(-1L, j);
-                f31470b[i2] = (int) UnsignedLongs.e(-1L, j);
-                f31471c[i2] = bigInteger.toString(i2).length() - 1;
+                f31567a[i2] = UnsignedLongs.b(-1L, j);
+                f31568b[i2] = (int) UnsignedLongs.e(-1L, j);
+                f31569c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
         public static boolean a(long j, int i2, int i3) {
             if (j >= 0) {
-                long[] jArr = f31469a;
+                long[] jArr = f31567a;
                 if (j < jArr[i3]) {
                     return false;
                 }
-                return j > jArr[i3] || i2 > f31470b[i3];
+                return j > jArr[i3] || i2 > f31568b[i3];
             }
             return true;
         }
@@ -85,7 +85,7 @@ public final class UnsignedLongs {
         n.p(str);
         if (str.length() != 0) {
             if (i2 >= 2 && i2 <= 36) {
-                int i3 = a.f31471c[i2] - 1;
+                int i3 = a.f31569c[i2] - 1;
                 long j = 0;
                 for (int i4 = 0; i4 < str.length(); i4++) {
                     int digit = Character.digit(str.charAt(i4), i2);

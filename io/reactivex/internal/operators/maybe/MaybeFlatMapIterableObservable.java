@@ -23,7 +23,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72285d;
+        public Disposable f72389d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -41,8 +41,8 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.cancelled = true;
-            this.f72285d.dispose();
-            this.f72285d = DisposableHelper.DISPOSED;
+            this.f72389d.dispose();
+            this.f72389d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -62,14 +62,14 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f72285d = DisposableHelper.DISPOSED;
+            this.f72389d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72285d, disposable)) {
-                this.f72285d = disposable;
+            if (DisposableHelper.validate(this.f72389d, disposable)) {
+                this.f72389d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

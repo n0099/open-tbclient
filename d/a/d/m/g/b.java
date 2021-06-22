@@ -4,61 +4,61 @@ import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class b {
     public final boolean a(@NonNull a aVar) {
-        return aVar.f43268i == 1;
+        return aVar.f43371i == 1;
     }
 
     public void b(@NonNull a aVar) {
-        aVar.f43260a = 2;
+        aVar.f43363a = 2;
         d.a.d.m.b.a(aVar, "image");
     }
 
     public void c(@NonNull a aVar, int i2) {
-        aVar.f43260a = 7;
+        aVar.f43363a = 7;
         d.a.d.m.b.b(aVar, i2);
     }
 
     public void d(@NonNull a aVar) {
-        aVar.f43260a = 5;
+        aVar.f43363a = 5;
         d.a.d.m.b.d(aVar);
     }
 
     public void e(@NonNull a aVar) {
-        aVar.f43260a = 2;
+        aVar.f43363a = 2;
         d.a.d.m.b.a(aVar, "button");
     }
 
     public void f(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f43260a = 34;
+            aVar.f43363a = 34;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void g(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f43260a = 32;
+            aVar.f43363a = 32;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void h(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f43260a = 33;
+            aVar.f43363a = 33;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void i(@NonNull a aVar) {
-        aVar.f43260a = 3;
+        aVar.f43363a = 3;
         d.a.d.m.b.e(aVar);
         if (a(aVar)) {
-            aVar.f43260a = 31;
+            aVar.f43363a = 31;
             d.a.d.m.b.f(aVar);
         }
     }
 
     public void j(@NonNull a aVar) {
-        aVar.f43260a = 2;
+        aVar.f43363a = 2;
         d.a.d.m.b.a(aVar, "title");
     }
 

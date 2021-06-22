@@ -15,19 +15,19 @@ import d.a.c.e.p.l;
 public class FrsH5ItemView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15680e;
+    public boolean f15762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15681f;
+    public boolean f15763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BaseWebView.f f15682g;
+    public final BaseWebView.f f15764g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final BaseWebView.e f15683h;
+    public final BaseWebView.e f15765h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BaseWebView.h f15684i;
+    public final BaseWebView.h f15766i;
     public final BaseWebView j;
     public final LinearLayout k;
     public final View l;
@@ -40,7 +40,7 @@ public class FrsH5ItemView extends FrameLayout {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
         public void a(WebView webView, String str) {
-            if (!FrsH5ItemView.this.f15680e) {
+            if (!FrsH5ItemView.this.f15762e) {
                 FrsH5ItemView.this.j();
                 ViewGroup.LayoutParams layoutParams = FrsH5ItemView.this.getLayoutParams();
                 layoutParams.height = (l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
@@ -57,14 +57,14 @@ public class FrsH5ItemView extends FrameLayout {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
-            FrsH5ItemView.this.f15681f = false;
+            FrsH5ItemView.this.f15763f = false;
             if (!FrsH5ItemView.this.m) {
                 FrsH5ItemView.this.i();
                 ViewGroup.LayoutParams layoutParams = FrsH5ItemView.this.getLayoutParams();
                 layoutParams.height = -2;
                 FrsH5ItemView.this.setLayoutParams(layoutParams);
             }
-            FrsH5ItemView.this.f15680e = true;
+            FrsH5ItemView.this.f15762e = true;
         }
     }
 
@@ -82,17 +82,17 @@ public class FrsH5ItemView extends FrameLayout {
 
     public FrsH5ItemView(Context context) {
         super(context);
-        this.f15680e = false;
-        this.f15682g = new a();
-        this.f15683h = new b();
-        this.f15684i = new c();
+        this.f15762e = false;
+        this.f15764g = new a();
+        this.f15765h = new b();
+        this.f15766i = new c();
         this.m = false;
         setLayoutParams(new ViewGroup.LayoutParams(-1, (l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90)));
         BaseWebView baseWebView = new BaseWebView(TbadkCoreApplication.getInst());
         this.j = baseWebView;
-        baseWebView.setOnPageStartedListener(this.f15682g);
-        this.j.setOnPageFinishedListener(this.f15683h);
-        this.j.setOnReceivedErrorListener(this.f15684i);
+        baseWebView.setOnPageStartedListener(this.f15764g);
+        this.j.setOnPageFinishedListener(this.f15765h);
+        this.j.setOnReceivedErrorListener(this.f15766i);
         addView(this.j);
         View inflate = LayoutInflater.from(context).inflate(R.layout.frs_no_list_item_view, (ViewGroup) this, false);
         this.l = inflate;

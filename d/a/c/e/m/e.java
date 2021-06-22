@@ -6,13 +6,13 @@ import android.os.Looper;
 public class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f42381a = new e();
+    public static final e f42484a = new e();
 
     public e() {
         super(Looper.getMainLooper());
     }
 
     public static final e a() {
-        return f42381a;
+        return f42484a;
     }
 }

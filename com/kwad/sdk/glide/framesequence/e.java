@@ -7,10 +7,10 @@ import com.kwad.sdk.glide.load.engine.s;
 public class e implements com.kwad.sdk.glide.load.resource.e.e<FrameSequence, FrameSequenceDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final FrameSequenceDrawable.a f35864a;
+    public final FrameSequenceDrawable.a f35962a;
 
     public e(final com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f35864a = new FrameSequenceDrawable.a() { // from class: com.kwad.sdk.glide.framesequence.e.1
+        this.f35962a = new FrameSequenceDrawable.a() { // from class: com.kwad.sdk.glide.framesequence.e.1
             @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
             public Bitmap a(int i2, int i3) {
                 return eVar.a(i2, i3, Bitmap.Config.ARGB_8888);
@@ -25,6 +25,6 @@ public class e implements com.kwad.sdk.glide.load.resource.e.e<FrameSequence, Fr
 
     @Override // com.kwad.sdk.glide.load.resource.e.e
     public s<FrameSequenceDrawable> a(s<FrameSequence> sVar, com.kwad.sdk.glide.load.e eVar) {
-        return new d(new FrameSequenceDrawable(sVar.e(), this.f35864a));
+        return new d(new FrameSequenceDrawable(sVar.e(), this.f35962a));
     }
 }

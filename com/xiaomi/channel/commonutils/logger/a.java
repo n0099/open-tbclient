@@ -3,8 +3,8 @@ package com.xiaomi.channel.commonutils.logger;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40871a = "Job";
+    public static String f40974a = "Job";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40872b = "Net";
+    public static String f40975b = "Net";
 }

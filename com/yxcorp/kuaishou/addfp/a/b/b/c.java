@@ -10,47 +10,47 @@ import d.q.a.a.a.b.b;
 public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41868a;
+    public Context f41971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41869b = "";
+    public String f41972b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41870c = "";
+    public String f41973c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41871d = "";
+    public String f41974d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41872e = false;
+    public boolean f41975e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f41873f;
+    public a f41976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.q.a.a.a.b.c.a f41874g;
+    public d.q.a.a.a.b.c.a f41977g;
 
     public c(Context context, a aVar) {
-        this.f41868a = context;
-        this.f41873f = aVar;
-        this.f41874g = new d.q.a.a.a.b.c.a(context);
+        this.f41971a = context;
+        this.f41976f = aVar;
+        this.f41977g = new d.q.a.a.a.b.c.a(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         try {
             String a2 = ((d) iInterface).a();
-            this.f41869b = a2;
+            this.f41972b = a2;
             if (TextUtils.isEmpty(a2)) {
-                if (this.f41873f != null) {
-                    this.f41873f.a(false, null);
+                if (this.f41976f != null) {
+                    this.f41976f.a(false, null);
                     return;
                 }
                 return;
             }
-            this.f41872e = true;
-            if (this.f41873f != null) {
-                this.f41873f.a(true, this);
+            this.f41975e = true;
+            if (this.f41976f != null) {
+                this.f41976f.a(true, this);
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -59,7 +59,7 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final void a(a aVar) {
-        this.f41874g.d(this);
+        this.f41977g.d(this);
     }
 
     @Override // d.q.a.a.a.b.b
@@ -74,17 +74,17 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final String b() {
-        return this.f41869b;
+        return this.f41972b;
     }
 
     @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return this.f41872e;
+        return this.f41975e;
     }
 
     @Override // d.q.a.a.a.b.b
     public final void d() {
-        d.q.a.a.a.b.c.a aVar = this.f41874g;
+        d.q.a.a.a.b.c.a aVar = this.f41977g;
         if (aVar != null) {
             aVar.c();
         }
@@ -92,7 +92,7 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        a aVar = this.f41873f;
+        a aVar = this.f41976f;
         if (aVar != null) {
             aVar.a(false, this);
         }

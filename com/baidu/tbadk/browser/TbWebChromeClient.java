@@ -18,8 +18,8 @@ import com.baidu.mobads.container.components.countly.XAdRemoteSDKCountly;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import d.a.c.e.m.g;
 import d.a.c.e.p.k;
-import d.a.m0.s.c.z;
-import d.a.n0.e3.l0.c;
+import d.a.n0.s.c.z;
+import d.a.o0.e3.l0.c;
 /* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public c callback;
@@ -84,8 +84,8 @@ public class TbWebChromeClient extends WebChromeClient {
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         c cVar;
         if (!z.a(str) && str2.startsWith("tiebaapp")) {
-            d.a.n0.e3.l0.d.c cVar2 = new d.a.n0.e3.l0.d.c();
-            cVar2.s(d.a.n0.e3.l0.d.g.b(str2));
+            d.a.o0.e3.l0.d.c cVar2 = new d.a.o0.e3.l0.d.c();
+            cVar2.s(d.a.o0.e3.l0.d.g.b(str2));
             cVar2.t(301);
             callJsMethod(webView, cVar2.c(), cVar2.d());
         }

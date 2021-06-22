@@ -6,61 +6,61 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import d.a.l0.a.k;
-import d.a.l0.a.w1.k.a;
-import d.a.l0.a.w1.k.b;
+import d.a.m0.a.k;
+import d.a.m0.a.w1.k.a;
+import d.a.m0.a.w1.k.b;
 /* loaded from: classes3.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11100f = k.f46875a;
+    public static final boolean f11182f = k.f46983a;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.w1.i.b f11101e;
+    public d.a.m0.a.w1.i.b f11183e;
 
     public SPSwitchPanelLinearLayout(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f11101e = new d.a.l0.a.w1.i.b(this);
+        this.f11183e = new d.a.m0.a.w1.i.b(this);
     }
 
-    @Override // d.a.l0.a.w1.k.a
+    @Override // d.a.m0.a.w1.k.a
     public void handleHide() {
-        this.f11101e.handleHide();
+        this.f11183e.handleHide();
     }
 
-    @Override // d.a.l0.a.w1.k.a
+    @Override // d.a.m0.a.w1.k.a
     public void handleShow() {
         super.setVisibility(0);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        if (f11100f) {
+        if (f11182f) {
             Log.d("SPSwitchPanel", "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3));
         }
-        int[] c2 = this.f11101e.c(i2, i3);
-        if (f11100f) {
+        int[] c2 = this.f11183e.c(i2, i3);
+        if (f11182f) {
             Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c2[1]));
         }
         super.onMeasure(c2[0], c2[1]);
     }
 
-    @Override // d.a.l0.a.w1.k.b
+    @Override // d.a.m0.a.w1.k.b
     public void onSoftInputShowing(boolean z) {
-        this.f11101e.e(z);
+        this.f11183e.e(z);
     }
 
-    @Override // d.a.l0.a.w1.k.b
+    @Override // d.a.m0.a.w1.k.b
     public void refreshHeight(int i2) {
-        this.f11101e.d(i2);
+        this.f11183e.d(i2);
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        if (this.f11101e.a(i2)) {
+        if (this.f11183e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

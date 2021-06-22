@@ -8,10 +8,10 @@ import java.util.List;
 public final class gr extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41368a;
+    public final /* synthetic */ Context f41471a;
 
     public gr(Context context) {
-        this.f41368a = context;
+        this.f41471a = context;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -27,6 +27,6 @@ public final class gr extends al.b {
             list2 = gq.f442a;
             list2.clear();
         }
-        gq.b(this.f41368a, arrayList);
+        gq.b(this.f41471a, arrayList);
     }
 }

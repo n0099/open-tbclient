@@ -51,10 +51,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f26153a;
+        public FeedbackInfo f26235a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f26154b;
+        public b f26236b;
     }
 
     /* loaded from: classes5.dex */
@@ -68,10 +68,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f26155a;
+        public int f26237a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26156b;
+        public String[] f26238b;
     }
 
     public FeedbackDialog(Context context) {
@@ -100,8 +100,8 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     }
 
     public void initDialog(a aVar) {
-        this.mFeedbackInfo = aVar.f26153a;
-        this.mListener = aVar.f26154b;
+        this.mFeedbackInfo = aVar.f26235a;
+        this.mListener = aVar.f26236b;
         this.mCloseButton.setOnClickListener(this);
         this.mSubmit.setOnClickListener(this);
         FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -169,7 +169,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
             if (this.mListener != null) {
                 c cVar = new c();
-                cVar.f26155a = this.mRatingBar.getRating();
+                cVar.f26237a = this.mRatingBar.getRating();
                 ArrayList arrayList = new ArrayList();
                 Iterator<TagButton> it = this.mTags.iterator();
                 while (it.hasNext()) {
@@ -179,7 +179,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                     }
                 }
                 String[] strArr = new String[arrayList.size()];
-                cVar.f26156b = strArr;
+                cVar.f26238b = strArr;
                 arrayList.toArray(strArr);
                 this.mListener.a(cVar);
             }

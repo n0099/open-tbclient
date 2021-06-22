@@ -47,6 +47,8 @@ public final class SapiConfiguration implements NoProguard {
     public boolean disableVoiceVerify;
     public final boolean enableShare;
     public final Domain environment;
+    public final String faceLincenseFile;
+    public final String faceLincenseID;
     public final List<FastLoginFeature> fastLoginFeatureList;
     public boolean forbidPresetPhoneNumber;
     public final boolean forbidSslErrorDialog;
@@ -191,7 +193,7 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     public boolean isSupportBrowseMode() {
-        return this.supportBrowseMode;
+        return this.supportBrowseMode && this.browseModeState != 0;
     }
 
     public boolean isSupportTouchLogin() {
@@ -235,6 +237,8 @@ public final class SapiConfiguration implements NoProguard {
         public String deviceLoginSignKey;
         public String deviceName;
         public Domain environment;
+        public String faceLincenseFile;
+        public String faceLincenseID;
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean forbidPresetPhoneNumber;
         public String googleClientId;
@@ -456,6 +460,12 @@ public final class SapiConfiguration implements NoProguard {
             return this;
         }
 
+        public Builder setFaceLincense(String str, String str2) {
+            this.faceLincenseID = str;
+            this.faceLincenseFile = str2;
+            return this;
+        }
+
         public Builder setLanguage(Language language) {
             this.language = language;
             return this;
@@ -645,6 +655,8 @@ public final class SapiConfiguration implements NoProguard {
         this.appId = builder.appId;
         this.appSignKey = builder.appSignKey;
         this.environment = builder.environment;
+        this.faceLincenseID = builder.faceLincenseID;
+        this.faceLincenseFile = builder.faceLincenseFile;
         this.language = builder.language;
         this.socialBindType = builder.socialBindType;
         this.initialShareStrategy = builder.initialShareStrategy;

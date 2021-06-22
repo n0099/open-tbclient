@@ -20,15 +20,15 @@ import okhttp3.Dns;
 public class a implements Dns {
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpDnsService f72038a;
+    public HttpDnsService f72142a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f72039b;
+    public volatile boolean f72143b;
 
     /* renamed from: i.a.a.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1991a implements GslbEvent.GslbEventListener {
-        public C1991a(a aVar) {
+    public class C1994a implements GslbEvent.GslbEventListener {
+        public C1994a(a aVar) {
         }
 
         @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
@@ -41,24 +41,24 @@ public class a implements Dns {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f72040a = new a(null);
+        public static final a f72144a = new a(null);
     }
 
-    public /* synthetic */ a(C1991a c1991a) {
+    public /* synthetic */ a(C1994a c1994a) {
         this();
     }
 
     public static a b() {
-        return b.f72040a;
+        return b.f72144a;
     }
 
     public List<String> a(String str) throws UnknownHostException {
-        if (this.f72038a == null) {
+        if (this.f72142a == null) {
             RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
             return null;
         }
         long uptimeMillis = SystemClock.uptimeMillis();
-        DnsResultInfo ipsByHost = this.f72038a.getIpsByHost(str);
+        DnsResultInfo ipsByHost = this.f72142a.getIpsByHost(str);
         if (ipsByHost != null) {
             ArrayList arrayList = new ArrayList();
             String[] strArr = ipsByHost.mIpsV6;
@@ -114,27 +114,27 @@ public class a implements Dns {
     }
 
     public synchronized void e(Context context, String str, String str2) {
-        if (!this.f72039b) {
+        if (!this.f72143b) {
             RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
-        } else if (this.f72038a != null) {
+        } else if (this.f72142a != null) {
             RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
         } else if (context == null) {
             RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
         } else {
             long currentTimeMillis = System.currentTimeMillis();
             HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
-            this.f72038a = service;
+            this.f72142a = service;
             service.setLogEnabled(Env.instance().isTestEnv());
-            this.f72038a.setGslbEventMessager(new C1991a(this));
-            this.f72038a.setHttpsEnable(true);
-            this.f72038a.setNetworkStatus(3);
+            this.f72142a.setGslbEventMessager(new C1994a(this));
+            this.f72142a.setHttpsEnable(true);
+            this.f72142a.setNetworkStatus(3);
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(Env.instance().REVENUE_HTTP_URL);
             if (!Env.instance().isTestEnv()) {
                 arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
             }
             RLog.info("YYPayHttpDns", "PreResolveHost hosts:" + arrayList.toString());
-            this.f72038a.setPreResolveHosts(arrayList);
+            this.f72142a.setPreResolveHosts(arrayList);
             RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
         }
     }
@@ -154,7 +154,7 @@ public class a implements Dns {
     */
     public List<InetAddress> lookup(String str) {
         List<InetAddress> list;
-        if (this.f72039b && this.f72038a != null) {
+        if (this.f72143b && this.f72142a != null) {
             RLog.info("YYPayHttpDns", "httpdns lookup ");
             try {
                 list = d(a(str));
@@ -177,8 +177,8 @@ public class a implements Dns {
     }
 
     public a() {
-        this.f72038a = null;
-        this.f72039b = true;
+        this.f72142a = null;
+        this.f72143b = true;
         RLog.warn("YYPayHttpDns", "new OkHttpDns:" + toString());
     }
 }

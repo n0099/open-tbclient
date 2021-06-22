@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UriMatcher f41678a;
+    public static final UriMatcher f41781a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Uri f821a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
@@ -22,9 +22,9 @@ public class TrafficProvider extends ContentProvider {
 
     static {
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f41678a = uriMatcher;
+        f41781a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f41678a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f41781a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     @Override // android.content.ContentProvider
@@ -39,7 +39,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        if (f41678a.match(uri) == 1) {
+        if (f41781a.match(uri) == 1) {
             return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
         }
         throw new IllegalArgumentException("Unknown URI " + uri);
@@ -60,7 +60,7 @@ public class TrafficProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
         synchronized (a.f823a) {
-            if (f41678a.match(uri) != 1) {
+            if (f41781a.match(uri) != 1) {
                 throw new IllegalArgumentException("Unknown URI " + uri);
             }
             query = this.f822a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
@@ -70,7 +70,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        if (f41678a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
+        if (f41781a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
             gq.m346a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }

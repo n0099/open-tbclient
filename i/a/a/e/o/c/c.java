@@ -18,20 +18,20 @@ import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageLoaderSupplier f72191g;
+    public ImageLoaderSupplier f72295g;
 
     /* loaded from: classes8.dex */
     public final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f72192a;
+        public ImageView f72296a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a() {
         }
 
         public final ImageView a() {
-            return this.f72192a;
+            return this.f72296a;
         }
 
         public final void b(BannerConfigItem.BannerInfo bannerInfo, int i2, Context context) {
@@ -46,7 +46,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
             sb.append(" jumpUrl = ");
             sb.append(bannerInfo != null ? bannerInfo.jumpData : null);
             RLog.debug("PluginCenterBannerAdapter", sb.toString());
-            ImageView imageView = this.f72192a;
+            ImageView imageView = this.f72296a;
             if (imageView == null || (e2 = c.this.e()) == null) {
                 return;
             }
@@ -54,7 +54,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
         }
 
         public final void c(ImageView imageView) {
-            this.f72192a = imageView;
+            this.f72296a = imageView;
         }
     }
 
@@ -77,27 +77,27 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
     }
 
     public final ImageLoaderSupplier e() {
-        return this.f72191g;
+        return this.f72295g;
     }
 
     public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i2) {
         if (bannerInfo != null) {
             RLog.debug("PluginCenterBannerAdapter", "bind view holder position = " + i2);
-            Context mContext = this.f72189f;
+            Context mContext = this.f72293f;
             Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
             aVar.b(bannerInfo, i2, mContext);
         }
     }
 
     public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        this.f72191g = imageLoaderSupplier;
+        this.f72295g = imageLoaderSupplier;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f72189f).inflate(e.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f72293f).inflate(e.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
             if (view == null) {
                 Intrinsics.throwNpe();
             }

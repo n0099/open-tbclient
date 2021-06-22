@@ -1,5 +1,6 @@
 package kotlin.coroutines;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.io.Serializable;
@@ -165,6 +166,6 @@ public final class CombinedContext implements CoroutineContext, Serializable {
     }
 
     public String toString() {
-        return "[" + ((String) fold("", CombinedContext$toString$1.INSTANCE)) + "]";
+        return PreferencesUtil.LEFT_MOUNT + ((String) fold("", CombinedContext$toString$1.INSTANCE)) + PreferencesUtil.RIGHT_MOUNT;
     }
 }

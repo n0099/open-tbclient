@@ -18,15 +18,15 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import d.a.c.e.p.j;
-import d.a.n0.n3.e;
-import d.a.n0.u1.k;
-import d.a.n0.u1.l;
+import d.a.o0.n3.e;
+import d.a.o0.u1.k;
+import d.a.o0.u1.l;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class VideoPlatformStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f13497a = new a(2007015);
+    public static CustomMessageListener f13579a = new a(2007015);
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -38,7 +38,7 @@ public class VideoPlatformStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.h().o();
-            d.a.n0.n3.b.d().k();
+            d.a.o0.n3.b.d().k();
         }
     }
 
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
 
     static {
         f();
-        MessageManager.getInstance().registerListener(f13497a);
+        MessageManager.getInstance().registerListener(f13579a);
         e();
     }
 

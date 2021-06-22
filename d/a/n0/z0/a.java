@@ -1,174 +1,57 @@
 package d.a.n0.z0;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
-import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.home.CreateBarGuideActivity;
-import d.a.c.e.p.l;
-import tbclient.UserBfbInfo;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+/* loaded from: classes3.dex */
 public class a {
 
+    /* renamed from: c  reason: collision with root package name */
+    public static a f54760c;
+
     /* renamed from: a  reason: collision with root package name */
-    public CreateBarGuideActivity f67307a;
+    public d.a.n0.s.c.a f54761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f67308b;
+    public ABTestExtraData f54762b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public View f67309c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f67310d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public NoDataView f67311e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f67312f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f67313g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f67314h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f67315i;
-    public LinearLayout j;
-    public TbImageView k;
-    public UserBfbInfo l;
-    public String m;
-
-    /* renamed from: d.a.n0.z0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1812a implements View.OnClickListener {
-        public View$OnClickListenerC1812a() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (a.this.l != null) {
-                if (a.this.l.res_no.intValue() == 9528) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
-                }
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
-            }
-            TiebaStatic.log("c11223");
-            a.this.f67307a.finish();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.l != null) {
-                if (a.this.l.res_no.intValue() == 9528) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
+    public static a d() {
+        if (f54760c == null) {
+            synchronized (a.class) {
+                if (f54760c == null) {
+                    f54760c = new a();
                 }
             }
         }
+        return f54760c;
     }
 
-    public a(CreateBarGuideActivity createBarGuideActivity) {
-        this.f67307a = createBarGuideActivity;
-        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
-        this.f67308b = inflate;
-        this.f67307a.setContentView(inflate);
-        this.f67309c = this.f67308b.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f67308b.findViewById(R.id.view_navigation_bar);
-        this.f67312f = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f67312f.setTitleText(R.string.create_bar);
-        this.f67310d = (NoNetworkView) this.f67308b.findViewById(R.id.view_no_network);
-        this.f67314h = (TextView) this.f67308b.findViewById(R.id.text_forum_name);
-        this.f67313g = (TextView) this.f67308b.findViewById(R.id.text_forum_create);
-        this.k = (TbImageView) this.f67308b.findViewById(R.id.status_icon);
-        this.f67313g.setOnClickListener(new View$OnClickListenerC1812a());
-        this.f67315i = (TextView) this.f67308b.findViewById(R.id.text_create_need);
-        this.j = (LinearLayout) this.f67308b.findViewById(R.id.need_desc_layout);
-        MessageManager.getInstance().registerListener(new b(2016458));
-    }
-
-    public View d() {
-        return this.f67308b;
-    }
-
-    public void e() {
-        this.f67309c.setVisibility(8);
-    }
-
-    public void f() {
-        d.a.m0.s0.a.a(this.f67307a.getPageContext(), this.f67308b);
-        NavigationBar navigationBar = this.f67312f;
-        if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-        NoNetworkView noNetworkView = this.f67310d;
-        if (noNetworkView != null) {
-            noNetworkView.c(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-        NoDataView noDataView = this.f67311e;
-        if (noDataView != null) {
-            noDataView.f(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+    public final void a(d.a.n0.s.c.a aVar) {
+        boolean z = aVar == null || this.f54761a == null || aVar.a() != this.f54761a.a();
+        this.f54761a = aVar;
+        if (z) {
+            b("zan_or_cai_smallflow");
         }
     }
 
-    public void g() {
-        this.f67309c.setVisibility(0);
+    public final void b(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
-    public void h(String str, UserBfbInfo userBfbInfo) {
-        this.m = str;
-        this.l = userBfbInfo;
-        if (this.f67311e == null) {
-            int g2 = l.g(this.f67307a.getActivity(), R.dimen.ds100);
-            NoDataView a2 = NoDataViewFactory.a(this.f67307a.getPageContext().getPageActivity(), (LinearLayout) this.f67308b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g2), null, null);
-            this.f67311e = a2;
-            a2.setVisibility(0);
-            f();
+    public String c() {
+        if (this.f54762b == null) {
+            ABTestExtraData aBTestExtraData = new ABTestExtraData();
+            this.f54762b = aBTestExtraData;
+            aBTestExtraData.parserABTestExtraFormSharedPref();
         }
-        TextView textView = this.f67314h;
-        textView.setText(this.m + "吧");
-        UserBfbInfo userBfbInfo2 = this.l;
-        if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
-            if (this.l.activity_status.intValue() == 0) {
-                this.k.setImageResource(R.drawable.icon_create_attention_n);
-            } else {
-                this.k.setImageResource(R.drawable.icon_create_complete_n);
-            }
-        } else {
-            this.f67315i.setVisibility(4);
-            this.j.setVisibility(4);
-        }
-        this.f67315i.setVisibility(8);
-        this.j.setVisibility(8);
+        return this.f54762b.getABTestResult();
+    }
+
+    public void e(d.a.n0.s.c.a aVar) {
+        a(aVar);
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        this.f54762b = aBTestExtraData;
     }
 }

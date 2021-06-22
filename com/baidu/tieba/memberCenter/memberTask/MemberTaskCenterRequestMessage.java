@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.GetMemberTaskList.DataReq;
 import tbclient.GetMemberTaskList.GetMemberTaskListReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberTaskCenterRequestMessage extends NetMessage {
     public MemberTaskCenterRequestMessage() {
         super(CmdConfigHttp.CMD_MEMBER_TASK, 309427);

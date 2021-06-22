@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.ISendVoiceView;
-import d.a.m0.w.a;
-import d.a.m0.w.n;
-import d.a.n0.f1.f.b;
-import d.a.n0.q3.c;
+import d.a.n0.w.a;
+import d.a.n0.w.n;
+import d.a.o0.f1.f.b;
+import d.a.o0.q3.c;
 /* loaded from: classes.dex */
 public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView {
 
@@ -63,7 +63,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.j.height = getContext().getResources().getDimensionPixelSize(R.dimen.ds360);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void b() {
         setVisibility(0);
     }
@@ -78,7 +78,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4229h.e();
     }
 
-    @Override // d.a.n0.f1.f.b
+    @Override // d.a.o0.f1.f.b
     public void closeRecordCancel() {
         FloatRecordView floatRecordView = this.f4229h;
         if (floatRecordView == null || this.f4230i == null || this.j == null) {
@@ -92,7 +92,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4230i.removeView(a2);
     }
 
-    @Override // d.a.n0.f1.f.b
+    @Override // d.a.o0.f1.f.b
     public void closeRecordTooShort() {
         FloatRecordView floatRecordView = this.f4229h;
         if (floatRecordView == null || this.f4230i == null || this.j == null) {
@@ -106,7 +106,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4230i.removeView(b2);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void d(a aVar) {
         EditorTools editorTools = this.f4228g;
         if (editorTools != null) {
@@ -114,25 +114,25 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public int getToolId() {
         return this.f4227f;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void init() {
     }
 
-    @Override // d.a.m0.w.b
+    @Override // d.a.n0.w.b
     public void onAction(a aVar) {
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void onChangeSkinType(int i2) {
     }
 
@@ -190,17 +190,17 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4226e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_push_talk));
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setEditorTools(EditorTools editorTools) {
         this.f4228g = editorTools;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setToolId(int i2) {
         this.f4227f = i2;
     }
 
-    @Override // d.a.n0.f1.f.b
+    @Override // d.a.o0.f1.f.b
     public void showRecordCancel() {
         LinearLayout a2;
         FloatRecordView floatRecordView = this.f4229h;
@@ -211,7 +211,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4229h.showRecordCancel();
     }
 
-    @Override // d.a.n0.f1.f.b
+    @Override // d.a.o0.f1.f.b
     public void startRecordVoice() {
         LinearLayout c2;
         FloatRecordView floatRecordView = this.f4229h;
@@ -222,7 +222,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
         this.f4229h.startRecordVoice();
     }
 
-    @Override // d.a.n0.f1.f.b
+    @Override // d.a.o0.f1.f.b
     public void stopRecordVoice() {
         FloatRecordView floatRecordView = this.f4229h;
         if (floatRecordView == null || this.f4230i == null || this.j == null) {

@@ -9,13 +9,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f72448e;
+    public final int f72552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f72449f;
+    public final int f72553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f72450g;
+    public final AtomicLong f72554g;
 
     /* loaded from: classes8.dex */
     public final class WindowOverlapProducer extends AtomicBoolean implements f {
@@ -32,11 +32,11 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
             } else if (i2 != 0) {
                 OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = OperatorWindowWithSize$WindowOverlap.this;
                 if (!get() && compareAndSet(false, true)) {
-                    operatorWindowWithSize$WindowOverlap.request(h.o.a.a.a(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f72449f, j - 1), operatorWindowWithSize$WindowOverlap.f72448e));
+                    operatorWindowWithSize$WindowOverlap.request(h.o.a.a.a(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f72553f, j - 1), operatorWindowWithSize$WindowOverlap.f72552e));
                 } else {
-                    OperatorWindowWithSize$WindowOverlap.this.request(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f72449f, j));
+                    OperatorWindowWithSize$WindowOverlap.this.request(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f72553f, j));
                 }
-                h.o.a.a.b(operatorWindowWithSize$WindowOverlap.f72450g, j);
+                h.o.a.a.b(operatorWindowWithSize$WindowOverlap.f72554g, j);
                 operatorWindowWithSize$WindowOverlap.d();
             }
         }

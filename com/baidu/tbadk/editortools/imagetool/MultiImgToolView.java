@@ -26,7 +26,7 @@ import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 import com.baidu.tieba.tbadkCore.imgView.DragLayer;
 import d.a.c.e.a.d;
 import d.a.c.e.p.l;
-import d.a.m0.w.n;
+import d.a.n0.w.n;
 import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
@@ -34,11 +34,11 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public static boolean w = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public DragHorizonScrollView f12827i;
+    public DragHorizonScrollView f12909i;
     public TextView j;
     public DragLayer k;
     public WriteImagesInfo l;
-    public d.a.m0.b0.b m;
+    public d.a.n0.b0.b m;
     public c n;
     public EditorTools o;
     public int p;
@@ -56,11 +56,11 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
 
         @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b
         public void a(View view) {
-            if (MultiImgToolView.this.f12827i.s()) {
+            if (MultiImgToolView.this.f12909i.s()) {
                 return;
             }
             MultiImgToolView.this.c(view);
-            int q = MultiImgToolView.this.f12827i.q(view);
+            int q = MultiImgToolView.this.f12909i.q(view);
             if (q < 0 || q >= MultiImgToolView.this.l.getChosedFiles().size()) {
                 return;
             }
@@ -68,20 +68,20 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             if (remove.isTempFile()) {
                 d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
-            int maxItemNum = MultiImgToolView.this.f12827i.getMaxItemNum();
+            int maxItemNum = MultiImgToolView.this.f12909i.getMaxItemNum();
             int size = MultiImgToolView.this.l.size();
             MultiImgToolView.this.j.setText(MultiImgToolView.this.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
             int size2 = MultiImgToolView.this.l.getChosedFiles().size();
             if (MultiImgToolView.this.o != null) {
-                MultiImgToolView.this.o.A(new d.a.m0.w.a(MultiImgToolView.this.r, -1, null));
+                MultiImgToolView.this.o.A(new d.a.n0.w.a(MultiImgToolView.this.r, -1, null));
                 if (size2 > 0) {
-                    MultiImgToolView.this.o.A(new d.a.m0.w.a(2, MultiImgToolView.this.s, String.valueOf(size2)));
+                    MultiImgToolView.this.o.A(new d.a.n0.w.a(2, MultiImgToolView.this.s, String.valueOf(size2)));
                 } else {
-                    MultiImgToolView.this.o.A(new d.a.m0.w.a(2, MultiImgToolView.this.s, null));
+                    MultiImgToolView.this.o.A(new d.a.n0.w.a(2, MultiImgToolView.this.s, null));
                 }
                 if (maxItemNum == 1 && size2 == 0) {
                     if (MultiImgToolView.this.t) {
-                        MultiImgToolView.this.o.A(new d.a.m0.w.a(1, 2, null));
+                        MultiImgToolView.this.o.A(new d.a.n0.w.a(1, 2, null));
                         return;
                     }
                     MultiImgToolView multiImgToolView = MultiImgToolView.this;
@@ -102,34 +102,34 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public static class c extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public WriteImagesInfo f12829e = null;
+        public WriteImagesInfo f12911e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f12830f;
+        public Context f12912f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.a.m0.b0.b f12831g;
+        public d.a.n0.b0.b f12913g;
 
         /* renamed from: h  reason: collision with root package name */
-        public n f12832h;
+        public n f12914h;
 
         /* renamed from: i  reason: collision with root package name */
-        public b f12833i;
+        public b f12915i;
         public boolean j;
 
         /* loaded from: classes3.dex */
-        public class a implements d.a.m0.a0.b {
+        public class a implements d.a.n0.a0.b {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f12834e;
+            public final /* synthetic */ ViewGroup f12916e;
 
             public a(c cVar, ViewGroup viewGroup) {
-                this.f12834e = viewGroup;
+                this.f12916e = viewGroup;
             }
 
-            @Override // d.a.m0.a0.b
+            @Override // d.a.n0.a0.b
             public void a(d.a.c.k.d.a aVar, String str, boolean z) {
-                TbImageView tbImageView = (TbImageView) this.f12834e.findViewWithTag(str);
+                TbImageView tbImageView = (TbImageView) this.f12916e.findViewWithTag(str);
                 if (tbImageView == null || aVar == null) {
                     return;
                 }
@@ -141,21 +141,21 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         public class b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f12835e;
+            public final /* synthetic */ ViewGroup f12917e;
 
             public b(ViewGroup viewGroup) {
-                this.f12835e = viewGroup;
+                this.f12917e = viewGroup;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = this.f12835e.indexOfChild(view);
+                int indexOfChild = this.f12917e.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) c.this.getItem(indexOfChild);
                     if (!(imageFileInfo != null && new File(imageFileInfo.getFilePath()).exists())) {
-                        l.I(c.this.f12830f, R.string.editor_mutiiamge_image_error);
-                    } else if (c.this.f12832h != null) {
-                        c.this.f12832h.d(new d.a.m0.w.a(15, 0, Integer.valueOf(indexOfChild)));
+                        l.I(c.this.f12912f, R.string.editor_mutiiamge_image_error);
+                    } else if (c.this.f12914h != null) {
+                        c.this.f12914h.d(new d.a.n0.w.a(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
             }
@@ -163,39 +163,39 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
 
         /* renamed from: com.baidu.tbadk.editortools.imagetool.MultiImgToolView$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0164c implements View.OnClickListener {
+        public class View$OnClickListenerC0167c implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ FrameLayout f12837e;
+            public final /* synthetic */ FrameLayout f12919e;
 
-            public View$OnClickListenerC0164c(FrameLayout frameLayout) {
-                this.f12837e = frameLayout;
+            public View$OnClickListenerC0167c(FrameLayout frameLayout) {
+                this.f12919e = frameLayout;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f12833i != null) {
-                    c.this.f12833i.a(this.f12837e);
+                if (c.this.f12915i != null) {
+                    c.this.f12915i.a(this.f12919e);
                 }
             }
         }
 
-        public c(Context context, d.a.m0.b0.b bVar, n nVar, b bVar2, boolean z) {
+        public c(Context context, d.a.n0.b0.b bVar, n nVar, b bVar2, boolean z) {
             this.j = true;
-            this.f12830f = context;
-            this.f12831g = bVar;
-            this.f12832h = nVar;
-            this.f12833i = bVar2;
+            this.f12912f = context;
+            this.f12913g = bVar;
+            this.f12914h = nVar;
+            this.f12915i = bVar2;
             this.j = z;
         }
 
         public void d(WriteImagesInfo writeImagesInfo) {
-            this.f12829e = writeImagesInfo;
+            this.f12911e = writeImagesInfo;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            WriteImagesInfo writeImagesInfo = this.f12829e;
+            WriteImagesInfo writeImagesInfo = this.f12911e;
             if (writeImagesInfo == null) {
                 return 0;
             }
@@ -204,7 +204,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            return this.f12829e.getChosedFiles().get(i2);
+            return this.f12911e.getChosedFiles().get(i2);
         }
 
         @Override // android.widget.Adapter
@@ -215,13 +215,13 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         @Override // android.widget.Adapter
         public View getView(int i2, View view, ViewGroup viewGroup) {
             if (view == null) {
-                view = (FrameLayout) LayoutInflater.from(this.f12830f).inflate(R.layout.editor_muti_image_item, (ViewGroup) null);
+                view = (FrameLayout) LayoutInflater.from(this.f12912f).inflate(R.layout.editor_muti_image_item, (ViewGroup) null);
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f12829e.getChosedFiles(), i2);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f12911e.getChosedFiles(), i2);
             if (imageFileInfo == null) {
                 return null;
             }
-            int measuredWidth = (viewGroup.getMeasuredWidth() - (this.f12830f.getResources().getDimensionPixelSize(R.dimen.ds66) * 2)) + this.f12830f.getResources().getDimensionPixelSize(R.dimen.ds32);
+            int measuredWidth = (viewGroup.getMeasuredWidth() - (this.f12912f.getResources().getDimensionPixelSize(R.dimen.ds66) * 2)) + this.f12912f.getResources().getDimensionPixelSize(R.dimen.ds32);
             FrameLayout frameLayout = (FrameLayout) view;
             LinearLayout linearLayout = (LinearLayout) frameLayout.findViewById(R.id.iv_container);
             FrameLayout frameLayout2 = (FrameLayout) frameLayout.findViewById(R.id.shadow_container);
@@ -235,9 +235,9 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                 SkinManager.setBackgroundResource(frameLayout2, R.drawable.bg_add_photo);
                 frameLayout2.setForeground(SkinManager.getDrawable(R.drawable.bg_add_photo_foregroundselector));
                 imageFileInfo.clearPageActions();
-                imageFileInfo.addPageAction(d.a.m0.b0.g.d.g(paddingRight, measuredHeight));
+                imageFileInfo.addPageAction(d.a.n0.b0.g.d.g(paddingRight, measuredHeight));
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
-                if (this.f12831g.d(imageFileInfo, new a(this, viewGroup), true) != null) {
+                if (this.f12913g.d(imageFileInfo, new a(this, viewGroup), true) != null) {
                     tbImageView.invalidate();
                 }
             }
@@ -247,7 +247,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             }
             ImageView imageView = (ImageView) frameLayout.findViewById(R.id.delete);
             SkinManager.setImageResource(imageView, R.drawable.btn_add_photo_close);
-            imageView.setOnClickListener(new View$OnClickListenerC0164c(frameLayout));
+            imageView.setOnClickListener(new View$OnClickListenerC0167c(frameLayout));
             frameLayout.setContentDescription(frameLayout.getResources().getString(R.string.editor_image) + (i2 + 1) + " " + imageFileInfo.getModifyTime());
             return frameLayout;
         }
@@ -272,13 +272,13 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         chosedFiles.add(i3, chosedFiles.remove(i2));
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void b() {
         setVisibility(0);
     }
 
-    @Override // d.a.m0.w.n
-    public void d(d.a.m0.w.a aVar) {
+    @Override // d.a.n0.w.n
+    public void d(d.a.n0.w.a aVar) {
         EditorTools editorTools = this.o;
         if (editorTools != null) {
             editorTools.A(aVar);
@@ -286,7 +286,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     }
 
     public DragHorizonScrollView getDragHorizonScrollView() {
-        return this.f12827i;
+        return this.f12909i;
     }
 
     public DragLayer getDragLayer() {
@@ -301,45 +301,45 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         return this.j;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public int getToolId() {
         return this.p;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void init() {
     }
 
-    @Override // d.a.m0.w.b
-    public void onAction(d.a.m0.w.a aVar) {
+    @Override // d.a.n0.w.b
+    public void onAction(d.a.n0.w.a aVar) {
         Object obj;
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f54518a;
+        int i2 = aVar.f54625a;
         if (i2 == 9) {
             c cVar = this.n;
             if (cVar != null) {
                 cVar.notifyDataSetChanged();
             }
-            d(new d.a.m0.w.a(2, this.s, null));
-        } else if (i2 == 12 && (obj = aVar.f54520c) != null && (obj instanceof d.a.m0.w.r.a)) {
-            q(((d.a.m0.w.r.a) obj).f54541a, ((d.a.m0.w.r.a) obj).f54542b);
+            d(new d.a.n0.w.a(2, this.s, null));
+        } else if (i2 == 12 && (obj = aVar.f54627c) != null && (obj instanceof d.a.n0.w.r.a)) {
+            q(((d.a.n0.w.r.a) obj).f54648a, ((d.a.n0.w.r.a) obj).f54649b);
         }
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void onChangeSkinType(int i2) {
         SkinManager.setBackgroundColor(this, R.color.common_color_10255);
     }
 
     public void p() {
-        this.f12827i = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
+        this.f12909i = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
         this.j = (TextView) findViewById(R.id.muti_image_tips);
         this.k = (DragLayer) findViewById(R.id.muti_image_upload_draglayer);
     }
@@ -349,8 +349,8 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         c cVar = new c(getContext(), this.m, this, this.v, this.s == 10);
         this.n = cVar;
         cVar.d(this.l);
-        this.f12827i.setAdapter(this.n, z);
-        int maxItemNum = this.f12827i.getMaxItemNum();
+        this.f12909i.setAdapter(this.n, z);
+        int maxItemNum = this.f12909i.getMaxItemNum();
         int size = writeImagesInfo.size();
         if (size == 1 && !TextUtils.isEmpty(this.q)) {
             this.j.setText(this.q);
@@ -366,7 +366,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         }
     }
 
-    public void setAsyncLocalImageLoader(d.a.m0.b0.b bVar) {
+    public void setAsyncLocalImageLoader(d.a.n0.b0.b bVar) {
         this.m = bVar;
     }
 
@@ -378,7 +378,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         this.r = i2;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setEditorTools(EditorTools editorTools) {
         this.o = editorTools;
     }
@@ -399,7 +399,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         this.s = i2;
     }
 
-    @Override // d.a.m0.w.n
+    @Override // d.a.n0.w.n
     public void setToolId(int i2) {
         this.p = i2;
     }

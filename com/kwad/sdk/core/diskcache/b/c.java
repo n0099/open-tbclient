@@ -17,27 +17,27 @@ import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f34138a = Executors.newFixedThreadPool(5);
+    public static ExecutorService f34236a = Executors.newFixedThreadPool(5);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f34142a;
+        public String f34240a;
     }
 
     public static void a(@NonNull final com.kwad.sdk.core.diskcache.a.a aVar, @NonNull final String str, @NonNull final String str2) {
-        f34138a.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.b.c.1
+        f34236a.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.b.c.1
             @Override // java.lang.Runnable
             public void run() {
                 OutputStream outputStream = null;
                 try {
                     try {
-                        a.C0377a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
+                        a.C0380a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
                         if (a2 != null) {
                             outputStream = a2.a(0);
                             if (c.b(str, outputStream, new a())) {
@@ -117,7 +117,7 @@ public class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0377a a2 = aVar.a(str2);
+                a.C0380a a2 = aVar.a(str2);
                 if (a2 != null) {
                     outputStream = a2.a(0);
                     if (b(str, outputStream, aVar2)) {
@@ -131,7 +131,7 @@ public class c {
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e2);
-                aVar2.f34142a = e2.getMessage();
+                aVar2.f34240a = e2.getMessage();
             }
             return z;
         } finally {
@@ -224,7 +224,7 @@ public class c {
                 bufferedOutputStream2 = bufferedOutputStream;
                 com.kwad.sdk.core.d.a.a(e);
                 com.kwad.sdk.core.d.a.a("FileHelper", "downloadUrlToStream file crash", e);
-                aVar.f34142a = e.getMessage();
+                aVar.f34240a = e.getMessage();
                 d.a(bufferedOutputStream2);
                 d.a(bufferedInputStream);
                 if (httpURLConnection != null) {

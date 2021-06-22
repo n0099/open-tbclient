@@ -5,41 +5,41 @@ import android.os.Handler;
 public abstract class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f69678e;
+    public Handler f69782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f69679f;
+    public final long f69783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f69680g;
+    public final long f69784g;
 
     public a(Handler handler, long j, long j2) {
-        this.f69678e = handler;
-        this.f69679f = j;
-        this.f69680g = j2;
+        this.f69782e = handler;
+        this.f69783f = j;
+        this.f69784g = j2;
     }
 
     public void a() {
         if (c() > 0) {
-            this.f69678e.postDelayed(this, c());
+            this.f69782e.postDelayed(this, c());
         } else {
-            this.f69678e.post(this);
+            this.f69782e.post(this);
         }
     }
 
     public void b(long j) {
         if (j > 0) {
-            this.f69678e.postDelayed(this, j);
+            this.f69782e.postDelayed(this, j);
         } else {
-            this.f69678e.post(this);
+            this.f69782e.post(this);
         }
     }
 
     public long c() {
-        return this.f69679f;
+        return this.f69783f;
     }
 
     public long d() {
-        return this.f69680g;
+        return this.f69784g;
     }
 }

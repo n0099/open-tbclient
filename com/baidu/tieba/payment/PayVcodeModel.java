@@ -12,10 +12,10 @@ import d.a.c.a.f;
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f<?> f18855e;
+    public f<?> f18937e;
 
     public PayVcodeModel(f<?> fVar) {
-        this.f18855e = fVar;
+        this.f18937e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -36,6 +36,6 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     }
 
     public void x() {
-        this.f18855e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+        this.f18937e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 }

@@ -6,31 +6,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.a.n0.s1.f.b;
-import d.a.n0.s1.f.f;
-/* loaded from: classes3.dex */
+import d.a.o0.s1.f.b;
+import d.a.o0.s1.f.f;
+/* loaded from: classes4.dex */
 public class MemberPayFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18349e;
+    public int f18431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18350f;
+    public String f18432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18351g;
+    public String f18433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18352h;
+    public boolean f18434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18353i;
+    public int f18435i;
     public b j;
     public f k = null;
     public View l;
 
     public int G0() {
-        return this.f18349e;
+        return this.f18431e;
     }
 
     public void H0(Boolean bool) {
@@ -66,17 +66,17 @@ public class MemberPayFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
-        this.f18349e = arguments.getInt("member_type");
-        this.f18350f = arguments.getString("member_refer_page");
-        this.f18351g = arguments.getString("member_click_zone");
-        this.f18352h = arguments.getBoolean("member_is_pay_dialog");
-        this.f18353i = arguments.getInt("member_from_type");
+        this.f18431e = arguments.getInt("member_type");
+        this.f18432f = arguments.getString("member_refer_page");
+        this.f18433g = arguments.getString("member_click_zone");
+        this.f18434h = arguments.getBoolean("member_is_pay_dialog");
+        this.f18435i = arguments.getInt("member_from_type");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-        b bVar = new b(getPageContext(), this.l, this.f18349e, this.f18350f, this.f18351g, this.f18352h, this.f18353i);
+        b bVar = new b(getPageContext(), this.l, this.f18431e, this.f18432f, this.f18433g, this.f18434h, this.f18435i);
         this.j = bVar;
         bVar.s(this.k);
         return this.l;

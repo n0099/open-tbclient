@@ -2,25 +2,25 @@ package d.g.d.a.a.a;
 /* loaded from: classes6.dex */
 public class f {
     public static void a(g gVar, double d2, double d3, c cVar) {
-        double d4 = gVar.f70141a;
+        double d4 = gVar.f70245a;
         double d5 = d4 * d4;
-        double d6 = gVar.f70142b;
+        double d6 = gVar.f70246b;
         double d7 = d6 * d6;
-        double d8 = gVar.f70143c;
+        double d8 = gVar.f70247c;
         double d9 = d8 * d8;
         cVar.e(0, 0, 1.0d - ((d7 + d9) * d3));
         cVar.e(1, 1, 1.0d - ((d9 + d5) * d3));
         cVar.e(2, 2, 1.0d - ((d5 + d7) * d3));
-        double d10 = gVar.f70143c * d2;
-        double d11 = gVar.f70141a * gVar.f70142b * d3;
+        double d10 = gVar.f70247c * d2;
+        double d11 = gVar.f70245a * gVar.f70246b * d3;
         cVar.e(0, 1, d11 - d10);
         cVar.e(1, 0, d11 + d10);
-        double d12 = gVar.f70142b * d2;
-        double d13 = gVar.f70141a * gVar.f70143c * d3;
+        double d12 = gVar.f70246b * d2;
+        double d13 = gVar.f70245a * gVar.f70247c * d3;
         cVar.e(0, 2, d13 + d12);
         cVar.e(2, 0, d13 - d12);
-        double d14 = gVar.f70141a * d2;
-        double d15 = gVar.f70142b * gVar.f70143c * d3;
+        double d14 = gVar.f70245a * d2;
+        double d15 = gVar.f70246b * gVar.f70247c * d3;
         cVar.e(1, 2, d15 - d14);
         cVar.e(2, 1, d15 + d14);
     }

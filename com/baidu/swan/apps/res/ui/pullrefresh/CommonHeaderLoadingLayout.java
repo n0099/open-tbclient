@@ -8,15 +8,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import d.a.l0.a.f;
-import d.a.l0.a.g;
-import d.a.l0.a.h;
-import d.a.l0.a.v2.n0;
+import d.a.m0.a.f;
+import d.a.m0.a.g;
+import d.a.m0.a.h;
+import d.a.m0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11201i;
+    public int f11283i;
     public int j;
     public int k;
     public int l;
@@ -39,10 +39,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public class b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f11203e;
+        public final /* synthetic */ Runnable f11285e;
 
         public b(Runnable runnable) {
-            this.f11203e = runnable;
+            this.f11285e = runnable;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -51,7 +51,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            CommonHeaderLoadingLayout.this.postDelayed(this.f11203e, 800L);
+            CommonHeaderLoadingLayout.this.postDelayed(this.f11285e, 800L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -67,10 +67,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
-        this.f11201i = 0;
+        this.f11283i = 0;
         this.n = (RefreshingAnimView) findViewById(f.refreshing_anim_view);
         int f2 = n0.f(getContext(), 29.0f);
-        this.f11201i = f2;
+        this.f11283i = f2;
         this.j = (int) (f2 * 2.4f);
         int i2 = (int) (f2 * 1.5f);
         this.l = i2;
@@ -170,7 +170,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         float f2;
         int i3 = this.j;
         if (i2 < i3) {
-            int i4 = this.f11201i;
+            int i4 = this.f11283i;
             f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
         } else {
             f2 = 1.0f;

@@ -29,6 +29,8 @@ import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
+import com.baidu.pass.face.platform.FaceEnvironment;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.BufferedReader;
@@ -140,7 +142,7 @@ public class bw {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
                 }
-                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
+                String[] split = cellLocation.toString().replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "").split(",");
                 return String.format("%s_%s_%s", split[0], split[3], split[4]);
             }
             return format;
@@ -195,7 +197,7 @@ public class bw {
     public static String n(Context context) {
         BluetoothAdapter defaultAdapter;
         String str = android.os.Build.BRAND;
-        if ("4.1.1".equals(Build.VERSION.RELEASE) && "TCT".equals(str)) {
+        if (FaceEnvironment.SDK_VERSION.equals(Build.VERSION.RELEASE) && "TCT".equals(str)) {
             return "";
         }
         try {

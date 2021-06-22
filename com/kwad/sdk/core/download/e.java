@@ -25,20 +25,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34213a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+    public static final String f34311a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f34214a;
+        public final OutputStream f34312a;
 
         public a(File file, boolean z) {
-            this.f34214a = new FileOutputStream(file, z);
+            this.f34312a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -51,21 +51,21 @@ public class e {
 
         @Override // com.kwad.sdk.core.download.e.c
         public void a(byte[] bArr, int i2, int i3) {
-            this.f34214a.write(bArr, i2, i3);
+            this.f34312a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f34214a.close();
+            this.f34312a.close();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
@@ -250,7 +250,7 @@ public class e {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f34213a, random.nextInt() + ".tmp");
+                    file = new File(f34311a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream2 = new FileOutputStream(file);
                     } catch (Throwable th4) {

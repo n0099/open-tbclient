@@ -25,31 +25,31 @@ import java.util.List;
 public class PhoneHistoryFixView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f23585a;
+    public View f23667a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23586b;
+    public View f23668b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23587c;
+    public View f23669c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f23588d;
+    public ListView f23670d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f23589e;
+    public LinearLayout f23671e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23590f;
+    public TextView f23672f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23591g;
+    public TextView f23673g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f23592h;
+    public a f23674h;
 
     /* renamed from: i  reason: collision with root package name */
-    public OnPhoneHistoryFixViewClickListener f23593i;
+    public OnPhoneHistoryFixViewClickListener f23675i;
     public boolean j;
 
     /* loaded from: classes5.dex */
@@ -65,17 +65,17 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f23596b;
+        public Context f23678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LayoutInflater f23597c;
+        public final LayoutInflater f23679c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<ContractInfo> f23598d = new ArrayList();
+        public List<ContractInfo> f23680d = new ArrayList();
 
         public a(Context context) {
-            this.f23596b = context;
-            this.f23597c = LayoutInflater.from(context);
+            this.f23678b = context;
+            this.f23679c = LayoutInflater.from(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,12 +89,12 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
             if (list == null) {
                 list = new ArrayList<>();
             }
-            this.f23598d = list;
+            this.f23680d = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f23598d.size();
+            return this.f23680d.size();
         }
 
         @Override // android.widget.Adapter
@@ -108,27 +108,27 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
             SpannableString spannableString;
             if (view == null) {
                 b bVar2 = new b();
-                View inflate = this.f23597c.inflate(ResUtils.layout(this.f23596b, "wallet_base_fix_item"), (ViewGroup) null);
-                bVar2.f23600b = (TextView) inflate.findViewById(ResUtils.id(this.f23596b, "wallet_phone_fix"));
-                bVar2.f23601c = (TextView) inflate.findViewById(ResUtils.id(this.f23596b, "wallet_name_fix"));
+                View inflate = this.f23679c.inflate(ResUtils.layout(this.f23678b, "wallet_base_fix_item"), (ViewGroup) null);
+                bVar2.f23682b = (TextView) inflate.findViewById(ResUtils.id(this.f23678b, "wallet_phone_fix"));
+                bVar2.f23683c = (TextView) inflate.findViewById(ResUtils.id(this.f23678b, "wallet_name_fix"));
                 inflate.setTag(bVar2);
                 bVar = bVar2;
                 view = inflate;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (i2 < this.f23598d.size()) {
+            if (i2 < this.f23680d.size()) {
                 if (!PhoneHistoryFixView.this.j) {
-                    spannableString = new SpannableString(this.f23598d.get(i2).getMobile().replace(" ", ""));
+                    spannableString = new SpannableString(this.f23680d.get(i2).getMobile().replace(" ", ""));
                 } else {
-                    spannableString = new SpannableString(this.f23598d.get(i2).getMobile());
+                    spannableString = new SpannableString(this.f23680d.get(i2).getMobile());
                 }
-                int errordigit = this.f23598d.get(i2).getErrordigit();
+                int errordigit = this.f23680d.get(i2).getErrordigit();
                 if (errordigit != -1 && errordigit < spannableString.length()) {
-                    spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.f23596b, "bd_wallet_fp_fix_character")), errordigit, errordigit + 1, 34);
+                    spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.f23678b, "bd_wallet_fp_fix_character")), errordigit, errordigit + 1, 34);
                 }
-                bVar.f23600b.setText(spannableString);
-                bVar.f23601c.setText(this.f23598d.get(i2).getName());
+                bVar.f23682b.setText(spannableString);
+                bVar.f23683c.setText(this.f23680d.get(i2).getName());
             }
             return view;
         }
@@ -138,10 +138,10 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f23600b;
+        public TextView f23682b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f23601c;
+        public TextView f23683c;
 
         public b() {
         }
@@ -154,12 +154,12 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     }
 
     public void displayContactInfoData(List<ContractInfo> list) {
-        this.f23590f.setVisibility(8);
-        this.f23591g.setVisibility(8);
-        this.f23586b.setVisibility(8);
-        this.f23587c.setVisibility(8);
-        this.f23585a.setVisibility(8);
-        this.f23589e.setVisibility(0);
+        this.f23672f.setVisibility(8);
+        this.f23673g.setVisibility(8);
+        this.f23668b.setVisibility(8);
+        this.f23669c.setVisibility(8);
+        this.f23667a.setVisibility(8);
+        this.f23671e.setVisibility(0);
         a(list);
     }
 
@@ -168,21 +168,21 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     }
 
     public ListView getmListView() {
-        return this.f23588d;
+        return this.f23670d;
     }
 
     public boolean isShow() {
-        return this.f23589e.isShown();
+        return this.f23671e.isShown();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f23591g) {
-            if (this.f23590f.getVisibility() == 0) {
+        if (view == this.f23673g) {
+            if (this.f23672f.getVisibility() == 0) {
                 setListViewState(false, false);
                 return;
             }
-            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f23593i;
+            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f23675i;
             if (onPhoneHistoryFixViewClickListener != null) {
                 onPhoneHistoryFixViewClickListener.onFixViewClickClearHistory();
             }
@@ -195,37 +195,37 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     }
 
     public void setListViewState(boolean z, boolean z2) {
-        this.f23589e.setVisibility(z ? 0 : 8);
-        this.f23590f.setVisibility(z2 ? 8 : 0);
-        this.f23585a.setVisibility(z2 ? 8 : 0);
-        OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f23593i;
+        this.f23671e.setVisibility(z ? 0 : 8);
+        this.f23672f.setVisibility(z2 ? 8 : 0);
+        this.f23667a.setVisibility(z2 ? 8 : 0);
+        OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f23675i;
         if (onPhoneHistoryFixViewClickListener != null) {
             onPhoneHistoryFixViewClickListener.onFixViewDisplayHistoryViews(z);
         }
         if (z) {
-            this.f23591g.setText(z2 ? ResUtils.getString(getContext(), "wallet_fp_history_clear") : ResUtils.getString(getContext(), "wallet_fp_fix_sure"));
+            this.f23673g.setText(z2 ? ResUtils.getString(getContext(), "wallet_fp_history_clear") : ResUtils.getString(getContext(), "wallet_fp_fix_sure"));
         }
     }
 
     public void setOnPhoneHistoryFixViewClickListener(OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener) {
-        this.f23593i = onPhoneHistoryFixViewClickListener;
+        this.f23675i = onPhoneHistoryFixViewClickListener;
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_mobile_phone_history_fix"), this);
-        this.f23589e = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_layout"));
+        this.f23671e = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_layout"));
         TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_select"));
-        this.f23591g = textView;
+        this.f23673g = textView;
         textView.setOnClickListener(this);
-        this.f23590f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_msg"));
-        this.f23585a = findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_line1"));
-        this.f23586b = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line1"));
-        this.f23587c = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line2"));
-        this.f23588d = (ListView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_list"));
+        this.f23672f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_msg"));
+        this.f23667a = findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_line1"));
+        this.f23668b = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line1"));
+        this.f23669c = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line2"));
+        this.f23670d = (ListView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_list"));
         a aVar = new a(getContext());
-        this.f23592h = aVar;
-        this.f23588d.setAdapter((ListAdapter) aVar);
-        this.f23588d.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.base.widget.PhoneHistoryFixView.1
+        this.f23674h = aVar;
+        this.f23670d.setAdapter((ListAdapter) aVar);
+        this.f23670d.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.base.widget.PhoneHistoryFixView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                 b bVar;
@@ -233,18 +233,18 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                     return;
                 }
                 PhoneHistoryFixView phoneHistoryFixView = PhoneHistoryFixView.this;
-                phoneHistoryFixView.setListViewState(false, phoneHistoryFixView.f23590f.getVisibility() != 0);
-                if (PhoneHistoryFixView.this.f23593i != null) {
-                    PhoneHistoryFixView.this.f23593i.onFixViewClickListViewItemAndSetText(bVar.f23600b.getText().toString());
+                phoneHistoryFixView.setListViewState(false, phoneHistoryFixView.f23672f.getVisibility() != 0);
+                if (PhoneHistoryFixView.this.f23675i != null) {
+                    PhoneHistoryFixView.this.f23675i.onFixViewClickListViewItemAndSetText(bVar.f23682b.getText().toString());
                 }
             }
         });
     }
 
     public void displayHistoryData(List<ContractInfo> list) {
-        this.f23591g.setVisibility(0);
-        this.f23586b.setVisibility(0);
-        this.f23587c.setVisibility(0);
+        this.f23673g.setVisibility(0);
+        this.f23668b.setVisibility(0);
+        this.f23669c.setVisibility(0);
         a(list);
     }
 
@@ -261,10 +261,10 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     }
 
     private void a(List<ContractInfo> list) {
-        this.f23588d.setLayoutParams(new LinearLayout.LayoutParams(-1, list.size() > 2 ? DisplayUtils.dip2px(getContext(), 165.0f) : DisplayUtils.dip2px(getContext(), list.size() * 55)));
-        this.f23592h.a(list);
-        this.f23592h.notifyDataSetChanged();
-        this.f23588d.setSelection(0);
+        this.f23670d.setLayoutParams(new LinearLayout.LayoutParams(-1, list.size() > 2 ? DisplayUtils.dip2px(getContext(), 165.0f) : DisplayUtils.dip2px(getContext(), list.size() * 55)));
+        this.f23674h.a(list);
+        this.f23674h.notifyDataSetChanged();
+        this.f23670d.setSelection(0);
     }
 
     private List<ContractInfo> a(ArrayList<String> arrayList) {

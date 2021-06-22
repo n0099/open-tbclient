@@ -5,28 +5,28 @@ import org.apache.commons.codec.digest4util.XXHash32;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f43781a;
+    public final int[] f43884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f43782b;
+    public final byte[] f43885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f43783c;
+    public final int f43886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43784d;
+    public int f43887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43785e;
+    public int f43888e;
 
     public h() {
         this(0);
     }
 
     public h(int i2) {
-        this.f43781a = new int[4];
-        this.f43782b = new byte[16];
-        this.f43783c = i2;
+        this.f43884a = new int[4];
+        this.f43885b = new byte[16];
+        this.f43886c = i2;
         f();
     }
 
@@ -49,18 +49,18 @@ public class h {
         if (i3 <= 0) {
             return;
         }
-        this.f43784d += i3;
+        this.f43887d += i3;
         int i4 = i2 + i3;
-        int i5 = this.f43785e;
+        int i5 = this.f43888e;
         if (i5 + i3 < 16) {
-            System.arraycopy(bArr, i2, this.f43782b, i5, i3);
-            this.f43785e += i3;
+            System.arraycopy(bArr, i2, this.f43885b, i5, i3);
+            this.f43888e += i3;
             return;
         }
         if (i5 > 0) {
             int i6 = 16 - i5;
-            System.arraycopy(bArr, i2, this.f43782b, i5, i6);
-            e(this.f43782b, 0);
+            System.arraycopy(bArr, i2, this.f43885b, i5, i6);
+            e(this.f43885b, 0);
             i2 += i6;
         }
         int i7 = i4 - 16;
@@ -70,21 +70,21 @@ public class h {
         }
         if (i2 < i4) {
             int i8 = i4 - i2;
-            this.f43785e = i8;
-            System.arraycopy(bArr, i2, this.f43782b, 0, i8);
+            this.f43888e = i8;
+            System.arraycopy(bArr, i2, this.f43885b, 0, i8);
         }
     }
 
     public long c() {
         int i2 = 0;
-        int rotateLeft = (this.f43784d > 16 ? Integer.rotateLeft(this.f43781a[0], 1) + Integer.rotateLeft(this.f43781a[1], 7) + Integer.rotateLeft(this.f43781a[2], 12) + Integer.rotateLeft(this.f43781a[3], 18) : this.f43781a[2] + XXHash32.PRIME5) + this.f43784d;
-        int i3 = this.f43785e - 4;
+        int rotateLeft = (this.f43887d > 16 ? Integer.rotateLeft(this.f43884a[0], 1) + Integer.rotateLeft(this.f43884a[1], 7) + Integer.rotateLeft(this.f43884a[2], 12) + Integer.rotateLeft(this.f43884a[3], 18) : this.f43884a[2] + XXHash32.PRIME5) + this.f43887d;
+        int i3 = this.f43888e - 4;
         while (i2 <= i3) {
-            rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f43782b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
+            rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f43885b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
             i2 += 4;
         }
-        while (i2 < this.f43785e) {
-            rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f43782b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
+        while (i2 < this.f43888e) {
+            rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f43885b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
             i2++;
         }
         int i4 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
@@ -93,7 +93,7 @@ public class h {
     }
 
     public final void e(byte[] bArr, int i2) {
-        int[] iArr = this.f43781a;
+        int[] iArr = this.f43884a;
         int i3 = iArr[0];
         int i4 = iArr[1];
         int i5 = iArr[2];
@@ -102,17 +102,17 @@ public class h {
         int rotateLeft2 = Integer.rotateLeft(i4 + (a(bArr, i2 + 4) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
         int rotateLeft3 = Integer.rotateLeft(i5 + (a(bArr, i2 + 8) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
         int rotateLeft4 = Integer.rotateLeft(i6 + (a(bArr, i2 + 12) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-        int[] iArr2 = this.f43781a;
+        int[] iArr2 = this.f43884a;
         iArr2[0] = rotateLeft;
         iArr2[1] = rotateLeft2;
         iArr2[2] = rotateLeft3;
         iArr2[3] = rotateLeft4;
-        this.f43785e = 0;
+        this.f43888e = 0;
     }
 
     public final void f() {
-        int[] iArr = this.f43781a;
-        int i2 = this.f43783c;
+        int[] iArr = this.f43884a;
+        int i2 = this.f43886c;
         iArr[0] = i2 + XXHash32.PRIME1 + XXHash32.PRIME2;
         iArr[1] = XXHash32.PRIME2 + i2;
         iArr[2] = i2;

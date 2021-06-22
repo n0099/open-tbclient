@@ -11,20 +11,20 @@ import java.util.Map;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f29686a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f29768a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f29687b;
+    public static volatile b f29769b;
 
     public static b a() {
-        if (f29687b == null) {
+        if (f29769b == null) {
             synchronized (b.class) {
-                if (f29687b == null) {
-                    f29687b = new b();
+                if (f29769b == null) {
+                    f29769b = new b();
                 }
             }
         }
-        return f29687b;
+        return f29769b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -34,19 +34,19 @@ public class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
-        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29686a.get(str);
+        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29768a.get(str);
         if (remoteCallbackList == null) {
             remoteCallbackList = new RemoteCallbackList<>();
         }
         remoteCallbackList.register(iTTAppDownloadListener);
-        f29686a.put(str, remoteCallbackList);
+        f29768a.put(str, remoteCallbackList);
         u.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
-        u.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f29686a.size());
+        u.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f29768a.size());
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
-        Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f29686a;
+        Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f29768a;
         if (map == null) {
             u.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
             return;
@@ -58,7 +58,7 @@ public class b extends a {
         }
         a(remove);
         u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
-        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f29686a.size());
+        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f29768a.size());
     }
 
     private synchronized void a(String str, String str2, long j, long j2, String str3, String str4) {
@@ -67,16 +67,16 @@ public class b extends a {
         } catch (Throwable th) {
             u.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
         }
-        if (f29686a == null) {
+        if (f29768a == null) {
             return;
         }
         if ("recycleRes".equals(str2)) {
-            a(f29686a.remove(str));
+            a(f29768a.remove(str));
             u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
-            u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f29686a.size());
+            u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f29768a.size());
             return;
         }
-        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29686a.get(str);
+        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29768a.get(str);
         if (remoteCallbackList != null) {
             int beginBroadcast = remoteCallbackList.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {

@@ -9,7 +9,7 @@ import com.kwad.sdk.glide.load.engine.s;
 public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public h.a f36116a;
+    public h.a f36214a;
 
     public g(long j) {
         super(j);
@@ -40,7 +40,7 @@ public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> i
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.g.g
     public void a(@NonNull com.kwad.sdk.glide.load.c cVar, @Nullable s<?> sVar) {
-        h.a aVar = this.f36116a;
+        h.a aVar = this.f36214a;
         if (aVar == null || sVar == null) {
             return;
         }
@@ -49,7 +49,7 @@ public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> i
 
     @Override // com.kwad.sdk.glide.load.engine.a.h
     public void a(@NonNull h.a aVar) {
-        this.f36116a = aVar;
+        this.f36214a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h

@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadMonitor;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -38,7 +39,7 @@ public class CallbackDispatcher {
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
         public void connectEnd(@NonNull final DownloadTask downloadTask, final int i2, final int i3, @NonNull final Map<String, List<String>> map) {
-            Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i2 + ") code[" + i3 + "]" + map);
+            Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i2 + ") code[" + i3 + PreferencesUtil.RIGHT_MOUNT + map);
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.7
                     @Override // java.lang.Runnable
@@ -68,7 +69,7 @@ public class CallbackDispatcher {
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
         public void connectTrialEnd(@NonNull final DownloadTask downloadTask, final int i2, @NonNull final Map<String, List<String>> map) {
-            Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i2 + "]" + map);
+            Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i2 + PreferencesUtil.RIGHT_MOUNT + map);
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.3
                     @Override // java.lang.Runnable
@@ -288,7 +289,7 @@ public class CallbackDispatcher {
         if (collection.size() == 0 && collection2.size() == 0 && collection3.size() == 0) {
             return;
         }
-        Util.d(TAG, "endTasks completed[" + collection.size() + "] sameTask[" + collection2.size() + "] fileBusy[" + collection3.size() + "]");
+        Util.d(TAG, "endTasks completed[" + collection.size() + "] sameTask[" + collection2.size() + "] fileBusy[" + collection3.size() + PreferencesUtil.RIGHT_MOUNT);
         if (collection.size() > 0) {
             Iterator<DownloadTask> it = collection.iterator();
             while (it.hasNext()) {
@@ -342,7 +343,7 @@ public class CallbackDispatcher {
         if (collection.size() <= 0) {
             return;
         }
-        Util.d(TAG, "endTasksWithCanceled canceled[" + collection.size() + "]");
+        Util.d(TAG, "endTasksWithCanceled canceled[" + collection.size() + PreferencesUtil.RIGHT_MOUNT);
         Iterator<DownloadTask> it = collection.iterator();
         while (it.hasNext()) {
             DownloadTask next = it.next();

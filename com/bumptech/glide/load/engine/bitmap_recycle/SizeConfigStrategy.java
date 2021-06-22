@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bumptech.glide.util.Util;
 import java.util.Arrays;
@@ -119,7 +120,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     public static String getBitmapString(int i2, Bitmap.Config config) {
-        return "[" + i2 + "](" + config + SmallTailInfo.EMOTION_SUFFIX;
+        return PreferencesUtil.LEFT_MOUNT + i2 + "](" + config + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public static Bitmap.Config[] getInConfigs(Bitmap.Config config) {

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
+import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -104,7 +105,7 @@ public class DeviceInfoUtils {
 
     public static String getCurCpuFreq() {
         try {
-            return new BufferedReader(new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq")).readLine().trim();
+            return new BufferedReader(new FileReader(DeviceInfoUtil.CurPath)).readLine().trim();
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
             return null;

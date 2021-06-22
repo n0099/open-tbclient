@@ -16,36 +16,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    public static final boolean C = d.a.d0.a.a.a.f43269a;
+    public static final boolean C = d.a.d0.a.a.a.f43372a;
     public int A;
     public String B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43339a;
+    public int f43442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43340b;
+    public String f43443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43341c;
+    public String f43444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43342d;
+    public String f43445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43343e;
+    public String f43446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43344f;
+    public int f43447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43345g;
+    public String f43448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43346h;
+    public int f43449h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43347i;
+    public int f43450i;
     public String j;
     public String k;
     public String l;
@@ -68,12 +68,12 @@ public class h {
     public static class a {
         public static void a(JSONObject jSONObject, h hVar) {
             try {
-                hVar.f43339a = jSONObject.optInt("advisible");
-                hVar.f43340b = jSONObject.optString("id");
-                hVar.f43341c = jSONObject.optString("ukey");
-                hVar.f43342d = jSONObject.optString("extra");
-                hVar.f43343e = jSONObject.optString("layout");
-                hVar.f43344f = jSONObject.optInt("type");
+                hVar.f43442a = jSONObject.optInt("advisible");
+                hVar.f43443b = jSONObject.optString("id");
+                hVar.f43444c = jSONObject.optString("ukey");
+                hVar.f43445d = jSONObject.optString("extra");
+                hVar.f43446e = jSONObject.optString("layout");
+                hVar.f43447f = jSONObject.optInt("type");
                 hVar.k = jSONObject.optString("jump_url");
                 hVar.o = jSONObject.optString("action");
                 hVar.l = jSONObject.optString("flag_name");
@@ -127,9 +127,9 @@ public class h {
                     if (optJSONObject2 == null) {
                         return;
                     }
-                    hVar.f43339a = optJSONObject2.optInt("advisible", 1);
-                    hVar.f43340b = optJSONObject2.optString("id");
-                    hVar.f43341c = optJSONObject2.optString("ukey");
+                    hVar.f43442a = optJSONObject2.optInt("advisible", 1);
+                    hVar.f43443b = optJSONObject2.optString("id");
+                    hVar.f43444c = optJSONObject2.optString("ukey");
                     JSONArray optJSONArray2 = optJSONObject2.optJSONArray("extra");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         int i2 = 0;
@@ -142,7 +142,7 @@ public class h {
                                 String optString = optJSONObject3.optString(Config.APP_KEY);
                                 String optString2 = optJSONObject3.optString("v");
                                 if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
-                                    hVar.f43342d = optString2;
+                                    hVar.f43445d = optString2;
                                     break;
                                 }
                             }
@@ -162,10 +162,10 @@ public class h {
                     }
                     if (optJSONArray4 != null) {
                         JSONObject optJSONObject4 = optJSONArray4.optJSONObject(0);
-                        hVar.f43343e = optJSONObject4.optString("layout");
+                        hVar.f43446e = optJSONObject4.optString("layout");
                         JSONObject optJSONObject5 = optJSONObject4.optJSONObject("common");
                         if (optJSONObject5 != null) {
-                            hVar.f43344f = optJSONObject5.optInt("type");
+                            hVar.f43447f = optJSONObject5.optInt("type");
                             hVar.k = optJSONObject5.optString("jump_url");
                             hVar.o = optJSONObject5.optString("action");
                             hVar.l = optJSONObject5.optString("flag_name");
@@ -219,12 +219,12 @@ public class h {
 
         public static void c(JSONObject jSONObject, h hVar) {
             try {
-                jSONObject.put("advisible", hVar.f43339a);
-                jSONObject.put("id", hVar.f43340b);
-                jSONObject.put("ukey", hVar.f43341c);
-                jSONObject.put("extra", hVar.f43342d);
-                jSONObject.put("layout", hVar.f43343e);
-                jSONObject.put("type", hVar.f43344f);
+                jSONObject.put("advisible", hVar.f43442a);
+                jSONObject.put("id", hVar.f43443b);
+                jSONObject.put("ukey", hVar.f43444c);
+                jSONObject.put("extra", hVar.f43445d);
+                jSONObject.put("layout", hVar.f43446e);
+                jSONObject.put("type", hVar.f43447f);
                 jSONObject.put("jump_url", hVar.k);
                 jSONObject.put("action", hVar.o);
                 jSONObject.put("flag_name", hVar.l);
@@ -265,15 +265,15 @@ public class h {
         }
 
         public static void d(h hVar, h hVar2) {
-            hVar.f43339a = hVar2.f43339a;
-            hVar.f43340b = hVar2.f43340b;
-            hVar.f43341c = hVar2.f43341c;
-            hVar.f43342d = hVar2.f43342d;
-            hVar.f43343e = hVar2.f43343e;
-            hVar.f43344f = hVar2.f43344f;
-            hVar.f43345g = hVar2.f43345g;
-            hVar.f43346h = hVar2.f43346h;
-            hVar.f43347i = hVar2.f43347i;
+            hVar.f43442a = hVar2.f43442a;
+            hVar.f43443b = hVar2.f43443b;
+            hVar.f43444c = hVar2.f43444c;
+            hVar.f43445d = hVar2.f43445d;
+            hVar.f43446e = hVar2.f43446e;
+            hVar.f43447f = hVar2.f43447f;
+            hVar.f43448g = hVar2.f43448g;
+            hVar.f43449h = hVar2.f43449h;
+            hVar.f43450i = hVar2.f43450i;
             hVar.j = hVar2.j;
             hVar.k = hVar2.k;
             hVar.l = hVar2.l;
@@ -299,9 +299,9 @@ public class h {
         public static void a(JSONObject jSONObject, h hVar) {
             if (jSONObject != null) {
                 try {
-                    hVar.f43345g = jSONObject.optString("url");
-                    hVar.f43346h = jSONObject.optInt("width");
-                    hVar.f43347i = jSONObject.optInt("height");
+                    hVar.f43448g = jSONObject.optString("url");
+                    hVar.f43449h = jSONObject.optInt("width");
+                    hVar.f43450i = jSONObject.optInt("height");
                     hVar.j = jSONObject.optString("imageMd5");
                 } catch (Exception e2) {
                     if (h.C) {
@@ -314,10 +314,10 @@ public class h {
 
         public static void b(JSONObject jSONObject, h hVar) {
             try {
-                jSONObject.put("url", hVar.f43345g);
+                jSONObject.put("url", hVar.f43448g);
                 jSONObject.put("imageMd5", hVar.j);
-                jSONObject.put("width", hVar.f43346h);
-                jSONObject.put("height", hVar.f43347i);
+                jSONObject.put("width", hVar.f43449h);
+                jSONObject.put("height", hVar.f43450i);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -329,9 +329,9 @@ public class h {
         public static void a(JSONObject jSONObject, h hVar) {
             if (jSONObject != null) {
                 try {
-                    hVar.f43345g = jSONObject.optString("url");
-                    hVar.f43346h = jSONObject.optInt("width");
-                    hVar.f43347i = jSONObject.optInt("height");
+                    hVar.f43448g = jSONObject.optString("url");
+                    hVar.f43449h = jSONObject.optInt("width");
+                    hVar.f43450i = jSONObject.optInt("height");
                     hVar.j = jSONObject.optString(PackageTable.MD5);
                 } catch (Exception e2) {
                     if (h.C) {
@@ -344,10 +344,10 @@ public class h {
 
         public static void b(JSONObject jSONObject, h hVar) {
             try {
-                jSONObject.put("url", hVar.f43345g);
+                jSONObject.put("url", hVar.f43448g);
                 jSONObject.put(PackageTable.MD5, hVar.j);
-                jSONObject.put("width", hVar.f43346h);
-                jSONObject.put("height", hVar.f43347i);
+                jSONObject.put("width", hVar.f43449h);
+                jSONObject.put("height", hVar.f43450i);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -357,14 +357,14 @@ public class h {
     public static boolean a(h hVar) {
         String str;
         boolean z;
-        if (TextUtils.isEmpty(hVar.f43342d)) {
+        if (TextUtils.isEmpty(hVar.f43445d)) {
             str = "7";
             z = false;
         } else {
             str = "";
             z = true;
         }
-        if (z && TextUtils.isEmpty(hVar.f43345g)) {
+        if (z && TextUtils.isEmpty(hVar.f43448g)) {
             str = "66";
             z = false;
         }
@@ -434,7 +434,7 @@ public class h {
             if (c2 == null) {
                 break;
             }
-            if (c2.f43339a != 0 && a(c2)) {
+            if (c2.f43442a != 0 && a(c2)) {
                 arrayList.add(c2);
                 if (C) {
                     Log.d("SplashData", "splashDataItem:  i=" + i2 + ",content" + c2.toString());
@@ -465,15 +465,15 @@ public class h {
 
     @NonNull
     public String e() {
-        return TextUtils.equals(this.f43343e, "splash_image") ? "image" : TextUtils.equals(this.f43343e, "splash_video") ? "video" : "";
+        return TextUtils.equals(this.f43446e, "splash_image") ? "image" : TextUtils.equals(this.f43446e, "splash_video") ? "video" : "";
     }
 
     public boolean f() {
-        return this.f43344f == 1;
+        return this.f43447f == 1;
     }
 
     public boolean g() {
-        return TextUtils.equals(this.f43343e, "splash_image");
+        return TextUtils.equals(this.f43446e, "splash_image");
     }
 
     public String i() {

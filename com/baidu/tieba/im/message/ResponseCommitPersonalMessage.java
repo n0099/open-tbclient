@@ -4,7 +4,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.squareup.wire.Wire;
-import d.a.n0.f1.w.b;
+import d.a.o0.f1.w.b;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 import protobuf.CommitPersonalMsg.DataRes;

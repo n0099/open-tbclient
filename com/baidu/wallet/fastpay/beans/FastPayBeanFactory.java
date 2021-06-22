@@ -16,11 +16,11 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static FastPayBeanFactory f24073a = new FastPayBeanFactory();
+        public static FastPayBeanFactory f24155a = new FastPayBeanFactory();
     }
 
     public static FastPayBeanFactory getInstance() {
-        return a.f24073a;
+        return a.f24155a;
     }
 
     public FastPayBeanFactory() {

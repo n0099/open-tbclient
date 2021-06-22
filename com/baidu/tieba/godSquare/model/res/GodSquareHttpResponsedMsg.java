@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
-import d.a.n0.w0.c.a;
+import d.a.o0.w0.c.a;
 import tbclient.Error;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;

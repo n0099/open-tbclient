@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
@@ -29,7 +30,7 @@ public final class AccessibilityServiceInfoCompat {
     @NonNull
     public static String feedbackTypeToString(int i2) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append(PreferencesUtil.LEFT_MOUNT);
         while (i2 > 0) {
             int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(i2);
             i2 &= ~numberOfTrailingZeros;
@@ -48,7 +49,7 @@ public final class AccessibilityServiceInfoCompat {
                 sb.append("FEEDBACK_GENERIC");
             }
         }
-        sb.append("]");
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
         return sb.toString();
     }
 

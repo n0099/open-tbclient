@@ -6,14 +6,14 @@ import java.util.List;
 public class j implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32082a;
+    public final String f32180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f32083b;
+    public final List<b> f32181b;
 
     public j(String str, List<b> list) {
-        this.f32082a = str;
-        this.f32083b = list;
+        this.f32180a = str;
+        this.f32181b = list;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -22,14 +22,14 @@ public class j implements b {
     }
 
     public String a() {
-        return this.f32082a;
+        return this.f32180a;
     }
 
     public List<b> b() {
-        return this.f32083b;
+        return this.f32181b;
     }
 
     public String toString() {
-        return "ShapeGroup{name='" + this.f32082a + "' Shapes: " + Arrays.toString(this.f32083b.toArray()) + '}';
+        return "ShapeGroup{name='" + this.f32180a + "' Shapes: " + Arrays.toString(this.f32181b.toArray()) + '}';
     }
 }

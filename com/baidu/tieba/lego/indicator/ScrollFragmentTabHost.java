@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
-import d.a.n0.k1.d;
-import d.a.n0.k1.p.e;
-import d.a.n0.k1.q.c;
+import d.a.o0.k1.d;
+import d.a.o0.k1.p.e;
+import d.a.o0.k1.q.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Lego.DataRes;
@@ -24,25 +24,25 @@ import tbclient.Lego.DataRes;
 public class ScrollFragmentTabHost extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18052e;
+    public Context f18134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomViewPager f18053f;
+    public CustomViewPager f18135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.k1.q.a f18054g;
+    public d.a.o0.k1.q.a f18136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f18055h;
+    public NoNetworkView f18137h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScrollFragmentAdapter f18056i;
+    public ScrollFragmentAdapter f18138i;
     public List<e> j;
     public FrameLayout k;
     public c l;
     public BdUniqueId m;
     public View.OnClickListener n;
-    public c.InterfaceC1470c o;
+    public c.InterfaceC1474c o;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -60,14 +60,14 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements c.InterfaceC1470c {
+    public class b implements c.InterfaceC1474c {
         public b() {
         }
 
-        @Override // d.a.n0.k1.q.c.InterfaceC1470c
+        @Override // d.a.o0.k1.q.c.InterfaceC1474c
         public void a() {
-            if (ScrollFragmentTabHost.this.f18054g != null) {
-                ScrollFragmentTabHost.this.f18054g.d();
+            if (ScrollFragmentTabHost.this.f18136g != null) {
+                ScrollFragmentTabHost.this.f18136g.d();
             }
             if (ScrollFragmentTabHost.this.l != null) {
                 ScrollFragmentTabHost.this.l.l(null);
@@ -90,16 +90,16 @@ public class ScrollFragmentTabHost extends LinearLayout {
         ArrayList arrayList = new ArrayList();
         for (e eVar : list) {
             if (eVar != null) {
-                arrayList.add(new d.a.n0.k1.p.c(eVar));
+                arrayList.add(new d.a.o0.k1.p.c(eVar));
             }
         }
         this.j = list;
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.p(arrayList);
-            d.a.n0.k1.q.a aVar = this.f18054g;
+            d.a.o0.k1.q.a aVar = this.f18136g;
             if (aVar != null) {
-                aVar.i(this.f18053f, i2);
+                aVar.i(this.f18135f, i2);
             }
         }
     }
@@ -107,30 +107,30 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void e() {
         c cVar = this.l;
         if (cVar != null) {
-            cVar.f(this.f18052e);
+            cVar.f(this.f18134e);
         }
     }
 
     public boolean f() {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         return scrollFragmentAdapter != null && scrollFragmentAdapter.getCount() > 0;
     }
 
     public final void g(Context context) {
-        this.f18052e = context;
+        this.f18134e = context;
         LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.f18055h = (NoNetworkView) findViewById(R.id.view_no_network);
-        d.a.n0.k1.q.a aVar = new d.a.n0.k1.q.a(context, findViewById(R.id.tab_container));
-        this.f18054g = aVar;
+        this.f18137h = (NoNetworkView) findViewById(R.id.view_no_network);
+        d.a.o0.k1.q.a aVar = new d.a.o0.k1.q.a(context, findViewById(R.id.tab_container));
+        this.f18136g = aVar;
         aVar.h(this.n);
         this.k = (FrameLayout) findViewById(R.id.tab_widget_content_container);
     }
 
-    public void h(d dVar, d.a.n0.k1.c cVar) {
-        this.f18053f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f18052e, dVar, cVar, this.m);
-        this.f18056i = scrollFragmentAdapter;
-        this.f18053f.setAdapter(scrollFragmentAdapter);
+    public void h(d dVar, d.a.o0.k1.c cVar) {
+        this.f18135f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f18134e, dVar, cVar, this.m);
+        this.f18138i = scrollFragmentAdapter;
+        this.f18135f.setAdapter(scrollFragmentAdapter);
     }
 
     public boolean i() {
@@ -143,17 +143,17 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void k(int i2) {
-        d.a.n0.k1.q.a aVar = this.f18054g;
+        d.a.o0.k1.q.a aVar = this.f18136g;
         if (aVar != null) {
             aVar.g(i2);
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.i(i2);
         }
-        if (this.f18055h != null) {
-            this.f18055h.c(j.a(getContext()), i2);
+        if (this.f18137h != null) {
+            this.f18137h.c(j.a(getContext()), i2);
         }
         c cVar = this.l;
         if (cVar != null) {
@@ -170,22 +170,22 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (this.l.j()) {
             return;
         }
-        this.l.m(this.f18052e, this.j, this.f18053f.getCurrentItem());
-        d.a.n0.k1.q.a aVar = this.f18054g;
+        this.l.m(this.f18134e, this.j, this.f18135f.getCurrentItem());
+        d.a.o0.k1.q.a aVar = this.f18136g;
         if (aVar != null) {
             aVar.j();
         }
     }
 
     public void m(long j, String str) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.l(j, str);
         }
     }
 
     public void n(boolean z, long j, String str, DataRes dataRes, boolean z2, int i2) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         if (scrollFragmentAdapter == null) {
             return;
         }
@@ -193,28 +193,28 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void o(long j, String str, String str2, int i2) {
-        if (this.f18053f == null) {
+        if (this.f18135f == null) {
             return;
         }
-        this.f18056i.m(j, str, str2, i2);
+        this.f18138i.m(j, str, str2, i2);
     }
 
     public void p(long j, String str, DataRes dataRes, boolean z) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18138i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.n(j, str, dataRes, z);
         }
     }
 
     public void setCurrentTab(int i2) {
-        if (i2 < 0 || i2 >= this.f18056i.getCount()) {
+        if (i2 < 0 || i2 >= this.f18138i.getCount()) {
             return;
         }
-        this.f18053f.setCurrentItem(i2, false);
+        this.f18135f.setCurrentItem(i2, false);
     }
 
     public void setFirstPosition(int i2) {
-        this.f18056i.k(i2);
+        this.f18138i.k(i2);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

@@ -6,10 +6,10 @@ import android.os.Parcel;
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f41891a;
+    public IBinder f41994a;
 
     public c(IBinder iBinder) {
-        this.f41891a = iBinder;
+        this.f41994a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
@@ -18,7 +18,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-            this.f41891a.transact(3, obtain, obtain2, 0);
+            this.f41994a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {
@@ -29,7 +29,7 @@ public final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f41891a;
+        return this.f41994a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
@@ -38,7 +38,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-            this.f41891a.transact(1, obtain, obtain2, 0);
+            this.f41994a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readInt() != 0;
         } finally {
@@ -53,7 +53,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-            this.f41891a.transact(6, obtain, obtain2, 0);
+            this.f41994a.transact(6, obtain, obtain2, 0);
             obtain2.readException();
         } finally {
             obtain2.recycle();

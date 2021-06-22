@@ -27,31 +27,31 @@ public final class a {
     public static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26736a;
+    public String f26818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26737b;
+    public int f26819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26738c;
+    public int f26820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26739d;
+    public int f26821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26740e;
+    public String f26822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26741f;
+    public int f26823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26742g;
+    public String f26824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26743h;
+    public String f26825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26744i;
+    public String f26826i;
     public String j;
     public String k;
     public String l;
@@ -70,7 +70,7 @@ public final class a {
     }
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26742g)) {
+        if (TextUtils.isEmpty(this.f26824g)) {
             int e2 = e(context);
             int f2 = f(context);
             String str = Build.MANUFACTURER;
@@ -96,22 +96,22 @@ public final class a {
             stringBuffer.append(h2);
             stringBuffer.append("_");
             stringBuffer.append(str5);
-            this.f26742g = bVar.a(stringBuffer.toString().replace(".", "-"));
+            this.f26824g = bVar.a(stringBuffer.toString().replace(".", "-"));
         }
-        if (TextUtils.isEmpty(this.f26742g)) {
+        if (TextUtils.isEmpty(this.f26824g)) {
             throw new RuntimeException("BdLogBase: get ua null!");
         }
-        return this.f26742g;
+        return this.f26824g;
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26736a)) {
-            this.f26736a = bVar.e();
+        if (TextUtils.isEmpty(this.f26818a)) {
+            this.f26818a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f26736a)) {
+        if (TextUtils.isEmpty(this.f26818a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f26736a;
+        return this.f26818a;
     }
 
     private String b() {
@@ -126,7 +126,7 @@ public final class a {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-                return com.baidu.pass.biometrics.face.liveness.b.b.g0;
+                return com.baidu.pass.biometrics.face.liveness.b.a.g0;
             }
             if (activeNetworkInfo.getType() == 1) {
                 return "wifi";
@@ -163,13 +163,13 @@ public final class a {
     }
 
     private String b(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26743h)) {
-            this.f26743h = bVar.c();
+        if (TextUtils.isEmpty(this.f26825h)) {
+            this.f26825h = bVar.c();
         }
-        if (TextUtils.isEmpty(this.f26743h)) {
+        if (TextUtils.isEmpty(this.f26825h)) {
             throw new RuntimeException("BdLogBase: get from null!");
         }
-        return this.f26743h;
+        return this.f26825h;
     }
 
     private String c() {
@@ -180,13 +180,13 @@ public final class a {
     }
 
     private String c(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26744i)) {
-            this.f26744i = bVar.d();
+        if (TextUtils.isEmpty(this.f26826i)) {
+            this.f26826i = bVar.d();
         }
-        if (TextUtils.isEmpty(this.f26744i)) {
+        if (TextUtils.isEmpty(this.f26826i)) {
             throw new RuntimeException("BdLogBase: get Cfrom null!");
         }
-        return this.f26744i;
+        return this.f26826i;
     }
 
     public static boolean c(Context context) {
@@ -211,19 +211,19 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f26737b = displayMetrics.widthPixels;
-            this.f26738c = displayMetrics.heightPixels;
-            this.f26739d = displayMetrics.densityDpi;
+            this.f26819b = displayMetrics.widthPixels;
+            this.f26820c = displayMetrics.heightPixels;
+            this.f26821d = displayMetrics.densityDpi;
         } catch (Exception e2) {
             c.a(e2);
         }
     }
 
     private int e(Context context) {
-        if (this.f26737b == 0) {
+        if (this.f26819b == 0) {
             d(context);
         }
-        return this.f26737b;
+        return this.f26819b;
     }
 
     public static String e() {
@@ -242,10 +242,10 @@ public final class a {
     }
 
     private int f(Context context) {
-        if (this.f26738c == 0) {
+        if (this.f26820c == 0) {
             d(context);
         }
-        return this.f26738c;
+        return this.f26820c;
     }
 
     public static String f() {
@@ -253,22 +253,22 @@ public final class a {
     }
 
     private int g(Context context) {
-        if (this.f26739d == 0) {
+        if (this.f26821d == 0) {
             d(context);
         }
-        return this.f26739d;
+        return this.f26821d;
     }
 
     private String h(Context context) {
         try {
-            if (TextUtils.isEmpty(this.f26740e)) {
+            if (TextUtils.isEmpty(this.f26822e)) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f26740e = packageInfo.versionName;
-                this.f26740e = this.f26740e.substring(0, this.f26740e.length() - 1) + "1";
-                this.f26741f = packageInfo.versionCode;
-                c.e("BdLogSDK", "mVersionName = " + this.f26740e);
+                this.f26822e = packageInfo.versionName;
+                this.f26822e = this.f26822e.substring(0, this.f26822e.length() - 1) + "1";
+                this.f26823f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26822e);
             }
-            return this.f26740e;
+            return this.f26822e;
         } catch (Exception e2) {
             c.a(e2);
             return "1.0.0.0";
@@ -277,17 +277,17 @@ public final class a {
 
     private int i(Context context) {
         try {
-            if (this.f26741f <= 0) {
+            if (this.f26823f <= 0) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f26740e = packageInfo.versionName;
-                this.f26740e = this.f26740e.substring(0, this.f26740e.length() - 1) + "1";
-                this.f26741f = packageInfo.versionCode;
-                c.e("BdLogSDK", "mVersionName = " + this.f26740e);
+                this.f26822e = packageInfo.versionName;
+                this.f26822e = this.f26822e.substring(0, this.f26822e.length() - 1) + "1";
+                this.f26823f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26822e);
             }
         } catch (Exception e2) {
             c.a(e2);
         }
-        return this.f26741f;
+        return this.f26823f;
     }
 
     private String j(Context context) {
@@ -853,10 +853,10 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c d2 = b.a().e().d(str);
-        if ("full".equals(d2.f26777a)) {
+        if ("full".equals(d2.f26859a)) {
             return a(context);
         }
-        HashSet<String> hashSet = d2.f26779c;
+        HashSet<String> hashSet = d2.f26861c;
         JSONObject jSONObject = new JSONObject();
         if (hashSet != null) {
             try {

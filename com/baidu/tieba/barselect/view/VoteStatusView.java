@@ -10,24 +10,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.n0.x.e.c;
+import d.a.o0.x.e.c;
 /* loaded from: classes4.dex */
 public class VoteStatusView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14267e;
+    public int f14349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14268f;
+    public boolean f14350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f14269g;
+    public Paint f14351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f14270h;
+    public Shader f14352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14271i;
+    public int f14353i;
     public int j;
     public int k;
     public Path l;
@@ -42,13 +42,13 @@ public class VoteStatusView extends View {
 
     public final void a() {
         this.k = SkinManager.getColor(R.color.CAM_X0204);
-        this.f14271i = SkinManager.getColor(R.color.CAM_X0303);
+        this.f14353i = SkinManager.getColor(R.color.CAM_X0303);
         this.j = SkinManager.getColor(R.color.CAM_X0302);
         Paint paint = new Paint();
-        this.f14269g = paint;
+        this.f14351g = paint;
         paint.setAntiAlias(true);
-        this.f14269g.setStyle(Paint.Style.FILL);
-        this.f14269g.setColor(this.k);
+        this.f14351g.setStyle(Paint.Style.FILL);
+        this.f14351g.setColor(this.k);
         this.l = new Path();
         this.m = new Path();
         this.n = new Path();
@@ -57,10 +57,10 @@ public class VoteStatusView extends View {
     }
 
     public void b(int i2) {
-        this.f14271i = SkinManager.getColor(i2, R.color.CAM_X0303);
+        this.f14353i = SkinManager.getColor(i2, R.color.CAM_X0303);
         this.j = SkinManager.getColor(i2, R.color.CAM_X0302);
         this.k = SkinManager.getColor(i2, R.color.CAM_X0204);
-        this.f14268f = true;
+        this.f14350f = true;
         invalidate();
     }
 
@@ -82,37 +82,37 @@ public class VoteStatusView extends View {
         float f6 = (height * 17) / 26;
         this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
         this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
-        this.f14269g.setColor(this.k);
-        this.f14269g.setShader(null);
-        if (this.f14270h == null || this.f14268f) {
-            this.f14270h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14271i, this.j, Shader.TileMode.CLAMP);
-            this.f14268f = false;
+        this.f14351g.setColor(this.k);
+        this.f14351g.setShader(null);
+        if (this.f14352h == null || this.f14350f) {
+            this.f14352h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14353i, this.j, Shader.TileMode.CLAMP);
+            this.f14350f = false;
         }
-        if (this.f14267e == c.f66922c) {
-            this.f14269g.setShader(this.f14270h);
+        if (this.f14349e == c.f67047c) {
+            this.f14351g.setShader(this.f14352h);
         }
-        canvas.drawPath(this.p, this.f14269g);
-        canvas.drawPath(this.n, this.f14269g);
-        if (this.f14267e == c.f66921b) {
-            this.f14269g.setShader(this.f14270h);
+        canvas.drawPath(this.p, this.f14351g);
+        canvas.drawPath(this.n, this.f14351g);
+        if (this.f14349e == c.f67046b) {
+            this.f14351g.setShader(this.f14352h);
         }
-        canvas.drawPath(this.o, this.f14269g);
-        canvas.drawPath(this.m, this.f14269g);
-        if (this.f14267e == c.f66920a) {
-            this.f14269g.setShader(this.f14270h);
+        canvas.drawPath(this.o, this.f14351g);
+        canvas.drawPath(this.m, this.f14351g);
+        if (this.f14349e == c.f67045a) {
+            this.f14351g.setShader(this.f14352h);
         }
-        canvas.drawPath(this.l, this.f14269g);
+        canvas.drawPath(this.l, this.f14351g);
     }
 
     public void setStatus(int i2) {
-        this.f14267e = i2;
+        this.f14349e = i2;
         invalidate();
     }
 
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14267e = -1;
-        this.f14268f = true;
+        this.f14349e = -1;
+        this.f14350f = true;
         a();
     }
 }

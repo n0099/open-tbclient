@@ -18,9 +18,9 @@ import d.a.i.l0;
 import d.a.i.m0;
 import d.a.i.r0;
 import d.a.i.u;
-import d.a.m0.b.d;
-import d.a.m0.r.q.a;
-import d.a.m0.r.q.a2;
+import d.a.n0.b.d;
+import d.a.n0.r.q.a;
+import d.a.n0.r.q.a2;
 /* loaded from: classes.dex */
 public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
@@ -87,15 +87,15 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         boolean z = false;
         this.f4340f.j().setVisibility(0);
         b0 b0Var = this.f4341g;
-        if (b0Var != null && b0Var.f43695i != null) {
+        if (b0Var != null && b0Var.f43788i != null) {
             if (!t.o() && t.c() != null) {
                 this.f4341g.m(t);
                 this.f4341g.a(t.c());
-                this.f4341g.f43695i.setVisibility(0);
+                this.f4341g.f43788i.setVisibility(0);
                 z = true;
             } else {
                 b0 b0Var2 = this.f4341g;
-                if (b0Var2 != null && (nEGFeedBackView = b0Var2.f43695i) != null) {
+                if (b0Var2 != null && (nEGFeedBackView = b0Var2.f43788i) != null) {
                     nEGFeedBackView.setVisibility(8);
                 }
             }
@@ -148,7 +148,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void j(d.a.n0.z.b0<T> b0Var) {
+    public void j(d.a.o0.z.b0<T> b0Var) {
         this.f4340f.p(b0Var);
     }
 
@@ -196,7 +196,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         if (this.f4341g == null) {
             b0 b0Var = new b0(c(), z);
             this.f4341g = b0Var;
-            b0Var.f43695i.setUniqueId(this.f4339e);
+            b0Var.f43788i.setUniqueId(this.f4339e);
         }
         this.f4340f.b(this.f4341g);
         return this.f4341g;
@@ -210,7 +210,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         if (this.f4341g == null) {
             b0 b0Var = new b0(c(), align);
             this.f4341g = b0Var;
-            b0Var.f43695i.setUniqueId(this.f4339e);
+            b0Var.f43788i.setUniqueId(this.f4339e);
             this.f4341g.u(bVar);
         }
         this.f4341g.l(align);

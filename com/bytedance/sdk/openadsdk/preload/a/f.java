@@ -24,31 +24,31 @@ public final class f {
     public static final com.bytedance.sdk.openadsdk.preload.a.c.a<?> r = com.bytedance.sdk.openadsdk.preload.a.c.a.b(Object.class);
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<w> f29996a;
+    public final List<w> f30078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.d f29997b;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.d f30079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f29998c;
+    public final e f30080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Type, h<?>> f29999d;
+    public final Map<Type, h<?>> f30081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f30000e;
+    public final boolean f30082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f30001f;
+    public final boolean f30083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f30002g;
+    public final boolean f30084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f30003h;
+    public final boolean f30085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f30004i;
+    public final boolean f30086i;
     public final boolean j;
     public final boolean k;
     public final String l;
@@ -63,7 +63,7 @@ public final class f {
     public final com.bytedance.sdk.openadsdk.preload.a.b.a.d v;
 
     public f() {
-        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f29909a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f29991a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     private v<Number> a(boolean z) {
@@ -125,18 +125,18 @@ public final class f {
     }
 
     public String toString() {
-        return "{serializeNulls:" + this.f30000e + ",factories:" + this.f29996a + ",instanceCreators:" + this.u + "}";
+        return "{serializeNulls:" + this.f30082e + ",factories:" + this.f30078a + ",instanceCreators:" + this.u + "}";
     }
 
     /* loaded from: classes6.dex */
     public static class a<T> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public v<T> f30009a;
+        public v<T> f30091a;
 
         public void a(v<T> vVar) {
-            if (this.f30009a == null) {
-                this.f30009a = vVar;
+            if (this.f30091a == null) {
+                this.f30091a = vVar;
                 return;
             }
             throw new AssertionError();
@@ -144,7 +144,7 @@ public final class f {
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
         public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-            v<T> vVar = this.f30009a;
+            v<T> vVar = this.f30091a;
             if (vVar != null) {
                 return vVar.b(aVar);
             }
@@ -153,7 +153,7 @@ public final class f {
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
         public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-            v<T> vVar = this.f30009a;
+            v<T> vVar = this.f30091a;
             if (vVar != null) {
                 vVar.a(cVar, t);
                 return;
@@ -232,15 +232,15 @@ public final class f {
     public f(com.bytedance.sdk.openadsdk.preload.a.b.d dVar, e eVar, Map<Type, h<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, u uVar, String str, int i2, int i3, List<w> list, List<w> list2, List<w> list3) {
         this.s = new ThreadLocal<>();
         this.t = new ConcurrentHashMap();
-        this.f29997b = dVar;
-        this.f29998c = eVar;
-        this.f29999d = map;
+        this.f30079b = dVar;
+        this.f30080c = eVar;
+        this.f30081d = map;
         this.u = new com.bytedance.sdk.openadsdk.preload.a.b.c(map);
-        this.f30000e = z;
-        this.f30001f = z2;
-        this.f30002g = z3;
-        this.f30003h = z4;
-        this.f30004i = z5;
+        this.f30082e = z;
+        this.f30083f = z2;
+        this.f30084g = z3;
+        this.f30085h = z4;
+        this.f30086i = z5;
         this.j = z6;
         this.k = z7;
         this.o = uVar;
@@ -251,13 +251,13 @@ public final class f {
         this.q = list2;
         ArrayList arrayList = new ArrayList();
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Y);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f29806a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f29888a);
         arrayList.add(dVar);
         arrayList.addAll(list3);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.D);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.m);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29851g);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29853i);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29933g);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29935i);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.k);
         v<Number> a2 = a(uVar);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Long.TYPE, Long.class, a2));
@@ -280,14 +280,14 @@ public final class f {
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.R);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.W);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.N);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29848d);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f29786a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29930d);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f29868a);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.U);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f29827a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f29825a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f29909a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f29907a);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.S);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f29779a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29846b);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f29861a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29928b);
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.b(this.u));
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.g(this.u, z2));
         com.bytedance.sdk.openadsdk.preload.a.b.a.d dVar2 = new com.bytedance.sdk.openadsdk.preload.a.b.a.d(this.u);
@@ -295,7 +295,7 @@ public final class f {
         arrayList.add(dVar2);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Z);
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.i(this.u, eVar, dVar, this.v));
-        this.f29996a = Collections.unmodifiableList(arrayList);
+        this.f30078a = Collections.unmodifiableList(arrayList);
     }
 
     public static v<AtomicLong> a(final v<Number> vVar) {
@@ -337,7 +337,7 @@ public final class f {
         try {
             a<?> aVar3 = new a<>();
             map.put(aVar, aVar3);
-            for (w wVar : this.f29996a) {
+            for (w wVar : this.f30078a) {
                 v vVar2 = (v<T>) wVar.a(this, aVar);
                 if (vVar2 != null) {
                     aVar3.a((v<?>) vVar2);
@@ -355,11 +355,11 @@ public final class f {
     }
 
     public <T> v<T> a(w wVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-        if (!this.f29996a.contains(wVar)) {
+        if (!this.f30078a.contains(wVar)) {
             wVar = this.v;
         }
         boolean z = false;
-        for (w wVar2 : this.f29996a) {
+        for (w wVar2 : this.f30078a) {
             if (z) {
                 v<T> a2 = wVar2.a(this, aVar);
                 if (a2 != null) {
@@ -378,7 +378,7 @@ public final class f {
 
     public String a(Object obj) {
         if (obj == null) {
-            return a((l) n.f30020a);
+            return a((l) n.f30102a);
         }
         return a(obj, obj.getClass());
     }
@@ -402,9 +402,9 @@ public final class f {
         boolean g2 = cVar.g();
         cVar.b(true);
         boolean h2 = cVar.h();
-        cVar.c(this.f30003h);
+        cVar.c(this.f30085h);
         boolean i2 = cVar.i();
-        cVar.d(this.f30000e);
+        cVar.d(this.f30082e);
         try {
             try {
                 a2.a(cVar, obj);
@@ -437,14 +437,14 @@ public final class f {
     }
 
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(Writer writer) throws IOException {
-        if (this.f30002g) {
+        if (this.f30084g) {
             writer.write(Gson.JSON_NON_EXECUTABLE_PREFIX);
         }
         com.bytedance.sdk.openadsdk.preload.a.d.c cVar = new com.bytedance.sdk.openadsdk.preload.a.d.c(writer);
-        if (this.f30004i) {
+        if (this.f30086i) {
             cVar.c(GlideException.IndentedAppendable.INDENT);
         }
-        cVar.d(this.f30000e);
+        cVar.d(this.f30082e);
         return cVar;
     }
 
@@ -458,9 +458,9 @@ public final class f {
         boolean g2 = cVar.g();
         cVar.b(true);
         boolean h2 = cVar.h();
-        cVar.c(this.f30003h);
+        cVar.c(this.f30085h);
         boolean i2 = cVar.i();
-        cVar.d(this.f30000e);
+        cVar.d(this.f30082e);
         try {
             try {
                 com.bytedance.sdk.openadsdk.preload.a.b.l.a(lVar, cVar);

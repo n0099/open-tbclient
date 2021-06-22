@@ -20,7 +20,7 @@ import d.a.c.e.m.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    public d.a.n0.f1.r.a addGroupView = null;
+    public d.a.o0.f1.r.a addGroupView = null;
     public SearchGroupModel searchGroupModel = null;
     public c searchGroupCallback = new a(103007);
 
@@ -119,7 +119,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.addGroupView = new d.a.n0.f1.r.a(this);
+        this.addGroupView = new d.a.o0.f1.r.a(this);
         this.searchGroupModel = new SearchGroupModel(this);
         registerListener(this.searchGroupCallback);
     }

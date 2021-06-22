@@ -7,10 +7,10 @@ import java.lang.ref.WeakReference;
 public class bw extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f41052a;
+    public final /* synthetic */ bu f41155a;
 
     public bw(bu buVar) {
-        this.f41052a = buVar;
+        this.f41155a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -25,11 +25,11 @@ public class bw extends ai.a {
         Context context;
         Context context2;
         com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
-        c2 = this.f41052a.c();
-        context = this.f41052a.f157a;
+        c2 = this.f41155a.c();
+        context = this.f41155a.f157a;
         bz bzVar = new bz(c2, new WeakReference(context));
-        context2 = this.f41052a.f157a;
+        context2 = this.f41155a.f157a;
         cg.a(context2).a(bzVar);
-        this.f41052a.b("check_time");
+        this.f41155a.b("check_time");
     }
 }

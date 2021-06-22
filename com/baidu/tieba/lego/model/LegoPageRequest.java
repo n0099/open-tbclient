@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.c.e.p.l;
-import d.a.m0.z0.w;
+import d.a.n0.z0.w;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
 /* loaded from: classes4.dex */

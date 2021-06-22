@@ -14,34 +14,34 @@ import java.util.Map;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public final AssetManager f31848d;
+    public final AssetManager f31946d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ksad.lottie.a f31849e;
+    public com.ksad.lottie.a f31947e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f<String> f31845a = new f<>();
+    public final f<String> f31943a = new f<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<f<String>, Typeface> f31846b = new HashMap();
+    public final Map<f<String>, Typeface> f31944b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Typeface> f31847c = new HashMap();
+    public final Map<String, Typeface> f31945c = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31850f = ".ttf";
+    public String f31948f = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.ksad.lottie.a aVar) {
         AssetManager assets;
-        this.f31849e = aVar;
+        this.f31947e = aVar;
         if (callback instanceof View) {
             assets = ((View) callback).getContext().getAssets();
         } else {
             Log.w(L.TAG, "LottieDrawable must be inside of a view for images to work.");
             assets = null;
         }
-        this.f31848d = assets;
+        this.f31946d = assets;
     }
 
     private Typeface a(Typeface typeface, String str) {
@@ -53,35 +53,35 @@ public class a {
 
     private Typeface a(String str) {
         String b2;
-        Typeface typeface = this.f31847c.get(str);
+        Typeface typeface = this.f31945c.get(str);
         if (typeface != null) {
             return typeface;
         }
-        com.ksad.lottie.a aVar = this.f31849e;
+        com.ksad.lottie.a aVar = this.f31947e;
         Typeface a2 = aVar != null ? aVar.a(str) : null;
-        com.ksad.lottie.a aVar2 = this.f31849e;
+        com.ksad.lottie.a aVar2 = this.f31947e;
         if (aVar2 != null && a2 == null && (b2 = aVar2.b(str)) != null) {
-            a2 = Typeface.createFromAsset(this.f31848d, b2);
+            a2 = Typeface.createFromAsset(this.f31946d, b2);
         }
         if (a2 == null) {
-            a2 = Typeface.createFromAsset(this.f31848d, "fonts/" + str + this.f31850f);
+            a2 = Typeface.createFromAsset(this.f31946d, "fonts/" + str + this.f31948f);
         }
-        this.f31847c.put(str, a2);
+        this.f31945c.put(str, a2);
         return a2;
     }
 
     public Typeface a(String str, String str2) {
-        this.f31845a.a(str, str2);
-        Typeface typeface = this.f31846b.get(this.f31845a);
+        this.f31943a.a(str, str2);
+        Typeface typeface = this.f31944b.get(this.f31943a);
         if (typeface != null) {
             return typeface;
         }
         Typeface a2 = a(a(str), str2);
-        this.f31846b.put(this.f31845a, a2);
+        this.f31944b.put(this.f31943a, a2);
         return a2;
     }
 
     public void a(@Nullable com.ksad.lottie.a aVar) {
-        this.f31849e = aVar;
+        this.f31947e = aVar;
     }
 }

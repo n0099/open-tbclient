@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import d.a.n0.g1.b.e;
+import d.a.o0.g1.b.e;
 /* loaded from: classes4.dex */
-public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c.a, NoNetworkView.b {
+public class ChatAggregationFragment extends BaseFragment implements d.a.n0.g0.c.a, NoNetworkView.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f17634e;
+    public e f17716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewEventCenter f17635f;
+    public ViewEventCenter f17717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f17636g = new a(2005016);
+    public CustomMessageListener f17718g = new a(2005016);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f17637h = new b(2016321);
+    public CustomMessageListener f17719h = new b(2016321);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -43,13 +43,13 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
                 return;
             }
-            if (ChatAggregationFragment.this.f17634e != null) {
-                ChatAggregationFragment.this.f17634e.m0(true);
+            if (ChatAggregationFragment.this.f17716e != null) {
+                ChatAggregationFragment.this.f17716e.m0(true);
             }
             MentionActivityConfig.newJumpIn = true;
-            if (ChatAggregationFragment.this.f17634e != null) {
-                ChatAggregationFragment.this.f17634e.L();
-                ChatAggregationFragment.this.f17634e.w0(TbadkCoreApplication.isLogin(), true ^ TbadkCoreApplication.isLogin());
+            if (ChatAggregationFragment.this.f17716e != null) {
+                ChatAggregationFragment.this.f17716e.L();
+                ChatAggregationFragment.this.f17716e.w0(TbadkCoreApplication.isLogin(), true ^ TbadkCoreApplication.isLogin());
             }
         }
     }
@@ -65,18 +65,18 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.f17634e != null) {
-                    ChatAggregationFragment.this.f17634e.S(intent);
+                if (ChatAggregationFragment.this.f17716e != null) {
+                    ChatAggregationFragment.this.f17716e.S(intent);
                 }
             }
         }
     }
 
     public ViewEventCenter H0() {
-        if (this.f17635f == null) {
-            this.f17635f = new ViewEventCenter();
+        if (this.f17717f == null) {
+            this.f17717f = new ViewEventCenter();
         }
-        return this.f17635f;
+        return this.f17717f;
     }
 
     public final boolean I0(Intent intent) {
@@ -85,13 +85,13 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void b(boolean z) {
-        e eVar = this.f17634e;
+        e eVar = this.f17716e;
         if (eVar != null) {
             eVar.R(z);
         }
     }
 
-    @Override // d.a.m0.g0.c.a
+    @Override // d.a.n0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
@@ -118,7 +118,7 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        e eVar = this.f17634e;
+        e eVar = this.f17716e;
         if (eVar != null) {
             eVar.M(getPageContext(), i2);
         }
@@ -127,40 +127,40 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         e eVar = new e(this);
-        this.f17634e = eVar;
+        this.f17716e = eVar;
         if (bundle != null) {
             eVar.J(bundle);
         } else {
             eVar.J(null);
         }
-        View P = this.f17634e.P();
-        this.f17634e.M(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        View P = this.f17716e.P();
+        this.f17716e.M(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         H0().addEventDelegate(this);
-        registerListener(this.f17636g);
-        registerListener(this.f17637h);
+        registerListener(this.f17718g);
+        registerListener(this.f17719h);
         return P;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.f17636g);
-        MessageManager.getInstance().unRegisterListener(this.f17637h);
-        e eVar = this.f17634e;
+        MessageManager.getInstance().unRegisterListener(this.f17718g);
+        MessageManager.getInstance().unRegisterListener(this.f17719h);
+        e eVar = this.f17716e;
         if (eVar != null) {
             eVar.K();
         }
     }
 
-    @Override // d.a.m0.g0.c.a
-    public boolean onEventDispatch(d.a.m0.g0.c.b bVar) {
+    @Override // d.a.n0.g0.c.a
+    public boolean onEventDispatch(d.a.n0.g0.c.b bVar) {
         return bVar == null;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        e eVar = this.f17634e;
+        e eVar = this.f17716e;
         if (eVar != null) {
             eVar.A();
         }
@@ -174,15 +174,15 @@ public class ChatAggregationFragment extends BaseFragment implements d.a.m0.g0.c
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && I0(getActivity().getIntent())) {
-            this.f17634e.S(getActivity().getIntent());
+            this.f17716e.S(getActivity().getIntent());
         } else {
-            this.f17634e.L();
+            this.f17716e.L();
         }
         super.onViewCreated(view, bundle);
     }
 
     public void r() {
-        e eVar = this.f17634e;
+        e eVar = this.f17716e;
         if (eVar != null) {
             eVar.j0();
         }

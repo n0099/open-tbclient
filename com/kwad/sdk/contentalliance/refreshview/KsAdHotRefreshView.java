@@ -16,37 +16,37 @@ import java.lang.ref.WeakReference;
 public class KsAdHotRefreshView extends e {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final float f33542g = ao.a(KsAdSDKImpl.get().getContext(), 37.5f);
+    public static final float f33640g = ao.a(KsAdSDKImpl.get().getContext(), 37.5f);
 
     /* renamed from: h  reason: collision with root package name */
-    public RefreshLayout.b f33543h;
+    public RefreshLayout.b f33641h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LottieAnimationView f33544i;
+    public LottieAnimationView f33642i;
 
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<KsAdHotRefreshView> f33547a;
+        public WeakReference<KsAdHotRefreshView> f33645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f33548b;
+        public final boolean f33646b;
 
         public a(KsAdHotRefreshView ksAdHotRefreshView, boolean z) {
-            this.f33547a = new WeakReference<>(ksAdHotRefreshView);
-            this.f33548b = z;
+            this.f33645a = new WeakReference<>(ksAdHotRefreshView);
+            this.f33646b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d dVar;
-            KsAdHotRefreshView ksAdHotRefreshView = this.f33547a.get();
+            KsAdHotRefreshView ksAdHotRefreshView = this.f33645a.get();
             if (ksAdHotRefreshView != null) {
-                if (!ksAdHotRefreshView.e() && (dVar = ksAdHotRefreshView.f33559e) != null) {
+                if (!ksAdHotRefreshView.e() && (dVar = ksAdHotRefreshView.f33657e) != null) {
                     dVar.c();
                 }
-                ksAdHotRefreshView.a(this.f33548b);
+                ksAdHotRefreshView.a(this.f33646b);
             }
         }
     }
@@ -57,7 +57,7 @@ public class KsAdHotRefreshView extends e {
 
     public KsAdHotRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        setRefreshTargetOffset(f33542g - 1.0f);
+        setRefreshTargetOffset(f33640g - 1.0f);
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
@@ -67,13 +67,13 @@ public class KsAdHotRefreshView extends e {
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
     public void a(int i2, Animation.AnimationListener animationListener) {
-        if (this.f33558d.getTop() != 0 && this.f33558d.getTop() != getRefreshTargetOffset()) {
+        if (this.f33656d.getTop() != 0 && this.f33656d.getTop() != getRefreshTargetOffset()) {
             super.a(i2, animationListener);
             return;
         }
-        this.f33558d.setTop(0);
+        this.f33656d.setTop(0);
         clearAnimation();
-        this.f33544i.d();
+        this.f33642i.d();
         animationListener.onAnimationStart(null);
         animationListener.onAnimationEnd(null);
     }
@@ -82,16 +82,16 @@ public class KsAdHotRefreshView extends e {
     public void a(AttributeSet attributeSet) {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_hot_shoot_refresh_view_2, (ViewGroup) this, true);
         View findViewById = findViewById(R.id.ksad_shoot_refresh_view);
-        this.f33558d = findViewById;
+        this.f33656d = findViewById;
         findViewById.setVisibility(8);
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_pull_to_refresh_animation_view);
-        this.f33544i = lottieAnimationView;
+        this.f33642i = lottieAnimationView;
         lottieAnimationView.setAnimation(R.raw.ksad_detail_loading_amin_new);
-        View view = this.f33558d;
+        View view = this.f33656d;
         if (!(view instanceof d)) {
             throw new ClassCastException("the refreshView must implement the interface IRefreshStatus");
         }
-        this.f33559e = (d) view;
+        this.f33657e = (d) view;
     }
 
     public void a(boolean z) {
@@ -99,7 +99,7 @@ public class KsAdHotRefreshView extends e {
     }
 
     public boolean a() {
-        return this.f33558d.getVisibility() == 0 && this.f33558d.getAlpha() != 0.0f;
+        return this.f33656d.getVisibility() == 0 && this.f33656d.getAlpha() != 0.0f;
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.e, com.kwad.sdk.contentalliance.refreshview.RefreshLayout
@@ -107,21 +107,21 @@ public class KsAdHotRefreshView extends e {
         return new b() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView.2
             @Override // com.kwad.sdk.contentalliance.refreshview.b
             public float a(float f2, float f3) {
-                return Math.min(KsAdHotRefreshView.f33542g, 200.0f - (80000.0f / (f2 + 400.0f)));
+                return Math.min(KsAdHotRefreshView.f33640g, 200.0f - (80000.0f / (f2 + 400.0f)));
             }
         };
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
     public void setOnRefreshListener(RefreshLayout.b bVar) {
-        this.f33543h = bVar;
+        this.f33641h = bVar;
         super.setOnRefreshListener(new RefreshLayout.b() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView.1
             @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout.b
             public void a() {
                 KsAdHotRefreshView ksAdHotRefreshView = KsAdHotRefreshView.this;
-                View view = ksAdHotRefreshView.f33558d;
+                View view = ksAdHotRefreshView.f33656d;
                 if (view instanceof KsAdHotShootRefreshView) {
-                    ((KsAdHotShootRefreshView) view).setOnRefreshListener(ksAdHotRefreshView.f33543h);
+                    ((KsAdHotShootRefreshView) view).setOnRefreshListener(ksAdHotRefreshView.f33641h);
                 }
             }
         });

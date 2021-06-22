@@ -3,6 +3,7 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.wallet.paysdk.payresult.datamodel.H5ResultParams;
 /* loaded from: classes5.dex */
 public class PayResponse implements IBeanResponse {
@@ -33,6 +34,6 @@ public class PayResponse implements IBeanResponse {
     }
 
     public String toString() {
-        return "FastPayResult [order_no=" + this.order_no + "]";
+        return "FastPayResult [order_no=" + this.order_no + PreferencesUtil.RIGHT_MOUNT;
     }
 }

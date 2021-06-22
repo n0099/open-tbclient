@@ -9,13 +9,13 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f41670a = 0;
+    public static volatile int f41773a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, o> f816a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41671b = -1;
+    public static int f41774b = -1;
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0025  */
@@ -25,28 +25,28 @@ public class l {
     public static int a() {
         int i2;
         boolean z;
-        if (f41670a == 0) {
+        if (f41773a == 0) {
             try {
                 i2 = 1;
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
-                f41670a = 0;
+                f41773a = 0;
             }
             if (TextUtils.isEmpty(m519a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m519a("ro.miui.ui.version.name"))) {
                 z = false;
                 if (z) {
                     i2 = 2;
                 }
-                f41670a = i2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41670a);
+                f41773a = i2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41773a);
             }
             z = true;
             if (z) {
             }
-            f41670a = i2;
-            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41670a);
+            f41773a = i2;
+            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41773a);
         }
-        return f41670a;
+        return f41773a;
     }
 
     public static int a(Context context) {
@@ -200,14 +200,14 @@ public class l {
     }
 
     public static boolean c() {
-        if (f41671b < 0) {
+        if (f41774b < 0) {
             Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-            f41671b = 0;
+            f41774b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                f41671b = 1;
+                f41774b = 1;
             }
         }
-        return f41671b > 0;
+        return f41774b > 0;
     }
 
     public static boolean d() {

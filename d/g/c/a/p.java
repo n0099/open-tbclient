@@ -6,59 +6,59 @@ import java.util.concurrent.TimeUnit;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final t f69972a = t.b();
+    public final t f70076a = t.b();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69973b;
+    public boolean f70077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f69974c;
+    public long f70078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f69975d;
+    public long f70079d;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f69976a;
+        public static final /* synthetic */ int[] f70080a;
 
         static {
             int[] iArr = new int[TimeUnit.values().length];
-            f69976a = iArr;
+            f70080a = iArr;
             try {
                 iArr[TimeUnit.NANOSECONDS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f69976a[TimeUnit.MICROSECONDS.ordinal()] = 2;
+                f70080a[TimeUnit.MICROSECONDS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f69976a[TimeUnit.MILLISECONDS.ordinal()] = 3;
+                f70080a[TimeUnit.MILLISECONDS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f69976a[TimeUnit.SECONDS.ordinal()] = 4;
+                f70080a[TimeUnit.SECONDS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f69976a[TimeUnit.MINUTES.ordinal()] = 5;
+                f70080a[TimeUnit.MINUTES.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f69976a[TimeUnit.HOURS.ordinal()] = 6;
+                f70080a[TimeUnit.HOURS.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f69976a[TimeUnit.DAYS.ordinal()] = 7;
+                f70080a[TimeUnit.DAYS.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
     public static String a(TimeUnit timeUnit) {
-        switch (a.f69976a[timeUnit.ordinal()]) {
+        switch (a.f70080a[timeUnit.ordinal()]) {
             case 1:
                 return NotificationStyle.NOTIFICATION_STYLE;
             case 2:
@@ -115,21 +115,21 @@ public final class p {
     }
 
     public final long f() {
-        return this.f69973b ? (this.f69972a.a() - this.f69975d) + this.f69974c : this.f69974c;
+        return this.f70077b ? (this.f70076a.a() - this.f70079d) + this.f70078c : this.f70078c;
     }
 
     public p g() {
-        n.x(!this.f69973b, "This stopwatch is already running.");
-        this.f69973b = true;
-        this.f69975d = this.f69972a.a();
+        n.x(!this.f70077b, "This stopwatch is already running.");
+        this.f70077b = true;
+        this.f70079d = this.f70076a.a();
         return this;
     }
 
     public p h() {
-        long a2 = this.f69972a.a();
-        n.x(this.f69973b, "This stopwatch is already stopped.");
-        this.f69973b = false;
-        this.f69974c += a2 - this.f69975d;
+        long a2 = this.f70076a.a();
+        n.x(this.f70077b, "This stopwatch is already stopped.");
+        this.f70077b = false;
+        this.f70078c += a2 - this.f70079d;
         return this;
     }
 

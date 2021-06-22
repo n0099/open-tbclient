@@ -1,5 +1,7 @@
 package com.baidubce.model;
-/* loaded from: classes5.dex */
+
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+/* loaded from: classes6.dex */
 public class User {
     public String displayName;
     public String id;
@@ -58,7 +60,7 @@ public class User {
     }
 
     public String toString() {
-        return "User [id=" + this.id + ", displayName=" + this.displayName + "]";
+        return "User [id=" + this.id + ", displayName=" + this.displayName + PreferencesUtil.RIGHT_MOUNT;
     }
 
     public User withDisplayName(String str) {

@@ -9,8 +9,8 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.l;
 import d.a.c.k.d.a;
-import d.a.m0.a0.c;
-import d.a.m0.b0.g.d;
+import d.a.n0.a0.c;
+import d.a.n0.b0.g.d;
 /* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc implements e<a> {
     public int height;

@@ -8,19 +8,19 @@ import com.baidu.tieba.R;
 public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16866a;
+    public int f16948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16867b;
+    public View f16949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f16868c;
+    public TextView f16950c;
 
     public HotTopicIntervalItemHolder(View view) {
         super(view);
-        this.f16866a = 3;
-        this.f16867b = null;
-        this.f16868c = null;
+        this.f16948a = 3;
+        this.f16949b = null;
+        this.f16950c = null;
         b(view);
     }
 
@@ -28,7 +28,7 @@ public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.f16867b = view.findViewById(R.id.top_divider_line);
-        this.f16868c = (TextView) view.findViewById(R.id.item_theme_title);
+        this.f16949b = view.findViewById(R.id.top_divider_line);
+        this.f16950c = (TextView) view.findViewById(R.id.item_theme_title);
     }
 }

@@ -3,17 +3,17 @@ package com.kwai.video.ksvodplayerkit;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38154a;
+    public String f38252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38155b;
+    public String f38253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38156c;
+    public String f38254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38157d;
+    public long f38255d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38158e;
+    public String f38256e;
 }

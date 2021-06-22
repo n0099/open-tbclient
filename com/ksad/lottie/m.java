@@ -5,22 +5,22 @@ import java.util.Map;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, String> f31979a;
+    public final Map<String, String> f32077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31980b;
+    public boolean f32078b;
 
     private String b(String str) {
         return str;
     }
 
     public final String a(String str) {
-        if (this.f31980b && this.f31979a.containsKey(str)) {
-            return this.f31979a.get(str);
+        if (this.f32078b && this.f32077a.containsKey(str)) {
+            return this.f32077a.get(str);
         }
         String b2 = b(str);
-        if (this.f31980b) {
-            this.f31979a.put(str, b2);
+        if (this.f32078b) {
+            this.f32077a.put(str, b2);
         }
         return b2;
     }

@@ -1,5 +1,6 @@
 package io.reactivex.internal.util;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -15,14 +16,14 @@ public enum NotificationLite {
         public static final long serialVersionUID = -7482590109178395495L;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Disposable f72338d;
+        public final Disposable f72442d;
 
         public DisposableNotification(Disposable disposable) {
-            this.f72338d = disposable;
+            this.f72442d = disposable;
         }
 
         public String toString() {
-            return "NotificationLite.Disposable[" + this.f72338d + "]";
+            return "NotificationLite.Disposable[" + this.f72442d + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -31,25 +32,25 @@ public enum NotificationLite {
         public static final long serialVersionUID = -8759979445933046293L;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f72339e;
+        public final Throwable f72443e;
 
         public ErrorNotification(Throwable th) {
-            this.f72339e = th;
+            this.f72443e = th;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof ErrorNotification) {
-                return ObjectHelper.equals(this.f72339e, ((ErrorNotification) obj).f72339e);
+                return ObjectHelper.equals(this.f72443e, ((ErrorNotification) obj).f72443e);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f72339e.hashCode();
+            return this.f72443e.hashCode();
         }
 
         public String toString() {
-            return "NotificationLite.Error[" + this.f72339e + "]";
+            return "NotificationLite.Error[" + this.f72443e + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -63,7 +64,7 @@ public enum NotificationLite {
         }
 
         public String toString() {
-            return "NotificationLite.Subscription[" + this.s + "]";
+            return "NotificationLite.Subscription[" + this.s + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
@@ -72,7 +73,7 @@ public enum NotificationLite {
             subscriber.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            subscriber.onError(((ErrorNotification) obj).f72339e);
+            subscriber.onError(((ErrorNotification) obj).f72443e);
             return true;
         } else {
             subscriber.onNext(obj);
@@ -85,7 +86,7 @@ public enum NotificationLite {
             subscriber.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            subscriber.onError(((ErrorNotification) obj).f72339e);
+            subscriber.onError(((ErrorNotification) obj).f72443e);
             return true;
         } else if (obj instanceof SubscriptionNotification) {
             subscriber.onSubscribe(((SubscriptionNotification) obj).s);
@@ -109,11 +110,11 @@ public enum NotificationLite {
     }
 
     public static Disposable getDisposable(Object obj) {
-        return ((DisposableNotification) obj).f72338d;
+        return ((DisposableNotification) obj).f72442d;
     }
 
     public static Throwable getError(Object obj) {
-        return ((ErrorNotification) obj).f72339e;
+        return ((ErrorNotification) obj).f72443e;
     }
 
     public static Subscription getSubscription(Object obj) {
@@ -160,7 +161,7 @@ public enum NotificationLite {
             observer.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            observer.onError(((ErrorNotification) obj).f72339e);
+            observer.onError(((ErrorNotification) obj).f72443e);
             return true;
         } else {
             observer.onNext(obj);
@@ -173,10 +174,10 @@ public enum NotificationLite {
             observer.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            observer.onError(((ErrorNotification) obj).f72339e);
+            observer.onError(((ErrorNotification) obj).f72443e);
             return true;
         } else if (obj instanceof DisposableNotification) {
-            observer.onSubscribe(((DisposableNotification) obj).f72338d);
+            observer.onSubscribe(((DisposableNotification) obj).f72442d);
             return false;
         } else {
             observer.onNext(obj);

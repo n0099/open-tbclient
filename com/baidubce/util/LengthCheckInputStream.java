@@ -5,7 +5,7 @@ import com.baidubce.BceClientException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LengthCheckInputStream extends FilterInputStream {
     public static final boolean EXCLUDE_SKIPPED_BYTES = false;
     public static final boolean INCLUDE_SKIPPED_BYTES = true;

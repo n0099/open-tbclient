@@ -26,19 +26,19 @@ public class VideoChannelModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f21619e;
+    public TbPageContext f21701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f21620f;
+    public c f21702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21621g;
+    public int f21703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21622h;
+    public boolean f21704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f21623i;
+    public HttpMessageListener f21705i;
     public CustomMessageListener j;
 
     /* loaded from: classes5.dex */
@@ -58,12 +58,12 @@ public class VideoChannelModel extends BdBaseModel {
                 arrayList = ((VideoChannelHttpResponseMessage) httpResponsedMessage).getVideoItemDatas();
             }
             TbSingleton.getInstance().clearVideoRecord();
-            if (VideoChannelModel.this.f21620f != null) {
-                if (VideoChannelModel.this.f21621g == 1) {
-                    VideoChannelModel.this.f21620f.a(arrayList, VideoChannelModel.this.f21622h);
-                    VideoChannelModel.this.f21622h = false;
+            if (VideoChannelModel.this.f21702f != null) {
+                if (VideoChannelModel.this.f21703g == 1) {
+                    VideoChannelModel.this.f21702f.a(arrayList, VideoChannelModel.this.f21704h);
+                    VideoChannelModel.this.f21704h = false;
                 } else {
-                    VideoChannelModel.this.f21620f.b(arrayList);
+                    VideoChannelModel.this.f21702f.b(arrayList);
                 }
             }
             VideoChannelModel.y(VideoChannelModel.this);
@@ -83,11 +83,11 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (j.z()) {
-                VideoChannelModel.this.f21622h = true;
+                VideoChannelModel.this.f21704h = true;
                 VideoChannelModel.this.D();
                 return;
             }
-            l.J(VideoChannelModel.this.f21619e.getPageActivity(), VideoChannelModel.this.f21619e.getResources().getString(R.string.neterror));
+            l.J(VideoChannelModel.this.f21701e.getPageActivity(), VideoChannelModel.this.f21701e.getResources().getString(R.string.neterror));
         }
     }
 
@@ -100,22 +100,22 @@ public class VideoChannelModel extends BdBaseModel {
 
     public VideoChannelModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.f21622h = false;
-        this.f21623i = new a(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, true);
+        this.f21704h = false;
+        this.f21705i = new a(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, true);
         this.j = new b(2921567);
-        this.f21619e = tbPageContext;
+        this.f21701e = tbPageContext;
         setUniqueId(bdUniqueId);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, TbConfig.SERVER_ADDRESS + "c/f/video/feed");
         tbHttpMessageTask.setResponsedClass(VideoChannelHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        registerListener(this.f21623i);
+        registerListener(this.f21705i);
         registerListener(this.j);
     }
 
     public static /* synthetic */ int y(VideoChannelModel videoChannelModel) {
-        int i2 = videoChannelModel.f21621g;
-        videoChannelModel.f21621g = i2 + 1;
+        int i2 = videoChannelModel.f21703g;
+        videoChannelModel.f21703g = i2 + 1;
         return i2;
     }
 
@@ -126,12 +126,12 @@ public class VideoChannelModel extends BdBaseModel {
     }
 
     public void D() {
-        this.f21621g = 1;
+        this.f21703g = 1;
         sendMessage(C(1));
     }
 
     public void E(c cVar) {
-        this.f21620f = cVar;
+        this.f21702f = cVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

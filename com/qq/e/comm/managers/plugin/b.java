@@ -26,29 +26,29 @@ import java.util.regex.Pattern;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f39115a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+    public static final Pattern f39213a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f39116b;
+    public final Context f39214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PM.a.b f39117c;
+    public PM.a.b f39215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Executor f39118d;
+    public Executor f39216d;
 
     /* loaded from: classes7.dex */
     public class a implements NetworkCallBack {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f39119a;
+        public final String f39217a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f39120b;
+        public final int f39218b;
 
         public a(String str, int i2) {
-            this.f39119a = str;
-            this.f39120b = i2;
+            this.f39217a = str;
+            this.f39218b = i2;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0037 */
@@ -138,14 +138,14 @@ public final class b {
         }
 
         private void a() {
-            if (b.this.f39117c != null) {
-                b.this.f39117c.b();
+            if (b.this.f39215c != null) {
+                b.this.f39215c.b();
             }
         }
 
         private boolean a(File file) {
             try {
-                StringUtil.writeTo(this.f39120b + "#####" + this.f39119a, file);
+                StringUtil.writeTo(this.f39218b + "#####" + this.f39217a, file);
                 return true;
             } catch (IOException e2) {
                 GDTLogger.e("IOException While Update Plugin", e2);
@@ -172,26 +172,26 @@ public final class b {
                 return;
             }
             try {
-                File c2 = d.c(b.this.f39116b);
-                File f2 = d.f(b.this.f39116b);
+                File c2 = d.c(b.this.f39214b);
+                File f2 = d.f(b.this.f39214b);
                 String a2 = a(response, c2);
                 boolean z = true;
-                if (com.qq.e.comm.util.a.a().b(this.f39119a, a2)) {
+                if (com.qq.e.comm.util.a.a().b(this.f39217a, a2)) {
                     if (a(f2)) {
-                        if (FileUtil.renameTo(c2, d.d(b.this.f39116b)) && FileUtil.renameTo(f2, d.g(b.this.f39116b))) {
+                        if (FileUtil.renameTo(c2, d.d(b.this.f39214b)) && FileUtil.renameTo(f2, d.g(b.this.f39214b))) {
                             GDTLogger.d("PluginUpdateSucc:" + z);
-                            if (b.this.f39117c != null) {
-                                b.this.f39117c.a();
+                            if (b.this.f39215c != null) {
+                                b.this.f39215c.a();
                             }
                         }
                     }
                     z = false;
                     GDTLogger.d("PluginUpdateSucc:" + z);
-                    if (b.this.f39117c != null) {
+                    if (b.this.f39215c != null) {
                     }
                 } else {
                     c2.delete();
-                    GDTLogger.report(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f39119a, a2));
+                    GDTLogger.report(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f39217a, a2));
                     a();
                 }
                 sb = new StringBuilder("TIMESTAMP_AFTER_DOWNPLUGIN:");
@@ -201,31 +201,31 @@ public final class b {
                     a();
                     sb = new StringBuilder("TIMESTAMP_AFTER_DOWNPLUGIN:");
                 } catch (Throwable th2) {
-                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f39119a);
+                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f39217a);
                     throw th2;
                 }
             }
             sb.append(System.nanoTime());
             sb.append(";sig=");
-            sb.append(this.f39119a);
+            sb.append(this.f39217a);
             GDTLogger.d(sb.toString());
         }
     }
 
     public b(Context context, Executor executor) {
-        this.f39116b = context.getApplicationContext();
-        this.f39118d = executor;
+        this.f39214b = context.getApplicationContext();
+        this.f39216d = executor;
     }
 
     public final void a(PM.a.b bVar) {
-        this.f39117c = bVar;
+        this.f39215c = bVar;
     }
 
     public final void a(String str, String str2) {
         if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f39115a.matcher(str2);
+        Matcher matcher = f39213a.matcher(str2);
         boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
         if (parseInteger < 1203) {
@@ -234,7 +234,7 @@ public final class b {
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(str, parseInteger), this.f39118d);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(str, parseInteger), this.f39216d);
         }
     }
 }

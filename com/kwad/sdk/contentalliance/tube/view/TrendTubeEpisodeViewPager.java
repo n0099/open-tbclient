@@ -12,22 +12,22 @@ import androidx.viewpager.widget.ViewPager;
 public class TrendTubeEpisodeViewPager extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33954a;
+    public final int f34052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f33955b;
+    public float f34053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f33956c;
+    public float f34054c;
 
     public TrendTubeEpisodeViewPager(@NonNull Context context) {
         super(context);
-        this.f33954a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f34052a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     public TrendTubeEpisodeViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f33954a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f34052a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -37,17 +37,17 @@ public class TrendTubeEpisodeViewPager extends ViewPager {
         boolean z = false;
         if (action == 0) {
             getParent().requestDisallowInterceptTouchEvent(false);
-            this.f33955b = motionEvent.getRawX();
-            this.f33956c = motionEvent.getRawY();
+            this.f34053b = motionEvent.getRawX();
+            this.f34054c = motionEvent.getRawY();
         } else if (action == 2) {
             float rawX = motionEvent.getRawX();
             float rawY = motionEvent.getRawY();
-            float f2 = rawX - this.f33955b;
-            float f3 = rawY - this.f33956c;
-            if (Math.abs(f2) - Math.abs(f3) > this.f33954a) {
+            float f2 = rawX - this.f34053b;
+            float f3 = rawY - this.f34054c;
+            if (Math.abs(f2) - Math.abs(f3) > this.f34052a) {
                 parent = getParent();
                 z = true;
-            } else if (Math.abs(f3) - Math.abs(f2) > this.f33954a) {
+            } else if (Math.abs(f3) - Math.abs(f2) > this.f34052a) {
                 parent = getParent();
             }
             parent.requestDisallowInterceptTouchEvent(z);

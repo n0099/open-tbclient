@@ -32,7 +32,7 @@ public class TrustSubject {
     public Context f6293d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.C1846a f6294e;
+    public a.C1848a f6294e;
 
     /* renamed from: b  reason: collision with root package name */
     public final d.a.q.j.a.c.a f6291b = new d.a.q.j.a.c.a();
@@ -272,10 +272,10 @@ public class TrustSubject {
         }
     }
 
-    public TrustSubject(String str, Context context, a.C1846a c1846a) {
+    public TrustSubject(String str, Context context, a.C1848a c1848a) {
         this.f6293d = context;
         this.f6290a = str;
-        this.f6294e = c1846a.f(c(str));
+        this.f6294e = c1848a.f(c(str));
         x();
     }
 

@@ -13,7 +13,10 @@ public class PassBiometricCall {
     public void initPassBioSDK(SapiConfiguration sapiConfiguration) {
         PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
         if (biometric == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
-            biometric.config(new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).build());
+            PassBiometricConfiguration build = new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).setProductLicenseInfo(sapiConfiguration.faceLincenseID, sapiConfiguration.faceLincenseFile).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).build();
+            if (biometric != null) {
+                biometric.config(build);
+            }
         }
     }
 }

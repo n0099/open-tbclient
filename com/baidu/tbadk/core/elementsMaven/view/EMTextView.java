@@ -14,38 +14,38 @@ import java.lang.ref.WeakReference;
 public class EMTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f12150e;
+    public a f12232e;
 
     /* loaded from: classes3.dex */
     public static class a implements LineHeightSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12151e;
+        public int f12233e;
 
         /* renamed from: f  reason: collision with root package name */
-        public WeakReference<TextView> f12152f;
+        public WeakReference<TextView> f12234f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ViewGroup.MarginLayoutParams f12153g;
+        public ViewGroup.MarginLayoutParams f12235g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12154h = 0;
+        public int f12236h = 0;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f12155i = 0;
+        public int f12237i = 0;
         public int j = 0;
         public int k = 0;
 
         public a(TextView textView) {
-            this.f12152f = new WeakReference<>(textView);
+            this.f12234f = new WeakReference<>(textView);
             d();
         }
 
         public final void a(Paint.FontMetricsInt fontMetricsInt) {
             ViewGroup.MarginLayoutParams b2 = b();
             if (b2 != null) {
-                this.f12154h = b2.topMargin;
-                this.f12155i = b2.bottomMargin;
+                this.f12236h = b2.topMargin;
+                this.f12237i = b2.bottomMargin;
                 this.j = fontMetricsInt.top - fontMetricsInt.ascent;
                 int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
                 this.k = dimenPixelSize;
@@ -67,17 +67,17 @@ public class EMTextView extends TextView {
         }
 
         public TextView c() {
-            WeakReference<TextView> weakReference = this.f12152f;
+            WeakReference<TextView> weakReference = this.f12234f;
             if (weakReference == null || weakReference.get() == null) {
                 return null;
             }
-            return this.f12152f.get();
+            return this.f12234f.get();
         }
 
         @Override // android.text.style.LineHeightSpan
         public void chooseHeight(CharSequence charSequence, int i2, int i3, int i4, int i5, Paint.FontMetricsInt fontMetricsInt) {
             f();
-            d.a.m0.r.u.e.a.a(fontMetricsInt, this.f12151e);
+            d.a.n0.r.u.e.a.a(fontMetricsInt, this.f12233e);
             TextView c2 = c();
             if (c2 == null || (c2.getGravity() & 112) != 16) {
                 a(fontMetricsInt);
@@ -87,13 +87,13 @@ public class EMTextView extends TextView {
         public void d() {
             TextView c2 = c();
             if (c2 != null) {
-                this.f12151e = (int) c2.getTextSize();
+                this.f12233e = (int) c2.getTextSize();
             }
             ViewGroup.MarginLayoutParams b2 = b();
-            this.f12153g = b2;
+            this.f12235g = b2;
             if (b2 != null) {
-                this.f12154h = b2.topMargin;
-                this.f12155i = b2.bottomMargin;
+                this.f12236h = b2.topMargin;
+                this.f12237i = b2.bottomMargin;
             }
             this.j = 0;
             this.k = 0;
@@ -101,9 +101,9 @@ public class EMTextView extends TextView {
 
         public boolean e() {
             ViewGroup.MarginLayoutParams b2;
-            if (this.f12153g != null && (b2 = b()) != null && this.f12153g == b2) {
-                boolean z = this.f12154h + this.j == b2.topMargin;
-                boolean z2 = this.f12155i + this.k == b2.bottomMargin;
+            if (this.f12235g != null && (b2 = b()) != null && this.f12235g == b2) {
+                boolean z = this.f12236h + this.j == b2.topMargin;
+                boolean z2 = this.f12237i + this.k == b2.bottomMargin;
                 if (z && z2) {
                     return false;
                 }
@@ -124,7 +124,7 @@ public class EMTextView extends TextView {
             b2.bottomMargin -= this.k;
             TextView c2 = c();
             if (c2 != null) {
-                this.f12151e = (int) c2.getTextSize();
+                this.f12233e = (int) c2.getTextSize();
             }
             this.j = 0;
             this.k = 0;
@@ -153,10 +153,10 @@ public class EMTextView extends TextView {
         } else {
             spannableStringBuilder = new SpannableStringBuilder(charSequence);
         }
-        if (this.f12150e == null) {
-            this.f12150e = new a(this);
+        if (this.f12232e == null) {
+            this.f12232e = new a(this);
         }
-        spannableStringBuilder.setSpan(this.f12150e, 0, charSequence.length(), 33);
+        spannableStringBuilder.setSpan(this.f12232e, 0, charSequence.length(), 33);
         super.setText(spannableStringBuilder, bufferType);
     }
 

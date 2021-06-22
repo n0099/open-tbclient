@@ -5,31 +5,31 @@ import java.util.concurrent.atomic.AtomicLong;
 public abstract class d<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicLong f30029d = new AtomicLong();
+    public static AtomicLong f30111d = new AtomicLong();
 
     /* renamed from: a  reason: collision with root package name */
-    public d f30030a;
+    public d f30112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IN f30031b;
+    public IN f30113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OUT f30032c;
+    public OUT f30114c;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f30033e;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f30115e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f30034f;
+    public b f30116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30035g;
+    public long f30117g;
 
     public final void a(b bVar, d dVar, IN in, com.bytedance.sdk.openadsdk.preload.b.b.a aVar, Object[] objArr) {
-        this.f30034f = new m(bVar);
-        this.f30030a = dVar;
-        this.f30031b = in;
-        this.f30033e = aVar;
+        this.f30116f = new m(bVar);
+        this.f30112a = dVar;
+        this.f30113b = in;
+        this.f30115e = aVar;
         a();
         a(objArr);
     }
@@ -40,65 +40,65 @@ public abstract class d<IN, OUT> {
     public abstract Object a_(b<OUT> bVar, IN in) throws Throwable;
 
     public final void b(Throwable th) {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.c(this.f30034f, this, th);
+        aVar.c(this.f30116f, this, th);
     }
 
     public long c() {
-        return this.f30035g;
+        return this.f30117g;
     }
 
     public final void d() {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.d(this.f30034f, this);
+        aVar.d(this.f30116f, this);
     }
 
     public final void e() {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.f(this.f30034f, this);
+        aVar.f(this.f30116f, this);
     }
 
     public final void f() {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.e(this.f30034f, this);
+        aVar.e(this.f30116f, this);
     }
 
     public final void c(Throwable th) {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.e(this.f30034f, this, th);
+        aVar.e(this.f30116f, this, th);
     }
 
     public final void d(Throwable th) {
-        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30033e;
+        com.bytedance.sdk.openadsdk.preload.b.b.a aVar = this.f30115e;
         if (aVar == null) {
             return;
         }
-        aVar.d(this.f30034f, this, th);
+        aVar.d(this.f30116f, this, th);
     }
 
     private void a() {
-        d dVar = this.f30030a;
+        d dVar = this.f30112a;
         if (dVar != null) {
-            this.f30035g = dVar.f30035g;
+            this.f30117g = dVar.f30117g;
             return;
         }
-        long andIncrement = f30029d.getAndIncrement();
-        this.f30035g = andIncrement;
+        long andIncrement = f30111d.getAndIncrement();
+        this.f30117g = andIncrement;
         if (andIncrement < 0) {
             throw new RuntimeException("Pipeline ID use up!");
         }
